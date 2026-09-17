@@ -226,14 +226,15 @@
         </nav>
 
         <!-- Actions -->
-        <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
+        <div class="flex items-center gap-1 sm:gap-2 shrink-0">
           <div class="flex items-center bg-agro-surface border border-agro-border p-0.5 rounded-lg sm:rounded-xl shadow-inner" dir="ltr">
-            <button type="button" onclick="changeLanguage('en')" data-lang="en" class="lang-pill px-1.5 sm:px-2.5 py-1 text-[10px] sm:text-xs font-black rounded-md sm:rounded-lg transition-all bg-agro-primary text-white shadow-sm">EN</button>
-            <button type="button" onclick="changeLanguage('ar')" data-lang="ar" class="lang-pill px-1.5 sm:px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">عربي</button>
-            <button type="button" onclick="changeLanguage('zh')" data-lang="zh" class="lang-pill px-1.5 sm:px-2.5 py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">中文</button>
+            <button type="button" onclick="changeLanguage('en')" data-lang="en" class="lang-pill px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs font-black rounded-md sm:rounded-lg transition-all bg-agro-primary text-white shadow-sm">EN</button>
+            <button type="button" onclick="changeLanguage('ar')" data-lang="ar" class="lang-pill px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">عربي</button>
+            <button type="button" onclick="changeLanguage('zh')" data-lang="zh" class="lang-pill px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">中文</button>
+            <button type="button" onclick="changeLanguage('ru')" data-lang="ru" class="lang-pill px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">RU</button>
           </div>
 
-          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-4 py-2 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
+          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-3.5 py-2 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
@@ -304,7 +305,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center reveal-up">
         <span data-i18n="about_tag" class="text-xs font-black text-agro-gold uppercase tracking-widest">Our Heritage & Commitment</span>
-        <h2 data-i18n="about_title" class="text-2xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">Dedicated to World-Class Agro Export</h2>
+        <h2 data-i18n="about_title" class="text-2xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">EAX World-Class Agro Export</h2>
         <p data-i18n="about_desc" class="text-sm sm:text-base text-slate-600 leading-relaxed">
           EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.
         </p>
@@ -822,50 +823,50 @@
       // 1. TOP PRIORITY (1-7)
       {
         id: 1, group: 'priority', category: 'vegetables',
-        name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)",
-        season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月",
+        name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)",
+        season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月", season_ru: "С августа по март",
         months: [8,9,10,11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1590165482129-1b8b27698980?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 2, group: 'priority', category: 'fruits',
-        name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月",
+        name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 3, group: 'priority', category: 'vegetables',
-        name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)",
-        season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月",
+        name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)",
+        season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь",
         months: [1,2,3,4,5,6],
         image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 4, group: 'priority', category: 'vegetables',
-        name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)",
-        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月",
+        name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)", name_ru: "Сушеный репчатый лук (желтый и красный)",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
         months: [3,4,5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 5, group: 'priority', category: 'fruits',
-        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月",
+        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 6, group: 'priority', category: 'fruits',
-        name_en: "Fresh Table Grapes (Seedless Superior/Flame)", name_ar: "العنب الطازج بدون بذور (سوبيريور وفليم)", name_zh: "无籽鲜食葡萄 (Superior & Flame)",
-        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月",
+        name_en: "Fresh Table Grapes (Seedless Superior/Flame)", name_ar: "العنب الطازج بدون بذور (سوبيريور وفليم)", name_zh: "无籽鲜食葡萄 (Superior & Flame)", name_ru: "Свежий столовый виноград (Супериор и Флейм)",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1596363505729-4190a9506133?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 7, group: 'priority', category: 'fruits',
-        name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月",
+        name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)", name_ru: "Свежая клубника (Фестиваль и Фортуна)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
       },
@@ -873,106 +874,106 @@
       // 2. SUMMER CROPS (8-22)
       {
         id: 8, group: 'summer', category: 'vegetables',
-        name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月",
+        name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
         months: [3,4,5,6,7],
         image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 9, group: 'summer', category: 'fruits',
-        name_en: "Fresh Dates (Medjool & Barhi)", name_ar: "التمور الطازجة (المجدول والبرحي)", name_zh: "新鲜高档椰枣 (麦朵尔 Medjool & 巴尔希 Barhi)",
-        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月",
+        name_en: "Fresh Dates (Medjool & Barhi)", name_ar: "التمور الطازجة (المجدول والبرحي)", name_zh: "新鲜高档椰枣 (麦朵尔 Medjool & 巴尔希 Barhi)", name_ru: "Свежие финики (Меджул и Бархи)",
+        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月", season_ru: "С августа по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 10, group: 'summer', category: 'fruits',
-        name_en: "Fresh Mangoes (Keitt & Kent)", name_ar: "المانجو الطازجة (كيت وكنت)", name_zh: "新鲜优质芒果 (Keitt & Kent)",
-        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月",
+        name_en: "Fresh Mangoes (Keitt & Kent)", name_ar: "المانجو الطازجة (كيت وكنت)", name_zh: "新鲜优质芒果 (Keitt & Kent)", name_ru: "Свежие манго (Кейт и Кент)",
+        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь",
         months: [7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 11, group: 'summer', category: 'fruits',
-        name_en: "Fresh Watermelon", name_ar: "البطيخ الطازج", name_zh: "新鲜大西瓜",
-        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月",
+        name_en: "Fresh Watermelon", name_ar: "البطيخ الطازج", name_zh: "新鲜大西瓜", name_ru: "Свежие арбузы",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 12, group: 'summer', category: 'fruits',
-        name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب (جاليا)", name_zh: "新鲜甜瓜与哈密瓜 (Galia)",
-        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月",
+        name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب (جاليا)", name_zh: "新鲜甜瓜与哈密瓜 (Galia)", name_ru: "Свежая дыня и канталупа (Галия)",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1571575175525-46f8832a8497?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 13, group: 'summer', category: 'vegetables',
-        name_en: "Fresh Bell Peppers (Red, Yellow, Orange)", name_ar: "الفلفل الملون (أحمر، أصفر، برتقالي)", name_zh: "新鲜温室彩椒 (红、黄、橙)",
-        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月",
+        name_en: "Fresh Bell Peppers (Red, Yellow, Orange)", name_ar: "الفلفل الملون (أحمر، أصفر، برتقالي)", name_zh: "新鲜温室彩椒 (红、黄、橙)", name_ru: "Свежий сладкий перец (красный, желтый, оранжевый)",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
         months: [5,6,7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 14, group: 'summer', category: 'vegetables',
-        name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار (أحمر وأخضر)", name_zh: "新鲜红绿朝天椒 / 辣椒",
-        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月",
+        name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار (أحمر وأخضر)", name_zh: "新鲜红绿朝天椒 / 辣椒", name_ru: "Свежий острый перец чили",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
         months: [5,6,7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 15, group: 'summer', category: 'fruits',
-        name_en: "Fresh Peaches", name_ar: "الخوخ الطازج", name_zh: "新鲜优质鲜桃",
-        season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月",
+        name_en: "Fresh Peaches", name_ar: "الخوخ الطازج", name_zh: "新鲜优质鲜桃", name_ru: "Свежие персики",
+        season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月", season_ru: "С апреля по июль",
         months: [4,5,6,7],
         image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 16, group: 'summer', category: 'fruits',
-        name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج", name_zh: "新鲜优质油桃",
-        season_en: "May to July", season_ar: "من مايو حتى يوليو", season_zh: "5月至7月",
+        name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج", name_zh: "新鲜优质油桃", name_ru: "Свежие нектарины",
+        season_en: "May to July", season_ar: "من مايو حتى يوليو", season_zh: "5月至7月", season_ru: "С мая по июль",
         months: [5,6,7],
         image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 17, group: 'summer', category: 'fruits',
-        name_en: "Fresh Apricots", name_ar: "المشمش الطازج", name_zh: "新鲜优质杏子",
-        season_en: "May to June", season_ar: "من مايو حتى يونيو", season_zh: "5月至6月",
+        name_en: "Fresh Apricots", name_ar: "المشمش الطازج", name_zh: "新鲜优质杏子", name_ru: "Свежие абрикосы",
+        season_en: "May to June", season_ar: "من مايو حتى يونيو", season_zh: "5月至6月", season_ru: "С мая по июнь",
         months: [5,6],
         image: "https://images.unsplash.com/photo-1501250987900-211872d97eaa?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 18, group: 'summer', category: 'fruits',
-        name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "新鲜无花果",
-        season_en: "July to October", season_ar: "من يوليو حتى أكتوبر", season_zh: "7月至10月",
+        name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "新鲜无花果", name_ru: "Свежий инжир",
+        season_en: "July to October", season_ar: "من يوليو حتى أكتوبر", season_zh: "7月至10月", season_ru: "С июля по октябрь",
         months: [7,8,9,10],
         image: "https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 19, group: 'summer', category: 'fruits',
-        name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐",
-        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月",
+        name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 20, group: 'summer', category: 'vegetables',
-        name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الطازجة", name_zh: "新鲜西葫芦",
-        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月",
+        name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الطازجة", name_zh: "新鲜西葫芦", name_ru: "Свежие цукини и кабачки",
+        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
         months: [5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 21, group: 'summer', category: 'vegetables',
-        name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان الطازج", name_zh: "新鲜长茄 / 圆茄",
-        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月",
+        name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان الطازج", name_zh: "新鲜长茄 / 圆茄", name_ru: "Свежие баклажаны",
+        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
         months: [5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 22, group: 'summer', category: 'vegetables',
-        name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵",
-        season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月",
+        name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵", name_ru: "Свежая окра (бами)",
+        season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по сентябрь",
         months: [5,6,7,8,9],
         image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=800&q=80"
       },
@@ -980,113 +981,113 @@
       // 3. WINTER CROPS (23-38)
       {
         id: 23, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆",
-        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月",
+        name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆", name_ru: "Свежая стручковая зеленая фасоль",
+        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
         months: [10,11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 24, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月",
+        name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 25, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Artichokes", name_ar: "الخرشوف الطازج", name_zh: "新鲜洋蓟 / 朝鲜蓟",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月",
+        name_en: "Fresh Artichokes", name_ar: "الخرشوف الطازج", name_zh: "新鲜洋蓟 / 朝鲜蓟", name_ru: "Свежие артишоки",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1518977822534-7049a61ee0c2?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 26, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月",
+        name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 27, group: 'winter', category: 'fruits',
-        name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月",
+        name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 28, group: 'winter', category: 'fruits',
-        name_en: "Fresh Lemons & Limes (Eureka & Balady)", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠 (Eureka & Balady)",
-        season_en: "October to April", season_ar: "من أكتوبر حتى أبريل", season_zh: "10月至次年4月",
+        name_en: "Fresh Lemons & Limes (Eureka & Balady)", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠 (Eureka & Balady)", name_ru: "Свежие лимоны и лаймы (Эврика и Балади)",
+        season_en: "October to April", season_ar: "من أكتوبر حتى أبريل", season_zh: "10月至次年4月", season_ru: "С октября по апрель",
         months: [10,11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 29, group: 'winter', category: 'fruits',
-        name_en: "Fresh Grapefruit (Star Ruby)", name_ar: "الجريب فروت (ستار روبي)", name_zh: "新鲜红心葡萄柚 (Star Ruby)",
-        season_en: "October to March", season_ar: "من أكتوبر حتى مارس", season_zh: "10月至次年3月",
+        name_en: "Fresh Grapefruit (Star Ruby)", name_ar: "الجريب فروت (ستار روبي)", name_zh: "新鲜红心葡萄柚 (Star Ruby)", name_ru: "Свежий грейпфрут (Стар Руби)",
+        season_en: "October to March", season_ar: "من أكتوبر حتى مارس", season_zh: "10月至次年3月", season_ru: "С октября по март",
         months: [10,11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 30, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月",
+        name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆", name_ru: "Свежий зеленый горошек и сахарные стручки",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 31, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月",
+        name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜", name_ru: "Свежая брокколи",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 32, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月",
+        name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜", name_ru: "Свежая цветная капуста",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 33, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Washed Carrots", name_ar: "الجزر الطازج المغسول", name_zh: "新鲜水洗优质胡萝卜",
-        season_en: "January to May", season_ar: "من يناير حتى مايو", season_zh: "1月至5月",
+        name_en: "Fresh Washed Carrots", name_ar: "الجزر الطازج المغسول", name_zh: "新鲜水洗优质胡萝卜", name_ru: "Свежая мытая морковь",
+        season_en: "January to May", season_ar: "من يناير حتى مايو", season_zh: "1月至5月", season_ru: "С января по май",
         months: [1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 34, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Beetroot", name_ar: "البنجر / الشمندر الطازج", name_zh: "新鲜红甜菜根",
-        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月",
+        name_en: "Fresh Beetroot", name_ar: "البنجر / الشمندر الطازج", name_zh: "新鲜红甜菜根", name_ru: "Свежая свекла",
+        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С декабря по май",
         months: [12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1593105544559-ecb03bf76f82?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 35, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月",
+        name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 36, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜",
-        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月",
+        name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 37, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头",
-        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月",
+        name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 38, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)",
-        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月",
+        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)", name_ru: "Свежая пряная зелень (укроп, петрушка, кинза, мята)",
+        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
         months: [10,11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=800&q=80"
       }
@@ -1114,7 +1115,7 @@
         hero_desc: "At EAX, we specialize exclusively in sourcing, packing, and shipping 38 first-grade fresh fruits and high-demand vegetables with full compliance to GlobalGAP standards and uninterrupted Reefer cold chain logistics.",
 
         about_tag: "Our Heritage & Commitment",
-        about_title: "Dedicated to World-Class Agro Export",
+        about_title: "EAX World-Class Agro Export",
         about_desc: "EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.",
 
         cert_badge_tag: "Quality & Compliance",
@@ -1262,7 +1263,7 @@
         hero_desc: "نكرس إمكانياتنا في EAX لتجهيز وشحن 38 محصولاً من أجود الفواكه والخضروات الطازجة فرز أول، مع التزام تام بمعايير الفرز وسلاسل التبريد المتصلة.",
 
         about_tag: "أصالتنا والتزامنا",
-        about_title: "رواد التصدير الزراعي بمواصفات عالمية",
+        about_title: "إياكس للتصدير الزراعي بمواصفات عالمية",
         about_desc: "شركة EAX للتصدير الزراعي تدير محفظة من 38 محصولاً تصديرياً معتمداً تربط أجود الأراضي الزراعية المصرية مباشرة بمراكز التوزيع وسلاسل السوبرماركت في أوروبا، بريطانيا، الخليج، الصين، وروسيا.",
 
         cert_badge_tag: "الجودة والامتثال",
@@ -1410,7 +1411,7 @@
         hero_desc: "EAX 专注于精选、包装与跨国冷链运输 38 种高品质出口级新鲜水果与蔬菜，全面遵循国际 GlobalGAP 规范与全程冷链保障。",
 
         about_tag: "品牌底蕴与承诺",
-        about_title: "致力于提供世界一流果蔬出口服务",
+        about_title: "EAX 卓越标准的国际农产品出口",
         about_desc: "EAX 农业出口直连埃及核心优质农场与欧洲、英国、海湾、中国及俄罗斯超市分拨中心，保障冷链不间断并全面遵守国际植物检疫标准。",
 
         cert_badge_tag: "质量与合规体系",
@@ -1536,6 +1537,154 @@
         footer_quote_title: "出口业务与采购",
         footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。",
         footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
+      },
+      ru: {
+        page_desc: "EAX AGRO EXPORT - Ведущий египетский экспортер свежих овощей и фруктов высшего сорта. 38 сертифицированных культур по стандартам GlobalGAP, BRC и EUR.1 в ЕС, СНГ, Китай и Россию.",
+        months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
+        cert_banner: "Сертифицированный экспорт продукции: стандарты GlobalGAP, BRC и EUR.1",
+        cooling_banner: "Автоматизированные линии предварительного охлаждения и оптической сортировки",
+        nav_home: "Главная",
+        nav_about: "О нас",
+        nav_produce: "Продукция",
+        nav_certs: "Сертификаты",
+        nav_quality: "Контроль качества",
+        nav_logistics: "Логистика",
+        nav_contact: "Контакты",
+        nav_rfq: "Запрос цен",
+        cta_quote: "Запросить котировку",
+        btn_catalog_hero: "Каталог 38 культур",
+        hero_badge: "EAX AGRO EXPORT • Международная логистика свежих продуктов",
+        hero_title_1: "Премиальная свежая продукция",
+        hero_title_2: "С плодородных полей на полки мировых сетей",
+        hero_desc: "EAX специализируется на отборе, калибровке и доставке 38 первоклассных сортов свежих фруктов и востребованных овощей с непрерывной холодовой цепью и сертификацией GlobalGAP.",
+
+        about_tag: "Наши ценности и надежность",
+        about_title: "EAX: Экспорт агропродукции мирового уровня",
+        about_desc: "EAX AGRO EXPORT соединяет ключевые сельскохозяйственные регионы Египта с распределительными центрами супермаркетов в странах ЕС, Великобритании, Персидского залива, Китая и России.",
+
+        cert_badge_tag: "Качество и стандарты",
+        cert_title: "Международные стандарты и сертификаты",
+        cert_statement: "Поставки с сертифицированных ферм и упаковочных станций в строгом соответствии со стандартами пищевой безопасности",
+        cert_c1_badge: "ПРОВЕРЕНО",
+        cert_c1_sub: "Сертификат IFA (v6)",
+        cert_c1_desc: "Полная пищевая безопасность, благополучие персонала и отслеживаемость от поля до полки.",
+        cert_c1_reg: "РЕГ: #EAX-GGN",
+        cert_c1_stat: "100% Активен",
+        cert_c2_badge: "КАТЕГОРИЯ A",
+        cert_c2_title: "Стандарт BRCGS",
+        cert_c2_sub: "Бенчмарк GFSI",
+        cert_c2_desc: "Международный аудит гигиены упаковочных комплексов и предотвращение перекрестного загрязнения.",
+        cert_c2_cat: "КАТ: Свежие культуры",
+        cert_c2_stat: "Класс A",
+        cert_c3_badge: "АУДИТ ISO",
+        cert_c3_title: "ISO 22000",
+        cert_c3_sub: "& Системы HACCP",
+        cert_c3_desc: "Системный анализ критических контрольных точек, валидация охлаждения и строгий санконтроль.",
+        cert_c3_std: "СТД: ISO 22000",
+        cert_c3_stat: "Соответствует",
+        cert_c4_badge: "ТАМОЖЕННЫЙ ТАРИФ",
+        cert_c4_title: "Сертификат EUR.1",
+        cert_c4_sub: "Преференциальный режим",
+        cert_c4_desc: "Пакет документов подтверждения происхождения для беспошлинного ввоза в европейские порты.",
+        cert_c4_agr: "ДОГОВОР: EG-EU",
+        cert_c4_stat: "0% Пошлина",
+        cert_c5_badge: "ГОСКОНТРОЛЬ",
+        cert_c5_title: "Фитосанитарный контроль",
+        cert_c5_sub: "Без карантинных вредителей",
+        cert_c5_desc: "Официальный сертификат Центральной службы карантина растений Египта для мгновенного выпуска груза.",
+        cert_c5_insp: "ИНСПЕКЦИЯ: Минсельхоз",
+        cert_c5_stat: "100% Пройдено",
+        cert_trust_text: "Лабораторный анализ остатков пестицидов: аккредитованные по ISO 17025 лаборатории проверяют каждый контейнер перед отгрузкой.",
+        cert_ports: "Порт Дамиетта • Порт Александрия • Порт Сохна",
+
+        qa_badge_tag: "Сквозной контроль",
+        qa_title: "Гарантия экспортного качества",
+        qa_desc: "От мониторинга урожая в поле до оптической калибровки и поддержания температуры в рефрижераторах — сохранность вашего груза на каждом этапе пути.",
+        qa_step1_num: "ШАГ 01",
+        qa_step1_title: "Полевой фитомониторинг",
+        qa_step1_desc: "Регулярные тесты почвы, преданализ на пестициды и сертификация зон свободного выращивания.",
+        qa_step1_tag: "100% Прослеживаемые фермы",
+        qa_step2_num: "ШАГ 02",
+        qa_step2_title: "Оптическая сортировка и кьюринг",
+        qa_step2_desc: "Высокоточные линии сортируют плоды по весу, диаметру и оттенку, а температурный кьюринг гарантирует идеальную лежкость.",
+        qa_step2_tag: "Стандарт без дефектов",
+        qa_step3_num: "ШАГ 03",
+        qa_step3_title: "Непрерывная холодовая цепь",
+        qa_step3_desc: "Быстрое предварительное охлаждение сразу после упаковки и онлайн-логгеры температуры в 40-футовых рефрижераторах.",
+        qa_step3_tag: "Телеметрия 24/7",
+
+        logistics_tag: "Глобальная логистика",
+        logistics_title: "Морские перевозки и портовые операции",
+        logistics_desc: "Отгрузка из ключевых средиземноморских и красноморских портов (Александрия, Дамиетта, Порт-Саид, Айн-Сохна) по прямым морским линиям.",
+        log_c1_badge: "РЕФРИЖЕРАТОРЫ",
+        log_c1_title: "Контейнеры 40ft High-Cube",
+        log_c1_sub: "Регулируемая газовая среда (CA)",
+        log_c1_desc: "Установки Thermo King и Carrier с точным контролем влажности и газовой среды для сохранения свежести.",
+        log_c1_meta: "ТИП: RF 40HC",
+        log_c1_stat: "Активное охлаждение",
+        log_c2_time: "3-7 Дней",
+        log_c2_title: "Экспресс-доставка морем",
+        log_c2_sub: "Прямые средиземноморские линии",
+        log_c2_desc: "Регулярные рейсы в порты Копер, Равенна, Генуя, Марсель, Новороссийск и Роттердам.",
+        log_c2_meta: "ЛИНИИ: Прямые",
+        log_c2_stat: "Морской экспресс",
+        log_c3_badge: "ИНКОТЕРМС",
+        log_c3_title: "Условия FOB, CIF и CFR",
+        log_c3_sub: "Гибкие финансовые условия",
+        log_c3_desc: "Индивидуальные схемы расчетов и стандартизированные международные контракты для оптовых сетей.",
+        log_c3_meta: "КОНТРАКТЫ: ICC",
+        log_c3_stat: "Стандартизировано",
+        log_c4_badge: "Телекс-релиз",
+        log_c4_title: "Электронная очистка документов",
+        log_c4_sub: "Оперативная выдача документов",
+        log_c4_desc: "Мгновенная отправка коносаментов, фитосанитарных сертификатов, EUR.1 и сертификатов происхождения.",
+        log_c4_meta: "ДОКУМЕНТЫ: Экспресс",
+        log_c4_stat: "Быстрый выпуск",
+
+        catalog_badge: "Официальный экспортный каталог",
+        catalog_heading: "38 экспортных видов овощей и фруктов",
+        filter_all: "Все 38 культур",
+        filter_priority: "★ Топ экспорт (1-7)",
+        filter_summer: "Летний сбор (8-22)",
+        filter_winter: "Зимний сбор (23-38)",
+        filter_fruits: "Свежие фрукты",
+        filter_veg: "Свежие овощи",
+        search_lbl: "Поиск",
+        search_placeholder: "Поиск по названию продукта...",
+
+        lbl_export_season: "Сезон экспорта:",
+        btn_req_quote: "Забронировать объем",
+
+        no_results: "Продукция не найдена.",
+        no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
+
+        rfq_badge: "Торговый отдел B2B",
+        rfq_title: "Запрос стоимости контейнера (FOB / CIF)",
+        rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
+        rfq_name_lbl: "Название компании / Контактное лицо *",
+        rfq_email_lbl: "Корпоративный E-mail *",
+        rfq_dest_lbl: "Порт назначения / Страна *",
+        rfq_produce_lbl: "Выбранная продукция *",
+        rfq_vol_lbl: "Планируемый объем (контейнеры) *",
+        rfq_notes_lbl: "Спецификация калибра / упаковка / оплата",
+        rfq_btn_submit: "Отправить официальный запрос",
+
+        rfq_name_ph: "например: ООО Свежий Импорт",
+        rfq_email_ph: "procurement@company.ru",
+        rfq_dest_ph: "например: Новороссийск / Россия",
+        rfq_vol_ph: "например: 3 x 40ft RF в неделю",
+        rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
+
+        cat_priority: "★ Топ приоритет",
+        cat_summer: "Летний сбор",
+        cat_winter: "Зимний сбор",
+
+        footer_about: "EAX AGRO EXPORT — международный производитель и экспортер свежей сельхозпродукции, обеспечивающий поставки отборных овощей и фруктов для оптовых рынков и ритейла.",
+        footer_contact_title: "Прямые контакты",
+        footer_wa: "Отдел продаж в WhatsApp",
+        footer_quote_title: "Экспортные программы",
+        footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.",
+        footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены."
       }
     };
 
@@ -1584,7 +1733,7 @@
         card.setAttribute('data-id', crop.id);
         card.setAttribute('data-group', crop.group);
         card.setAttribute('data-category', crop.category);
-        card.setAttribute('data-search', `${crop.name_en} ${crop.name_ar} ${crop.name_zh}`.toLowerCase());
+        card.setAttribute('data-search', `${crop.name_en} ${crop.name_ar} ${crop.name_zh} ${crop.name_ru || ''}`.toLowerCase());
 
         card.innerHTML = `
           <div>
@@ -1642,7 +1791,12 @@
       if (select) {
         const customOpt = document.createElement('option');
         customOpt.value = "Mixed Cargo / Custom Program";
-        customOpt.textContent = currentLang === 'ar' ? "حاويات مشكلة / برنامج توريد خاص" : (currentLang === 'zh' ? "混装拼柜 / 定制出口计划" : "Mixed Cargo / Custom Program");
+        let customText = "Mixed Cargo / Custom Program";
+        if (currentLang === 'ar') customText = "حاويات مشكلة / برنامج توريد خاص";
+        else if (currentLang === 'zh') customText = "混装拼柜 / 定制出口计划";
+        else if (currentLang === 'ru') customText = "Сборный контейнер / Индивидуальная программа";
+        
+        customOpt.textContent = customText;
         select.appendChild(customOpt);
 
         if (prevSelected && Array.from(select.options).some(o => o.value === prevSelected)) {
@@ -1687,6 +1841,7 @@
         .replace(/ة/g, 'ه')
         .replace(/[ىئ]/g, 'ي')
         .replace(/ؤ/g, 'و')
+        .replace(/ё/g, 'е')
         .replace(/[\u064B-\u0652]/g, '')
         .trim();
     }
@@ -1769,7 +1924,8 @@
       const pageTitles = {
         en: 'EAX AGRO EXPORT | Premium Fresh Produce Exporter',
         ar: 'EAX AGRO EXPORT | كتالوج تصدير الحاصلات الزراعية المعتمد',
-        zh: 'EAX 农业出口 | 38种优质埃及新鲜果蔬官方名录'
+        zh: 'EAX 农业出口 | 38种优质埃及新鲜果蔬官方名录',
+        ru: 'EAX AGRO EXPORT | Экспорт свежих фруктов и овощей из Египта'
       };
 
       if (pageTitles[lang]) {
@@ -1803,7 +1959,7 @@
 
       document.querySelectorAll('.lang-pill').forEach(btn => {
         const isActive = btn.getAttribute('data-lang') === lang;
-        btn.className = `lang-pill px-1.5 sm:px-2.5 py-1 text-[10px] sm:text-xs ${isActive ? 'font-black bg-agro-primary text-white shadow-sm' : 'font-bold text-slate-700 hover:text-agro-primary'} rounded-md sm:rounded-lg transition-all`;
+        btn.className = `lang-pill px-1.5 sm:px-2 py-1 text-[10px] sm:text-xs ${isActive ? 'font-black bg-agro-primary text-white shadow-sm' : 'font-bold text-slate-700 hover:text-agro-primary'} rounded-md sm:rounded-lg transition-all`;
       });
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
