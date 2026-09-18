@@ -15,10 +15,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Montserrat للوجو والنصوص الإنجليزية، Cairo للعربي، Noto Sans SC للصيني -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,6 +30,7 @@
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
             cairo: ['Cairo', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
             sc: ['Noto Sans SC', 'sans-serif'],
           },
           colors: {
@@ -195,90 +196,95 @@
   <!-- Header -->
   <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-24 flex items-center justify-between gap-2">
+      <div class="h-24 sm:h-28 flex items-center justify-between gap-2">
         
-        <!-- Logo (Updated SVG) -->
+        <!-- Logo SVG: كبير، جسم أخضر عميق، إطار ذهبي رفيع، واسم عريض مقروء -->
         <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-16 md:h-20 w-auto drop-shadow-md">
+          <svg viewBox="0 0 740 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-20 sm:h-24 md:h-26 w-auto drop-shadow-sm">
             <defs>
-              <linearGradient id="eaxGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff4cc"/>
-                <stop offset="20%" stop-color="#d4af37"/>
-                <stop offset="45%" stop-color="#8a5a00"/>
-                <stop offset="70%" stop-color="#fae188"/>
-                <stop offset="90%" stop-color="#b8860b"/>
-                <stop offset="100%" stop-color="#543700"/>
+              <!-- خط ذهبي نحيف عاكس بدون ما يطغى على الأخضر -->
+              <linearGradient id="slimGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff0bd"/>
+                <stop offset="35%" stop-color="#d9a838"/>
+                <stop offset="70%" stop-color="#8a5a06"/>
+                <stop offset="100%" stop-color="#e8bf56"/>
               </linearGradient>
-              <linearGradient id="eaxGoldRim" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#fdf1a9"/>
-                <stop offset="35%" stop-color="#b8860b"/>
-                <stop offset="70%" stop-color="#fff8db"/>
-                <stop offset="100%" stop-color="#996515"/>
+
+              <!-- اللون الأخضر الزمردي الغامق الأصلي للكتل -->
+              <linearGradient id="mainGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0e4b29"/>
+                <stop offset="50%" stop-color="#062e17"/>
+                <stop offset="100%" stop-color="#021c0d"/>
               </linearGradient>
-              <linearGradient id="eaxGreenDeep" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#073a1f"/>
-                <stop offset="50%" stop-color="#032613"/>
-                <stop offset="100%" stop-color="#011409"/>
+
+              <!-- كحلي سهم التصدير -->
+              <linearGradient id="darkNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#07202c"/>
+                <stop offset="50%" stop-color="#0c3245"/>
+                <stop offset="100%" stop-color="#144b68"/>
               </linearGradient>
-              <linearGradient id="eaxNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#092532"/>
-                <stop offset="50%" stop-color="#0f3c4c"/>
-                <stop offset="100%" stop-color="#1b5a75"/>
-              </linearGradient>
-              <filter id="goldShadow" x="-10%" y="-10%" width="130%" height="130%">
-                <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+
+              <filter id="subtleDrop" x="-5%" y="-5%" width="115%" height="115%">
+                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
               </filter>
             </defs>
-            <g filter="url(#goldShadow)">
-              <!-- Letter E -->
-              <path d="M 70 120 H 260 V 170 H 135 V 230 H 235 V 275 H 135 V 345 H 265 V 395 H 70 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="10" stroke-linejoin="round"/>
-              <path d="M 85 135 H 245 V 158 H 150 V 242 H 225 V 263 H 150 V 358 H 250 V 380 H 85 Z" fill="url(#eaxGreenDeep)"/>
 
-              <!-- Letter A -->
-              <path d="M 335 120 L 415 120 L 485 395 H 410 L 392 320 H 300 L 285 350 C 265 375 235 390 205 395 L 335 120 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="10" stroke-linejoin="round"/>
-              <path d="M 345 140 L 402 140 L 465 375 H 420 L 400 305 H 315 L 345 140 Z" fill="url(#eaxGreenDeep)"/>
-              <path d="M 345 285 C 330 250 340 200 375 190 C 370 230 350 270 345 285 Z" fill="#ffffff" opacity="0.95"/>
-
-              <!-- Under Waves -->
-              <path d="M 220 395 C 290 380 345 330 400 310 C 350 345 300 385 240 405 Z" fill="url(#eaxGoldLight)"/>
-              <path d="M 260 400 C 330 375 390 325 450 295 C 410 335 340 385 280 412 Z" fill="#0c4a28"/>
-              <path d="M 300 405 C 370 370 430 310 490 275 C 440 325 370 385 320 418 Z" fill="url(#eaxGoldLight)"/>
-
-              <!-- Letter X -->
-              <path d="M 445 395 L 590 170 L 565 170 L 610 95 L 685 160 L 660 160 L 515 395 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="9" stroke-linejoin="round"/>
-              <path d="M 465 380 L 598 178 L 580 178 L 612 125 L 658 168 L 642 168 L 505 380 Z" fill="url(#eaxNavyArrow)"/>
-              <path d="M 465 120 H 535 L 635 395 H 565 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="8" stroke-linejoin="round"/>
-              <path d="M 478 135 H 522 L 620 380 H 578 Z" fill="url(#eaxGreenDeep)"/>
-
-              <!-- Circular Farm Seal -->
-              <ellipse cx="730" cy="245" rx="105" ry="105" fill="none" stroke="url(#eaxGoldLight)" stroke-width="14"/>
-              <ellipse cx="730" cy="245" rx="90" ry="90" fill="none" stroke="url(#eaxGoldRim)" stroke-width="6"/>
+            <g filter="url(#subtleDrop)">
+              <!-- ================= 1. حرف E ================= -->
+              <path d="M 40 45 H 250 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 255 V 275 H 40 Z" 
+                    fill="url(#mainGreen)" 
+                    stroke="url(#slimGold)" 
+                    stroke-width="5" 
+                    stroke-linejoin="round"/>
               
-              <g transform="translate(640, 155)">
-                <circle cx="90" cy="90" r="85" fill="#fdfae8"/>
-                <circle cx="90" cy="90" r="30" fill="url(#eaxGoldLight)"/>
-                <path d="M 90 40 L 90 20 M 60 50 L 45 35 M 120 50 L 135 35 M 40 75 L 20 70 M 140 75 L 160 70" stroke="url(#eaxGoldLight)" stroke-width="4" stroke-linecap="round"/>
-                <path d="M 15 120 C 50 100 130 100 165 120 L 175 165 C 120 130 60 130 5 165 Z" fill="#0a3d21"/>
-                <path d="M 25 135 C 60 115 120 115 155 135" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
-                <path d="M 40 148 C 70 130 110 130 140 148" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
-                <path d="M 60 160 C 80 145 100 145 120 160" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
-              </g>
+              <!-- إطار داخلي ذهبي خفيف جداً يبرز الحواف مثل الصورة -->
+              <path d="M 55 60 H 235 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 240 V 260 H 55 Z" 
+                    fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
 
-              <!-- Top Plant Leaves -->
-              <path d="M 750 170 C 750 100 810 70 850 65 C 845 110 810 160 750 170 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="5"/>
-              <path d="M 755 165 Q 800 115 845 70" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
-              <path d="M 750 170 C 730 110 680 80 645 80 C 655 125 700 165 750 170 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="5"/>
-              <path d="M 748 165 Q 695 125 650 85" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
-              <path d="M 750 200 C 730 160 725 125 750 110 C 770 125 770 160 750 200 Z" fill="#1b5a2b" stroke="url(#eaxGoldLight)" stroke-width="4"/>
+              <!-- خطوط الحقل المائلة البسيطة داخل E -->
+              <path d="M 65 258 L 135 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+              <path d="M 95 258 L 165 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
 
-              <!-- Ribbons -->
-              <path d="M 540 375 C 640 330 750 335 840 375 C 800 405 700 420 540 375 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="4"/>
-              <path d="M 580 405 C 670 365 780 370 870 415 C 830 440 730 450 580 405 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="3"/>
+              <!-- ================= 2. حرف A مع ورقة الشجر ================= -->
+              <path d="M 330 45 L 420 45 L 495 275 H 425 L 400 200 H 300 L 285 240 C 265 260 235 272 205 275 L 330 45 Z" 
+                    fill="url(#mainGreen)" 
+                    stroke="url(#slimGold)" 
+                    stroke-width="5" 
+                    stroke-linejoin="round"/>
 
-              <!-- Text & Dividers -->
-              <path d="M 40 448 H 190" stroke="url(#eaxGoldLight)" stroke-width="5" stroke-linecap="round"/>
-              <path d="M 730 448 H 880" stroke="url(#eaxGoldLight)" stroke-width="5" stroke-linecap="round"/>
-              <text x="460" y="465" text-anchor="middle" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="url(#eaxGoldLight)" letter-spacing="14">AGRO EXPORT</text>
+              <!-- ورقة الشجر المدمجة الصريحة داخل A -->
+              <path d="M 345 168 C 330 135 345 92 376 80 C 372 118 350 152 345 168 Z" 
+                    fill="#ffffff" opacity="0.95"/>
+
+              <!-- شرائط الحقل المنحنية النحيفة تحت A و X -->
+              <path d="M 215 275 C 280 258 335 218 390 200 C 340 228 290 262 230 280 Z" fill="url(#slimGold)"/>
+              <path d="M 255 278 C 320 252 380 212 440 185 C 400 220 330 262 272 284 Z" fill="#063319" stroke="url(#slimGold)" stroke-width="0.8"/>
+              <path d="M 295 282 C 360 250 420 202 480 170 C 430 212 360 262 312 288 Z" fill="url(#slimGold)"/>
+
+              <!-- ================= 3. حرف X وسهم التصدير ================= -->
+              <!-- ذراع السهم الأزرق الصاعد مع إطار ذهبي رفيع -->
+              <path d="M 455 275 L 595 82 L 570 82 L 620 18 L 695 75 L 670 75 L 530 275 Z" 
+                    fill="url(#darkNavyArrow)" 
+                    stroke="url(#slimGold)" 
+                    stroke-width="5" 
+                    stroke-linejoin="round"/>
+
+              <!-- الذراع الآخر لـ X بالأخضر الأصلي -->
+              <path d="M 465 45 H 535 L 635 275 H 565 Z" 
+                    fill="url(#mainGreen)" 
+                    stroke="url(#slimGold)" 
+                    stroke-width="5" 
+                    stroke-linejoin="round"/>
+
+              <!-- ================= 4. اسم AGRO EXPORT (كبير، واضح، ذهبي) ================= -->
+              <!-- الخطوط الجانبية الرفيعة -->
+              <path d="M 15 344 H 140" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
+              <path d="M 600 344 H 725" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
+
+              <!-- النص العريض بحجم 56 ليكون مقروءاً بوضوح ممتاز -->
+              <text x="370" y="358" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="56" fill="url(#slimGold)" letter-spacing="14">
+                AGRO EXPORT
+              </text>
             </g>
           </svg>
         </a>
@@ -388,7 +394,6 @@
     <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-agro-surface rounded-full blur-3xl pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      
       <div class="text-center mb-12 sm:mb-16 reveal-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/20 text-agro-primary text-xs font-black uppercase tracking-widest mb-3">
           <svg class="w-3.5 h-3.5 text-agro-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
@@ -401,18 +406,12 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-6 reveal-up">
-        
         <!-- 1. GlobalG.A.P. -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="cert_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">
-            AUDITED
-          </div>
+          <div data-i18n="cert_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">AUDITED</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                <path d="m9 12 2 2 4-4"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <h3 class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors">GlobalG.A.P.</h3>
             <p data-i18n="cert_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5">IFA Certified (v6)</p>
@@ -426,15 +425,10 @@
 
         <!-- 2. BRCGS -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="cert_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">
-            GRADE A
-          </div>
+          <div data-i18n="cert_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">GRADE A</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="8" r="7"/>
-                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
             <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors">BRCGS Food</h3>
             <p data-i18n="cert_c2_sub" class="text-xs font-bold text-amber-700 mt-0.5">GFSI Benchmark</p>
@@ -446,18 +440,12 @@
           </div>
         </div>
 
-        <!-- 3. ISO 22000 & HACCP -->
+        <!-- 3. ISO 22000 -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="cert_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">
-            ISO AUDITED
-          </div>
+          <div data-i18n="cert_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">ISO AUDITED</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                <line x1="3" y1="9" x2="21" y2="9"/>
-                <line x1="9" y1="21" x2="9" y2="9"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
             <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors">ISO 22000</h3>
             <p data-i18n="cert_c3_sub" class="text-xs font-bold text-sky-700 mt-0.5">& HACCP Systems</p>
@@ -469,20 +457,12 @@
           </div>
         </div>
 
-        <!-- 4. EUR.1 Movement Certificate -->
+        <!-- 4. EUR.1 -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">
-            EU PREFERENCE
-          </div>
+          <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">EU PREFERENCE</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
             </div>
             <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors">EUR.1 Certificate</h3>
             <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5">0% Duty to EU/UK</p>
@@ -494,17 +474,12 @@
           </div>
         </div>
 
-        <!-- 5. Phytosanitary Certificate -->
+        <!-- 5. Phytosanitary -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-teal-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between sm:col-span-2 lg:col-span-1">
-          <div data-i18n="cert_c5_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black tracking-wider uppercase border border-teal-200">
-            OFFICIAL GOV
-          </div>
+          <div data-i18n="cert_c5_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black tracking-wider uppercase border border-teal-200">OFFICIAL GOV</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
             <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 group-hover:text-teal-800 transition-colors">Phytosanitary</h3>
             <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5">Pest & Residue Free</p>
@@ -515,7 +490,6 @@
             <span data-i18n="cert_c5_stat" class="text-teal-600 font-bold">100% Passed</span>
           </div>
         </div>
-
       </div>
 
       <!-- Trust Bar -->
@@ -542,18 +516,12 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        
         <!-- Step 1 -->
         <div class="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step1_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-black tracking-wider uppercase border border-emerald-200">
-            STEP 01
-          </div>
+          <div data-i18n="qa_step1_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-black tracking-wider uppercase border border-emerald-200">STEP 01</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
-                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
             <h3 data-i18n="qa_step1_title" class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-emerald-800 transition-colors mb-2">Strict Field Monitoring</h3>
             <p data-i18n="qa_step1_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Regular soil testing, pre-harvest residue analysis, and residue-free zone approvals to guarantee total pesticide compliance.</p>
@@ -566,18 +534,10 @@
 
         <!-- Step 2 -->
         <div class="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step2_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-black tracking-wider uppercase border border-amber-200">
-            STEP 02
-          </div>
+          <div data-i18n="qa_step2_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-black tracking-wider uppercase border border-amber-200">STEP 02</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="3"/>
-                <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
-                <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
-                <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
-                <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
             </div>
             <h3 data-i18n="qa_step2_title" class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-amber-800 transition-colors mb-2">Optical Sorting & Curing</h3>
             <p data-i18n="qa_step2_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Advanced grading lines sort produce by weight, color, and size while computer-controlled curing optimizes sugars and shelf life.</p>
@@ -590,14 +550,10 @@
 
         <!-- Step 3 -->
         <div class="group relative bg-white p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step3_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[10px] font-black tracking-wider uppercase border border-sky-200">
-            STEP 03
-          </div>
+          <div data-i18n="qa_step3_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[10px] font-black tracking-wider uppercase border border-sky-200">STEP 03</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
             </div>
             <h3 data-i18n="qa_step3_title" class="text-lg sm:text-xl font-black text-slate-900 group-hover:text-sky-800 transition-colors mb-2">Unbroken Cold Chain</h3>
             <p data-i18n="qa_step3_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Rapid pre-cooling immediately after packing and continuous temperature logging inside 40ft refrigerated containers.</p>
@@ -607,7 +563,6 @@
             <span data-i18n="qa_step3_tag">Real-time Temp Logs</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -622,20 +577,12 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 reveal-up">
-        
         <!-- 1. High-Cube Reefers -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">
-            REEFER FLEET
-          </div>
+          <div data-i18n="log_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">REEFER FLEET</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <rect x="1" y="3" width="15" height="13" rx="2" ry="2"/>
-                <polygon points="16 8 20 8 23 11 23 16 16 16 8"/>
-                <circle cx="5.5" cy="18.5" r="2.5"/>
-                <circle cx="18.5" cy="18.5" r="2.5"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
             </div>
             <h3 data-i18n="log_c1_title" class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors">High-Cube Reefers</h3>
             <p data-i18n="log_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5">40ft Controlled Atmosphere</p>
@@ -649,16 +596,10 @@
 
         <!-- 2. Fast Sailings -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c2_time" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">
-            3-7 Days
-          </div>
+          <div data-i18n="log_c2_time" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">3-7 Days</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M2 20a6.5 6.5 0 0 1 12-3 6.5 6.5 0 0 1 8 3"/>
-                <path d="M3 14l3-9h12l3 9"/>
-                <path d="M12 5V2"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M2 20a6.5 6.5 0 0 1 12-3 6.5 6.5 0 0 1 8 3"/><path d="M3 14l3-9h12l3 9"/><path d="M12 5V2"/></svg>
             </div>
             <h3 data-i18n="log_c2_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors">Rapid Transit to EU</h3>
             <p data-i18n="log_c2_sub" class="text-xs font-bold text-sky-700 mt-0.5">Direct Mediterranean Hubs</p>
@@ -672,16 +613,10 @@
 
         <!-- 3. Trade Terms -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">
-            INCOTERMS
-          </div>
+          <div data-i18n="log_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">INCOTERMS</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10"/>
-                <line x1="2" y1="12" x2="22" y2="12"/>
-                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <h3 data-i18n="log_c3_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors">FOB, CIF & CFR</h3>
             <p data-i18n="log_c3_sub" class="text-xs font-bold text-amber-700 mt-0.5">Flexible Trade Credit</p>
@@ -695,15 +630,10 @@
 
         <!-- 4. Fast Clearance Docs -->
         <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">
-            Live Docs
-          </div>
+          <div data-i18n="log_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">Live Docs</div>
           <div>
             <div class="w-14 h-14 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/>
-                <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/>
-              </svg>
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
             </div>
             <h3 data-i18n="log_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors">Pre-Clearance Dispatch</h3>
             <p data-i18n="log_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5">Direct Digital Port Release</p>
@@ -714,7 +644,6 @@
             <span data-i18n="log_c4_stat" class="text-agro-gold font-bold">Swift Release</span>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -818,88 +747,82 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-agro-border">
         <div>
-          <!-- Footer Logo (Updated SVG) -->
+          <!-- Footer Logo SVG: نفس المقاييس المتطابقة مع الهيدر -->
           <a href="#hero" class="inline-block mb-4">
-            <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 sm:h-20 md:h-24 w-auto drop-shadow-md">
+            <svg viewBox="0 0 740 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-20 sm:h-24 md:h-28 w-auto drop-shadow-sm">
               <defs>
-                <linearGradient id="eaxGoldLightFoot" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fff4cc"/>
-                  <stop offset="20%" stop-color="#d4af37"/>
-                  <stop offset="45%" stop-color="#8a5a00"/>
-                  <stop offset="70%" stop-color="#fae188"/>
-                  <stop offset="90%" stop-color="#b8860b"/>
-                  <stop offset="100%" stop-color="#543700"/>
+                <linearGradient id="slimGoldFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff0bd"/>
+                  <stop offset="35%" stop-color="#d9a838"/>
+                  <stop offset="70%" stop-color="#8a5a06"/>
+                  <stop offset="100%" stop-color="#e8bf56"/>
                 </linearGradient>
-                <linearGradient id="eaxGoldRimFoot" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#fdf1a9"/>
-                  <stop offset="35%" stop-color="#b8860b"/>
-                  <stop offset="70%" stop-color="#fff8db"/>
-                  <stop offset="100%" stop-color="#996515"/>
+
+                <linearGradient id="mainGreenFoot" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#0e4b29"/>
+                  <stop offset="50%" stop-color="#062e17"/>
+                  <stop offset="100%" stop-color="#021c0d"/>
                 </linearGradient>
-                <linearGradient id="eaxGreenDeepFoot" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#073a1f"/>
-                  <stop offset="50%" stop-color="#032613"/>
-                  <stop offset="100%" stop-color="#011409"/>
+
+                <linearGradient id="darkNavyArrowFoot" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#07202c"/>
+                  <stop offset="50%" stop-color="#0c3245"/>
+                  <stop offset="100%" stop-color="#144b68"/>
                 </linearGradient>
-                <linearGradient id="eaxNavyArrowFoot" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#092532"/>
-                  <stop offset="50%" stop-color="#0f3c4c"/>
-                  <stop offset="100%" stop-color="#1b5a75"/>
-                </linearGradient>
-                <filter id="goldShadowFoot" x="-10%" y="-10%" width="130%" height="130%">
-                  <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+
+                <filter id="subtleDropFoot" x="-5%" y="-5%" width="115%" height="115%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
                 </filter>
               </defs>
-              <g filter="url(#goldShadowFoot)">
-                <!-- Letter E -->
-                <path d="M 70 120 H 260 V 170 H 135 V 230 H 235 V 275 H 135 V 345 H 265 V 395 H 70 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="10" stroke-linejoin="round"/>
-                <path d="M 85 135 H 245 V 158 H 150 V 242 H 225 V 263 H 150 V 358 H 250 V 380 H 85 Z" fill="url(#eaxGreenDeepFoot)"/>
 
-                <!-- Letter A -->
-                <path d="M 335 120 L 415 120 L 485 395 H 410 L 392 320 H 300 L 285 350 C 265 375 235 390 205 395 L 335 120 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="10" stroke-linejoin="round"/>
-                <path d="M 345 140 L 402 140 L 465 375 H 420 L 400 305 H 315 L 345 140 Z" fill="url(#eaxGreenDeepFoot)"/>
-                <path d="M 345 285 C 330 250 340 200 375 190 C 370 230 350 270 345 285 Z" fill="#ffffff" opacity="0.95"/>
-
-                <!-- Under Waves -->
-                <path d="M 220 395 C 290 380 345 330 400 310 C 350 345 300 385 240 405 Z" fill="url(#eaxGoldLightFoot)"/>
-                <path d="M 260 400 C 330 375 390 325 450 295 C 410 335 340 385 280 412 Z" fill="#0c4a28"/>
-                <path d="M 300 405 C 370 370 430 310 490 275 C 440 325 370 385 320 418 Z" fill="url(#eaxGoldLightFoot)"/>
-
-                <!-- Letter X -->
-                <path d="M 445 395 L 590 170 L 565 170 L 610 95 L 685 160 L 660 160 L 515 395 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="9" stroke-linejoin="round"/>
-                <path d="M 465 380 L 598 178 L 580 178 L 612 125 L 658 168 L 642 168 L 505 380 Z" fill="url(#eaxNavyArrowFoot)"/>
-                <path d="M 465 120 H 535 L 635 395 H 565 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="8" stroke-linejoin="round"/>
-                <path d="M 478 135 H 522 L 620 380 H 578 Z" fill="url(#eaxGreenDeepFoot)"/>
-
-                <!-- Circular Farm Seal -->
-                <ellipse cx="730" cy="245" rx="105" ry="105" fill="none" stroke="url(#eaxGoldLightFoot)" stroke-width="14"/>
-                <ellipse cx="730" cy="245" rx="90" ry="90" fill="none" stroke="url(#eaxGoldRimFoot)" stroke-width="6"/>
+              <g filter="url(#subtleDropFoot)">
+                <!-- حرف E -->
+                <path d="M 40 45 H 250 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 255 V 275 H 40 Z" 
+                      fill="url(#mainGreenFoot)" 
+                      stroke="url(#slimGoldFoot)" 
+                      stroke-width="5" 
+                      stroke-linejoin="round"/>
                 
-                <g transform="translate(640, 155)">
-                  <circle cx="90" cy="90" r="85" fill="#fdfae8"/>
-                  <circle cx="90" cy="90" r="30" fill="url(#eaxGoldLightFoot)"/>
-                  <path d="M 90 40 L 90 20 M 60 50 L 45 35 M 120 50 L 135 35 M 40 75 L 20 70 M 140 75 L 160 70" stroke="url(#eaxGoldLightFoot)" stroke-width="4" stroke-linecap="round"/>
-                  <path d="M 15 120 C 50 100 130 100 165 120 L 175 165 C 120 130 60 130 5 165 Z" fill="#0a3d21"/>
-                  <path d="M 25 135 C 60 115 120 115 155 135" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
-                  <path d="M 40 148 C 70 130 110 130 140 148" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
-                  <path d="M 60 160 C 80 145 100 145 120 160" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
-                </g>
+                <path d="M 55 60 H 235 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 240 V 260 H 55 Z" 
+                      fill="none" stroke="url(#slimGoldFoot)" stroke-width="1" opacity="0.65"/>
 
-                <!-- Top Plant Leaves -->
-                <path d="M 750 170 C 750 100 810 70 850 65 C 845 110 810 160 750 170 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="5"/>
-                <path d="M 755 165 Q 800 115 845 70" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
-                <path d="M 750 170 C 730 110 680 80 645 80 C 655 125 700 165 750 170 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="5"/>
-                <path d="M 748 165 Q 695 125 650 85" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
-                <path d="M 750 200 C 730 160 725 125 750 110 C 770 125 770 160 750 200 Z" fill="#1b5a2b" stroke="url(#eaxGoldLightFoot)" stroke-width="4"/>
+                <path d="M 65 258 L 135 185" stroke="url(#slimGoldFoot)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+                <path d="M 95 258 L 165 185" stroke="url(#slimGoldFoot)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
 
-                <!-- Ribbons -->
-                <path d="M 540 375 C 640 330 750 335 840 375 C 800 405 700 420 540 375 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="4"/>
-                <path d="M 580 405 C 670 365 780 370 870 415 C 830 440 730 450 580 405 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="3"/>
+                <!-- حرف A مع ورقة الشجر -->
+                <path d="M 330 45 L 420 45 L 495 275 H 425 L 400 200 H 300 L 285 240 C 265 260 235 272 205 275 L 330 45 Z" 
+                      fill="url(#mainGreenFoot)" 
+                      stroke="url(#slimGoldFoot)" 
+                      stroke-width="5" 
+                      stroke-linejoin="round"/>
 
-                <!-- Text & Dividers -->
-                <path d="M 40 448 H 190" stroke="url(#eaxGoldLightFoot)" stroke-width="5" stroke-linecap="round"/>
-                <path d="M 730 448 H 880" stroke="url(#eaxGoldLightFoot)" stroke-width="5" stroke-linecap="round"/>
-                <text x="460" y="465" text-anchor="middle" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="url(#eaxGoldLightFoot)" letter-spacing="14">AGRO EXPORT</text>
+                <path d="M 345 168 C 330 135 345 92 376 80 C 372 118 350 152 345 168 Z" 
+                      fill="#ffffff" opacity="0.95"/>
+
+                <path d="M 215 275 C 280 258 335 218 390 200 C 340 228 290 262 230 280 Z" fill="url(#slimGoldFoot)"/>
+                <path d="M 255 278 C 320 252 380 212 440 185 C 400 220 330 262 272 284 Z" fill="#063319" stroke="url(#slimGoldFoot)" stroke-width="0.8"/>
+                <path d="M 295 282 C 360 250 420 202 480 170 C 430 212 360 262 312 288 Z" fill="url(#slimGoldFoot)"/>
+
+                <!-- حرف X والسهم الكحلي -->
+                <path d="M 455 275 L 595 82 L 570 82 L 620 18 L 695 75 L 670 75 L 530 275 Z" 
+                      fill="url(#darkNavyArrowFoot)" 
+                      stroke="url(#slimGoldFoot)" 
+                      stroke-width="5" 
+                      stroke-linejoin="round"/>
+
+                <path d="M 465 45 H 535 L 635 275 H 565 Z" 
+                      fill="url(#mainGreenFoot)" 
+                      stroke="url(#slimGoldFoot)" 
+                      stroke-width="5" 
+                      stroke-linejoin="round"/>
+
+                <!-- الاسم AGRO EXPORT -->
+                <path d="M 15 344 H 140" stroke="url(#slimGoldFoot)" stroke-width="4.5" stroke-linecap="round"/>
+                <path d="M 600 344 H 725" stroke="url(#slimGoldFoot)" stroke-width="4.5" stroke-linecap="round"/>
+
+                <text x="370" y="358" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="56" fill="url(#slimGoldFoot)" letter-spacing="14">
+                  AGRO EXPORT
+                </text>
               </g>
             </svg>
           </a>
@@ -959,7 +882,6 @@
     };
 
     const CROPS = [
-      // 1. TOP PRIORITY (1-7)
       {
         id: 1, group: 'priority', category: 'vegetables',
         name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)",
@@ -977,7 +899,7 @@
       {
         id: 3, group: 'priority', category: 'vegetables',
         name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)",
-        season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь",
+        season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины يناير по июнь",
         months: [1,2,3,4,5,6],
         image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
       },
@@ -1009,8 +931,6 @@
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
       },
-
-      // 2. SUMMER CROPS (8-22)
       {
         id: 8, group: 'summer', category: 'vegetables',
         name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
@@ -1116,8 +1036,6 @@
         months: [5,6,7,8,9],
         image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=800&q=80"
       },
-
-      // 3. WINTER CROPS (23-38)
       {
         id: 23, group: 'winter', category: 'vegetables',
         name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆", name_ru: "Свежая стручковая зеленая фасоль",
@@ -1205,7 +1123,7 @@
       {
         id: 35, group: 'winter', category: 'vegetables',
         name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
       },
