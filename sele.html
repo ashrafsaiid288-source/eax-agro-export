@@ -2,15 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX AGRO EXPORT — Official Export Catalog</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    @page {
-      size: A4 landscape;
-      margin: 0;
-    }
     *, *::before, *::after {
       box-sizing: border-box;
       -webkit-print-color-adjust: exact !important;
@@ -18,7 +15,7 @@
     }
     :root {
       --primary: #0a2617;
-      --primary-accent: #14462b;
+      --primary-light: #164e30;
       --gold: #b3741d;
       --gold-light: #fdf5e8;
       --gold-border: #d4a759;
@@ -31,7 +28,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #2b302c;
+      background: #242926;
       font-family: 'Montserrat', sans-serif;
       color: var(--text-dark);
       -webkit-font-smoothing: antialiased;
@@ -43,27 +40,27 @@
     /* Floating Screen Controls */
     .control-panel {
       position: fixed;
-      top: 14px;
-      right: 20px;
+      top: 12px;
+      right: 15px;
       z-index: 10000;
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      background: rgba(10, 38, 23, 0.98);
-      backdrop-filter: blur(10px);
-      padding: 7px 16px;
+      background: rgba(10, 38, 23, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 6px 14px;
       border-radius: 40px;
       border: 1.5px solid var(--gold-border);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
     .lang-btn {
       background: transparent;
       border: 1px solid rgba(255,255,255,0.3);
       color: #fff;
-      padding: 6px 14px;
+      padding: 5px 11px;
       border-radius: 20px;
       font-weight: 800;
-      font-size: 11.5px;
+      font-size: 11px;
       cursor: pointer;
       transition: all 0.2s;
     }
@@ -76,10 +73,10 @@
       background: #fff;
       color: var(--primary);
       border: none;
-      padding: 7px 18px;
+      padding: 6px 15px;
       border-radius: 20px;
       font-weight: 900;
-      font-size: 12px;
+      font-size: 11.5px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: all 0.2s;
@@ -89,29 +86,21 @@
       transform: translateY(-1px);
     }
 
-    /* Perfect Fit Page (297mm x 210mm) */
+    /* Desktop View (A4 Landscape simulation) */
     .page {
       width: 297mm;
       height: 210mm;
       max-height: 210mm;
       background: #fff;
-      margin: 20px auto;
+      margin: 25px auto;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.5);
-      page-break-after: always;
-      page-break-inside: avoid;
-    }
-    @media print {
-      body { background: transparent; }
-      .control-panel { display: none; }
-      .page { margin: 0; box-shadow: none; width: 297mm; height: 210mm; max-height: 210mm; }
+      box-shadow: 0 14px 45px rgba(0,0,0,0.5);
     }
 
-    /* Unified Header & Footer */
     .page-header {
       height: 18mm;
       padding: 0 18mm;
@@ -126,11 +115,8 @@
       font-size: 18px;
       font-weight: 900;
       color: var(--primary);
-      letter-spacing: 0.5px;
     }
-    .header-brand span {
-      color: var(--gold);
-    }
+    .header-brand span { color: var(--gold); }
     .header-tag {
       font-size: 11px;
       font-weight: 900;
@@ -153,14 +139,14 @@
       justify-content: space-between;
       align-items: center;
       border-top: 2px solid var(--border);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       color: var(--text-muted);
       background: #f8faf7;
       flex-shrink: 0;
     }
 
-    /* Page 1: Cover Layout */
+    /* Cover Page */
     .cover-bg {
       background: radial-gradient(circle at 85% 20%, #174b2f 0%, #081d11 80%);
       color: #fff;
@@ -188,7 +174,6 @@
       font-weight: 900;
       letter-spacing: 1.5px;
     }
-    
     .cover-hero-wrap {
       display: flex;
       align-items: center;
@@ -197,12 +182,10 @@
       margin: 10px 0;
       flex: 1;
     }
-    .cover-text-side {
-      flex: 1.3;
-    }
+    .cover-text-side { flex: 1.3; }
     .cover-logo-side {
       flex: 0.85;
-      height: 190px;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -218,17 +201,15 @@
       object-fit: contain;
     }
     .cover-title {
-      font-size: 42px;
+      font-size: 40px;
       font-weight: 900;
       line-height: 1.18;
-      margin: 10px 0 14px;
+      margin: 10px 0 12px;
       letter-spacing: -0.5px;
     }
-    .cover-title span {
-      color: #e5b364;
-    }
+    .cover-title span { color: #e5b364; }
     .cover-desc {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 600;
       color: #e0ece5;
       line-height: 1.6;
@@ -245,23 +226,23 @@
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 12px;
-      padding: 14px;
+      padding: 13px;
     }
     .metric-card h3 {
       margin: 0;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 900;
       color: #e5b364;
     }
     .metric-card p {
       margin: 4px 0 0;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       color: #d1ded6;
       line-height: 1.4;
     }
 
-    /* Page 2: Pillars (Full Height Balanced) */
+    /* Page 2: Pillars */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -279,26 +260,26 @@
       justify-content: space-between;
     }
     .pillar-box .num {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 900;
       color: var(--gold);
       line-height: 1;
     }
     .pillar-box h4 {
       margin: 10px 0 8px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 900;
       color: var(--primary);
     }
     .pillar-box p {
       margin: 0;
-      font-size: 13.5px;
+      font-size: 13px;
       font-weight: 600;
       color: #2e3b32;
       line-height: 1.65;
     }
     .pillar-tag-bottom {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 900;
       color: var(--primary);
       margin-top: 14px;
@@ -306,7 +287,7 @@
       padding-top: 10px;
     }
 
-    /* Page 3: Certifications & Logistics (Expanded) */
+    /* Page 3: Certifications & Logistics */
     .certs-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -326,7 +307,7 @@
     .cert-pill-card .badge {
       display: inline-block;
       align-self: flex-start;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 900;
       background: var(--gold-light);
       color: var(--gold);
@@ -335,19 +316,18 @@
       margin-bottom: 6px;
     }
     .cert-pill-card h4 {
-      margin: 0 0 6px;
+      margin: 0 0 5px;
       font-size: 16px;
       font-weight: 900;
       color: var(--primary);
     }
     .cert-pill-card p {
       margin: 0;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
       color: #3f4e43;
       line-height: 1.5;
     }
-
     .logistics-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -377,74 +357,70 @@
     }
     .log-item p {
       margin: 0;
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 600;
       color: #4a594e;
       line-height: 1.35;
     }
 
-    /* Calibrated High-Legibility Catalog Tables */
+    /* Catalog Tables */
     .catalog-table-wrap {
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: stretch;
       margin-top: 6px;
+      overflow-x: auto;
     }
     .catalog-table {
       width: 100%;
       height: 100%;
       border-collapse: collapse;
-      font-size: 11px;
+      font-size: 10.5px;
     }
     .catalog-table th {
       background: var(--primary);
       color: #fff;
       font-weight: 900;
-      font-size: 11px;
+      font-size: 10.5px;
       text-align: left;
-      padding: 7px 9px;
+      padding: 6.5px 8px;
       border: 1.5px solid #05160c;
     }
-    html[dir="rtl"] .catalog-table th {
-      text-align: right;
-    }
+    html[dir="rtl"] .catalog-table th { text-align: right; }
     .catalog-table td {
-      padding: 5px 9px;
+      padding: 4.5px 8px;
       border: 1px solid #c2d4c0;
       vertical-align: middle;
       font-weight: 700;
       color: #1a261e;
     }
-    .catalog-table tr:nth-child(even) {
-      background: #f7faf5;
-    }
+    .catalog-table tr:nth-child(even) { background: #f7faf5; }
     .crop-name {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 900;
       color: var(--primary);
     }
     .badge-grp {
       display: inline-block;
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 900;
-      padding: 2px 6px;
+      padding: 1.5px 5px;
       border-radius: 4px;
-      margin-inline-start: 6px;
+      margin-inline-start: 5px;
     }
     .bg-p { background: #feeccc; color: #a66a1a; }
     .bg-s { background: #d7f5df; color: #165b35; }
     .bg-w { background: #e0f2fe; color: #075985; }
 
-    /* Calendar Grid */
     .season-track {
       display: flex;
-      gap: 2.5px;
+      gap: 2px;
     }
     .s-dot {
-      width: 15px;
-      height: 15px;
-      font-size: 8px;
+      width: 14px;
+      height: 14px;
+      font-size: 7.5px;
       font-weight: 900;
       display: flex;
       align-items: center;
@@ -482,12 +458,10 @@
       margin: 26px 0 20px;
       text-align: left;
     }
-    html[dir="rtl"] .contact-grid {
-      text-align: right;
-    }
+    html[dir="rtl"] .contact-grid { text-align: right; }
     .c-col h6 {
-      margin: 0 0 6px;
-      font-size: 11.5px;
+      margin: 0 0 5px;
+      font-size: 11px;
       font-weight: 900;
       color: var(--gold);
       letter-spacing: 1px;
@@ -495,10 +469,141 @@
     }
     .c-col p {
       margin: 0;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 900;
       color: var(--text-dark);
       line-height: 1.45;
+    }
+
+    /* ========================================================
+       MOBILE & TABLET RESPONSIVE STYLES (SCREEN ONLY)
+       ======================================================== */
+    @media screen and (max-width: 1024px) {
+      body {
+        background: #f4f7f2;
+        padding-top: 65px;
+      }
+      .control-panel {
+        top: 0;
+        left: 0;
+        right: 0;
+        border-radius: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        justify-content: center;
+        width: 100%;
+        padding: 10px 8px;
+      }
+      .page {
+        width: 95%;
+        height: auto !important;
+        max-height: none !important;
+        margin: 15px auto;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      }
+      .cover-bg {
+        height: auto !important;
+        padding: 24px 18px;
+      }
+      .cover-hero-wrap {
+        flex-direction: column-reverse;
+        gap: 20px;
+      }
+      .cover-logo-side {
+        width: 100%;
+        height: 120px;
+      }
+      .cover-title {
+        font-size: 26px;
+      }
+      .cover-metrics {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .page-header {
+        height: auto;
+        padding: 14px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .page-content {
+        padding: 14px 16px;
+      }
+      .pillar-row {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .pillar-box {
+        min-height: auto;
+      }
+      .certs-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .logistics-bar {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .catalog-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .catalog-table {
+        min-width: 650px;
+      }
+      .page-back {
+        height: auto !important;
+        padding: 24px 16px;
+      }
+      .back-box {
+        padding: 20px 16px;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .page-footer {
+        height: auto;
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+
+    /* ========================================================
+       STRICT PRINT & PDF OUTPUT (A4 LANDSCAPE EXACT)
+       ======================================================== */
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 0;
+      }
+      body {
+        background: transparent !important;
+        padding: 0 !important;
+      }
+      .control-panel { display: none !important; }
+      .page {
+        width: 297mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+      }
+      .cover-bg { height: 210mm !important; }
+      .cover-hero-wrap { flex-direction: row !important; }
+      .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
+      .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
+      .certs-row { grid-template-columns: repeat(3, 1fr) !important; }
+      .logistics-bar { grid-template-columns: repeat(4, 1fr) !important; }
+      .contact-grid { grid-template-columns: repeat(3, 1fr) !important; }
+      .catalog-table { min-width: 100% !important; }
     }
   </style>
 </head>
@@ -520,14 +625,14 @@
         <span>★</span>
         <span data-k="cover_tag">OFFICIAL EXPORT CATALOG • 2026</span>
       </div>
-      <div style="font-size: 13px; font-weight: 900; letter-spacing: 2px; color: #dfad5b;" data-k="cover_top_rt">
+      <div style="font-size: 12px; font-weight: 900; letter-spacing: 2px; color: #dfad5b;" data-k="cover_top_rt">
         EGYPTIAN AGRICULTURAL EXPORTS
       </div>
     </div>
 
     <div class="cover-hero-wrap">
       <div class="cover-text-side">
-        <div style="font-size: 20px; font-weight: 900; letter-spacing: 3px; color: #dfad5b; margin-bottom: 6px;" data-k="company_name">EAX AGRO EXPORT</div>
+        <div style="font-size: 18px; font-weight: 900; letter-spacing: 3px; color: #dfad5b; margin-bottom: 6px;" data-k="company_name">EAX AGRO EXPORT</div>
         <div class="cover-title">
           <span data-k="c_t1">Pure Premium Produce</span><br>
           <span data-k="c_t2" style="color: #dfad5b;">From Fertile Farms to Global Supermarkets</span>
@@ -537,7 +642,6 @@
         </p>
       </div>
 
-      <!-- High-Resolution EAX Agro Export Logo Frame -->
       <div class="cover-logo-side">
         <img 
           src="pdf 1.jpeg" 
@@ -578,7 +682,7 @@
       <div>
         <span style="font-size: 11px; font-weight: 900; color: var(--gold); letter-spacing: 1.5px;" class="uppercase" data-k="p2_sub">Our Heritage & Commitment</span>
         <h2 style="font-size: 24px; font-weight: 900; color: var(--primary); margin: 3px 0 8px;" data-k="p2_h2">EAX AGRO EXPORT</h2>
-        <p style="font-size: 14px; font-weight: 600; color: #36443a; line-height: 1.65; margin: 0;" data-k="p2_lead">
+        <p style="font-size: 13.5px; font-weight: 600; color: #36443a; line-height: 1.65; margin: 0;" data-k="p2_lead">
           EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
         </p>
       </div>
@@ -627,7 +731,7 @@
     <div class="page-content">
       <div>
         <span style="font-size: 11px; font-weight: 900; color: var(--gold); letter-spacing: 1.5px;" class="uppercase" data-k="p3_sub">International Compliance</span>
-        <h2 style="font-size: 23px; font-weight: 900; color: var(--primary); margin: 3px 0 6px;" data-k="p3_h2">Global Standards & Multimodal Logistics</h2>
+        <h2 style="font-size: 22px; font-weight: 900; color: var(--primary); margin: 3px 0 6px;" data-k="p3_h2">Global Standards & Multimodal Logistics</h2>
       </div>
 
       <div class="certs-row">
@@ -1028,16 +1132,16 @@
       { id:22, grp:'s', months:[5,6,7,8,9], temp:'+7°C to +9°C',
         ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
         pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
-        cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра файн (3-5см)', zh:'特细级 (3-5cm), 零号' },
+        cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
-        ru:{ name:"Бамия (Окра)", sub:"Экстра файн" },
+        ru:{ name:"Бамия (Окра)", sub:"Экстра فاйн" },
         zh:{ name:"新鲜秋葵", sub:"特细级与零号级" }
       },
       { id:23, grp:'w', months:[10,11,12,1,2,3,4,5], temp:'+4°C to +6°C',
         ship:{ en:'Air & Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / Быстрое море', zh:'快船 / 特快空运' },
         pack:{ en:'1.5kg / 4kg MAP bags', ar:'أكياس حفظ 1.5/4 كجم', ru:'Пакеты 1.5кг / 4кг', zh:'1.5/4公斤气调保鲜袋' },
-        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра файн (6-8мм)', zh:'特细 (6-8mm), 一级' },
+        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра فاйн (6-8мм)', zh:'特细 (6-8mm), 一级' },
         en:{ name:"Green Beans", sub:"Haricot Vert, Bobby" },
         ar:{ name:"الفاصوليا الخضراء الرفيعة", sub:"هاريكوت فيرت، بوبي" },
         ru:{ name:"Стручковая фасоль", sub:"Тонкая спаржевая" },
@@ -1153,7 +1257,7 @@
         ru:{ name:"Капуста (Белая/Красная)", sub:"Круглая плотная" },
         zh:{ name:"新鲜甘蓝 / 包菜", sub:"白甘蓝与紫甘蓝" }
       },
-      { id:36, grp:'w', months:[11,12,1,2,3,4], temp:'+0°C to +2°C',
+      { id:36, grp:'w', months:[11,12,1,2,3], temp:'+0°C to +2°C',
         ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
         pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентил. короб со льдом', zh:'3/5公斤加冰透气箱' },
         cal:{ en:'Clean washed bunches', ar:'حزم مغسولة ومنظفة', ru:'Мытые пучки', zh:'精选水洗捆装' },
@@ -1430,7 +1534,7 @@
           <td>
             <span class="crop-name">${cInfo.name}</span>
             <span class="badge-grp ${bClass}">${bText}</span><br>
-            <span style="color:#555; font-size:9.5px; font-weight:700;">${cInfo.sub}</span>
+            <span style="color:#555; font-size:9px; font-weight:700;">${cInfo.sub}</span>
           </td>
           <td>${calText}</td>
           <td>${packText}</td>
@@ -1464,7 +1568,6 @@
       renderTables(lang);
     }
 
-    // Default Load
     window.addEventListener('DOMContentLoaded', () => {
       setLang('en');
     });
