@@ -197,20 +197,89 @@
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div class="h-16 sm:h-24 flex items-center justify-between gap-2">
         
-        <!-- Refined SVG Logo -->
+        <!-- Logo (Updated SVG) -->
         <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg class="h-11 sm:h-16 md:h-20 w-auto max-w-[160px] sm:max-w-none" viewBox="0 0 380 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 15H88V42H48V58H82V82H48V98H88V125H18V15Z" fill="#143d28"/>
-            <path d="M24 22H81V35H41V65H75V75H41V105H81V118H24V22Z" fill="#2f6d48" opacity="0.3"/>
-            
-            <path d="M142 15L168 15L208 125H176L167 96H143L134 125H102L142 15Z" fill="#143d28"/>
-            <path d="M155 45 C140 55 143 78 155 92 C167 78 170 55 155 45 Z" fill="#f6edd9" stroke="#a66a1a" stroke-width="2"/>
-            <path d="M155 48 Q155 70 153 88" stroke="#a66a1a" stroke-width="2" stroke-linecap="round"/>
+          <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-16 md:h-20 w-auto drop-shadow-md">
+            <defs>
+              <linearGradient id="eaxGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff4cc"/>
+                <stop offset="20%" stop-color="#d4af37"/>
+                <stop offset="45%" stop-color="#8a5a00"/>
+                <stop offset="70%" stop-color="#fae188"/>
+                <stop offset="90%" stop-color="#b8860b"/>
+                <stop offset="100%" stop-color="#543700"/>
+              </linearGradient>
+              <linearGradient id="eaxGoldRim" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#fdf1a9"/>
+                <stop offset="35%" stop-color="#b8860b"/>
+                <stop offset="70%" stop-color="#fff8db"/>
+                <stop offset="100%" stop-color="#996515"/>
+              </linearGradient>
+              <linearGradient id="eaxGreenDeep" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#073a1f"/>
+                <stop offset="50%" stop-color="#032613"/>
+                <stop offset="100%" stop-color="#011409"/>
+              </linearGradient>
+              <linearGradient id="eaxNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#092532"/>
+                <stop offset="50%" stop-color="#0f3c4c"/>
+                <stop offset="100%" stop-color="#1b5a75"/>
+              </linearGradient>
+              <filter id="goldShadow" x="-10%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+              </filter>
+            </defs>
+            <g filter="url(#goldShadow)">
+              <!-- Letter E -->
+              <path d="M 70 120 H 260 V 170 H 135 V 230 H 235 V 275 H 135 V 345 H 265 V 395 H 70 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="10" stroke-linejoin="round"/>
+              <path d="M 85 135 H 245 V 158 H 150 V 242 H 225 V 263 H 150 V 358 H 250 V 380 H 85 Z" fill="url(#eaxGreenDeep)"/>
 
-            <path d="M228 15L268 70L228 125H263L286 92L308 125H343L303 70L338 22H306L286 50L266 22L243 15H228Z" fill="#143d28"/>
-            <path d="M248 125L303 48L288 48L323 15L353 50L338 50L283 125H248Z" fill="#a66a1a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
-            
-            <text x="190" y="162" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="900" font-size="26" fill="#143d28" letter-spacing="4">AGRO EXPORT</text>
+              <!-- Letter A -->
+              <path d="M 335 120 L 415 120 L 485 395 H 410 L 392 320 H 300 L 285 350 C 265 375 235 390 205 395 L 335 120 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="10" stroke-linejoin="round"/>
+              <path d="M 345 140 L 402 140 L 465 375 H 420 L 400 305 H 315 L 345 140 Z" fill="url(#eaxGreenDeep)"/>
+              <path d="M 345 285 C 330 250 340 200 375 190 C 370 230 350 270 345 285 Z" fill="#ffffff" opacity="0.95"/>
+
+              <!-- Under Waves -->
+              <path d="M 220 395 C 290 380 345 330 400 310 C 350 345 300 385 240 405 Z" fill="url(#eaxGoldLight)"/>
+              <path d="M 260 400 C 330 375 390 325 450 295 C 410 335 340 385 280 412 Z" fill="#0c4a28"/>
+              <path d="M 300 405 C 370 370 430 310 490 275 C 440 325 370 385 320 418 Z" fill="url(#eaxGoldLight)"/>
+
+              <!-- Letter X -->
+              <path d="M 445 395 L 590 170 L 565 170 L 610 95 L 685 160 L 660 160 L 515 395 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="9" stroke-linejoin="round"/>
+              <path d="M 465 380 L 598 178 L 580 178 L 612 125 L 658 168 L 642 168 L 505 380 Z" fill="url(#eaxNavyArrow)"/>
+              <path d="M 465 120 H 535 L 635 395 H 565 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="8" stroke-linejoin="round"/>
+              <path d="M 478 135 H 522 L 620 380 H 578 Z" fill="url(#eaxGreenDeep)"/>
+
+              <!-- Circular Farm Seal -->
+              <ellipse cx="730" cy="245" rx="105" ry="105" fill="none" stroke="url(#eaxGoldLight)" stroke-width="14"/>
+              <ellipse cx="730" cy="245" rx="90" ry="90" fill="none" stroke="url(#eaxGoldRim)" stroke-width="6"/>
+              
+              <g transform="translate(640, 155)">
+                <circle cx="90" cy="90" r="85" fill="#fdfae8"/>
+                <circle cx="90" cy="90" r="30" fill="url(#eaxGoldLight)"/>
+                <path d="M 90 40 L 90 20 M 60 50 L 45 35 M 120 50 L 135 35 M 40 75 L 20 70 M 140 75 L 160 70" stroke="url(#eaxGoldLight)" stroke-width="4" stroke-linecap="round"/>
+                <path d="M 15 120 C 50 100 130 100 165 120 L 175 165 C 120 130 60 130 5 165 Z" fill="#0a3d21"/>
+                <path d="M 25 135 C 60 115 120 115 155 135" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
+                <path d="M 40 148 C 70 130 110 130 140 148" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
+                <path d="M 60 160 C 80 145 100 145 120 160" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
+              </g>
+
+              <!-- Top Plant Leaves -->
+              <path d="M 750 170 C 750 100 810 70 850 65 C 845 110 810 160 750 170 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="5"/>
+              <path d="M 755 165 Q 800 115 845 70" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
+              <path d="M 750 170 C 730 110 680 80 645 80 C 655 125 700 165 750 170 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="5"/>
+              <path d="M 748 165 Q 695 125 650 85" stroke="url(#eaxGoldLight)" stroke-width="3" fill="none"/>
+              <path d="M 750 200 C 730 160 725 125 750 110 C 770 125 770 160 750 200 Z" fill="#1b5a2b" stroke="url(#eaxGoldLight)" stroke-width="4"/>
+
+              <!-- Ribbons -->
+              <path d="M 540 375 C 640 330 750 335 840 375 C 800 405 700 420 540 375 Z" fill="url(#eaxGreenDeep)" stroke="url(#eaxGoldLight)" stroke-width="4"/>
+              <path d="M 580 405 C 670 365 780 370 870 415 C 830 440 730 450 580 405 Z" fill="url(#eaxGoldLight)" stroke="url(#eaxGoldRim)" stroke-width="3"/>
+
+              <!-- Text & Dividers -->
+              <path d="M 40 448 H 190" stroke="url(#eaxGoldLight)" stroke-width="5" stroke-linecap="round"/>
+              <path d="M 730 448 H 880" stroke="url(#eaxGoldLight)" stroke-width="5" stroke-linecap="round"/>
+              <text x="460" y="465" text-anchor="middle" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="url(#eaxGoldLight)" letter-spacing="14">AGRO EXPORT</text>
+            </g>
           </svg>
         </a>
 
@@ -749,19 +818,89 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-10 border-b border-agro-border">
         <div>
+          <!-- Footer Logo (Updated SVG) -->
           <a href="#hero" class="inline-block mb-4">
-            <svg class="h-16 sm:h-20 md:h-24 w-auto" viewBox="0 0 380 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 15H88V42H48V58H82V82H48V98H88V125H18V15Z" fill="#143d28"/>
-              <path d="M24 22H81V35H41V65H75V75H41V105H81V118H24V22Z" fill="#2f6d48" opacity="0.3"/>
-              
-              <path d="M142 15L168 15L208 125H176L167 96H143L134 125H102L142 15Z" fill="#143d28"/>
-              <path d="M155 45 C140 55 143 78 155 92 C167 78 170 55 155 45 Z" fill="#f6edd9" stroke="#a66a1a" stroke-width="2"/>
-              <path d="M155 48 Q155 70 153 88" stroke="#a66a1a" stroke-width="2" stroke-linecap="round"/>
+            <svg viewBox="0 0 950 500" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 sm:h-20 md:h-24 w-auto drop-shadow-md">
+              <defs>
+                <linearGradient id="eaxGoldLightFoot" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#fff4cc"/>
+                  <stop offset="20%" stop-color="#d4af37"/>
+                  <stop offset="45%" stop-color="#8a5a00"/>
+                  <stop offset="70%" stop-color="#fae188"/>
+                  <stop offset="90%" stop-color="#b8860b"/>
+                  <stop offset="100%" stop-color="#543700"/>
+                </linearGradient>
+                <linearGradient id="eaxGoldRimFoot" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#fdf1a9"/>
+                  <stop offset="35%" stop-color="#b8860b"/>
+                  <stop offset="70%" stop-color="#fff8db"/>
+                  <stop offset="100%" stop-color="#996515"/>
+                </linearGradient>
+                <linearGradient id="eaxGreenDeepFoot" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#073a1f"/>
+                  <stop offset="50%" stop-color="#032613"/>
+                  <stop offset="100%" stop-color="#011409"/>
+                </linearGradient>
+                <linearGradient id="eaxNavyArrowFoot" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#092532"/>
+                  <stop offset="50%" stop-color="#0f3c4c"/>
+                  <stop offset="100%" stop-color="#1b5a75"/>
+                </linearGradient>
+                <filter id="goldShadowFoot" x="-10%" y="-10%" width="130%" height="130%">
+                  <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000" flood-opacity="0.35"/>
+                </filter>
+              </defs>
+              <g filter="url(#goldShadowFoot)">
+                <!-- Letter E -->
+                <path d="M 70 120 H 260 V 170 H 135 V 230 H 235 V 275 H 135 V 345 H 265 V 395 H 70 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="10" stroke-linejoin="round"/>
+                <path d="M 85 135 H 245 V 158 H 150 V 242 H 225 V 263 H 150 V 358 H 250 V 380 H 85 Z" fill="url(#eaxGreenDeepFoot)"/>
 
-              <path d="M228 15L268 70L228 125H263L286 92L308 125H343L303 70L338 22H306L286 50L266 22L243 15H228Z" fill="#143d28"/>
-              <path d="M248 125L303 48L288 48L323 15L353 50L338 50L283 125H248Z" fill="#a66a1a" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
-              
-              <text x="190" y="162" text-anchor="middle" font-family="'Cairo', sans-serif" font-weight="900" font-size="26" fill="#143d28" letter-spacing="4">AGRO EXPORT</text>
+                <!-- Letter A -->
+                <path d="M 335 120 L 415 120 L 485 395 H 410 L 392 320 H 300 L 285 350 C 265 375 235 390 205 395 L 335 120 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="10" stroke-linejoin="round"/>
+                <path d="M 345 140 L 402 140 L 465 375 H 420 L 400 305 H 315 L 345 140 Z" fill="url(#eaxGreenDeepFoot)"/>
+                <path d="M 345 285 C 330 250 340 200 375 190 C 370 230 350 270 345 285 Z" fill="#ffffff" opacity="0.95"/>
+
+                <!-- Under Waves -->
+                <path d="M 220 395 C 290 380 345 330 400 310 C 350 345 300 385 240 405 Z" fill="url(#eaxGoldLightFoot)"/>
+                <path d="M 260 400 C 330 375 390 325 450 295 C 410 335 340 385 280 412 Z" fill="#0c4a28"/>
+                <path d="M 300 405 C 370 370 430 310 490 275 C 440 325 370 385 320 418 Z" fill="url(#eaxGoldLightFoot)"/>
+
+                <!-- Letter X -->
+                <path d="M 445 395 L 590 170 L 565 170 L 610 95 L 685 160 L 660 160 L 515 395 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="9" stroke-linejoin="round"/>
+                <path d="M 465 380 L 598 178 L 580 178 L 612 125 L 658 168 L 642 168 L 505 380 Z" fill="url(#eaxNavyArrowFoot)"/>
+                <path d="M 465 120 H 535 L 635 395 H 565 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="8" stroke-linejoin="round"/>
+                <path d="M 478 135 H 522 L 620 380 H 578 Z" fill="url(#eaxGreenDeepFoot)"/>
+
+                <!-- Circular Farm Seal -->
+                <ellipse cx="730" cy="245" rx="105" ry="105" fill="none" stroke="url(#eaxGoldLightFoot)" stroke-width="14"/>
+                <ellipse cx="730" cy="245" rx="90" ry="90" fill="none" stroke="url(#eaxGoldRimFoot)" stroke-width="6"/>
+                
+                <g transform="translate(640, 155)">
+                  <circle cx="90" cy="90" r="85" fill="#fdfae8"/>
+                  <circle cx="90" cy="90" r="30" fill="url(#eaxGoldLightFoot)"/>
+                  <path d="M 90 40 L 90 20 M 60 50 L 45 35 M 120 50 L 135 35 M 40 75 L 20 70 M 140 75 L 160 70" stroke="url(#eaxGoldLightFoot)" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M 15 120 C 50 100 130 100 165 120 L 175 165 C 120 130 60 130 5 165 Z" fill="#0a3d21"/>
+                  <path d="M 25 135 C 60 115 120 115 155 135" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
+                  <path d="M 40 148 C 70 130 110 130 140 148" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
+                  <path d="M 60 160 C 80 145 100 145 120 160" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
+                </g>
+
+                <!-- Top Plant Leaves -->
+                <path d="M 750 170 C 750 100 810 70 850 65 C 845 110 810 160 750 170 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="5"/>
+                <path d="M 755 165 Q 800 115 845 70" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
+                <path d="M 750 170 C 730 110 680 80 645 80 C 655 125 700 165 750 170 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="5"/>
+                <path d="M 748 165 Q 695 125 650 85" stroke="url(#eaxGoldLightFoot)" stroke-width="3" fill="none"/>
+                <path d="M 750 200 C 730 160 725 125 750 110 C 770 125 770 160 750 200 Z" fill="#1b5a2b" stroke="url(#eaxGoldLightFoot)" stroke-width="4"/>
+
+                <!-- Ribbons -->
+                <path d="M 540 375 C 640 330 750 335 840 375 C 800 405 700 420 540 375 Z" fill="url(#eaxGreenDeepFoot)" stroke="url(#eaxGoldLightFoot)" stroke-width="4"/>
+                <path d="M 580 405 C 670 365 780 370 870 415 C 830 440 730 450 580 405 Z" fill="url(#eaxGoldLightFoot)" stroke="url(#eaxGoldRimFoot)" stroke-width="3"/>
+
+                <!-- Text & Dividers -->
+                <path d="M 40 448 H 190" stroke="url(#eaxGoldLightFoot)" stroke-width="5" stroke-linecap="round"/>
+                <path d="M 730 448 H 880" stroke="url(#eaxGoldLightFoot)" stroke-width="5" stroke-linecap="round"/>
+                <text x="460" y="465" text-anchor="middle" font-family="'Inter', 'Arial Black', sans-serif" font-weight="900" font-size="52" fill="url(#eaxGoldLightFoot)" letter-spacing="14">AGRO EXPORT</text>
+              </g>
             </svg>
           </a>
           <p data-i18n="footer_about" class="text-xs text-slate-600 leading-relaxed max-w-sm">
@@ -1066,7 +1205,7 @@
       {
         id: 35, group: 'winter', category: 'vegetables',
         name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
       },
