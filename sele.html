@@ -28,7 +28,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: #242926;
+      background: #1f2421;
       font-family: 'Montserrat', sans-serif;
       color: var(--text-dark);
       -webkit-font-smoothing: antialiased;
@@ -37,27 +37,36 @@
       font-family: 'Cairo', sans-serif;
     }
 
-    /* Floating Screen Controls */
+    /* Smart Auto-Hide Floating Control Panel */
     .control-panel {
       position: fixed;
-      top: 12px;
-      right: 15px;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 10000;
       display: flex;
       gap: 8px;
       align-items: center;
-      background: rgba(10, 38, 23, 0.96);
-      backdrop-filter: blur(12px);
+      background: rgba(10, 38, 23, 0.95);
+      backdrop-filter: blur(14px);
       padding: 6px 14px;
       border-radius: 40px;
       border: 1.5px solid var(--gold-border);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      max-width: 95vw;
+      width: max-content;
+    }
+    .control-panel.nav-hidden {
+      transform: translate(-50%, -90px);
+      opacity: 0;
+      pointer-events: none;
     }
     .lang-btn {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(255,255,255,0.25);
       color: #fff;
-      padding: 5px 11px;
+      padding: 5px 12px;
       border-radius: 20px;
       font-weight: 800;
       font-size: 11px;
@@ -73,20 +82,21 @@
       background: #fff;
       color: var(--primary);
       border: none;
-      padding: 6px 15px;
+      padding: 6px 16px;
       border-radius: 20px;
       font-weight: 900;
       font-size: 11.5px;
       cursor: pointer;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .print-btn:hover {
       background: var(--gold-light);
       transform: translateY(-1px);
     }
 
-    /* Desktop View (A4 Landscape simulation) */
+    /* Desktop View (A4 Landscape Layout) */
     .page {
       width: 297mm;
       height: 210mm;
@@ -98,7 +108,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 14px 45px rgba(0,0,0,0.5);
+      box-shadow: 0 16px 45px rgba(0,0,0,0.5);
     }
 
     .page-header {
@@ -107,7 +117,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2.5px solid var(--border);
+      border-bottom: 2px solid var(--border);
       background: #ffffff;
       flex-shrink: 0;
     }
@@ -146,7 +156,7 @@
       flex-shrink: 0;
     }
 
-    /* Cover Page */
+    /* Page 1: Cover */
     .cover-bg {
       background: radial-gradient(circle at 85% 20%, #174b2f 0%, #081d11 80%);
       color: #fff;
@@ -370,7 +380,6 @@
       flex-direction: column;
       justify-content: stretch;
       margin-top: 6px;
-      overflow-x: auto;
     }
     .catalog-table {
       width: 100%;
@@ -434,6 +443,11 @@
       color: #fff;
     }
 
+    /* Mobile-Only Cards Container */
+    .mobile-cards-grid {
+      display: none;
+    }
+
     /* Page 7: Back Cover */
     .page-back {
       background: #f4f7f2;
@@ -476,44 +490,35 @@
     }
 
     /* ========================================================
-       MOBILE & TABLET RESPONSIVE STYLES (SCREEN ONLY)
+       ULTRA-POLISHED MOBILE VIEW
        ======================================================== */
     @media screen and (max-width: 1024px) {
       body {
-        background: #f4f7f2;
+        background: #0d1a12;
         padding-top: 65px;
       }
-      .control-panel {
-        top: 0;
-        left: 0;
-        right: 0;
-        border-radius: 0;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        justify-content: center;
-        width: 100%;
-        padding: 10px 8px;
-      }
       .page {
-        width: 95%;
+        width: 94%;
         height: auto !important;
         max-height: none !important;
-        margin: 15px auto;
-        border-radius: 16px;
-        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        margin: 16px auto;
+        border-radius: 18px;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        border: 1px solid rgba(255,255,255,0.08);
       }
       .cover-bg {
         height: auto !important;
         padding: 24px 18px;
+        border-radius: 18px;
       }
       .cover-hero-wrap {
         flex-direction: column-reverse;
-        gap: 20px;
+        gap: 18px;
       }
       .cover-logo-side {
         width: 100%;
-        height: 120px;
+        height: 130px;
+        border-radius: 16px;
       }
       .cover-title {
         font-size: 26px;
@@ -524,20 +529,17 @@
       }
       .page-header {
         height: auto;
-        padding: 14px 16px;
+        padding: 16px 18px;
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
       }
       .page-content {
-        padding: 14px 16px;
+        padding: 16px 18px;
       }
       .pillar-row {
         grid-template-columns: 1fr;
         gap: 12px;
-      }
-      .pillar-box {
-        min-height: auto;
       }
       .certs-row {
         grid-template-columns: 1fr;
@@ -547,19 +549,54 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
       }
+      
+      /* Hide standard tables and switch to Premium Mobile Cards */
       .catalog-table-wrap {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        display: none !important;
       }
-      .catalog-table {
-        min-width: 650px;
+      .mobile-cards-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        margin-top: 10px;
       }
+      .m-crop-card {
+        background: #fdfdfd;
+        border: 1.5px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      }
+      .m-crop-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #e2ece0;
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+      }
+      .m-crop-details {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        font-size: 11px;
+        margin-bottom: 10px;
+      }
+      .m-detail-item b {
+        color: var(--primary);
+        display: block;
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
       .page-back {
         height: auto !important;
         padding: 24px 16px;
       }
       .back-box {
-        padding: 20px 16px;
+        padding: 24px 18px;
+        border-radius: 18px;
       }
       .contact-grid {
         grid-template-columns: 1fr;
@@ -567,14 +604,14 @@
       }
       .page-footer {
         height: auto;
-        padding: 12px 16px;
+        padding: 14px 18px;
         flex-direction: column;
         gap: 6px;
       }
     }
 
     /* ========================================================
-       STRICT PRINT & PDF OUTPUT (A4 LANDSCAPE EXACT)
+       STRICT PRINT & PDF MEDIA QUERY (A4 LANDSCAPE EXACT)
        ======================================================== */
     @media print {
       @page {
@@ -603,14 +640,15 @@
       .certs-row { grid-template-columns: repeat(3, 1fr) !important; }
       .logistics-bar { grid-template-columns: repeat(4, 1fr) !important; }
       .contact-grid { grid-template-columns: repeat(3, 1fr) !important; }
-      .catalog-table { min-width: 100% !important; }
+      .catalog-table-wrap { display: flex !important; }
+      .mobile-cards-grid { display: none !important; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Language Switcher Bar -->
-  <div class="control-panel">
+  <!-- Smart Auto-Hide Floating Control Panel -->
+  <div class="control-panel" id="smartNavbar">
     <button class="lang-btn active" onclick="setLang('en')">English</button>
     <button class="lang-btn" onclick="setLang('ar')">العربية</button>
     <button class="lang-btn" onclick="setLang('ru')">Русский</button>
@@ -810,6 +848,7 @@
         </div>
       </div>
 
+      <!-- Desktop Table View -->
       <div class="catalog-table-wrap">
         <table class="catalog-table">
           <thead>
@@ -826,6 +865,9 @@
           <tbody id="tbl-body-1"></tbody>
         </table>
       </div>
+
+      <!-- Mobile Cards View -->
+      <div class="mobile-cards-grid" id="m-cards-1"></div>
     </div>
     <div class="page-footer">
       <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
@@ -844,6 +886,7 @@
         <h3 style="margin: 0; font-size: 16px; font-weight: 900; color: var(--primary);" data-k="cat_t2">Summer Harvest & Protected Cultivation</h3>
       </div>
 
+      <!-- Desktop Table View -->
       <div class="catalog-table-wrap">
         <table class="catalog-table">
           <thead>
@@ -860,6 +903,9 @@
           <tbody id="tbl-body-2"></tbody>
         </table>
       </div>
+
+      <!-- Mobile Cards View -->
+      <div class="mobile-cards-grid" id="m-cards-2"></div>
     </div>
     <div class="page-footer">
       <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
@@ -867,7 +913,7 @@
     </div>
   </div>
 
-  <!-- PAGE 6: CATALOG PART 3 (26 TO 38 - ALL VISIBLE) -->
+  <!-- PAGE 6: CATALOG PART 3 (26 TO 38) -->
   <div class="page">
     <div class="page-header">
       <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
@@ -878,6 +924,7 @@
         <h3 style="margin: 0; font-size: 16px; font-weight: 900; color: var(--primary);" data-k="cat_t3">Winter Harvest, Brassicas & Culinary Herbs</h3>
       </div>
 
+      <!-- Desktop Table View -->
       <div class="catalog-table-wrap">
         <table class="catalog-table">
           <thead>
@@ -894,6 +941,9 @@
           <tbody id="tbl-body-3"></tbody>
         </table>
       </div>
+
+      <!-- Mobile Cards View -->
+      <div class="mobile-cards-grid" id="m-cards-3"></div>
     </div>
     <div class="page-footer">
       <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
@@ -1500,11 +1550,15 @@
       const b1 = document.getElementById('tbl-body-1');
       const b2 = document.getElementById('tbl-body-2');
       const b3 = document.getElementById('tbl-body-3');
-      if (!b1 || !b2 || !b3) return;
 
-      b1.innerHTML = '';
-      b2.innerHTML = '';
-      b3.innerHTML = '';
+      const m1 = document.getElementById('m-cards-1');
+      const m2 = document.getElementById('m-cards-2');
+      const m3 = document.getElementById('m-cards-3');
+
+      if (!b1 || !b2 || !b3 || !m1 || !m2 || !m3) return;
+
+      b1.innerHTML = ''; b2.innerHTML = ''; b3.innerHTML = '';
+      m1.innerHTML = ''; m2.innerHTML = ''; m3.innerHTML = '';
 
       CROPS_DATA.forEach(crop => {
         const cInfo = crop[lang] || crop.en;
@@ -1528,13 +1582,14 @@
         const shipText = crop.ship[lang] || crop.ship.en;
         const calText = crop.cal[lang] || crop.cal.en;
 
+        // Desktop Table Row
         const tr = document.createElement('tr');
         tr.innerHTML = `
           <td><strong>${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
           <td>
             <span class="crop-name">${cInfo.name}</span>
             <span class="badge-grp ${bClass}">${bText}</span><br>
-            <span style="color:#555; font-size:9px; font-weight:700;">${cInfo.sub}</span>
+            <span style="color:#555; font-size:9.5px; font-weight:700;">${cInfo.sub}</span>
           </td>
           <td>${calText}</td>
           <td>${packText}</td>
@@ -1543,9 +1598,52 @@
           <td><div class="season-track">${dots}</div></td>
         `;
 
-        if (crop.id <= 12) b1.appendChild(tr);
-        else if (crop.id <= 25) b2.appendChild(tr);
-        else b3.appendChild(tr);
+        // Mobile Card Element
+        const card = document.createElement('div');
+        card.className = 'm-crop-card';
+        card.innerHTML = `
+          <div class="m-crop-top">
+            <div>
+              <span style="font-weight:900; color:var(--gold); font-size:12px;">#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
+              <span style="font-weight:900; font-size:14px; color:var(--primary); margin:0 4px;">${cInfo.name}</span>
+              <span class="badge-grp ${bClass}">${bText}</span>
+              <div style="color:#666; font-size:11px; font-weight:700; margin-top:2px;">${cInfo.sub}</div>
+            </div>
+          </div>
+          <div class="m-crop-details">
+            <div class="m-detail-item">
+              <b>${t.th_cal}</b>
+              <span>${calText}</span>
+            </div>
+            <div class="m-detail-item">
+              <b>${t.th_pack}</b>
+              <span>${packText}</span>
+            </div>
+            <div class="m-detail-item">
+              <b>${t.th_temp}</b>
+              <span style="color:var(--primary); font-weight:900;">${crop.temp}</span>
+            </div>
+            <div class="m-detail-item">
+              <b>${t.th_ship}</b>
+              <span>${shipText}</span>
+            </div>
+          </div>
+          <div style="border-top:1px dashed #d5e2d3; padding-top:8px;">
+            <span style="font-size:10px; font-weight:800; color:#666; display:block; margin-bottom:4px;">${t.th_seas}:</span>
+            <div class="season-track" style="justify-content:space-between;">${dots}</div>
+          </div>
+        `;
+
+        if (crop.id <= 12) {
+          b1.appendChild(tr);
+          m1.appendChild(card);
+        } else if (crop.id <= 25) {
+          b2.appendChild(tr);
+          m2.appendChild(card);
+        } else {
+          b3.appendChild(tr);
+          m3.appendChild(card);
+        }
       });
     }
 
@@ -1567,6 +1665,27 @@
 
       renderTables(lang);
     }
+
+    // Smart Scroll Direction Auto-Hide Navbar
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('smartNavbar');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > 80) {
+        if (scrollTop > lastScrollTop) {
+          // Scrolling DOWN -> Hide
+          navbar.classList.add('nav-hidden');
+        } else {
+          // Scrolling UP -> Show
+          navbar.classList.remove('nav-hidden');
+        }
+      } else {
+        // At Top -> Always Visible
+        navbar.classList.remove('nav-hidden');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
 
     window.addEventListener('DOMContentLoaded', () => {
       setLang('en');
