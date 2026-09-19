@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX AGRO EXPORT — Official Export Catalog & Trade Guide 2026</title>
   
-  <!-- Modern Fonts -->
+  <!-- Modern Typography: Cairo, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   
   <!-- html2pdf Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -26,30 +26,29 @@
     }
 
     :root {
-      --primary-deep: #020e07;
-      --primary-card: #061c10;
-      --primary-accent: #0f462a;
-      --emerald-glow: #10b981;
+      --primary-deep: #010a05;
+      --primary-card: #04160c;
+      --primary-accent: #0b3d23;
+      --emerald-accent: #10b981;
       
-      --gold-light: #fef7ec;
-      --gold: #d4a359;
-      --gold-deep: #a47326;
-      --gold-border: rgba(212, 163, 89, 0.3);
-      --gold-gradient: linear-gradient(135deg, #faebd7 0%, #d4a359 50%, #9a661f 100%);
+      --champagne-light: #fdfaf4;
+      --champagne-gold: #cfa15a;
+      --champagne-deep: #9d712e;
+      --gold-border: rgba(207, 161, 90, 0.28);
+      --gold-gradient: linear-gradient(135deg, #fef6eb 0%, #d8aa61 50%, #8f6221 100%);
       
-      --bg-dark: #010804;
+      --bg-dark: #010603;
       --bg-page: #f8faf9;
       --surface-card: #ffffff;
-      --border-subtle: #e2ebe5;
-      --border-divider: #eef4f0;
-      --text-main: #091a11;
-      --text-muted: #5c7263;
+      --border-subtle: #e3ece6;
+      --border-divider: #eef3f0;
+      --text-main: #06160d;
+      --text-muted: #526759;
       
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --shadow-bento: 0 10px 30px -5px rgba(2, 22, 12, 0.05), 0 2px 6px rgba(0,0,0,0.02);
-      --shadow-card: 0 8px 24px -4px rgba(2, 22, 12, 0.06);
+      --shadow-bento: 0 10px 30px -5px rgba(1, 10, 5, 0.04), 0 2px 6px rgba(0,0,0,0.02);
     }
 
     body {
@@ -66,7 +65,12 @@
       font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Floating Ultra-Modern Pill Navbar */
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Floating Capsule Navbar */
     .control-panel {
       position: fixed;
       top: 14px;
@@ -76,13 +80,13 @@
       display: flex;
       gap: 6px;
       align-items: center;
-      background: rgba(3, 16, 9, 0.88);
+      background: rgba(1, 10, 5, 0.9);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.6);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.65);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       width: max-content;
       max-width: calc(100vw - 24px);
@@ -104,13 +108,13 @@
       transition: all 0.25s ease;
     }
     .lang-btn.active, .lang-btn:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: #03130a;
-      box-shadow: 0 4px 14px rgba(212, 163, 89, 0.4);
+      background: var(--champagne-gold);
+      border-color: var(--champagne-gold);
+      color: #010a05;
+      box-shadow: 0 4px 14px rgba(207, 161, 90, 0.4);
     }
     .print-btn {
-      background: linear-gradient(135deg, #ffffff 0%, #f3eee3 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #f4ede0 100%);
       color: var(--primary-deep);
       border: none;
       padding: 7px 18px;
@@ -155,27 +159,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1.5px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
       background: #ffffff;
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary-deep);
     }
-    .header-brand span { color: var(--gold-deep); }
+    .header-brand span { color: var(--champagne-deep); }
     .header-tag {
-      font-size: 8px;
+      font-size: 8.5px;
       font-weight: 800;
       letter-spacing: 1.5px;
-      color: var(--gold-deep);
+      color: var(--champagne-deep);
       text-transform: uppercase;
-      background: var(--gold-light);
-      padding: 3px 9px;
+      background: var(--champagne-light);
+      padding: 3.5px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(212, 163, 89, 0.35);
+      border: 1px solid var(--gold-border);
     }
     
     .page-content {
@@ -195,7 +199,7 @@
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid var(--border-subtle);
-      font-size: 8px;
+      font-size: 8.5px;
       font-weight: 700;
       color: var(--text-muted);
       background: #ffffff;
@@ -204,7 +208,7 @@
 
     /* Cover Page - Luxury Editorial Styling */
     .cover-bg {
-      background: radial-gradient(circle at 85% 15%, #134e2c 0%, #051a0f 65%, #010904 100%);
+      background: radial-gradient(circle at 85% 15%, #104326 0%, #04170d 65%, #010603 100%);
       color: #ffffff;
       padding: 10mm 16mm;
       display: flex;
@@ -226,10 +230,10 @@
       gap: 6px;
       padding: 4px 12px;
       border-radius: 999px;
-      background: rgba(212, 163, 89, 0.12);
-      border: 1px solid var(--gold);
+      background: rgba(207, 161, 90, 0.12);
+      border: 1px solid var(--champagne-gold);
       color: #faebd7;
-      font-size: 9px;
+      font-size: 9.5px;
       font-weight: 800;
       letter-spacing: 1.2px;
     }
@@ -251,7 +255,7 @@
       align-items: center;
       justify-content: center;
       background: #ffffff;
-      border: 2px solid var(--gold);
+      border: 2px solid var(--champagne-gold);
       border-radius: 20px;
       padding: 10px 16px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
@@ -281,7 +285,7 @@
     }
 
     .cover-title {
-      font-size: 24px;
+      font-size: 25px;
       font-weight: 900;
       line-height: 1.2;
       margin: 4px 0 8px;
@@ -293,12 +297,12 @@
       -webkit-text-fill-color: transparent;
     }
     .cover-desc {
-      font-size: 11px;
+      font-size: 11.8px;
       font-weight: 500;
       color: #d1e4d7;
-      line-height: 1.55;
+      line-height: 1.6;
       margin: 0;
-      max-width: 530px;
+      max-width: 540px;
     }
     .cover-metrics {
       display: grid;
@@ -316,8 +320,8 @@
       padding: 9px 12px;
       backdrop-filter: blur(10px);
     }
-    .metric-card h3 { margin: 0; font-size: 15px; font-weight: 900; color: #faebd7; }
-    .metric-card p { margin: 2px 0 0; font-size: 8px; font-weight: 600; color: #bcd0c1; line-height: 1.3; }
+    .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; font-family: 'JetBrains Mono', monospace; }
+    .metric-card p { margin: 2px 0 0; font-size: 8.8px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
 
     /* Bento Value Pillars */
     .pillar-row {
@@ -330,7 +334,7 @@
     }
     .pillar-box {
       background: var(--surface-card);
-      border: 1.5px solid var(--border-subtle);
+      border: 1px solid var(--border-subtle);
       border-radius: 16px;
       padding: 15px 16px;
       display: flex;
@@ -339,7 +343,6 @@
       box-shadow: var(--shadow-bento);
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
     }
     .pillar-header-row {
       display: flex;
@@ -352,7 +355,7 @@
       height: 42px;
       border-radius: 12px;
       background: linear-gradient(135deg, #f0f7f3 0%, #e3ede6 100%);
-      border: 1px solid rgba(15, 70, 42, 0.12);
+      border: 1px solid rgba(11, 61, 35, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -360,31 +363,31 @@
     }
     .pillar-icon-box svg { width: 22px; height: 22px; }
     .pillar-box .num { 
-      font-size: 12px; 
+      font-size: 13px; 
       font-weight: 900; 
-      color: var(--gold-deep); 
-      background: var(--gold-light); 
-      padding: 3px 9px;
+      color: var(--champagne-deep); 
+      background: var(--champagne-light); 
+      padding: 3px 10px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
-      letter-spacing: 0.5px;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .pillar-box h4 { margin: 0 0 5px; font-size: 13px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
-    .pillar-box p { margin: 0; font-size: 9.5px; font-weight: 500; color: #44594a; line-height: 1.5; }
+    .pillar-box h4 { margin: 0 0 5px; font-size: 14px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
+    .pillar-box p { margin: 0; font-size: 10.4px; font-weight: 500; color: #44594a; line-height: 1.55; }
     .pillar-tag-bottom {
-      font-size: 8.5px;
+      font-size: 9px;
       font-weight: 800;
       color: var(--primary-accent);
       margin-top: 8px;
       background: #f4f9f5;
       border: 1px solid rgba(22, 101, 52, 0.15);
       border-radius: 6px;
-      padding: 4px 9px;
+      padding: 4px 10px;
       display: inline-block;
       width: fit-content;
     }
 
-    /* Page 3 Certs & Logistics Bento Split */
+    /* Page 3 Certs & Logistics Split */
     .p3-split-layout {
       display: grid;
       grid-template-columns: 1.25fr 1fr;
@@ -399,9 +402,9 @@
     }
     .cert-pill-card {
       background: #ffffff;
-      border: 1.5px solid var(--border-subtle);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-sm);
-      padding: 8px 12px;
+      padding: 9px 12px;
       box-shadow: var(--shadow-bento);
       display: flex;
       flex-direction: column;
@@ -409,22 +412,23 @@
     }
     .cert-pill-card .badge {
       display: inline-block;
-      font-size: 7px;
+      font-size: 7.5px;
       font-weight: 900;
-      background: var(--gold-light);
-      color: var(--gold-deep);
+      background: var(--champagne-light);
+      color: var(--champagne-deep);
       padding: 2px 6px;
       border-radius: 4px;
-      border: 1px solid rgba(212, 163, 89, 0.25);
+      border: 1px solid rgba(207, 161, 90, 0.25);
       margin-bottom: 3px;
       width: fit-content;
+      font-family: 'JetBrains Mono', monospace;
     }
-    .cert-pill-card h4 { margin: 0 0 2px; font-size: 11px; font-weight: 800; color: var(--primary-deep); }
-    .cert-pill-card p { margin: 0; font-size: 8.3px; font-weight: 500; color: var(--text-muted); line-height: 1.35; }
+    .cert-pill-card h4 { margin: 0 0 2px; font-size: 11.8px; font-weight: 800; color: var(--primary-deep); }
+    .cert-pill-card p { margin: 0; font-size: 9px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
 
     .transit-box {
       background: #ffffff;
-      border: 1.5px solid var(--border-subtle);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       padding: 12px 14px;
       display: flex;
@@ -432,20 +436,20 @@
       justify-content: space-between;
       box-shadow: var(--shadow-bento);
     }
-    .transit-table { width: 100%; border-collapse: collapse; font-size: 9px; }
+    .transit-table { width: 100%; border-collapse: collapse; font-size: 9.8px; }
     .transit-table th {
       background: #f1f6f2;
       color: var(--primary-deep);
       text-align: left;
-      padding: 5px 8px;
+      padding: 6px 8px;
       font-weight: 800;
-      border-bottom: 1.5px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
     }
     html[dir="rtl"] .transit-table th { text-align: right; }
-    .transit-table td { padding: 4.8px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
-    .transit-table .highlight-days { font-weight: 900; color: var(--gold-deep); }
+    .transit-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
+    .transit-table .highlight-days { font-weight: 800; color: var(--champagne-deep); font-family: 'JetBrains Mono', monospace; font-size: 10.2px; }
 
-    /* Ultra-Clean Modern Catalog Tables */
+    /* Ultra-Clean Minimalist Bento Capsule Tables */
     .catalog-table-wrap {
       width: 100%;
       flex: 1;
@@ -453,51 +457,82 @@
       flex-direction: column;
       justify-content: stretch;
       margin-top: 3px;
-      background: #ffffff;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border-subtle);
+      background: transparent;
       overflow: hidden;
     }
-    .catalog-table { width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; }
+    .catalog-table {
+      width: 100%;
+      height: 100%;
+      border-collapse: separate;
+      border-spacing: 0 3px;
+      table-layout: fixed;
+    }
     .catalog-table th {
-      background: #f1f6f2;
+      background: #eaf1ed;
       color: var(--primary-deep);
       font-weight: 800;
-      font-size: 8.5px;
+      font-size: 8.8px;
       text-align: left;
-      padding: 5px 8px;
-      border-bottom: 2px solid var(--border-subtle);
-      letter-spacing: 0.3px;
+      padding: 4px 8px;
+      letter-spacing: 0.4px;
       text-transform: uppercase;
+      border: none;
     }
+    .catalog-table th:first-child { border-radius: 6px 0 0 6px; }
+    .catalog-table th:last-child { border-radius: 0 6px 6px 0; }
     html[dir="rtl"] .catalog-table th { text-align: right; }
+    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 6px 6px 0; }
+    html[dir="rtl"] .catalog-table th:last-child { border-radius: 6px 0 0 6px; }
+
     .catalog-table td {
-      padding: 3.6px 8px;
-      border-bottom: 1px solid var(--border-divider);
+      padding: 3.5px 8px;
       vertical-align: middle;
       font-weight: 600;
       color: var(--text-main);
-      font-size: 9.2px;
+      font-size: 9.8px;
+      background: #ffffff;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
     }
-    .catalog-table tr:nth-child(even) td { background: #fafcfb; }
+    .catalog-table td:first-child {
+      border-left: 1px solid var(--border-subtle);
+      border-radius: 8px 0 0 8px;
+    }
+    .catalog-table td:last-child {
+      border-right: 1px solid var(--border-subtle);
+      border-radius: 0 8px 8px 0;
+    }
+    html[dir="rtl"] .catalog-table td:first-child {
+      border-left: none;
+      border-right: 1px solid var(--border-subtle);
+      border-radius: 0 8px 8px 0;
+    }
+    html[dir="rtl"] .catalog-table td:last-child {
+      border-right: none;
+      border-left: 1px solid var(--border-subtle);
+      border-radius: 8px 0 0 8px;
+    }
+
+    /* Clean Crop Details Typography */
+    .crop-name { font-size: 11.2px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
+    .crop-sub { color: var(--text-muted); font-size: 8.8px; font-weight: 500; display: block; margin-top: 1px; }
     
-    .crop-name { font-size: 10.5px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
-    .crop-sub { color: var(--text-muted); font-size: 8px; font-weight: 500; display: block; margin-top: 1px; }
     .crop-hs {
       display: inline-block;
-      font-size: 6.8px;
+      font-size: 7.6px;
       font-weight: 800;
-      color: var(--gold-deep);
-      background: #fcf6eb;
-      padding: 1px 4px;
+      color: var(--champagne-deep);
+      background: #fdf6ec;
+      padding: 0.5px 4px;
       border-radius: 3px;
       margin-inline-start: 4px;
-      border: 0.5px solid rgba(176, 125, 48, 0.25);
+      border: 0.5px solid rgba(157, 113, 46, 0.25);
+      font-family: 'JetBrains Mono', monospace;
     }
     
     .badge-grp {
       display: inline-block;
-      font-size: 6.8px;
+      font-size: 7.2px;
       font-weight: 800;
       padding: 1px 4px;
       border-radius: 4px;
@@ -507,31 +542,32 @@
     .bg-s { background: #effcf3; color: #166534; border: 1px solid rgba(22, 101, 52, 0.2); }
     .bg-w { background: #f0f7ff; color: #0369a1; border: 1px solid rgba(3, 105, 161, 0.2); }
 
-    /* Modern Harvest Glow Timeline */
+    /* Modern Harvest Glowing Dots */
     .season-track {
       display: flex;
       gap: 1.5px;
       width: 100%;
-      max-width: 160px;
+      max-width: 155px;
       direction: ltr !important;
     }
     .s-dot {
       flex: 1;
-      height: 12px;
-      font-size: 6.2px;
+      height: 12.5px;
+      font-size: 6.8px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 3px;
-      background: #e9f0eb;
-      color: #90a395;
+      border-radius: 2.5px;
+      background: #e9f0ec;
+      color: #93a698;
+      font-family: 'JetBrains Mono', monospace;
     }
     .s-dot.active {
-      background: linear-gradient(180deg, #185e37 0%, #0d3b21 100%);
+      background: linear-gradient(180deg, #125e36 0%, #08331d 100%);
       color: #faebd7;
       font-weight: 900;
-      box-shadow: 0 1px 3px rgba(24, 94, 55, 0.35);
+      box-shadow: 0 1px 3px rgba(18, 94, 54, 0.35);
     }
 
     /* Executive Back Cover */
@@ -545,7 +581,7 @@
     }
     .back-box {
       background: #ffffff;
-      border: 1.5px solid var(--border-subtle);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: 18px 22px;
       max-width: 950px;
@@ -560,28 +596,28 @@
       gap: 16px;
       align-items: center;
       margin-top: 10px;
-      border-top: 1.5px solid var(--border-subtle);
+      border-top: 1px solid var(--border-subtle);
       padding-top: 10px;
     }
     .contact-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .c-col h6 {
       margin: 0 0 2px;
-      font-size: 8.5px;
+      font-size: 9px;
       font-weight: 900;
-      color: var(--gold-deep);
+      color: var(--champagne-deep);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .c-col a, .c-col p {
       margin: 0;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
       color: var(--primary-deep);
       text-decoration: none;
       display: block;
     }
-    .c-col a:hover { color: var(--gold-deep); }
-    .c-col span { font-size: 8px; font-weight: 600; color: var(--text-muted); }
+    .c-col a:hover { color: var(--champagne-deep); }
+    .c-col span { font-size: 8.8px; font-weight: 600; color: var(--text-muted); }
 
     .qr-side { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
     html[dir="rtl"] .qr-side { justify-content: flex-start; }
@@ -595,12 +631,12 @@
       background: #ffffff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .qr-card p { margin: 2px 0 0; font-size: 8px; font-weight: 800; color: var(--primary-deep); }
+    .qr-card p { margin: 2px 0 0; font-size: 8.5px; font-weight: 800; color: var(--primary-deep); }
 
     /* Mobile Responsive (< 768px) */
     .mobile-cards-grid { display: none; }
     @media screen and (max-width: 767px) {
-      body { padding: 45px 8px 80px; background: #020c06; }
+      body { padding: 45px 8px 80px; background: #010603; }
       
       .control-panel {
         top: auto;
@@ -655,15 +691,15 @@
       }
       .m-crop-details { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 8px 0; }
       .m-detail-item { background: #fbfdfc; padding: 6px 8px; border-radius: 8px; border: 1px solid #edf4ee; }
-      .m-detail-item b { font-size: 8.5px; color: var(--primary-deep); display: block; margin-bottom: 2px; }
-      .m-detail-item span { font-size: 9.5px; font-weight: 700; color: #233528; }
+      .m-detail-item b { font-size: 9px; color: var(--primary-deep); display: block; margin-bottom: 2px; }
+      .m-detail-item span { font-size: 10px; font-weight: 700; color: #233528; }
 
       .page-back { height: auto !important; padding: 16px 12px; }
       .back-box { padding: 16px 14px; border-radius: 16px; }
       .qr-side { justify-content: center; gap: 16px; margin-top: 12px; }
     }
 
-    /* PDF Strict Rendering Engine (Solves Spacing & Blank Page Bugs) */
+    /* PDF Strict Rendering Engine */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -741,7 +777,7 @@
           <span>★</span>
           <span data-k="cover_tag">OFFICIAL EXPORT CATALOG • 2026</span>
         </div>
-        <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--gold);" data-k="cover_top_rt">
+        <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--champagne-gold);" data-k="cover_top_rt">
           EGYPTIAN AGRICULTURAL EXPORTS
         </div>
       </div>
@@ -796,22 +832,22 @@
         <!-- Intro Header & Mission + Guarantee Badge -->
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
-            <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
-            <p style="font-size: 10.8px; font-weight: 500; color: #354a3a; line-height: 1.5; margin: 0;" data-k="p2_lead">
+            <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+            <h2 style="font-size: 19.5px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
+            <p style="font-size: 11.2px; font-weight: 500; color: #354a3a; line-height: 1.55; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
           </div>
 
           <!-- Prominent Quality Guarantee Badge -->
-          <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-bento); text-align: center;">
-            <div style="font-size: 10px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
+          <div style="flex: 0.8; background: #ffffff; border: 1px solid var(--gold-border); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-bento); text-align: center;">
+            <div style="font-size: 10.5px; font-weight: 900; color: var(--champagne-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 12.5px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size: 13px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
-            <p style="font-size: 8.5px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
+            <p style="font-size: 8.8px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
               Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.
             </p>
           </div>
@@ -820,43 +856,43 @@
         <!-- Trust & Scale Metrics Strip -->
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
           
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
-              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
+              <div class="counter-num font-mono" data-target="45" data-suffix="+" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--gold-deep); flex-shrink: 0;">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--champagne-deep); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
-              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
+              <div class="counter-num font-mono" data-target="100" data-suffix="%" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
-              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
+              <div class="counter-num font-mono" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #047857; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
-              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
+              <div class="counter-num font-mono" data-target="24" data-suffix="/7 IoT" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
             </div>
           </div>
 
@@ -882,7 +918,7 @@
           <div class="pillar-box">
             <div>
               <div class="pillar-header-row">
-                <div class="pillar-icon-box" style="background: #fff9ed; color: var(--gold-deep); border-color: rgba(212,163,89,0.25);">
+                <div class="pillar-icon-box" style="background: #fff9ed; color: var(--champagne-deep); border-color: rgba(207,161,90,0.25);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 </div>
                 <div class="num">02</div>
@@ -910,9 +946,9 @@
         </div>
 
         <!-- Quality Commitment Footer Strip -->
-        <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 7px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 7px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
           <span style="font-weight: 700; color: var(--primary-deep);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
-          <span style="font-weight: 800; color: var(--gold-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
+          <span style="font-weight: 800; color: var(--champagne-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
         </div>
 
       </div>
@@ -931,8 +967,8 @@
       </div>
       <div class="page-content">
         <div>
-          <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
-          <h2 style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
+          <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
+          <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
         </div>
 
         <div class="p3-split-layout">
@@ -971,7 +1007,7 @@
 
           <div class="transit-box">
             <div>
-              <div style="font-size: 10px; font-weight: 900; color: var(--primary-deep); margin-bottom: 6px;" data-k="t_mat_title">
+              <div style="font-size: 10.5px; font-weight: 900; color: var(--primary-deep); margin-bottom: 6px;" data-k="t_mat_title">
                 Direct Port Transit Times (From Egypt)
               </div>
               <table class="transit-table">
@@ -985,7 +1021,7 @@
                 <tbody id="transit-rows"></tbody>
               </table>
             </div>
-            <div style="font-size: 8px; color: var(--text-muted); font-weight: 600; margin-top: 6px;" data-k="t_note">
+            <div style="font-size: 8.5px; color: var(--text-muted); font-weight: 600; margin-top: 6px;" data-k="t_note">
               * Departures via Alexandria, Damietta, and Port Said West Terminals.
             </div>
           </div>
@@ -1005,9 +1041,9 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
-          <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1015,12 +1051,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
+                <th style="width: 32px;">#</th>
                 <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1043,9 +1079,9 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
-          <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1053,12 +1089,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
+                <th style="width: 32px;">#</th>
                 <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1081,9 +1117,9 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
-          <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1091,12 +1127,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
+                <th style="width: 32px;">#</th>
                 <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1119,9 +1155,9 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
-          <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1129,12 +1165,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
+                <th style="width: 32px;">#</th>
                 <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1154,47 +1190,47 @@
       <div class="back-box">
         
         <!-- Permanent English Brand Header -->
-        <div style="text-align: center; margin-bottom: 12px; border-bottom: 1.5px solid var(--border-subtle); padding-bottom: 10px;">
+        <div style="text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
           <div style="display: inline-block; direction: ltr !important; unicode-bidi: isolate;">
             <h1 style="margin: 0; font-size: 25px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
               EAX AGRO EXPORT
             </h1>
-            <div style="font-size: 8px; font-weight: 800; letter-spacing: 3px; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;">
+            <div style="font-size: 8.5px; font-weight: 800; letter-spacing: 3px; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;">
               EGYPTIAN PREMIUM AGRICULTURAL EXPORTS
             </div>
           </div>
 
-          <h3 style="font-size: 14.5px; font-weight: 900; color: var(--primary-deep); margin: 5px 0 2px;" data-k="b_title">Global Export & Trade Desk</h3>
-          <p style="font-size: 9.8px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 620px; line-height: 1.45;" data-k="b_sub">
+          <h3 style="font-size: 15px; font-weight: 900; color: var(--primary-deep); margin: 5px 0 2px;" data-k="b_title">Global Export & Trade Desk</h3>
+          <p style="font-size: 10.2px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 620px; line-height: 1.5;" data-k="b_sub">
             Your trusted gateway to premium Egyptian fresh produce. Connecting commercial farms directly to global retail chains and wholesale distribution networks.
           </p>
         </div>
 
         <!-- Corporate Info Grid -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; text-align: start;">
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
             <div style="font-size: 15px; margin-bottom: 2px;">📍</div>
-            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
-            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_hq_d">
+            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
+            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_hq_d">
               Alexandria - Cairo Agricultural Road, Egypt.<br>
               Direct proximity to top agricultural belts & packhouses.
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
             <div style="font-size: 15px; margin-bottom: 2px;">🚢</div>
-            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
-            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_ports_d">
+            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
+            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_ports_d">
               • Alexandria Container Terminal<br>
               • Damietta Port & East Port Said<br>
               • Sokhna Terminal (Red Sea & Asia)
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
             <div style="font-size: 15px; margin-bottom: 2px;">📋</div>
-            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
-            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_legal_d">
+            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
+            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_legal_d">
               • Incoterms 2020: FOB, CFR, CIF<br>
               • Flexible Retail Supermarket Programs<br>
               • EUR.1 Zero-Tariff & Phytosanitary Clearances
@@ -1207,7 +1243,7 @@
           <div class="contact-cols">
             <div class="c-col">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" dir="ltr" style="unicode-bidi: isolate;">
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" dir="ltr" class="font-mono" style="unicode-bidi: isolate;">
                 +20 100 692 0920 ↗
               </a>
               <span data-k="c_p_sub">24/7 International Desk (Click to Chat)</span>
@@ -1227,7 +1263,7 @@
 
             <div class="c-col">
               <h6 data-k="c_hours_t">Business Operations</h6>
-              <p style="font-size: 10.5px; font-weight: 800; color: var(--primary-deep); margin: 0;" data-k="c_hours_d">Mon – Sat: 08:00 – 18:00 (GMT+2)</p>
+              <p style="font-size: 11px; font-weight: 800; color: var(--primary-deep); margin: 0;" data-k="c_hours_d">Mon – Sat: 08:00 – 18:00 (GMT+2)</p>
               <span data-k="c_hours_sub">Harvest & Loading 24/7 Season-round</span>
             </div>
           </div>
@@ -1245,7 +1281,7 @@
         </div>
 
         <!-- Quality Strip -->
-        <div style="border-top: 1.5px solid var(--border-subtle); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8.2px; color: var(--text-muted);">
+        <div style="border-top: 1px solid var(--border-subtle); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted);">
           <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • GRASP • BRCGS Grade A • ISO 22000 • EUR.1 Certified</span>
           <span style="font-weight: 900; color: var(--primary-deep);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
@@ -1254,7 +1290,7 @@
     </div>
   </div>
 
-  <!-- Offscreen Vector Logo Engine for 100% Reliable Render -->
+  <!-- Offscreen Vector Logo Engine -->
   <div id="svg-logo-source" style="position: absolute; left: -9999px; top: -9999px; width: 940px; height: 480px; visibility: hidden;">
     <svg id="raw-logo-svg" viewBox="0 0 940 480" width="940" height="480" xmlns="http://www.w3.org/2000/svg">
       <defs>
@@ -1310,33 +1346,44 @@
   </div>
 
   <script>
-    // 100% Reliable Client-Side Logo Rasterizer
-    function initLogoRaster() {
-      const svgEl = document.getElementById('raw-logo-svg');
-      if (!svgEl) return;
-      const xml = new XMLSerializer().serializeToString(svgEl);
-      const svgBlob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' });
-      const URL = window.URL || window.webkitURL || window;
-      const blobURL = URL.createObjectURL(svgBlob);
-      
-      const tempImg = new Image();
-      tempImg.onload = function() {
-        const canvas = document.createElement('canvas');
-        canvas.width = 940;
-        canvas.height = 480;
-        const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, 940, 480);
-        ctx.drawImage(tempImg, 0, 0, 940, 480);
-        
-        const dataUrl = canvas.toDataURL('image/png', 1.0);
+    // Bulletproof Promise-based Logo Rasterizer (Zero Taint, Full Asynchronous Lock)
+    function rasterizeLogo() {
+      return new Promise((resolve) => {
+        const svgEl = document.getElementById('raw-logo-svg');
         const targetImg = document.getElementById('main-brand-logo');
-        if (targetImg) {
-          targetImg.src = dataUrl;
+        if (!svgEl || !targetImg) return resolve();
+
+        if (targetImg.src && targetImg.src.startsWith('data:image/png')) {
+          return resolve();
         }
-        URL.revokeObjectURL(blobURL);
-      };
-      tempImg.src = blobURL;
+
+        const xml = new XMLSerializer().serializeToString(svgEl);
+        const svgBase64 = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(xml)));
+        
+        const tempImg = new Image();
+        tempImg.crossOrigin = 'anonymous';
+        tempImg.onload = function() {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = 940;
+            canvas.height = 480;
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 940, 480);
+            ctx.drawImage(tempImg, 0, 0, 940, 480);
+            targetImg.src = canvas.toDataURL('image/png', 1.0);
+            resolve();
+          } catch(e) {
+            targetImg.src = svgBase64;
+            resolve();
+          }
+        };
+        tempImg.onerror = function() {
+          targetImg.src = svgBase64;
+          resolve();
+        };
+        tempImg.src = svgBase64;
+      });
     }
 
     // Full 38 Crops Database
@@ -1365,7 +1412,7 @@
         temp:{ en:'+4°C to +8°C', ar:'من +4 إلى +8°م', ru:'от +4°C до +8°C', zh:'+4°C 至 +8°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'10kg / 25kg mesh, bins', ar:'أجولة شبكية 10/25 كجم، باليتات', ru:'Сетки 10кг/25кг, биг-бэги', zh:'10/25公斤网眼袋或大箱' },
-        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45мм+, 55мм+, 65мм+', zh:'45mm+, 55mm+, 65mm+' },
+        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45مم+, 55мм+, 65мм+', zh:'45mm+, 55mm+, 65mm+' },
         en:{ name:"Ware Potatoes", sub:"Spunta, Hermes, Rosetta" },
         ar:{ name:"بطاطس المائدة والتصنيع", sub:"سبونتا، هيرمس، روزيتا" },
         ru:{ name:"Картофель товарный", sub:"Спунта, Гермес" },
@@ -1415,7 +1462,7 @@
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg / 10kg cartons/mesh', ar:'كرتون أو شبك 5 كجم / 10 كجم', ru:'Коробки/сетки 5кг/10кг', zh:'5/10公斤纸箱或网眼袋' },
-        cal:{ en:'40mm, 50mm, 60mm+', ar:'40مم، 50مم، 60مم+', ru:'40مم, 50мм, 60мм+', zh:'40mm, 50mm, 60mm+' },
+        cal:{ en:'40mm, 50mm, 60mm+', ar:'40مم، 50مم، 60مم+', ru:'40مم, 50мм, 60مم+', zh:'40mm, 50mm, 60mm+' },
         en:{ name:"Garlic (Fresh & Dry)", sub:"Pure White & Purple Red" },
         ar:{ name:"الثوم الطازج والجاف", sub:"أبيض بلدي وأحمر" },
         ru:{ name:"Чеснок свежий/сухой", sub:"Белый и фиолетовый" },
@@ -1434,7 +1481,7 @@
       { id:10, hs:'080450', grp:'s', months:[7,8,9,10,11],
         temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
-        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
+        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентиل. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
         ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
@@ -1483,7 +1530,7 @@
       },
       { id:15, hs:'080930', grp:'s', months:[4,5,6,7],
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
-        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быستрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'4kg/5kg tray cartons', ar:'كرتون صواني 4 كجم / 5 كجم', ru:'Короб с ячейками 4/5кг', zh:'4/5公斤托盘纸箱' },
         cal:{ en:'Calibers: A, B (60-75mm)', ar:'عيار: A، B (60-75مم)', ru:'Калибр A, B (60-75мм)', zh:'级别 A, B (60-75mm)' },
         en:{ name:"Fresh Peaches", sub:"Early Swell, Florida Prince" },
@@ -1493,9 +1540,9 @@
       },
       { id:16, hs:'080930', grp:'s', months:[5,6,7],
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
-        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быستрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'4kg carton, 10x500g punnets', ar:'كرتون 4 كجم، عبوات 10×500جم', ru:'Короб 4кг, 10x500г', zh:'4公斤箱装 (10x500克)' },
-        cal:{ en:'55mm to 75mm+', ar:'55مم إلى 75مم+', ru:'55мм - 75мм+', zh:'55mm 至 75mm+' },
+        cal:{ en:'55mm to 75mm+', ar:'55مم إلى 75مم+', ru:'55مم - 75مم+', zh:'55mm 至 75mm+' },
         en:{ name:"Fresh Nectarines", sub:"Yellow & White Flesh" },
         ar:{ name:"النكتارين الفاخر", sub:"أصفر وأبيض" },
         ru:{ name:"Нектарины", sub:"Желтые и белые" },
@@ -1503,9 +1550,9 @@
       },
       { id:17, hs:'080910', grp:'s', months:[5,6],
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
-        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быستрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
-        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
+        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35مم - 50مم', zh:'35mm 至 50mm' },
         en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
         ar:{ name:"المشمش الطازج", sub:"كانينو، حموي" },
         ru:{ name:"Абрикосы", sub:"Канино, Хамави" },
@@ -1528,7 +1575,7 @@
         cal:{ en:'100-200g / pc', ar:'100-200 جم / حبة', ru:'100-200г / шт', zh:'100-200克/个' },
         en:{ name:"Fresh Guava", sub:"White & Pink Baladi" },
         ar:{ name:"الجوافة الطازجة", sub:"أبيض وبمبي بلدي" },
-        ru:{ name:"Гуава свежая", sub:"Белая и розовая" },
+        ru:{ name:"Гуاва свежая", sub:"Белая и розовая" },
         zh:{ name:"新鲜番石榴", sub:"白心与红心芭乐" }
       },
       { id:20, hs:'070993', grp:'s', months:[5,6,7,8,9,10],
@@ -1554,7 +1601,7 @@
       { id:22, hs:'070999', grp:'s', months:[5,6,7,8,9],
         temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
-        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентиل. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
@@ -1694,7 +1741,7 @@
       { id:36, hs:'070970', grp:'w', months:[11,12,1,2,3],
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
-        pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентил. короб со льдом', zh:'3/5公斤加冰透气箱' },
+        pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентиل. короб со льдом', zh:'3/5公斤加冰透气箱' },
         cal:{ en:'Clean washed bunches', ar:'حزم مغسولة ومنظفة', ru:'Мытые пучки', zh:'精选水洗捆装' },
         en:{ name:"Fresh Spinach", sub:"Savoy & Flat Leaf" },
         ar:{ name:"السبانخ الخضراء الطازجة", sub:"أوراق عريضة منظفة" },
@@ -1936,7 +1983,7 @@
         c_hq_t: "Головной офис и упаковочные станции", c_hq_d: "Трасса Александрия - Каир, Египет.<br>Непосредственная близость к полям и логистическим узлам.",
         c_ports_t: "Порты отправления", c_ports_d: "• Контейнерный терминал Александрии<br>• Порт Думьят и Порт-Саид Восток<br>• Порт Сохна (Красное море и Азия)",
         c_legal_t: "Коммерческие условия", c_legal_d: "• Incoterms 2020: FOB, CFR, CIF<br>• Программы регулярных поставок в сети<br>• Сертификаты EUR.1 и фитосанитарный контроль",
-        c_p_t: "Телефон и WhatsApp", c_p_sub: "Круглосуточный отдел ВЭД (нажмите для чата)",
+        c_p_t: "Телефон и WhatsApp", c_p_sub: "Круглосуточный отдеل ВЭД (нажмите для чата)",
         c_e_t: "Корпоративная почта", c_e_sub: "Контракты и долгосрочные квоты",
         c_web_t: "Официальный веб-портал", c_web_sub: "Отслеживание партий и сертификаты",
         c_hours_t: "Режим работы", c_hours_d: "Пн – Сб: 08:00 – 18:00 (GMT+2)", c_hours_sub: "Отгрузка и охлаждение 24/7 весь сезон",
@@ -2091,17 +2138,19 @@
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong style="color:var(--gold-deep); font-size:9.2px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
+          <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:9.5px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
           <td>
-            <span class="crop-name">${cInfo.name}</span>
-            <span class="crop-hs">HS ${crop.hs}</span>
-            <span class="badge-grp ${bClass}">${bText}</span>
-            <span class="crop-sub">${cInfo.sub}</span>
+            <div>
+              <span class="crop-name">${cInfo.name}</span>
+              <span class="crop-hs">HS ${crop.hs}</span>
+              <span class="badge-grp ${bClass}">${bText}</span>
+              <span class="crop-sub">${cInfo.sub}</span>
+            </div>
           </td>
-          <td>${calText}</td>
+          <td class="font-mono" style="font-size:9.2px;">${calText}</td>
           <td>${packText}</td>
-          <td><strong style="color:var(--primary-deep); font-size:8.8px;">${tempText}</strong></td>
-          <td>${shipText}</td>
+          <td><strong class="font-mono" style="color:var(--primary-deep); font-size:9.2px;">${tempText}</strong></td>
+          <td style="font-size:9.2px;">${shipText}</td>
           <td><div class="season-track">${dots}</div></td>
         `;
 
@@ -2109,16 +2158,16 @@
         card.className = 'm-crop-card';
         card.innerHTML = `
           <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:6px; margin-bottom:6px;">
-            <span style="font-weight:900; color:var(--gold-deep); font-size:11px;">#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
-            <span style="font-weight:800; font-size:12px; color:var(--primary-deep); margin:0 3px;">${cInfo.name}</span>
+            <span class="font-mono" style="font-weight:900; color:var(--champagne-deep); font-size:11.5px;">#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
+            <span style="font-weight:800; font-size:12.5px; color:var(--primary-deep); margin:0 3px;">${cInfo.name}</span>
             <span class="crop-hs">HS ${crop.hs}</span>
             <span class="badge-grp ${bClass}">${bText}</span>
-            <div style="color:var(--text-muted); font-size:9.5px; font-weight:600; margin-top:2px;">${cInfo.sub}</div>
+            <div style="color:var(--text-muted); font-size:10px; font-weight:600; margin-top:2px;">${cInfo.sub}</div>
           </div>
           <div class="m-crop-details">
             <div class="m-detail-item">
               <b>${t.th_cal}</b>
-              <span>${calText}</span>
+              <span class="font-mono">${calText}</span>
             </div>
             <div class="m-detail-item">
               <b>${t.th_pack}</b>
@@ -2126,7 +2175,7 @@
             </div>
             <div class="m-detail-item">
               <b>${t.th_temp}</b>
-              <span style="color:var(--primary-deep);">${tempText}</span>
+              <span class="font-mono" style="color:var(--primary-deep);">${tempText}</span>
             </div>
             <div class="m-detail-item">
               <b>${t.th_ship}</b>
@@ -2134,7 +2183,7 @@
             </div>
           </div>
           <div style="border-top:1px dashed var(--border-subtle); padding-top:4px;">
-            <span style="font-size:8.5px; font-weight:800; color:var(--text-muted); display:block; margin-bottom:2px;">${t.th_seas}:</span>
+            <span style="font-size:9px; font-weight:800; color:var(--text-muted); display:block; margin-bottom:2px;">${t.th_seas}:</span>
             <div class="season-track" style="max-width:100%;">${dots}</div>
           </div>
         `;
@@ -2178,8 +2227,15 @@
       btn.innerText = (currentLang === 'ar' ? '⏳ جاري تصدير PDF...' : '⏳ Generating PDF...');
       btn.disabled = true;
 
+      // Ensure Fonts & Logo Image are 100% loaded before capture
       if (document.fonts) {
         await document.fonts.ready;
+      }
+      await rasterizeLogo();
+
+      const logoImg = document.getElementById('main-brand-logo');
+      if (logoImg && !logoImg.complete) {
+        await new Promise(r => { logoImg.onload = r; logoImg.onerror = r; });
       }
 
       container.classList.add('pdf-render-mode');
@@ -2234,8 +2290,8 @@
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     }, { passive: true });
 
-    window.addEventListener('DOMContentLoaded', () => {
-      initLogoRaster();
+    window.addEventListener('DOMContentLoaded', async () => {
+      await rasterizeLogo();
       setLang('en');
     });
   </script>
