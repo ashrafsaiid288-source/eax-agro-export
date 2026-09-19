@@ -238,11 +238,11 @@
     .cover-text-side { flex: 1.25; }
     .cover-logo-side {
       flex: 1.05;
-      height: 210px;
+      height: 220px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #031109;
+      background: #ffffff;
       border: 2px solid var(--gold);
       border-radius: 20px;
       padding: 10px 16px;
@@ -250,7 +250,12 @@
       position: relative;
       overflow: hidden;
     }
-    .cover-logo-side svg { width: 100%; height: 100%; display: block; }
+    .cover-logo-side img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
     
     .brand-hero-title {
       margin: 0 0 6px 0;
@@ -678,6 +683,24 @@
     .pdf-render-mode .mobile-cards-grid { display: none !important; }
     .pdf-render-mode .interactive-dock { grid-template-columns: 2.2fr 1fr !important; }
     .pdf-render-mode .contact-cols { grid-template-columns: repeat(2, 1fr) !important; }
+
+    @media print {
+      body { background: #ffffff !important; padding: 0 !important; }
+      .control-panel { display: none !important; }
+      .page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        width: 297mm !important;
+        height: 209mm !important;
+        max-height: 209mm !important;
+        page-break-after: always !important;
+        break-after: page !important;
+      }
+      .page:last-child { page-break-after: avoid !important; break-after: avoid !important; }
+      .catalog-table-wrap { display: flex !important; }
+      .mobile-cards-grid { display: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -717,56 +740,9 @@
           </p>
         </div>
 
+        <!-- Official Self-Contained High-Res Logo -->
         <div class="cover-logo-side">
-          <!-- Bulletproof Vector Logo with Solid Fallbacks for Mobile/PDF Engine -->
-          <svg viewBox="0 0 940 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-            <defs>
-              <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#faebd7"/>
-                <stop offset="35%" stop-color="#d4a359"/>
-                <stop offset="100%" stop-color="#8a5712"/>
-              </linearGradient>
-              <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#145a32"/>
-                <stop offset="100%" stop-color="#051c0f"/>
-              </linearGradient>
-            </defs>
-            <g fill-rule="nonzero">
-              <!-- حرف E -->
-              <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
-              <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="#0b381d" style="fill:url(#greenLetter);"/>
-              
-              <!-- حرف A -->
-              <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
-              <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" fill="#0b381d" style="fill:url(#greenLetter);"/>
-              <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" fill="#ffffff" stroke="#d4a359" stroke-width="2.5"/>
-              
-              <!-- حرف X -->
-              <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
-              <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" fill="#08252a"/>
-              <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
-              <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" fill="#08252a"/>
-
-              <!-- القوس والشعار السفلي -->
-              <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="#d4a359" style="fill:url(#gold3D);"/>
-              <path d="M 235 372 Q 345 338 450 374 Q 545 412 725 358 Q 535 428 235 372 Z" fill="#16a34a"/>
-              
-              <!-- ختم الشعار الدائري -->
-              <g transform="translate(750, 235)">
-                <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="#d4a359" stroke-width="12" style="stroke:url(#gold3D);"/>
-                <circle cx="0" cy="0" r="95" fill="#ffffff"/>
-                <circle cx="-16" cy="18" r="36" fill="#f59e0b"/>
-                <path d="M -95 32 Q -30 -10 32 46 Q -10 74 -95 32 Z" fill="#14532d"/>
-                <path d="M -91 48 Q -24 8 58 58 Q 0 88 -91 48 Z" fill="#166534"/>
-                <path d="M -83 64 Q -16 26 80 68 Q 10 98 -83 64 Z" fill="#22c55e"/>
-                <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="#16a34a" stroke="#d4a359" stroke-width="3"/>
-              </g>
-
-              <text x="468" y="446" font-family="'Plus Jakarta Sans', 'Cairo', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="#d4a359" style="fill:url(#gold3D);" stroke="#693e02" stroke-width="0.75" text-anchor="middle">
-                AGRO EXPORT
-              </text>
-            </g>
-          </svg>
+          <img id="main-brand-logo" alt="EAX AGRO EXPORT Official Logo">
         </div>
       </div>
 
@@ -1260,7 +1236,91 @@
     </div>
   </div>
 
+  <!-- Offscreen Vector Logo Engine for 100% Reliable Render -->
+  <div id="svg-logo-source" style="position: absolute; left: -9999px; top: -9999px; width: 940px; height: 480px; visibility: hidden;">
+    <svg id="raw-logo-svg" viewBox="0 0 940 480" width="940" height="480" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#fff8d6"/><stop offset="20%" stop-color="#f5ce5f"/>
+          <stop offset="45%" stop-color="#bf821a"/><stop offset="70%" stop-color="#ffea9f"/>
+          <stop offset="88%" stop-color="#b67a14"/><stop offset="100%" stop-color="#5a3701"/>
+        </linearGradient>
+        <linearGradient id="goldShine" x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%" stop-color="#dfaa3f"/><stop offset="35%" stop-color="#ffffff"/>
+          <stop offset="65%" stop-color="#cf9425"/><stop offset="100%" stop-color="#804f03"/>
+        </linearGradient>
+        <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#0f4927"/><stop offset="45%" stop-color="#072d17"/><stop offset="100%" stop-color="#02140a"/>
+        </linearGradient>
+        <linearGradient id="arrowNavy" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#06251f"/><stop offset="50%" stop-color="#0b3838"/><stop offset="100%" stop-color="#051c20"/>
+        </linearGradient>
+        <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#4ade80"/><stop offset="40%" stop-color="#16a34a"/><stop offset="100%" stop-color="#064e3b"/>
+        </linearGradient>
+        <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#fffef0"/><stop offset="30%" stop-color="#fde047"/>
+          <stop offset="70%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/>
+        </radialGradient>
+      </defs>
+      <g>
+        <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+        <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="url(#greenLetter)"/>
+        <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+        <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" fill="url(#greenLetter)"/>
+        <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" fill="#ffffff" stroke="url(#gold3D)" stroke-width="2.5"/>
+        <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+        <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" fill="url(#arrowNavy)"/>
+        <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+        <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" fill="url(#arrowNavy)"/>
+        <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="url(#gold3D)"/>
+        <path d="M 235 372 Q 345 338 450 374 Q 545 412 725 358 Q 535 428 235 372 Z" fill="url(#leafGrad)"/>
+        <g transform="translate(750, 235)">
+          <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="url(#gold3D)" stroke-width="11"/>
+          <circle cx="0" cy="0" r="95" fill="#ffffff"/>
+          <circle cx="-16" cy="18" r="36" fill="url(#sunGlow)"/>
+          <path d="M -95 32 Q -30 -10 32 46 Q -10 74 -95 32 Z" fill="#14532d"/>
+          <path d="M -91 48 Q -24 8 58 58 Q 0 88 -91 48 Z" fill="#166534"/>
+          <path d="M -83 64 Q -16 26 80 68 Q 10 98 -83 64 Z" fill="#22c55e"/>
+          <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3.5"/>
+        </g>
+        <text x="468" y="446" font-family="'Plus Jakarta Sans', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="0.75" text-anchor="middle">
+          AGRO EXPORT
+        </text>
+      </g>
+    </svg>
+  </div>
+
   <script>
+    // 100% Reliable Client-Side Logo Rasterizer to Guarantee Display in Mobile & HTML2PDF
+    function initLogoRaster() {
+      const svgEl = document.getElementById('raw-logo-svg');
+      if (!svgEl) return;
+      const xml = new XMLSerializer().serializeToString(svgEl);
+      const svgBlob = new Blob([xml], { type: 'image/svg+xml;charset=utf-8' });
+      const URL = window.URL || window.webkitURL || window;
+      const blobURL = URL.createObjectURL(svgBlob);
+      
+      const tempImg = new Image();
+      tempImg.onload = function() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 940;
+        canvas.height = 480;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, 940, 480);
+        ctx.drawImage(tempImg, 0, 0, 940, 480);
+        
+        const dataUrl = canvas.toDataURL('image/png', 1.0);
+        const targetImg = document.getElementById('main-brand-logo');
+        if (targetImg) {
+          targetImg.src = dataUrl;
+        }
+        URL.revokeObjectURL(blobURL);
+      };
+      tempImg.src = blobURL;
+    }
+
     // 38 Crops with HS Code & Professional Technical Specs
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
@@ -1287,7 +1347,7 @@
         temp:{ en:'+4°C to +8°C', ar:'من +4 إلى +8°م', ru:'от +4°C до +8°C', zh:'+4°C 至 +8°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'10kg / 25kg mesh, bins', ar:'أجولة شبكية 10/25 كجم، باليتات', ru:'Сетки 10кг/25кг, биг-бэги', zh:'10/25公斤网眼袋或大箱' },
-        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45мм+, 55мм+, 65мм+', zh:'45mm+, 55mm+, 65mm+' },
+        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45مم+, 55مم+, 65مم+', zh:'45mm+, 55mm+, 65mm+' },
         en:{ name:"Ware Potatoes", sub:"Spunta, Hermes, Rosetta" },
         ar:{ name:"بطاطس المائدة والتصنيع", sub:"سبونتا، هيرمس، روزيتا" },
         ru:{ name:"Картофель товарный", sub:"Спунта, Гермес" },
@@ -1356,7 +1416,7 @@
       { id:10, hs:'080450', grp:'s', months:[7,8,9,10,11],
         temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
-        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
+        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентиل. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
         ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
@@ -1387,7 +1447,7 @@
         temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg cartons / flowpack', ar:'كرتون 5 كجم / فلو باك', ru:'Короб 5кг / флоупак', zh:'5公斤箱装或流延膜包' },
-        cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80مم), L (80-100مم)', zh:'中号(60-80mm), 大号(80-100mm)' },
+        cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80мм), L (80-100мм)', zh:'中号(60-80mm), 大号(80-100mm)' },
         en:{ name:"Bell Peppers", sub:"Red, Yellow, Orange" },
         ar:{ name:"الفلفل الملون الرومي", sub:"أحمر، أصفر، برتقالي" },
         ru:{ name:"Перец сладкий", sub:"Красный, желтый" },
@@ -1476,7 +1536,7 @@
       { id:22, hs:'070999', grp:'s', months:[5,6,7,8,9],
         temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
-        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентиل. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
@@ -2107,7 +2167,6 @@
       container.classList.add('pdf-render-mode');
       window.scrollTo(0, 0);
 
-      // Strict PDF export options: forces desktop A4 landscape width (1125px) and avoids legacy extra blank pages
       const opt = {
         margin:       0,
         filename:     `EAX_Agro_Export_Catalog_2026_${currentLang}.pdf`,
@@ -2158,6 +2217,7 @@
     }, { passive: true });
 
     window.addEventListener('DOMContentLoaded', () => {
+      initLogoRaster();
       setLang('en');
     });
   </script>
