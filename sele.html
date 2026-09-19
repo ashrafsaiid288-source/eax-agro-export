@@ -118,7 +118,7 @@
     }
     .print-btn:hover { transform: scale(1.02); }
 
-    /* Page Setup (Desktop Exact A4 Landscape) */
+    /* Exact A4 Landscape Page Setup */
     .page {
       width: 297mm;
       height: 209mm;
@@ -301,7 +301,7 @@
     .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; }
     .metric-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
 
-    /* Bento Value Pillars */
+    /* Bento Value Pillars (Compact Numbers) */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -319,16 +319,16 @@
       justify-content: space-between;
       box-shadow: var(--shadow-subtle);
     }
-    .pillar-box .num { font-size: 17px; font-weight: 900; color: var(--gold-deep); line-height: 1; background: var(--gold-soft); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--gold-border); }
-    .pillar-box h4 { margin: 5px 0 3px; font-size: 12.5px; font-weight: 800; color: var(--primary-deep); }
-    .pillar-box p { margin: 0; font-size: 10px; font-weight: 500; color: #465a4c; line-height: 1.45; }
+    .pillar-box .num { font-size: 15px; font-weight: 900; color: var(--gold-deep); line-height: 1; background: var(--gold-soft); width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 7px; border: 1px solid var(--gold-border); }
+    .pillar-box h4 { margin: 4px 0 2px; font-size: 12px; font-weight: 800; color: var(--primary-deep); }
+    .pillar-box p { margin: 0; font-size: 9.5px; font-weight: 500; color: #465a4c; line-height: 1.4; }
     .pillar-tag-bottom {
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--primary-deep);
-      margin-top: 5px;
+      margin-top: 4px;
       border-top: 1px dashed var(--border-subtle);
-      padding-top: 4px;
+      padding-top: 3px;
     }
 
     /* Page 3 Certs & Logistics Split */
@@ -540,11 +540,8 @@
     }
     .qr-card p { margin: 2px 0 0; font-size: 8px; font-weight: 800; color: var(--primary-deep); }
 
-    /* =========================================
-       MOBILE RESPONSIVE ADAPTIVE VIEW (< 768px)
-       ========================================= */
+    /* Mobile Responsive (< 768px) */
     .mobile-cards-grid { display: none; }
-    
     @media screen and (max-width: 767px) {
       body { padding: 50px 10px 84px; background: #020c06; }
       
@@ -755,6 +752,7 @@
     <!-- PAGE 2: CORPORATE TRUST & QUALITY HUB -->
     <div class="page">
       <div class="page-header">
+        <!-- Dynamic Multilingual Header Brand -->
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
@@ -765,7 +763,7 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
           <div style="flex: 1.6;">
             <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 class="dynamic-page-brand" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
+            <h2 style="font-size: 18px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
             <p style="font-size: 11px; font-weight: 500; color: #374a3c; line-height: 1.55; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
@@ -805,7 +803,7 @@
           </div>
         </div>
 
-        <!-- 3 Refined Pillars (Smaller Numbers, Clean Layout) -->
+        <!-- 3 Refined Pillars (Smaller, Clean Numbers) -->
         <div class="pillar-row" style="margin-top: 2px; flex: 1;">
           <div class="pillar-box" style="padding: 12px 14px;">
             <div>
