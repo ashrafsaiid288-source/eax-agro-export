@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>EAX AGRO EXPORT — Official Export Catalog 2026</title>
+  <title>EAX AGRO EXPORT — Official Export Catalog & Trade Guide 2026</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- مكتبة html2pdf لتوليد ملف الـ PDF فورياً -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -40,7 +44,15 @@
       font-family: 'Cairo', sans-serif;
     }
 
-    /* Floating Modern Control Pill */
+    .season-track {
+      display: flex;
+      gap: 2px;
+      width: 100%;
+      max-width: 170px;
+      direction: ltr !important;
+    }
+
+    /* Floating Navigation */
     .control-panel {
       position: fixed;
       top: 16px;
@@ -50,7 +62,7 @@
       display: flex;
       gap: 8px;
       align-items: center;
-      background: rgba(7, 33, 20, 0.88);
+      background: rgba(7, 33, 20, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 6px 14px;
@@ -74,9 +86,8 @@
       border-radius: 999px;
       font-weight: 700;
       font-size: 11px;
-      letter-spacing: 0.3px;
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s ease;
     }
     .lang-btn.active, .lang-btn:hover {
       background: var(--gold);
@@ -97,9 +108,6 @@
       transition: all 0.25s ease;
       white-space: nowrap;
     }
-    .print-btn:hover {
-      transform: scale(1.02);
-    }
 
     /* Page Architecture (Strict A4 Landscape: 297mm x 210mm) */
     .page {
@@ -117,7 +125,7 @@
     }
 
     .page-header {
-      height: 15mm;
+      height: 14mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -127,26 +135,26 @@
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary);
     }
     .header-brand span { color: var(--gold-deep); }
     .header-tag {
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 800;
-      letter-spacing: 1.8px;
+      letter-spacing: 1.5px;
       color: var(--gold-deep);
       text-transform: uppercase;
       background: var(--gold-soft);
-      padding: 4px 12px;
+      padding: 3.5px 10px;
       border-radius: 999px;
       border: 1px solid rgba(212, 163, 89, 0.3);
     }
     .page-content {
       flex: 1;
-      padding: 4.5mm 16mm 3mm;
+      padding: 4mm 16mm 2mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -154,24 +162,24 @@
       background: var(--bg-page);
     }
     .page-footer {
-      height: 9mm;
+      height: 8.5mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: 1px solid var(--border-subtle);
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 700;
       color: var(--text-muted);
       background: #ffffff;
       flex-shrink: 0;
     }
 
-    /* COVER PAGE (EDITORIAL LUXURY LOOK) */
+    /* COVER PAGE */
     .cover-bg {
       background: radial-gradient(circle at 80% 20%, #15452a 0%, #06180e 75%, #030d07 100%);
       color: #ffffff;
-      padding: 14mm 18mm;
+      padding: 13mm 18mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -189,12 +197,12 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 14px;
+      padding: 4px 12px;
       border-radius: 999px;
       background: rgba(212, 163, 89, 0.12);
       border: 1px solid var(--gold);
       color: #faebd7;
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 800;
       letter-spacing: 1.2px;
     }
@@ -202,42 +210,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 36px;
-      margin: 6px 0;
+      gap: 32px;
+      margin: 4px 0;
       flex: 1;
       position: relative;
       z-index: 2;
     }
     .cover-text-side { flex: 1.15; }
     
-    /* Showcase Glass Frame for Vector 3D Logo */
     .cover-logo-side {
       flex: 1.15;
-      height: 250px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
       border: 2px solid var(--gold);
-      border-radius: 26px;
+      border-radius: 24px;
       padding: 12px 18px;
-      box-shadow: 
-        0 24px 50px rgba(0, 0, 0, 0.55),
-        0 0 35px rgba(212, 163, 89, 0.25),
-        inset 0 0 20px rgba(212, 163, 89, 0.05);
+      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(212, 163, 89, 0.25);
       position: relative;
       overflow: hidden;
     }
-    .cover-logo-side svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
+    .cover-logo-side svg { width: 100%; height: 100%; display: block; }
     .cover-title {
-      font-size: 37px;
+      font-size: 35px;
       font-weight: 900;
       line-height: 1.15;
-      margin: 8px 0 12px;
+      margin: 8px 0 10px;
       letter-spacing: -0.8px;
     }
     .cover-title span.highlight {
@@ -246,163 +246,127 @@
       -webkit-text-fill-color: transparent;
     }
     .cover-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
       color: #d2e4d7;
-      line-height: 1.65;
+      line-height: 1.6;
       margin: 0;
       max-width: 530px;
     }
     .cover-metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 12px;
       border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 14px;
+      padding-top: 12px;
       position: relative;
       z-index: 2;
     }
     .metric-card {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 12px 14px;
-      transition: all 0.2s ease;
+      border-radius: 14px;
+      padding: 10px 12px;
     }
-    .metric-card h3 {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 900;
-      color: #faebd7;
-    }
-    .metric-card p {
-      margin: 4px 0 0;
-      font-size: 9.5px;
-      font-weight: 600;
-      color: #bdd1c2;
-      line-height: 1.35;
-    }
+    .metric-card h3 { margin: 0; font-size: 17px; font-weight: 900; color: #faebd7; }
+    .metric-card p { margin: 3px 0 0; font-size: 9px; font-weight: 600; color: #bdd1c2; line-height: 1.35; }
 
-    /* Bento Style Cards & Pillars */
+    /* Bento Style Pillars */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 12px;
+      gap: 14px;
+      margin-top: 8px;
       flex: 1;
     }
     .pillar-box {
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
-      border-radius: 18px;
-      padding: 22px 20px;
+      border-radius: 16px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.02);
     }
-    .pillar-box .num {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--gold-deep);
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-    .pillar-box h4 {
-      margin: 8px 0 6px;
-      font-size: 15.5px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .pillar-box p {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 500;
-      color: #495e4f;
-      line-height: 1.6;
-    }
+    .pillar-box .num { font-size: 26px; font-weight: 900; color: var(--gold-deep); line-height: 1; }
+    .pillar-box h4 { margin: 6px 0 4px; font-size: 14.5px; font-weight: 800; color: var(--primary); }
+    .pillar-box p { margin: 0; font-size: 11.5px; font-weight: 500; color: #495e4f; line-height: 1.55; }
     .pillar-tag-bottom {
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
       color: var(--primary);
-      margin-top: 14px;
+      margin-top: 10px;
       border-top: 1px dashed var(--border-subtle);
-      padding-top: 10px;
+      padding-top: 8px;
     }
 
-    .certs-row {
+    /* Dual Technical Grids for Page 3 (Certs & Transit Matrix) */
+    .p3-split-layout {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 8px;
+      grid-template-columns: 1.25fr 1fr;
+      gap: 14px;
       flex: 1;
+      margin-top: 6px;
+    }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
     }
     .cert-pill-card {
       background: #ffffff;
       border: 1.5px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 14px 16px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.015);
+      border-radius: 12px;
+      padding: 10px 12px;
     }
     .cert-pill-card .badge {
       display: inline-block;
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 900;
       background: var(--gold-soft);
       color: var(--gold-deep);
-      padding: 2.5px 8px;
-      border-radius: 6px;
+      padding: 2px 6px;
+      border-radius: 4px;
       border: 1px solid rgba(212, 163, 89, 0.25);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .cert-pill-card h4 {
-      margin: 0 0 4px;
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .cert-pill-card p {
-      margin: 0;
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
+    .cert-pill-card h4 { margin: 0 0 2px; font-size: 12.5px; font-weight: 800; color: var(--primary); }
+    .cert-pill-card p { margin: 0; font-size: 9px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
 
-    .logistics-bar {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .log-item {
+    .transit-box {
       background: #ffffff;
       border: 1.5px solid var(--border-subtle);
-      border-radius: 16px;
-      padding: 10px 12px;
-      text-align: center;
+      border-radius: 14px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .log-item h5 {
-      margin: 0 0 2px;
-      font-size: 15px;
-      font-weight: 900;
+    .transit-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 9.5px;
+    }
+    .transit-table th {
+      background: #f1f6f2;
       color: var(--primary);
-    }
-    .log-item span {
-      font-size: 10px;
+      text-align: left;
+      padding: 5px 8px;
       font-weight: 800;
-      color: var(--gold-deep);
-      display: block;
-      margin-bottom: 2px;
+      border-bottom: 1.5px solid var(--border-subtle);
     }
-    .log-item p {
-      margin: 0;
-      font-size: 9px;
-      font-weight: 500;
-      color: var(--text-muted);
+    html[dir="rtl"] .transit-table th { text-align: right; }
+    .transit-table td {
+      padding: 4px 8px;
+      border-bottom: 1px solid #edf2ee;
+      font-weight: 600;
+    }
+    .transit-table .highlight-days {
+      font-weight: 900;
+      color: var(--gold-deep);
     }
 
-    /* MODERN ENTERPRISE TABLES */
+    /* Modern Table Rules */
     .catalog-table-wrap {
       width: 100%;
       flex: 1;
@@ -411,7 +375,7 @@
       justify-content: stretch;
       margin-top: 4px;
       background: #ffffff;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1.5px solid var(--border-subtle);
       overflow: hidden;
     }
@@ -425,43 +389,30 @@
       background: #f3f7f4;
       color: var(--primary);
       font-weight: 800;
-      font-size: 10px;
+      font-size: 9.5px;
       text-align: left;
-      padding: 8px 12px;
+      padding: 6px 10px;
       border-bottom: 2px solid var(--border-subtle);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
     html[dir="rtl"] .catalog-table th { text-align: right; }
     .catalog-table td {
-      padding: 7.5px 12px;
+      padding: 4.8px 10px;
       border-bottom: 1px solid #edf2ee;
       vertical-align: middle;
       font-weight: 600;
       color: var(--text-main);
-      font-size: 10.5px;
+      font-size: 9.8px;
     }
-    .catalog-table tr:nth-child(even) td {
-      background: #fbfdfb;
-    }
-    .crop-name {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.25;
-    }
-    .crop-sub {
-      color: var(--text-muted);
-      font-size: 9.5px;
-      font-weight: 500;
-      display: block;
-      margin-top: 1.5px;
-    }
+    .catalog-table tr:nth-child(even) td { background: #fbfdfb; }
+    .crop-name { font-size: 11px; font-weight: 800; color: var(--primary); line-height: 1.2; }
+    .crop-sub { color: var(--text-muted); font-size: 8.5px; font-weight: 500; display: block; margin-top: 1px; }
     .badge-grp {
       display: inline-block;
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 800;
-      padding: 2px 6px;
+      padding: 1.5px 5px;
       border-radius: 4px;
       margin-inline-start: 4px;
     }
@@ -469,17 +420,10 @@
     .bg-s { background: #effcf3; color: #166534; border: 1px solid rgba(22, 101, 52, 0.2); }
     .bg-w { background: #f0f7ff; color: #0369a1; border: 1px solid rgba(3, 105, 161, 0.2); }
 
-    /* Ultra-Clean Modern Season Progress Bar */
-    .season-track {
-      display: flex;
-      gap: 2.5px;
-      width: 100%;
-      max-width: 175px;
-    }
     .s-dot {
       flex: 1;
-      height: 16px;
-      font-size: 7.5px;
+      height: 14px;
+      font-size: 7px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -492,70 +436,107 @@
       background: linear-gradient(180deg, #165b35 0%, #0d3820 100%);
       color: #faebd7;
       font-weight: 900;
-      box-shadow: 0 1px 3px rgba(7, 33, 20, 0.25);
     }
 
-    /* Back Page & Modern Card Matrix */
+    /* BACK COVER & EXECUTIVE PROCUREMENT COCKPIT */
     .page-back {
       background: #f5f9f6;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 12mm 16mm;
+      padding: 8mm 14mm;
       height: 210mm;
     }
     .back-box {
       background: #ffffff;
       border: 1.5px solid var(--border-subtle);
-      border-radius: 24px;
-      padding: 26px 36px;
-      max-width: 860px;
+      border-radius: 20px;
+      padding: 18px 24px;
+      max-width: 920px;
       box-shadow: 0 18px 45px rgba(7, 33, 20, 0.05);
-    }
-    .pack-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin: 16px 0;
-    }
-    .pack-card {
-      background: #fbfdfb;
-      border: 1.5px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 12px 10px;
-      text-align: center;
-    }
-    .pack-card h6 {
-      margin: 0 0 4px;
-      font-size: 11.5px;
-      font-weight: 800;
-      color: var(--primary);
-    }
-    .pack-card p {
-      margin: 0;
-      font-size: 9.5px;
-      font-weight: 500;
-      color: var(--text-muted);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 18px 0 14px;
       text-align: left;
     }
-    html[dir="rtl"] .contact-grid { text-align: right; }
+    html[dir="rtl"] .back-box { text-align: right; }
+    
+    .payload-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 9.5px;
+    }
+    .payload-matrix th {
+      background: #f1f6f2;
+      color: var(--primary);
+      padding: 6px 8px;
+      font-weight: 800;
+      border-bottom: 1.5px solid var(--border-subtle);
+    }
+    .payload-matrix td {
+      padding: 5px 8px;
+      border-bottom: 1px solid #edf2ee;
+      font-weight: 600;
+    }
+    .payload-matrix tr:nth-child(even) td { background: #fafcfa; }
+
+    .interactive-dock {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-top: 12px;
+      border-top: 1.5px solid var(--border-subtle);
+      padding-top: 12px;
+    }
+    .contact-cols {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
     .c-col h6 {
-      margin: 0 0 3px;
-      font-size: 10px;
+      margin: 0 0 2px;
+      font-size: 9px;
       font-weight: 900;
       color: var(--gold-deep);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    .c-col p {
+    .c-col a, .c-col p {
       margin: 0;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: block;
+    }
+    .c-col a:hover { color: var(--gold-deep); }
+    .c-col span {
+      font-size: 8.5px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .qr-side {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+    html[dir="rtl"] .qr-side { justify-content: flex-start; }
+    .qr-card {
+      text-align: center;
+    }
+    .qr-card img {
+      width: 76px;
+      height: 76px;
+      border-radius: 8px;
+      border: 1px solid var(--border-subtle);
+      padding: 3px;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    }
+    .qr-card p {
+      margin: 3px 0 0;
+      font-size: 8px;
       font-weight: 800;
       color: var(--primary);
     }
@@ -564,150 +545,42 @@
     .mobile-cards-grid { display: none; }
 
     @media screen and (max-width: 1024px) {
-      body {
-        background: #06110a;
-        padding: 58px 10px 24px;
-      }
+      body { background: #06110a; padding: 58px 10px 24px; }
       .page {
-        width: 100%;
-        max-width: 100%;
-        height: auto !important;
-        max-height: none !important;
-        margin: 14px auto;
-        border-radius: 18px;
+        width: 100%; max-width: 100%; height: auto !important; max-height: none !important;
+        margin: 14px auto; border-radius: 18px;
       }
-      .cover-bg {
-        height: auto !important;
-        padding: 22px 16px;
-        border-radius: 18px;
-      }
-      .cover-hero-wrap {
-        flex-direction: column-reverse;
-        gap: 16px;
-      }
-      .cover-logo-side {
-        width: 100%;
-        height: 190px;
-        border-radius: 20px;
-        padding: 10px;
-      }
-      .cover-title { font-size: 25px; }
-      .cover-metrics {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .page-header {
-        height: auto;
-        padding: 12px 16px;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
-      }
-      .page-content {
-        padding: 14px 16px;
-        height: auto !important;
-      }
-      .pillar-row, .certs-row, .contact-grid, .pack-strip {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-      .logistics-bar {
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
+      .cover-bg { height: auto !important; padding: 22px 16px; border-radius: 18px; }
+      .cover-hero-wrap { flex-direction: column-reverse; gap: 16px; }
+      .cover-logo-side { width: 100%; height: 180px; }
+      .cover-title { font-size: 24px; }
+      .cover-metrics { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .page-header { height: auto; padding: 12px 16px; flex-direction: column; align-items: flex-start; }
+      .page-content { padding: 14px 16px; height: auto !important; }
+      .pillar-row, .p3-split-layout, .interactive-dock, .contact-cols { grid-template-columns: 1fr; gap: 10px; }
+      .qr-side { justify-content: center; margin-top: 8px; }
       .catalog-table-wrap { display: none !important; }
-      .mobile-cards-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 6px;
-      }
-      .m-crop-card {
-        background: #ffffff;
-        border: 1.5px solid var(--border-subtle);
-        border-radius: 14px;
-        padding: 12px;
-      }
-      .m-crop-top {
-        border-bottom: 1px solid var(--border-subtle);
-        padding-bottom: 8px;
-        margin-bottom: 8px;
-      }
-      .m-crop-details {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-        font-size: 11px;
-        margin-bottom: 8px;
-      }
-      .m-detail-item {
-        background: #fbfdfb;
-        padding: 6px 8px;
-        border-radius: 8px;
-        border: 1px solid #edf4ee;
-      }
-      .m-detail-item b {
-        color: var(--primary);
-        display: block;
-        font-size: 9.5px;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-      }
-      .m-detail-item span {
-        font-weight: 700;
-        color: #2b392e;
-        display: block;
-        font-size: 10.5px;
-      }
-      .page-back {
-        height: auto !important;
-        padding: 18px 12px;
-      }
-      .back-box {
-        padding: 18px 14px;
-        border-radius: 16px;
-      }
-      .page-footer {
-        height: auto;
-        padding: 10px 16px;
-        flex-direction: column;
-        gap: 4px;
-      }
+      .mobile-cards-grid { display: flex; flex-direction: column; gap: 10px; width: 100%; margin-top: 6px; }
+      .m-crop-card { background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 12px; }
+      .m-crop-top { border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px; margin-bottom: 8px; }
+      .m-crop-details { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; font-size: 11px; margin-bottom: 8px; }
+      .m-detail-item { background: #fbfdfb; padding: 6px 8px; border-radius: 8px; border: 1px solid #edf4ee; }
+      .m-detail-item b { color: var(--primary); display: block; font-size: 9px; text-transform: uppercase; margin-bottom: 2px; }
+      .m-detail-item span { font-weight: 700; color: #2b392e; display: block; font-size: 10px; }
+      .page-back { height: auto !important; padding: 16px 10px; }
+      .back-box { padding: 16px 12px; }
+      .page-footer { height: auto; padding: 10px 16px; flex-direction: column; gap: 4px; }
     }
 
-    /* Print & A4 Landscape Strict Engine Rules */
     @media print {
-      @page {
-        size: A4 landscape;
-        margin: 0;
-      }
-      body {
-        background: transparent !important;
-        padding: 0 !important;
-      }
-      thead {
-        display: table-row-group !important;
-      }
+      @page { size: A4 landscape; margin: 0; }
+      body { background: transparent !important; padding: 0 !important; }
       .control-panel { display: none !important; }
       .page {
-        width: 297mm !important;
-        height: 210mm !important;
-        max-height: 210mm !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        border-radius: 0 !important;
-        page-break-after: always !important;
-        page-break-inside: avoid !important;
+        width: 297mm !important; height: 210mm !important; max-height: 210mm !important;
+        margin: 0 !important; box-shadow: none !important; border-radius: 0 !important;
+        page-break-after: always !important; break-after: page !important; overflow: hidden !important;
       }
-      .cover-bg { height: 210mm !important; }
-      .cover-hero-wrap { flex-direction: row !important; }
-      .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
-      .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
-      .certs-row { grid-template-columns: repeat(3, 1fr) !important; }
-      .logistics-bar { grid-template-columns: repeat(4, 1fr) !important; }
-      .contact-grid { grid-template-columns: repeat(3, 1fr) !important; }
-      .pack-strip { grid-template-columns: repeat(4, 1fr) !important; }
       .catalog-table-wrap { display: flex !important; }
       .mobile-cards-grid { display: none !important; }
     }
@@ -715,506 +588,539 @@
 </head>
 <body>
 
-  <!-- Floating Modern Navigation Bar -->
+  <!-- Floating Navigation Controls -->
   <div class="control-panel" id="smartNavbar">
     <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
     <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">العربية</button>
     <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">Русский</button>
     <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
-    <button class="print-btn" onclick="window.print()" data-k="btn_print">📥 Print / Save PDF</button>
+    <button class="print-btn" onclick="exportCatalogPDF()" data-k="btn_print">📥 Download PDF</button>
   </div>
 
-  <!-- PAGE 1: COVER -->
-  <div class="page cover-bg">
-    <div class="cover-header-row">
-      <div class="gold-badge">
-        <span>★</span>
-        <span data-k="cover_tag">OFFICIAL EXPORT CATALOG • 2026</span>
-      </div>
-      <div style="font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--gold);" data-k="cover_top_rt">
-        EGYPTIAN AGRICULTURAL EXPORTS
-      </div>
-    </div>
-
-    <div class="cover-hero-wrap">
-      <div class="cover-text-side">
-        <div style="font-size: 15px; font-weight: 900; letter-spacing: 3px; color: var(--gold); margin-bottom: 6px;" data-k="company_name">EAX AGRO EXPORT</div>
-        <div class="cover-title">
-          <span data-k="c_t1">Pure Premium Produce</span><br>
-          <span class="highlight" data-k="c_t2">From Fertile Farms to Global Supermarkets</span>
+  <div id="catalog-container">
+    <!-- PAGE 1: COVER -->
+    <div class="page cover-bg">
+      <div class="cover-header-row">
+        <div class="gold-badge">
+          <span>★</span>
+          <span data-k="cover_tag">OFFICIAL EXPORT CATALOG • 2026</span>
         </div>
-        <p class="cover-desc" data-k="c_desc">
-          Integrated grower and exporter of 38 certified commercial crops. Direct cold-chain multimodal logistics to retail and wholesale distribution hubs across Europe, the GCC, China, and Russia.
-        </p>
+        <div style="font-size: 10.5px; font-weight: 800; letter-spacing: 2px; color: var(--gold);" data-k="cover_top_rt">
+          EGYPTIAN AGRICULTURAL EXPORTS
+        </div>
       </div>
 
-      <!-- Modern Luxury Frame with Built-in Vector 3D Logo -->
-      <div class="cover-logo-side">
-        <svg viewBox="0 0 940 480" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#fff8d6"/>
-              <stop offset="20%" stop-color="#f5ce5f"/>
-              <stop offset="45%" stop-color="#bf821a"/>
-              <stop offset="70%" stop-color="#ffea9f"/>
-              <stop offset="88%" stop-color="#b67a14"/>
-              <stop offset="100%" stop-color="#5a3701"/>
-            </linearGradient>
+      <div class="cover-hero-wrap">
+        <div class="cover-text-side">
+          <div style="font-size: 14.5px; font-weight: 900; letter-spacing: 3px; color: var(--gold); margin-bottom: 6px;" data-k="company_name">EAX AGRO EXPORT</div>
+          <div class="cover-title">
+            <span data-k="c_t1">Pure Premium Produce</span><br>
+            <span class="highlight" data-k="c_t2">From Fertile Farms to Global Supermarkets</span>
+          </div>
+          <p class="cover-desc" data-k="c_desc">
+            Integrated grower and exporter of 38 certified commercial crops. Direct cold-chain maritime logistics to retail and wholesale distribution hubs across Europe, the GCC, China, and Russia.
+          </p>
+        </div>
 
-            <linearGradient id="goldShine" x1="0%" y1="50%" x2="100%" y2="50%">
-              <stop offset="0%" stop-color="#dfaa3f"/>
-              <stop offset="35%" stop-color="#ffffff"/>
-              <stop offset="65%" stop-color="#cf9425"/>
-              <stop offset="100%" stop-color="#804f03"/>
-            </linearGradient>
+        <div class="cover-logo-side">
+          <svg viewBox="0 0 940 480" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fff8d6"/><stop offset="20%" stop-color="#f5ce5f"/>
+                <stop offset="45%" stop-color="#bf821a"/><stop offset="70%" stop-color="#ffea9f"/>
+                <stop offset="88%" stop-color="#b67a14"/><stop offset="100%" stop-color="#5a3701"/>
+              </linearGradient>
+              <linearGradient id="goldShine" x1="0%" y1="50%" x2="100%" y2="50%">
+                <stop offset="0%" stop-color="#dfaa3f"/><stop offset="35%" stop-color="#ffffff"/>
+                <stop offset="65%" stop-color="#cf9425"/><stop offset="100%" stop-color="#804f03"/>
+              </linearGradient>
+              <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#0f4927"/><stop offset="45%" stop-color="#072d17"/><stop offset="100%" stop-color="#02140a"/>
+              </linearGradient>
+              <linearGradient id="arrowNavy" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#06251f"/><stop offset="50%" stop-color="#0b3838"/><stop offset="100%" stop-color="#051c20"/>
+              </linearGradient>
+              <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4ade80"/><stop offset="40%" stop-color="#16a34a"/><stop offset="100%" stop-color="#064e3b"/>
+              </linearGradient>
+              <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fffef0"/><stop offset="30%" stop-color="#fde047"/>
+                <stop offset="70%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/>
+              </radialGradient>
+              <filter id="shadow3D" x="-10%" y="-10%" width="130%" height="130%">
+                <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
+              </filter>
+            </defs>
 
-            <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" stop-color="#0f4927"/>
-              <stop offset="45%" stop-color="#072d17"/>
-              <stop offset="100%" stop-color="#02140a"/>
-            </linearGradient>
+            <g filter="url(#shadow3D)">
+              <!-- LETTER E -->
+              <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+              <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="url(#greenLetter)"/>
 
-            <linearGradient id="arrowNavy" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#06251f"/>
-              <stop offset="50%" stop-color="#0b3838"/>
-              <stop offset="100%" stop-color="#051c20"/>
-            </linearGradient>
+              <!-- LETTER A -->
+              <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+              <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" fill="url(#greenLetter)"/>
+              <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" fill="#ffffff" stroke="url(#gold3D)" stroke-width="2.5"/>
 
-            <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#4ade80"/>
-              <stop offset="40%" stop-color="#16a34a"/>
-              <stop offset="100%" stop-color="#064e3b"/>
-            </linearGradient>
+              <!-- LETTER X -->
+              <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+              <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" fill="url(#arrowNavy)"/>
+              <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
+              <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" fill="url(#arrowNavy)"/>
 
-            <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#fffef0"/>
-              <stop offset="30%" stop-color="#fde047"/>
-              <stop offset="70%" stop-color="#f59e0b"/>
-              <stop offset="100%" stop-color="#b45309"/>
-            </radialGradient>
+              <!-- WAVES & LOGO SEAL -->
+              <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="url(#gold3D)"/>
+              <path d="M 235 372 Q 345 338 450 374 Q 545 412 725 358 Q 535 428 235 372 Z" fill="url(#leafGrad)"/>
 
-            <filter id="shadow3D" x="-10%" y="-10%" width="130%" height="130%">
-              <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
-            </filter>
-          </defs>
+              <g transform="translate(750, 235)">
+                <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="url(#gold3D)" stroke-width="11"/>
+                <circle cx="0" cy="0" r="95" fill="#ffffff"/>
+                <circle cx="-16" cy="18" r="36" fill="url(#sunGlow)"/>
+                <path d="M -95 32 Q -30 -10 32 46 Q -10 74 -95 32 Z" fill="#14532d"/>
+                <path d="M -91 48 Q -24 8 58 58 Q 0 88 -91 48 Z" fill="#166534"/>
+                <path d="M -83 64 Q -16 26 80 68 Q 10 98 -83 64 Z" fill="#22c55e"/>
+                <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3.5"/>
+              </g>
 
-          <g filter="url(#shadow3D)">
-            <!-- LETTER E -->
-            <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" 
-                  fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
-            <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" 
-                  fill="url(#greenLetter)"/>
-
-            <!-- LETTER A -->
-            <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" 
-                  fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
-            <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" 
-                  fill="url(#greenLetter)"/>
-            <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" 
-                  fill="#ffffff" stroke="url(#gold3D)" stroke-width="2.5"/>
-            <path d="M 348 266 Q 351 225 348 178" 
-                  stroke="url(#gold3D)" stroke-width="2" fill="none"/>
-
-            <!-- LETTER X -->
-            <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" 
-                  fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
-            <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" 
-                  fill="url(#arrowNavy)"/>
-            <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" 
-                  fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
-            <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" 
-                  fill="url(#arrowNavy)"/>
-            <path d="M 465 347 L 637 131 L 672 80" 
-                  stroke="url(#goldShine)" stroke-width="2" fill="none" opacity="0.8"/>
-
-            <!-- SWOOSH WAVES -->
-            <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="url(#gold3D)"/>
-            <path d="M 235 372 Q 345 338 450 374 Q 545 412 725 358 Q 535 428 235 372 Z" fill="url(#leafGrad)"/>
-            <path d="M 270 368 Q 365 342 455 372 Q 525 400 655 372 Q 500 415 270 368 Z" fill="url(#goldShine)" opacity="0.85"/>
-
-            <!-- SEAL BADGE -->
-            <g transform="translate(750, 235)">
-              <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="url(#gold3D)" stroke-width="11"/>
-              <ellipse cx="2" cy="-4" rx="102" ry="98" fill="none" stroke="url(#goldShine)" stroke-width="2.5"/>
-              <circle cx="0" cy="0" r="95" fill="#ffffff"/>
-              <circle cx="-16" cy="18" r="36" fill="url(#sunGlow)"/>
-              <path d="M -50 18 L -64 18 M -44 -6 L -58 -14 M -28 -20 L -36 -32 M -8 -24 L -8 -38 M 12 -20 L 20 -32 M 30 -6 L 44 -14" stroke="url(#gold3D)" stroke-width="3.5" stroke-linecap="round"/>
-              <path d="M -95 32 Q -30 -10 32 46 Q -10 74 -95 32 Z" fill="#14532d"/>
-              <path d="M -91 48 Q -24 8 58 58 Q 0 88 -91 48 Z" fill="#166534"/>
-              <path d="M -83 64 Q -16 26 80 68 Q 10 98 -83 64 Z" fill="#22c55e"/>
-              <path d="M -95 32 Q -30 -10 32 46" stroke="url(#goldShine)" stroke-width="2" fill="none"/>
-              <path d="M -91 48 Q -24 8 58 58" stroke="url(#goldShine)" stroke-width="2" fill="none"/>
-              <path d="M -83 64 Q -16 26 80 68" stroke="url(#goldShine)" stroke-width="2" fill="none"/>
-              <path d="M -6 56 Q 18 10 24 -56" stroke="url(#gold3D)" stroke-width="6" fill="none" stroke-linecap="round"/>
-              <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3.5"/>
-              <path d="M 20 -48 Q -20 -76 -40 -28 Q -6 -22 20 -48 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3.5"/>
-              <path d="M 22 -58 Q 22 -105 34 -68 Q 28 -56 22 -58 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3"/>
-              <path d="M 22 -10 Q 54 -22 62 24 Q 32 18 22 -10 Z" fill="url(#leafGrad)" stroke="url(#gold3D)" stroke-width="3"/>
-              <path d="M -92 40 Q -125 -60 0 -106 Q 125 -106 118 10 Q 114 68 76 92" fill="none" stroke="url(#gold3D)" stroke-width="8" stroke-linecap="round"/>
+              <text x="468" y="446" font-family="'Plus Jakarta Sans', 'Cairo', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="0.75" text-anchor="middle">
+                AGRO EXPORT
+              </text>
             </g>
+          </svg>
+        </div>
+      </div>
 
-            <!-- SUBTITLE -->
-            <path d="M 46 436 L 210 433 L 210 439 Z" fill="url(#gold3D)"/>
-            <circle cx="214" cy="436" r="3" fill="url(#goldShine)"/>
-            <text x="468" y="446" font-family="'Plus Jakarta Sans', 'Cairo', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="0.75" text-anchor="middle">
-              AGRO EXPORT
-            </text>
-            <circle cx="722" cy="436" r="3" fill="url(#goldShine)"/>
-            <path d="M 726 433 L 890 436 L 726 439 Z" fill="url(#gold3D)"/>
-          </g>
-        </svg>
+      <div class="cover-metrics">
+        <div class="metric-card">
+          <h3 data-k="m1_t">38 Crops</h3>
+          <p data-k="m1_d">Citrus, table grapes, onions, sweet potatoes & fresh vegetables.</p>
+        </div>
+        <div class="metric-card">
+          <h3 data-k="m2_t">100% Certified</h3>
+          <p data-k="m2_d">GlobalG.A.P. IFA v6, GRASP, BRCGS Grade A, ISO 22000 & EUR.1.</p>
+        </div>
+        <div class="metric-card">
+          <h3 data-k="m3_t">3 - 7 Days</h3>
+          <p data-k="m3_d">Fast maritime transit to Mediterranean & Northern European ports.</p>
+        </div>
+        <div class="metric-card">
+          <h3 data-k="m4_t">Reefer 40ft</h3>
+          <p data-k="m4_d">Continuous humidity & temperature logging from packhouse to dock.</p>
+        </div>
       </div>
     </div>
 
-    <div class="cover-metrics">
-      <div class="metric-card">
-        <h3 data-k="m1_t">38 Crops</h3>
-        <p data-k="m1_d">Citrus, table grapes, onions, sweet potatoes & fresh vegetables.</p>
+    <!-- PAGE 2: ABOUT US -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
-      <div class="metric-card">
-        <h3 data-k="m2_t">100% Certified</h3>
-        <p data-k="m2_d">GlobalG.A.P. IFA v6, BRCGS Grade A, ISO 22000 & 0% Tariff EUR.1.</p>
-      </div>
-      <div class="metric-card">
-        <h3 data-k="m3_t">3 - 7 Days</h3>
-        <p data-k="m3_d">Fast maritime transit to Mediterranean & Northern European ports.</p>
-      </div>
-      <div class="metric-card">
-        <h3 data-k="m4_t">Reefer 40ft</h3>
-        <p data-k="m4_d">Continuous humidity & temperature logging from packhouse to dock.</p>
-      </div>
-    </div>
-  </div>
+      <div class="page-content">
+        <div>
+          <span style="font-size: 10px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+          <h2 style="font-size: 20px; font-weight: 900; color: var(--primary); margin: 2px 0 5px;" data-k="p2_h2">EAX AGRO EXPORT</h2>
+          <p style="font-size: 12px; font-weight: 500; color: #374a3c; line-height: 1.6; margin: 0;" data-k="p2_lead">
+            EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
+          </p>
+        </div>
 
-  <!-- PAGE 2: ABOUT US -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
-    </div>
-    <div class="page-content">
-      <div>
-        <span style="font-size: 10.5px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-        <h2 style="font-size: 21px; font-weight: 900; color: var(--primary); margin: 2px 0 6px;" data-k="p2_h2">EAX AGRO EXPORT</h2>
-        <p style="font-size: 12.5px; font-weight: 500; color: #374a3c; line-height: 1.65; margin: 0;" data-k="p2_lead">
-          EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
-        </p>
-      </div>
-
-      <div class="pillar-row">
-        <div class="pillar-box">
-          <div>
-            <div class="num">01</div>
-            <h4 data-k="pil1_t">Strict Field Monitoring</h4>
-            <p data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee zero-chemical violation. Full lot traceability down to specific farm sectors.</p>
+        <div class="pillar-row">
+          <div class="pillar-box">
+            <div>
+              <div class="num">01</div>
+              <h4 data-k="pil1_t">Strict Field Monitoring</h4>
+              <p data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee zero-chemical violation. Full lot traceability down to specific farm sectors.</p>
+            </div>
+            <div class="pillar-tag-bottom" data-k="pil1_tag">✓ 100% Traceable Farms</div>
           </div>
-          <div class="pillar-tag-bottom" data-k="pil1_tag">✓ 100% Traceable Farms</div>
-        </div>
 
-        <div class="pillar-box">
-          <div>
-            <div class="num">02</div>
-            <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
-            <p data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
+          <div class="pillar-box">
+            <div>
+              <div class="num">02</div>
+              <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
+              <p data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
+            </div>
+            <div class="pillar-tag-bottom" data-k="pil2_tag">✓ Zero Blemishes Standard</div>
           </div>
-          <div class="pillar-tag-bottom" data-k="pil2_tag">✓ Zero Blemishes Standard</div>
-        </div>
 
-        <div class="pillar-box">
-          <div>
-            <div class="num">03</div>
-            <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
-            <p data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
+          <div class="pillar-box">
+            <div>
+              <div class="num">03</div>
+              <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
+              <p data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
+            </div>
+            <div class="pillar-tag-bottom" data-k="pil3_tag">✓ Live Data Loggers</div>
           </div>
-          <div class="pillar-tag-bottom" data-k="pil3_tag">✓ Live Data Loggers</div>
         </div>
       </div>
-    </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p2">PAGE 02</span>
-    </div>
-  </div>
-
-  <!-- PAGE 3: CERTS & LOGISTICS -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="p3_tag">CERTIFICATIONS & MARITIME LOGISTICS</div>
-    </div>
-    <div class="page-content">
-      <div>
-        <span style="font-size: 10.5px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p3_sub">International Compliance</span>
-        <h2 style="font-size: 21px; font-weight: 900; color: var(--primary); margin: 2px 0 6px;" data-k="p3_h2">Global Standards & Multimodal Logistics</h2>
-      </div>
-
-      <div class="certs-row">
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c1_b">AUDITED</span>
-          <h4>GlobalG.A.P. (v6)</h4>
-          <p data-k="c1_d">Full agricultural food safety compliance, environmental care, and worker welfare.</p>
-        </div>
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c2_b">GRADE A</span>
-          <h4>BRCGS Food Safety</h4>
-          <p data-k="c2_d">International hygiene benchmark for automated packhouses and cross-contamination control.</p>
-        </div>
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c3_b">AUDITED</span>
-          <h4>ISO 22000 & HACCP</h4>
-          <p data-k="c3_d">Systematic biological hazard control, storage validation, and sanitary risk management.</p>
-        </div>
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c4_b">0% TARIFF</span>
-          <h4>EUR.1 Certificate</h4>
-          <p data-k="c4_d">Preferential customs clearance documentation granting zero import duty across Europe.</p>
-        </div>
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c5_b">PASSED</span>
-          <h4>Phytosanitary Clearance</h4>
-          <p data-k="c5_d">Official Egyptian Ministry of Agriculture inspection certifying 100% pest-free consignments.</p>
-        </div>
-        <div class="cert-pill-card">
-          <span class="badge" data-k="c6_b">LAB TESTED</span>
-          <h4>ISO 17025 Residue Analysis</h4>
-          <p data-k="c6_d">Pre-loading laboratory testing ensuring full EU MRL pesticide compliance.</p>
-        </div>
-      </div>
-
-      <div class="logistics-bar">
-        <div class="log-item">
-          <h5>40ft HC RF</h5>
-          <span data-k="l1_t">High-Cube Reefers</span>
-          <p data-k="l1_d">Thermo King / Carrier units with active humidity control.</p>
-        </div>
-        <div class="log-item">
-          <h5>3-7 Days</h5>
-          <span data-k="l2_t">Direct EU Sailings</span>
-          <p data-k="l2_d">Fast routes to Koper, Ravenna, Genoa, Marseille & Rotterdam.</p>
-        </div>
-        <div class="log-item">
-          <h5>Incoterms</h5>
-          <span data-k="l3_t">FOB / CIF / CFR</span>
-          <p data-k="l3_d">Flexible commercial contracts tailored for international supermarkets.</p>
-        </div>
-        <div class="log-item">
-          <h5>Live Docs</h5>
-          <span data-k="l4_t">Digital Clearance</span>
-          <p data-k="l4_d">Pre-clearance electronic dispatch of BL, EUR.1, and Phytosanitary files.</p>
-        </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p2">PAGE 02</span>
       </div>
     </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p3">PAGE 03</span>
-    </div>
-  </div>
 
-  <!-- PAGE 4: CROPS 01 TO 10 -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 10</div>
-    </div>
-    <div class="page-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <h3 style="margin: 0; font-size: 14.5px; font-weight: 900; color: var(--primary);" data-k="cat_t1">Top Priority Commercial Exports</h3>
-        <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
-          <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+    <!-- PAGE 3: CERTS & MARITIME TRANSIT MATRIX -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="p3_tag">INTERNATIONAL STANDARDS & MARITIME LOGISTICS</div>
+      </div>
+      <div class="page-content">
+        <div>
+          <span style="font-size: 10px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
+          <h2 style="font-size: 20px; font-weight: 900; color: var(--primary); margin: 2px 0 5px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
+        </div>
+
+        <div class="p3-split-layout">
+          <!-- Certifications Grid with Social & Cold chain compliance -->
+          <div class="certs-grid">
+            <div class="cert-pill-card">
+              <span class="badge">AUDITED</span>
+              <h4>GlobalG.A.P. & GRASP</h4>
+              <p>Full food safety, worker welfare, and European social accountability standards.</p>
+            </div>
+            <div class="cert-pill-card">
+              <span class="badge">GRADE A</span>
+              <h4>BRCGS Food Safety</h4>
+              <p>Benchmark hygiene standard for automated sorting, packing, and contamination control.</p>
+            </div>
+            <div class="cert-pill-card">
+              <span class="badge">0% TARIFF</span>
+              <h4>EUR.1 Certificate</h4>
+              <p>Preferential customs clearance documentation granting zero import duty across Europe.</p>
+            </div>
+            <div class="cert-pill-card">
+              <span class="badge">SEDEX</span>
+              <h4>SMETA Social Audit</h4>
+              <p>Certified ethical supply chain, fair labor conditions, and sustainability compliance.</p>
+            </div>
+            <div class="cert-pill-card">
+              <span class="badge">LAB TESTED</span>
+              <h4>ISO 17025 Residue Analysis</h4>
+              <p>Pre-loading laboratory testing guaranteeing 100% compliance with strict EU MRL limits.</p>
+            </div>
+            <div class="cert-pill-card">
+              <span class="badge">COLD-CHAIN</span>
+              <h4>CA & Humidity Control</h4>
+              <p>Active Carrier / Thermo King units with modified atmosphere logging.</p>
+            </div>
+          </div>
+
+          <!-- Direct Sea Transit Times Table -->
+          <div class="transit-box">
+            <div>
+              <div style="font-size: 11px; font-weight: 900; color: var(--primary); margin-bottom: 6px;" data-k="t_mat_title">
+                Direct Port Transit Times (From Egypt)
+              </div>
+              <table class="transit-table">
+                <thead>
+                  <tr>
+                    <th data-k="th_port">Destination Port</th>
+                    <th data-k="th_country">Region</th>
+                    <th data-k="th_days">Direct Sail Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><b>Koper / Ravenna</b></td>
+                    <td>Slovenia / Italy</td>
+                    <td class="highlight-days">3 – 4 Days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Piraeus</b></td>
+                    <td>Greece</td>
+                    <td class="highlight-days">2 – 3 Days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Marseille / Fos</b></td>
+                    <td>France</td>
+                    <td class="highlight-days">5 – 6 Days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Rotterdam / Antwerp</b></td>
+                    <td>Netherlands / Belgium</td>
+                    <td class="highlight-days">8 – 10 Days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Novorossiysk</b></td>
+                    <td>Russia (Black Sea)</td>
+                    <td class="highlight-days">4 – 5 Days</td>
+                  </tr>
+                  <tr>
+                    <td><b>Jeddah / Jebel Ali</b></td>
+                    <td>Saudi Arabia / UAE</td>
+                    <td class="highlight-days">3 – 6 Days</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div style="font-size: 8px; color: var(--text-muted); font-weight: 600; margin-top: 6px;">
+              * Departures via Alexandria, Damietta, and Port Said West Terminals.
+            </div>
+          </div>
         </div>
       </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p3">PAGE 03</span>
+      </div>
+    </div>
 
-      <div class="catalog-table-wrap">
-        <table class="catalog-table">
+    <!-- PAGE 4: CROPS 01 TO 10 -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 10</div>
+      </div>
+      <div class="page-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary);" data-k="cat_t1">Top Priority Commercial Exports</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          </div>
+        </div>
+
+        <div class="catalog-table-wrap">
+          <table class="catalog-table">
+            <thead>
+              <tr>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th data-k="th_seas">Harvest Calendar</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body-1"></tbody>
+          </table>
+        </div>
+        <div class="mobile-cards-grid" id="m-cards-1"></div>
+      </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p4">PAGE 04</span>
+      </div>
+    </div>
+
+    <!-- PAGE 5: CROPS 11 TO 20 -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 11 TO 20</div>
+      </div>
+      <div class="page-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          </div>
+        </div>
+
+        <div class="catalog-table-wrap">
+          <table class="catalog-table">
+            <thead>
+              <tr>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th data-k="th_seas">Harvest Calendar</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body-2"></tbody>
+          </table>
+        </div>
+        <div class="mobile-cards-grid" id="m-cards-2"></div>
+      </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p5">PAGE 05</span>
+      </div>
+    </div>
+
+    <!-- PAGE 6: CROPS 21 TO 30 -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 21 TO 30</div>
+      </div>
+      <div class="page-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          </div>
+        </div>
+
+        <div class="catalog-table-wrap">
+          <table class="catalog-table">
+            <thead>
+              <tr>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th data-k="th_seas">Harvest Calendar</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body-3"></tbody>
+          </table>
+        </div>
+        <div class="mobile-cards-grid" id="m-cards-3"></div>
+      </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p6">PAGE 06</span>
+      </div>
+    </div>
+
+    <!-- PAGE 7: CROPS 31 TO 38 -->
+    <div class="page">
+      <div class="page-header">
+        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-tag" data-k="cat_p4">EXPORT CATALOG • CROPS 31 TO 38</div>
+      </div>
+      <div class="page-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
+          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+          </div>
+        </div>
+
+        <div class="catalog-table-wrap">
+          <table class="catalog-table">
+            <thead>
+              <tr>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 105px;" data-k="th_ship">Freight Mode</th>
+                <th data-k="th_seas">Harvest Calendar</th>
+              </tr>
+            </thead>
+            <tbody id="tbl-body-4"></tbody>
+          </table>
+        </div>
+        <div class="mobile-cards-grid" id="m-cards-4"></div>
+      </div>
+      <div class="page-footer">
+        <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
+        <span data-k="ft_p7">PAGE 07</span>
+      </div>
+    </div>
+
+    <!-- PAGE 8: EXECUTIVE PROCUREMENT & PAYLOAD COCKPIT -->
+    <div class="page page-back">
+      <div class="back-box">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; font-weight: 900; letter-spacing: 2px; color: var(--gold-deep);" data-k="company_name">EAX AGRO EXPORT</div>
+            <h2 style="font-size: 18px; font-weight: 900; color: var(--primary); margin: 2px 0 0;" data-k="b_h2">Commercial Loadability & Procurement Cockpit</h2>
+          </div>
+          <span style="background: var(--gold-soft); border: 1px solid var(--gold); color: var(--gold-deep); font-weight: 800; font-size: 9px; padding: 4px 10px; border-radius: 999px;">
+            40FT HIGH CUBE REEFER SPECS
+          </span>
+        </div>
+
+        <!-- Practical Container Payload Matrix for Importers -->
+        <table class="payload-matrix">
           <thead>
             <tr>
-              <th style="width: 32px;">#</th>
-              <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-              <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-              <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-              <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-              <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
-              <th data-k="th_seas">Harvest Calendar</th>
+              <th data-k="p_crop">Priority Crop</th>
+              <th data-k="p_pack">Packaging Type</th>
+              <th data-k="p_pal">Pallet Configuration</th>
+              <th data-k="p_box">Cartons / 40ft HC</th>
+              <th data-k="p_net">Net Payload (MT)</th>
             </tr>
           </thead>
-          <tbody id="tbl-body-1"></tbody>
-        </table>
-      </div>
-
-      <div class="mobile-cards-grid" id="m-cards-1"></div>
-    </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p4">PAGE 04</span>
-    </div>
-  </div>
-
-  <!-- PAGE 5: CROPS 11 TO 20 -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 11 TO 20</div>
-    </div>
-    <div class="page-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <h3 style="margin: 0; font-size: 14.5px; font-weight: 900; color: var(--primary);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
-        <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
-          <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
-        </div>
-      </div>
-
-      <div class="catalog-table-wrap">
-        <table class="catalog-table">
-          <thead>
+          <tbody>
             <tr>
-              <th style="width: 32px;">#</th>
-              <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-              <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-              <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-              <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-              <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
-              <th data-k="th_seas">Harvest Calendar</th>
+              <td><b>Valencia & Navel Oranges</b></td>
+              <td>15kg Telescopic Cartons</td>
+              <td>20 Standard Pallets (100x120)</td>
+              <td>1,600 Cartons</td>
+              <td><b>24.00 MT</b></td>
             </tr>
-          </thead>
-          <tbody id="tbl-body-2"></tbody>
-        </table>
-      </div>
-
-      <div class="mobile-cards-grid" id="m-cards-2"></div>
-    </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p5">PAGE 05</span>
-    </div>
-  </div>
-
-  <!-- PAGE 6: CROPS 21 TO 30 -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 21 TO 30</div>
-    </div>
-    <div class="page-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <h3 style="margin: 0; font-size: 14.5px; font-weight: 900; color: var(--primary);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
-        <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
-          <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
-        </div>
-      </div>
-
-      <div class="catalog-table-wrap">
-        <table class="catalog-table">
-          <thead>
             <tr>
-              <th style="width: 32px;">#</th>
-              <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-              <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-              <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-              <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-              <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
-              <th data-k="th_seas">Harvest Calendar</th>
+              <td><b>Beauregard Sweet Potatoes</b></td>
+              <td>6kg / 14kg Open Top Cartons</td>
+              <td>21 Euro Pallets / 20 Standard</td>
+              <td>1,700 – 3,500 Boxes</td>
+              <td><b>22.50 – 24.00 MT</b></td>
             </tr>
-          </thead>
-          <tbody id="tbl-body-3"></tbody>
-        </table>
-      </div>
-
-      <div class="mobile-cards-grid" id="m-cards-3"></div>
-    </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p6">PAGE 06</span>
-    </div>
-  </div>
-
-  <!-- PAGE 7: CROPS 31 TO 38 -->
-  <div class="page">
-    <div class="page-header">
-      <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
-      <div class="header-tag" data-k="cat_p4">EXPORT CATALOG • CROPS 31 TO 38</div>
-    </div>
-    <div class="page-content">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-        <h3 style="margin: 0; font-size: 14.5px; font-weight: 900; color: var(--primary);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
-        <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
-          <span style="display: inline-block; width: 8px; height: 8px; background: #165b35; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
-        </div>
-      </div>
-
-      <div class="catalog-table-wrap">
-        <table class="catalog-table">
-          <thead>
             <tr>
-              <th style="width: 32px;">#</th>
-              <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-              <th style="width: 110px;" data-k="th_cal">Caliber / Sizes</th>
-              <th style="width: 120px;" data-k="th_pack">Export Packaging</th>
-              <th style="width: 75px;" data-k="th_temp">Temp (°C)</th>
-              <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
-              <th data-k="th_seas">Harvest Calendar</th>
+              <td><b>Yellow & Red Onions</b></td>
+              <td>10kg / 25kg Ventilated Mesh</td>
+              <td>Palletized or Loose Stuffed</td>
+              <td>1,000 – 2,500 Mesh Bags</td>
+              <td><b>25.00 – 27.50 MT</b></td>
             </tr>
-          </thead>
-          <tbody id="tbl-body-4"></tbody>
+            <tr>
+              <td><b>Superior & Flame Grapes</b></td>
+              <td>4.5kg / 5kg Carry Bags & Punnets</td>
+              <td>20 Standard Pallets (Air Flow)</td>
+              <td>2,400 – 2,600 Cartons</td>
+              <td><b>11.70 – 13.00 MT</b></td>
+            </tr>
+          </tbody>
         </table>
-      </div>
 
-      <div class="mobile-cards-grid" id="m-cards-4"></div>
-    </div>
-    <div class="page-footer">
-      <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
-      <span data-k="ft_p7">PAGE 07</span>
-    </div>
-  </div>
+        <!-- Interactive Direct Communication Dock -->
+        <div class="interactive-dock">
+          <div class="contact-cols">
+            <div class="c-col">
+              <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20request%20container%20allocations." target="_blank" dir="ltr" style="unicode-bidi: isolate;">
+                +20 100 692 0920 ↗
+              </a>
+              <span data-k="c_p_sub">24/7 International Desk (Click to Chat)</span>
+            </div>
+            <div class="c-col">
+              <h6 data-k="c_e_t">Procurement Email</h6>
+              <a href="mailto:export@eax-agro.com">export@eax-agro.com ↗</a>
+              <span data-k="c_e_sub">Contracting & RFQ Submissions</span>
+            </div>
+            <div class="c-col">
+              <h6 data-k="c_l_t">Loading Marine Terminals</h6>
+              <p data-k="c_l_d">Alexandria • Damietta • Sokhna</p>
+              <span data-k="c_l_sub">Direct Cold-Chain Sailings</span>
+            </div>
+            <div class="c-col">
+              <h6 data-k="c_term_t">Commercial Terms</h6>
+              <p>FOB • CFR • CIF (Incoterms 2020)</p>
+              <span data-k="c_term_sub">Flexible Supermarket Programs</span>
+            </div>
+          </div>
 
-  <!-- PAGE 8: BACK COVER & PACKAGING -->
-  <div class="page page-back">
-    <div class="back-box">
-      <div style="font-size: 13px; font-weight: 900; letter-spacing: 3px; color: var(--gold-deep); margin-bottom: 4px;" data-k="company_name">EAX AGRO EXPORT</div>
-      <h2 style="font-size: 24px; font-weight: 900; color: var(--primary); margin: 0 0 6px; letter-spacing: -0.5px;" data-k="b_h2">Your Trusted Produce Export Partner</h2>
-      <p style="font-size: 12.5px; font-weight: 500; color: #445448; max-width: 660px; margin: 0 auto; line-height: 1.6;" data-k="b_lead">
-        Lock in your container allocations with direct farm contracts. We offer reliable FOB, CFR, and CIF programs tailored to the demands of supermarket chains and global distributors.
-      </p>
+          <!-- Dynamic Vector QR Codes (Scannable from PDF or Print) -->
+          <div class="qr-side">
+            <div class="qr-card">
+              <!-- QR Code generates instant WhatsApp chat with pre-written request -->
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F201006920920%3Ftext%3DHello%2520EAX%2520Agro%2520Export%2C%2520I%2520would%2520like%2520to%2520inquire%2520about%2520produce%2520allocations" alt="WhatsApp QR">
+              <p data-k="qr_wa">Instant RFQ</p>
+            </div>
+            <div class="qr-card">
+              <!-- QR Code linking to company certifications/audit deck -->
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Feax-agro-export.vercel.app" alt="Portal QR">
+              <p data-k="qr_portal">Traceability Portal</p>
+            </div>
+          </div>
+        </div>
 
-      <div class="pack-strip">
-        <div class="pack-card">
-          <h6 data-k="pk1_t">Citrus Telescopic</h6>
-          <p data-k="pk1_d">15kg Top/Bottom Cartons</p>
+        <div style="border-top: 1.5px solid var(--border-subtle); padding-top: 10px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 9.5px; color: var(--text-muted);">
+          <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • GRASP • BRCGS Grade A • ISO 22000 • EUR.1</span>
+          <span style="font-weight: 900; color: var(--primary);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
-        <div class="pack-card">
-          <h6 data-k="pk2_t">Carry Bags & Punnets</h6>
-          <p data-k="pk2_d">4.5kg / 5kg Punnets</p>
-        </div>
-        <div class="pack-card">
-          <h6 data-k="pk3_t">Sweet Potatoes</h6>
-          <p data-k="pk3_d">6kg / 14kg Open Cartons</p>
-        </div>
-        <div class="pack-card">
-          <h6 data-k="pk4_t">Ventilated Mesh</h6>
-          <p data-k="pk4_d">10kg / 25kg Poly Bags</p>
-        </div>
-      </div>
-
-      <div class="contact-grid">
-        <div class="c-col">
-          <h6 data-k="c_p_t">Direct Calling & WhatsApp</h6>
-          <p dir="ltr">+20 100 692 0920</p>
-          <span style="font-size: 9.5px; font-weight: 600; color: var(--text-muted);" data-k="c_p_sub">24/7 Multilingual Desk</span>
-        </div>
-        <div class="c-col">
-          <h6 data-k="c_e_t">Corporate Email</h6>
-          <p>export@eax-agro.com</p>
-          <span style="font-size: 9.5px; font-weight: 600; color: var(--text-muted);" data-k="c_e_sub">Procurement & Contracting</span>
-        </div>
-        <div class="c-col">
-          <h6 data-k="c_l_t">Loading Ports</h6>
-          <p data-k="c_l_d">Alexandria • Damietta • Sokhna</p>
-          <span style="font-size: 9.5px; font-weight: 600; color: var(--text-muted);" data-k="c_l_sub">Direct Sea Routes</span>
-        </div>
-      </div>
-
-      <div style="border-top: 1.5px solid var(--border-subtle); padding-top: 14px; display: flex; justify-content: space-between; align-items: center; font-size: 10.5px; color: var(--text-muted);">
-        <span style="font-weight: 700;">GlobalGAP • BRCGS Grade A • ISO 22000 • EUR.1</span>
-        <span style="font-weight: 900; color: var(--primary);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
       </div>
     </div>
   </div>
@@ -1258,7 +1164,7 @@
         zh:{ name:"耐储干洋葱", sub:"黄皮与红皮洋葱" }
       },
       { id:5, grp:'p', months:[8,9,10,11,12], temp:'+5°C to +7°C',
-        ship:{ en:'Reefer Sea / Air', ar:'بحري مبرد / شحن جوي', ru:'Морской реф / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'4.5kg flat carton', ar:'كرتون مسطح 4.5 كجم', ru:'Короб 4.5кг', zh:'4.5公斤平口纸箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12, 14', ar:'عيار: 6، 7، 8، 9، 10، 12، 14', ru:'6, 7, 8, 9, 10, 12, 14', zh:'6, 7, 8, 9, 10, 12, 14' },
         en:{ name:"Fresh Pomegranates", sub:"Wonderful, 116" },
@@ -1267,7 +1173,7 @@
         zh:{ name:"优质红石榴", sub:"Wonderful & 116" }
       },
       { id:6, grp:'p', months:[5,6,7,8], temp:'+0°C to +1°C',
-        ship:{ en:'Reefer Sea / Air', ar:'بحري مبرد / شحن جوي', ru:'Морской реф / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
         pack:{ en:'4.5kg carry bags, 5kg punnets', ar:'أكياس 4.5 كجم، بانتس 5 كجم', ru:'Пакеты 4.5кг, пунеты 5кг', zh:'4.5公斤提袋 / 5公斤盒装' },
         cal:{ en:'16mm - 24mm+', ar:'قطر الحبة: 16مم - 24مم+', ru:'16мм - 24мм+', zh:'果径 16mm - 24mm+' },
         en:{ name:"Table Grapes", sub:"Superior, Flame, Crimson" },
@@ -1276,7 +1182,7 @@
         zh:{ name:"无籽鲜食葡萄", sub:"Superior & Flame" }
       },
       { id:7, grp:'p', months:[11,12,1,2,3,4], temp:'+1°C to +2°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer / Air', ar:'بحري سريع / جوي اختياري', ru:'Быстрый реф / Авиа', zh:'快船冷链 / 空运' },
         pack:{ en:'2kg flat (8x250g punnets)', ar:'كرتون 2 كجم (8 عبوات 250جم)', ru:'Короб 2кг (8x250г)', zh:'2公斤盒装 (8x250克)' },
         cal:{ en:'25mm+, brix 9%+', ar:'25مم+، سكر 9%+', ru:'25مم+, brix 9%+', zh:'25mm+, 糖度 9%+' },
         en:{ name:"Fresh Strawberries", sub:"Festival, Fortuna" },
@@ -1294,7 +1200,7 @@
         zh:{ name:"新鲜与干燥大蒜", sub:"纯白蒜与紫红蒜" }
       },
       { id:9, grp:'s', months:[8,9,10,11,12], temp:'-18°C / 0°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'1kg / 2kg / 5kg boxes', ar:'علب 1 كجم / 2 كجم / 5 كجم', ru:'Коробки 1кг / 2кг / 5кг', zh:'1/2/5公斤高档礼盒' },
         cal:{ en:'Med, Large, Jumbo', ar:'متوسط، كبير، جامبو', ru:'Средний, крупный, джамбо', zh:'中果、大果、特大果' },
         en:{ name:"Fresh Dates", sub:"Medjool & Barhi" },
@@ -1303,7 +1209,7 @@
         zh:{ name:"新鲜高档椰枣", sub:"Medjool & Barhi" }
       },
       { id:10, grp:'s', months:[7,8,9,10,11], temp:'+10°C to +12°C',
-        ship:{ en:'Air / Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / Быстрое море', zh:'快船 / 特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
         pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
@@ -1321,7 +1227,7 @@
         zh:{ name:"新鲜大西瓜", sub:"Crimson 优质品种" }
       },
       { id:12, grp:'s', months:[5,6,7,8], temp:'+6°C to +8°C',
-        ship:{ en:'Reefer Sea / Air', ar:'بحري مبرد / شحن جوي', ru:'Морской реф / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg open cartons', ar:'كرتون مفتوح 5 كجم', ru:'Открытый короб 5кг', zh:'5公斤敞口纸箱' },
         cal:{ en:'5, 6, 7, 8, 9 pcs', ar:'5، 6، 7، 8، 9 حبات بالكرتون', ru:'5, 6, 7, 8, 9 шт', zh:'5, 6, 7, 8, 9 粒/箱' },
         en:{ name:"Cantaloupe & Galia", sub:"Galia, Ananas Melon" },
@@ -1330,7 +1236,7 @@
         zh:{ name:"甜瓜与哈密瓜", sub:"Galia 甜蜜瓜" }
       },
       { id:13, grp:'s', months:[5,6,7,8,9,10,11], temp:'+8°C to +10°C',
-        ship:{ en:'Reefer Sea / Air', ar:'بحري مبرد / شحن جوي', ru:'Морской реф / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg cartons / flowpack', ar:'كرتون 5 كجم / فلو باك', ru:'Короб 5кг / флоупак', zh:'5公斤箱装或流延膜包' },
         cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80مم), L (80-100مم)', zh:'中号(60-80mm), 大号(80-100mm)' },
         en:{ name:"Bell Peppers", sub:"Red, Yellow, Orange" },
@@ -1339,7 +1245,7 @@
         zh:{ name:"温室彩椒", sub:"红、黄、橙色彩椒" }
       },
       { id:14, grp:'s', months:[5,6,7,8,9,10,11], temp:'+8°C to +10°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'2kg / 4kg cartons', ar:'كرتون 2 كجم / 4 كجم', ru:'Коробки 2кг / 4кг', zh:'2公斤 / 4公斤纸箱' },
         cal:{ en:'Length: 6-10cm', ar:'الطول: 6-10 سم', ru:'Длина: 6-10см', zh:'长度: 6-10cm' },
         en:{ name:"Chili Peppers", sub:"Hot Red & Green Jalapeño" },
@@ -1348,7 +1254,7 @@
         zh:{ name:"朝天椒 / 辣椒", sub:"新鲜红绿辣椒" }
       },
       { id:15, grp:'s', months:[4,5,6,7], temp:'+0°C to +2°C',
-        ship:{ en:'Air / Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / Быстрое море', zh:'快船 / 特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'4kg/5kg tray cartons', ar:'كرتون صواني 4 كجم / 5 كجم', ru:'Короб с ячейками 4/5кг', zh:'4/5公斤托盘纸箱' },
         cal:{ en:'Calibers: A, B (60-75mm)', ar:'عيار: A، B (60-75مم)', ru:'Калибр A, B (60-75мм)', zh:'级别 A, B (60-75mm)' },
         en:{ name:"Fresh Peaches", sub:"Early Swell, Florida Prince" },
@@ -1357,7 +1263,7 @@
         zh:{ name:"新鲜水蜜桃", sub:"早期优质品种" }
       },
       { id:16, grp:'s', months:[5,6,7], temp:'+0°C to +2°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'4kg carton, 10x500g punnets', ar:'كرتون 4 كجم، عبوات 10×500جم', ru:'Короб 4кг, 10x500г', zh:'4公斤箱装 (10x500克)' },
         cal:{ en:'55mm to 75mm+', ar:'55مم إلى 75مم+', ru:'55мм - 75мм+', zh:'55mm 至 75mm+' },
         en:{ name:"Fresh Nectarines", sub:"Yellow & White Flesh" },
@@ -1366,7 +1272,7 @@
         zh:{ name:"新鲜油桃", sub:"黄肉与白肉油桃" }
       },
       { id:17, grp:'s', months:[5,6], temp:'+0°C to +1°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
         cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
         en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
@@ -1375,7 +1281,7 @@
         zh:{ name:"新鲜杏子", sub:"Canino 甜杏" }
       },
       { id:18, grp:'s', months:[7,8,9,10], temp:'+1°C to +3°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'1.5kg / 2kg cup trays', ar:'صواني عيون 1.5 كجم / 2 كجم', ru:'Лотки 1.5кг / 2кг', zh:'1.5/2公斤特制窝托' },
         cal:{ en:'30-50g / pc', ar:'30-50 جم / حبة', ru:'30-50г / шт', zh:'30-50克/个' },
         en:{ name:"Fresh Figs", sub:"Black Mission, Sultani" },
@@ -1384,7 +1290,7 @@
         zh:{ name:"新鲜无花果", sub:"Black Mission 优质品种" }
       },
       { id:19, grp:'s', months:[8,9,10,11], temp:'+8°C to +10°C',
-        ship:{ en:'Air / Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / Быстрое море', zh:'快船 / 特快空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'2kg / 4kg foam netted', ar:'كرتون 2/4 كجم بشبك فوم وقائي', ru:'Короб 2/4кг в сетке', zh:'2/4公斤带泡沫防震网' },
         cal:{ en:'100-200g / pc', ar:'100-200 جم / حبة', ru:'100-200г / шт', zh:'100-200克/个' },
         en:{ name:"Fresh Guava", sub:"White & Pink Baladi" },
@@ -1393,7 +1299,7 @@
         zh:{ name:"新鲜番石榴", sub:"白心与红心芭乐" }
       },
       { id:20, grp:'s', months:[5,6,7,8,9,10], temp:'+6°C to +8°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg telescopic box', ar:'كرتون تلسكوبي 5 كجم', ru:'Телескоп. короб 5кг', zh:'5公斤天地盖箱' },
         cal:{ en:'10-14cm, 14-18cm', ar:'10-14 سم، 14-18 سم', ru:'10-14см, 14-18см', zh:'10-14cm, 14-18cm' },
         en:{ name:"Zucchini / Courgettes", sub:"Dark & Light Green" },
@@ -1402,7 +1308,7 @@
         zh:{ name:"新鲜西葫芦", sub:"深绿与浅绿" }
       },
       { id:21, grp:'s', months:[5,6,7,8,9,10], temp:'+10°C to +12°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg / 6kg cartons', ar:'كرتون 5 كجم / 6 كجم', ru:'Коробки 5кг / 6кг', zh:'5公斤 / 6公斤纸箱' },
         cal:{ en:'200-400g / pc', ar:'200-400 جم / حبة', ru:'200-400г / шт', zh:'200-400克/个' },
         en:{ name:"Fresh Eggplant", sub:"Black Beauty, Classic" },
@@ -1411,7 +1317,7 @@
         zh:{ name:"新鲜茄子", sub:"圆茄与长茄" }
       },
       { id:22, grp:'s', months:[5,6,7,8,9], temp:'+7°C to +9°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
@@ -1420,7 +1326,7 @@
         zh:{ name:"新鲜秋葵", sub:"特细级与零号级" }
       },
       { id:23, grp:'w', months:[10,11,12,1,2,3,4,5], temp:'+4°C to +6°C',
-        ship:{ en:'Air & Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / БыстроExtension', zh:'快船 / 特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'1.5kg / 4kg MAP bags', ar:'أكياس حفظ 1.5/4 كجم', ru:'Пакеты 1.5кг / 4кг', zh:'1.5/4公斤气调保鲜袋' },
         cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра فاйн (6-8мм)', zh:'特细 (6-8mm), 一级' },
         en:{ name:"Green Beans", sub:"Haricot Vert, Bobby" },
@@ -1429,7 +1335,7 @@
         zh:{ name:"特级四季豆", sub:"Haricot Vert 细豆" }
       },
       { id:24, grp:'w', months:[11,12,1,2,3,4,5], temp:'+0°C to +2°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'14 bunches / 2kg iced', ar:'14 ربطة / كرتون 2 كجم بالثلج', ru:'14 пучков / 2кг со льдом', zh:'14把 / 2公斤加冰箱' },
         cal:{ en:'30cm+ length, 12mm bulb', ar:'طول 30 سم+، بصلة 12 مم', ru:'Длина 30см+, луковица 12мм', zh:'长度 30cm+, 葱白 12mm' },
         en:{ name:"Spring Onions", sub:"Photon, Giza" },
@@ -1438,7 +1344,7 @@
         zh:{ name:"新鲜大葱 / 青葱", sub:"出口水洗葱" }
       },
       { id:25, grp:'w', months:[12,1,2,3,4], temp:'+1°C to +3°C',
-        ship:{ en:'Reefer Sea / Air', ar:'بحري مبرد / شحن جوي', ru:'Морской реф / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg / 10kg cartons', ar:'كرتون 5 كجم / 10 كجم', ru:'Коробки 5кг / 10кг', zh:'5公斤 / 10公斤纸箱' },
         cal:{ en:'24, 30, 36, 40 counts', ar:'عيار: 24، 30، 36، 40 حبة', ru:'24, 30, 36, 40 шт', zh:'24, 30, 36, 40 个/箱' },
         en:{ name:"Fresh Artichokes", sub:"French Violet, Baladi" },
@@ -1483,7 +1389,7 @@
         zh:{ name:"红心葡萄柚", sub:"Star Ruby 优质品种" }
       },
       { id:30, grp:'w', months:[12,1,2,3,4], temp:'+1°C to +3°C',
-        ship:{ en:'Air & Fast Sea', ar:'شحن جوي / بحري سريع', ru:'Авиа / Быстрое море', zh:'快船 / 特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'1.5kg / 2.5kg cartons', ar:'كرتون 1.5 كجم / 2.5 كجم', ru:'Коробки 1.5кг / 2.5кг', zh:'1.5公斤 / 2.5公斤小箱' },
         cal:{ en:'Pods: 7-9mm', ar:'قطر القرون: 7-9 مم', ru:'Стручки: 7-9мм', zh:'豆荚粗度: 7-9mm' },
         en:{ name:"Peas & Sugar Snaps", sub:"Green Peas, Mangetout" },
@@ -1492,7 +1398,7 @@
         zh:{ name:"甜脆豆与荷兰豆", sub:"Sugar Snaps 甜豆" }
       },
       { id:31, grp:'w', months:[12,1,2,3,4], temp:'+0°C to +1°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg/8kg polystyrene iced', ar:'فوم 5/8 كجم بالثلج المبشور', ru:'Пенопласт 5/8кг со льдом', zh:'5/8公斤加碎冰保丽龙箱' },
         cal:{ en:'Dome heads: 300-600g', ar:'رؤوس مقببة: 300-600 جم', ru:'Головки: 300-600г', zh:'花球重: 300-600克' },
         en:{ name:"Fresh Broccoli", sub:"Calabrese Dome" },
@@ -1501,7 +1407,7 @@
         zh:{ name:"新鲜西兰花", sub:"高品质紧实花球" }
       },
       { id:32, grp:'w', months:[12,1,2,3,4], temp:'+0°C to +2°C',
-        ship:{ en:'Reefer / Air', ar:'بحري مبرد / شحن جوي', ru:'Рефрижератор / Авиа', zh:'冷藏海运 / 空运' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'6-8 heads / carton', ar:'6-8 رؤوس بالكرتون', ru:'6-8 головок в коробе', zh:'6-8 颗/箱 单套袋' },
         cal:{ en:'Curd: 800-1500g', ar:'القرص: 800-1500 جم', ru:'Кочан: 800-1500г', zh:'花球重: 800-1500克' },
         en:{ name:"Fresh Cauliflower", sub:"Pure Snow White" },
@@ -1537,7 +1443,7 @@
         zh:{ name:"新鲜甘蓝 / 包菜", sub:"白甘蓝与紫甘蓝" }
       },
       { id:36, grp:'w', months:[11,12,1,2,3], temp:'+0°C to +2°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентил. короб со льдом', zh:'3/5公斤加冰透气箱' },
         cal:{ en:'Clean washed bunches', ar:'حزم مغسولة ومنظفة', ru:'Мытые пучки', zh:'精选水洗捆装' },
         en:{ name:"Fresh Spinach", sub:"Savoy & Flat Leaf" },
@@ -1555,7 +1461,7 @@
         zh:{ name:"新鲜芋头", sub:"高品质精选芋头" }
       },
       { id:38, grp:'w', months:[10,11,12,1,2,3,4,5], temp:'+2°C to +4°C',
-        ship:{ en:'Air Cargo Expedited', ar:'شحن جوي سريع', ru:'Авиадоставка', zh:'特快空运' },
+        ship:{ en:'Fast Reefer / Air', ar:'بحري سريع / جوي اختياري', ru:'Быстрый реф / Авиа', zh:'快船冷链 / 空运' },
         pack:{ en:'1kg/2kg polystyrene iced', ar:'فوم 1/2 كجم بالثلج', ru:'Пенопласт 1/2кг со льдом', zh:'1/2公斤加冰保丽龙箱' },
         cal:{ en:'Bunches: 50g, 100g, 150g', ar:'حزم: 50 جم، 100 جم، 150 جم', ru:'Пучки 50г, 100г, 150г', zh:'把重: 50g, 100g, 150g' },
         en:{ name:"Culinary Herbs", sub:"Dill, Parsley, Coriander" },
@@ -1567,16 +1473,16 @@
 
     const I18N = {
       en: {
-        btn_print: "📥 Print / Save PDF",
+        btn_print: "📥 Download PDF",
         company_name: "EAX AGRO EXPORT",
         header_logo: "EAX <span>AGRO EXPORT</span>",
         cover_tag: "OFFICIAL EXPORT CATALOG • 2026",
         cover_top_rt: "EGYPTIAN AGRICULTURAL EXPORTS",
         c_t1: "Pure Premium Produce",
         c_t2: "From Fertile Farms to Global Supermarkets",
-        c_desc: "Integrated grower and exporter of 38 certified commercial crops. Direct cold-chain multimodal logistics to retail and wholesale distribution hubs across Europe, the GCC, China, and Russia.",
+        c_desc: "Integrated grower and exporter of 38 certified commercial crops. Direct cold-chain maritime logistics to retail and wholesale distribution hubs across Europe, the GCC, China, and Russia.",
         m1_t: "38 Crops", m1_d: "Citrus, table grapes, onions, sweet potatoes & fresh vegetables.",
-        m2_t: "100% Certified", m2_d: "GlobalG.A.P. IFA v6, BRCGS Grade A, ISO 22000 & 0% Tariff EUR.1.",
+        m2_t: "100% Certified", m2_d: "GlobalG.A.P. IFA v6, GRASP, BRCGS Grade A, ISO 22000 & EUR.1.",
         m3_t: "3 - 7 Days", m3_d: "Fast maritime transit to Mediterranean & Northern European ports.",
         m4_t: "Reefer 40ft", m4_d: "Continuous humidity & temperature logging from packhouse to dock.",
         p2_tag: "COMPANY PROFILE & QUALITY PHILOSOPHY",
@@ -1586,19 +1492,11 @@
         pil1_t: "Strict Field Monitoring", pil1_d: "Pre-harvest soil testing and residue analysis guarantee zero-chemical violation. Full lot traceability down to specific farm sectors.", pil1_tag: "✓ 100% Traceable Farms",
         pil2_t: "Optical Sorting & Curing", pil2_d: "Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.", pil2_tag: "✓ Zero Blemishes Standard",
         pil3_t: "Unbroken Cold Chain", pil3_d: "Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.", pil3_tag: "✓ Live Data Loggers",
-        p3_tag: "CERTIFICATIONS & MARITIME LOGISTICS",
-        p3_sub: "International Compliance",
-        p3_h2: "Global Standards & Multimodal Logistics",
-        c1_b: "AUDITED", c1_d: "Full agricultural food safety compliance, environmental care, and worker welfare.",
-        c2_b: "GRADE A", c2_d: "International hygiene benchmark for automated packhouses and cross-contamination control.",
-        c3_b: "AUDITED", c3_d: "Systematic biological hazard control, storage validation, and sanitary risk management.",
-        c4_b: "0% TARIFF", c4_d: "Preferential customs clearance documentation granting zero import duty across Europe.",
-        c5_b: "PASSED", c5_d: "Official Egyptian Ministry of Agriculture inspection certifying 100% pest-free consignments.",
-        c6_b: "LAB TESTED", c6_d: "Pre-loading laboratory testing ensuring full EU MRL pesticide compliance.",
-        l1_t: "High-Cube Reefers", l1_d: "Thermo King / Carrier units with active humidity control.",
-        l2_t: "Direct EU Sailings", l2_d: "Fast routes to Koper, Ravenna, Genoa, Marseille & Rotterdam.",
-        l3_t: "FOB / CIF / CFR", l3_d: "Flexible commercial contracts tailored for international supermarkets.",
-        l4_t: "Digital Clearance", l4_d: "Pre-clearance electronic dispatch of BL, EUR.1, and Phytosanitary files.",
+        p3_tag: "INTERNATIONAL STANDARDS & MARITIME LOGISTICS",
+        p3_sub: "Compliance & Sea Freight",
+        p3_h2: "Global Certifications & Direct Transit Matrix",
+        t_mat_title: "Direct Port Transit Times (From Egypt)",
+        th_port: "Destination Port", th_country: "Region", th_days: "Direct Sail Time",
         cat_p1: "EXPORT CATALOG • CROPS 01 TO 10",
         cat_t1: "Top Priority Commercial Exports",
         cat_p2: "EXPORT CATALOG • CROPS 11 TO 20",
@@ -1609,22 +1507,20 @@
         cat_t4: "Brassicas, Root Crops & Culinary Herbs",
         th_crop: "Crop & Variety", th_cal: "Caliber / Sizes", th_pack: "Export Packaging", th_temp: "Temp (°C)", th_ship: "Freight Mode", th_seas: "Harvest Calendar",
         leg_act: "Harvest Window",
-        b_h2: "Your Trusted Produce Export Partner",
-        b_lead: "Lock in your container allocations with direct farm contracts. We offer reliable FOB, CFR, and CIF programs tailored to the demands of supermarket chains and global distributors.",
-        pk1_t: "Citrus Telescopic", pk1_d: "15kg Top/Bottom Cartons",
-        pk2_t: "Carry Bags & Punnets", pk2_d: "4.5kg / 5kg Punnets",
-        pk3_t: "Sweet Potatoes", pk3_d: "6kg / 14kg Open Cartons",
-        pk4_t: "Ventilated Mesh", pk4_d: "10kg / 25kg Poly Bags",
-        c_p_t: "Direct Calling & WhatsApp", c_p_sub: "24/7 Multilingual Desk",
-        c_e_t: "Corporate Email", c_e_sub: "Procurement & Contracting",
-        c_l_t: "Loading Ports", c_l_d: "Alexandria • Damietta • Sokhna", c_l_sub: "Direct Sea Routes",
+        b_h2: "Commercial Loadability & Procurement Cockpit",
+        p_crop: "Priority Crop", p_pack: "Packaging Type", p_pal: "Pallet Configuration", p_box: "Cartons / 40ft HC", p_net: "Net Payload (MT)",
+        c_p_t: "Direct Calling & WhatsApp Desk", c_p_sub: "24/7 International Desk (Click to Chat)",
+        c_e_t: "Procurement Email", c_e_sub: "Contracting & RFQ Submissions",
+        c_l_t: "Loading Marine Terminals", c_l_d: "Alexandria • Damietta • Sokhna", c_l_sub: "Direct Cold-Chain Sailings",
+        c_term_t: "Commercial Terms", c_term_sub: "Flexible Supermarket Programs",
+        qr_wa: "Instant RFQ", qr_portal: "Traceability Portal",
         ft_text: "EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE",
         ft_p2: "PAGE 02", ft_p3: "PAGE 03", ft_p4: "PAGE 04", ft_p5: "PAGE 05", ft_p6: "PAGE 06", ft_p7: "PAGE 07",
         ft_copy: "© 2026 EAX AGRO EXPORT. All Rights Reserved.",
         months: ["J","F","M","A","M","J","J","A","S","O","N","D"]
       },
       ar: {
-        btn_print: "📥 طباعة / حفظ كـ PDF",
+        btn_print: "📥 تحميل الكتالوج PDF",
         company_name: "اياكس للتصدير الزراعي",
         header_logo: "اياكس <span>للتصدير الزراعي</span>",
         cover_tag: "كتالوج التصدير الرسمي المعتمد • 2026",
@@ -1633,7 +1529,7 @@
         c_t2: "من مزارعنا الخصبة إلى سلاسل السوبرماركت العالمية",
         c_desc: "منتج ومصدر متكامل لـ 38 محصولاً تجارياً فرز أول مطابق للمواصفات الدولية. شحن بحري مبرد متواصل لأسواق الاتحاد الأوروبي، الخليج، الصين، وروسيا.",
         m1_t: "38 محصولاً", m1_d: "موالح، عنب مائدة، بطاطا حلوة، بصل، وخضروات طازجة متنوعة.",
-        m2_t: "اعتماد 100%", m2_d: "شهادات GlobalG.A.P. و BRCGS و ISO 22000 وإعفاء EUR.1 كامل.",
+        m2_t: "اعتماد 100%", m2_d: "شهادات GlobalG.A.P. و GRASP و BRCGS و ISO 22000 وإعفاء EUR.1.",
         m3_t: "3 - 7 أيام", m3_d: "إبحار سريع ومباشر لموانئ البحر المتوسط وشمال أوروبا.",
         m4_t: "حاويات ريفير 40 قدم", m4_d: "تسجيل إلكتروني مستمر لدرجات الحرارة والرطوبة حتى موانئ الوصول.",
         p2_tag: "ملف الشركة وفلسفة الجودة التصديرية",
@@ -1643,19 +1539,11 @@
         pil1_t: "مراقبة صارمة للحقول", pil1_d: "فحص دوري للتربة وتحليل دقيق لمتبقيات المبيدات قبل الحصاد لضمان خلوها تماماً، مع تتبع كامل للشحنة حتى الحقل.", pil1_tag: "✓ مزارع قابلة للتتبع 100%",
         pil2_t: "فرز آلي ومعالجة حرارية", pil2_d: "خطوط فرز إلكترونية تفرز الحجم والوزن ونسبة السكريات. معالجة حرارية Curing لضمان الصلابة وأطول عمر تسويقي.", pil2_tag: "✓ معيار صارم: خلو تام من العيوب",
         pil3_t: "سلاسل تبريد غير منقطعة", pil3_d: "محطات تبريد سريع Pre-cooling فور التعبئة، مع شحن فوري عبر أرصفة معزولة لحاويات ريفير 40 قدم مجهزة بالكامل.", pil3_tag: "✓ مسجلات حرارية ذكية لحظية",
-        p3_tag: "الشهادات والاعتمادات والشحن البحري",
-        p3_sub: "الامتثال والمعايير الدولية",
-        p3_h2: "اعتمادات الجودة العالمية والقدرات اللوجستية",
-        c1_b: "مدقق ومعتمد", c1_d: "مطابقة تامة لاشتراطات السلامة الغذائية الزراعية والبيئية ورعاية العمال.",
-        c2_b: "الفئة الأولى A", c2_d: "أعلى اشتراطات النظافة بمحطات التعبئة الآلية ومنع التلوث التبادلي.",
-        c3_b: "تدقيق دولي", c3_d: "تحليل منهجي للمخاطر البيولوجية وضبط اشتراطات التعقيم والتخزين المبرد.",
-        c4_b: "إعفاء 0% جمرك", c4_d: "شهادة المنشأ التفضيلية التي تمنح إعفاءً جمركياً كاملاً 0% بموانئ أوروبا.",
-        c5_b: "فحص رسمي", c5_d: "فحص حجر زراعي مصري رسمي معتمد يضمن سلامة الشحنة وخلوها من أي آفات.",
-        c6_b: "فحص معملي", c6_d: "فحص معملي معتمد بنظام ISO 17025 لكل حاوية للتأكد من نسب الـ MRL.",
-        l1_t: "حاويات ريفير 40HC", l1_d: "وحدات Thermo King و Carrier مزودة بضبط آلي للرطوبة وتدوير الهواء.",
-        l2_t: "شحن مباشر 3-7 أيام", l2_d: "رحلات سريعة لموانئ كوبر، رافينا، جنوى، مارسيليا، وروتردام.",
-        l3_t: "شروط FOB / CIF / CFR", l3_d: "تسهيلات تعاقدية وتجارية مرنة تلائم كبرى سلاسل السوبرماركت.",
-        l4_t: "إفراج رقمي سريع", l4_d: "إرسال إلكتروني فوري ومسبق لبوالص الشحن وشهادات EUR.1 والصحة النباتية.",
+        p3_tag: "المعايير الدولية وجدول الإبحار المباشر",
+        p3_sub: "الامتثال والشحن البحري",
+        p3_h2: "الشهادات العالمية ومصفوفة زمن الإبحار المباشر",
+        t_mat_title: "زمن الإبحار المباشر من الموانئ المصرية",
+        th_port: "ميناء الوصول", th_country: "الدولة / الإقليم", th_days: "مدة الإبحار المباشر",
         cat_p1: "كتالوج التصدير الرسمي • المحاصيل 01 إلى 10",
         cat_t1: "المحاصيل ذات الأولوية التصديرية الكبرى",
         cat_p2: "كتالوج التصدير الرسمي • المحاصيل 11 إلى 20",
@@ -1666,22 +1554,20 @@
         cat_t4: "الصليبيات والجذور والدرنات والأعشاب العطرية",
         th_crop: "المحصول والصنف", th_cal: "المقاسات / العيار", th_pack: "نوع التعبئة والكرتون", th_temp: "الحرارة (°م)", th_ship: "نمط الشحن", th_seas: "تقويم الحصاد والتصدير",
         leg_act: "موسم الحصاد الفعلي",
-        b_h2: "شريككم الاستراتيجي الموثوق في التصدير الزراعي",
-        b_lead: "احجز حصص الحاويات التصديرية الخاصة بشركتكم الآن عبر عقود توريد موثوقة بنظام FOB أو CFR أو CIF مصممة لتلبية متطلبات كبرى سلاسل السوبرماركت ومستوردي الأغذية.",
-        pk1_t: "كرتون موالح تلسكوبي", pk1_d: "15 كجم غطاء وقاعدة",
-        pk2_t: "أكياس وعلب عنب", pk2_d: "أكياس 4.5 كجم / بانتس 5 كجم",
-        pk3_t: "كرتون بطاطا مفتوح", pk3_d: "6 كجم / 14 كجم مهوى",
-        pk4_t: "أجولة شبكية", pk4_d: "10 كجم / 25 كجم للبصل والبطاطس",
-        c_p_t: "المكالمات وواتساب التصدير", c_p_sub: "مكتب التعاقدات الدولية 24/7",
-        c_e_t: "البريد الإلكتروني الرسمي", c_e_sub: "إدارة التوريد والتعاقدات",
-        c_l_t: "موانئ الشحن والتحميل", c_l_d: "ميناء الإسكندرية • ميناء دمياط • ميناء السخنة", c_l_sub: "خطوط بحرية مباشرة وسريعة",
+        b_h2: "حمولة الحاويات ومركز التعاقدات التصديرية المباشرة",
+        p_crop: "المحصول الرئيسي", p_pack: "نوع العبوة والكرتون", p_pal: "توزيع الباليتات في الحاوية", p_box: "عدد الكراتين / حاوية 40", p_net: "الوزن الصافي (طن)",
+        c_p_t: "المكالمات وواتساب التصدير المباشر", c_p_sub: "مكتب التعاقدات الدولية 24/7 (اضغط للمحادثة)",
+        c_e_t: "البريد الإلكتروني للتعاقدات", c_e_sub: "إدارة التوريد وطلبات الأسعار",
+        c_l_t: "موانئ الشحن والتحميل", c_l_d: "ميناء الإسكندرية • ميناء دمياط • ميناء السخنة", c_l_sub: "خطوط بحرية مبردة وسريعة",
+        c_term_t: "شروط التعاقد والتسليم", c_term_sub: "برامج توريد مرنة للسوبرماركت",
+        qr_wa: "طلب تسعير فوري", qr_portal: "بوابة تتبع المزارع",
         ft_text: "اياكس للتصدير الزراعي • كتالوج التصدير الرسمي المعتمد",
         ft_p2: "صفحة 02", ft_p3: "صفحة 03", ft_p4: "صفحة 04", ft_p5: "صفحة 05", ft_p6: "صفحة 06", ft_p7: "صفحة 07",
         ft_copy: "© 2026 اياكس للتصدير الزراعي. جميع الحقوق محفوظة.",
         months: ["ينا","فبر","مار","أبر","ماي","يون","يول","أغس","سبت","أكت","نوف","ديس"]
       },
       ru: {
-        btn_print: "📥 Печать / Сохранить в PDF",
+        btn_print: "📥 Скачать PDF",
         company_name: "EAX AGRO EXPORT",
         header_logo: "EAX <span>AGRO EXPORT</span>",
         cover_tag: "ОФИЦИАЛЬНЫЙ ЭКСПОРТНЫЙ КАТАЛОГ • 2026",
@@ -1690,7 +1576,7 @@
         c_t2: "С плодородных полей на полки мировых супермаркетов",
         c_desc: "Экспорт 38 сертифицированных коммерческих культур первого сорта. Прямые поставки свежих фруктов и овощей с непрерывной холодовой цепью в Европу, страны Залива, Китай и Россию.",
         m1_t: "38 Культур", m1_d: "Цитрусовые, столовый виноград, лук, батат и свежие овощи.",
-        m2_t: "100% Сертификация", m2_d: "GlobalG.A.P. IFA v6, BRCGS Grade A, ISO 22000 и преференция EUR.1.",
+        m2_t: "100% Сертификация", m2_d: "GlobalG.A.P. IFA v6, GRASP, BRCGS Grade A, ISO 22000 и EUR.1.",
         m3_t: "3 - 7 Дней", m3_d: "Прямые морские рейсы в порты Средиземноморья и Черного моря.",
         m4_t: "Рефрижераторы 40ft", m4_d: "Постоянный логгер-контроль температуры и влажности до выгрузки.",
         p2_tag: "ПРОФИЛЬ КОМПАНИИ И СТАНДАРТЫ КАЧЕСТВА",
@@ -1700,19 +1586,11 @@
         pil1_t: "Контроль на полях", pil1_d: "Анализы почвы и контроль пестицидов до сбора гарантируют чистоту. Полная прослеживаемость каждой партии до конкретного сектора поля.", pil1_tag: "✓ 100% Прослеживаемость",
         pil2_t: "Оптическая калибровка", pil2_d: "Автоматические линии сортируют по размеру, весу и сахару brix. Процесс сушки гарантирует сохранность при транспортировке.", pil2_tag: "✓ Стандарт Zero Blemishes",
         pil3_t: "Холодовая цепь", pil3_d: "Быстрое охлаждение Pre-cooling за 2 часа после сбора. Прямая погрузка через герметичные доки в 40-футовые рефконтейнеры.", pil3_tag: "✓ Онлайн термологгеры",
-        p3_tag: "СЕРТИФИКАЦИЯ И МОРСКАЯ ЛОГИСТИКА",
-        p3_sub: "Международное соответствие",
-        p3_h2: "Мировые стандарты и портовая логистика",
-        c1_b: "ПРОВЕРЕНО", c1_d: "Безопасность производства, экологические нормы и строгие условия труда.",
-        c2_b: "КЛАСС А", c2_d: "Мировой стандарт санитарии упаковочных станций и предотвращения загрязнений.",
-        c3_b: "ПРОВЕРЕНО", c3_d: "Системный контроль биологических рисков и условий хранения.",
-        c4_b: "0% ПОШЛИНА", c4_d: "Преференциальный сертификат, обеспечивающий 0% ставку пошлины при ввозе в ЕС.",
-        c5_b: "ПРОЙДЕНО", c5_d: "Официальный египетский фитосанитарный сертификат об отсутствии карантинных вредителей.",
-        c6_b: "ТЕСТ В ЛАБ.", c6_d: "Лабораторные испытания ISO 17025 на пестицидные остатки перед каждой погрузкой.",
-        l1_t: "40ft High-Cube Реф", l1_d: "Агрегаты Thermo King и Carrier с активным контролем влажности.",
-        l2_t: "3-7 дней до Европы", l2_d: "Быстрые маршруты в Копер, Равенну, Геную, Марсель и Роттердам.",
-        l3_t: "FOB / CIF / CFR", l3_d: "Гибкие внешнеторговые контракты под закупки розничных сетей.",
-        l4_t: "Электронные документы", l4_d: "Быстрая отправка коносаментов, фитосанитарных сертификатов и EUR.1.",
+        p3_tag: "МЕЖДУНАРОДНЫЕ СТАНДАРТЫ И ЛОГИСТИКА",
+        p3_sub: "Сертификация и морские линии",
+        p3_h2: "Международные сертификаты и матрица транзитных дней",
+        t_mat_title: "Сроки прямой морской доставки из портов Египта",
+        th_port: "Порт назначения", th_country: "Регион", th_days: "Срок доставки",
         cat_p1: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 01 — 10",
         cat_t1: "Приоритетные коммерческие культуры",
         cat_p2: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 11 — 20",
@@ -1723,22 +1601,20 @@
         cat_t4: "Капуста, корнеплоды и свежая зелень",
         th_crop: "Культура и сорт", th_cal: "Калибр / Размер", th_pack: "Экспортная упаковка", th_temp: "Темп. (°C)", th_ship: "Логистика", th_seas: "Календарь сезона",
         leg_act: "Период сбора урожая",
-        b_h2: "Ваш надежный партнер в агроэкспорте",
-        b_lead: "Зафиксируйте сезонные объемы поставок на условиях FOB, CFR или CIF с прямым египетским экспортером для сетей супермаркетов и оптовых баз.",
-        pk1_t: "Телескопический короб", pk1_d: "15 кг для цитрусовых",
-        pk2_t: "Пакеты и пунеты", pk2_d: "4.5 кг / 5 кг для винограда",
-        pk3_t: "Короба для батата", pk3_d: "6 кг / 14 кг вентилируемые",
-        pk4_t: "Сетки полипропилен", pk4_d: "10 кг / 25 кг для лука",
-        c_p_t: "Телефон и WhatsApp", c_p_sub: "Международный отдел 24/7",
-        c_e_t: "Корпоративная почта", c_e_sub: "Отдел контрактов и поставок",
-        c_l_t: "Порты отправления", c_l_d: "Александрия • Думьят • Сохна", c_l_sub: "Прямые морские линии",
+        b_h2: "Вместимость контейнеров и отдел контрактов",
+        p_crop: "Культура", p_pack: "Тип упаковки", p_pal: "Паллетизация", p_box: "Коробов в 40ft HC", p_net: "Вес нетто (Тонн)",
+        c_p_t: "Телефон и WhatsApp", c_p_sub: "Круглосуточный отдел ВЭД (нажмите для чата)",
+        c_e_t: "Корпоративная почта", c_e_sub: "Контракты и запросы котировок",
+        c_l_t: "Порты отправления", c_l_d: "Александрия • Думьят • Сохна", c_l_sub: "Прямые рефрижераторные линии",
+        c_term_t: "Условия поставки", c_term_sub: "FOB / CFR / CIF под требования сетей",
+        qr_wa: "Запрос котировки", qr_portal: "Портал партий",
         ft_text: "EAX AGRO EXPORT • ОФИЦИАЛЬНЫЙ БРОШЮРА",
         ft_p2: "СТР 02", ft_p3: "СТР 03", ft_p4: "СТР 04", ft_p5: "СТР 05", ft_p6: "СТР 06", ft_p7: "СТР 07",
         ft_copy: "© 2026 EAX AGRO EXPORT. Все права защищены.",
         months: ["Янв","Фев","Мар","Апр","Май","Июн","Июл","Авг","Сен","Окт","Ноя","Дек"]
       },
       zh: {
-        btn_print: "📥 打印 / 保存为 PDF",
+        btn_print: "📥 下载 PDF 目录",
         company_name: "EAX AGRO EXPORT",
         header_logo: "EAX <span>AGRO EXPORT</span>",
         cover_tag: "官方出口名录 • 2026",
@@ -1747,7 +1623,7 @@
         c_t2: "源自肥沃农场 · 直供全球超市",
         c_desc: "集种植与出口于一体，供应 38 种国际一等商业农产品。全程不间断冷链直航欧洲、海湾国家、中国及俄罗斯市场。",
         m1_t: "38 种果蔬", m1_d: "涵盖优质柑橘、无籽葡萄、洋葱、红薯及高品质新鲜蔬菜。",
-        m2_t: "100% 国际认证", m2_d: "拥有 GlobalG.A.P. IFA v6、BRCGS A级、ISO 22000 及 EUR.1 证书。",
+        m2_t: "100% 国际认证", m2_d: "拥有 GlobalG.A.P. IFA v6、GRASP、BRCGS A级、ISO 22000 及 EUR.1 证书。",
         m3_t: "3 - 7 天直航", m3_d: "快速海运直达地中海及欧洲各大核心口岸枢纽。",
         m4_t: "40尺超高冷柜", m4_d: "内置温湿度记录仪，装运全程实时冷链监控。",
         p2_tag: "企业概况与品质理念",
@@ -1757,19 +1633,11 @@
         pil1_t: "农场严密监测", pil1_d: "采收前全面化验土壤与农药残留，确保零超标。实现全流程地块级批次精准追溯。", pil1_tag: "✓ 100% 农场可追溯",
         pil2_t: "光学分选与控温", pil2_d: "自动化智能分选线精准按重量、大小和糖度分级。专业控温愈伤大幅提高果蔬保鲜期。", pil2_tag: "✓ 零瑕疵严格出货标准",
         pil3_t: "全程不间断冷链", pil3_d: "采后2小时内即刻进行强风快速预冷。密封式冷库月台直接装入40尺冷藏集装箱。", pil3_tag: "✓ 实时温控数据记录",
-        p3_tag: "国际认证与海运港口",
-        p3_sub: "全球准入合规标准",
-        p3_h2: "国际顶级认证与多式联运保障",
-        c1_b: "已审核", c1_d: "全面符合国际农业食品安全、生态环保与工人福利标准。",
-        c2_b: "A级标准", c2_d: "国际公认的包装厂卫生标准，严密控制交叉污染与异物筛查。",
-        c3_b: "已审核", c3_d: "系统化生物与物理危害分析，严格执行全程卫生贮藏标准。",
-        c4_b: "0% 关税", c4_d: "享受特惠关税清关待遇，出口欧洲享受0%关税通关。",
-        c5_b: "已通过", c5_d: "埃及官方植物检疫局正规检验出证，确保无检疫性有害生物。",
-        c6_b: "实验室检验", c6_d: "每条集装箱装柜前均经 ISO 17025 认证实验室进行农残全项检测。",
-        l1_t: "40尺高顶冷藏柜", l1_d: "配备顶级 Thermo King 和 Carrier 智能恒湿机组。",
-        l2_t: "直航欧洲 3-7 天", l2_d: "直达科佩尔、拉文纳、热那亚、马赛与鹿特丹港口。",
-        l3_t: "FOB / CIF / CFR", l3_d: "为跨国商超巨头量身定制灵活的离岸与到岸贸易条款。",
-        l4_t: "全套电放单证", l4_d: "海运提单、EUR.1 和植物检疫证书快速电子签发通关。",
+        p3_tag: "国际准入标准与港口直航矩阵",
+        p3_sub: "合规认证与海运船期",
+        p3_h2: "全球顶级准入认证与各口岸直航时效",
+        t_mat_title: "埃及主要口岸直航海运时效 (天数)",
+        th_port: "目的港口", th_country: "国家/地区", th_days: "直航海运时效",
         cat_p1: "出口鲜品目录 • 序号 01 至 10",
         cat_t1: "核心优势出口产品",
         cat_p2: "出口鲜品目录 • 序号 11 至 20",
@@ -1780,15 +1648,13 @@
         cat_t4: "甘蓝类、根茎类与出口新鲜香草",
         th_crop: "作物与主要品种", th_cal: "规格果径 / 级别", th_pack: "出口专用包装", th_temp: "适宜温度", th_ship: "跨国物流方式", th_seas: "产季日历",
         leg_act: "实际采收出口月份",
-        b_h2: "您值得信赖的跨国农产品战略伙伴",
-        b_lead: "通过原产地直签合同锁定整柜采购配额。我们为您提供稳定可靠的 FOB、CFR 与 CIF 供应方案，满足国际大型商超与分销商的严苛需求。",
-        pk1_t: "柑橘天地盖箱", pk1_d: "15公斤出口标准",
-        pk2_t: "葡萄提袋与小盒", pk2_d: "4.5公斤袋 / 5公斤小盒",
-        pk3_t: "红薯通风纸箱", pk3_d: "6公斤 / 14公斤纸箱",
-        pk4_t: "洋葱透气网袋", pk4_d: "10公斤 / 25公斤网袋",
-        c_p_t: "直拨热线与 WhatsApp", c_p_sub: "24/7 全球多语种外贸服务台",
-        c_e_t: "企业官方邮箱", c_e_sub: "国际采购与长期合同对接",
-        c_l_t: "主要装运口岸", c_l_d: "亚历山大港 • 杜米亚特港 • 苏伊士港", c_l_sub: "直达快船航线",
+        b_h2: "整柜配载装载量与国际采购中心",
+        p_crop: "核心优势作物", p_pack: "包装箱规格", p_pal: "托盘码放标准", p_box: "40尺冷柜装载箱数", p_net: "净重 (吨)",
+        c_p_t: "直拨热线与 WhatsApp", c_p_sub: "24/7 全球外贸服务台 (点击立即洽谈)",
+        c_e_t: "全球采购官方邮箱", c_e_sub: "合同签订与长期配额询价",
+        c_l_t: "主要装运口岸", c_l_d: "亚历山大港 • 杜米亚特港 • 苏伊士港", c_l_sub: "直航冷链快船航线",
+        c_term_t: "贸易结算条款", c_term_sub: "可提供 FOB / CFR / CIF 灵活合作方案",
+        qr_wa: "扫码即刻询价", qr_portal: "农场追溯门户",
         ft_text: "EAX AGRO EXPORT • 官方出口目录",
         ft_p2: "第 02 页", ft_p3: "第 03 页", ft_p4: "第 04 页", ft_p5: "第 05 页", ft_p6: "第 06 页", ft_p7: "第 07 页",
         ft_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。",
@@ -1837,10 +1703,9 @@
         const shipText = crop.ship[lang] || crop.ship.en;
         const calText = crop.cal[lang] || crop.cal.en;
 
-        // Desktop Table Row
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong style="color:var(--gold-deep); font-size:11px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
+          <td><strong style="color:var(--gold-deep); font-size:10px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
           <td>
             <span class="crop-name">${cInfo.name}</span>
             <span class="badge-grp ${bClass}">${bText}</span>
@@ -1848,12 +1713,11 @@
           </td>
           <td>${calText}</td>
           <td>${packText}</td>
-          <td><strong style="color:var(--primary); font-size:10px;">${crop.temp}</strong></td>
+          <td><strong style="color:var(--primary); font-size:9.5px;">${crop.temp}</strong></td>
           <td>${shipText}</td>
           <td><div class="season-track">${dots}</div></td>
-        `;
+        </tr>`;
 
-        // Mobile Card
         const card = document.createElement('div');
         card.className = 'm-crop-card';
         card.innerHTML = `
@@ -1890,17 +1754,13 @@
         `;
 
         if (crop.id <= 10) {
-          b1.appendChild(tr);
-          m1.appendChild(card);
+          b1.appendChild(tr); m1.appendChild(card);
         } else if (crop.id <= 20) {
-          b2.appendChild(tr);
-          m2.appendChild(card);
+          b2.appendChild(tr); m2.appendChild(card);
         } else if (crop.id <= 30) {
-          b3.appendChild(tr);
-          m3.appendChild(card);
+          b3.appendChild(tr); m3.appendChild(card);
         } else {
-          b4.appendChild(tr);
-          m4.appendChild(card);
+          b4.appendChild(tr); m4.appendChild(card);
         }
       });
     }
@@ -1922,6 +1782,38 @@
       });
 
       renderTables(lang);
+    }
+
+    function exportCatalogPDF() {
+      const element = document.getElementById('catalog-container');
+      const btn = document.querySelector('.print-btn');
+      const oldText = btn.innerText;
+      btn.innerText = '⏳ Generating PDF...';
+      btn.disabled = true;
+
+      const opt = {
+        margin:       0,
+        filename:     `EAX_Agro_Export_Catalog_2026_${currentLang}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2, useCORS: true, logging: false },
+        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
+      };
+
+      if (window.html2pdf) {
+        html2pdf().set(opt).from(element).save().then(() => {
+          btn.innerText = oldText;
+          btn.disabled = false;
+        }).catch(err => {
+          console.error(err);
+          btn.innerText = oldText;
+          btn.disabled = false;
+          window.print();
+        });
+      } else {
+        btn.innerText = oldText;
+        btn.disabled = false;
+        window.print();
+      }
     }
 
     let lastScrollTop = 0;
