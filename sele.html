@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   
-  <!-- مكتبة html2pdf لتوليد ملف الـ PDF -->
+  <!-- مكتبة html2pdf -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -109,11 +109,11 @@
     }
     .print-btn:hover { transform: scale(1.02); }
 
-    /* Page Architecture (Desktop Exact A4 Landscape) */
+    /* Page Setup (Desktop Exact A4 Landscape) */
     .page {
       width: 297mm;
-      height: 210mm;
-      max-height: 210mm;
+      height: 209.5mm; /* منع التقريب الكسري لتجنب الصفحات البيضاء */
+      max-height: 209.5mm;
       background: #ffffff;
       margin: 28px auto;
       position: relative;
@@ -123,8 +123,6 @@
       justify-content: space-between;
       border-radius: 8px;
       box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-      page-break-after: always !important;
-      break-after: page !important;
     }
 
     .page-header {
@@ -186,7 +184,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 210mm;
+      height: 209.5mm;
       position: relative;
     }
     .cover-header-row {
@@ -230,7 +228,7 @@
       border: 2px solid var(--gold);
       border-radius: 24px;
       padding: 12px 18px;
-      box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(212, 163, 89, 0.25);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
       position: relative;
       overflow: hidden;
     }
@@ -442,7 +440,7 @@
       align-items: center;
       text-align: center;
       padding: 8mm 14mm;
-      height: 210mm;
+      height: 209.5mm;
     }
     .back-box {
       background: #ffffff;
@@ -539,17 +537,15 @@
 
     /* =========================================
        SMARTPHONES / MOBILE (Below 768px)
-       حل مشكلة صغر القائمة على الموبايل
        ========================================= */
     .mobile-cards-grid { display: none; }
     
     @media screen and (max-width: 767px) {
       body {
-        padding: 16px 10px 96px; /* مساحة بالأسفل للشريط العائم */
+        padding: 16px 10px 96px;
         background: #050e08;
       }
 
-      /* تحويل شريط التحكم لشريط سفلي فخم وواضح جداً للإبهام */
       .control-panel {
         top: auto;
         bottom: 14px;
@@ -700,31 +696,29 @@
     }
 
     /* ========================================================
-       PRINT & PDF GENERATOR MODE (FORCE DESKTOP A4 TO PDF)
-       ده الكلاس السحري اللي بيمنع تداخل الصفحات في الـ PDF
+       PRINT & PDF RENDER ENGINE (FIX BLANK PAGES & OVERFLOW)
        ======================================================== */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
       margin: 0 !important;
       padding: 0 !important;
-      background: transparent !important;
+      background: #ffffff !important;
     }
     .pdf-render-mode .page {
       width: 297mm !important;
-      height: 210mm !important;
-      max-height: 210mm !important;
-      margin: 0 !important;
+      height: 209.5mm !important;
+      max-height: 209.5mm !important;
+      margin: 0 !important; /* إلغاء أي مارجن لمنع الصفحات البيضاء */
       box-shadow: none !important;
       border-radius: 0 !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
+      border: none !important;
       page-break-after: always !important;
+      page-break-inside: avoid !important;
       break-after: page !important;
       overflow: hidden !important;
     }
-    .pdf-render-mode .cover-bg { height: 210mm !important; }
+    .pdf-render-mode .cover-bg { height: 209.5mm !important; }
     .pdf-render-mode .cover-hero-wrap { flex-direction: row !important; }
     .pdf-render-mode .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
     .pdf-render-mode .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
@@ -742,8 +736,8 @@
       .control-panel { display: none !important; }
       .page {
         width: 297mm !important;
-        height: 210mm !important;
-        max-height: 210mm !important;
+        height: 209.5mm !important;
+        max-height: 209.5mm !important;
         margin: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
@@ -792,6 +786,7 @@
           </p>
         </div>
 
+        <!-- تم إزالة filter="url(#shadow3D)" ليظهر اللوجو بدقة 100% في الـ Canvas -->
         <div class="cover-logo-side">
           <svg viewBox="0 0 940 480" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -817,12 +812,9 @@
                 <stop offset="0%" stop-color="#fffef0"/><stop offset="30%" stop-color="#fde047"/>
                 <stop offset="70%" stop-color="#f59e0b"/><stop offset="100%" stop-color="#b45309"/>
               </radialGradient>
-              <filter id="shadow3D" x="-10%" y="-10%" width="130%" height="130%">
-                <feDropShadow dx="3" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.25"/>
-              </filter>
             </defs>
 
-            <g filter="url(#shadow3D)">
+            <g>
               <!-- LETTER E -->
               <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="url(#gold3D)" stroke="url(#goldShine)" stroke-width="2.5"/>
               <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="url(#greenLetter)"/>
@@ -1373,7 +1365,7 @@
       },
       { id:10, grp:'s', months:[7,8,9,10,11], temp:'+10°C to +12°C',
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
-        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
+        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентиل. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
         ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
@@ -1481,7 +1473,7 @@
       },
       { id:22, grp:'s', months:[5,6,7,8,9], temp:'+7°C to +9°C',
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
-        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентиل. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
@@ -1491,7 +1483,7 @@
       { id:23, grp:'w', months:[10,11,12,1,2,3,4,5], temp:'+4°C to +6°C',
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'1.5kg / 4kg MAP bags', ar:'أكياس حفظ 1.5/4 كجم', ru:'Пакеты 1.5кг / 4кг', zh:'1.5/4公斤气调保鲜袋' },
-        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра فاйн (6-8مم)', zh:'特细 (6-8mm), 一级' },
+        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра فاйн (6-8мм)', zh:'特细 (6-8mm), 一级' },
         en:{ name:"Green Beans", sub:"Haricot Vert, Bobby" },
         ar:{ name:"الفاصوليا الخضراء الرفيعة", sub:"هاريكوت فيرت، بوبي" },
         ru:{ name:"Стручковая фасоль", sub:"Тонкая спаржевая" },
@@ -1606,7 +1598,7 @@
         zh:{ name:"新鲜甘蓝 / 包菜", sub:"白甘蓝与紫甘蓝" }
       },
       { id:36, grp:'w', months:[11,12,1,2,3], temp:'+0°C to +2°C',
-        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быستрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентил. короб со льдом', zh:'3/5公斤加冰透气箱' },
         cal:{ en:'Clean washed bunches', ar:'حزم مغسولة ومنظفة', ru:'Мытые пучки', zh:'精选水洗捆装' },
         en:{ name:"Fresh Spinach", sub:"Savoy & Flat Leaf" },
@@ -1947,7 +1939,7 @@
       renderTables(lang);
     }
 
-    // الدالة الذكية لمنع تداخل الصفحات في الـ PDF
+    // الدالة المعدلة التي تحل مشكلة الصفحات الفارغة بنسبة 100%
     function exportCatalogPDF() {
       const container = document.getElementById('catalog-container');
       const btn = document.querySelector('.print-btn');
@@ -1955,7 +1947,7 @@
       btn.innerText = '⏳ Generating PDF...';
       btn.disabled = true;
 
-      // تفعيل كلاس الديسكتوب والطباعة المؤقت لضمان عدم خروج الجداول عن قياس A4
+      // تفعيل كلاس محاكاة الـ A4 الدقيق
       container.classList.add('pdf-render-mode');
 
       const opt = {
@@ -1970,7 +1962,7 @@
           scrollX: 0
         },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' },
-        pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+        pagebreak:    { mode: ['css', 'legacy'] } // منع التقسيم التلقائي المسبب للصفحات البيضاء
       };
 
       if (window.html2pdf) {
