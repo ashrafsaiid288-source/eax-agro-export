@@ -19,32 +19,37 @@
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-    
+
+    @page {
+      size: 297mm 210mm;
+      margin: 0;
+    }
+
     :root {
-      --primary-deep: #03130a;
-      --primary-card: #082114;
-      --primary-accent: #0f3d25;
+      --primary-deep: #020e07;
+      --primary-card: #061c10;
+      --primary-accent: #0f462a;
+      --emerald-glow: #10b981;
       
-      --gold-light: #faebd7;
+      --gold-light: #fef7ec;
       --gold: #d4a359;
-      --gold-deep: #b07d30;
-      --gold-soft: #fcf9f2;
-      --gold-border: rgba(212, 163, 89, 0.35);
-      --gold-gradient: linear-gradient(135deg, #faebd7 0%, #d4a359 45%, #9f6c24 100%);
+      --gold-deep: #a47326;
+      --gold-border: rgba(212, 163, 89, 0.3);
+      --gold-gradient: linear-gradient(135deg, #faebd7 0%, #d4a359 50%, #9a661f 100%);
       
-      --bg-dark: #020b06;
-      --bg-page: #fbfdfc;
+      --bg-dark: #010804;
+      --bg-page: #f8faf9;
       --surface-card: #ffffff;
-      --border-subtle: #e5ece7;
-      --border-divider: #edf3ee;
-      --text-main: #07190f;
-      --text-muted: #536b5a;
+      --border-subtle: #e2ebe5;
+      --border-divider: #eef4f0;
+      --text-main: #091a11;
+      --text-muted: #5c7263;
       
       --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 22px;
-      --shadow-subtle: 0 10px 30px -5px rgba(7, 33, 20, 0.04), 0 2px 8px rgba(0,0,0,0.02);
-      --shadow-card: 0 8px 24px -4px rgba(7, 33, 20, 0.06);
+      --radius-lg: 20px;
+      --shadow-bento: 0 10px 30px -5px rgba(2, 22, 12, 0.05), 0 2px 6px rgba(0,0,0,0.02);
+      --shadow-card: 0 8px 24px -4px rgba(2, 22, 12, 0.06);
     }
 
     body {
@@ -61,7 +66,7 @@
       font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Floating Navigation Controls */
+    /* Floating Ultra-Modern Pill Navbar */
     .control-panel {
       position: fixed;
       top: 14px;
@@ -69,12 +74,12 @@
       transform: translateX(-50%);
       z-index: 10000;
       display: flex;
-      gap: 8px;
+      gap: 6px;
       align-items: center;
-      background: rgba(3, 19, 10, 0.92);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
-      padding: 6px 14px;
+      background: rgba(3, 16, 9, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 6px 12px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
       box-shadow: 0 20px 45px rgba(0,0,0,0.6);
@@ -89,12 +94,12 @@
     }
     .lang-btn {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.1);
       color: #dfede2;
-      padding: 6px 13px;
+      padding: 6px 12px;
       border-radius: 999px;
       font-weight: 700;
-      font-size: 11.5px;
+      font-size: 11px;
       cursor: pointer;
       transition: all 0.25s ease;
     }
@@ -105,34 +110,37 @@
       box-shadow: 0 4px 14px rgba(212, 163, 89, 0.4);
     }
     .print-btn {
-      background: linear-gradient(135deg, #ffffff 0%, #f6efe3 100%);
+      background: linear-gradient(135deg, #ffffff 0%, #f3eee3 100%);
       color: var(--primary-deep);
       border: none;
       padding: 7px 18px;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 11.5px;
+      font-size: 11px;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
       white-space: nowrap;
+      margin-inline-start: 6px;
     }
     .print-btn:hover { transform: scale(1.02); }
 
     /* Exact A4 Landscape Page Setup */
     .page {
       width: 297mm;
-      height: 209mm;
-      max-height: 209mm;
+      height: 210mm;
+      max-height: 210mm;
       background: #ffffff;
-      margin: 22px auto;
+      margin: 20px auto;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-radius: 8px;
+      border-radius: 10px;
       box-shadow: 0 25px 65px rgba(0,0,0,0.65);
+      page-break-inside: avoid;
+      break-inside: avoid;
       page-break-after: always;
       break-after: page;
     }
@@ -142,7 +150,7 @@
     }
 
     .page-header {
-      height: 12.5mm;
+      height: 12mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -152,7 +160,7 @@
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary-deep);
@@ -164,7 +172,7 @@
       letter-spacing: 1.5px;
       color: var(--gold-deep);
       text-transform: uppercase;
-      background: var(--gold-soft);
+      background: var(--gold-light);
       padding: 3px 9px;
       border-radius: 999px;
       border: 1px solid rgba(212, 163, 89, 0.35);
@@ -194,15 +202,15 @@
       flex-shrink: 0;
     }
 
-    /* Cover Page */
+    /* Cover Page - Luxury Editorial Styling */
     .cover-bg {
-      background: radial-gradient(circle at 85% 20%, #174b2f 0%, #051a0f 75%, #020c06 100%);
+      background: radial-gradient(circle at 85% 15%, #134e2c 0%, #051a0f 65%, #010904 100%);
       color: #ffffff;
       padding: 10mm 16mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 209mm;
+      height: 210mm;
       position: relative;
     }
     .cover-header-row {
@@ -259,7 +267,7 @@
     
     .brand-hero-title {
       margin: 0 0 6px 0;
-      font-size: 36px;
+      font-size: 38px;
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -285,7 +293,7 @@
       -webkit-text-fill-color: transparent;
     }
     .cover-desc {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 500;
       color: #d1e4d7;
       line-height: 1.55;
@@ -315,8 +323,8 @@
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 6px 0;
+      gap: 14px;
+      margin: 4px 0;
       flex: 1;
       align-items: stretch;
     }
@@ -324,64 +332,65 @@
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 16px 18px;
+      padding: 15px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-card);
+      box-shadow: var(--shadow-bento);
       position: relative;
       overflow: hidden;
+      transition: all 0.3s ease;
     }
     .pillar-header-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .pillar-icon-box {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: linear-gradient(135deg, #f0f7f3 0%, #e3ede6 100%);
-      border: 1px solid rgba(15, 61, 37, 0.12);
+      border: 1px solid rgba(15, 70, 42, 0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--primary-accent);
     }
-    .pillar-icon-box svg { width: 24px; height: 24px; }
+    .pillar-icon-box svg { width: 22px; height: 22px; }
     .pillar-box .num { 
-      font-size: 13px; 
+      font-size: 12px; 
       font-weight: 900; 
       color: var(--gold-deep); 
-      background: var(--gold-soft); 
-      padding: 4px 10px;
+      background: var(--gold-light); 
+      padding: 3px 9px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
       letter-spacing: 0.5px;
     }
-    .pillar-box h4 { margin: 0 0 6px; font-size: 13.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
-    .pillar-box p { margin: 0; font-size: 9.8px; font-weight: 500; color: #465a4c; line-height: 1.55; }
+    .pillar-box h4 { margin: 0 0 5px; font-size: 13px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
+    .pillar-box p { margin: 0; font-size: 9.5px; font-weight: 500; color: #44594a; line-height: 1.5; }
     .pillar-tag-bottom {
       font-size: 8.5px;
       font-weight: 800;
       color: var(--primary-accent);
-      margin-top: 10px;
+      margin-top: 8px;
       background: #f4f9f5;
       border: 1px solid rgba(22, 101, 52, 0.15);
-      border-radius: 8px;
-      padding: 5px 10px;
+      border-radius: 6px;
+      padding: 4px 9px;
       display: inline-block;
       width: fit-content;
     }
 
-    /* Page 3 Certs & Logistics Split */
+    /* Page 3 Certs & Logistics Bento Split */
     .p3-split-layout {
       display: grid;
       grid-template-columns: 1.25fr 1fr;
       gap: 14px;
       flex: 1;
-      margin-top: 6px;
+      margin-top: 4px;
     }
     .certs-grid {
       display: grid;
@@ -392,36 +401,40 @@
       background: #ffffff;
       border: 1.5px solid var(--border-subtle);
       border-radius: var(--radius-sm);
-      padding: 9px 12px;
-      box-shadow: var(--shadow-subtle);
+      padding: 8px 12px;
+      box-shadow: var(--shadow-bento);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .cert-pill-card .badge {
       display: inline-block;
       font-size: 7px;
       font-weight: 900;
-      background: var(--gold-soft);
+      background: var(--gold-light);
       color: var(--gold-deep);
       padding: 2px 6px;
       border-radius: 4px;
       border: 1px solid rgba(212, 163, 89, 0.25);
       margin-bottom: 3px;
+      width: fit-content;
     }
-    .cert-pill-card h4 { margin: 0 0 2px; font-size: 11.5px; font-weight: 800; color: var(--primary-deep); }
-    .cert-pill-card p { margin: 0; font-size: 8.5px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
+    .cert-pill-card h4 { margin: 0 0 2px; font-size: 11px; font-weight: 800; color: var(--primary-deep); }
+    .cert-pill-card p { margin: 0; font-size: 8.3px; font-weight: 500; color: var(--text-muted); line-height: 1.35; }
 
     .transit-box {
       background: #ffffff;
       border: 1.5px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 12px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow-bento);
     }
     .transit-table { width: 100%; border-collapse: collapse; font-size: 9px; }
     .transit-table th {
-      background: #f0f5f1;
+      background: #f1f6f2;
       color: var(--primary-deep);
       text-align: left;
       padding: 5px 8px;
@@ -429,17 +442,17 @@
       border-bottom: 1.5px solid var(--border-subtle);
     }
     html[dir="rtl"] .transit-table th { text-align: right; }
-    .transit-table td { padding: 4.5px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
+    .transit-table td { padding: 4.8px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
     .transit-table .highlight-days { font-weight: 900; color: var(--gold-deep); }
 
-    /* Catalog Tables */
+    /* Ultra-Clean Modern Catalog Tables */
     .catalog-table-wrap {
       width: 100%;
       flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: stretch;
-      margin-top: 4px;
+      margin-top: 3px;
       background: #ffffff;
       border-radius: var(--radius-sm);
       border: 1.5px solid var(--border-subtle);
@@ -447,7 +460,7 @@
     }
     .catalog-table { width: 100%; height: 100%; border-collapse: collapse; table-layout: fixed; }
     .catalog-table th {
-      background: #f2f7f3;
+      background: #f1f6f2;
       color: var(--primary-deep);
       font-weight: 800;
       font-size: 8.5px;
@@ -459,14 +472,14 @@
     }
     html[dir="rtl"] .catalog-table th { text-align: right; }
     .catalog-table td {
-      padding: 3.8px 8px;
+      padding: 3.6px 8px;
       border-bottom: 1px solid var(--border-divider);
       vertical-align: middle;
       font-weight: 600;
       color: var(--text-main);
-      font-size: 9.3px;
+      font-size: 9.2px;
     }
-    .catalog-table tr:nth-child(even) td { background: #fbfdfc; }
+    .catalog-table tr:nth-child(even) td { background: #fafcfb; }
     
     .crop-name { font-size: 10.5px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
     .crop-sub { color: var(--text-muted); font-size: 8px; font-weight: 500; display: block; margin-top: 1px; }
@@ -476,7 +489,7 @@
       font-weight: 800;
       color: var(--gold-deep);
       background: #fcf6eb;
-      padding: 0 4px;
+      padding: 1px 4px;
       border-radius: 3px;
       margin-inline-start: 4px;
       border: 0.5px solid rgba(176, 125, 48, 0.25);
@@ -494,7 +507,7 @@
     .bg-s { background: #effcf3; color: #166534; border: 1px solid rgba(22, 101, 52, 0.2); }
     .bg-w { background: #f0f7ff; color: #0369a1; border: 1px solid rgba(3, 105, 161, 0.2); }
 
-    /* Season Tracker */
+    /* Modern Harvest Glow Timeline */
     .season-track {
       display: flex;
       gap: 1.5px;
@@ -504,21 +517,21 @@
     }
     .s-dot {
       flex: 1;
-      height: 12.5px;
+      height: 12px;
       font-size: 6.2px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 2px;
-      background: #ebf2ec;
-      color: #93a497;
+      border-radius: 3px;
+      background: #e9f0eb;
+      color: #90a395;
     }
     .s-dot.active {
       background: linear-gradient(180deg, #185e37 0%, #0d3b21 100%);
       color: #faebd7;
       font-weight: 900;
-      box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
+      box-shadow: 0 1px 3px rgba(24, 94, 55, 0.35);
     }
 
     /* Executive Back Cover */
@@ -528,7 +541,7 @@
       align-items: center;
       text-align: center;
       padding: 6mm 14mm;
-      height: 209mm;
+      height: 210mm;
     }
     .back-box {
       background: #ffffff;
@@ -536,7 +549,7 @@
       border-radius: var(--radius-lg);
       padding: 18px 22px;
       max-width: 950px;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow-bento);
       text-align: left;
     }
     html[dir="rtl"] .back-box { text-align: right; }
@@ -561,7 +574,7 @@
     }
     .c-col a, .c-col p {
       margin: 0;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       color: var(--primary-deep);
       text-decoration: none;
@@ -576,7 +589,7 @@
     .qr-card img {
       width: 70px;
       height: 70px;
-      border-radius: 6px;
+      border-radius: 8px;
       border: 1px solid var(--border-subtle);
       padding: 3px;
       background: #ffffff;
@@ -587,14 +600,14 @@
     /* Mobile Responsive (< 768px) */
     .mobile-cards-grid { display: none; }
     @media screen and (max-width: 767px) {
-      body { padding: 50px 10px 84px; background: #020c06; }
+      body { padding: 45px 8px 80px; background: #020c06; }
       
       .control-panel {
         top: auto;
         bottom: 12px;
-        width: calc(100vw - 20px);
+        width: calc(100vw - 16px);
         max-width: 440px;
-        padding: 6px 8px;
+        padding: 5px 8px;
         justify-content: space-between;
       }
 
@@ -605,9 +618,11 @@
         margin: 12px auto;
         border-radius: 14px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        page-break-after: auto !important;
+        break-after: auto !important;
       }
 
-      .cover-bg { height: auto !important; padding: 22px 16px; }
+      .cover-bg { height: auto !important; padding: 20px 14px; }
       .cover-hero-wrap { flex-direction: column-reverse; gap: 14px; }
       .cover-logo-side { width: 100%; height: 160px; }
       .brand-hero-title { font-size: 24px; letter-spacing: 2px; }
@@ -648,7 +663,7 @@
       .qr-side { justify-content: center; gap: 16px; margin-top: 12px; }
     }
 
-    /* PDF Strict Rendering Engine */
+    /* PDF Strict Rendering Engine (Solves Spacing & Blank Page Bugs) */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -658,12 +673,14 @@
     }
     .pdf-render-mode .page {
       width: 297mm !important;
-      height: 209mm !important;
-      max-height: 209mm !important;
+      height: 210mm !important;
+      max-height: 210mm !important;
       margin: 0 !important;
       box-shadow: none !important;
       border-radius: 0 !important;
       border: none !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
       page-break-after: always !important;
       break-after: page !important;
       overflow: hidden !important;
@@ -673,7 +690,7 @@
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    .pdf-render-mode .cover-bg { height: 209mm !important; padding: 10mm 16mm !important; }
+    .pdf-render-mode .cover-bg { height: 210mm !important; padding: 10mm 16mm !important; }
     .pdf-render-mode .cover-hero-wrap { flex-direction: row !important; }
     .pdf-render-mode .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
     .pdf-render-mode .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
@@ -692,8 +709,10 @@
         box-shadow: none !important;
         border-radius: 0 !important;
         width: 297mm !important;
-        height: 209mm !important;
-        max-height: 209mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
         page-break-after: always !important;
         break-after: page !important;
       }
@@ -740,7 +759,6 @@
           </p>
         </div>
 
-        <!-- Official Self-Contained High-Res Logo -->
         <div class="cover-logo-side">
           <img id="main-brand-logo" alt="EAX AGRO EXPORT Official Logo">
         </div>
@@ -778,19 +796,19 @@
         <!-- Intro Header & Mission + Guarantee Badge -->
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
-            <span style="font-size: 9.5px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
-            <p style="font-size: 11px; font-weight: 500; color: #374a3c; line-height: 1.5; margin: 0;" data-k="p2_lead">
+            <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+            <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
+            <p style="font-size: 10.8px; font-weight: 500; color: #354a3a; line-height: 1.5; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
           </div>
 
           <!-- Prominent Quality Guarantee Badge -->
-          <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow-subtle); text-align: center;">
-            <div style="font-size: 10.5px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
+          <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-bento); text-align: center;">
+            <div style="font-size: 10px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 13px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size: 12.5px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
             <p style="font-size: 8.5px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
@@ -799,46 +817,46 @@
           </div>
         </div>
 
-        <!-- Trust & Scale Metrics Strip (Modern Cards with Icons) -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 6px 0;">
+        <!-- Trust & Scale Metrics Strip -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
           
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
-              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
+              <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
+              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--gold-deep); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
-              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
+              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
-              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
+              <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
+              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #047857; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
-              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
+              <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
+              <div style="font-size: 7.8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
             </div>
           </div>
 
@@ -892,7 +910,7 @@
         </div>
 
         <!-- Quality Commitment Footer Strip -->
-        <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); box-shadow: var(--shadow-subtle);">
+        <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 7px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
           <span style="font-weight: 700; color: var(--primary-deep);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
           <span style="font-weight: 800; color: var(--gold-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
         </div>
@@ -913,8 +931,8 @@
       </div>
       <div class="page-content">
         <div>
-          <span style="font-size: 9.5px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
-          <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 5px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
+          <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
+          <h2 style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
         </div>
 
         <div class="p3-split-layout">
@@ -953,7 +971,7 @@
 
           <div class="transit-box">
             <div>
-              <div style="font-size: 10.5px; font-weight: 900; color: var(--primary-deep); margin-bottom: 6px;" data-k="t_mat_title">
+              <div style="font-size: 10px; font-weight: 900; color: var(--primary-deep); margin-bottom: 6px;" data-k="t_mat_title">
                 Direct Port Transit Times (From Egypt)
               </div>
               <table class="transit-table">
@@ -987,7 +1005,7 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
+          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
           <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1025,7 +1043,7 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
+          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
           <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1063,7 +1081,7 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
+          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
           <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1101,7 +1119,7 @@
       </div>
       <div class="page-content">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
+          <h3 style="margin: 0; font-size: 12.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
           <div style="font-size: 8px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #185e37; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1136,47 +1154,47 @@
       <div class="back-box">
         
         <!-- Permanent English Brand Header -->
-        <div style="text-align: center; margin-bottom: 14px; border-bottom: 1.5px solid var(--border-subtle); padding-bottom: 12px;">
+        <div style="text-align: center; margin-bottom: 12px; border-bottom: 1.5px solid var(--border-subtle); padding-bottom: 10px;">
           <div style="display: inline-block; direction: ltr !important; unicode-bidi: isolate;">
-            <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <h1 style="margin: 0; font-size: 25px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
               EAX AGRO EXPORT
             </h1>
-            <div style="font-size: 8.5px; font-weight: 800; letter-spacing: 3px; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;">
+            <div style="font-size: 8px; font-weight: 800; letter-spacing: 3px; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;">
               EGYPTIAN PREMIUM AGRICULTURAL EXPORTS
             </div>
           </div>
 
-          <h3 style="font-size: 15px; font-weight: 900; color: var(--primary-deep); margin: 6px 0 3px;" data-k="b_title">Global Export & Trade Desk</h3>
-          <p style="font-size: 10px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 620px; line-height: 1.5;" data-k="b_sub">
+          <h3 style="font-size: 14.5px; font-weight: 900; color: var(--primary-deep); margin: 5px 0 2px;" data-k="b_title">Global Export & Trade Desk</h3>
+          <p style="font-size: 9.8px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 620px; line-height: 1.45;" data-k="b_sub">
             Your trusted gateway to premium Egyptian fresh produce. Connecting commercial farms directly to global retail chains and wholesale distribution networks.
           </p>
         </div>
 
         <!-- Corporate Info Grid -->
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; text-align: start;">
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 11px;">
-            <div style="font-size: 16px; margin-bottom: 3px;">📍</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_hq_d">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; text-align: start;">
+          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+            <div style="font-size: 15px; margin-bottom: 2px;">📍</div>
+            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
+            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_hq_d">
               Alexandria - Cairo Agricultural Road, Egypt.<br>
               Direct proximity to top agricultural belts & packhouses.
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 11px;">
-            <div style="font-size: 16px; margin-bottom: 3px;">🚢</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_ports_d">
+          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+            <div style="font-size: 15px; margin-bottom: 2px;">🚢</div>
+            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
+            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_ports_d">
               • Alexandria Container Terminal<br>
               • Damietta Port & East Port Said<br>
               • Sokhna Terminal (Red Sea & Asia)
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 11px;">
-            <div style="font-size: 16px; margin-bottom: 3px;">📋</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_legal_d">
+          <div style="background: #fbfdfc; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
+            <div style="font-size: 15px; margin-bottom: 2px;">📋</div>
+            <h5 style="margin: 0 0 2px; font-size: 10px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
+            <p style="margin: 0; font-size: 8.5px; color: var(--text-muted); line-height: 1.4;" data-k="c_legal_d">
               • Incoterms 2020: FOB, CFR, CIF<br>
               • Flexible Retail Supermarket Programs<br>
               • EUR.1 Zero-Tariff & Phytosanitary Clearances
@@ -1185,7 +1203,7 @@
         </div>
 
         <!-- Contact & Interactive Dock -->
-        <div class="interactive-dock" style="margin-top: 0; padding-top: 10px;">
+        <div class="interactive-dock" style="margin-top: 0; padding-top: 8px;">
           <div class="contact-cols">
             <div class="c-col">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
@@ -1227,7 +1245,7 @@
         </div>
 
         <!-- Quality Strip -->
-        <div style="border-top: 1.5px solid var(--border-subtle); padding-top: 8px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted);">
+        <div style="border-top: 1.5px solid var(--border-subtle); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8.2px; color: var(--text-muted);">
           <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • GRASP • BRCGS Grade A • ISO 22000 • EUR.1 Certified</span>
           <span style="font-weight: 900; color: var(--primary-deep);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
@@ -1292,7 +1310,7 @@
   </div>
 
   <script>
-    // 100% Reliable Client-Side Logo Rasterizer to Guarantee Display in Mobile & HTML2PDF
+    // 100% Reliable Client-Side Logo Rasterizer
     function initLogoRaster() {
       const svgEl = document.getElementById('raw-logo-svg');
       if (!svgEl) return;
@@ -1321,7 +1339,7 @@
       tempImg.src = blobURL;
     }
 
-    // 38 Crops with HS Code & Professional Technical Specs
+    // Full 38 Crops Database
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
         temp:{ en:'+12°C to +14°C', ar:'من +12 إلى +14°م', ru:'от +12°C до +14°C', zh:'+12°C 至 +14°C' },
@@ -1347,7 +1365,7 @@
         temp:{ en:'+4°C to +8°C', ar:'من +4 إلى +8°م', ru:'от +4°C до +8°C', zh:'+4°C 至 +8°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'10kg / 25kg mesh, bins', ar:'أجولة شبكية 10/25 كجم، باليتات', ru:'Сетки 10кг/25кг, биг-бэги', zh:'10/25公斤网眼袋或大箱' },
-        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45مم+, 55مم+, 65مم+', zh:'45mm+, 55mm+, 65mm+' },
+        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45мм+, 55мм+, 65мм+', zh:'45mm+, 55mm+, 65mm+' },
         en:{ name:"Ware Potatoes", sub:"Spunta, Hermes, Rosetta" },
         ar:{ name:"بطاطس المائدة والتصنيع", sub:"سبونتا، هيرمس، روزيتا" },
         ru:{ name:"Картофель товарный", sub:"Спунта, Гермес" },
@@ -1416,7 +1434,7 @@
       { id:10, hs:'080450', grp:'s', months:[7,8,9,10,11],
         temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
-        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентиل. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
+        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
         cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
         ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
@@ -1536,7 +1554,7 @@
       { id:22, hs:'070999', grp:'s', months:[5,6,7,8,9],
         temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
-        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентиل. короб 2/3кг', zh:'2/3公斤透气箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
@@ -2073,7 +2091,7 @@
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
-          <td><strong style="color:var(--gold-deep); font-size:9.5px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
+          <td><strong style="color:var(--gold-deep); font-size:9.2px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
           <td>
             <span class="crop-name">${cInfo.name}</span>
             <span class="crop-hs">HS ${crop.hs}</span>
@@ -2157,7 +2175,7 @@
       const container = document.getElementById('catalog-container');
       const btn = document.querySelector('.print-btn');
       const oldText = btn.innerText;
-      btn.innerText = (currentLang === 'ar' ? '⏳ جاري إنشاء ملف الـ PDF...' : '⏳ Generating PDF...');
+      btn.innerText = (currentLang === 'ar' ? '⏳ جاري تصدير PDF...' : '⏳ Generating PDF...');
       btn.disabled = true;
 
       if (document.fonts) {
@@ -2179,8 +2197,8 @@
           scrollX: 0,
           windowWidth: 1125
         },
-        jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' },
-        pagebreak:    { mode: 'css' }
+        jsPDF:        { unit: 'mm', format: [297, 210], orientation: 'landscape' },
+        pagebreak:    { mode: ['css', 'legacy'] }
       };
 
       try {
