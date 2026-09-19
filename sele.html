@@ -25,7 +25,6 @@
       --primary-card: #082114;
       --primary-accent: #0f3d25;
       
-      /* Refined Metallic Gold & Champagne */
       --gold-light: #faebd7;
       --gold: #d4a359;
       --gold-deep: #b07d30;
@@ -119,7 +118,7 @@
     }
     .print-btn:hover { transform: scale(1.02); }
 
-    /* Page Setup (Desktop Exact A4 Landscape: 297mm x 209mm) */
+    /* Exact A4 Landscape Page Setup */
     .page {
       width: 297mm;
       height: 209mm;
@@ -148,7 +147,7 @@
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 14.5px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary-deep);
@@ -252,7 +251,7 @@
       margin: 0 0 8px 0;
       font-size: 38px;
       font-weight: 900;
-      letter-spacing: 5px;
+      letter-spacing: 4px;
       text-transform: uppercase;
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: var(--gold-gradient);
@@ -302,7 +301,7 @@
     .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; }
     .metric-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
 
-    /* Bento Value Pillars */
+    /* Bento Value Pillars (Compact Numbers, Emphasized Labels) */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -314,22 +313,22 @@
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 14px;
+      padding: 12px 14px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-subtle);
     }
-    .pillar-box .num { font-size: 24px; font-weight: 900; color: var(--gold-deep); line-height: 1; }
-    .pillar-box h4 { margin: 5px 0 3px; font-size: 13px; font-weight: 800; color: var(--primary-deep); }
-    .pillar-box p { margin: 0; font-size: 10.5px; font-weight: 500; color: #465a4c; line-height: 1.5; }
+    .pillar-box .num { font-size: 17px; font-weight: 900; color: var(--gold-deep); line-height: 1; background: var(--gold-soft); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 8px; border: 1px solid var(--gold-border); }
+    .pillar-box h4 { margin: 5px 0 3px; font-size: 12.5px; font-weight: 800; color: var(--primary-deep); }
+    .pillar-box p { margin: 0; font-size: 10px; font-weight: 500; color: #465a4c; line-height: 1.45; }
     .pillar-tag-bottom {
       font-size: 8.5px;
       font-weight: 800;
       color: var(--primary-deep);
-      margin-top: 6px;
+      margin-top: 5px;
       border-top: 1px dashed var(--border-subtle);
-      padding-top: 5px;
+      padding-top: 4px;
     }
 
     /* Page 3 Certs & Logistics Split */
@@ -733,7 +732,7 @@
       </div>
     </div>
 
-    <!-- PAGE 2: CORPORATE TRUST & QUALITY PHILOSOPHY -->
+    <!-- PAGE 2: CORPORATE TRUST & QUALITY HUB -->
     <div class="page">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
@@ -746,18 +745,19 @@
         <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
           <div style="flex: 1.6;">
             <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 18px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;">EAX AGRO EXPORT</h2>
+            <!-- Dynamic Multilingual Header Brand -->
+            <h2 class="dynamic-page-brand" style="font-size: 18px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
             <p style="font-size: 11px; font-weight: 500; color: #374a3c; line-height: 1.55; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
           </div>
 
-          <!-- Official Guarantee Badge -->
+          <!-- Prominent Quality Guarantee Badge -->
           <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 12px; padding: 10px 12px; box-shadow: var(--shadow-subtle); text-align: center;">
-            <div style="font-size: 9.5px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
+            <div style="font-size: 10px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 11.5px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size: 12px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
               100% Retail Grade A
             </div>
             <p style="font-size: 8px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
@@ -766,53 +766,53 @@
           </div>
         </div>
 
-        <!-- Trust & Scale Metrics Strip -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 8px 14px; box-shadow: var(--shadow-subtle);">
+        <!-- Trust & Scale Metrics Strip (Animated Counters on Load) -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 14px; box-shadow: var(--shadow-subtle);">
           <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div style="font-size: 16px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">40+</div>
+            <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
             <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat1_t">Global Destinations</div>
           </div>
           <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div style="font-size: 16px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+            <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
             <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat2_t">Zero MRL Violations</div>
           </div>
           <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div style="font-size: 16px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">&lt; 2 Hrs</div>
+            <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
             <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat3_t">Pre-Cooling Pull</div>
           </div>
           <div style="text-align: center;">
-            <div style="font-size: 16px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7</div>
+            <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
             <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat4_t">Live Cold Chain IoT</div>
           </div>
         </div>
 
-        <!-- 3 Pillars -->
+        <!-- 3 Refined Pillars (Smaller Numbers, Clean Layout) -->
         <div class="pillar-row" style="margin-top: 2px; flex: 1;">
-          <div class="pillar-box" style="padding: 13px;">
+          <div class="pillar-box" style="padding: 12px 14px;">
             <div>
-              <div class="num" style="font-size: 22px;">01</div>
-              <h4 style="font-size: 12.5px; margin: 4px 0 2px;" data-k="pil1_t">Strict Field Monitoring</h4>
-              <p style="font-size: 9.8px; line-height: 1.45;" data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee zero-chemical violation. Full lot traceability down to specific farm sectors.</p>
+              <div class="num">01</div>
+              <h4 data-k="pil1_t">Strict Field Monitoring</h4>
+              <p data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee zero-chemical violation. Full lot traceability down to specific farm sectors.</p>
             </div>
-            <div class="pillar-tag-bottom" style="font-size: 8.5px; margin-top: 6px; padding-top: 4px;" data-k="pil1_tag">✓ 100% Traceable Farms</div>
+            <div class="pillar-tag-bottom" data-k="pil1_tag">✓ 100% Traceable Farms</div>
           </div>
 
-          <div class="pillar-box" style="padding: 13px;">
+          <div class="pillar-box" style="padding: 12px 14px;">
             <div>
-              <div class="num" style="font-size: 22px;">02</div>
-              <h4 style="font-size: 12.5px; margin: 4px 0 2px;" data-k="pil2_t">Optical Sorting & Curing</h4>
-              <p style="font-size: 9.8px; line-height: 1.45;" data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
+              <div class="num">02</div>
+              <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
+              <p data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
             </div>
-            <div class="pillar-tag-bottom" style="font-size: 8.5px; margin-top: 6px; padding-top: 4px;" data-k="pil2_tag">✓ Zero Blemishes Standard</div>
+            <div class="pillar-tag-bottom" data-k="pil2_tag">✓ Zero Blemishes Standard</div>
           </div>
 
-          <div class="pillar-box" style="padding: 13px;">
+          <div class="pillar-box" style="padding: 12px 14px;">
             <div>
-              <div class="num" style="font-size: 22px;">03</div>
-              <h4 style="font-size: 12.5px; margin: 4px 0 2px;" data-k="pil3_t">Unbroken Cold Chain</h4>
-              <p style="font-size: 9.8px; line-height: 1.45;" data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
+              <div class="num">03</div>
+              <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
+              <p data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
             </div>
-            <div class="pillar-tag-bottom" style="font-size: 8.5px; margin-top: 6px; padding-top: 4px;" data-k="pil3_tag">✓ Live Data Loggers</div>
+            <div class="pillar-tag-bottom" data-k="pil3_tag">✓ Live Data Loggers</div>
           </div>
         </div>
 
@@ -1377,11 +1377,11 @@
       { id:22, hs:'070999', grp:'s', months:[5,6,7,8,9],
         temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
-        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентиل. короб 2/3кг', zh:'2/3公斤透气箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
         cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра файн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
-        ru:{ name:"Бамия (Окра)", sub:"Экстра файн" },
+        ru:{ name:"Бамия (Окра)", sub:"Экстра فاйн" },
         zh:{ name:"新鲜秋葵", sub:"特细级与零号级" }
       },
       { id:23, hs:'070820', grp:'w', months:[10,11,12,1,2,3,4,5],
@@ -1577,6 +1577,7 @@
       en: {
         btn_print: "📥 Download PDF",
         header_logo: "EAX <span>AGRO EXPORT</span>",
+        company_title_full: "EAX AGRO EXPORT",
         cover_tag: "OFFICIAL EXPORT CATALOG • 2026",
         cover_top_rt: "EGYPTIAN AGRICULTURAL EXPORTS",
         c_t1: "Pure Premium Produce",
@@ -1641,6 +1642,7 @@
       ar: {
         btn_print: "📥 تحميل الكتالوج PDF",
         header_logo: "اياكس <span>للتصدير الزراعي</span>",
+        company_title_full: "شركة اياكس للتصدير الزراعي",
         cover_tag: "كتالوج التصدير الرسمي المعتمد • 2026",
         cover_top_rt: "الحاصلات الزراعية المصرية الفاخرة",
         c_t1: "حاصلات بستانية تصديرية نقية",
@@ -1705,6 +1707,7 @@
       ru: {
         btn_print: "📥 Скачать PDF",
         header_logo: "EAX <span>AGRO EXPORT</span>",
+        company_title_full: "EAX AGRO EXPORT",
         cover_tag: "ОФИЦИАЛЬНЫЙ ЭКСПОРТНЫЙ КАТАЛОГ • 2026",
         cover_top_rt: "СВЕЖАЯ СЕЛЬХОЗПРОДУКЦИЯ ИЗ ЕГИПТА",
         c_t1: "Премиальная продукция",
@@ -1769,6 +1772,7 @@
       zh: {
         btn_print: "📥 下载 PDF 目录",
         header_logo: "EAX <span>AGRO EXPORT</span>",
+        company_title_full: "EAX AGRO EXPORT",
         cover_tag: "官方出口名录 • 2026",
         cover_top_rt: "埃及顶级农产品出口",
         c_t1: "天然顶级鲜品",
@@ -1833,6 +1837,26 @@
     };
 
     let currentLang = 'en';
+
+    function runCountersAnimation() {
+      const counters = document.querySelectorAll('.counter-num');
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        const prefix = counter.getAttribute('data-prefix') || '';
+        const suffix = counter.getAttribute('data-suffix') || '';
+        let current = 0;
+        const step = Math.max(target / 25, 1);
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) {
+            counter.innerText = prefix + target + suffix;
+            clearInterval(timer);
+          } else {
+            counter.innerText = prefix + Math.floor(current) + suffix;
+          }
+        }, 30);
+      });
+    }
 
     function renderDynamicTables(lang) {
       const t = I18N[lang];
@@ -1967,6 +1991,7 @@
       });
 
       renderDynamicTables(lang);
+      runCountersAnimation();
     }
 
     async function exportCatalogPDF() {
@@ -1976,7 +2001,6 @@
       btn.innerText = (currentLang === 'ar' ? '⏳ جاري إنشاء ملف الـ PDF...' : '⏳ Generating PDF...');
       btn.disabled = true;
 
-      // Ensure Fonts are rendered completely before Canvas conversion
       if (document.fonts) {
         await document.fonts.ready;
       }
