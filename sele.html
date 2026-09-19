@@ -301,29 +301,43 @@
     .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; }
     .metric-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
 
-    /* Bento Value Pillars (Compact Numbers) */
+    /* Bento Value Pillars (Updated: Larger numbers 01, 02, 03 & Compact text) */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 4px;
+      gap: 12px;
+      margin-top: 2px;
       flex: 1;
     }
     .pillar-box {
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 12px 14px;
+      padding: 10px 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-subtle);
     }
-    .pillar-box .num { font-size: 15px; font-weight: 900; color: var(--gold-deep); line-height: 1; background: var(--gold-soft); width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; border-radius: 7px; border: 1px solid var(--gold-border); }
-    .pillar-box h4 { margin: 4px 0 2px; font-size: 12px; font-weight: 800; color: var(--primary-deep); }
-    .pillar-box p { margin: 0; font-size: 9.5px; font-weight: 500; color: #465a4c; line-height: 1.4; }
+    .pillar-box .num { 
+      font-size: 20px; 
+      font-weight: 900; 
+      color: var(--gold-deep); 
+      line-height: 1; 
+      background: var(--gold-soft); 
+      width: 38px; 
+      height: 38px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      border-radius: 10px; 
+      border: 1.5px solid var(--gold-border); 
+      margin-bottom: 6px;
+    }
+    .pillar-box h4 { margin: 2px 0 2px; font-size: 11.5px; font-weight: 800; color: var(--primary-deep); }
+    .pillar-box p { margin: 0; font-size: 8.8px; font-weight: 500; color: #465a4c; line-height: 1.35; }
     .pillar-tag-bottom {
-      font-size: 8px;
+      font-size: 7.5px;
       font-weight: 800;
       color: var(--primary-deep);
       margin-top: 4px;
@@ -802,9 +816,9 @@
           </div>
         </div>
 
-        <!-- 3 Refined Pillars -->
-        <div class="pillar-row" style="margin-top: 2px; flex: 1;">
-          <div class="pillar-box" style="padding: 12px 14px;">
+        <!-- 3 Refined Pillars (Updated: Larger 01, 02, 03 & Compact Text) -->
+        <div class="pillar-row">
+          <div class="pillar-box">
             <div>
               <div class="num">01</div>
               <h4 data-k="pil1_t">Strict Field Monitoring</h4>
@@ -813,7 +827,7 @@
             <div class="pillar-tag-bottom" data-k="pil1_tag">✓ 100% Traceable Farms</div>
           </div>
 
-          <div class="pillar-box" style="padding: 12px 14px;">
+          <div class="pillar-box">
             <div>
               <div class="num">02</div>
               <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
@@ -822,7 +836,7 @@
             <div class="pillar-tag-bottom" data-k="pil2_tag">✓ Supermarket Class A Standards</div>
           </div>
 
-          <div class="pillar-box" style="padding: 12px 14px;">
+          <div class="pillar-box">
             <div>
               <div class="num">03</div>
               <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
@@ -2062,7 +2076,7 @@
     const navbar = document.getElementById('smartNavbar');
 
     window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      constscrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 60) {
         if (scrollTop > lastScrollTop) {
           navbar.classList.add('nav-hidden');
