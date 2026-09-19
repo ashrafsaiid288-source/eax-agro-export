@@ -44,6 +44,7 @@
       --radius-md: 14px;
       --radius-lg: 22px;
       --shadow-subtle: 0 10px 30px -5px rgba(7, 33, 20, 0.04), 0 2px 8px rgba(0,0,0,0.02);
+      --shadow-card: 0 8px 24px -4px rgba(7, 33, 20, 0.06);
     }
 
     body {
@@ -135,6 +136,10 @@
       page-break-after: always;
       break-after: page;
     }
+    .page:last-child {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
 
     .page-header {
       height: 12.5mm;
@@ -167,7 +172,7 @@
     
     .page-content {
       flex: 1;
-      padding: 3.5mm 16mm 2mm;
+      padding: 5mm 16mm 4mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -193,7 +198,7 @@
     .cover-bg {
       background: radial-gradient(circle at 85% 20%, #174b2f 0%, #051a0f 75%, #020c06 100%);
       color: #ffffff;
-      padding: 12mm 18mm;
+      padding: 10mm 16mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -224,7 +229,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 34px;
+      gap: 28px;
       margin: 2px 0;
       flex: 1;
       position: relative;
@@ -233,23 +238,23 @@
     .cover-text-side { flex: 1.25; }
     .cover-logo-side {
       flex: 1.05;
-      height: 240px;
+      height: 210px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #031109;
       border: 2px solid var(--gold);
-      border-radius: 22px;
-      padding: 12px 18px;
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65);
+      border-radius: 20px;
+      padding: 10px 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
     }
     .cover-logo-side svg { width: 100%; height: 100%; display: block; }
     
     .brand-hero-title {
-      margin: 0 0 8px 0;
-      font-size: 38px;
+      margin: 0 0 6px 0;
+      font-size: 36px;
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -263,10 +268,10 @@
     }
 
     .cover-title {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 900;
       line-height: 1.2;
-      margin: 4px 0 10px;
+      margin: 4px 0 8px;
       letter-spacing: -0.4px;
     }
     .cover-title span.highlight {
@@ -275,10 +280,10 @@
       -webkit-text-fill-color: transparent;
     }
     .cover-desc {
-      font-size: 11.8px;
+      font-size: 11.5px;
       font-weight: 500;
       color: #d1e4d7;
-      line-height: 1.6;
+      line-height: 1.55;
       margin: 0;
       max-width: 530px;
     }
@@ -287,7 +292,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 11px;
+      padding-top: 10px;
       position: relative;
       z-index: 2;
     }
@@ -295,55 +300,74 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 10px 14px;
+      padding: 9px 12px;
       backdrop-filter: blur(10px);
     }
-    .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; }
-    .metric-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
+    .metric-card h3 { margin: 0; font-size: 15px; font-weight: 900; color: #faebd7; }
+    .metric-card p { margin: 2px 0 0; font-size: 8px; font-weight: 600; color: #bcd0c1; line-height: 1.3; }
 
-    /* Bento Value Pillars (Modern & Fixed Height) */
+    /* Bento Value Pillars */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-top: 4px;
-      flex: 0 0 auto;
+      gap: 16px;
+      margin: 6px 0;
+      flex: 1;
+      align-items: stretch;
     }
     .pillar-box {
       background: var(--surface-card);
       border: 1.5px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 11px 14px;
+      border-radius: 16px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-subtle);
-      height: 112px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
     }
+    .pillar-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .pillar-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f0f7f3 0%, #e3ede6 100%);
+      border: 1px solid rgba(15, 61, 37, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-accent);
+    }
+    .pillar-icon-box svg { width: 24px; height: 24px; }
     .pillar-box .num { 
-      font-size: 15px; 
+      font-size: 13px; 
       font-weight: 900; 
       color: var(--gold-deep); 
-      line-height: 1; 
       background: var(--gold-soft); 
-      width: 28px; 
-      height: 28px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      border-radius: 8px; 
-      border: 1px solid var(--gold-border); 
-      margin-bottom: 4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--gold-border);
+      letter-spacing: 0.5px;
     }
-    .pillar-box h4 { margin: 2px 0 2px; font-size: 11px; font-weight: 800; color: var(--primary-deep); }
-    .pillar-box p { margin: 0; font-size: 8.5px; font-weight: 500; color: #465a4c; line-height: 1.35; }
+    .pillar-box h4 { margin: 0 0 6px; font-size: 13.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
+    .pillar-box p { margin: 0; font-size: 9.8px; font-weight: 500; color: #465a4c; line-height: 1.55; }
     .pillar-tag-bottom {
-      font-size: 7.5px;
+      font-size: 8.5px;
       font-weight: 800;
-      color: var(--primary-deep);
-      margin-top: 3px;
-      border-top: 1px dashed var(--border-subtle);
-      padding-top: 3px;
+      color: var(--primary-accent);
+      margin-top: 10px;
+      background: #f4f9f5;
+      border: 1px solid rgba(22, 101, 52, 0.15);
+      border-radius: 8px;
+      padding: 5px 10px;
+      display: inline-block;
+      width: fit-content;
     }
 
     /* Page 3 Certs & Logistics Split */
@@ -640,7 +664,11 @@
       overflow: hidden !important;
       display: flex !important;
     }
-    .pdf-render-mode .cover-bg { height: 209mm !important; }
+    .pdf-render-mode .page:last-child {
+      page-break-after: avoid !important;
+      break-after: avoid !important;
+    }
+    .pdf-render-mode .cover-bg { height: 209mm !important; padding: 10mm 16mm !important; }
     .pdf-render-mode .cover-hero-wrap { flex-direction: row !important; }
     .pdf-render-mode .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
     .pdf-render-mode .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
@@ -690,53 +718,51 @@
         </div>
 
         <div class="cover-logo-side">
+          <!-- Bulletproof Vector Logo with Solid Fallbacks for Mobile/PDF Engine -->
           <svg viewBox="0 0 940 480" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <defs>
               <linearGradient id="gold3D" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff8d6"/><stop offset="25%" stop-color="#e8b959"/>
-                <stop offset="50%" stop-color="#c4861c"/><stop offset="75%" stop-color="#ffea9f"/>
-                <stop offset="100%" stop-color="#693e02"/>
+                <stop offset="0%" stop-color="#faebd7"/>
+                <stop offset="35%" stop-color="#d4a359"/>
+                <stop offset="100%" stop-color="#8a5712"/>
               </linearGradient>
               <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#125c31"/><stop offset="100%" stop-color="#021408"/>
-              </linearGradient>
-              <linearGradient id="navyShape" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#04201b"/><stop offset="100%" stop-color="#062e35"/>
+                <stop offset="0%" stop-color="#145a32"/>
+                <stop offset="100%" stop-color="#051c0f"/>
               </linearGradient>
             </defs>
             <g fill-rule="nonzero">
-              <!-- حرف E الذهبي -->
-              <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="url(#gold3D)" stroke="#f6dc96" stroke-width="2"/>
-              <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="url(#greenLetter)"/>
+              <!-- حرف E -->
+              <path d="M 65 115 L 235 115 L 235 175 L 142 175 L 142 214 L 218 214 L 218 262 L 142 262 L 142 300 L 240 300 L 240 360 L 65 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
+              <path d="M 80 130 L 220 130 L 220 160 L 157 160 L 157 229 L 203 229 L 203 247 L 157 247 L 157 315 L 225 315 L 225 345 L 80 345 Z" fill="#0b381d" style="fill:url(#greenLetter);"/>
               
-              <!-- حرف A الذهبي -->
-              <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" fill="url(#gold3D)" stroke="#f6dc96" stroke-width="2"/>
-              <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" fill="url(#greenLetter)"/>
-              <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" fill="#ffffff" stroke="url(#gold3D)" stroke-width="2"/>
+              <!-- حرف A -->
+              <path d="M 225 360 L 328 115 L 368 115 L 472 360 L 406 360 L 384 305 L 312 305 L 290 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
+              <path d="M 242 348 L 334 130 L 362 130 L 454 348 L 416 348 L 394 295 L 302 295 L 280 348 Z" fill="#0b381d" style="fill:url(#greenLetter);"/>
+              <path d="M 348 172 C 374 200, 372 245, 348 268 C 324 245, 322 200, 348 172 Z" fill="#ffffff" stroke="#d4a359" stroke-width="2.5"/>
               
-              <!-- حرف X الذهبي -->
-              <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" fill="url(#gold3D)" stroke="#f6dc96" stroke-width="2"/>
-              <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" fill="url(#navyShape)"/>
-              <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" fill="url(#gold3D)" stroke="#f6dc96" stroke-width="2"/>
-              <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" fill="url(#navyShape)"/>
+              <!-- حرف X -->
+              <path d="M 466 115 L 536 115 L 642 360 L 572 360 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
+              <path d="M 480 128 L 522 128 L 628 347 L 586 347 Z" fill="#08252a"/>
+              <path d="M 424 360 L 498 360 L 654 152 L 684 175 L 688 56 L 594 92 L 624 115 Z" fill="#d4a359" style="fill:url(#gold3D); stroke:#faebd7; stroke-width:2;"/>
+              <path d="M 445 347 L 485 347 L 646 142 L 668 158 L 672 80 L 608 104 L 628 120 Z" fill="#08252a"/>
 
-              <!-- الأوراق الخضراء التحتية -->
-              <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="url(#gold3D)"/>
+              <!-- القوس والشعار السفلي -->
+              <path d="M 215 380 Q 340 334 455 380 Q 565 425 780 344 Q 550 445 215 380 Z" fill="#d4a359" style="fill:url(#gold3D);"/>
               <path d="M 235 372 Q 345 338 450 374 Q 545 412 725 358 Q 535 428 235 372 Z" fill="#16a34a"/>
               
-              <!-- ختم الشعار الدائري الأيمن -->
+              <!-- ختم الشعار الدائري -->
               <g transform="translate(750, 235)">
-                <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="url(#gold3D)" stroke-width="12"/>
+                <ellipse cx="0" cy="0" rx="118" ry="114" fill="none" stroke="#d4a359" stroke-width="12" style="stroke:url(#gold3D);"/>
                 <circle cx="0" cy="0" r="95" fill="#ffffff"/>
-                <circle cx="-16" cy="18" r="36" fill="#fde047"/>
+                <circle cx="-16" cy="18" r="36" fill="#f59e0b"/>
                 <path d="M -95 32 Q -30 -10 32 46 Q -10 74 -95 32 Z" fill="#14532d"/>
                 <path d="M -91 48 Q -24 8 58 58 Q 0 88 -91 48 Z" fill="#166534"/>
                 <path d="M -83 64 Q -16 26 80 68 Q 10 98 -83 64 Z" fill="#22c55e"/>
-                <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="#16a34a" stroke="url(#gold3D)" stroke-width="3"/>
+                <path d="M 24 -56 Q 66 -84 60 -15 Q 26 -26 24 -56 Z" fill="#16a34a" stroke="#d4a359" stroke-width="3"/>
               </g>
 
-              <!-- نص AGRO EXPORT السفلي داخل الشعار -->
-              <text x="468" y="446" font-family="'Plus Jakarta Sans', 'Cairo', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="url(#gold3D)" stroke="#5a3701" stroke-width="0.5" text-anchor="middle">
+              <text x="468" y="446" font-family="'Plus Jakarta Sans', 'Cairo', sans-serif" font-size="33" font-weight="900" letter-spacing="12" fill="#d4a359" style="fill:url(#gold3D);" stroke="#693e02" stroke-width="0.75" text-anchor="middle">
                 AGRO EXPORT
               </text>
             </g>
@@ -771,57 +797,88 @@
         <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
 
-      <div class="page-content" style="gap: 8px;">
+      <div class="page-content">
         
         <!-- Intro Header & Mission + Guarantee Badge -->
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
-            <span style="font-size: 9px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 18px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
-            <p style="font-size: 11px; font-weight: 500; color: #374a3c; line-height: 1.55; margin: 0;" data-k="p2_lead">
+            <span style="font-size: 9.5px; font-weight: 800; color: var(--gold-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+            <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
+            <p style="font-size: 11px; font-weight: 500; color: #374a3c; line-height: 1.5; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
           </div>
 
           <!-- Prominent Quality Guarantee Badge -->
-          <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 12px; padding: 10px 12px; box-shadow: var(--shadow-subtle); text-align: center;">
-            <div style="font-size: 10px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
+          <div style="flex: 0.8; background: #ffffff; border: 1.5px solid var(--gold-border); border-radius: 14px; padding: 12px 14px; box-shadow: var(--shadow-subtle); text-align: center;">
+            <div style="font-size: 10.5px; font-weight: 900; color: var(--gold-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 12px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size: 13px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
-            <p style="font-size: 8px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
+            <p style="font-size: 8.5px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
               Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.
             </p>
           </div>
         </div>
 
-        <!-- Trust & Scale Metrics Strip (Animated Counters) -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 9px 14px; box-shadow: var(--shadow-subtle);">
-          <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
-            <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat1_t">Global Destinations</div>
+        <!-- Trust & Scale Metrics Strip (Modern Cards with Icons) -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 6px 0;">
+          
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
+            </div>
           </div>
-          <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
-            <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat2_t">Strict EU MRL Compliance</div>
+
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--gold-deep); flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div>
+              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
+            </div>
           </div>
-          <div style="text-align: center; border-inline-end: 1px solid var(--border-subtle);">
-            <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
-            <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat3_t">Pre-Cooling Pull</div>
+
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
+            </div>
           </div>
-          <div style="text-align: center;">
-            <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 17px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
-            <div style="font-size: 7.5px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 2px;" data-k="stat4_t">Live Cold Chain IoT</div>
+
+          <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 14px; padding: 10px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-subtle);">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #047857; flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/></svg>
+            </div>
+            <div>
+              <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
+              <div style="font-size: 8px; font-weight: 800; color: var(--gold-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
+            </div>
           </div>
+
         </div>
 
-        <!-- 3 Refined Pillars (Modern & Fixed Height) -->
+        <!-- 3 Bento Pillars -->
         <div class="pillar-row">
+          
           <div class="pillar-box">
             <div>
-              <div class="num">01</div>
+              <div class="pillar-header-row">
+                <div class="pillar-icon-box">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-10 10c0 4.4 2.9 8.2 7 9.5V17h-2v-3h2v-2c0-3.3 2-5 5-5 1.5 0 2.8.1 3 .1v3.2h-1.8c-1.6 0-2 .8-2 2v1.7h3.7l-.5 3h-3.2v4.5c4.1-1.3 7-5.1 7-9.5A10 10 0 0 0 12 2z"/></svg>
+                </div>
+                <div class="num">01</div>
+              </div>
               <h4 data-k="pil1_t">Strict Field Monitoring</h4>
               <p data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee compliance. Full lot traceability down to specific farm sectors.</p>
             </div>
@@ -830,7 +887,12 @@
 
           <div class="pillar-box">
             <div>
-              <div class="num">02</div>
+              <div class="pillar-header-row">
+                <div class="pillar-icon-box" style="background: #fff9ed; color: var(--gold-deep); border-color: rgba(212,163,89,0.25);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                </div>
+                <div class="num">02</div>
+              </div>
               <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
               <p data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
             </div>
@@ -839,16 +901,22 @@
 
           <div class="pillar-box">
             <div>
-              <div class="num">03</div>
+              <div class="pillar-header-row">
+                <div class="pillar-icon-box" style="background: #f0f8ff; color: #0284c7; border-color: rgba(2,132,199,0.2);">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="12" cy="12" r="9"/></svg>
+                </div>
+                <div class="num">03</div>
+              </div>
               <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
               <p data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
             </div>
             <div class="pillar-tag-bottom" data-k="pil3_tag">✓ Live Data Loggers</div>
           </div>
+
         </div>
 
         <!-- Quality Commitment Footer Strip -->
-        <div style="background: #f4f8f5; border: 1px dashed var(--border-subtle); border-radius: 8px; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 8px; color: var(--text-muted);">
+        <div style="background: #ffffff; border: 1.5px solid var(--border-subtle); border-radius: 12px; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted); box-shadow: var(--shadow-subtle);">
           <span style="font-weight: 700; color: var(--primary-deep);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
           <span style="font-weight: 800; color: var(--gold-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
         </div>
@@ -1269,7 +1337,7 @@
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg / 10kg cartons/mesh', ar:'كرتون أو شبك 5 كجم / 10 كجم', ru:'Коробки/сетки 5кг/10кг', zh:'5/10公斤纸箱或网眼袋' },
-        cal:{ en:'40mm, 50mm, 60mm+', ar:'40مم، 50مم، 60مم+', ru:'40мм, 50мм, 60мм+', zh:'40mm, 50mm, 60mm+' },
+        cal:{ en:'40mm, 50mm, 60mm+', ar:'40مم، 50مم، 60مم+', ru:'40مم, 50мм, 60мм+', zh:'40mm, 50mm, 60mm+' },
         en:{ name:"Garlic (Fresh & Dry)", sub:"Pure White & Purple Red" },
         ar:{ name:"الثوم الطازج والجاف", sub:"أبيض بلدي وأحمر" },
         ru:{ name:"Чеснок свежий/сухой", sub:"Белый и фиолетовый" },
@@ -1319,7 +1387,7 @@
         temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg cartons / flowpack', ar:'كرتون 5 كجم / فلو باك', ru:'Короб 5кг / флоупак', zh:'5公斤箱装或流延膜包' },
-        cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80мм), L (80-100мм)', zh:'中号(60-80mm), 大号(80-100mm)' },
+        cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80مم), L (80-100مم)', zh:'中号(60-80mm), 大号(80-100mm)' },
         en:{ name:"Bell Peppers", sub:"Red, Yellow, Orange" },
         ar:{ name:"الفلفل الملون الرومي", sub:"أحمر، أصفر، برتقالي" },
         ru:{ name:"Перец сладкий", sub:"Красный, желтый" },
@@ -1409,7 +1477,7 @@
         temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
-        cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра файн (3-5см)', zh:'特细级 (3-5cm), 零号' },
+        cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра فاйн (3-5см)', zh:'特细级 (3-5cm), 零号' },
         en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
         ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
         ru:{ name:"Бамия (Окра)", sub:"Экстра فاйн" },
@@ -1419,7 +1487,7 @@
         temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'1.5kg / 4kg MAP bags', ar:'أكياس حفظ 1.5/4 كجم', ru:'Пакеты 1.5кг / 4кг', zh:'1.5/4公斤气调保鲜袋' },
-        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра файн (6-8мм)', zh:'特细 (6-8mm), 一级' },
+        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра فاйн (6-8мм)', zh:'特细 (6-8mm), 一级' },
         en:{ name:"Green Beans", sub:"Haricot Vert, Bobby" },
         ar:{ name:"الفاصوليا الخضراء الرفيعة", sub:"هاريكوت فيرت، بوبي" },
         ru:{ name:"Стручковая фасоль", sub:"Тонкая спаржевая" },
@@ -2037,7 +2105,9 @@
       }
 
       container.classList.add('pdf-render-mode');
+      window.scrollTo(0, 0);
 
+      // Strict PDF export options: forces desktop A4 landscape width (1125px) and avoids legacy extra blank pages
       const opt = {
         margin:       0,
         filename:     `EAX_Agro_Export_Catalog_2026_${currentLang}.pdf`,
@@ -2047,29 +2117,26 @@
           useCORS: true, 
           logging: false,
           scrollY: 0,
-          scrollX: 0
+          scrollX: 0,
+          windowWidth: 1125
         },
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' },
-        pagebreak:    { mode: ['css', 'legacy'] }
+        pagebreak:    { mode: 'css' }
       };
 
-      if (window.html2pdf) {
-        html2pdf().set(opt).from(container).save().then(() => {
-          container.classList.remove('pdf-render-mode');
-          btn.innerText = oldText;
-          btn.disabled = false;
-        }).catch(err => {
-          console.error(err);
-          container.classList.remove('pdf-render-mode');
-          btn.innerText = oldText;
-          btn.disabled = false;
+      try {
+        if (window.html2pdf) {
+          await html2pdf().set(opt).from(container).save();
+        } else {
           window.print();
-        });
-      } else {
+        }
+      } catch (err) {
+        console.error(err);
+        window.print();
+      } finally {
         container.classList.remove('pdf-render-mode');
         btn.innerText = oldText;
         btn.disabled = false;
-        window.print();
       }
     }
 
