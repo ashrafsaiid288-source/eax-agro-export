@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX AGRO EXPORT — Official Export Catalog & Trade Guide 2026</title>
   
-  <!-- Modern Typography: Cairo, Plus Jakarta Sans, JetBrains Mono, Roboto -->
+  <!-- Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -82,9 +82,9 @@
       transform: translateX(-50%);
       z-index: 10000;
       display: flex;
-      gap: 6px;
+      gap: 5px;
       align-items: center;
-      background: rgba(1, 10, 5, 0.9);
+      background: rgba(1, 10, 5, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       padding: 6px 12px;
@@ -104,7 +104,7 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.1);
       color: #dfede2;
-      padding: 6px 12px;
+      padding: 5px 10px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 11px;
@@ -117,11 +117,46 @@
       color: #010a05;
       box-shadow: 0 4px 14px rgba(207, 161, 90, 0.4);
     }
+
+    .nav-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255,255,255,0.2);
+      margin: 0 4px;
+    }
+
+    .page-jumper {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+    }
+    .page-jump-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #bcd0c1;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      font-size: 9.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .page-jump-btn:hover {
+      background: var(--champagne-gold);
+      color: #010a05;
+      border-color: var(--champagne-gold);
+    }
+
     .print-btn {
       background: linear-gradient(135deg, #ffffff 0%, #f4ede0 100%);
       color: var(--primary-deep);
       border: none;
-      padding: 7px 18px;
+      padding: 6px 16px;
       border-radius: 999px;
       font-weight: 800;
       font-size: 11px;
@@ -129,7 +164,7 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
       white-space: nowrap;
-      margin-inline-start: 6px;
+      margin-inline-start: 4px;
     }
     .print-btn:hover { transform: scale(1.02); }
 
@@ -158,7 +193,7 @@
     }
 
     .page-header {
-      height: 12mm;
+      height: 11mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -168,7 +203,7 @@
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary-deep);
@@ -181,23 +216,24 @@
       color: var(--champagne-deep);
       text-transform: uppercase;
       background: var(--champagne-light);
-      padding: 3.5px 10px;
+      padding: 3px 10px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
     }
     
     .page-content {
       flex: 1;
-      padding: 4.5mm 16mm 3.5mm;
+      padding: 3.5mm 16mm 2.5mm;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 3px;
       overflow: hidden;
       background: var(--bg-page);
     }
     
     .page-footer {
-      height: 7.5mm;
+      height: 7mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -451,83 +487,94 @@
     .transit-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
     .transit-table .highlight-days { font-weight: 800; color: var(--champagne-deep); font-size: 10.5px; }
 
-    /* Bento Tables & Enlarged Typography */
+    /* Bento Tables & Precision Row Heights */
     .catalog-table-wrap {
       width: 100%;
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: stretch;
-      margin-top: 3px;
+      justify-content: flex-start;
+      margin-top: 2px;
       background: transparent;
       overflow: hidden;
     }
     .catalog-table {
       width: 100%;
-      height: 100%;
       border-collapse: separate;
-      border-spacing: 0 2.5px;
+      border-spacing: 0 2px;
       table-layout: fixed;
     }
     .catalog-table th {
       background: #eaf1ed;
       color: var(--primary-deep);
       font-weight: 800;
-      font-size: 9.8px;
+      font-size: 9.3px;
       text-align: left;
-      padding: 4.5px 8px;
+      padding: 3.5px 6px;
       letter-spacing: 0.3px;
       text-transform: uppercase;
       border: none;
+      white-space: nowrap;
     }
-    .catalog-table th:first-child { border-radius: 6px 0 0 6px; }
-    .catalog-table th:last-child { border-radius: 0 6px 6px 0; }
+    .catalog-table th:first-child { border-radius: 5px 0 0 5px; }
+    .catalog-table th:last-child { border-radius: 0 5px 5px 0; }
     html[dir="rtl"] .catalog-table th { text-align: right; }
-    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 6px 6px 0; }
-    html[dir="rtl"] .catalog-table th:last-child { border-radius: 6px 0 0 6px; }
+    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 5px 5px 0; }
+    html[dir="rtl"] .catalog-table th:last-child { border-radius: 5px 0 0 5px; }
 
     .catalog-table td {
-      padding: 2.8px 8px;
+      padding: 2.1px 6px;
       vertical-align: middle;
       font-weight: 600;
       color: var(--text-main);
-      font-size: 10.5px;
+      font-size: 10px;
+      line-height: 1.15;
       background: #ffffff;
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
     }
     .catalog-table td:first-child {
       border-left: 1px solid var(--border-subtle);
-      border-radius: 8px 0 0 8px;
+      border-radius: 7px 0 0 7px;
     }
     .catalog-table td:last-child {
       border-right: 1px solid var(--border-subtle);
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 7px 7px 0;
     }
     html[dir="rtl"] .catalog-table td:first-child {
       border-left: none;
       border-right: 1px solid var(--border-subtle);
-      border-radius: 0 8px 8px 0;
+      border-radius: 0 7px 7px 0;
     }
     html[dir="rtl"] .catalog-table td:last-child {
       border-right: none;
       border-left: 1px solid var(--border-subtle);
-      border-radius: 8px 0 0 8px;
+      border-radius: 7px 0 0 7px;
+    }
+
+    /* Caliber Cell Optimization */
+    .cal-cell {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: #1a3323;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.2;
     }
 
     /* Clean Crop Details Typography */
-    .crop-name { font-size: 12px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
-    .crop-sub { color: var(--text-muted); font-size: 9.5px; font-weight: 500; display: block; margin-top: 1px; }
+    .crop-name { font-size: 11.2px; font-weight: 800; color: var(--primary-deep); line-height: 1.1; }
+    .crop-sub { color: var(--text-muted); font-size: 8.8px; font-weight: 500; display: block; margin-top: 1px; }
     
     .crop-hs {
       display: inline-block;
-      font-size: 8px;
+      font-size: 7.8px;
       font-weight: 800;
       color: var(--champagne-deep);
       background: #fdf6ec;
-      padding: 1px 4px;
+      padding: 1px 3.5px;
       border-radius: 3px;
-      margin-inline-start: 4px;
+      margin-inline-start: 3px;
       border: 0.5px solid rgba(157, 113, 46, 0.25);
       font-family: 'JetBrains Mono', 'Roboto Mono', Consolas, monospace !important;
       direction: ltr !important;
@@ -536,9 +583,9 @@
     
     .badge-grp {
       display: inline-block;
-      font-size: 7.8px;
+      font-size: 7.5px;
       font-weight: 800;
-      padding: 1.5px 5px;
+      padding: 1px 4px;
       border-radius: 4px;
       margin-inline-start: 3px;
     }
@@ -549,20 +596,20 @@
     /* Season Track and Number Dots */
     .season-track {
       display: flex;
-      gap: 2px;
+      gap: 1.5px;
       width: 100%;
-      max-width: 165px;
+      max-width: 155px;
       direction: ltr !important;
     }
     .s-dot {
       flex: 1;
-      height: 13.5px;
-      font-size: 7.5px;
+      height: 12.5px;
+      font-size: 7px;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 2.5px;
+      border-radius: 2px;
       background: #e9f0ec;
       color: #718778;
       font-family: 'JetBrains Mono', 'Roboto', sans-serif !important;
@@ -573,7 +620,7 @@
       background: linear-gradient(180deg, #125e36 0%, #08331d 100%);
       color: #faebd7;
       font-weight: 900;
-      box-shadow: 0 1px 3px rgba(18, 94, 54, 0.35);
+      box-shadow: 0 1px 2px rgba(18, 94, 54, 0.35);
     }
 
     /* Executive Back Cover */
@@ -652,6 +699,7 @@
         padding: 5px 8px;
         justify-content: space-between;
       }
+      .page-jumper { display: none; }
 
       .page {
         width: 100% !important;
@@ -705,7 +753,7 @@
       .qr-side { justify-content: center; gap: 16px; margin-top: 12px; }
     }
 
-    /* PDF Strict Rendering Engine - Zero Extra Blank Pages Guaranteed */
+    /* PDF Strict Rendering Engine */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -715,8 +763,8 @@
     }
     .pdf-render-mode .page {
       width: 297mm !important;
-      height: 208mm !important;
-      max-height: 208mm !important;
+      height: 209.5mm !important;
+      max-height: 209.5mm !important;
       margin: 0 !important;
       padding: 0 !important;
       box-shadow: none !important;
@@ -733,8 +781,8 @@
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    .pdf-render-mode .cover-bg { height: 208mm !important; padding: 9mm 16mm !important; }
-    .pdf-render-mode .page-back { height: 208mm !important; }
+    .pdf-render-mode .cover-bg { height: 209.5mm !important; padding: 9mm 16mm !important; }
+    .pdf-render-mode .page-back { height: 209.5mm !important; }
     .pdf-render-mode .cover-hero-wrap { flex-direction: row !important; }
     .pdf-render-mode .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
     .pdf-render-mode .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
@@ -753,8 +801,8 @@
         box-shadow: none !important;
         border-radius: 0 !important;
         width: 297mm !important;
-        height: 208mm !important;
-        max-height: 208mm !important;
+        height: 209.5mm !important;
+        max-height: 209.5mm !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         page-break-after: always !important;
@@ -774,12 +822,25 @@
     <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">العربية</button>
     <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">Русский</button>
     <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+    
+    <div class="nav-divider"></div>
+    <div class="page-jumper" title="Quick Jump">
+      <button class="page-jump-btn" onclick="scrollToPage(1)">1</button>
+      <button class="page-jump-btn" onclick="scrollToPage(2)">2</button>
+      <button class="page-jump-btn" onclick="scrollToPage(3)">3</button>
+      <button class="page-jump-btn" onclick="scrollToPage(4)">4</button>
+      <button class="page-jump-btn" onclick="scrollToPage(5)">5</button>
+      <button class="page-jump-btn" onclick="scrollToPage(6)">6</button>
+      <button class="page-jump-btn" onclick="scrollToPage(7)">7</button>
+      <button class="page-jump-btn" onclick="scrollToPage(8)">8</button>
+    </div>
+    
     <button class="print-btn" onclick="exportCatalogPDF()" data-k="btn_print">📥 Download PDF</button>
   </div>
 
   <div id="catalog-container">
     <!-- PAGE 1: COVER -->
-    <div class="page cover-bg">
+    <div class="page cover-bg" id="page-1">
       <div class="cover-header-row">
         <div class="gold-badge">
           <span>★</span>
@@ -829,15 +890,13 @@
     </div>
 
     <!-- PAGE 2: CORPORATE TRUST & QUALITY HUB -->
-    <div class="page">
+    <div class="page" id="page-2">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
 
-      <div class="page-content">
-        
-        <!-- Intro Header & Mission + Guarantee Badge -->
+      <div class="page-content" style="justify-content: space-between;">
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
             <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
@@ -847,7 +906,6 @@
             </p>
           </div>
 
-          <!-- Prominent Quality Guarantee Badge -->
           <div style="flex: 0.8; background: #ffffff; border: 1px solid var(--gold-border); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-bento); text-align: center;">
             <div style="font-size: 10.5px; font-weight: 900; color: var(--champagne-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
@@ -861,9 +919,8 @@
           </div>
         </div>
 
-        <!-- Trust & Scale Metrics Strip -->
+        <!-- Trust Metrics -->
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
-          
           <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 36px; height: 36px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -903,12 +960,10 @@
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
             </div>
           </div>
-
         </div>
 
-        <!-- 3 Bento Pillars -->
+        <!-- Bento Pillars -->
         <div class="pillar-row">
-          
           <div class="pillar-box">
             <div>
               <div class="pillar-header-row">
@@ -950,15 +1005,13 @@
             </div>
             <div class="pillar-tag-bottom" data-k="pil3_tag">✓ Live Data Loggers</div>
           </div>
-
         </div>
 
-        <!-- Quality Commitment Footer Strip -->
+        <!-- Footer Strip -->
         <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 7px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
           <span style="font-weight: 700; color: var(--primary-deep);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
           <span style="font-weight: 800; color: var(--champagne-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
         </div>
-
       </div>
 
       <div class="page-footer">
@@ -968,12 +1021,12 @@
     </div>
 
     <!-- PAGE 3: CERTS & TRANSIT -->
-    <div class="page">
+    <div class="page" id="page-3">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="p3_tag">INTERNATIONAL STANDARDS & MARITIME LOGISTICS</div>
       </div>
-      <div class="page-content">
+      <div class="page-content" style="justify-content: space-between;">
         <div>
           <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
           <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
@@ -1042,14 +1095,14 @@
     </div>
 
     <!-- PAGE 4: CROPS 01 TO 10 -->
-    <div class="page">
+    <div class="page" id="page-4">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 10</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
           <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1059,12 +1112,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 32px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1080,14 +1133,14 @@
     </div>
 
     <!-- PAGE 5: CROPS 11 TO 20 -->
-    <div class="page">
+    <div class="page" id="page-5">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 11 TO 20</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
           <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1097,12 +1150,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 32px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1118,14 +1171,14 @@
     </div>
 
     <!-- PAGE 6: CROPS 21 TO 30 -->
-    <div class="page">
+    <div class="page" id="page-6">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 21 TO 30</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
           <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1135,12 +1188,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 32px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1156,14 +1209,14 @@
     </div>
 
     <!-- PAGE 7: CROPS 31 TO 38 -->
-    <div class="page">
+    <div class="page" id="page-7">
       <div class="page-header">
         <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
         <div class="header-tag" data-k="cat_p4">EXPORT CATALOG • CROPS 31 TO 38</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
-          <h3 style="margin: 0; font-size: 13.5px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
+          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
           <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
             <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
@@ -1173,12 +1226,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 32px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 105px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 115px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 102px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1194,10 +1247,8 @@
     </div>
 
     <!-- PAGE 8: CORPORATE EXECUTIVE BACK COVER -->
-    <div class="page page-back">
+    <div class="page page-back" id="page-8">
       <div class="back-box">
-        
-        <!-- Permanent English Brand Header -->
         <div style="text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
           <div style="display: inline-block; direction: ltr !important; unicode-bidi: isolate;">
             <h1 style="margin: 0; font-size: 25px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
@@ -1214,7 +1265,6 @@
           </p>
         </div>
 
-        <!-- Corporate Info Grid -->
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; text-align: start;">
           <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
             <div style="font-size: 15px; margin-bottom: 2px;">📍</div>
@@ -1251,7 +1301,7 @@
           <div class="contact-cols">
             <div class="c-col">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" dir="ltr" class="font-mono" style="unicode-bidi: isolate;">
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" rel="noopener noreferrer" dir="ltr" class="font-mono" style="unicode-bidi: isolate;">
                 +20 100 692 0920 ↗
               </a>
               <span data-k="c_p_sub">24/7 International Desk (Click to Chat)</span>
@@ -1265,7 +1315,7 @@
 
             <div class="c-col">
               <h6 data-k="c_web_t">Official Digital Portal</h6>
-              <a href="https://eax-agro-export.vercel.app" target="_blank">eax-agro-export.vercel.app ↗</a>
+              <a href="https://eax-agro-export.vercel.app" target="_blank" rel="noopener noreferrer">eax-agro-export.vercel.app ↗</a>
               <span data-k="c_web_sub">Traceability & Crop Certificates</span>
             </div>
 
@@ -1278,22 +1328,26 @@
 
           <div class="qr-side">
             <div class="qr-card">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F201006920920%3Ftext%3DHello%2520EAX%2520Agro%2520Export%2C%2520I%2520would%2520like%2520to%2520inquire%2520about%2520produce%2520allocations" alt="WhatsApp QR" crossorigin="anonymous">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F201006920920%3Ftext%3DHello%2520EAX%2520Agro%2520Export%2C%2520I%2520would%2520like%2520to%2520inquire%2520about%2520produce%2520allocations" 
+                   alt="WhatsApp QR" 
+                   crossorigin="anonymous"
+                   onerror="this.style.display='none'">
               <p data-k="qr_wa">Instant WhatsApp</p>
             </div>
             <div class="qr-card">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Feax-agro-export.vercel.app" alt="Portal QR" crossorigin="anonymous">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Feax-agro-export.vercel.app" 
+                   alt="Portal QR" 
+                   crossorigin="anonymous"
+                   onerror="this.style.display='none'">
               <p data-k="qr_portal">Live Portal & Trace</p>
             </div>
           </div>
         </div>
 
-        <!-- Quality Strip -->
         <div style="border-top: 1px solid var(--border-subtle); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted);">
           <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • GRASP • BRCGS Grade A • ISO 22000 • EUR.1 Certified</span>
           <span style="font-weight: 900; color: var(--primary-deep);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
-
       </div>
     </div>
   </div>
@@ -1354,7 +1408,11 @@
   </div>
 
   <script>
-    // Modern Blob-based Logo Rasterizer (Zero Taint, Full Asynchronous Lock)
+    function scrollToPage(pageNumber) {
+      const el = document.getElementById(`page-${pageNumber}`);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function rasterizeLogo() {
       return new Promise((resolve) => {
         const svgEl = document.getElementById('raw-logo-svg');
@@ -1396,7 +1454,7 @@
       });
     }
 
-    // Full 38 Crops Database
+    // 38 Crops Database
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
         temp:{ en:'+12°C to +14°C', ar:'من +12 إلى +14°م', ru:'от +12°C до +14°C', zh:'+12°C 至 +14°C' },
@@ -1562,7 +1620,7 @@
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
-        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50مم', zh:'35mm 至 50mm' },
+        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
         en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
         ar:{ name:"المشمش الطازج", sub:"كانينو، حموي" },
         ru:{ name:"Абрикосы", sub:"Канино, Хамави" },
@@ -2107,26 +2165,14 @@
           <tr>
             <td><b>${r.port[lang] || r.port.en}</b></td>
             <td>${r.region[lang] || r.region.en}</td>
-            <td class="highlight-days font-mono">${r.time[lang] || r.time.en}</td>
+            <td class="highlight-days font-mono"><bdi>${r.time[lang] || r.time.en}</bdi></td>
           </tr>
         `).join('');
       }
 
-      // Catalog Tables (38 Crops)
-      const b1 = document.getElementById('tbl-body-1');
-      const b2 = document.getElementById('tbl-body-2');
-      const b3 = document.getElementById('tbl-body-3');
-      const b4 = document.getElementById('tbl-body-4');
-
-      const m1 = document.getElementById('m-cards-1');
-      const m2 = document.getElementById('m-cards-2');
-      const m3 = document.getElementById('m-cards-3');
-      const m4 = document.getElementById('m-cards-4');
-
-      if (!b1 || !b2 || !b3 || !b4 || !m1 || !m2 || !m3 || !m4) return;
-
-      b1.innerHTML = ''; b2.innerHTML = ''; b3.innerHTML = ''; b4.innerHTML = '';
-      m1.innerHTML = ''; m2.innerHTML = ''; m3.innerHTML = ''; m4.innerHTML = '';
+      // Catalog Tables (Optimized Batch Rendering)
+      const tableRows = { 1: [], 2: [], 3: [], 4: [] };
+      const mobileCards = { 1: [], 2: [], 3: [], 4: [] };
 
       CROPS_DATA.forEach(crop => {
         const cInfo = crop[lang] || crop.en;
@@ -2137,7 +2183,7 @@
           bText = (lang === 'ar' ? 'صيفي' : (lang === 'ru' ? 'Лето' : (lang === 'zh' ? '夏季' : 'Summer')));
         } else if (crop.grp === 'w') {
           bClass = 'bg-w';
-          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зима' : (lang === 'zh' ? '冬季' : 'Winter')));
+          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зيما' : (lang === 'zh' ? '冬季' : 'Winter')));
         }
 
         let dots = '';
@@ -2150,69 +2196,72 @@
         const shipText = crop.ship[lang] || crop.ship.en;
         const calText = crop.cal[lang] || crop.cal.en;
         const tempText = crop.temp[lang] || crop.temp.en;
+        const cropIdFormatted = crop.id < 10 ? '0' + crop.id : crop.id;
 
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:10px;">${crop.id < 10 ? '0' + crop.id : crop.id}</strong></td>
-          <td>
-            <div>
-              <span class="crop-name">${cInfo.name}</span>
+        const rowHtml = `
+          <tr>
+            <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:9.5px;">${cropIdFormatted}</strong></td>
+            <td>
+              <div>
+                <span class="crop-name">${cInfo.name}</span>
+                <span class="crop-hs">HS ${crop.hs}</span>
+                <span class="badge-grp ${bClass}">${bText}</span>
+                <span class="crop-sub">${cInfo.sub}</span>
+              </div>
+            </td>
+            <td class="cal-cell font-mono"><bdi>${calText}</bdi></td>
+            <td style="font-size:9.5px;">${packText}</td>
+            <td><strong class="font-mono" style="color:var(--primary-deep); font-size:9.5px;"><bdi>${tempText}</bdi></strong></td>
+            <td style="font-size:9.5px;">${shipText}</td>
+            <td><div class="season-track">${dots}</div></td>
+          </tr>
+        `;
+
+        const cardHtml = `
+          <div class="m-crop-card">
+            <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:6px; margin-bottom:6px;">
+              <span class="font-mono" style="font-weight:900; color:var(--champagne-deep); font-size:12px;">#${cropIdFormatted}</span>
+              <span style="font-weight:800; font-size:13.5px; color:var(--primary-deep); margin:0 3px;">${cInfo.name}</span>
               <span class="crop-hs">HS ${crop.hs}</span>
               <span class="badge-grp ${bClass}">${bText}</span>
-              <span class="crop-sub">${cInfo.sub}</span>
+              <div style="color:var(--text-muted); font-size:10.5px; font-weight:600; margin-top:2px;">${cInfo.sub}</div>
             </div>
-          </td>
-          <td class="font-mono" style="font-size:10px;">${calText}</td>
-          <td>${packText}</td>
-          <td><strong class="font-mono" style="color:var(--primary-deep); font-size:10px;">${tempText}</strong></td>
-          <td style="font-size:10px;">${shipText}</td>
-          <td><div class="season-track">${dots}</div></td>
-        `;
-
-        const card = document.createElement('div');
-        card.className = 'm-crop-card';
-        card.innerHTML = `
-          <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:6px; margin-bottom:6px;">
-            <span class="font-mono" style="font-weight:900; color:var(--champagne-deep); font-size:12px;">#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
-            <span style="font-weight:800; font-size:13.5px; color:var(--primary-deep); margin:0 3px;">${cInfo.name}</span>
-            <span class="crop-hs">HS ${crop.hs}</span>
-            <span class="badge-grp ${bClass}">${bText}</span>
-            <div style="color:var(--text-muted); font-size:10.5px; font-weight:600; margin-top:2px;">${cInfo.sub}</div>
-          </div>
-          <div class="m-crop-details">
-            <div class="m-detail-item">
-              <b>${t.th_cal}</b>
-              <span class="font-mono">${calText}</span>
+            <div class="m-crop-details">
+              <div class="m-detail-item">
+                <b>${t.th_cal}</b>
+                <span class="font-mono"><bdi>${calText}</bdi></span>
+              </div>
+              <div class="m-detail-item">
+                <b>${t.th_pack}</b>
+                <span>${packText}</span>
+              </div>
+              <div class="m-detail-item">
+                <b>${t.th_temp}</b>
+                <span class="font-mono" style="color:var(--primary-deep);"><bdi>${tempText}</bdi></span>
+              </div>
+              <div class="m-detail-item">
+                <b>${t.th_ship}</b>
+                <span>${shipText}</span>
+              </div>
             </div>
-            <div class="m-detail-item">
-              <b>${t.th_pack}</b>
-              <span>${packText}</span>
+            <div style="border-top:1px dashed var(--border-subtle); padding-top:4px;">
+              <span style="font-size:9.5px; font-weight:800; color:var(--text-muted); display:block; margin-bottom:2px;">${t.th_seas}:</span>
+              <div class="season-track" style="max-width:100%;">${dots}</div>
             </div>
-            <div class="m-detail-item">
-              <b>${t.th_temp}</b>
-              <span class="font-mono" style="color:var(--primary-deep);">${tempText}</span>
-            </div>
-            <div class="m-detail-item">
-              <b>${t.th_ship}</b>
-              <span>${shipText}</span>
-            </div>
-          </div>
-          <div style="border-top:1px dashed var(--border-subtle); padding-top:4px;">
-            <span style="font-size:9.5px; font-weight:800; color:var(--text-muted); display:block; margin-bottom:2px;">${t.th_seas}:</span>
-            <div class="season-track" style="max-width:100%;">${dots}</div>
           </div>
         `;
 
-        if (crop.id <= 10) {
-          b1.appendChild(tr); m1.appendChild(card);
-        } else if (crop.id <= 20) {
-          b2.appendChild(tr); m2.appendChild(card);
-        } else if (crop.id <= 30) {
-          b3.appendChild(tr); m3.appendChild(card);
-        } else {
-          b4.appendChild(tr); m4.appendChild(card);
-        }
+        const bucket = crop.id <= 10 ? 1 : crop.id <= 20 ? 2 : crop.id <= 30 ? 3 : 4;
+        tableRows[bucket].push(rowHtml);
+        mobileCards[bucket].push(cardHtml);
       });
+
+      for (let i = 1; i <= 4; i++) {
+        const tableBodyEl = document.getElementById(`tbl-body-${i}`);
+        const mobileContainerEl = document.getElementById(`m-cards-${i}`);
+        if (tableBodyEl) tableBodyEl.innerHTML = tableRows[i].join('');
+        if (mobileContainerEl) mobileContainerEl.innerHTML = mobileCards[i].join('');
+      }
     }
 
     function setLang(lang) {
@@ -2242,7 +2291,6 @@
       btn.innerText = (currentLang === 'ar' ? '⏳ جاري تصدير PDF...' : '⏳ Generating PDF...');
       btn.disabled = true;
 
-      // Ensure Fonts & Logo Image are ready
       if (document.fonts) {
         await document.fonts.ready;
       }
@@ -2266,7 +2314,7 @@
           logging: false,
           scrollY: 0,
           scrollX: 0,
-          windowWidth: 1125
+          windowWidth: 1123
         },
         jsPDF:        { unit: 'mm', format: [297, 210], orientation: 'landscape' },
         pagebreak:    { mode: 'css', after: '.page' }
