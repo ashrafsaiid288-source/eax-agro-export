@@ -65,9 +65,9 @@
       font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* Fixed Monospace and Tabular Numbers */
+    /* Tabular Numbers & Monospace */
     .font-mono {
-      font-family: 'JetBrains Mono', 'Roboto Mono', Consolas, 'Courier New', monospace !important;
+      font-family: 'JetBrains Mono', Consolas, monospace !important;
       font-variant-numeric: tabular-nums;
       direction: ltr !important;
       unicode-bidi: isolate !important;
@@ -87,7 +87,7 @@
       background: rgba(1, 10, 5, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
       box-shadow: 0 20px 45px rgba(0,0,0,0.65);
@@ -104,7 +104,7 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.1);
       color: #dfede2;
-      padding: 5px 10px;
+      padding: 5px 11px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 11px;
@@ -168,19 +168,18 @@
     }
     .print-btn:hover { transform: scale(1.02); }
 
-    /* Exact A4 Landscape Page Setup */
+    /* Exact A4 Landscape Page Container */
     .page {
       width: 297mm;
-      height: 209mm;
-      max-height: 209mm;
+      height: 210mm;
+      max-height: 210mm;
       background: #ffffff;
       margin: 20px auto;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 25px 65px rgba(0,0,0,0.65);
       page-break-inside: avoid;
       break-inside: avoid;
@@ -193,7 +192,7 @@
     }
 
     .page-header {
-      height: 11mm;
+      height: 14mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -203,7 +202,7 @@
       flex-shrink: 0;
     }
     .header-brand {
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.5px;
       color: var(--primary-deep);
@@ -216,24 +215,22 @@
       color: var(--champagne-deep);
       text-transform: uppercase;
       background: var(--champagne-light);
-      padding: 3px 10px;
+      padding: 3.5px 11px;
       border-radius: 999px;
       border: 1px solid var(--gold-border);
     }
     
     .page-content {
       flex: 1;
-      padding: 3.5mm 16mm 2.5mm;
+      padding: 4mm 16mm 3mm;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      gap: 3px;
       overflow: hidden;
       background: var(--bg-page);
     }
     
     .page-footer {
-      height: 7mm;
+      height: 8.5mm;
       padding: 0 16mm;
       display: flex;
       justify-content: space-between;
@@ -250,11 +247,11 @@
     .cover-bg {
       background: radial-gradient(circle at 85% 15%, #104326 0%, #04170d 65%, #010603 100%);
       color: #ffffff;
-      padding: 9mm 16mm;
+      padding: 10mm 16mm;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 209mm;
+      height: 210mm;
       position: relative;
     }
     .cover-header-row {
@@ -268,7 +265,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
+      padding: 5px 14px;
       border-radius: 999px;
       background: rgba(207, 161, 90, 0.12);
       border: 1px solid var(--champagne-gold);
@@ -281,8 +278,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
-      margin: 2px 0;
+      gap: 32px;
+      margin: 4px 0;
       flex: 1;
       position: relative;
       z-index: 2;
@@ -290,14 +287,14 @@
     .cover-text-side { flex: 1.25; }
     .cover-logo-side {
       flex: 1.05;
-      height: 215px;
+      height: 225px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
       border: 2px solid var(--champagne-gold);
       border-radius: 20px;
-      padding: 10px 16px;
+      padding: 12px 18px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
       position: relative;
       overflow: hidden;
@@ -311,7 +308,7 @@
     
     .brand-hero-title {
       margin: 0 0 6px 0;
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 900;
       letter-spacing: 4px;
       text-transform: uppercase;
@@ -325,10 +322,10 @@
     }
 
     .cover-title {
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 900;
-      line-height: 1.2;
-      margin: 4px 0 8px;
+      line-height: 1.22;
+      margin: 6px 0 10px;
       letter-spacing: -0.4px;
     }
     .cover-title span.highlight {
@@ -337,19 +334,19 @@
       -webkit-text-fill-color: transparent;
     }
     .cover-desc {
-      font-size: 11.8px;
+      font-size: 12px;
       font-weight: 500;
       color: #d1e4d7;
-      line-height: 1.6;
+      line-height: 1.65;
       margin: 0;
-      max-width: 540px;
+      max-width: 560px;
     }
     .cover-metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
       border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 10px;
+      padding-top: 12px;
       position: relative;
       z-index: 2;
     }
@@ -357,18 +354,18 @@
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-md);
-      padding: 9px 12px;
+      padding: 10px 14px;
       backdrop-filter: blur(10px);
     }
-    .metric-card h3 { margin: 0; font-size: 16px; font-weight: 900; color: #faebd7; }
-    .metric-card p { margin: 2px 0 0; font-size: 8.8px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
+    .metric-card h3 { margin: 0; font-size: 17px; font-weight: 900; color: #faebd7; }
+    .metric-card p { margin: 3px 0 0; font-size: 9px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
 
     /* Bento Value Pillars */
     .pillar-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin: 4px 0;
+      margin: 8px 0;
       flex: 1;
       align-items: stretch;
     }
@@ -376,7 +373,7 @@
       background: var(--surface-card);
       border: 1px solid var(--border-subtle);
       border-radius: 16px;
-      padding: 14px 16px;
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -391,8 +388,8 @@
       margin-bottom: 8px;
     }
     .pillar-icon-box {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       background: linear-gradient(135deg, #f0f7f3 0%, #e3ede6 100%);
       border: 1px solid rgba(11, 61, 35, 0.12);
@@ -411,13 +408,13 @@
       border-radius: 999px; 
       border: 1px solid var(--gold-border);
     }
-    .pillar-box h4 { margin: 0 0 5px; font-size: 14px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
-    .pillar-box p { margin: 0; font-size: 10.4px; font-weight: 500; color: #44594a; line-height: 1.55; }
+    .pillar-box h4 { margin: 0 0 5px; font-size: 14.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.3; }
+    .pillar-box p { margin: 0; font-size: 10.8px; font-weight: 500; color: #44594a; line-height: 1.55; }
     .pillar-tag-bottom {
-      font-size: 9px;
+      font-size: 9.5px;
       font-weight: 800;
       color: var(--primary-accent);
-      margin-top: 8px;
+      margin-top: 10px;
       background: #f4f9f5;
       border: 1px solid rgba(22, 101, 52, 0.15);
       border-radius: 6px;
@@ -426,24 +423,24 @@
       width: fit-content;
     }
 
-    /* Page 3 Certs & Logistics Split */
+    /* Page 3 Certs & Transit Split */
     .p3-split-layout {
       display: grid;
       grid-template-columns: 1.25fr 1fr;
       gap: 14px;
       flex: 1;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .certs-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
+      gap: 9px;
     }
     .cert-pill-card {
       background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-sm);
-      padding: 9px 12px;
+      padding: 10px 14px;
       box-shadow: var(--shadow-bento);
       display: flex;
       flex-direction: column;
@@ -451,141 +448,153 @@
     }
     .cert-pill-card .badge {
       display: inline-block;
-      font-size: 7.5px;
+      font-size: 8px;
       font-weight: 900;
       background: var(--champagne-light);
       color: var(--champagne-deep);
-      padding: 2px 6px;
+      padding: 2px 7px;
       border-radius: 4px;
       border: 1px solid rgba(207, 161, 90, 0.25);
-      margin-bottom: 3px;
+      margin-bottom: 4px;
       width: fit-content;
     }
-    .cert-pill-card h4 { margin: 0 0 2px; font-size: 11.8px; font-weight: 800; color: var(--primary-deep); }
-    .cert-pill-card p { margin: 0; font-size: 9px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
+    .cert-pill-card h4 { margin: 0 0 3px; font-size: 12.2px; font-weight: 800; color: var(--primary-deep); }
+    .cert-pill-card p { margin: 0; font-size: 9.5px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
 
     .transit-box {
       background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 12px 14px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-bento);
     }
-    .transit-table { width: 100%; border-collapse: collapse; font-size: 10px; }
+    .transit-table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
     .transit-table th {
       background: #f1f6f2;
       color: var(--primary-deep);
       text-align: left;
-      padding: 6px 8px;
+      padding: 8px 10px;
       font-weight: 800;
       border-bottom: 1px solid var(--border-subtle);
     }
     html[dir="rtl"] .transit-table th { text-align: right; }
-    .transit-table td { padding: 5px 8px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
-    .transit-table .highlight-days { font-weight: 800; color: var(--champagne-deep); font-size: 10.5px; }
+    .transit-table td { padding: 7px 10px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
+    .transit-table .highlight-days { font-weight: 800; color: var(--champagne-deep); font-size: 11px; }
 
-    /* Bento Tables & Precision Row Heights */
+    /* Space-Filling Balanced Table Architecture */
+    .catalog-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      flex-shrink: 0;
+    }
     .catalog-table-wrap {
       width: 100%;
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
-      margin-top: 2px;
       background: transparent;
       overflow: hidden;
     }
     .catalog-table {
       width: 100%;
+      height: 100%;
       border-collapse: separate;
-      border-spacing: 0 2px;
+      border-spacing: 0 3px;
       table-layout: fixed;
+    }
+    .catalog-table thead {
+      height: 26px;
     }
     .catalog-table th {
       background: #eaf1ed;
       color: var(--primary-deep);
       font-weight: 800;
-      font-size: 9.3px;
+      font-size: 9.5px;
       text-align: left;
-      padding: 3.5px 6px;
+      padding: 0 8px;
       letter-spacing: 0.3px;
       text-transform: uppercase;
       border: none;
       white-space: nowrap;
+      vertical-align: middle;
     }
-    .catalog-table th:first-child { border-radius: 5px 0 0 5px; }
-    .catalog-table th:last-child { border-radius: 0 5px 5px 0; }
+    .catalog-table th:first-child { border-radius: 6px 0 0 6px; }
+    .catalog-table th:last-child { border-radius: 0 6px 6px 0; }
     html[dir="rtl"] .catalog-table th { text-align: right; }
-    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 5px 5px 0; }
-    html[dir="rtl"] .catalog-table th:last-child { border-radius: 5px 0 0 5px; }
+    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 6px 6px 0; }
+    html[dir="rtl"] .catalog-table th:last-child { border-radius: 6px 0 0 6px; }
 
+    .catalog-table tbody tr {
+      height: calc((100% - 26px) / 10);
+    }
     .catalog-table td {
-      padding: 2.1px 6px;
+      padding: 0 8px;
       vertical-align: middle;
       font-weight: 600;
       color: var(--text-main);
-      font-size: 10px;
-      line-height: 1.15;
+      font-size: 10.5px;
       background: #ffffff;
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
     }
     .catalog-table td:first-child {
       border-left: 1px solid var(--border-subtle);
-      border-radius: 7px 0 0 7px;
+      border-radius: 8px 0 0 8px;
     }
     .catalog-table td:last-child {
       border-right: 1px solid var(--border-subtle);
-      border-radius: 0 7px 7px 0;
+      border-radius: 0 8px 8px 0;
     }
     html[dir="rtl"] .catalog-table td:first-child {
       border-left: none;
       border-right: 1px solid var(--border-subtle);
-      border-radius: 0 7px 7px 0;
+      border-radius: 0 8px 8px 0;
     }
     html[dir="rtl"] .catalog-table td:last-child {
       border-right: none;
       border-left: 1px solid var(--border-subtle);
-      border-radius: 7px 0 0 7px;
+      border-radius: 8px 0 0 8px;
     }
 
     /* Caliber Cell Optimization */
     .cal-cell {
-      font-size: 9.5px;
+      font-size: 10px;
       font-weight: 700;
-      color: #1a3323;
-      white-space: normal;
-      word-break: break-word;
-      line-height: 1.2;
+      color: #143521;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    /* Clean Crop Details Typography */
-    .crop-name { font-size: 11.2px; font-weight: 800; color: var(--primary-deep); line-height: 1.1; }
-    .crop-sub { color: var(--text-muted); font-size: 8.8px; font-weight: 500; display: block; margin-top: 1px; }
+    /* Crop Details Typography */
+    .crop-name { font-size: 12px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
+    .crop-sub { color: var(--text-muted); font-size: 9.3px; font-weight: 500; display: block; margin-top: 1px; }
     
     .crop-hs {
       display: inline-block;
-      font-size: 7.8px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--champagne-deep);
       background: #fdf6ec;
-      padding: 1px 3.5px;
+      padding: 1px 4px;
       border-radius: 3px;
-      margin-inline-start: 3px;
+      margin-inline-start: 4px;
       border: 0.5px solid rgba(157, 113, 46, 0.25);
-      font-family: 'JetBrains Mono', 'Roboto Mono', Consolas, monospace !important;
+      font-family: 'JetBrains Mono', Consolas, monospace !important;
       direction: ltr !important;
       unicode-bidi: isolate !important;
     }
     
     .badge-grp {
       display: inline-block;
-      font-size: 7.5px;
+      font-size: 7.8px;
       font-weight: 800;
-      padding: 1px 4px;
+      padding: 1.5px 5px;
       border-radius: 4px;
       margin-inline-start: 3px;
     }
@@ -593,23 +602,23 @@
     .bg-s { background: #effcf3; color: #166534; border: 1px solid rgba(22, 101, 52, 0.2); }
     .bg-w { background: #f0f7ff; color: #0369a1; border: 1px solid rgba(3, 105, 161, 0.2); }
 
-    /* Season Track and Number Dots */
+    /* Season Track and Dots */
     .season-track {
       display: flex;
-      gap: 1.5px;
+      gap: 2px;
       width: 100%;
-      max-width: 155px;
+      max-width: 165px;
       direction: ltr !important;
     }
     .s-dot {
       flex: 1;
-      height: 12.5px;
-      font-size: 7px;
+      height: 14px;
+      font-size: 7.5px;
       font-weight: 800;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 2px;
+      border-radius: 2.5px;
       background: #e9f0ec;
       color: #718778;
       font-family: 'JetBrains Mono', 'Roboto', sans-serif !important;
@@ -620,7 +629,7 @@
       background: linear-gradient(180deg, #125e36 0%, #08331d 100%);
       color: #faebd7;
       font-weight: 900;
-      box-shadow: 0 1px 2px rgba(18, 94, 54, 0.35);
+      box-shadow: 0 1px 3px rgba(18, 94, 54, 0.35);
     }
 
     /* Executive Back Cover */
@@ -629,15 +638,15 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 6mm 14mm;
-      height: 209mm;
+      padding: 8mm 16mm;
+      height: 210mm;
     }
     .back-box {
       background: #ffffff;
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      max-width: 950px;
+      padding: 18px 24px;
+      max-width: 960px;
       box-shadow: var(--shadow-bento);
       text-align: left;
     }
@@ -648,11 +657,11 @@
       grid-template-columns: 2.2fr 1fr;
       gap: 16px;
       align-items: center;
-      margin-top: 10px;
+      margin-top: 12px;
       border-top: 1px solid var(--border-subtle);
-      padding-top: 10px;
+      padding-top: 12px;
     }
-    .contact-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .contact-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .c-col h6 {
       margin: 0 0 2px;
       font-size: 9.5px;
@@ -663,7 +672,7 @@
     }
     .c-col a, .c-col p {
       margin: 0;
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 800;
       color: var(--primary-deep);
       text-decoration: none;
@@ -676,15 +685,15 @@
     html[dir="rtl"] .qr-side { justify-content: flex-start; }
     .qr-card { text-align: center; }
     .qr-card img {
-      width: 70px;
-      height: 70px;
+      width: 72px;
+      height: 72px;
       border-radius: 8px;
       border: 1px solid var(--border-subtle);
       padding: 3px;
       background: #ffffff;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    .qr-card p { margin: 2px 0 0; font-size: 8.5px; font-weight: 800; color: var(--primary-deep); }
+    .qr-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 800; color: var(--primary-deep); }
 
     /* Mobile Responsive (< 768px) */
     .mobile-cards-grid { display: none; }
@@ -753,7 +762,7 @@
       .qr-side { justify-content: center; gap: 16px; margin-top: 12px; }
     }
 
-    /* PDF Strict Rendering Engine */
+    /* PDF Strict Rendering Mode */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -763,8 +772,8 @@
     }
     .pdf-render-mode .page {
       width: 297mm !important;
-      height: 209.5mm !important;
-      max-height: 209.5mm !important;
+      height: 210mm !important;
+      max-height: 210mm !important;
       margin: 0 !important;
       padding: 0 !important;
       box-shadow: none !important;
@@ -781,8 +790,8 @@
       page-break-after: avoid !important;
       break-after: avoid !important;
     }
-    .pdf-render-mode .cover-bg { height: 209.5mm !important; padding: 9mm 16mm !important; }
-    .pdf-render-mode .page-back { height: 209.5mm !important; }
+    .pdf-render-mode .cover-bg { height: 210mm !important; padding: 10mm 16mm !important; }
+    .pdf-render-mode .page-back { height: 210mm !important; }
     .pdf-render-mode .cover-hero-wrap { flex-direction: row !important; }
     .pdf-render-mode .cover-metrics { grid-template-columns: repeat(4, 1fr) !important; }
     .pdf-render-mode .pillar-row { grid-template-columns: repeat(3, 1fr) !important; }
@@ -801,8 +810,8 @@
         box-shadow: none !important;
         border-radius: 0 !important;
         width: 297mm !important;
-        height: 209.5mm !important;
-        max-height: 209.5mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
         page-break-inside: avoid !important;
         break-inside: avoid !important;
         page-break-after: always !important;
@@ -900,20 +909,20 @@
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
             <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 19.5px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
-            <p style="font-size: 11.2px; font-weight: 500; color: #354a3a; line-height: 1.55; margin: 0;" data-k="p2_lead">
+            <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
+            <p style="font-size: 11.5px; font-weight: 500; color: #354a3a; line-height: 1.6; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
             </p>
           </div>
 
-          <div style="flex: 0.8; background: #ffffff; border: 1px solid var(--gold-border); border-radius: 14px; padding: 10px 14px; box-shadow: var(--shadow-bento); text-align: center;">
+          <div style="flex: 0.8; background: #ffffff; border: 1px solid var(--gold-border); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow-bento); text-align: center;">
             <div style="font-size: 10.5px; font-weight: 900; color: var(--champagne-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 13px; font-weight: 900; color: var(--primary-deep); margin: 3px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size: 13.5px; font-weight: 900; color: var(--primary-deep); margin: 4px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
-            <p style="font-size: 8.8px; color: var(--text-muted); margin: 0; line-height: 1.35;" data-k="p2_badge_desc">
+            <p style="font-size: 9px; color: var(--text-muted); margin: 0; line-height: 1.4;" data-k="p2_badge_desc">
               Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.
             </p>
           </div>
@@ -921,42 +930,42 @@
 
         <!-- Trust Metrics -->
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+            <div style="width: 38px; height: 38px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1-4-10z"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="45" data-suffix="+" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
+              <div class="counter-num font-mono" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--champagne-deep); flex-shrink: 0;">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+            <div style="width: 38px; height: 38px; border-radius: 10px; background: #fff8eb; display: flex; align-items: center; justify-content: center; color: var(--champagne-deep); flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="100" data-suffix="%" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+              <div class="counter-num font-mono" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+            <div style="width: 38px; height: 38px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #1e40af; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
+              <div class="counter-num font-mono" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 12px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
-            <div style="width: 36px; height: 36px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #047857; flex-shrink: 0;">
+          <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
+            <div style="width: 38px; height: 38px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #047857; flex-shrink: 0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="24" data-suffix="/7 IoT" style="font-size: 18.5px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
+              <div class="counter-num font-mono" data-target="24" data-suffix="/7 IoT" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
             </div>
           </div>
@@ -1008,7 +1017,7 @@
         </div>
 
         <!-- Footer Strip -->
-        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 7px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
+        <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 9px 18px; display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: var(--text-muted); box-shadow: var(--shadow-bento);">
           <span style="font-weight: 700; color: var(--primary-deep);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
           <span style="font-weight: 800; color: var(--champagne-deep);" data-k="p2_audit_sub">Full Lab Certificate With Every Container</span>
         </div>
@@ -1029,7 +1038,7 @@
       <div class="page-content" style="justify-content: space-between;">
         <div>
           <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
-          <h2 style="font-size: 19px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
+          <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
         </div>
 
         <div class="p3-split-layout">
@@ -1068,7 +1077,7 @@
 
           <div class="transit-box">
             <div>
-              <div style="font-size: 10.5px; font-weight: 900; color: var(--primary-deep); margin-bottom: 6px;" data-k="t_mat_title">
+              <div style="font-size: 11px; font-weight: 900; color: var(--primary-deep); margin-bottom: 8px;" data-k="t_mat_title">
                 Direct Port Transit Times (From Egypt)
               </div>
               <table class="transit-table">
@@ -1082,7 +1091,7 @@
                 <tbody id="transit-rows"></tbody>
               </table>
             </div>
-            <div style="font-size: 8.5px; color: var(--text-muted); font-weight: 600; margin-top: 6px;" data-k="t_note">
+            <div style="font-size: 8.8px; color: var(--text-muted); font-weight: 600; margin-top: 8px;" data-k="t_note">
               * Departures via Alexandria, Damietta, and Port Said West Terminals.
             </div>
           </div>
@@ -1101,10 +1110,10 @@
         <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 10</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
-          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div class="catalog-header-bar">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t1">Top Priority Commercial Exports</h3>
+          <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 9px; height: 9px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1112,11 +1121,11 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
                 <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
                 <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
@@ -1139,10 +1148,10 @@
         <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 11 TO 20</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
-          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div class="catalog-header-bar">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t2">Summer Fruits & Greenhouse Cultivation</h3>
+          <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 9px; height: 9px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1150,11 +1159,11 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
                 <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
                 <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
@@ -1177,10 +1186,10 @@
         <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 21 TO 30</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
-          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div class="catalog-header-bar">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t3">Citrus, Legumes & Open-Field Vegetables</h3>
+          <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 9px; height: 9px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1188,11 +1197,11 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
                 <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
                 <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
@@ -1215,10 +1224,10 @@
         <div class="header-tag" data-k="cat_p4">EXPORT CATALOG • CROPS 31 TO 38</div>
       </div>
       <div class="page-content">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1px;">
-          <h3 style="margin: 0; font-size: 13px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
-          <div style="font-size: 8.5px; font-weight: 700; color: var(--text-muted);">
-            <span style="display: inline-block; width: 8px; height: 8px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div class="catalog-header-bar">
+          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--primary-deep);" data-k="cat_t4">Brassicas, Root Crops & Culinary Herbs</h3>
+          <div style="font-size: 9px; font-weight: 700; color: var(--text-muted);">
+            <span style="display: inline-block; width: 9px; height: 9px; background: #125e36; border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
@@ -1226,11 +1235,11 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 135px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 30px;">#</th>
+                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
                 <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 80px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
                 <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
@@ -1249,46 +1258,46 @@
     <!-- PAGE 8: CORPORATE EXECUTIVE BACK COVER -->
     <div class="page page-back" id="page-8">
       <div class="back-box">
-        <div style="text-align: center; margin-bottom: 12px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
+        <div style="text-align: center; margin-bottom: 14px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 10px;">
           <div style="display: inline-block; direction: ltr !important; unicode-bidi: isolate;">
-            <h1 style="margin: 0; font-size: 25px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 5px; text-transform: uppercase; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
               EAX AGRO EXPORT
             </h1>
-            <div style="font-size: 8.5px; font-weight: 800; letter-spacing: 3px; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;">
+            <div style="font-size: 9px; font-weight: 800; letter-spacing: 3px; color: var(--champagne-deep); text-transform: uppercase; margin-top: 2px;">
               EGYPTIAN PREMIUM AGRICULTURAL EXPORTS
             </div>
           </div>
 
-          <h3 style="font-size: 15px; font-weight: 900; color: var(--primary-deep); margin: 5px 0 2px;" data-k="b_title">Global Export & Trade Desk</h3>
-          <p style="font-size: 10.2px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 620px; line-height: 1.5;" data-k="b_sub">
+          <h3 style="font-size: 15.5px; font-weight: 900; color: var(--primary-deep); margin: 6px 0 2px;" data-k="b_title">Global Export & Trade Desk</h3>
+          <p style="font-size: 10.5px; font-weight: 500; color: var(--text-muted); margin: 0 auto; max-width: 640px; line-height: 1.55;" data-k="b_sub">
             Your trusted gateway to premium Egyptian fresh produce. Connecting commercial farms directly to global retail chains and wholesale distribution networks.
           </p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; text-align: start;">
-          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
-            <div style="font-size: 15px; margin-bottom: 2px;">📍</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_hq_d">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px;">
+            <div style="font-size: 16px; margin-bottom: 2px;">📍</div>
+            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: var(--primary-deep);" data-k="c_hq_t">Headquarters & Packhouses</h5>
+            <p style="margin: 0; font-size: 9px; color: var(--text-muted); line-height: 1.5;" data-k="c_hq_d">
               Alexandria - Cairo Agricultural Road, Egypt.<br>
               Direct proximity to top agricultural belts & packhouses.
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
-            <div style="font-size: 15px; margin-bottom: 2px;">🚢</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_ports_d">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px;">
+            <div style="font-size: 16px; margin-bottom: 2px;">🚢</div>
+            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: var(--primary-deep);" data-k="c_ports_t">Exit Marine Ports</h5>
+            <p style="margin: 0; font-size: 9px; color: var(--text-muted); line-height: 1.5;" data-k="c_ports_d">
               • Alexandria Container Terminal<br>
               • Damietta Port & East Port Said<br>
               • Sokhna Terminal (Red Sea & Asia)
             </p>
           </div>
 
-          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px;">
-            <div style="font-size: 15px; margin-bottom: 2px;">📋</div>
-            <h5 style="margin: 0 0 2px; font-size: 10.5px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
-            <p style="margin: 0; font-size: 8.8px; color: var(--text-muted); line-height: 1.45;" data-k="c_legal_d">
+          <div style="background: #fbfdfc; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 12px;">
+            <div style="font-size: 16px; margin-bottom: 2px;">📋</div>
+            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: var(--primary-deep);" data-k="c_legal_t">Commercial & Trade Terms</h5>
+            <p style="margin: 0; font-size: 9px; color: var(--text-muted); line-height: 1.5;" data-k="c_legal_d">
               • Incoterms 2020: FOB, CFR, CIF<br>
               • Flexible Retail Supermarket Programs<br>
               • EUR.1 Zero-Tariff & Phytosanitary Clearances
@@ -1297,7 +1306,7 @@
         </div>
 
         <!-- Contact & Interactive Dock -->
-        <div class="interactive-dock" style="margin-top: 0; padding-top: 8px;">
+        <div class="interactive-dock">
           <div class="contact-cols">
             <div class="c-col">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
@@ -1321,7 +1330,7 @@
 
             <div class="c-col">
               <h6 data-k="c_hours_t">Business Operations</h6>
-              <p style="font-size: 11px; font-weight: 800; color: var(--primary-deep); margin: 0;" data-k="c_hours_d">Mon – Sat: 08:00 – 18:00 (GMT+2)</p>
+              <p style="font-size: 11.5px; font-weight: 800; color: var(--primary-deep); margin: 0;" data-k="c_hours_d">Mon – Sat: 08:00 – 18:00 (GMT+2)</p>
               <span data-k="c_hours_sub">Harvest & Loading 24/7 Season-round</span>
             </div>
           </div>
@@ -1344,7 +1353,7 @@
           </div>
         </div>
 
-        <div style="border-top: 1px solid var(--border-subtle); padding-top: 6px; margin-top: 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5px; color: var(--text-muted);">
+        <div style="border-top: 1px solid var(--border-subtle); padding-top: 8px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: var(--text-muted);">
           <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • GRASP • BRCGS Grade A • ISO 22000 • EUR.1 Certified</span>
           <span style="font-weight: 900; color: var(--primary-deep);" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
@@ -1620,7 +1629,7 @@
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
-        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
+        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50مم', zh:'35mm 至 50mm' },
         en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
         ar:{ name:"المشمش الطازج", sub:"كانينو، حموي" },
         ru:{ name:"Абрикосы", sub:"Канино, Хамави" },
@@ -2170,7 +2179,7 @@
         `).join('');
       }
 
-      // Catalog Tables (Optimized Batch Rendering)
+      // Catalog Tables (Batch Allocation)
       const tableRows = { 1: [], 2: [], 3: [], 4: [] };
       const mobileCards = { 1: [], 2: [], 3: [], 4: [] };
 
@@ -2183,7 +2192,7 @@
           bText = (lang === 'ar' ? 'صيفي' : (lang === 'ru' ? 'Лето' : (lang === 'zh' ? '夏季' : 'Summer')));
         } else if (crop.grp === 'w') {
           bClass = 'bg-w';
-          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зيما' : (lang === 'zh' ? '冬季' : 'Winter')));
+          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зима' : (lang === 'zh' ? '冬季' : 'Winter')));
         }
 
         let dots = '';
@@ -2200,7 +2209,7 @@
 
         const rowHtml = `
           <tr>
-            <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:9.5px;">${cropIdFormatted}</strong></td>
+            <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:10px;">${cropIdFormatted}</strong></td>
             <td>
               <div>
                 <span class="crop-name">${cInfo.name}</span>
@@ -2210,9 +2219,9 @@
               </div>
             </td>
             <td class="cal-cell font-mono"><bdi>${calText}</bdi></td>
-            <td style="font-size:9.5px;">${packText}</td>
-            <td><strong class="font-mono" style="color:var(--primary-deep); font-size:9.5px;"><bdi>${tempText}</bdi></strong></td>
-            <td style="font-size:9.5px;">${shipText}</td>
+            <td>${packText}</td>
+            <td><strong class="font-mono" style="color:var(--primary-deep); font-size:10px;"><bdi>${tempText}</bdi></strong></td>
+            <td>${shipText}</td>
             <td><div class="season-track">${dots}</div></td>
           </tr>
         `;
