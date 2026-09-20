@@ -163,7 +163,7 @@
 
     .page-header {
       height: 14mm;
-      padding: 0 16mm;
+      padding: 0 14mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -192,7 +192,7 @@
     
     .page-content {
       flex: 1;
-      padding: 4mm 16mm 3mm;
+      padding: 4mm 14mm 3mm;
       display: flex;
       flex-direction: column;
       overflow: hidden;
@@ -201,7 +201,7 @@
     
     .page-footer {
       height: 8.5mm;
-      padding: 0 16mm;
+      padding: 0 14mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -532,14 +532,37 @@
       border-radius: 8px 0 0 8px;
     }
 
+    /* Caliber / Sizes Custom Badge - Polished & Unified */
     .cal-cell {
-      font-size: 10px;
-      font-weight: 700;
-      color: #143521;
       padding: 0 6px !important;
+      vertical-align: middle;
+    }
+    .cal-pill {
+      display: inline-block;
+      background: #f4f8f5;
+      border: 1px solid #d5e5db;
+      border-radius: 6px;
+      padding: 3px 8px;
+      color: #0b3d23;
+      font-size: 9.3px;
+      font-weight: 700;
       line-height: 1.25;
-      white-space: normal;
+      max-width: 100%;
       word-break: break-word;
+      box-shadow: 0 1px 2px rgba(1, 10, 5, 0.02);
+    }
+
+    /* Temp Pill Custom Badge */
+    .temp-pill {
+      display: inline-block;
+      background: #fbfdfc;
+      border: 1px solid #e1ece5;
+      border-radius: 5px;
+      padding: 2px 6px;
+      color: var(--primary-deep);
+      font-weight: 800;
+      font-size: 9.5px;
+      white-space: nowrap;
     }
 
     .crop-name { font-size: 12px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
@@ -730,7 +753,26 @@
       .qr-side { justify-content: center; gap: 16px; margin-top: 12px; }
     }
 
-    /* PDF Strict Rendering Mode - Precision Fixes */
+    /* PDF Strict Export Fixes - Prevents Left Clipping & Misalignment */
+    body.pdf-exporting {
+      width: 297mm !important;
+      min-width: 297mm !important;
+      max-width: 297mm !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: visible !important;
+      background: #ffffff !important;
+    }
+    body.pdf-exporting #catalog-container {
+      position: absolute !important;
+      left: 0 !important;
+      top: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 297mm !important;
+      max-width: 297mm !important;
+    }
+
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -740,7 +782,7 @@
     }
     .pdf-render-mode .page {
       width: 297mm !important;
-      height: 209.2mm !important; /* Prevents unwanted blank overflow pages */
+      height: 209.2mm !important;
       max-height: 209.2mm !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -770,7 +812,7 @@
     .pdf-render-mode .interactive-dock { grid-template-columns: 2.2fr 1fr !important; }
     .pdf-render-mode .contact-cols { grid-template-columns: repeat(2, 1fr) !important; }
 
-    /* Fix Gradient Text in html2canvas (Replaces transparent text with solid gold) */
+    /* Fix Gradient Text in html2canvas */
     .pdf-render-mode .brand-hero-title,
     .pdf-render-mode .cover-title span.highlight,
     .pdf-render-mode .page-back h1 {
@@ -780,7 +822,7 @@
     }
 
     @media print {
-      body { background: #ffffff !important; padding: 0 !important; }
+      body { background: #ffffff !important; padding: 0 !important; margin: 0 !important; }
       .control-panel { display: none !important; }
       .page {
         margin: 0 !important;
@@ -1086,13 +1128,13 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
-                <th data-k="th_seas">Harvest Calendar</th>
+                <th style="width: 3.5%;">#</th>
+                <th style="width: 22%;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 18%;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 15%;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 10%;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 12.5%;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 19%;" data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
             <tbody id="tbl-body-1"></tbody>
@@ -1124,13 +1166,13 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
-                <th data-k="th_seas">Harvest Calendar</th>
+                <th style="width: 3.5%;">#</th>
+                <th style="width: 22%;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 18%;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 15%;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 10%;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 12.5%;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 19%;" data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
             <tbody id="tbl-body-2"></tbody>
@@ -1162,13 +1204,13 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
-                <th data-k="th_seas">Harvest Calendar</th>
+                <th style="width: 3.5%;">#</th>
+                <th style="width: 22%;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 18%;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 15%;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 10%;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 12.5%;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 19%;" data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
             <tbody id="tbl-body-3"></tbody>
@@ -1200,13 +1242,13 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 28px;">#</th>
-                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
-                <th data-k="th_seas">Harvest Calendar</th>
+                <th style="width: 3.5%;">#</th>
+                <th style="width: 22%;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 18%;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 15%;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 10%;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 12.5%;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 19%;" data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
             <tbody id="tbl-body-4"></tbody>
@@ -1423,7 +1465,7 @@
       });
     }
 
-    // 38 Crops Database (Corrected Russian spellings)
+    // 38 Crops Database (Cleaned Calibers & Russian Text)
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
         temp:{ en:'+12°C to +14°C', ar:'من +12 إلى +14°م', ru:'от +12°C до +14°C', zh:'+12°C 至 +14°C' },
@@ -1439,7 +1481,7 @@
         temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'15kg telescopic carton', ar:'كرتون تلسكوبي 15 كجم', ru:'Телескоп. короб 15кг', zh:'15公斤天地盖纸箱' },
-        cal:{ en:'40, 48, 56, 64, 72, 88', ar:'عيار: 40، 48، 56، 64، 72، 88', ru:'40, 48, 56, 64, 72, 88', zh:'40, 48, 56, 64, 72, 88' },
+        cal:{ en:'40, 48, 56, 64, 72, 88', ar:'40، 48، 56، 64، 72، 88', ru:'40, 48, 56, 64, 72, 88', zh:'40, 48, 56, 64, 72, 88' },
         en:{ name:"Fresh Oranges", sub:"Valencia & Navel" },
         ar:{ name:"البرتقال الطازج", sub:"فالنسيا، أبو سرة" },
         ru:{ name:"Свежие апельсины", sub:"Валенсия, Навел" },
@@ -1469,7 +1511,7 @@
         temp:{ en:'+5°C to +7°C', ar:'من +5 إلى +7°م', ru:'от +5°C до +7°C', zh:'+5°C 至 +7°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'4.5kg flat carton', ar:'كرتون مسطح 4.5 كجم', ru:'Короб 4.5кг', zh:'4.5公斤平口纸箱' },
-        cal:{ en:'6, 7, 8, 9, 10, 12, 14', ar:'عيار: 6، 7، 8، 9، 10، 12، 14', ru:'6, 7, 8, 9, 10, 12, 14', zh:'6, 7, 8, 9, 10, 12, 14' },
+        cal:{ en:'6, 7, 8, 9, 10, 12, 14', ar:'6، 7، 8، 9، 10، 12، 14', ru:'6, 7, 8, 9, 10, 12, 14', zh:'6, 7, 8, 9, 10, 12, 14' },
         en:{ name:"Fresh Pomegranates", sub:"Wonderful, 116" },
         ar:{ name:"الرمان الطازج", sub:"وندرفول، صنف 116" },
         ru:{ name:"Свежий гранат", sub:"Вандерфул, 116" },
@@ -1479,7 +1521,7 @@
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
         pack:{ en:'4.5kg carry bags, 5kg punnets', ar:'أكياس 4.5 كجم، بانتس 5 كجم', ru:'Пакеты 4.5кг, пунеты 5кг', zh:'4.5公斤提袋 / 5公斤盒装' },
-        cal:{ en:'16mm - 24mm+', ar:'قطر الحبة: 16مم - 24مم+', ru:'16мм - 24мм+', zh:'果径 16mm - 24mm+' },
+        cal:{ en:'16mm - 24mm+', ar:'16مم - 24مم+', ru:'16мм - 24мм+', zh:'果径 16mm - 24mm+' },
         en:{ name:"Table Grapes", sub:"Superior, Flame, Crimson" },
         ar:{ name:"عنب المائدة بدون بذور", sub:"سوبيريور، فليم، كريمسون" },
         ru:{ name:"Столовый виноград", sub:"Супериор, Флейм" },
@@ -1519,7 +1561,7 @@
         temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
         pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
-        cal:{ en:'6, 7, 8, 9, 10, 12', ar:'عيار: 6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
+        cal:{ en:'6, 7, 8, 9, 10, 12', ar:'6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
         en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
         ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
         ru:{ name:"Свежее манго", sub:"Кейт, Кент" },
@@ -1539,7 +1581,7 @@
         temp:{ en:'+6°C to +8°C', ar:'من +6 إلى +8°م', ru:'от +6°C до +8°C', zh:'+6°C 至 +8°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg open cartons', ar:'كرتون مفتوح 5 كجم', ru:'Открытый короб 5кг', zh:'5公斤敞口纸箱' },
-        cal:{ en:'5, 6, 7, 8, 9 pcs', ar:'5، 6، 7، 8، 9 حبات بالكرتون', ru:'5, 6, 7, 8, 9 шт', zh:'5, 6, 7, 8, 9 粒/箱' },
+        cal:{ en:'5, 6, 7, 8, 9 pcs', ar:'5، 6، 7، 8، 9 حبات', ru:'5, 6, 7, 8, 9 шт', zh:'5, 6, 7, 8, 9 粒/箱' },
         en:{ name:"Cantaloupe & Galia", sub:"Galia, Ananas Melon" },
         ar:{ name:"الشمام والكانتالوب", sub:"جاليا، أناناس" },
         ru:{ name:"Дыня и Галия", sub:"Галия, Ананасная" },
@@ -1569,7 +1611,7 @@
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'4kg/5kg tray cartons', ar:'كرتون صواني 4 كجم / 5 كجم', ru:'Короб с ячейками 4/5кг', zh:'4/5公斤托盘纸箱' },
-        cal:{ en:'Calibers: A, B (60-75mm)', ar:'عيار: A، B (60-75مم)', ru:'Калибр A, B (60-75мм)', zh:'级别 A, B (60-75mm)' },
+        cal:{ en:'A, B (60-75mm)', ar:'A، B (60-75مم)', ru:'Калибр A, B (60-75мм)', zh:'级别 A, B (60-75mm)' },
         en:{ name:"Fresh Peaches", sub:"Early Swell, Florida Prince" },
         ar:{ name:"الخوخ الطازج", sub:"إيرلي سويل، فلوريدا برنس" },
         ru:{ name:"Свежие персики", sub:"Флорида Принс" },
@@ -1589,7 +1631,7 @@
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
         ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
         pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
-        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50مم', zh:'35mm 至 50mm' },
+        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
         en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
         ar:{ name:"المشمش الطازج", sub:"كانينو، حموي" },
         ru:{ name:"Абрикосы", sub:"Канино, Хамави" },
@@ -1669,7 +1711,7 @@
         temp:{ en:'+1°C to +3°C', ar:'من +1 إلى +3°م', ru:'от +1°C до +3°C', zh:'+1°C 至 +3°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg / 10kg cartons', ar:'كرتون 5 كجم / 10 كجم', ru:'Коробки 5кг / 10кг', zh:'5公斤 / 10公斤纸箱' },
-        cal:{ en:'24, 30, 36, 40 counts', ar:'عيار: 24، 30، 36، 40 حبة', ru:'24, 30, 36, 40 шт', zh:'24, 30, 36, 40 个/箱' },
+        cal:{ en:'24, 30, 36, 40 counts', ar:'24، 30، 36، 40 حبة', ru:'24, 30, 36, 40 шт', zh:'24, 30, 36, 40 个/箱' },
         en:{ name:"Fresh Artichokes", sub:"French Violet, Baladi" },
         ar:{ name:"الخرشوف الطازج", sub:"فرنساوي، بلدي" },
         ru:{ name:"Артишоки свежие", sub:"Французский фиолетовый" },
@@ -1689,7 +1731,7 @@
         temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'10kg / 15kg cartons', ar:'كرتون 10 كجم / 15 كجم', ru:'Коробки 10кг / 15кг', zh:'10公斤 / 15公斤纸箱' },
-        cal:{ en:'Calibers: 1, 2, 3, 4, 5', ar:'عيار: 1، 2، 3، 4، 5', ru:'Калибры 1, 2, 3, 4, 5', zh:'级别 1, 2, 3, 4, 5' },
+        cal:{ en:'1, 2, 3, 4, 5', ar:'1، 2، 3، 4، 5', ru:'Калибры 1, 2, 3, 4, 5', zh:'级别 1, 2, 3, 4, 5' },
         en:{ name:"Mandarins", sub:"Fremont, Murcott" },
         ar:{ name:"اليوسفي والمندرين", sub:"فريمونت، موركوت" },
         ru:{ name:"Мандарины", sub:"Фримонт, Муркотт" },
@@ -1699,7 +1741,7 @@
         temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'15kg carton / 5kg lime', ar:'كرتون 15 كجم / 5 كجم ليمون أخضر', ru:'Короб 15кг / 5кг лайм', zh:'15公斤箱装 / 5公斤青柠' },
-        cal:{ en:'64, 75, 88, 100, 113', ar:'عيار: 64، 75، 88، 100، 113', ru:'64, 75, 88, 100, 113', zh:'64, 75, 88, 100, 113' },
+        cal:{ en:'64, 75, 88, 100, 113', ar:'64، 75، 88، 100، 113', ru:'64, 75, 88, 100, 113', zh:'64, 75, 88, 100, 113' },
         en:{ name:"Lemons & Limes", sub:"Eureka & Baladi Lime" },
         ar:{ name:"الليمون الأضاليا والبلدي", sub:"يوريكا، ليمون أخضر" },
         ru:{ name:"Лимоны и Лаймы", sub:"Эврика, Балади" },
@@ -1709,7 +1751,7 @@
         temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'15kg export carton', ar:'كرتون تصدير 15 كجم', ru:'Экспортный короб 15кг', zh:'15公斤出口标准纸箱' },
-        cal:{ en:'32, 36, 40, 48, 56', ar:'عيار: 32، 36، 40، 48، 56', ru:'32, 36, 40, 48, 56', zh:'32, 36, 40, 48, 56' },
+        cal:{ en:'32, 36, 40, 48, 56', ar:'32، 36، 40، 48، 56', ru:'32, 36, 40, 48, 56', zh:'32, 36, 40, 48, 56' },
         en:{ name:"Grapefruit", sub:"Star Ruby Red" },
         ar:{ name:"الجريب فروت الأحمر", sub:"ستار روبي" },
         ru:{ name:"Грейпфрут", sub:"Стар Руби" },
@@ -1729,7 +1771,7 @@
         temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'5kg/8kg polystyrene iced', ar:'فوم 5/8 كجم بالثلج المبشور', ru:'Пенопласт 5/8кг со льдом', zh:'5/8公斤加碎冰保丽龙箱' },
-        cal:{ en:'Dome heads: 300-600g', ar:'رؤوس مقببة: 300-600 جم', ru:'Головки: 300-600г', zh:'花球重: 300-600克' },
+        cal:{ en:'300-600g', ar:'300-600 جم', ru:'Головки: 300-600г', zh:'花球重: 300-600克' },
         en:{ name:"Fresh Broccoli", sub:"Calabrese Dome" },
         ar:{ name:"البروكلي الأخضر الطازج", sub:"رؤوس متماسكة" },
         ru:{ name:"Брокколи свежая", sub:"Калабрезе" },
@@ -1739,7 +1781,7 @@
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'6-8 heads / carton', ar:'6-8 رؤوس بالكرتون', ru:'6-8 головок в коробе', zh:'6-8 颗/箱 单套袋' },
-        cal:{ en:'Curd: 800-1500g', ar:'القرص: 800-1500 جم', ru:'Кочан: 800-1500г', zh:'花球重: 800-1500克' },
+        cal:{ en:'800-1500g', ar:'800-1500 جم', ru:'Кочан: 800-1500г', zh:'花球重: 800-1500克' },
         en:{ name:"Fresh Cauliflower", sub:"Pure Snow White" },
         ar:{ name:"القرنبيط الأبيض الطازج", sub:"قرص أبيض ناصع" },
         ru:{ name:"Цветная капуста", sub:"Белоснежная" },
@@ -1769,7 +1811,7 @@
         temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
         ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
         pack:{ en:'10kg / 15kg mesh bags', ar:'أجولة شبكية 10 كجم / 15 كجم', ru:'Сетки 10кг / 15кг', zh:'10公斤 / 15公斤网眼袋' },
-        cal:{ en:'1.2kg to 2.5kg / head', ar:'1.2 كجم إلى 2.5 كجم / رأس', ru:'1.2 - 2.5кг / кочан', zh:'单球重 1.2kg 至 2.5kg' },
+        cal:{ en:'1.2kg to 2.5kg', ar:'1.2 كجم إلى 2.5 كجم', ru:'1.2 - 2.5кг / кочан', zh:'单球重 1.2kg 至 2.5kg' },
         en:{ name:"Cabbage (White/Red)", sub:"Round Winter Type" },
         ar:{ name:"الكرنب الأبيض والأحمر", sub:"ملفوف شتوي" },
         ru:{ name:"Капуста (Белая/Красная)", sub:"Круглая плотная" },
@@ -2139,7 +2181,7 @@
         `).join('');
       }
 
-      // Catalog Tables (Optimized Batch Rendering)
+      // Catalog Tables (Optimized Batch Rendering with Unified Caliber Pill)
       const tableRows = { 1: [], 2: [], 3: [], 4: [] };
       const mobileCards = { 1: [], 2: [], 3: [], 4: [] };
 
@@ -2178,9 +2220,9 @@
                 <span class="crop-sub">${cInfo.sub}</span>
               </div>
             </td>
-            <td class="cal-cell font-mono"><bdi>${calText}</bdi></td>
+            <td class="cal-cell"><span class="cal-pill font-mono"><bdi>${calText}</bdi></span></td>
             <td>${packText}</td>
-            <td><strong class="font-mono" style="color:var(--primary-deep); font-size:10px;"><bdi>${tempText}</bdi></strong></td>
+            <td><span class="temp-pill font-mono"><bdi>${tempText}</bdi></span></td>
             <td>${shipText}</td>
             <td><div class="season-track">${dots}</div></td>
           </tr>
@@ -2260,7 +2302,7 @@
       btn.innerText = (currentLang === 'ar' ? '⏳ جاري تصدير PDF...' : '⏳ Generating PDF...');
       btn.disabled = true;
 
-      // Fix: Freeze counters immediately to complete target values before capture
+      // Freeze counters to complete values before rendering
       counterTimers.forEach(t => clearInterval(t));
       document.querySelectorAll('.counter-num').forEach(counter => {
         const target = counter.getAttribute('data-target');
@@ -2279,6 +2321,8 @@
         await new Promise(r => { logoImg.onload = r; logoImg.onerror = r; });
       }
 
+      // Add strict render classes to eliminate RTL horizontal cut-off
+      document.body.classList.add('pdf-exporting');
       container.classList.add('pdf-render-mode');
       window.scrollTo(0, 0);
 
@@ -2292,7 +2336,10 @@
           logging: false,
           scrollY: 0,
           scrollX: 0,
-          windowWidth: 1123
+          x: 0,
+          y: 0,
+          width: 1122,
+          windowWidth: 1122
         },
         jsPDF:        { unit: 'mm', format: [297, 210], orientation: 'landscape' },
         pagebreak:    { mode: 'css', after: '.page' }
@@ -2308,6 +2355,7 @@
         console.error(err);
         window.print();
       } finally {
+        document.body.classList.remove('pdf-exporting');
         container.classList.remove('pdf-render-mode');
         btn.innerText = oldText;
         btn.disabled = false;
