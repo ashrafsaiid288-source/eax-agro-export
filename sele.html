@@ -82,7 +82,7 @@
       transform: translateX(-50%);
       z-index: 10000;
       display: flex;
-      gap: 5px;
+      gap: 6px;
       align-items: center;
       background: rgba(1, 10, 5, 0.92);
       backdrop-filter: blur(20px);
@@ -104,7 +104,7 @@
       background: transparent;
       border: 1px solid rgba(255,255,255,0.1);
       color: #dfede2;
-      padding: 5px 11px;
+      padding: 6px 12px;
       border-radius: 999px;
       font-weight: 700;
       font-size: 11px;
@@ -118,45 +118,11 @@
       box-shadow: 0 4px 14px rgba(207, 161, 90, 0.4);
     }
 
-    .nav-divider {
-      width: 1px;
-      height: 18px;
-      background: rgba(255,255,255,0.2);
-      margin: 0 4px;
-    }
-
-    .page-jumper {
-      display: flex;
-      gap: 3px;
-      align-items: center;
-    }
-    .page-jump-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #bcd0c1;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      font-size: 9.5px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      font-family: 'JetBrains Mono', monospace;
-    }
-    .page-jump-btn:hover {
-      background: var(--champagne-gold);
-      color: #010a05;
-      border-color: var(--champagne-gold);
-    }
-
     .print-btn {
       background: linear-gradient(135deg, #ffffff 0%, #f4ede0 100%);
       color: var(--primary-deep);
       border: none;
-      padding: 6px 16px;
+      padding: 6px 18px;
       border-radius: 999px;
       font-weight: 800;
       font-size: 11px;
@@ -164,7 +130,7 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.3);
       transition: all 0.2s ease;
       white-space: nowrap;
-      margin-inline-start: 4px;
+      margin-inline-start: 6px;
     }
     .print-btn:hover { transform: scale(1.02); }
 
@@ -484,7 +450,7 @@
     .transit-table td { padding: 7px 10px; border-bottom: 1px solid var(--border-divider); font-weight: 600; }
     .transit-table .highlight-days { font-weight: 800; color: var(--champagne-deep); font-size: 11px; }
 
-    /* Space-Filling Balanced Table Architecture */
+    /* Balanced & Wide Space Allocation for Table */
     .catalog-header-bar {
       display: flex;
       justify-content: space-between;
@@ -561,14 +527,15 @@
       border-radius: 8px 0 0 8px;
     }
 
-    /* Caliber Cell Optimization */
+    /* Roomy & Uncluttered Caliber Cell */
     .cal-cell {
       font-size: 10px;
       font-weight: 700;
       color: #143521;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      padding: 0 6px !important;
+      line-height: 1.25;
+      white-space: normal;
+      word-break: break-word;
     }
 
     /* Crop Details Typography */
@@ -708,7 +675,6 @@
         padding: 5px 8px;
         justify-content: space-between;
       }
-      .page-jumper { display: none; }
 
       .page {
         width: 100% !important;
@@ -825,24 +791,12 @@
 </head>
 <body>
 
-  <!-- Floating Navigation Controls -->
+  <!-- Floating Navigation Controls (Clean Language & PDF Bar) -->
   <div class="control-panel" id="smartNavbar">
     <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
     <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">العربية</button>
     <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">Русский</button>
     <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
-    
-    <div class="nav-divider"></div>
-    <div class="page-jumper" title="Quick Jump">
-      <button class="page-jump-btn" onclick="scrollToPage(1)">1</button>
-      <button class="page-jump-btn" onclick="scrollToPage(2)">2</button>
-      <button class="page-jump-btn" onclick="scrollToPage(3)">3</button>
-      <button class="page-jump-btn" onclick="scrollToPage(4)">4</button>
-      <button class="page-jump-btn" onclick="scrollToPage(5)">5</button>
-      <button class="page-jump-btn" onclick="scrollToPage(6)">6</button>
-      <button class="page-jump-btn" onclick="scrollToPage(7)">7</button>
-      <button class="page-jump-btn" onclick="scrollToPage(8)">8</button>
-    </div>
     
     <button class="print-btn" onclick="exportCatalogPDF()" data-k="btn_print">📥 Download PDF</button>
   </div>
@@ -932,7 +886,7 @@
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
           <div style="background: #ffffff; border: 1px solid var(--border-subtle); border-radius: 12px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-bento);">
             <div style="width: 38px; height: 38px; border-radius: 10px; background: #f0f7f3; display: flex; align-items: center; justify-content: center; color: var(--primary-accent); flex-shrink: 0;">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1-4-10z"/></svg>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
               <div class="counter-num font-mono" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
@@ -1121,12 +1075,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 30px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1159,12 +1113,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 30px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1197,12 +1151,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 30px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1235,12 +1189,12 @@
           <table class="catalog-table">
             <thead>
               <tr>
-                <th style="width: 30px;">#</th>
-                <th style="width: 195px;" data-k="th_crop">Crop & Variety</th>
-                <th style="width: 145px;" data-k="th_cal">Caliber / Sizes</th>
-                <th style="width: 110px;" data-k="th_pack">Export Packaging</th>
-                <th style="width: 78px;" data-k="th_temp">Temp (°C)</th>
-                <th style="width: 95px;" data-k="th_ship">Freight Mode</th>
+                <th style="width: 28px;">#</th>
+                <th style="width: 190px;" data-k="th_crop">Crop & Variety</th>
+                <th style="width: 160px;" data-k="th_cal">Caliber / Sizes</th>
+                <th style="width: 105px;" data-k="th_pack">Export Packaging</th>
+                <th style="width: 74px;" data-k="th_temp">Temp (°C)</th>
+                <th style="width: 88px;" data-k="th_ship">Freight Mode</th>
                 <th data-k="th_seas">Harvest Calendar</th>
               </tr>
             </thead>
@@ -1417,11 +1371,6 @@
   </div>
 
   <script>
-    function scrollToPage(pageNumber) {
-      const el = document.getElementById(`page-${pageNumber}`);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
-
     function rasterizeLogo() {
       return new Promise((resolve) => {
         const svgEl = document.getElementById('raw-logo-svg');
@@ -2179,7 +2128,7 @@
         `).join('');
       }
 
-      // Catalog Tables (Batch Allocation)
+      // Catalog Tables (Optimized Batch Rendering)
       const tableRows = { 1: [], 2: [], 3: [], 4: [] };
       const mobileCards = { 1: [], 2: [], 3: [], 4: [] };
 
