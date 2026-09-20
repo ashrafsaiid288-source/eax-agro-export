@@ -63,19 +63,43 @@
     
     html[dir="rtl"] body {
       font-family: 'Cairo', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.45;
+    }
+
+    /* Fix: Prevent Arabic letter overlapping caused by letter-spacing */
+    html[dir="rtl"] *,
+    html[dir="rtl"] *::before,
+    html[dir="rtl"] *::after {
+      letter-spacing: normal !important;
     }
 
     html[lang="zh"] body {
       font-family: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Tabular Numbers & Monospace */
+    /* Tabular Numbers & Monospace Base */
     .font-mono {
       font-family: 'JetBrains Mono', Consolas, monospace !important;
       font-variant-numeric: tabular-nums;
       direction: ltr !important;
       unicode-bidi: isolate !important;
       display: inline-block;
+    }
+
+    /* Fix: In Arabic mode, font-mono must not break cursive text */
+    html[dir="rtl"] .font-mono {
+      font-family: 'Cairo', sans-serif !important;
+      direction: rtl !important;
+    }
+
+    /* Explicit numbers and codes stay strictly LTR Mono */
+    html[dir="rtl"] .crop-hs,
+    html[dir="rtl"] .crop-id-num,
+    html[dir="rtl"] .counter-num,
+    html[dir="rtl"] .phone-num {
+      direction: ltr !important;
+      unicode-bidi: isolate !important;
+      font-family: 'JetBrains Mono', Consolas, monospace !important;
     }
 
     /* Floating Capsule Navbar */
@@ -292,11 +316,10 @@
     }
 
     .cover-title {
-      font-size: 26px;
+      font-size: 25px;
       font-weight: 900;
-      line-height: 1.22;
+      line-height: 1.25;
       margin: 6px 0 10px;
-      letter-spacing: -0.4px;
     }
     .cover-title span.highlight {
       background: var(--gold-gradient);
@@ -328,7 +351,7 @@
       backdrop-filter: blur(10px);
     }
     .metric-card h3 { margin: 0; font-size: 17px; font-weight: 900; color: #faebd7; }
-    .metric-card p { margin: 3px 0 0; font-size: 9px; font-weight: 600; color: #bcd0c1; line-height: 1.35; }
+    .metric-card p { margin: 3px 0 0; font-size: 9px; font-weight: 600; color: #bcd0c1; line-height: 1.4; }
 
     /* Bento Value Pillars */
     .pillar-row {
@@ -428,8 +451,8 @@
       margin-bottom: 4px;
       width: fit-content;
     }
-    .cert-pill-card h4 { margin: 0 0 3px; font-size: 12.2px; font-weight: 800; color: var(--primary-deep); }
-    .cert-pill-card p { margin: 0; font-size: 9.5px; font-weight: 500; color: var(--text-muted); line-height: 1.4; }
+    .cert-pill-card h4 { margin: 0 0 3px; font-size: 12.2px; font-weight: 800; color: var(--primary-deep); line-height: 1.25; }
+    .cert-pill-card p { margin: 0; font-size: 9.5px; font-weight: 500; color: var(--text-muted); line-height: 1.45; }
 
     .transit-box {
       background: #ffffff;
@@ -499,7 +522,6 @@
     html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 6px 6px 0; }
     html[dir="rtl"] .catalog-table th:last-child { border-radius: 6px 0 0 6px; }
 
-    /* Explicit Height per Row to Prevent Table Overflow */
     .catalog-table tbody tr {
       height: 14mm !important;
     }
@@ -532,7 +554,7 @@
       border-radius: 8px 0 0 8px;
     }
 
-    /* Caliber / Sizes Custom Badge - Polished & Unified */
+    /* Caliber / Sizes Custom Badge */
     .cal-cell {
       padding: 0 6px !important;
       vertical-align: middle;
@@ -546,10 +568,14 @@
       color: #0b3d23;
       font-size: 9.3px;
       font-weight: 700;
-      line-height: 1.25;
+      line-height: 1.35;
       max-width: 100%;
       word-break: break-word;
       box-shadow: 0 1px 2px rgba(1, 10, 5, 0.02);
+    }
+    html[dir="rtl"] .cal-pill {
+      font-family: 'Cairo', sans-serif !important;
+      font-size: 9px;
     }
 
     /* Temp Pill Custom Badge */
@@ -558,15 +584,20 @@
       background: #fbfdfc;
       border: 1px solid #e1ece5;
       border-radius: 5px;
-      padding: 2px 6px;
+      padding: 2.5px 6px;
       color: var(--primary-deep);
       font-weight: 800;
       font-size: 9.5px;
       white-space: nowrap;
+      line-height: 1.3;
+    }
+    html[dir="rtl"] .temp-pill {
+      font-family: 'Cairo', sans-serif !important;
+      font-size: 8.8px;
     }
 
-    .crop-name { font-size: 12px; font-weight: 800; color: var(--primary-deep); line-height: 1.15; }
-    .crop-sub { color: var(--text-muted); font-size: 9.3px; font-weight: 500; display: block; margin-top: 1px; }
+    .crop-name { font-size: 11.8px; font-weight: 800; color: var(--primary-deep); line-height: 1.25; }
+    .crop-sub { color: var(--text-muted); font-size: 9.3px; font-weight: 500; display: block; margin-top: 1px; line-height: 1.35; }
     
     .crop-hs {
       display: inline-block;
@@ -578,9 +609,6 @@
       border-radius: 3px;
       margin-inline-start: 4px;
       border: 0.5px solid rgba(157, 113, 46, 0.25);
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
-      direction: ltr !important;
-      unicode-bidi: isolate !important;
     }
     
     .badge-grp {
@@ -660,7 +688,6 @@
       font-weight: 900;
       color: var(--champagne-deep);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
     .c-col a, .c-col p {
       margin: 0;
@@ -760,7 +787,6 @@
       margin: 0 !important;
       padding: 0 !important;
       background: #ffffff !important;
-      direction: ltr !important; /* Fixes html2canvas RTL clipping engine */
     }
     .pdf-render-mode .page {
       width: 297mm !important;
@@ -781,14 +807,6 @@
     .pdf-render-mode .page:last-child {
       page-break-after: avoid !important;
       break-after: avoid !important;
-    }
-
-    /* Retain RTL layout inside sections */
-    html[dir="rtl"] .pdf-render-mode .page-content,
-    html[dir="rtl"] .pdf-render-mode .page-header,
-    html[dir="rtl"] .pdf-render-mode .page-footer,
-    html[dir="rtl"] .pdf-render-mode .back-box {
-      direction: rtl !important;
     }
 
     .pdf-render-mode .cover-bg { height: 209.2mm !important; padding: 10mm 16mm !important; }
@@ -853,7 +871,7 @@
           <span>★</span>
           <span data-k="cover_tag">OFFICIAL EXPORT CATALOG • 2026</span>
         </div>
-        <div style="font-size: 10px; font-weight: 800; letter-spacing: 2px; color: var(--champagne-gold);" data-k="cover_top_rt">
+        <div style="font-size: 10px; font-weight: 800; color: var(--champagne-gold);" data-k="cover_top_rt">
           EGYPTIAN AGRICULTURAL EXPORTS
         </div>
       </div>
@@ -906,7 +924,7 @@
       <div class="page-content" style="justify-content: space-between;">
         <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <div style="flex: 1.6;">
-            <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.5px; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+            <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
             <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="company_title_full">EAX AGRO EXPORT</h2>
             <p style="font-size: 11.5px; font-weight: 500; color: #354a3a; line-height: 1.6; margin: 0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian grower and exporter managing 38 distinct commercial crops. We connect Egypt’s fertile agricultural belts directly to wholesale markets and leading supermarket distribution hubs across the European Union, the United Kingdom, GCC countries, China, and Russia.
@@ -914,13 +932,13 @@
           </div>
 
           <div style="flex: 0.8; background: #ffffff; border: 1px solid var(--gold-border); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow-bento); text-align: center;">
-            <div style="font-size: 10.5px; font-weight: 900; color: var(--champagne-deep); letter-spacing: 1px; text-transform: uppercase;" data-k="p2_badge_title">
+            <div style="font-size: 10.5px; font-weight: 900; color: var(--champagne-deep); text-transform: uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
             <div style="font-size: 13.5px; font-weight: 900; color: var(--primary-deep); margin: 4px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
-            <p style="font-size: 9px; color: var(--text-muted); margin: 0; line-height: 1.4;" data-k="p2_badge_desc">
+            <p style="font-size: 9px; color: var(--text-muted); margin: 0; line-height: 1.45;" data-k="p2_badge_desc">
               Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.
             </p>
           </div>
@@ -933,7 +951,7 @@
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
+              <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">45+</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Global Destinations</div>
             </div>
           </div>
@@ -943,7 +961,7 @@
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
+              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">100%</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Strict EU MRL Compliance</div>
             </div>
           </div>
@@ -953,7 +971,7 @@
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
+              <div class="counter-num" data-target="2" data-prefix="< " data-suffix=" Hrs" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">< 2 Hrs</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Pre-Cooling Pull</div>
             </div>
           </div>
@@ -963,7 +981,7 @@
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5M12 12h.01M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5M19.1 4.9c3.9 3.9 3.9 10.3 0 14.2"/></svg>
             </div>
             <div>
-              <div class="counter-num font-mono" data-target="24" data-suffix="/7 IoT" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
+              <div class="counter-num" data-target="24" data-suffix="/7 IoT" style="font-size: 19px; font-weight: 900; color: var(--primary-deep); line-height: 1.1;">24/7 IoT</div>
               <div style="font-size: 8px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Live Cold Chain IoT</div>
             </div>
           </div>
@@ -977,7 +995,7 @@
                 <div class="pillar-icon-box">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 0 0-10 10c0 4.4 2.9 8.2 7 9.5V17h-2v-3h2v-2c0-3.3 2-5 5-5 1.5 0 2.8.1 3 .1v3.2h-1.8c-1.6 0-2 .8-2 2v1.7h3.7l-.5 3h-3.2v4.5c4.1-1.3 7-5.1 7-9.5A10 10 0 0 0 12 2z"/></svg>
                 </div>
-                <div class="num font-mono">01</div>
+                <div class="num crop-id-num">01</div>
               </div>
               <h4 data-k="pil1_t">Strict Field Monitoring</h4>
               <p data-k="pil1_d">Pre-harvest soil testing and residue analysis guarantee compliance. Full lot traceability down to specific farm sectors.</p>
@@ -991,7 +1009,7 @@
                 <div class="pillar-icon-box" style="background: #fff9ed; color: var(--champagne-deep); border-color: rgba(207,161,90,0.25);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
                 </div>
-                <div class="num font-mono">02</div>
+                <div class="num crop-id-num">02</div>
               </div>
               <h4 data-k="pil2_t">Optical Sorting & Curing</h4>
               <p data-k="pil2_d">Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.</p>
@@ -1005,7 +1023,7 @@
                 <div class="pillar-icon-box" style="background: #f0f8ff; color: #0284c7; border-color: rgba(2,132,199,0.2);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/><circle cx="12" cy="12" r="9"/></svg>
                 </div>
-                <div class="num font-mono">03</div>
+                <div class="num crop-id-num">03</div>
               </div>
               <h4 data-k="pil3_t">Unbroken Cold Chain</h4>
               <p data-k="pil3_d">Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.</p>
@@ -1035,7 +1053,7 @@
       </div>
       <div class="page-content" style="justify-content: space-between;">
         <div>
-          <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); letter-spacing: 1.2px; text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
+          <span style="font-size: 9.5px; font-weight: 800; color: var(--champagne-deep); text-transform: uppercase;" data-k="p3_sub">Compliance & Sea Freight</span>
           <h2 style="font-size: 20px; font-weight: 900; color: var(--primary-deep); margin: 2px 0 4px;" data-k="p3_h2">Global Certifications & Direct Transit Matrix</h2>
         </div>
 
@@ -1308,7 +1326,7 @@
           <div class="contact-cols">
             <div class="c-col">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" rel="noopener noreferrer" dir="ltr" class="font-mono" style="unicode-bidi: isolate;">
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export%2C%20I%20would%20like%20to%20inquire%20about%20produce%20allocations." target="_blank" rel="noopener noreferrer" dir="ltr" class="phone-num">
                 +20 100 692 0920 ↗
               </a>
               <span data-k="c_p_sub">24/7 International Desk (Click to Chat)</span>
@@ -1456,7 +1474,7 @@
       });
     }
 
-    // 38 Crops Database (Cleaned Calibers & Russian Text)
+    // 38 Crops Database
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
         temp:{ en:'+12°C to +14°C', ar:'من +12 إلى +14°م', ru:'от +12°C до +14°C', zh:'+12°C 至 +14°C' },
@@ -2185,7 +2203,7 @@
           bText = (lang === 'ar' ? 'صيفي' : (lang === 'ru' ? 'Лето' : (lang === 'zh' ? '夏季' : 'Summer')));
         } else if (crop.grp === 'w') {
           bClass = 'bg-w';
-          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зيما' : (lang === 'zh' ? '冬季' : 'Winter')));
+          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зима' : (lang === 'zh' ? '冬季' : 'Winter')));
         }
 
         let dots = '';
@@ -2202,7 +2220,7 @@
 
         const rowHtml = `
           <tr>
-            <td><strong class="font-mono" style="color:var(--champagne-deep); font-size:10px;">${cropIdFormatted}</strong></td>
+            <td><strong class="crop-id-num" style="color:var(--champagne-deep); font-size:10px;">${cropIdFormatted}</strong></td>
             <td>
               <div>
                 <span class="crop-name">${cInfo.name}</span>
@@ -2211,9 +2229,9 @@
                 <span class="crop-sub">${cInfo.sub}</span>
               </div>
             </td>
-            <td class="cal-cell"><span class="cal-pill font-mono"><bdi>${calText}</bdi></span></td>
+            <td class="cal-cell"><span class="cal-pill"><bdi>${calText}</bdi></span></td>
             <td>${packText}</td>
-            <td><span class="temp-pill font-mono"><bdi>${tempText}</bdi></span></td>
+            <td><span class="temp-pill"><bdi>${tempText}</bdi></span></td>
             <td>${shipText}</td>
             <td><div class="season-track">${dots}</div></td>
           </tr>
@@ -2222,7 +2240,7 @@
         const cardHtml = `
           <div class="m-crop-card">
             <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:6px; margin-bottom:6px;">
-              <span class="font-mono" style="font-weight:900; color:var(--champagne-deep); font-size:12px;">#${cropIdFormatted}</span>
+              <span class="crop-id-num" style="font-weight:900; color:var(--champagne-deep); font-size:12px;">#${cropIdFormatted}</span>
               <span style="font-weight:800; font-size:13.5px; color:var(--primary-deep); margin:0 3px;">${cInfo.name}</span>
               <span class="crop-hs">HS ${crop.hs}</span>
               <span class="badge-grp ${bClass}">${bText}</span>
@@ -2231,7 +2249,7 @@
             <div class="m-crop-details">
               <div class="m-detail-item">
                 <b>${t.th_cal}</b>
-                <span class="font-mono"><bdi>${calText}</bdi></span>
+                <span><bdi>${calText}</bdi></span>
               </div>
               <div class="m-detail-item">
                 <b>${t.th_pack}</b>
@@ -2239,7 +2257,7 @@
               </div>
               <div class="m-detail-item">
                 <b>${t.th_temp}</b>
-                <span class="font-mono" style="color:var(--primary-deep);"><bdi>${tempText}</bdi></span>
+                <span style="color:var(--primary-deep);"><bdi>${tempText}</bdi></span>
               </div>
               <div class="m-detail-item">
                 <b>${t.th_ship}</b>
