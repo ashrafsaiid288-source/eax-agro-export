@@ -367,7 +367,7 @@
         </a>
       </div>
 
-      <!-- Ultra-Modern Showcase: The 5 Core Export Pillars Ticker -->
+      <!-- Quick Core 5 Bar -->
       <div class="reveal-up glass-panel p-3.5 sm:p-4 rounded-3xl max-w-4xl mx-auto border border-agro-goldBorder/60 shadow-glass">
         <div class="text-[11px] font-black uppercase tracking-wider text-agro-gold mb-2.5 flex items-center justify-center gap-2">
           <span>★</span>
@@ -430,7 +430,6 @@
         <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="filter-container">
           <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
           <button type="button" onclick="handleFilterClick('core5', event)" data-i18n="filter_core5" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ The Core 5 (1-5)</button>
-          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Top Priority (1-9)</button>
           <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest</button>
           <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest</button>
           <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fruits</button>
@@ -610,7 +609,7 @@
             </li>
             <li class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-emerald-600 shrink-0 shadow-xs">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </span>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 010 06 920 920</span>
@@ -646,14 +645,13 @@
     </a>
   </aside>
 
-  <!-- Complete Verified Crops Database & Interactive Scripting -->
+  <!-- Complete 38 Crops Database with Restored 12-Month Calendar Matrix -->
   <script>
     const BACKEND_CONFIG = {
       whatsappPhone: '201006920920'
     };
 
-    // 1 to 5: Top Priority Core (Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions)
-    // All 38 crops with 100% matched, high-resolution produce images.
+    // Top 5 Ordered: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
     const CROPS = [
       { id: 1, group: 'core5', category: 'vegetables', name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)", season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月", season_ru: "С августа по март", months: [8,9,10,11,12,1,2,3], image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" },
       { id: 2, group: 'core5', category: 'vegetables', name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)", season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь", months: [1,2,3,4,5,6], image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80" },
@@ -689,7 +687,7 @@
       { id: 32, group: 'winter', category: 'vegetables', name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆", name_ru: "Свежий зеленый горошек и сахарные стручки", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=800&q=80" },
       { id: 33, group: 'winter', category: 'vegetables', name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜", name_ru: "Свежая брокколи", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=800&q=80" },
       { id: 34, group: 'winter', category: 'vegetables', name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜", name_ru: "Свежая цветная капуста", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=800&q=80" },
-      { id: 35, group: 'winter', category: 'vegetables', name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80" },
+      { id: 35, group: 'winter', category: 'vegetables', name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80" },
       { id: 36, group: 'winter', category: 'vegetables', name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат", season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март", months: [11,12,1,2,3], image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80" },
       { id: 37, group: 'winter', category: 'vegetables', name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)", season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март", months: [11,12,1,2,3], image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?auto=format&fit=crop&w=800&q=80" },
       { id: 38, group: 'winter', category: 'vegetables', name_en: "Fresh Culinary Herbs", name_ar: "الأعشاب العطرية الطازجة", name_zh: "新鲜出口级香草 (莳萝、欧芹)", name_ru: "Свежая пряная зелень (укроп, петрушка)", season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май", months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=800&q=80" }
@@ -697,6 +695,7 @@
 
     const translations = {
       en: {
+        months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         cert_banner: "Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards",
         nav_home: "Home", nav_about: "About Us", nav_produce: "Fresh Produce", nav_certs: "Certifications", nav_quality: "Quality & Cold Chain", nav_logistics: "Logistics", nav_contact: "Contact", nav_rfq: "Request Quote", cta_quote: "Get a Quote",
         hero_badge: "EAX AGRO EXPORT • Global Fresh Produce Logistics", hero_title_1: "Pure Premium Produce", hero_title_2: "From Fertile Farms to Global Supermarkets",
@@ -726,6 +725,7 @@
         footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.", footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
       },
       ar: {
+        months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
         nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات الزراعية", nav_certs: "الشهادات والاعتمادات", nav_quality: "الجودة وسلاسل التبريد", nav_logistics: "اللوجستيات والشحن", nav_contact: "اتصل بنا", nav_rfq: "طلب تسعير", cta_quote: "اطلب تسعير",
         hero_badge: "EAX AGRO EXPORT • لتصدير الفاكهة والخضروات الطازجة", hero_title_1: "حاصلات بستانية نقية", hero_title_2: "من مزارعنا الخصبة إلى أسواق العالم",
@@ -742,7 +742,7 @@
         cert_c5_sub: "خالٍ من الآفات والمتبقيات", cert_c5_desc: "فحص رسمي ومعتمد من الحجر الزراعي المصري لضمان الإفراج السريع دون حجر.",
         catalog_badge: "كتالوج التصدير الرسمي المعتمد", catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
         filter_all: "جميع الحاصلات (38)", filter_core5: "★ الخمسة الأساسية (1-5)", filter_priority: "أولوية قصوى (1-9)", filter_summer: "محاصيل صيفية", filter_winter: "محاصيل شتوية", filter_fruits: "فواكه", filter_veg: "خضروات",
-        lbl_export_season: "الموسم:", btn_req_quote: "حجز حصة تصديرية", no_results: "لم يتم العثور على منتجات مطابقة.", no_results_sub: "جرّب البحث بكلمة أخرى أو اختر تصنيفاً مختلفاً.",
+        lbl_export_season: "موسم التصدير:", btn_req_quote: "حجز حصة تصديرية", no_results: "لم يتم العثور على منتجات مطابقة.", no_results_sub: "جرّب البحث بكلمة أخرى أو اختر تصنيفاً مختلفاً.",
         qa_badge: "طزاجة لا تضاهى", qa_title: "الجودة وسلاسل التبريد المتصلة", qa_desc: "من التبريد الأولي فور الحصاد إلى الحاويات المبردة المربوطة بالأقمار الصناعية طوال مسار الشحن البحري.",
         qa_s1_title: "التبريد المائي السريع", qa_s1_desc: "سحب حرارة الحقل فور الجني عبر أنظمة التبريد السريع لضمان أطول فترة صلاحية وقوام مثالي.",
         qa_s2_title: "الفرز والتدريج الضوئي", qa_s2_desc: "خطوط فرز إلكترونية متطورة لفحص العيوب ونسب السكر والفرز بالمليمتر لكل ثمرة.",
@@ -755,6 +755,7 @@
         footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.", footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
       },
       zh: {
+        months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "新鲜农产品出口认证：GlobalGAP, BRC 与 EUR.1 标准",
         nav_home: "首页", nav_about: "关于我们", nav_produce: "出口果蔬", nav_certs: "国际认证", nav_quality: "品质冷链", nav_logistics: "跨国物流", nav_contact: "联系我们", nav_rfq: "集装箱报价", cta_quote: "获取报价",
         hero_badge: "EAX 农业出口 • 全球优质新鲜果蔬供应链", hero_title_1: "天然顶级鲜品", hero_title_2: "源自肥沃农场 · 直供全球超市",
@@ -771,7 +772,7 @@
         cert_c5_sub: "无有害生物与农残合格", cert_c5_desc: "埃及农业部植物检疫局官方检验出证，确保到港快速通关无需滞留。",
         catalog_badge: "官方出口鲜品名录", catalog_heading: "38 种国际出口级新鲜果蔬",
         filter_all: "全部 38 种果蔬", filter_core5: "★ 核心五强 (1-5)", filter_priority: "主力品类 (1-9)", filter_summer: "夏季作物", filter_winter: "冬季作物", filter_fruits: "新鲜水果", filter_veg: "优质蔬菜",
-        lbl_export_season: "产季:", btn_req_quote: "预订集装箱配额", no_results: "未找到相关农产品。", no_results_sub: "请尝试更换关键词或清除筛选条件。",
+        lbl_export_season: "出口产季:", btn_req_quote: "预订集装箱配额", no_results: "未找到相关农产品。", no_results_sub: "请尝试更换关键词或清除筛选条件。",
         qa_badge: "品质与鲜度控制", qa_title: "冷链物流与全程质检", qa_desc: "从田间采后强制预冷到配备卫星温控系统的集装箱全程海运。",
         qa_s1_title: "采后极速预冷", qa_s1_desc: "采摘后两小时内完成冷风降温与水预冷，快速锁住果蔬水分与货架期。",
         qa_s2_title: "光学分选与色选分级", qa_s2_desc: "自动化精密分选线检测表皮瑕疵、糖度及毫米级精确果径分级。",
@@ -783,6 +784,7 @@
         footer_about: "专注于 38 种出口级埃及优质新鲜果蔬采购、分选与温控运输的专业农产品出口商。", footer_contact_title: "直接联系方式", footer_quote_title: "出口业务与采购", footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。", footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
       },
       ru: {
+        months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
         cert_banner: "Сертифицированный экспорт: стандарты GlobalGAP, BRC и EUR.1",
         nav_home: "Главная", nav_about: "О нас", nav_produce: "Продукция", nav_certs: "Сертификаты", nav_quality: "Контроль качества", nav_logistics: "Логистика", nav_contact: "Контакты", nav_rfq: "Запрос цен", cta_quote: "Котировка",
         hero_badge: "EAX AGRO EXPORT • Международная логистика свежих продуктов", hero_title_1: "Премиальная свежая продукция", hero_title_2: "С плодородных полей на полки мировых сетей",
@@ -799,13 +801,13 @@
         cert_c5_sub: "Без карантинных вредителей", cert_c5_desc: "Официальный сертификат Службы карантина растений Египта для мгновенного выпуска груза.",
         catalog_badge: "Официальный экспортный каталог", catalog_heading: "38 экспортных видов овощей и фруктов",
         filter_all: "Все 38 культур", filter_core5: "★ Топ-5 культур (1-5)", filter_priority: "Приоритетные (1-9)", filter_summer: "Летний сбор", filter_winter: "Зимний сбор", filter_fruits: "Фрукты", filter_veg: "Овощи",
-        lbl_export_season: "Сезон:", btn_req_quote: "Забронировать объем", no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
+        lbl_export_season: "Сезон экспорта:", btn_req_quote: "Забронировать объем", no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
         qa_badge: "Бескомпромиссная свежесть", qa_title: "Холодовая цепь и контроль качества", qa_desc: "От гидроохлаждения после сбора до рефрижераторных контейнеров с непрерывным спутниковым мониторингом.",
         qa_s1_title: "Мгновенное охлаждение", qa_s1_desc: "Снятие полевого тепла гидроохлаждением в течение 2 часов после сбора урожая.",
         qa_s2_title: "Оптическая калибровка", qa_s2_desc: "Автоматизированные линии отбора по внешнему виду, калибру и содержанию сахара Brix.",
         qa_s3_title: "IoT-мониторинг рефконтейнеров", qa_s3_desc: "Каждый 40ft High Cube контейнер оснащен спутниковыми датчиками температуры и влажности.",
         log_badge: "Глобальная логистика", log_title: "Экспортные порты и морские линии", log_desc: "Прямые отправки через ключевые контейнерные терминалы Александрии, Дамиетты и Сохны.",
-        rfq_badge: "Торговый отдеل B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации для получения актуальных ставок от менеджеров экспортного отдела.",
+        rfq_badge: "Торговый отдел B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации для получения актуальных ставок от менеджеров экспортного отдела.",
         rfq_name_lbl: "Название компании / Контактное лицо *", rfq_email_lbl: "Корпоративный E-mail *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Планируемый объем (контейнеры) *", rfq_notes_lbl: "Спецификация калибра / упаковка / оплата", rfq_btn_submit: "Отправить официальный запрос",
         rfq_name_ph: "например: ООО Свежий Импорт", rfq_email_ph: "procurement@company.ru", rfq_dest_ph: "например: Новороссийск / Россия", rfq_vol_ph: "например: 3 x 40ft RF в неделю", rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
         footer_about: "Египетская экспортная компания, специализирующаяся на поставках и логистике 38 видов отборных свежих овощей и фруктов в международные розничные сети.", footer_contact_title: "Прямые контакты", footer_quote_title: "Экспортные программы", footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.", footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены."
@@ -867,6 +869,19 @@
           groupLabel = currentLang === 'ar' ? 'شتوي' : 'Winter';
         }
 
+        // Render 12-month calendar matrix inside card
+        let calendarHtml = '';
+        const monthNames = t.months || ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        for (let m = 1; m <= 12; m++) {
+          const isActive = crop.months.includes(m);
+          const mName = monthNames[m - 1];
+          calendarHtml += `
+            <div class="rounded ${isActive ? 'bg-emerald-600 text-white font-black' : 'bg-slate-100 text-slate-300'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px] font-bold" title="${mName}">
+              ${mName}
+            </div>
+          `;
+        }
+
         const card = document.createElement('div');
         card.className = `spotlight-card reveal-up ${isCore5 ? 'core-root ring-1 ring-agro-gold/30' : ''}`;
         card.setAttribute('data-id', crop.id);
@@ -892,13 +907,19 @@
             </div>
 
             <div class="p-5">
-              <h3 class="font-black text-base sm:text-lg text-slate-900 leading-snug mb-2 text-start flex items-center gap-1.5">
+              <h3 class="font-black text-base sm:text-lg text-slate-900 leading-snug mb-3 text-start flex items-center gap-1.5">
                 ${isCore5 ? '<span class="text-agro-gold text-sm">★</span>' : ''}
                 <span>${crop.id}. ${cropName}</span>
               </h3>
-              <div class="flex items-center justify-between text-xs pt-2 border-t border-agro-border">
-                <span class="text-slate-500 font-bold">${t.lbl_export_season}</span>
-                <span class="text-emerald-700 font-extrabold">${cropSeason}</span>
+
+              <div class="border-t border-agro-border pt-3">
+                <div class="flex items-center justify-between text-xs font-bold mb-2">
+                  <span class="text-slate-600">${t.lbl_export_season}</span>
+                  <span class="text-emerald-700 font-extrabold">${cropSeason}</span>
+                </div>
+                <div class="grid grid-cols-6 sm:grid-cols-12 gap-1 sm:gap-0.5 text-center">
+                  ${calendarHtml}
+                </div>
               </div>
             </div>
           </div>
@@ -1025,7 +1046,6 @@
         let matchesCat = false;
         if (currentCategory === 'all') matchesCat = true;
         else if (currentCategory === 'core5') matchesCat = (id <= 5);
-        else if (currentCategory === 'priority') matchesCat = (id <= 9);
         else if (currentCategory === 'summer') matchesCat = (group === 'summer');
         else if (currentCategory === 'winter') matchesCat = (group === 'winter');
         else if (currentCategory === 'fruits') matchesCat = (cat === 'fruits');
