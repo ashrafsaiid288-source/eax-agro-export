@@ -100,7 +100,7 @@
         radial-gradient(at 20% 90%, rgba(219, 232, 214, 0.55) 0px, transparent 50%);
     }
 
-    /* Glow & Lift Interaction Effects */
+    /* Glow & Interactive Button Effects */
     .btn-glow {
       position: relative;
       overflow: hidden;
@@ -140,12 +140,18 @@
       box-shadow: 0 8px 20px -3px rgba(20, 61, 40, 0.35);
     }
 
+    /* Multi-Color Flowing Gradient Animation for Hero Headline */
     .animate-gradient-text {
-      background-size: 200% auto;
-      animation: textShine 6s linear infinite;
+      background-size: 250% auto;
+      background-image: linear-gradient(90deg, #143d28 0%, #b07b22 22%, #1b633d 48%, #d9822b 74%, #143d28 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShine 5s linear infinite;
+      display: inline-block;
     }
     @keyframes textShine {
-      to { background-position: 200% center; }
+      0% { background-position: 0% center; }
+      100% { background-position: 250% center; }
     }
 
     .spotlight-card {
@@ -164,7 +170,7 @@
       .spotlight-card:hover {
         transform: translateY(-5px);
         border-color: #bcd2b8;
-        box-shadow: 0 16px 32px -6px rgba(20, 61, 40, 0.12), 0 0 12px 1px rgba(47, 109, 72, 0.1);
+        box-shadow: 0 16px 32px -6px rgba(20, 61, 40, 0.12), 0 0 14px 1px rgba(47, 109, 72, 0.12);
       }
     }
 
@@ -379,7 +385,7 @@
     </div>
   </header>
 
-  <!-- 1. Hero Section -->
+  <!-- 1. Hero Section (Multi-Color Flowing Gradient Headline) -->
   <section id="hero" class="relative min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center py-10 sm:py-16 lg:py-24 overflow-hidden">
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
@@ -388,9 +394,10 @@
         <span data-i18n="hero_badge">EAX AGRO EXPORT • Global Fresh Produce Logistics</span>
       </div>
 
-      <h1 class="reveal-up text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.2] mb-4 sm:mb-6">
-        <span data-i18n="hero_title_1">Pure Premium Produce</span> <br class="hidden sm:inline" />
-        <span data-i18n="hero_title_2" class="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-agro-primary via-agro-gold to-agro-primary">From Fertile Farms to Global Supermarkets</span>
+      <!-- Animated Shifting Gradient Title -->
+      <h1 class="reveal-up text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight leading-[1.18] mb-4 sm:mb-6">
+        <span data-i18n="hero_title_1" class="animate-gradient-text drop-shadow-xs">Pure Premium Produce</span> <br class="hidden sm:inline" />
+        <span data-i18n="hero_title_2" class="animate-gradient-text text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mt-1 sm:mt-2">From Fertile Farms to Global Supermarkets</span>
       </h1>
 
       <p data-i18n="hero_desc" class="reveal-up text-xs sm:text-base md:text-lg text-slate-600 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed font-normal">
@@ -432,7 +439,7 @@
     </div>
   </section>
 
-  <!-- 3. Quality Assurance & Cold Chain Section -->
+  <!-- 3. Quality Assurance & Cold Chain Section (Glowing & Interactive) -->
   <section id="quality-assurance" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-16 reveal-up">
@@ -447,22 +454,58 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-7 reveal-up">
-        <div class="spotlight-card p-6 sm:p-8 rounded-2xl bg-white border border-agro-border/90">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5 font-black text-xl shadow-inner">01</div>
-          <h3 data-i18n="qa_s1_title" class="font-extrabold text-base sm:text-lg text-slate-900 mb-2 text-start">Rapid Pre-Cooling</h3>
-          <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed text-start">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
+        <!-- QA Card 1 -->
+        <div class="group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 hover:border-emerald-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="qa_s1_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">2H POST-HARVEST</div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-[0_0_24px_rgba(16,185,129,0.5)] transition-all duration-300 shadow-inner">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/>
+              </svg>
+            </div>
+            <h3 data-i18n="qa_s1_title" class="font-black text-lg text-slate-900 group-hover:text-emerald-800 transition-colors mb-2 text-start">Rapid Pre-Cooling</h3>
+            <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <span>TEMP: 2°C - 4°C</span>
+            <span class="text-emerald-600 font-bold">Hydrocooled</span>
+          </div>
         </div>
 
-        <div class="spotlight-card p-6 sm:p-8 rounded-2xl bg-white border border-agro-border/90">
-          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-5 font-black text-xl shadow-inner">02</div>
-          <h3 data-i18n="qa_s2_title" class="font-extrabold text-base sm:text-lg text-slate-900 mb-2 text-start">Optical Grading & Sizing</h3>
-          <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed text-start">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
+        <!-- QA Card 2 -->
+        <div class="group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 hover:border-amber-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="qa_s2_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">BRIX & CALIBER</div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-[0_0_24px_rgba(245,158,11,0.5)] transition-all duration-300 shadow-inner">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/>
+              </svg>
+            </div>
+            <h3 data-i18n="qa_s2_title" class="font-black text-lg text-slate-900 group-hover:text-amber-800 transition-colors mb-2 text-start">Optical Grading & Sizing</h3>
+            <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <span>ACCURACY: ±0.5mm</span>
+            <span class="text-amber-600 font-bold">100% Inspected</span>
+          </div>
         </div>
 
-        <div class="spotlight-card p-6 sm:p-8 rounded-2xl bg-white border border-agro-border/90">
-          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-5 font-black text-xl shadow-inner">03</div>
-          <h3 data-i18n="qa_s3_title" class="font-extrabold text-base sm:text-lg text-slate-900 mb-2 text-start">IoT Reefer Tracking</h3>
-          <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed text-start">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
+        <!-- QA Card 3 -->
+        <div class="group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 hover:border-sky-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="qa_s3_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">24/7 SATELLITE</div>
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white group-hover:shadow-[0_0_24px_rgba(14,165,233,0.5)] transition-all duration-300 shadow-inner">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/>
+              </svg>
+            </div>
+            <h3 data-i18n="qa_s3_title" class="font-black text-lg text-slate-900 group-hover:text-sky-800 transition-colors mb-2 text-start">IoT Reefer Tracking</h3>
+            <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
+          </div>
+          <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
+            <span>TELEMETRY: IoT Live</span>
+            <span class="text-sky-600 font-bold">Unbroken Cold</span>
+          </div>
         </div>
       </div>
     </div>
@@ -592,7 +635,7 @@
     </div>
   </section>
 
-  <!-- 5. Global Logistics Section (Fully Translated across 4 Languages) -->
+  <!-- 5. Global Logistics Section (Glowing Icons & 100% Translated) -->
   <section id="logistics" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-16 reveal-up">
@@ -607,32 +650,68 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 reveal-up">
-        <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div data-i18n="log_c1_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: EU / UK</div>
-          <h3 data-i18n="log_c1_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Rotterdam / Koper</h3>
-          <p data-i18n="log_c1_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.</p>
+        <!-- Port 1: Rotterdam -->
+        <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/90 hover:border-emerald-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="log_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">0% TARIFF EUR.1</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white group-hover:shadow-[0_0_22px_rgba(16,185,129,0.55)] transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/>
+              </svg>
+            </div>
+            <div data-i18n="log_c1_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: EU / UK</div>
+            <h3 data-i18n="log_c1_title" class="font-black text-base sm:text-lg text-slate-900 group-hover:text-emerald-800 transition-colors mb-2 text-start">Rotterdam / Koper</h3>
+            <p data-i18n="log_c1_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.</p>
+          </div>
           <span data-i18n="log_c1_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 4 - 7 Days</span>
         </div>
 
-        <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div data-i18n="log_c2_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: GCC & Middle East</div>
-          <h3 data-i18n="log_c2_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Jebel Ali / Jeddah</h3>
-          <p data-i18n="log_c2_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.</p>
-          <span data-i18n="log_c2_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 3 - 5 Days</span>
+        <!-- Port 2: Jebel Ali -->
+        <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/90 hover:border-amber-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="log_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">EXPRESS GULF</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white group-hover:shadow-[0_0_22px_rgba(245,158,11,0.55)] transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.25V4.875A1.125 1.125 0 0 0 13.125 3.75h-9.75A1.125 1.125 0 0 0 2.25 4.875v9.375"/>
+              </svg>
+            </div>
+            <div data-i18n="log_c2_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: GCC & Middle East</div>
+            <h3 data-i18n="log_c2_title" class="font-black text-base sm:text-lg text-slate-900 group-hover:text-amber-800 transition-colors mb-2 text-start">Jebel Ali / Jeddah</h3>
+            <p data-i18n="log_c2_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.</p>
+          </div>
+          <span data-i18n="log_c2_transit" class="inline-block px-2.5 py-1 rounded-lg bg-amber-50 text-amber-700 text-[11px] font-bold self-start">Transit: 3 - 5 Days</span>
         </div>
 
-        <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div data-i18n="log_c3_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: Russia / CIS</div>
-          <h3 data-i18n="log_c3_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Novorossiysk / SPB</h3>
-          <p data-i18n="log_c3_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.</p>
-          <span data-i18n="log_c3_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 6 - 9 Days</span>
+        <!-- Port 3: Russia Novorossiysk -->
+        <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/90 hover:border-sky-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="log_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">BLACK SEA LINE</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white group-hover:shadow-[0_0_22px_rgba(14,165,233,0.55)] transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+            </div>
+            <div data-i18n="log_c3_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: Russia / CIS</div>
+            <h3 data-i18n="log_c3_title" class="font-black text-base sm:text-lg text-slate-900 group-hover:text-sky-800 transition-colors mb-2 text-start">Novorossiysk / SPB</h3>
+            <p data-i18n="log_c3_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.</p>
+          </div>
+          <span data-i18n="log_c3_transit" class="inline-block px-2.5 py-1 rounded-lg bg-sky-50 text-sky-700 text-[11px] font-bold self-start">Transit: 6 - 9 Days</span>
         </div>
 
-        <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div data-i18n="log_c4_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: East Asia</div>
-          <h3 data-i18n="log_c4_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Shenzhen / Shanghai</h3>
-          <p data-i18n="log_c4_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.</p>
-          <span data-i18n="log_c4_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 18 - 22 Days</span>
+        <!-- Port 4: China Shenzhen -->
+        <div class="group relative bg-white rounded-2xl p-6 border border-agro-border/90 hover:border-teal-500/60 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="log_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black tracking-wider uppercase border border-teal-200">CA CONTROL</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white group-hover:shadow-[0_0_22px_rgba(20,184,166,0.55)] transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/>
+              </svg>
+            </div>
+            <div data-i18n="log_c4_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: East Asia</div>
+            <h3 data-i18n="log_c4_title" class="font-black text-base sm:text-lg text-slate-900 group-hover:text-teal-800 transition-colors mb-2 text-start">Shenzhen / Shanghai</h3>
+            <p data-i18n="log_c4_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.</p>
+          </div>
+          <span data-i18n="log_c4_transit" class="inline-block px-2.5 py-1 rounded-lg bg-teal-50 text-teal-700 text-[11px] font-bold self-start">Transit: 18 - 22 Days</span>
         </div>
       </div>
     </div>
@@ -874,7 +953,7 @@
     };
 
     // 1 to 5: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
-    // All 38 crops with matched images and 12-month calendar matrix
+    // All 38 crops with matched images and 12-month calendar support
     const CROPS = [
       {
         id: 1, group: 'priority', category: 'vegetables',
@@ -920,8 +999,8 @@
       },
       {
         id: 7, group: 'priority', category: 'fruits',
-        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
+        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерفول و 116)",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца أغسطس по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80"
       },
@@ -942,7 +1021,7 @@
       {
         id: 10, group: 'summer', category: 'vegetables',
         name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
         months: [3,4,5,6,7],
         image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80"
       },
@@ -1019,7 +1098,7 @@
       {
         id: 21, group: 'summer', category: 'fruits',
         name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
-        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С أغسطس по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80"
       },
@@ -1171,10 +1250,13 @@
         qa_badge: "Uncompromised Freshness",
         qa_title: "Cold Chain & Quality Control",
         qa_desc: "From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.",
+        qa_s1_badge: "2H POST-HARVEST",
         qa_s1_title: "Rapid Pre-Cooling",
         qa_s1_desc: "Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.",
+        qa_s2_badge: "BRIX & CALIBER",
         qa_s2_title: "Optical Grading & Sizing",
         qa_s2_desc: "Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.",
+        qa_s3_badge: "24/7 SATELLITE",
         qa_s3_title: "IoT Reefer Tracking",
         qa_s3_desc: "Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.",
         cert_badge_tag: "Quality & Compliance",
@@ -1215,18 +1297,22 @@
         log_badge: "Global Reach",
         log_title: "Export Ports & Shipping Corridors",
         log_desc: "Operating directly through Egypt's primary Mediterranean and Red Sea container terminals.",
+        log_c1_badge: "0% TARIFF EUR.1",
         log_c1_dest: "Destination: EU / UK",
         log_c1_title: "Rotterdam / Koper",
         log_c1_desc: "Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.",
         log_c1_transit: "Transit: 4 - 7 Days",
+        log_c2_badge: "EXPRESS GULF",
         log_c2_dest: "Destination: GCC & Middle East",
         log_c2_title: "Jebel Ali / Jeddah",
         log_c2_desc: "Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.",
         log_c2_transit: "Transit: 3 - 5 Days",
+        log_c3_badge: "BLACK SEA LINE",
         log_c3_dest: "Destination: Russia & CIS",
         log_c3_title: "Novorossiysk / Saint Petersburg",
         log_c3_desc: "Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.",
         log_c3_transit: "Transit: 6 - 9 Days",
+        log_c4_badge: "CA CONTROL",
         log_c4_dest: "Destination: East Asia & China",
         log_c4_title: "Shenzhen / Shanghai",
         log_c4_desc: "Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.",
@@ -1295,10 +1381,13 @@
         qa_badge: "طزاجة لا تضاهى",
         qa_title: "الجودة وسلاسل التبريد المتصلة",
         qa_desc: "من التبريد الأولي فور الحصاد إلى الحاويات المبردة المربوطة بالأقمار الصناعية طوال مسار الشحن البحري.",
+        qa_s1_badge: "خلال ساعتين من الحصاد",
         qa_s1_title: "التبريد المائي السريع",
         qa_s1_desc: "سحب حرارة الحقل فور الجني عبر أنظمة التبريد السريع لضمان أطول فترة صلاحية وقوام مثالي.",
+        qa_s2_badge: "فحص السكر والحجم",
         qa_s2_title: "الفرز والتدريج الضوئي",
         qa_s2_desc: "خطوط فرز إلكترونية متطورة لفحص العيوب ونسب السكر والفرز بالمليمتر لكل ثمرة.",
+        qa_s3_badge: "تتبع فضائي 24/7",
         qa_s3_title: "مراقبة الحاويات الذكية",
         qa_s3_desc: "حاويات 40 قدم مبردة مزودة بحساسات IoT متصلة بالأقمار الصناعية لمراقبة الحرارة والرطوبة 24/7.",
         cert_badge_tag: "الجودة والامتثال",
@@ -1339,18 +1428,22 @@
         log_badge: "الوصول العالمي واللوجستيات",
         log_title: "موانئ التصدير وممرات الشحن الدولي",
         log_desc: "شحن مباشر عبر كبرى محطات الحاويات المصرية على البحرين الأبيض المتوسط والأحمر لجميع الأسواق العالمية.",
+        log_c1_badge: "إعفاء جمركي 0%",
         log_c1_dest: "الوجهة: الاتحاد الأوروبي وبريطانيا",
         log_c1_title: "روتردام / كوبر",
         log_c1_desc: "إبحار مباشر وسريع من مينائي الإسكندرية ودمياط مع إفراج جمركي تفضيلي فوري بشهادة EUR.1 دون جمارك.",
         log_c1_transit: "مدة الإبحار: 4 - 7 أيام",
+        log_c2_badge: "ممر الخليج السريع",
         log_c2_dest: "الوجهة: دول الخليج والشرق الأوسط",
         log_c2_title: "جبل علي / جدة الإسلامي",
         log_c2_desc: "ممرات شحن بحرية وبرية مبردة تخدم سلاسل السوبرماركت في السعودية والإمارات والكويت بسلاسة.",
         log_c2_transit: "مدة الإبحار: 3 - 5 أيام",
+        log_c3_badge: "خط البحر الأسود والبلطيق",
         log_c3_dest: "الوجهة: روسيا ودول الكومنولث",
         log_c3_title: "نوفوروسيسك / سانت بطرسبرغ",
         log_c3_desc: "خطوط شحن مباشرة عبر البحر الأسود والبلطيق مع ملصقات وفحص مطابق للحجر النباتي الروسي.",
         log_c3_transit: "مدة الإبحار: 6 - 9 أيام",
+        log_c4_badge: "تقنية CA للغلاف الجوي",
         log_c4_dest: "الوجهة: الصين وشرق آسيا",
         log_c4_title: "شنتشن / شنغهاي",
         log_c4_desc: "حاويات متطورة بنظام الغلاف الجوي المضبوط (CA) للحفاظ على ثمار الحمضيات والتمور الطازجة.",
@@ -1394,7 +1487,6 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
       },
       zh: {
-        page_desc: "EAX 农业出口 - 专业直航出口 38 种符合 GlobalGAP 与 BRC 国际高品质标准的新鲜果蔬至全球市场。",
         months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "新鲜农产品出口认证：GlobalGAP, BRC 与 EUR.1 标准",
         cooling_banner: "先进自动化预冷与光学分选分级包装线",
@@ -1419,10 +1511,13 @@
         qa_badge: "品质与鲜度控制",
         qa_title: "冷链物流与全程质检",
         qa_desc: "从田间采后强制预冷到配备卫星温控系统的集装箱全程海运。",
+        qa_s1_badge: "采摘后两小时",
         qa_s1_title: "采后极速预冷",
         qa_s1_desc: "采摘后两小时内完成冷风降温与水预冷，快速锁住果蔬水分与货架期。",
+        qa_s2_badge: "糖度与毫米级分选",
         qa_s2_title: "光学分选与色选分级",
         qa_s2_desc: "自动化精密分选线检测表皮瑕疵、糖度及毫米级精确果径分级。",
+        qa_s3_badge: "24/7 全时卫星遥测",
         qa_s3_title: "IoT 智能冷柜监控",
         qa_s3_desc: "每个 40 尺高柜冷藏箱配备卫星定位温湿度传感系统，全程 24/7 数据在线。",
         cert_badge_tag: "质量与合规体系",
@@ -1463,18 +1558,22 @@
         log_badge: "全球直航网络",
         log_title: "主要出口港口与跨国航运走廊",
         log_desc: "依托埃及地中海与红海核心集装箱枢纽码头，实现直航全球市场。",
+        log_c1_badge: "0% 优惠关税 EUR.1",
         log_c1_dest: "目的港：欧盟 / 英国",
         log_c1_title: "鹿特丹港 / 科佩尔港",
         log_c1_desc: "自亚历山大港和杜米亚特港直航快运，凭 EUR.1 证书享受零关税快速通关。",
         log_c1_transit: "航程周期：4 - 7 天",
+        log_c2_badge: "海湾快线",
         log_c2_dest: "目的港：海湾国家及中东",
         log_c2_title: "杰贝阿里港 / 吉达港",
         log_c2_desc: "高效海陆联运冷链网络，稳定供应沙特、阿联酋和科威特各大商超连锁。",
         log_c2_transit: "航程周期：3 - 5 天",
+        log_c3_badge: "黑海与波罗的海",
         log_c3_dest: "目的港：俄罗斯及独联体",
         log_c3_title: "新罗西斯克港 / 圣彼得堡港",
         log_c3_desc: "黑海及波罗的海直航专线，全套俄语标识及官方植物检疫合规通关。",
         log_c3_transit: "航程周期：6 - 9 天",
+        log_c4_badge: "CA 气调保鲜",
         log_c4_dest: "目的港：中国及东亚",
         log_c4_title: "深圳港 / 上海港",
         log_c4_desc: "配备气调保鲜（CA）冷藏集装箱，长途运输中锁住柑橘和优质椰枣鲜活风味。",
@@ -1518,7 +1617,6 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
       },
       ru: {
-        page_desc: "EAX AGRO EXPORT - Экспорт 38 отборных видов свежих овощей и фруктов высшего сорта из Египта по стандартам GlobalGAP, BRC и EUR.1 в ЕС, СНГ, Китай и Россию.",
         months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
         cert_banner: "Сертифицированный экспорт продукции: стандарты GlobalGAP, BRC и EUR.1",
         cooling_banner: "Автоматизированные линии предварительного охлаждения и оптической сортировки",
@@ -1543,10 +1641,13 @@
         qa_badge: "Бескомпромиссная свежесть",
         qa_title: "Холодовая цепь и контроль качества",
         qa_desc: "От гидроохлаждения после сбора до рефрижераторных контейнеров с непрерывным спутниковым мониторингом.",
+        qa_s1_badge: "2 ЧАСА ПОСЛЕ СБОРА",
         qa_s1_title: "Мгновенное охлаждение",
         qa_s1_desc: "Снятие полевого тепла гидроохлаждением в течение 2 часов после сбора урожая.",
+        qa_s2_badge: "КАЛИБР И САХАР BRIX",
         qa_s2_title: "Оптическая калибровка",
         qa_s2_desc: "Автоматизированные линии отбора по внешнему виду, калибру и содержанию сахара Brix.",
+        qa_s3_badge: "СПУТНИК 24/7",
         qa_s3_title: "IoT-мониторинг рефконтейнеров",
         qa_s3_desc: "Каждый 40ft High Cube контейнер оснащен спутниковыми датчиками температуры и влажности.",
         cert_badge_tag: "Качество и стандарты",
@@ -1583,22 +1684,26 @@
         cert_c5_insp: "ИНСПЕКЦИЯ: Минсельхоз",
         cert_c5_stat: "100% Пройдено",
         cert_trust_text: "Лабораторный анализ остатков пестицидов: аккредитованные по ISO 17025 лаборатории проверяют каждый контейнер перед отгрузкой.",
-        cert_ports: "Порт Дамиетта • Порт Александрия • Порт Сохна",
+        cert_ports: "Damietta Port • Alexandria Port • Sokhna Port",
         log_badge: "Глобальная логистика",
         log_title: "Экспортные порты и судоходные маршруты",
         log_desc: "Прямые отправки через ключевые контейнерные терминалы Средиземного и Красного морей Египта.",
+        log_c1_badge: "EUR.1 БЕСПОШЛИННО",
         log_c1_dest: "Направление: ЕС / Великобритания",
         log_c1_title: "Роттердам / Копер",
         log_c1_desc: "Прямые экспресс-линии из Александрии и Дамиетты. Беспошлинный ввоз по сертификату EUR.1.",
         log_c1_transit: "Транзит: 4 - 7 дней",
+        log_c2_badge: "ЭКСПРЕСС ЗАЛИВ",
         log_c2_dest: "Направление: Страны Залива и Ближний Восток",
         log_c2_title: "Джебель-Али / Джидда",
         log_c2_desc: "Бесперебойные морские и наземные рефрижераторные коридоры для супермаркетов ОАЭ и КСА.",
         log_c2_transit: "Транзит: 3 - 5 дней",
+        log_c3_badge: "ЛИНИЯ ЧЕРНОГО МОРЯ",
         log_c3_dest: "Направление: Россия и страны СНГ",
         log_c3_title: "Новороссийск / Санкт-Петербург",
         log_c3_desc: "Прямые рейсы по Черному и Балтийскому морям, маркировка на русском языке и фитосанитарный контроль.",
         log_c3_transit: "Транзит: 6 - 9 дней",
+        log_c4_badge: "ТЕХНОЛОГИЯ CA",
         log_c4_dest: "Направление: Восточная Азия и Китай",
         log_c4_title: "Шэньчжэнь / Шанхай",
         log_c4_desc: "Контейнеры с контролируемой атмосферой (CA) для идеальной свежести цитрусовых и фиников.",
