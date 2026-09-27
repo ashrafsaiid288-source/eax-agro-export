@@ -958,7 +958,7 @@
     </a>
   </aside>
 
-  <!-- Complete Crops Database & Interactive Scripting -->
+  <!-- Complete Crops Database with Accurate Real Images -->
   <script>
     const BACKEND_CONFIG = {
       mode: 'whatsapp',
@@ -967,7 +967,7 @@
     };
 
     // 1 to 5: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
-    // All 38 crops with matched images and 12-month calendar support
+    // All 38 crops with matched, pristine raw export-grade photos
     const CROPS = [
       {
         id: 1, group: 'priority', category: 'vegetables',
@@ -1007,13 +1007,13 @@
       {
         id: 6, group: 'priority', category: 'fruits',
         name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 7, group: 'priority', category: 'fruits',
-        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерفول و 116)",
+        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
         season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80"
@@ -1083,10 +1083,10 @@
       },
       {
         id: 17, group: 'summer', category: 'fruits',
-        name_en: "Fresh Peaches", name_ar: "الخوخ الطازج", name_zh: "新鲜优质鲜桃", name_ru: "Свежие персики",
+        name_en: "Fresh Peaches (Florida Prince)", name_ar: "الخوخ الطازج (فلوريدا برنس)", name_zh: "新鲜优质鲜桃 (Florida Prince)", name_ru: "Свежие персики (Флорида Принс)",
         season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月", season_ru: "С апреля по июль",
         months: [4,5,6,7],
-        image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?auto=format&fit=crop&w=800&q=80"
+        image: "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 18, group: 'summer', category: 'fruits',
@@ -1112,7 +1112,7 @@
       {
         id: 21, group: 'summer', category: 'fruits',
         name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
-        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С أغسطس по ноябрь",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80"
       },
@@ -1133,7 +1133,7 @@
       {
         id: 24, group: 'summer', category: 'vegetables',
         name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵", name_ru: "Свежая окра (бами)",
-        season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по سبتمبر",
+        season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по сентябрь",
         months: [5,6,7,8,9],
         image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=800&q=80"
       },
@@ -1161,14 +1161,14 @@
       {
         id: 28, group: 'winter', category: 'vegetables',
         name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 29, group: 'winter', category: 'fruits',
         name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80"
       },
