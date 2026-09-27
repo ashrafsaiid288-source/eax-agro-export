@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-20 max-w-full">
+<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-20 max-w-full overflow-x-clip">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>EAX AGRO EXPORT | Premium Fresh Produce Exporter</title>
   <meta id="meta-desc" name="description" content="EAX AGRO EXPORT - Premier Egyptian Fresh Produce Exporter. 38 Certified export-grade crops shipping to EU, GCC, China, and Russia." />
 
@@ -26,9 +26,17 @@
     tailwind.config = {
       theme: {
         extend: {
-          screens: { 'xs': '420px' },
+          screens: { 
+            'xs': '420px',
+            'sm': '640px',
+            'md': '768px',
+            'tab': '900px',
+            'lg': '1024px',
+            'xl': '1280px',
+            '2xl': '1536px'
+          },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
             cairo: ['Cairo', 'sans-serif'],
             montserrat: ['Montserrat', 'sans-serif'],
             sc: ['Noto Sans SC', 'sans-serif'],
@@ -61,6 +69,7 @@
     
     html {
       max-width: 100%;
+      overflow-x: clip;
     }
 
     body {
@@ -69,17 +78,26 @@
       -webkit-overflow-scrolling: touch;
       font-family: 'Inter', sans-serif;
       line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body.lang-ar { font-family: 'Cairo', sans-serif; line-height: 1.65; }
-    body.lang-zh { font-family: 'Noto Sans SC', sans-serif; line-height: 1.6; }
+    body.lang-ar { 
+      font-family: 'Cairo', sans-serif; 
+      line-height: 1.7; 
+      letter-spacing: 0;
+    }
+    body.lang-zh { 
+      font-family: 'Noto Sans SC', sans-serif; 
+      line-height: 1.6; 
+    }
 
     .perf-bg {
       background-color: #f3f6f1;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(219, 232, 214, 0.6) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgba(219, 232, 214, 0.65) 0px, transparent 50%),
         radial-gradient(at 100% 30%, rgba(238, 223, 197, 0.45) 0px, transparent 45%),
-        radial-gradient(at 20% 90%, rgba(219, 232, 214, 0.5) 0px, transparent 50%);
+        radial-gradient(at 20% 90%, rgba(219, 232, 214, 0.55) 0px, transparent 50%);
     }
 
     .btn-shine {
@@ -115,32 +133,32 @@
       border: 1px solid #d8e3d6;
       border-radius: 1.25rem;
       overflow: hidden;
-      box-shadow: 0 4px 12px -2px rgba(20, 61, 40, 0.04);
+      box-shadow: 0 4px 14px -3px rgba(20, 61, 40, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       transform: translateZ(0);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
     @media (hover: hover) {
-      .spotlight-card {
-        transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-      }
       .spotlight-card:hover {
         transform: translateY(-4px);
         border-color: #bcd2b8;
-        box-shadow: 0 12px 24px -6px rgba(20, 61, 40, 0.09);
+        box-shadow: 0 14px 28px -6px rgba(20, 61, 40, 0.1);
       }
     }
 
     #main-header {
-      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
     }
     .glass-nav {
-      background: rgba(243, 246, 241, 0.96);
+      background: rgba(243, 246, 241, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
     .header-shrunk {
       background: rgba(252, 253, 251, 0.98) !important;
-      box-shadow: 0 4px 16px -4px rgba(20, 61, 40, 0.08);
+      box-shadow: 0 4px 20px -4px rgba(20, 61, 40, 0.08);
     }
 
     @keyframes wa-soft-pulse {
@@ -154,8 +172,8 @@
 
     .reveal-up {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+      transform: translateY(22px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal-up.is-visible {
       opacity: 1;
@@ -181,7 +199,7 @@
     }
   </style>
 </head>
-<body class="perf-bg text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full">
+<body class="perf-bg text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full overflow-x-clip">
 
   <!-- Global Reusable SVG Brand Assets -->
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden" style="display: none;">
@@ -262,24 +280,24 @@
     </symbol>
   </svg>
 
-  <!-- Compact Responsive Announcement Bar -->
+  <!-- Responsive Adaptive Announcement Bar -->
   <div class="relative z-50 bg-[#e4ece0] text-slate-600 py-1.5 px-3 sm:px-6 border-b border-agro-border">
-    <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
-      <div class="flex items-center gap-2 sm:gap-6 truncate">
-        <span class="flex items-center gap-1.5 sm:gap-2 font-semibold text-agro-primary text-[10px] sm:text-xs truncate">
+    <div class="max-w-7xl mx-auto flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2 sm:gap-4 truncate">
+        <span class="flex items-center gap-1.5 sm:gap-2 font-semibold text-agro-primary text-[11px] sm:text-xs truncate">
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-600"></span>
           </span>
           <span data-i18n="cert_banner" class="truncate">Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards</span>
         </span>
-        <span class="hidden md:flex items-center gap-1.5 text-slate-600 font-medium text-xs">
-          <svg class="w-4 h-4 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <span class="hidden md:inline-flex items-center gap-1.5 text-slate-600 font-medium text-xs border-s border-slate-300 ps-3">
+          <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           <span data-i18n="cooling_banner">Automated pre-cooling & optical sorting lines</span>
         </span>
       </div>
-      <div class="shrink-0">
-        <a href="tel:+201556564646" class="hover:text-agro-gold text-slate-700 font-extrabold tracking-wider transition-colors flex items-center gap-1.5 text-[10px] sm:text-xs">
+      <div class="shrink-0 ms-auto sm:ms-0">
+        <a href="tel:+201556564646" class="hover:text-agro-primary text-slate-800 font-extrabold tracking-wider transition-colors inline-flex items-center gap-1.5 text-[11px] sm:text-xs bg-white/60 hover:bg-white px-2 py-0.5 rounded-lg border border-agro-border/60">
           <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span dir="ltr">+2 015 56 56 46 46</span>
         </a>
@@ -287,20 +305,20 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- Adaptive Fluid Header (Mobile / Tablet / Desktop) -->
   <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-24 flex items-center justify-between gap-2 sm:gap-3">
+      <div class="h-16 sm:h-20 lg:h-24 flex items-center justify-between gap-3">
         
         <!-- Reusable Logo SVG -->
         <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg viewBox="0 0 740 380" class="h-10 sm:h-18 md:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
+          <svg viewBox="0 0 740 380" class="h-9 sm:h-14 md:h-16 lg:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
             <use href="#eax-brand-logo"></use>
           </svg>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-bold text-slate-700">
+        <!-- Desktop & Large Tablet Navigation -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-bold text-slate-700">
           <a href="#hero" data-i18n="nav_home" class="hover:text-agro-primary transition-colors">Home</a>
           <a href="#about" data-i18n="nav_about" class="hover:text-agro-primary transition-colors">About Us</a>
           <a href="#catalog" data-i18n="nav_produce" class="hover:text-agro-primary transition-colors">Fresh Produce</a>
@@ -310,24 +328,17 @@
           <a href="#contact" data-i18n="nav_contact" class="hover:text-agro-primary transition-colors">Contact Us</a>
         </nav>
 
-        <!-- Actions -->
-        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
-          <div class="flex items-center bg-agro-surface border border-agro-border p-0.5 rounded-lg sm:rounded-xl shadow-inner" dir="ltr">
-            <button type="button" onclick="changeLanguage('en')" data-lang="en" class="lang-pill px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-black rounded-md sm:rounded-lg transition-all bg-agro-primary text-white shadow-sm">EN</button>
-            <button type="button" onclick="changeLanguage('ar')" data-lang="ar" class="lang-pill px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">عربي</button>
-            <button type="button" onclick="changeLanguage('zh')" data-lang="zh" class="lang-pill px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">中文</button>
-            <button type="button" onclick="changeLanguage('ru')" data-lang="ru" class="lang-pill px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs font-bold rounded-md sm:rounded-lg transition-all text-slate-700 hover:text-agro-primary">RU</button>
-          </div>
-
-          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-3.5 py-2 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
+        <!-- CTA & Tablet/Mobile Actions -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
-          <button type="button" id="mobileMenuBtn" class="lg:hidden p-1.5 sm:p-2 rounded-lg bg-agro-card border border-agro-border text-slate-700 hover:text-agro-primary shrink-0 transition-colors" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
-            <svg id="menuIconBars" class="w-5 h-5 block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+          <button type="button" id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-agro-card border border-agro-border text-slate-700 hover:text-agro-primary shrink-0 transition-colors shadow-xs active:scale-95" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg id="menuIconBars" class="w-5 h-5 sm:w-6 sm:h-6 block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
             </svg>
-            <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+            <svg id="menuIconClose" class="w-5 h-5 sm:w-6 sm:h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
               <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
             </svg>
           </button>
@@ -336,104 +347,96 @@
       </div>
     </div>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-[#fcfdfb] border-t border-agro-border px-4 py-3 shadow-2xl absolute top-full left-0 right-0 z-50 transition-all duration-200">
-      <nav class="flex flex-col gap-1 w-full text-slate-700 font-bold text-sm">
-        <a href="#hero" data-i18n="nav_home" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Home</a>
-        <a href="#about" data-i18n="nav_about" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">About Us</a>
-        <a href="#catalog" data-i18n="nav_produce" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Fresh Produce</a>
-        <a href="#certifications" data-i18n="nav_certs" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Certifications</a>
-        <a href="#quality-assurance" data-i18n="nav_quality" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Quality & Cold Chain</a>
-        <a href="#logistics" data-i18n="nav_logistics" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Logistics</a>
-        <a href="#contact" data-i18n="nav_contact" class="block w-full py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link">Contact Us</a>
-        <div class="pt-2 mt-1 border-t border-agro-border flex flex-col gap-2">
-          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="block w-full py-2.5 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300 font-bold mobile-nav-link">View PDF Catalog</a>
-          <a href="#rfq" data-i18n="nav_rfq" class="block w-full py-3 text-center rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold shadow-md mobile-nav-link">Request Quote</a>
+    <!-- Mobile & Tablet Full-Width Adaptive Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white/98 backdrop-blur-xl border-t border-agro-border px-4 py-4 shadow-2xl absolute top-full left-0 right-0 z-50 transition-all duration-200">
+      <nav class="flex flex-col gap-1.5 w-full text-slate-700 font-bold text-sm sm:text-base">
+        <a href="#hero" data-i18n="nav_home" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Home</a>
+        <a href="#about" data-i18n="nav_about" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">About Us</a>
+        <a href="#catalog" data-i18n="nav_produce" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Fresh Produce</a>
+        <a href="#certifications" data-i18n="nav_certs" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Certifications</a>
+        <a href="#quality-assurance" data-i18n="nav_quality" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Quality & Cold Chain</a>
+        <a href="#logistics" data-i18n="nav_logistics" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Logistics</a>
+        <a href="#contact" data-i18n="nav_contact" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Contact Us</a>
+        <div class="pt-3 mt-1 border-t border-agro-border flex flex-col gap-2.5">
+          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="block w-full py-3 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300 font-bold mobile-nav-link text-sm">View PDF Catalog</a>
+          <a href="#rfq" data-i18n="nav_rfq" class="block w-full py-3.5 text-center rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold shadow-md mobile-nav-link text-sm">Request Quote</a>
         </div>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-[70vh] sm:min-h-[80vh] flex items-center justify-center py-8 sm:py-20 overflow-hidden">
-    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+  <section id="hero" class="relative min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center py-10 sm:py-16 lg:py-24 overflow-hidden">
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
-      <div class="reveal-up inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-goldLight border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-extrabold mb-4 sm:mb-6 shadow-sm">
+      <div class="reveal-up inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-agro-goldLight/90 border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black mb-4 sm:mb-6 shadow-xs">
         <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-600 shrink-0"></span>
         <span data-i18n="hero_badge">EAX AGRO EXPORT • Global Fresh Produce Logistics</span>
       </div>
 
-      <h1 class="reveal-up text-2xl xs:text-3xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.25] mb-4 sm:mb-6">
-        <span data-i18n="hero_title_1">Pure Premium Produce</span> <br />
+      <h1 class="reveal-up text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.2] mb-4 sm:mb-6">
+        <span data-i18n="hero_title_1">Pure Premium Produce</span> <br class="hidden sm:inline" />
         <span data-i18n="hero_title_2" class="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-agro-primary via-agro-gold to-agro-primary">From Fertile Farms to Global Supermarkets</span>
       </h1>
 
-      <p data-i18n="hero_desc" class="reveal-up text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mb-6 sm:mb-8 leading-relaxed font-normal">
+      <p data-i18n="hero_desc" class="reveal-up text-xs sm:text-base md:text-lg text-slate-600 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed font-normal">
         At EAX, we specialize exclusively in sourcing, packing, and shipping 38 first-grade fresh fruits and high-demand vegetables with full compliance to GlobalGAP standards and uninterrupted Reefer cold chain logistics.
       </p>
 
-      <!-- Action Buttons Row -->
-      <div class="reveal-up grid grid-cols-1 xs:grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-xl mx-auto w-full px-2">
-        
-        <a href="#catalog" class="btn-shine py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-1.5 transition-all">
+      <!-- Action Buttons Row (Responsive Grid: 1 col on mobile, 3 cols flex on tablet & laptop) -->
+      <div class="reveal-up grid grid-cols-1 sm:grid-cols-3 sm:flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-2xl mx-auto w-full px-2">
+        <a href="#catalog" class="btn-shine py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
           <span data-i18n="btn_catalog_hero">View 38 Produce</span>
-          <svg class="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+          <svg class="w-4 h-4 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
         </a>
 
-        <a href="#rfq" class="py-3 px-4 rounded-xl bg-agro-card hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-1.5 shadow-sm transition-all">
-          <svg class="w-3.5 h-3.5 text-agro-accent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <a href="#rfq" class="py-3 px-4 rounded-xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
+          <svg class="w-4 h-4 text-agro-accent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="nav_rfq">Request Quote</span>
         </a>
 
-        <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="xs:col-span-2 sm:w-auto py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
+        <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
           <span class="p-0.5 rounded bg-white/20 text-white">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
             </svg>
           </span>
           <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
-          <svg class="w-3 h-3 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-          </svg>
         </a>
-
       </div>
 
     </div>
   </section>
 
   <!-- About Us Section -->
-  <section id="about" class="py-10 sm:py-20 bg-agro-card border-t border-agro-border relative">
+  <section id="about" class="py-12 sm:py-20 lg:py-24 bg-agro-card border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto text-center reveal-up">
         <span data-i18n="about_tag" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">Our Heritage & Commitment</span>
-        <h2 data-i18n="about_title" class="text-xl sm:text-4xl font-black text-slate-900 mt-2 mb-3 sm:mb-4">EAX World-Class Agro Export</h2>
-        <p data-i18n="about_desc" class="text-xs sm:text-base text-slate-600 leading-relaxed">
+        <h2 data-i18n="about_title" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-2 mb-3 sm:mb-4">EAX World-Class Agro Export</h2>
+        <p data-i18n="about_desc" class="text-xs sm:text-base md:text-lg text-slate-600 leading-relaxed">
           EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Certifications Section -->
-  <section id="certifications" class="py-12 sm:py-24 bg-gradient-to-b from-agro-surface/60 via-white/80 to-agro-surface/60 border-t border-agro-border relative overflow-hidden">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-agro-goldLight/40 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-agro-surface rounded-full blur-3xl pointer-events-none"></div>
-
+  <!-- Certifications Section (Adaptive Grid for Tablet/Desktop, Swipe on Mobile) -->
+  <section id="certifications" class="py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-agro-surface/60 via-white/80 to-agro-surface/60 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-6 sm:mb-16 reveal-up">
+      <div class="text-center mb-8 sm:mb-14 reveal-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/20 text-agro-primary text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
           <svg class="w-3.5 h-3.5 text-agro-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
           <span data-i18n="cert_badge_tag">Quality & Compliance</span>
         </div>
-        <h2 data-i18n="cert_title" class="text-xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">Export Standards & Certifications</h2>
-        <p data-i18n="cert_statement" class="text-xs sm:text-sm font-semibold text-slate-600 mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
+        <h2 data-i18n="cert_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Export Standards & Certifications</h2>
+        <p data-i18n="cert_statement" class="text-xs sm:text-sm md:text-base font-semibold text-slate-600 mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
           Sourced from certified farms & packing stations compliant with global retail food safety standards
         </p>
       </div>
 
       <!-- Mobile Animated Swipe Hint -->
-      <div class="sm:hidden flex items-center justify-center mb-3.5">
+      <div class="sm:hidden flex items-center justify-center mb-4">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-agro-card/95 border border-agro-goldBorder/80 text-agro-gold text-[10px] font-bold shadow-xs">
           <svg class="w-3.5 h-3.5 swipe-icon-anim shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
@@ -442,18 +445,18 @@
         </span>
       </div>
 
-      <!-- Horizontal swipe on mobile, grid on desktop -->
-      <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
+      <!-- Responsive Grid: Swipe on mobile, 2-cols on small tablet, 3-cols on medium tablet, 5-cols on desktop -->
+      <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5 lg:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
         <!-- 1. GlobalG.A.P. -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div data-i18n="cert_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">AUDITED</div>
           <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
-            <h3 class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors">GlobalG.A.P.</h3>
-            <p data-i18n="cert_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5">IFA Certified (v6)</p>
-            <p data-i18n="cert_c1_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.</p>
+            <h3 class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors text-start">GlobalG.A.P.</h3>
+            <p data-i18n="cert_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5 text-start">IFA Certified (v6)</p>
+            <p data-i18n="cert_c1_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c1_reg">REG: #EAX-GGN</span>
@@ -462,15 +465,15 @@
         </div>
 
         <!-- 2. BRCGS -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div data-i18n="cert_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">GRADE A</div>
           <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
-            <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors">BRCGS Food</h3>
-            <p data-i18n="cert_c2_sub" class="text-xs font-bold text-amber-700 mt-0.5">GFSI Benchmark</p>
-            <p data-i18n="cert_c2_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">International packinghouse hygiene, cross-contamination control, and packing audits.</p>
+            <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors text-start">BRCGS Food</h3>
+            <p data-i18n="cert_c2_sub" class="text-xs font-bold text-amber-700 mt-0.5 text-start">GFSI Benchmark</p>
+            <p data-i18n="cert_c2_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">International packinghouse hygiene, cross-contamination control, and packing audits.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c2_cat">CAT: Fresh Crops</span>
@@ -479,15 +482,15 @@
         </div>
 
         <!-- 3. ISO 22000 -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div data-i18n="cert_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">ISO AUDITED</div>
           <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
-            <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors">ISO 22000</h3>
-            <p data-i18n="cert_c3_sub" class="text-xs font-bold text-sky-700 mt-0.5">& HACCP Systems</p>
-            <p data-i18n="cert_c3_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Systematic hazard analysis, cold-storage validation, and sanitary risk control.</p>
+            <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors text-start">ISO 22000</h3>
+            <p data-i18n="cert_c3_sub" class="text-xs font-bold text-sky-700 mt-0.5 text-start">& HACCP Systems</p>
+            <p data-i18n="cert_c3_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Systematic hazard analysis, cold-storage validation, and sanitary risk control.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c3_std">STD: ISO 22000</span>
@@ -496,15 +499,15 @@
         </div>
 
         <!-- 4. EUR.1 -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">EU PREFERENCE</div>
           <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
-            <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors">EUR.1 Certificate</h3>
-            <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5">0% Duty to EU/UK</p>
-            <p data-i18n="cert_c4_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Preferential customs clearance documentation granting zero import tariff across Europe.</p>
+            <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors text-start">EUR.1 Certificate</h3>
+            <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5 text-start">0% Duty to EU/UK</p>
+            <p data-i18n="cert_c4_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Preferential customs clearance documentation granting zero import tariff across Europe.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c4_agr">AGREEMENT: EU-EG</span>
@@ -513,15 +516,15 @@
         </div>
 
         <!-- 5. Phytosanitary -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-teal-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-teal-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
           <div data-i18n="cert_c5_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black tracking-wider uppercase border border-teal-200">OFFICIAL GOV</div>
           <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-700 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
-            <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 group-hover:text-teal-800 transition-colors">Phytosanitary</h3>
-            <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5">Pest & Residue Free</p>
-            <p data-i18n="cert_c5_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free shipment clearance.</p>
+            <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 group-hover:text-teal-800 transition-colors text-start">Phytosanitary</h3>
+            <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5 text-start">Pest & Residue Free</p>
+            <p data-i18n="cert_c5_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free clearance.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c5_insp">INSPECTION: MoA</span>
@@ -531,8 +534,8 @@
       </div>
 
       <!-- Trust Bar -->
-      <div class="mt-6 sm:mt-8 p-3.5 sm:p-4 rounded-2xl bg-agro-card border border-agro-border flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 shadow-sm reveal-up">
-        <div class="flex items-center gap-2 font-bold text-agro-primary text-[11px] sm:text-xs">
+      <div class="mt-6 sm:mt-8 p-3.5 sm:p-5 rounded-2xl bg-white border border-agro-border flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 shadow-xs reveal-up">
+        <div class="flex items-center gap-2 font-bold text-agro-primary text-[11px] sm:text-xs text-start">
           <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span data-i18n="cert_trust_text">Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.</span>
         </div>
@@ -544,205 +547,43 @@
     </div>
   </section>
 
-  <!-- Quality Assurance Section -->
-  <section id="quality-assurance" class="py-10 sm:py-20 bg-agro-surface/70 border-t border-agro-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-6 sm:mb-14 reveal-up">
-        <span data-i18n="qa_badge_tag" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">End-to-End Integrity</span>
-        <h2 data-i18n="qa_title" class="text-xl sm:text-4xl font-black text-slate-900 mt-1.5 sm:mt-2">How We Guarantee Export Quality</h2>
-        <p data-i18n="qa_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">From harvest monitoring to optical sizing and reefer temperature maintenance, we protect your cargo at every single mile.</p>
-      </div>
-
-      <!-- Mobile Animated Swipe Hint -->
-      <div class="md:hidden flex items-center justify-center mb-3.5">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-agro-card/95 border border-agro-goldBorder/80 text-agro-gold text-[10px] font-bold shadow-xs">
-          <svg class="w-3.5 h-3.5 swipe-icon-anim shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-          </svg>
-          <span data-i18n="swipe_hint">Swipe to explore ↔</span>
-        </span>
-      </div>
-
-      <div class="flex overflow-x-auto pb-4 snap-x snap-mandatory md:grid md:grid-cols-3 gap-3.5 sm:gap-8 no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
-        <!-- Step 1 -->
-        <div class="w-[80vw] max-w-[290px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step1_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-black tracking-wider uppercase border border-emerald-200">STEP 01</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-            </div>
-            <h3 data-i18n="qa_step1_title" class="text-base sm:text-xl font-black text-slate-900 group-hover:text-emerald-800 transition-colors mb-2">Strict Field Monitoring</h3>
-            <p data-i18n="qa_step1_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Regular soil testing, pre-harvest residue analysis, and residue-free zone approvals to guarantee total pesticide compliance.</p>
-          </div>
-          <div class="mt-4 sm:mt-6 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-agro-primary">
-            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-            <span data-i18n="qa_step1_tag">100% Traceable Farms</span>
-          </div>
-        </div>
-
-        <!-- Step 2 -->
-        <div class="w-[80vw] max-w-[290px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step2_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[10px] font-black tracking-wider uppercase border border-amber-200">STEP 02</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
-            </div>
-            <h3 data-i18n="qa_step2_title" class="text-base sm:text-xl font-black text-slate-900 group-hover:text-amber-800 transition-colors mb-2">Optical Sorting & Curing</h3>
-            <p data-i18n="qa_step2_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Advanced grading lines sort produce by weight, color, and size while computer-controlled curing optimizes sugars and shelf life.</p>
-          </div>
-          <div class="mt-4 sm:mt-6 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-agro-primary">
-            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-            <span data-i18n="qa_step2_tag">Zero Blemishes Policy</span>
-          </div>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="w-[80vw] max-w-[290px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between reveal-up">
-          <div data-i18n="qa_step3_num" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[10px] font-black tracking-wider uppercase border border-sky-200">STEP 03</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
-            </div>
-            <h3 data-i18n="qa_step3_title" class="text-base sm:text-xl font-black text-slate-900 group-hover:text-sky-800 transition-colors mb-2">Unbroken Cold Chain</h3>
-            <p data-i18n="qa_step3_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Rapid pre-cooling immediately after packing and continuous temperature logging inside 40ft refrigerated containers.</p>
-          </div>
-          <div class="mt-4 sm:mt-6 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-bold text-agro-primary">
-            <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
-            <span data-i18n="qa_step3_tag">Real-time Temp Logs</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Dedicated Logistics Section -->
-  <section id="logistics" class="py-10 sm:py-20 bg-agro-card border-t border-agro-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-6 sm:mb-14 reveal-up">
-        <span data-i18n="logistics_tag" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">Global Supply Chain</span>
-        <h2 data-i18n="logistics_title" class="text-xl sm:text-4xl font-black text-slate-900 mt-1.5 sm:mt-2">Maritime Logistics & Port Operations</h2>
-        <p data-i18n="logistics_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">Strategically loading out of major Egyptian Mediterranean and Red Sea ports (Alexandria, Damietta, Port Said, Ain Sokhna) with direct expedited shipping routes.</p>
-      </div>
-
-      <!-- Mobile Animated Swipe Hint -->
-      <div class="sm:hidden flex items-center justify-center mb-3.5">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 border border-agro-goldBorder/80 text-agro-gold text-[10px] font-bold shadow-xs">
-          <svg class="w-3.5 h-3.5 swipe-icon-anim shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
-          </svg>
-          <span data-i18n="swipe_hint">Swipe to explore ↔</span>
-        </span>
-      </div>
-
-      <div class="flex overflow-x-auto pb-4 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
-        <!-- 1. High-Cube Reefers -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">REEFER FLEET</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2" ry="2"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            </div>
-            <h3 data-i18n="log_c1_title" class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors">High-Cube Reefers</h3>
-            <p data-i18n="log_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5">40ft Controlled Atmosphere</p>
-            <p data-i18n="log_c1_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Equipped with Thermo King & Carrier units with controlled atmosphere (CA) and active humidity monitors.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
-            <span data-i18n="log_c1_meta">UNITS: RF 40HC</span>
-            <span data-i18n="log_c1_stat" class="text-emerald-600 font-bold">Cold Active</span>
-          </div>
-        </div>
-
-        <!-- 2. Fast Sailings -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c2_time" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">3-7 Days</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 20a6.5 6.5 0 0 1 12-3 6.5 6.5 0 0 1 8 3"/><path d="M3 14l3-9h12l3 9"/><path d="M12 5V2"/></svg>
-            </div>
-            <h3 data-i18n="log_c2_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors">Rapid Transit to EU</h3>
-            <p data-i18n="log_c2_sub" class="text-xs font-bold text-sky-700 mt-0.5">Direct Mediterranean Hubs</p>
-            <p data-i18n="log_c2_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Fast direct container sailings to Koper, Ravenna, Genoa, Marseille, and Rotterdam hubs.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
-            <span data-i18n="log_c2_meta">ROUTES: Direct</span>
-            <span data-i18n="log_c2_stat" class="text-sky-600 font-bold">Express Sea</span>
-          </div>
-        </div>
-
-        <!-- 3. Trade Terms -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">INCOTERMS</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
-            </div>
-            <h3 data-i18n="log_c3_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors">FOB, CIF & CFR</h3>
-            <p data-i18n="log_c3_sub" class="text-xs font-bold text-amber-700 mt-0.5">Flexible Trade Credit</p>
-            <p data-i18n="log_c3_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Flexible international trade financing and contracts tailored to international fresh buyers.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
-            <span data-i18n="log_c3_meta">CONTRACTS: ICC</span>
-            <span data-i18n="log_c3_stat" class="text-amber-600 font-bold">Standardized</span>
-          </div>
-        </div>
-
-        <!-- 4. Fast Clearance Docs -->
-        <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
-          <div data-i18n="log_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">Live Docs</div>
-          <div>
-            <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
-            </div>
-            <h3 data-i18n="log_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors">Pre-Clearance Dispatch</h3>
-            <p data-i18n="log_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5">Direct Digital Port Release</p>
-            <p data-i18n="log_c4_desc" class="text-[11px] text-slate-500 mt-2 leading-relaxed">Instant digital transmission of EUR.1, Phytosanitary, Bill of Lading (BL), and Certificates of Origin.</p>
-          </div>
-          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
-            <span data-i18n="log_c4_meta">DOCS: Teledispatch</span>
-            <span data-i18n="log_c4_stat" class="text-agro-gold font-bold">Swift Release</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Complete 38 Export Produce Catalog Section -->
-  <section id="catalog" class="py-10 sm:py-20 bg-agro-surface/60 border-t border-agro-border">
+  <section id="catalog" class="py-12 sm:py-20 bg-agro-surface/60 border-t border-agro-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-5 mb-6 sm:mb-8 reveal-up">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 reveal-up">
         <div>
           <span data-i18n="catalog_badge" class="text-[10px] sm:text-xs font-extrabold text-agro-gold uppercase tracking-widest">Official Export Catalog</span>
-          <h2 data-i18n="catalog_heading" class="text-xl sm:text-4xl font-black text-slate-900 mt-1">38 Export-Grade Fruits & Vegetables</h2>
+          <h2 data-i18n="catalog_heading" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-1">38 Export-Grade Fruits & Vegetables</h2>
         </div>
 
-        <!-- Dynamic Filter Tabs -->
-        <div class="flex items-center gap-1.5 overflow-x-auto pb-1.5 no-scrollbar w-full md:w-auto" id="filter-container">
-          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
-          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ Top Priority (1-7)</button>
-          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest (8-22)</button>
-          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest (23-38)</button>
-          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Fruits</button>
-          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Vegetables</button>
+        <!-- Adaptive Filter Tabs (Horizontally scrollable with smooth touch) -->
+        <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 no-scrollbar w-full md:w-auto" id="filter-container">
+          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
+          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ Top Priority (1-7)</button>
+          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest (8-22)</button>
+          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest (23-38)</button>
+          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Fruits</button>
+          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Vegetables</button>
         </div>
       </div>
 
-      <!-- Search Box -->
-      <div class="relative max-w-md mb-6 sm:mb-8 reveal-up">
+      <!-- Search Box (Direction-Aware) -->
+      <div class="relative max-w-md mb-6 sm:mb-10 reveal-up">
         <label for="searchInput" data-i18n="search_lbl" class="sr-only">Search</label>
-        <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-2.5 sm:py-3 ps-10 sm:ps-11 pe-10 rounded-xl bg-agro-card border border-agro-border text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/40 focus:border-agro-primary transition-all shadow-sm" />
+        <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-2.5 sm:py-3.5 ps-10 pe-10 rounded-xl bg-white border border-agro-border text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" />
         <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" aria-label="Clear Search">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
-      <!-- Products Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-7" id="products-grid"></div>
+      <!-- Products Grid (1 Col Mobile, 2 Cols Small Tablet & iPad, 3 Cols Laptop/Desktop) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-7" id="products-grid"></div>
 
       <!-- Empty State -->
       <div id="noResultsMsg" class="hidden col-span-full py-12 text-center text-slate-500">
-        <svg class="w-10 h-10 mx-auto mb-2 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <svg class="w-12 h-12 mx-auto mb-2 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <p data-i18n="no_results" class="font-bold text-sm sm:text-base text-slate-700">No matching produce found.</p>
         <p data-i18n="no_results_sub" class="text-xs text-slate-400 mt-1">Try searching with another keyword or resetting your filter category.</p>
       </div>
@@ -750,46 +591,46 @@
     </div>
   </section>
 
-  <!-- Formal RFQ Section -->
-  <section id="rfq" class="py-10 sm:py-20 bg-agro-surface/60 border-t border-agro-border relative scroll-mt-16 sm:scroll-mt-20">
+  <!-- Formal RFQ Section (Tablet & Mobile Optimized) -->
+  <section id="rfq" class="py-12 sm:py-20 bg-agro-surface/60 border-t border-agro-border relative scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-6 sm:mb-12 reveal-up">
         <span data-i18n="rfq_badge" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">B2B Trade Desk</span>
-        <h2 data-i18n="rfq_title" class="text-xl sm:text-4xl font-black text-slate-900 mt-1 sm:mt-1.5">Request Container Quotation (FOB / CIF)</h2>
+        <h2 data-i18n="rfq_title" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-1 sm:mt-1.5">Request Container Quotation (FOB / CIF)</h2>
         <p data-i18n="rfq_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.</p>
       </div>
 
-      <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="bg-agro-card border-2 border-agro-primary/20 hover:border-agro-primary/30 p-4 sm:p-10 rounded-2xl sm:rounded-3xl shadow-lg space-y-3.5 sm:space-y-6 reveal-up">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
+      <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="bg-white border border-agro-border/90 p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg space-y-4 sm:space-y-6 reveal-up">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
-            <label for="rfqName" data-i18n="rfq_name_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Company / Contact Name *</label>
-            <input type="text" id="rfqName" required class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
+            <label for="rfqName" data-i18n="rfq_name_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Company / Contact Name *</label>
+            <input type="text" id="rfqName" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
           </div>
           <div>
-            <label for="rfqEmail" data-i18n="rfq_email_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Corporate Email *</label>
-            <input type="email" id="rfqEmail" required class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-6">
-          <div>
-            <label for="rfqDest" data-i18n="rfq_dest_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Destination Port / Country *</label>
-            <input type="text" id="rfqDest" required class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
-          </div>
-          <div>
-            <label for="rfqProduce" data-i18n="rfq_produce_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Selected Produce *</label>
-            <select id="rfqProduce" class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm"></select>
+            <label for="rfqEmail" data-i18n="rfq_email_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Corporate Email *</label>
+            <input type="email" id="rfqEmail" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
           </div>
         </div>
 
-        <div>
-          <label for="rfqVolume" data-i18n="rfq_vol_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Estimated Volume (Containers) *</label>
-          <input type="text" id="rfqVolume" required class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+          <div>
+            <label for="rfqDest" data-i18n="rfq_dest_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Destination Port / Country *</label>
+            <input type="text" id="rfqDest" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
+          </div>
+          <div>
+            <label for="rfqProduce" data-i18n="rfq_produce_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Selected Produce *</label>
+            <select id="rfqProduce" class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs"></select>
+          </div>
         </div>
 
         <div>
-          <label for="rfqNotes" data-i18n="rfq_notes_lbl" class="block text-xs font-bold text-slate-700 mb-1.5">Additional Specifications / Packaging</label>
-          <textarea id="rfqNotes" rows="3" class="w-full px-3 sm:px-3.5 py-2.5 sm:py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-sm resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
+          <label for="rfqVolume" data-i18n="rfq_vol_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Estimated Volume (Containers) *</label>
+          <input type="text" id="rfqVolume" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
+        </div>
+
+        <div>
+          <label for="rfqNotes" data-i18n="rfq_notes_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Additional Specifications / Packaging</label>
+          <textarea id="rfqNotes" rows="3" class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
         </div>
 
         <button type="submit" id="rfqSubmitBtn" class="btn-shine w-full py-3 sm:py-3.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 border border-agro-goldBorder/40">
@@ -800,38 +641,51 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer id="contact" class="bg-agro-surface text-slate-600 pt-10 sm:pt-12 pb-8 border-t border-agro-border relative overflow-hidden">
+  <!-- Footer (Adaptive 3-Column on Tablet/Laptop) -->
+  <footer id="contact" class="bg-agro-surface text-slate-600 pt-10 sm:pt-14 pb-8 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 sm:pb-10 border-b border-agro-border">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
           <!-- Reusable Footer Logo SVG -->
           <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
-            <svg viewBox="0 0 740 380" class="h-12 sm:h-18 md:h-20 w-auto drop-shadow-sm">
+            <svg viewBox="0 0 740 380" class="h-11 sm:h-14 lg:h-18 w-auto drop-shadow-sm">
               <use href="#eax-brand-logo"></use>
             </svg>
           </a>
-          <p data-i18n="footer_about" class="text-xs text-slate-600 leading-relaxed max-w-sm">
+          <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-start">
             شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 38 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.
           </p>
+
+          <!-- Minimalist Language Override Switcher -->
+          <div class="mt-4 inline-flex items-center gap-2 p-1.5 rounded-xl bg-white border border-agro-border shadow-xs text-xs">
+            <svg class="w-3.5 h-3.5 text-agro-gold shrink-0 ms-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+            </svg>
+            <select id="footerLangSelect" onchange="changeLanguage(this.value)" class="bg-transparent text-slate-700 text-xs font-bold py-0.5 pe-2 focus:outline-none cursor-pointer">
+              <option value="en">English (Global)</option>
+              <option value="ar">العربية (Egypt)</option>
+              <option value="zh">中文 (China)</option>
+              <option value="ru">Русский (Russia/CIS)</option>
+            </select>
+          </div>
         </div>
 
         <div>
-          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3">Direct Channels</h4>
-          <ul class="space-y-3 text-xs sm:text-sm text-slate-700">
+          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Direct Channels</h4>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
             <!-- Dedicated Calls Line -->
-            <li class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-agro-card border border-agro-border flex items-center justify-center text-agro-primary shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <li class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-agro-primary shrink-0 shadow-xs">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
               <a href="tel:+201556564646" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 015 56 56 46 46</span>
               </a>
             </li>
             <!-- Dedicated WhatsApp Desk Only -->
-            <li class="flex items-center gap-2.5">
-              <span class="w-7 h-7 rounded-lg bg-agro-card border border-agro-border flex items-center justify-center text-emerald-600 shrink-0">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <li class="flex items-center gap-3">
+              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-emerald-600 shrink-0 shadow-xs">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </span>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 010 06 920 920</span>
@@ -841,14 +695,14 @@
         </div>
 
         <div>
-          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3">Export Resources</h4>
-          <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-3 leading-relaxed">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
-          <div class="flex flex-col gap-2">
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-card border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all">
+          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Export Resources</h4>
+          <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-3.5 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
+          <div class="flex flex-col gap-2.5 max-w-sm">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
             </a>
-            <a href="#rfq" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm">
+            <a href="#rfq" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm shadow-md">
               <span data-i18n="cta_quote">Container Quotation</span>
             </a>
           </div>
@@ -870,7 +724,7 @@
     </a>
   </aside>
 
-  <!-- Products Data Architecture & Translations -->
+  <!-- Products Data Architecture & Multi-Language Dictionary -->
   <script>
     const BACKEND_CONFIG = {
       mode: 'whatsapp',
@@ -1043,7 +897,7 @@
       {
         id: 24, group: 'winter', category: 'vegetables',
         name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80"
       },
@@ -1057,14 +911,14 @@
       {
         id: 26, group: 'winter', category: 'vegetables',
         name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 27, group: 'winter', category: 'fruits',
         name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80"
       },
@@ -1134,7 +988,7 @@
       {
         id: 37, group: 'winter', category: 'vegetables',
         name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)",
-        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С نوفمبر по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1592187270271-9a4b84faa228?auto=format&fit=crop&w=800&q=80"
       },
@@ -1206,48 +1060,6 @@
         cert_c5_stat: "100% Passed",
         cert_trust_text: "Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.",
         cert_ports: "Damietta Port • Alexandria Port • Sokhna Port",
-        qa_badge_tag: "End-to-End Integrity",
-        qa_title: "How We Guarantee Export Quality",
-        qa_desc: "From harvest monitoring to optical sizing and reefer temperature maintenance, we protect your cargo at every single mile.",
-        qa_step1_num: "STEP 01",
-        qa_step1_title: "Strict Field Monitoring",
-        qa_step1_desc: "Regular soil testing, pre-harvest residue analysis, and residue-free zone approvals to guarantee total pesticide compliance.",
-        qa_step1_tag: "100% Traceable Farms",
-        qa_step2_num: "STEP 02",
-        qa_step2_title: "Optical Sorting & Curing",
-        qa_step2_desc: "Advanced grading lines sort produce by weight, color, and size while computer-controlled curing optimizes sugars and shelf life.",
-        qa_step2_tag: "Zero Blemishes Policy",
-        qa_step3_num: "STEP 03",
-        qa_step3_title: "Unbroken Cold Chain",
-        qa_step3_desc: "Rapid pre-cooling immediately after packing and continuous temperature logging inside 40ft refrigerated containers.",
-        qa_step3_tag: "Real-time Temp Logs",
-        logistics_tag: "Global Supply Chain",
-        logistics_title: "Maritime Logistics & Port Operations",
-        logistics_desc: "Strategically loading out of major Egyptian Mediterranean and Red Sea ports (Alexandria, Damietta, Port Said, Ain Sokhna) with direct expedited shipping routes.",
-        log_c1_badge: "REEFER FLEET",
-        log_c1_title: "High-Cube Reefers",
-        log_c1_sub: "40ft Controlled Atmosphere",
-        log_c1_desc: "Equipped with Thermo King & Carrier units with controlled atmosphere (CA) and active humidity monitors.",
-        log_c1_meta: "UNITS: RF 40HC",
-        log_c1_stat: "Cold Active",
-        log_c2_time: "3-7 Days",
-        log_c2_title: "Rapid Transit to EU",
-        log_c2_sub: "Direct Mediterranean Hubs",
-        log_c2_desc: "Fast direct container sailings to Koper, Ravenna, Genoa, Marseille, and Rotterdam hubs.",
-        log_c2_meta: "ROUTES: Direct",
-        log_c2_stat: "Express Sea",
-        log_c3_badge: "INCOTERMS",
-        log_c3_title: "FOB, CIF & CFR",
-        log_c3_sub: "Flexible Trade Credit",
-        log_c3_desc: "Flexible international trade financing and contracts tailored to international fresh buyers.",
-        log_c3_meta: "CONTRACTS: ICC",
-        log_c3_stat: "Standardized",
-        log_c4_badge: "Live Docs",
-        log_c4_title: "Pre-Clearance Dispatch",
-        log_c4_sub: "Direct Digital Port Release",
-        log_c4_desc: "Instant digital transmission of EUR.1, Phytosanitary, Bill of Lading (BL), and Certificates of Origin.",
-        log_c4_meta: "DOCS: Teledispatch",
-        log_c4_stat: "Swift Release",
         catalog_badge: "Official Export Catalog",
         catalog_heading: "38 Export-Grade Fruits & Vegetables",
         filter_all: "All 38 Produce",
@@ -1344,48 +1156,6 @@
         cert_c5_stat: "مجاز 100%",
         cert_trust_text: "تحليل متبقيات المبيدات: معامل معتمدة دولياً بنظام ISO 17025 تفحص كل حاوية قبل الشحن.",
         cert_ports: "ميناء دمياط • ميناء الإسكندرية • ميناء العين السخنة",
-        qa_badge_tag: "سلامة سلسلة الإمداد",
-        qa_title: "كيف نضمن أعلى معايير الجودة التصديرية؟",
-        qa_desc: "من مراقبة الحصاد في الحقول وحتى الفرز البصري والمحافظة على درجات حرارة الحاويات المبردة، نحن نحمي شحنتك طوال رحلتها.",
-        qa_step1_num: "المرحلة 01",
-        qa_step1_title: "مراقبة صارمة للحقول",
-        qa_step1_desc: "فحوصات دورية للتربة وتحليل متبقيات المبيدات قبل الحصاد لضمان التوافق التام مع المعايير الدولية.",
-        qa_step1_tag: "مزارع قابلة للتتبع 100%",
-        qa_step2_num: "المرحلة 02",
-        qa_step2_title: "فرز آلي ومعالجة حرارية",
-        qa_step2_desc: "خطوط فرز متطورة تفصل الثمار حسب الحجم واللون بدقة، مع معالجة حرارية Curing لتعزيز العمر التسويقي.",
-        qa_step2_tag: "سياسة خلو من العيوب",
-        qa_step3_num: "المرحلة 03",
-        qa_step3_title: "سلاسل تبريد غير منقطعة",
-        qa_step3_desc: "تبريد سريع Pre-cooling فور التعبئة ومتابعة مستمرة لدرجات الحرارة داخل الحاويات المبردة 40 قدم.",
-        qa_step3_tag: "سجلات حرارية لحظية",
-        logistics_tag: "سلاسل التوريد العالمية",
-        logistics_title: "العمليات اللوجستية والشحن البحري",
-        logistics_desc: "شحن بحري استراتيجي سريع من الموانئ المصرية الرئيسية (الإسكندرية، دمياط، بورسعيد، العين السخنة) مع خطوط مباشرة لأوروبا وآسيا.",
-        log_c1_badge: "أسطول الحاويات المبردة",
-        log_c1_title: "حاويات ريفير 40 قدم",
-        log_c1_sub: "حاويات 40 قدم مع ضبط الأجواء CA",
-        log_c1_desc: "مجهزة بوحدات ثيرموكنج وكاريير مع ضبط الرطوبة والتحكم بالأجواء لحفظ الثمار.",
-        log_c1_meta: "الوحدات: ريفير 40 قدم HC",
-        log_c1_stat: "تبريد نشط",
-        log_c2_time: "3-7 أيام",
-        log_c2_title: "شحن سريع لأوروبا",
-        log_c2_sub: "خطوط مباشرة لموانئ المتوسط",
-        log_c2_desc: "رحلات بحرية سريعة ومباشرة لموانئ كوبر، رافينا، جنوى، مارسيليا، وروتردام.",
-        log_c2_meta: "المسار: ملاحة مباشرة",
-        log_c2_stat: "شحن بحري سريع",
-        log_c3_badge: "شروط التجارة الدولية",
-        log_c3_title: "شروط FOB و CIF و CFR",
-        log_c3_sub: "تسهيلات ائتمانية وتجارية مرنة",
-        log_c3_desc: "تسهيلات تعاقدية وتجارية مرنة مخصصة لكبرى شركات الاستيراد والتوزيع الدولية.",
-        log_c3_meta: "العقود: معتمدة دولياً ICC",
-        log_c3_stat: "شروط موحدة",
-        log_c4_badge: "وثائق فورية",
-        log_c4_title: "إفراج رقمي سريع للوثائق",
-        log_c4_sub: "إفراج رقمي فوري بالموانئ",
-        log_c4_desc: "إرسال إلكتروني فوري لشهادات EUR.1، السلامة النباتية، وبوالص الشحن المعتمدة.",
-        log_c4_meta: "المستندات: إرسال تلغرافي رقمي",
-        log_c4_stat: "إفراج فوري",
         catalog_badge: "كتالوج التصدير الرسمي المعتمد",
         catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
         filter_all: "جميع الحاصلات (38)",
@@ -1482,48 +1252,6 @@
         cert_c5_stat: "100% 合格签发",
         cert_trust_text: "实验室农残分析检测：装箱前由获得 ISO 17025 认证的独立实验室对每批冷柜取样化验。",
         cert_ports: "杜米亚特港 • 亚历山大港 • 苏伊士港",
-        qa_badge_tag: "全流程供应链保障",
-        qa_title: "我们如何保证出口级卓越品质",
-        qa_desc: "从农场采收监测到光学精密分选与集装箱温控冷链，我们在每个环节为您保驾护航。",
-        qa_step1_num: "步骤 01",
-        qa_step1_title: "农场严密监测",
-        qa_step1_desc: "定期土壤检测、采前农残化验与安全种植区认证，确保持续符合国际准入标准。",
-        qa_step1_tag: "100% 可追溯认证农场",
-        qa_step2_num: "步骤 02",
-        qa_step2_title: "光学分选与控温愈伤",
-        qa_step2_desc: "先进分选线按重量、色泽与果径精密分级，配合智能控温愈伤确保最佳甜度与更长货架期。",
-        qa_step2_tag: "零瑕疵出货标准",
-        qa_step3_num: "步骤 03",
-        qa_step3_title: "全程不间断冷链",
-        qa_step3_desc: "包装后立即进行快速预冷处理，40尺高柜冷藏集装箱内置实时温度记录仪持续监控。",
-        qa_step3_tag: "实时温控日志记录",
-        logistics_tag: "全球冷链物流网络",
-        logistics_title: "海运港口物流与直发航线",
-        logistics_desc: "依托亚历山大港、杜米亚特、塞得港与苏伊士港直发全球核心口岸，航线快速稳定。",
-        log_c1_badge: "专业冷藏集装箱",
-        log_c1_title: "40尺超高气调冷柜",
-        log_c1_sub: "40尺超高气调集装箱 (CA)",
-        log_c1_desc: "配备 Thermo King 与 Carrier 高性能制冷机组，支持气调调节与湿度自动控制。",
-        log_c1_meta: "柜型: 40尺超高冷柜 (RF 40HC)",
-        log_c1_stat: "智能温控运行中",
-        log_c2_time: "3-7 天",
-        log_c2_title: "欧洲直航特快海运",
-        log_c2_sub: "直达地中海及欧洲枢纽港",
-        log_c2_desc: "班轮直发科佩尔、拉文纳、热那亚、马赛与鹿特丹等欧洲枢纽港口。",
-        log_c2_meta: "航线: 班轮直达",
-        log_c2_stat: "特快海运",
-        log_c3_badge: "国际贸易术语",
-        log_c3_title: "FOB、CIF 与 CFR 条款",
-        log_c3_sub: "灵活的外贸结算与账期支持",
-        log_c3_desc: "为跨国生鲜采购商与商超集团提供灵活多样、合规安全的国际结算方案。",
-        log_c3_meta: "合同: 国际商会 ICC 标准",
-        log_c3_stat: "合规标准化",
-        log_c4_badge: "极速电放文件",
-        log_c4_title: "原产地预清关文件",
-        log_c4_sub: "港口提单与清关文件即时电放",
-        log_c4_desc: "即时电放 EUR.1 优惠关税证、官方植物检疫证、正本提单与原产地证。",
-        log_c4_meta: "文件: 极速数字电放",
-        log_c4_stat: "快速通关",
         catalog_badge: "官方出口鲜品名录",
         catalog_heading: "38 种国际出口级新鲜果蔬",
         filter_all: "全部 38 种果蔬",
@@ -1620,48 +1348,6 @@
         cert_c5_stat: "100% Пройдено",
         cert_trust_text: "Лабораторный анализ остатков пестицидов: аккредитованные по ISO 17025 лаборатории проверяют каждый контейнер перед отгрузкой.",
         cert_ports: "Порт Дамиетта • Порт Александрия • Порт Сохна",
-        qa_badge_tag: "Сквозной контроль",
-        qa_title: "Гарантия экспортного качества",
-        qa_desc: "От мониторинга урожая в поле до оптической калибровки и поддержания температуры в рефрижераторах — сохранность вашего груза на каждом этапе пути.",
-        qa_step1_num: "ШАГ 01",
-        qa_step1_title: "Полевой фитомониторинг",
-        qa_step1_desc: "Регулярные тесты почвы, преданализ на пестициды и сертификация зон свободного выращивания.",
-        qa_step1_tag: "100% Прослеживаемые фермы",
-        qa_step2_num: "ШАГ 02",
-        qa_step2_title: "Оптическая сортировка и кьюринг",
-        qa_step2_desc: "Высокоточные линии сортируют плоды по весу, диаметру и оттенку, а температурный кьюринг гарантирует идеальную лежкость.",
-        qa_step2_tag: "Стандарт без дефектов",
-        qa_step3_num: "ШАГ 03",
-        qa_step3_title: "Непрерывная холодовая цепь",
-        qa_step3_desc: "Быстрое предварительное охлаждение сразу после упаковки и онлайн-логгеры температуры в 40-футовых рефрижераторах.",
-        qa_step3_tag: "Телеметрия 24/7",
-        logistics_tag: "Глобальная логистика",
-        logistics_title: "Морские перевозки и портовые операции",
-        logistics_desc: "Отгрузка из ключевых средиземноморских и красноморских портов (Александрия, Дамиетта, Порт-Саид, Айн-Сохна) по прямым морским линиям.",
-        log_c1_badge: "РЕФРИЖЕРАТОРЫ",
-        log_c1_title: "Контейнеры 40ft High-Cube",
-        log_c1_sub: "Регулируемая газовая среда (CA)",
-        log_c1_desc: "Установки Thermo King и Carrier с точным контролем влажности и газовой среды для сохранения свежести.",
-        log_c1_meta: "ТИП: RF 40HC",
-        log_c1_stat: "Активное охлаждение",
-        log_c2_time: "3-7 Дней",
-        log_c2_title: "Экспресс-доставка морем",
-        log_c2_sub: "Прямые средиземноморские линии",
-        log_c2_desc: "Регулярные рейсы в порты Копер, Равенна, Генуя, Марсель, Новороссийск и Роттердам.",
-        log_c2_meta: "ЛИНИИ: Прямые",
-        log_c2_stat: "Морской экспресс",
-        log_c3_badge: "ИНКОТЕРМС",
-        log_c3_title: "Условия FOB, CIF и CFR",
-        log_c3_sub: "Гибкие финансовые условия",
-        log_c3_desc: "Индивидуальные схемы расчетов и стандартизированные международные контракты для оптовых сетей.",
-        log_c3_meta: "КОНТРАКТЫ: ICC",
-        log_c3_stat: "Стандартизировано",
-        log_c4_badge: "Телекс-релиз",
-        log_c4_title: "Электронная очистка документов",
-        log_c4_sub: "Оперативная выдача документов",
-        log_c4_desc: "Мгновенная отправка коносаментов, фитосанитарных сертификатов, EUR.1 и сертификатов происхождения.",
-        log_c4_meta: "ДОКУМЕНТЫ: Экспресс",
-        log_c4_stat: "Быстрый выпуск",
         catalog_badge: "Официальный экспортный каталог",
         catalog_heading: "38 экспортных видов овощей и фруктов",
         filter_all: "Все 38 культур",
@@ -1676,7 +1362,7 @@
         btn_req_quote: "Забронировать объем",
         no_results: "Продукция не найдена.",
         no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
-        rfq_badge: "Торговый отдеل B2B",
+        rfq_badge: "Торговый отдел B2B",
         rfq_title: "Запрос стоимости контейнера (FOB / CIF)",
         rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
         rfq_name_lbl: "Название компании / Контактное лицо *",
@@ -1705,6 +1391,23 @@
     let currentLang = 'en';
     let currentCategory = 'all';
     let cardObserver = null;
+
+    function detectDeviceLanguage() {
+      const saved = localStorage.getItem('eax_lang');
+      if (saved && ['en', 'ar', 'zh', 'ru'].includes(saved)) {
+        return saved;
+      }
+      const userLangs = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
+      for (let l of userLangs) {
+        if (!l) continue;
+        const code = l.toLowerCase();
+        if (code.startsWith('ar')) return 'ar';
+        if (code.startsWith('zh')) return 'zh';
+        if (code.startsWith('ru')) return 'ru';
+        if (code.startsWith('en')) return 'en';
+      }
+      return 'en';
+    }
 
     function renderProducts() {
       const grid = document.getElementById('products-grid');
@@ -1767,7 +1470,7 @@
             </div>
 
             <div class="p-4 sm:p-5">
-              <h3 class="font-bold text-base sm:text-lg text-slate-900 leading-snug mb-3">
+              <h3 class="font-bold text-base sm:text-lg text-slate-900 leading-snug mb-3 text-start">
                 ${crop.id}. ${cropName}
               </h3>
 
@@ -1866,11 +1569,11 @@
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => {
-        btn.className = 'filter-btn px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-bold transition-all bg-agro-card border border-agro-border text-slate-700 hover:border-agro-gold shrink-0';
+        btn.className = 'filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0';
       });
 
       if (evt && evt.currentTarget) {
-        evt.currentTarget.className = 'filter-btn active px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0';
+        evt.currentTarget.className = 'filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0';
       }
 
       applyFiltersAndSearch();
@@ -1935,6 +1638,7 @@
       const html = document.documentElement;
       const body = document.body;
       const searchInput = document.getElementById('searchInput');
+      const footerLangSelect = document.getElementById('footerLangSelect');
 
       const pageTitles = {
         en: 'EAX AGRO EXPORT | Premium Fresh Produce Exporter',
@@ -1972,10 +1676,9 @@
 
       localStorage.setItem('eax_lang', lang);
 
-      document.querySelectorAll('.lang-pill').forEach(btn => {
-        const isActive = btn.getAttribute('data-lang') === lang;
-        btn.className = `lang-pill px-1.5 sm:px-2 py-0.5 sm:py-1 text-[10px] sm:text-xs ${isActive ? 'font-black bg-agro-primary text-white shadow-sm' : 'font-bold text-slate-700 hover:text-agro-primary'} rounded-md sm:rounded-lg transition-all`;
-      });
+      if (footerLangSelect) {
+        footerLangSelect.value = lang;
+      }
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -2034,7 +1737,7 @@
               obs.unobserve(entry.target);
             }
           });
-        }, { rootMargin: '30px', threshold: 0.05 });
+        }, { rootMargin: '40px', threshold: 0.05 });
       }
       document.querySelectorAll('#products-grid .reveal-up:not(.is-visible)').forEach(el => {
         cardObserver.observe(el);
@@ -2042,8 +1745,8 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('eax_lang') || 'en';
-      changeLanguage(savedLang);
+      const detectedLang = detectDeviceLanguage();
+      changeLanguage(detectedLang);
 
       const staticObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
