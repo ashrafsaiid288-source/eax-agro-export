@@ -165,7 +165,6 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* أنيميشن المؤشر التوضيحي لحركة اليد / الأسهم */
     @keyframes swipeMotion {
       0%, 100% { transform: translateX(0); }
       50% { transform: translateX(-6px); }
@@ -184,6 +183,85 @@
 </head>
 <body class="perf-bg text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full">
 
+  <!-- Global Reusable SVG Brand Assets -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="hidden" style="display: none;">
+    <defs>
+      <linearGradient id="slimGold" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fff0bd"/>
+        <stop offset="35%" stop-color="#d9a838"/>
+        <stop offset="70%" stop-color="#8a5a06"/>
+        <stop offset="100%" stop-color="#e8bf56"/>
+      </linearGradient>
+
+      <linearGradient id="mainGreen" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#0e4b29"/>
+        <stop offset="50%" stop-color="#062e17"/>
+        <stop offset="100%" stop-color="#021c0d"/>
+      </linearGradient>
+
+      <linearGradient id="darkNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#07202c"/>
+        <stop offset="50%" stop-color="#0c3245"/>
+        <stop offset="100%" stop-color="#144b68"/>
+      </linearGradient>
+
+      <filter id="subtleDrop" x="-5%" y="-5%" width="115%" height="115%">
+        <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+      </filter>
+    </defs>
+
+    <symbol id="eax-brand-logo" viewBox="0 0 740 380">
+      <g filter="url(#subtleDrop)">
+        <!-- حرف E -->
+        <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" 
+              fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
+        <path d="M 65 258 L 135 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+        <path d="M 95 258 L 165 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+
+        <!-- حرف A -->
+        <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        
+        <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" 
+              fill="#ffffff" opacity="0.95"/>
+        <path d="M 385 96 L 385 162" stroke="url(#slimGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+        <path d="M 235 275 C 295 258 350 218 405 200 C 355 228 305 262 250 280 Z" fill="url(#slimGold)"/>
+        <path d="M 270 278 C 330 252 390 212 450 185 C 410 220 345 262 290 284 Z" fill="#063319" stroke="url(#slimGold)" stroke-width="0.8"/>
+        <path d="M 305 282 C 368 250 428 202 488 170 C 440 212 375 262 325 288 Z" fill="url(#slimGold)"/>
+
+        <!-- حرف X -->
+        <path d="M 475 45 H 540 L 645 275 H 580 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+
+        <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" 
+              fill="url(#darkNavyArrow)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        <path d="M 505 260 L 630 65" stroke="url(#slimGold)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- اسم AGRO EXPORT -->
+        <path d="M 25 344 H 145" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
+        <path d="M 595 344 H 715" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
+        <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="52" fill="url(#slimGold)" letter-spacing="13">
+          AGRO EXPORT
+        </text>
+      </g>
+    </symbol>
+  </svg>
+
   <!-- Compact Responsive Announcement Bar -->
   <div class="relative z-50 bg-[#e4ece0] text-slate-600 py-1.5 px-3 sm:px-6 border-b border-agro-border">
     <div class="max-w-7xl mx-auto flex justify-between items-center gap-2">
@@ -201,9 +279,9 @@
         </span>
       </div>
       <div class="shrink-0">
-        <a href="tel:+201006920920" class="hover:text-agro-gold text-slate-700 font-bold transition-colors flex items-center gap-1 text-[10px] sm:text-xs" dir="ltr">
+        <a href="tel:+201556564646" class="hover:text-agro-gold text-slate-700 font-extrabold tracking-wide transition-colors flex items-center gap-1 text-[10px] sm:text-xs" dir="ltr">
           <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +20 100 692 0920
+          +2 015 56 56 46 46
         </a>
       </div>
     </div>
@@ -214,82 +292,10 @@
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div class="h-16 sm:h-24 flex items-center justify-between gap-2 sm:gap-3">
         
-        <!-- Logo SVG -->
+        <!-- Reusable Logo SVG -->
         <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg viewBox="0 0 740 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-10 sm:h-18 md:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
-            <defs>
-              <linearGradient id="slimGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#fff0bd"/>
-                <stop offset="35%" stop-color="#d9a838"/>
-                <stop offset="70%" stop-color="#8a5a06"/>
-                <stop offset="100%" stop-color="#e8bf56"/>
-              </linearGradient>
-
-              <linearGradient id="mainGreen" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#0e4b29"/>
-                <stop offset="50%" stop-color="#062e17"/>
-                <stop offset="100%" stop-color="#021c0d"/>
-              </linearGradient>
-
-              <linearGradient id="darkNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#07202c"/>
-                <stop offset="50%" stop-color="#0c3245"/>
-                <stop offset="100%" stop-color="#144b68"/>
-              </linearGradient>
-
-              <filter id="subtleDrop" x="-5%" y="-5%" width="115%" height="115%">
-                <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
-              </filter>
-            </defs>
-
-            <g filter="url(#subtleDrop)">
-              <!-- حرف E -->
-              <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" 
-                    fill="url(#mainGreen)" 
-                    stroke="url(#slimGold)" 
-                    stroke-width="5" 
-                    stroke-linejoin="round"/>
-              <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" 
-                    fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
-              <path d="M 65 258 L 135 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-              <path d="M 95 258 L 165 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-
-              <!-- حرف A -->
-              <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" 
-                    fill="url(#mainGreen)" 
-                    stroke="url(#slimGold)" 
-                    stroke-width="5" 
-                    stroke-linejoin="round"/>
-              
-              <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" 
-                    fill="#ffffff" opacity="0.95"/>
-              <path d="M 385 96 L 385 162" stroke="url(#slimGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-
-              <path d="M 235 275 C 295 258 350 218 405 200 C 355 228 305 262 250 280 Z" fill="url(#slimGold)"/>
-              <path d="M 270 278 C 330 252 390 212 450 185 C 410 220 345 262 290 284 Z" fill="#063319" stroke="url(#slimGold)" stroke-width="0.8"/>
-              <path d="M 305 282 C 368 250 428 202 488 170 C 440 212 375 262 325 288 Z" fill="url(#slimGold)"/>
-
-              <!-- حرف X -->
-              <path d="M 475 45 H 540 L 645 275 H 580 Z" 
-                    fill="url(#mainGreen)" 
-                    stroke="url(#slimGold)" 
-                    stroke-width="5" 
-                    stroke-linejoin="round"/>
-
-              <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" 
-                    fill="url(#darkNavyArrow)" 
-                    stroke="url(#slimGold)" 
-                    stroke-width="5" 
-                    stroke-linejoin="round"/>
-              <path d="M 505 260 L 630 65" stroke="url(#slimGold)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-
-              <!-- اسم AGRO EXPORT -->
-              <path d="M 25 344 H 145" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
-              <path d="M 595 344 H 715" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
-              <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="52" fill="url(#slimGold)" letter-spacing="13">
-                AGRO EXPORT
-              </text>
-            </g>
+          <svg viewBox="0 0 740 380" class="h-10 sm:h-18 md:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
+            <use href="#eax-brand-logo"></use>
           </svg>
         </a>
 
@@ -366,7 +372,7 @@
         At EAX, we specialize exclusively in sourcing, packing, and shipping 38 first-grade fresh fruits and high-demand vegetables with full compliance to GlobalGAP standards and uninterrupted Reefer cold chain logistics.
       </p>
 
-      <!-- Action Buttons Row (Responsive Grid on Mobile) -->
+      <!-- Action Buttons Row -->
       <div class="reveal-up grid grid-cols-1 xs:grid-cols-2 sm:flex sm:flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-xl mx-auto w-full px-2">
         
         <a href="#catalog" class="btn-shine py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-1.5 transition-all">
@@ -382,7 +388,7 @@
         <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="xs:col-span-2 sm:w-auto py-2.5 sm:py-3.5 px-4 sm:px-5 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
           <span class="p-0.5 rounded bg-white/20 text-white">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
             </svg>
           </span>
           <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
@@ -426,7 +432,7 @@
         </p>
       </div>
 
-      <!-- Mobile Animated Swipe Hint (Only on Mobile) -->
+      <!-- Mobile Animated Swipe Hint -->
       <div class="sm:hidden flex items-center justify-center mb-3.5">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-agro-card/95 border border-agro-goldBorder/80 text-agro-gold text-[10px] font-bold shadow-xs">
           <svg class="w-3.5 h-3.5 swipe-icon-anim shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
@@ -436,7 +442,7 @@
         </span>
       </div>
 
-      <!-- Horizontal swipe on mobile with Card Peeking, grid on desktop -->
+      <!-- Horizontal swipe on mobile, grid on desktop -->
       <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
         <!-- 1. GlobalG.A.P. -->
         <div class="w-[78vw] max-w-[275px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
@@ -494,7 +500,7 @@
           <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">EU PREFERENCE</div>
           <div>
             <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
-              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors">EUR.1 Certificate</h3>
             <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5">0% Duty to EU/UK</p>
@@ -799,97 +805,35 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
-          <!-- Footer Logo SVG -->
-          <a href="#hero" class="inline-block mb-4">
-            <svg viewBox="0 0 740 380" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-12 sm:h-18 md:h-20 w-auto drop-shadow-sm">
-              <defs>
-                <linearGradient id="slimGoldFoot" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#fff0bd"/>
-                  <stop offset="35%" stop-color="#d9a838"/>
-                  <stop offset="70%" stop-color="#8a5a06"/>
-                  <stop offset="100%" stop-color="#e8bf56"/>
-                </linearGradient>
-
-                <linearGradient id="mainGreenFoot" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#0e4b29"/>
-                  <stop offset="50%" stop-color="#062e17"/>
-                  <stop offset="100%" stop-color="#021c0d"/>
-                </linearGradient>
-
-                <linearGradient id="darkNavyArrowFoot" x1="0%" y1="100%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#07202c"/>
-                  <stop offset="50%" stop-color="#0c3245"/>
-                  <stop offset="100%" stop-color="#144b68"/>
-                </linearGradient>
-
-                <filter id="subtleDropFoot" x="-5%" y="-5%" width="115%" height="115%">
-                  <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
-                </filter>
-              </defs>
-
-              <g filter="url(#subtleDropFoot)">
-                <!-- حرف E -->
-                <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" 
-                      fill="url(#mainGreenFoot)" 
-                      stroke="url(#slimGoldFoot)" 
-                      stroke-width="5" 
-                      stroke-linejoin="round"/>
-                <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" 
-                      fill="none" stroke="url(#slimGoldFoot)" stroke-width="1" opacity="0.65"/>
-                <path d="M 65 258 L 135 185" stroke="url(#slimGoldFoot)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-                <path d="M 95 258 L 165 185" stroke="url(#slimGoldFoot)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-
-                <!-- حرف A -->
-                <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" 
-                      fill="url(#mainGreenFoot)" 
-                      stroke="url(#slimGoldFoot)" 
-                      stroke-width="5" 
-                      stroke-linejoin="round"/>
-                <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" 
-                      fill="#ffffff" opacity="0.95"/>
-                <path d="M 385 96 L 385 162" stroke="url(#slimGoldFoot)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-
-                <path d="M 235 275 C 295 258 350 218 405 200 C 355 228 305 262 250 280 Z" fill="url(#slimGoldFoot)"/>
-                <path d="M 270 278 C 330 252 390 212 450 185 C 410 220 345 262 290 284 Z" fill="#063319" stroke="url(#slimGoldFoot)" stroke-width="0.8"/>
-                <path d="M 305 282 C 368 250 428 202 488 170 C 440 212 375 262 325 288 Z" fill="url(#slimGoldFoot)"/>
-
-                <!-- حرف X -->
-                <path d="M 475 45 H 540 L 645 275 H 580 Z" 
-                      fill="url(#mainGreenFoot)" 
-                      stroke="url(#slimGoldFoot)" 
-                      stroke-width="5" 
-                      stroke-linejoin="round"/>
-
-                <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" 
-                      fill="url(#darkNavyArrowFoot)" 
-                      stroke="url(#slimGoldFoot)" 
-                      stroke-width="5" 
-                      stroke-linejoin="round"/>
-                <path d="M 505 260 L 630 65" stroke="url(#slimGoldFoot)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-
-                <!-- الاسم AGRO EXPORT -->
-                <path d="M 25 344 H 145" stroke="url(#slimGoldFoot)" stroke-width="4.5" stroke-linecap="round"/>
-                <path d="M 595 344 H 715" stroke="url(#slimGoldFoot)" stroke-width="4.5" stroke-linecap="round"/>
-                <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="52" fill="url(#slimGoldFoot)" letter-spacing="13">
-                  AGRO EXPORT
-                </text>
-              </g>
+          <!-- Reusable Footer Logo SVG -->
+          <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
+            <svg viewBox="0 0 740 380" class="h-12 sm:h-18 md:h-20 w-auto drop-shadow-sm">
+              <use href="#eax-brand-logo"></use>
             </svg>
           </a>
           <p data-i18n="footer_about" class="text-xs text-slate-600 leading-relaxed max-w-sm">
-            EAX AGRO EXPORT is an international fresh produce grower and exporter, dedicated to supplying premium fresh fruits and vegetables to global wholesale markets and retail chains.
+            شركة مصرية رائدة متخصصة في تصدير 38 منتجاً زراعياً من أجود الفواكه والخضروات الطازجة فرز أول، نربط المزارع المصرية الخصبة بكبرى الأسواق وسلاسل السوبرماركت العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.
           </p>
         </div>
 
         <div>
           <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3">Direct Channels</h4>
           <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700">
+            <!-- Dedicated Calls Number -->
             <li class="flex items-center gap-2.5">
               <span class="w-7 h-7 rounded-lg bg-agro-card border border-agro-border flex items-center justify-center text-agro-primary shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
-              <a href="tel:+201006920920" class="hover:text-agro-primary font-bold" dir="ltr">+20 100 692 0920</a>
+              <a href="tel:+201556564646" class="hover:text-agro-primary font-bold tracking-wide" dir="ltr">+2 015 56 56 46 46</a>
             </li>
+            <!-- Trade & Head Office Line -->
+            <li class="flex items-center gap-2.5">
+              <span class="w-7 h-7 rounded-lg bg-agro-card border border-agro-border flex items-center justify-center text-agro-primary shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </span>
+              <a href="tel:+201006920920" class="hover:text-agro-primary font-bold tracking-wide" dir="ltr">+2 010 06 92 09 20</a>
+            </li>
+            <!-- WhatsApp Line -->
             <li class="flex items-center gap-2.5">
               <span class="w-7 h-7 rounded-lg bg-agro-card border border-agro-border flex items-center justify-center text-emerald-600 shrink-0">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
@@ -969,7 +913,7 @@
       {
         id: 5, group: 'priority', category: 'fruits',
         name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца أغسطس по декабрь",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80"
       },
@@ -1067,7 +1011,7 @@
       {
         id: 19, group: 'summer', category: 'fruits',
         name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
-        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С أغسطس по ноябрь",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80"
       },
@@ -1179,7 +1123,7 @@
       {
         id: 35, group: 'winter', category: 'vegetables',
         name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
       },
@@ -1339,7 +1283,7 @@
         cat_priority: "★ Top Priority Export",
         cat_summer: "Summer Harvest",
         cat_winter: "Winter Harvest",
-        footer_about: "EAX AGRO EXPORT is an international fresh produce grower and exporter, dedicated to supplying premium fresh fruits and vegetables to global wholesale markets and retail chains.",
+        footer_about: "A premier Egyptian agricultural export company specializing in sourcing and shipping 38 certified fresh fruits and vegetables, connecting fertile Egyptian farms to global supermarket chains with unbroken cold chain standards.",
         footer_contact_title: "Direct Channels",
         footer_wa: "WhatsApp Desk",
         footer_quote_title: "Export Resources",
@@ -1347,7 +1291,7 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
       },
       ar: {
-        page_desc: "شركة EAX AGRO EXPORT - تصدير الحاصلات الزراعية والخضار والفاكهة المصرية فرز أول مطابقة للمواصفات الدولية GlobalGAP و BRC لأسواق الاتحاد الأوروبي والخليج وروسيا والصين.",
+        page_desc: "شركة EAX AGRO EXPORT - شركة مصرية رائدة في تصدير 38 منتجاً زراعياً مطابقاً للمواصفات الدولية GlobalGAP و BRC لأسواق الاتحاد الأوروبي والخليج وروسيا والصين.",
         months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
         cooling_banner: "تصدير سريع بمحطات فرز وتبريد آلي متطور",
@@ -1478,7 +1422,7 @@
         cat_priority: "★ أولوية قصوى",
         cat_summer: "محصول صيفي",
         cat_winter: "محصول شتوي",
-        footer_about: "شركة EAX للتصدير الزراعي - منتج ومصدر للحاصلات الزراعية الطازجة، مكرسة لتوريد أجود الخضروات والفواكه لأسواق الجملة وسلاسل التجزئة حول العالم.",
+        footer_about: "شركة مصرية رائدة متخصصة في تصدير 38 منتجاً زراعياً من أجود الفواكه والخضروات الطازجة فرز أول، نربط المزارع المصرية الخصبة بكبرى الأسواق وسلاسل السوبرماركت العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         footer_contact_title: "قنوات الاتصال المباشرة",
         footer_wa: "مكتب الواتساب المباشر",
         footer_quote_title: "موارد التصدير والتعاقد",
@@ -1486,7 +1430,7 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
       },
       zh: {
-        page_desc: "EAX 农业出口 - 埃及顶级出口级新鲜果蔬供应商。拥有 38 种获得 GlobalGAP 与 BRC 认证的优质果蔬直航供应欧洲、海湾、中国及俄罗斯超市。",
+        page_desc: "EAX 农业出口 - 埃及领先出口商，专业直航出口 38 种符合 GlobalGAP 与 BRC 国际高品质标准的新鲜果蔬至全球市场。",
         months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "新鲜农产品出口认证：GlobalGAP, BRC 与 EUR.1 标准",
         cooling_banner: "先进自动化预冷与光学分选分级包装线",
@@ -1617,7 +1561,7 @@
         cat_priority: "★ 核心主力",
         cat_summer: "夏季作物",
         cat_winter: "冬季作物",
-        footer_about: "EAX 农业出口直连埃及核心优质农场与全球超市，为跨国批发市场与零售巨头提供顶级出口级鲜品果蔬。",
+        footer_about: "埃及领先的农产品出口企业，专注供应 38 种出口级高品质新鲜果蔬，依托严密的不间断冷链体系，将埃及核心优质农田直连全球商超与批发市场。",
         footer_contact_title: "直接联系方式",
         footer_wa: "WhatsApp 业务直通车",
         footer_quote_title: "出口业务与采购",
@@ -1754,9 +1698,9 @@
         rfq_vol_ph: "например: 3 x 40ft RF в неделю",
         rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
         cat_priority: "★ Топ приоритет",
-        cat_summer: "Зимний сбор",
+        cat_summer: "Летний сбор",
         cat_winter: "Зимний сбор",
-        footer_about: "EAX AGRO EXPORT — международный производитель и экспортер свежей сельхозпродукции, обеспечивающий поставки отборных овощей и фруктов для оптовых рынков и ритейла.",
+        footer_about: "Ведущая египетская компания по экспорту сельхозпродукции, поставляющая 38 отборных видов свежих овощей и фруктов высшего сорта с египетских полей в мировые торговые сети с соблюдением непрерывной холодовой цепи.",
         footer_contact_title: "Прямые контакты",
         footer_wa: "Отдел продаж в WhatsApp",
         footer_quote_title: "Экспортные программы",
@@ -1839,7 +1783,6 @@
                   <span class="text-slate-600">${t.lbl_export_season}</span>
                   <span class="text-emerald-700 font-extrabold">${cropSeason}</span>
                 </div>
-                <!-- 6 Columns on Mobile (2 clean rows), 12 Columns on Desktop -->
                 <div class="grid grid-cols-6 sm:grid-cols-12 gap-1 sm:gap-0.5 text-center">
                   ${calendarHtml}
                 </div>
@@ -1915,6 +1858,7 @@
       if (!str) return '';
       return str
         .toLowerCase()
+        .replace(/[\u0640]/g, '')
         .replace(/[أإآء]/g, 'ا')
         .replace(/ة/g, 'ه')
         .replace(/[ىئ]/g, 'ي')
@@ -2001,7 +1945,7 @@
 
       const pageTitles = {
         en: 'EAX AGRO EXPORT | Premium Fresh Produce Exporter',
-        ar: 'EAX AGRO EXPORT | كتالوج تصدير الحاصلات الزراعية المعتمد',
+        ar: 'EAX AGRO EXPORT | شركة مصرية رائدة لتصدير 38 محصولاً زراعياً',
         zh: 'EAX 农业出口 | 38种优质埃及新鲜果蔬官方名录',
         ru: 'EAX AGRO EXPORT | Экспорт свежих фруктов и овощей из Египта'
       };
@@ -2187,7 +2131,13 @@
 *Notes:* ${data.notes}`;
 
       const waUrl = `https://wa.me/${BACKEND_CONFIG.whatsappPhone}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
+      const link = document.createElement('a');
+      link.href = waUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
 
     window.addEventListener('keydown', (e) => {
