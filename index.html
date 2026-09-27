@@ -127,6 +127,90 @@
       transform: translateY(0) scale(0.97);
     }
 
+    /* =========================================
+       ✨ Glow Effects for Icons (تنور الأيقونات) ✨
+       ========================================= */
+    .icon-glow-emerald {
+      box-shadow: 0 0 16px 2px rgba(16, 185, 129, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-emerald {
+      box-shadow: 0 0 28px 6px rgba(16, 185, 129, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.9));
+    }
+
+    .icon-glow-amber {
+      box-shadow: 0 0 16px 2px rgba(245, 158, 11, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-amber {
+      box-shadow: 0 0 28px 6px rgba(245, 158, 11, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.9));
+    }
+
+    .icon-glow-sky {
+      box-shadow: 0 0 16px 2px rgba(14, 165, 233, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-sky {
+      box-shadow: 0 0 28px 6px rgba(14, 165, 233, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(14, 165, 233, 0.9));
+    }
+
+    .icon-glow-red {
+      box-shadow: 0 0 16px 2px rgba(239, 68, 68, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-red {
+      box-shadow: 0 0 28px 6px rgba(239, 68, 68, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.9));
+    }
+
+    .icon-glow-orange {
+      box-shadow: 0 0 16px 2px rgba(249, 115, 22, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-orange {
+      box-shadow: 0 0 28px 6px rgba(249, 115, 22, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.9));
+    }
+
+    .icon-glow-pink {
+      box-shadow: 0 0 16px 2px rgba(236, 72, 153, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-pink {
+      box-shadow: 0 0 28px 6px rgba(236, 72, 153, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(236, 72, 153, 0.9));
+    }
+
+    .icon-glow-gold {
+      box-shadow: 0 0 16px 2px rgba(166, 106, 26, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-gold {
+      box-shadow: 0 0 28px 6px rgba(166, 106, 26, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(166, 106, 26, 0.9));
+    }
+
+    .icon-glow-teal {
+      box-shadow: 0 0 16px 2px rgba(20, 184, 166, 0.25);
+      transition: all 0.35s ease;
+    }
+    .group:hover .icon-glow-teal {
+      box-shadow: 0 0 28px 6px rgba(20, 184, 166, 0.65), inset 0 0 12px rgba(255, 255, 255, 0.4);
+      filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.9));
+    }
+
+    /* Ambient Pulsing Glow */
+    @keyframes ambientGlowPulse {
+      0%, 100% { filter: drop-shadow(0 0 4px currentColor); }
+      50% { filter: drop-shadow(0 0 12px currentColor); }
+    }
+    .icon-pulse-glow {
+      animation: ambientGlowPulse 3s ease-in-out infinite;
+    }
+
     .filter-btn {
       transition: all 0.25s ease;
     }
@@ -187,9 +271,9 @@
     }
 
     @keyframes wa-soft-pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.06); }
-      100% { transform: scale(1); }
+      0% { transform: scale(1); box-shadow: 0 0 10px rgba(37, 211, 102, 0.4); }
+      50% { transform: scale(1.06); box-shadow: 0 0 25px rgba(37, 211, 102, 0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 10px rgba(37, 211, 102, 0.4); }
     }
     .wa-float-btn {
       animation: wa-soft-pulse 2.5s ease-in-out infinite;
@@ -284,18 +368,18 @@
         <span class="flex items-center gap-1.5 sm:gap-2 font-semibold text-agro-primary text-[11px] sm:text-xs truncate">
           <span class="relative flex h-2 w-2 shrink-0">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-600"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-600 shadow-[0_0_8px_#f59e0b]"></span>
           </span>
           <span data-i18n="cert_banner" class="truncate">Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards</span>
         </span>
         <span class="hidden md:inline-flex items-center gap-1.5 text-slate-600 font-medium text-xs border-s border-slate-300 ps-3">
-          <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <svg class="w-3.5 h-3.5 text-agro-gold shrink-0 drop-shadow-[0_0_4px_rgba(245,158,11,0.6)]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           <span data-i18n="cooling_banner">Automated pre-cooling & optical sorting lines</span>
         </span>
       </div>
       <div class="shrink-0 ms-auto sm:ms-0">
         <a href="tel:+201556564646" class="hover:text-agro-primary text-slate-800 font-extrabold tracking-wider transition-colors inline-flex items-center gap-1.5 text-[11px] sm:text-xs bg-white/60 hover:bg-white px-2.5 py-0.5 rounded-lg border border-agro-border/60">
-          <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-agro-gold shrink-0 drop-shadow-[0_0_3px_rgba(166,106,26,0.6)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span dir="ltr">+2 015 56 56 46 46</span>
         </a>
       </div>
@@ -328,8 +412,8 @@
           <!-- Header Language Popover Widget -->
           <div class="relative inline-block text-start" id="langPopoverContainer">
             <button type="button" id="langDropdownTrigger" onclick="toggleLangDropdown(event)" aria-haspopup="listbox" aria-expanded="false" class="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 rounded-xl bg-white/90 hover:bg-white border border-agro-border hover:border-agro-gold/60 text-slate-800 text-xs font-black shadow-xs transition-all backdrop-blur-md group">
-              <span class="w-5 h-5 rounded-md bg-agro-surface flex items-center justify-center text-agro-primary">
-                <svg class="w-3 h-3 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              <span class="w-5 h-5 rounded-md bg-agro-surface flex items-center justify-center text-agro-primary shadow-[0_0_8px_rgba(245,158,11,0.25)]">
+                <svg class="w-3.5 h-3.5 text-agro-gold drop-shadow-[0_0_3px_rgba(166,106,26,0.8)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
               </span>
               <span id="currentLangLabel" class="tracking-wide text-[11px] sm:text-xs">العربية</span>
               <svg id="langChevron" class="w-3 h-3 text-slate-400 group-hover:text-agro-primary transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
@@ -341,19 +425,19 @@
               </div>
               <button type="button" role="option" onclick="selectLanguage('ar')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors">
                 <div class="flex items-center gap-2"><span>🇪🇬</span><span>العربية</span></div>
-                <span data-check="ar" class="lang-check hidden text-emerald-600 font-black">✓</span>
+                <span data-check="ar" class="lang-check hidden text-emerald-600 font-black drop-shadow-[0_0_5px_#10b981]">✓</span>
               </button>
               <button type="button" role="option" onclick="selectLanguage('en')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors">
                 <div class="flex items-center gap-2"><span>🇬🇧</span><span>English</span></div>
-                <span data-check="en" class="lang-check hidden text-emerald-600 font-black">✓</span>
+                <span data-check="en" class="lang-check hidden text-emerald-600 font-black drop-shadow-[0_0_5px_#10b981]">✓</span>
               </button>
               <button type="button" role="option" onclick="selectLanguage('zh')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors">
                 <div class="flex items-center gap-2"><span>🇨🇳</span><span>中文 (简体)</span></div>
-                <span data-check="zh" class="lang-check hidden text-emerald-600 font-black">✓</span>
+                <span data-check="zh" class="lang-check hidden text-emerald-600 font-black drop-shadow-[0_0_5px_#10b981]">✓</span>
               </button>
               <button type="button" role="option" onclick="selectLanguage('ru')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors">
                 <div class="flex items-center gap-2"><span>🇷🇺</span><span>Русский</span></div>
-                <span data-check="ru" class="lang-check hidden text-emerald-600 font-black">✓</span>
+                <span data-check="ru" class="lang-check hidden text-emerald-600 font-black drop-shadow-[0_0_5px_#10b981]">✓</span>
               </button>
             </div>
           </div>
@@ -394,7 +478,7 @@
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
       <div class="reveal-up inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-agro-goldLight/90 border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black mb-4 sm:mb-6 shadow-xs">
-        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-600 shrink-0"></span>
+        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-600 shrink-0 shadow-[0_0_6px_#d97706]"></span>
         <span data-i18n="hero_badge">EAX AGRO EXPORT • Global Fresh Produce Logistics</span>
       </div>
 
@@ -410,16 +494,16 @@
       <div class="reveal-up grid grid-cols-1 sm:grid-cols-3 items-center justify-center gap-2.5 sm:gap-4 max-w-2xl mx-auto w-full px-2">
         <a href="#catalog" class="btn-glow py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
           <span data-i18n="btn_catalog_hero">View 38 Produce</span>
-          <svg class="w-4 h-4 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+          <svg class="w-4 h-4 text-amber-300 shrink-0 drop-shadow-[0_0_5px_#fde047]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
         </a>
 
         <a href="#rfq" class="btn-glow py-3 px-4 rounded-xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
-          <svg class="w-4 h-4 text-agro-accent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <svg class="w-4 h-4 text-agro-accent shrink-0 drop-shadow-[0_0_4px_rgba(47,109,72,0.8)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="nav_rfq">Request Quote</span>
         </a>
 
         <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
-          <span class="p-0.5 rounded bg-white/20 text-white">
+          <span class="p-0.5 rounded bg-white/20 text-white shadow-[0_0_6px_rgba(255,255,255,0.4)]">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
           </span>
           <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
@@ -442,12 +526,12 @@
     </div>
   </section>
 
-  <!-- 3. Quality Assurance Section -->
+  <!-- 3. Quality Assurance Section (الأيقونات المنورة ✨) -->
   <section id="quality-assurance" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-16 reveal-up">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
-          <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+          <svg class="w-3.5 h-3.5 text-emerald-600 drop-shadow-[0_0_4px_#10b981]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span data-i18n="qa_badge">Uncompromised Freshness</span>
         </div>
         <h2 data-i18n="qa_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Cold Chain & Quality Control</h2>
@@ -457,60 +541,64 @@
       </div>
 
       <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-7 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
-        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        
+        <!-- QA Card 1: Emerald Neon Glow -->
+        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
           <div data-i18n="qa_s1_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">2H POST-HARVEST</div>
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/></svg>
+            <div class="w-14 h-14 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 icon-glow-emerald group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-7 h-7 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/></svg>
             </div>
-            <h3 data-i18n="qa_s1_title" class="font-black text-lg text-slate-900 mb-2 text-start">Rapid Pre-Cooling</h3>
+            <h3 data-i18n="qa_s1_title" class="font-black text-lg text-slate-900 mb-2 text-start group-hover:text-emerald-700 transition-colors">Rapid Pre-Cooling</h3>
             <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
             <span>TEMP: 2°C - 4°C</span>
-            <span class="text-emerald-600 font-bold">Hydrocooled</span>
+            <span class="text-emerald-600 font-bold drop-shadow-[0_0_4px_rgba(16,185,129,0.5)]">Hydrocooled</span>
           </div>
         </div>
 
-        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- QA Card 2: Amber Neon Glow -->
+        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-amber-500/50 transition-all duration-300">
           <div data-i18n="qa_s2_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">BRIX & CALIBER</div>
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-5 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
+            <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-5 icon-glow-amber group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-7 h-7 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
             </div>
-            <h3 data-i18n="qa_s2_title" class="font-black text-lg text-slate-900 mb-2 text-start">Optical Grading & Sizing</h3>
+            <h3 data-i18n="qa_s2_title" class="font-black text-lg text-slate-900 mb-2 text-start group-hover:text-amber-700 transition-colors">Optical Grading & Sizing</h3>
             <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
             <span>ACCURACY: ±0.5mm</span>
-            <span class="text-amber-600 font-bold">100% Inspected</span>
+            <span class="text-amber-600 font-bold drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">100% Inspected</span>
           </div>
         </div>
 
-        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- QA Card 3: Sky Blue Neon Glow -->
+        <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300">
           <div data-i18n="qa_s3_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">24/7 SATELLITE</div>
           <div>
-            <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-5 shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
+            <div class="w-14 h-14 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-5 icon-glow-sky group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-7 h-7 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
             </div>
-            <h3 data-i18n="qa_s3_title" class="font-black text-lg text-slate-900 mb-2 text-start">IoT Reefer Tracking</h3>
+            <h3 data-i18n="qa_s3_title" class="font-black text-lg text-slate-900 mb-2 text-start group-hover:text-sky-700 transition-colors">IoT Reefer Tracking</h3>
             <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed text-start">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
           </div>
           <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400 font-mono">
             <span>TELEMETRY: IoT Live</span>
-            <span class="text-sky-600 font-bold">Unbroken Cold</span>
+            <span class="text-sky-600 font-bold drop-shadow-[0_0_4px_rgba(14,165,233,0.5)]">Unbroken Cold</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. Certifications Section -->
+  <!-- 4. Certifications Section (أيقونات الشهادات المتوهجة) -->
   <section id="certifications" class="py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-agro-surface/60 via-white/80 to-agro-surface/60 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-8 sm:mb-14 reveal-up">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/20 text-agro-primary text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
-          <svg class="w-3.5 h-3.5 text-agro-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/20 text-agro-primary text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3 shadow-[0_0_12px_rgba(166,106,26,0.15)]">
+          <svg class="w-3.5 h-3.5 text-agro-gold drop-shadow-[0_0_4px_rgba(166,106,26,0.8)]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
           <span data-i18n="cert_badge_tag">Quality & Compliance</span>
         </div>
         <h2 data-i18n="cert_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Export Standards & Certifications</h2>
@@ -520,90 +608,95 @@
       </div>
 
       <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5 lg:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
-        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between">
+        <!-- 1. GlobalG.A.P. -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between hover:border-emerald-500/40 transition-all duration-300">
           <div data-i18n="cert_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black uppercase border border-emerald-200">AUDITED</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 icon-glow-emerald group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
-            <h3 class="font-black text-base text-slate-900 text-start">GlobalG.A.P.</h3>
+            <h3 class="font-black text-base text-slate-900 text-start group-hover:text-emerald-800 transition-colors">GlobalG.A.P.</h3>
             <p data-i18n="cert_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5 text-start">IFA Certified (v6)</p>
             <p data-i18n="cert_c1_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c1_reg">REG: #EAX-GGN</span>
-            <span data-i18n="cert_c1_stat" class="text-emerald-600 font-bold">100% Active</span>
+            <span data-i18n="cert_c1_stat" class="text-emerald-600 font-bold drop-shadow-[0_0_3px_#10b981]">100% Active</span>
           </div>
         </div>
 
-        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between">
+        <!-- 2. BRCGS -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300">
           <div data-i18n="cert_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black uppercase border border-amber-200">GRADE A</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 icon-glow-amber group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
-            <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 text-start">BRCGS Food</h3>
+            <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 text-start group-hover:text-amber-800 transition-colors">BRCGS Food</h3>
             <p data-i18n="cert_c2_sub" class="text-xs font-bold text-amber-700 mt-0.5 text-start">GFSI Benchmark</p>
             <p data-i18n="cert_c2_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">International packinghouse hygiene, cross-contamination control, and packing audits.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c2_cat">CAT: Fresh Crops</span>
-            <span data-i18n="cert_c2_stat" class="text-amber-600 font-bold">Grade A</span>
+            <span data-i18n="cert_c2_stat" class="text-amber-600 font-bold drop-shadow-[0_0_3px_#f59e0b]">Grade A</span>
           </div>
         </div>
 
-        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between">
+        <!-- 3. ISO 22000 -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between hover:border-sky-500/40 transition-all duration-300">
           <div data-i18n="cert_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black uppercase border border-sky-200">ISO AUDITED</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4 icon-glow-sky group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
-            <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 text-start">ISO 22000</h3>
+            <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 text-start group-hover:text-sky-800 transition-colors">ISO 22000</h3>
             <p data-i18n="cert_c3_sub" class="text-xs font-bold text-sky-700 mt-0.5 text-start">& HACCP Systems</p>
             <p data-i18n="cert_c3_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Systematic hazard analysis, cold-storage validation, and sanitary risk control.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c3_std">STD: ISO 22000</span>
-            <span data-i18n="cert_c3_stat" class="text-sky-600 font-bold">Compliant</span>
+            <span data-i18n="cert_c3_stat" class="text-sky-600 font-bold drop-shadow-[0_0_3px_#0284c7]">Compliant</span>
           </div>
         </div>
 
-        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between">
+        <!-- 4. EUR.1 -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between hover:border-amber-500/40 transition-all duration-300">
           <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black uppercase border border-amber-200">EU PREFERENCE</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 icon-glow-gold group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
-            <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 text-start">EUR.1 Certificate</h3>
+            <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 text-start group-hover:text-amber-900 transition-colors">EUR.1 Certificate</h3>
             <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5 text-start">0% Duty to EU/UK</p>
             <p data-i18n="cert_c4_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Preferential customs clearance documentation granting zero import tariff across Europe.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c4_agr">AGREEMENT: EU-EG</span>
-            <span data-i18n="cert_c4_stat" class="text-agro-gold font-bold">0% Tariff</span>
+            <span data-i18n="cert_c4_stat" class="text-agro-gold font-bold drop-shadow-[0_0_3px_#d97706]">0% Tariff</span>
           </div>
         </div>
 
-        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between">
+        <!-- 5. Phytosanitary -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 shadow-sm flex flex-col justify-between hover:border-teal-500/40 transition-all duration-300">
           <div data-i18n="cert_c5_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black uppercase border border-teal-200">OFFICIAL GOV</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-4 icon-glow-teal group-hover:scale-110 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
-            <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 text-start">Phytosanitary</h3>
+            <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 text-start group-hover:text-teal-800 transition-colors">Phytosanitary</h3>
             <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5 text-start">Pest & Residue Free</p>
             <p data-i18n="cert_c5_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free clearance.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c5_insp">INSPECTION: MoA</span>
-            <span data-i18n="cert_c5_stat" class="text-teal-600 font-bold">100% Passed</span>
+            <span data-i18n="cert_c5_stat" class="text-teal-600 font-bold drop-shadow-[0_0_3px_#0d9488]">100% Passed</span>
           </div>
         </div>
       </div>
 
       <div class="mt-6 sm:mt-8 p-3.5 sm:p-5 rounded-2xl bg-white border border-agro-border flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 shadow-xs reveal-up">
         <div class="flex items-center gap-2 font-bold text-agro-primary text-[11px] sm:text-xs text-start">
-          <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <svg class="w-4 h-4 text-emerald-600 shrink-0 drop-shadow-[0_0_4px_#10b981]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span data-i18n="cert_trust_text">Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.</span>
         </div>
         <div class="flex items-center gap-3 text-[10px] sm:text-[11px] font-semibold text-slate-500" data-i18n="cert_ports">
@@ -613,12 +706,12 @@
     </div>
   </section>
 
-  <!-- 5. Shipping Lines Section -->
+  <!-- 5. Shipping Lines Section (أيقونات خطوط الشحن المنورة) -->
   <section id="logistics" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-16 reveal-up">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-goldLight border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
-          <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-goldLight border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3 shadow-[0_0_12px_rgba(245,158,11,0.2)]">
+          <svg class="w-3.5 h-3.5 text-agro-gold drop-shadow-[0_0_4px_rgba(245,158,11,0.8)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" /></svg>
           <span data-i18n="carrier_badge">Global Maritime Alliances</span>
         </div>
         <h2 data-i18n="carrier_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Top 5 Global Shipping Lines</h2>
@@ -628,83 +721,88 @@
       </div>
 
       <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory lg:grid lg:grid-cols-5 sm:grid sm:grid-cols-2 gap-4 sm:gap-5 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
-        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- MSC -->
+        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-amber-500/50 transition-all duration-300">
           <div data-i18n="c1_rank" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 text-[9px] font-black uppercase border border-amber-200">#1 WORLD CARRIER</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-800 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 icon-glow-amber group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/></svg>
             </div>
-            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start">MSC</h3>
+            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-amber-900 transition-colors">MSC</h3>
             <p data-i18n="c1_sub" class="text-xs font-bold text-amber-700 mb-2 text-start">Mediterranean Shipping Co.</p>
             <p data-i18n="c1_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Unmatched weekly sailings from Alexandria, Damietta & Port Said East directly to Black Sea (Novorossiysk), Mediterranean & GCC hubs.</p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c1_tech">TECH: Medlog Smart Reefer</span>
-            <span class="text-amber-700 font-bold">Daily Priority</span>
+            <span class="text-amber-700 font-bold drop-shadow-[0_0_4px_rgba(245,158,11,0.5)]">Daily Priority</span>
           </div>
         </div>
 
-        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- Maersk -->
+        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300">
           <div data-i18n="c2_rank" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-800 text-[9px] font-black uppercase border border-sky-200">COLD CHAIN LEADER</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4 icon-glow-sky group-hover:scale-110 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
-            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start">Maersk Line</h3>
+            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-sky-900 transition-colors">Maersk Line</h3>
             <p data-i18n="c2_sub" class="text-xs font-bold text-sky-700 mb-2 text-start">A.P. Moller – Maersk</p>
             <p data-i18n="c2_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Operates primary hub at Port Said East (SCCT) with direct express loops to North Europe (Rotterdam 4-6 days), Felixstowe & Americas.</p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c2_tech">TECH: StarCool® CA + RCM</span>
-            <span class="text-sky-700 font-bold">Live Telemetry</span>
+            <span class="text-sky-700 font-bold drop-shadow-[0_0_4px_rgba(14,165,233,0.5)]">Live Telemetry</span>
           </div>
         </div>
 
-        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- CMA CGM -->
+        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-red-500/50 transition-all duration-300">
           <div data-i18n="c3_rank" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-red-50 text-red-800 text-[9px] font-black uppercase border border-red-200">MEDITERRANEAN SPECIALIST</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center mb-4 icon-glow-red group-hover:scale-110 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/></svg>
             </div>
-            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start">CMA CGM Group</h3>
+            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-red-900 transition-colors">CMA CGM Group</h3>
             <p data-i18n="c3_sub" class="text-xs font-bold text-red-700 mb-2 text-start">French Maritime Giant</p>
             <p data-i18n="c3_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Key operator at Alexandria TMT Terminal and Damietta with high-frequency sailings to Southern Europe (Fos, Valencia, Genoa) and Black Sea.</p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c3_tech">TECH: Climactive® Low-O2</span>
-            <span class="text-red-700 font-bold">Fast Citrus Transit</span>
+            <span class="text-red-700 font-bold drop-shadow-[0_0_4px_rgba(239,68,68,0.5)]">Fast Citrus Transit</span>
           </div>
         </div>
 
-        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- Hapag-Lloyd -->
+        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-orange-500/50 transition-all duration-300">
           <div data-i18n="c4_rank" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-orange-50 text-orange-800 text-[9px] font-black uppercase border border-orange-200">GERMAN PRECISION</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-4 icon-glow-orange group-hover:scale-110 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg>
             </div>
-            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start">Hapag-Lloyd</h3>
+            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-orange-900 transition-colors">Hapag-Lloyd</h3>
             <p data-i18n="c4_sub" class="text-xs font-bold text-orange-700 mb-2 text-start">German Flag Carrier</p>
             <p data-i18n="c4_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Main partner at Damietta Container Terminal with dedicated refrigerated services for high-value delicate crops to North Europe and the UK.</p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c4_tech">TECH: ExtraFresh Plus®</span>
-            <span class="text-orange-700 font-bold">Atmospheric Mod</span>
+            <span class="text-orange-700 font-bold drop-shadow-[0_0_4px_rgba(249,115,22,0.5)]">Atmospheric Mod</span>
           </div>
         </div>
 
-        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between">
+        <!-- ONE -->
+        <div class="w-[80vw] max-w-[285px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-pink-500/50 transition-all duration-300">
           <div data-i18n="c5_rank" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-pink-50 text-pink-800 text-[9px] font-black uppercase border border-pink-200">ASIA & RED SEA</div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-pink-50 text-pink-700 flex items-center justify-center mb-4 shadow-inner">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <div class="w-12 h-12 rounded-2xl bg-pink-50 text-pink-600 flex items-center justify-center mb-4 icon-glow-pink group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all duration-300">
+              <svg class="w-6 h-6 icon-pulse-glow" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
-            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start">ONE</h3>
+            <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-pink-900 transition-colors">ONE</h3>
             <p data-i18n="c5_sub" class="text-xs font-bold text-pink-700 mb-2 text-start">Ocean Network Express</p>
             <p data-i18n="c5_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Japanese liner consortium connecting Damietta & Sokhna Port via express Suez routes to Far East (Singapore, Shenzhen, Shanghai).</p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c5_tech">TECH: Smart IoT Dehumid</span>
-            <span class="text-pink-700 font-bold">Fast Asia Transit</span>
+            <span class="text-pink-700 font-bold drop-shadow-[0_0_4px_rgba(236,72,153,0.5)]">Fast Asia Transit</span>
           </div>
         </div>
       </div>
@@ -798,7 +896,7 @@
         </div>
 
         <button type="submit" id="rfqSubmitBtn" class="btn-glow w-full py-3.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 border border-agro-goldBorder/40">
-          <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <svg class="w-4 h-4 text-emerald-400 drop-shadow-[0_0_6px_#34d399]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <span data-i18n="rfq_btn_submit">Submit Formal RFQ</span>
         </button>
       </form>
@@ -823,17 +921,17 @@
         <div>
           <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Direct Channels</h4>
           <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
-            <li class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-agro-primary shrink-0 shadow-xs">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <li class="flex items-center gap-3 group">
+              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-agro-primary shrink-0 shadow-xs icon-glow-emerald group-hover:scale-105 transition-all">
+                <svg class="w-4 h-4 drop-shadow-[0_0_3px_#10b981]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
               <a href="tel:+201556564646" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 015 56 56 46 46</span>
               </a>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-emerald-600 shrink-0 shadow-xs">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <li class="flex items-center gap-3 group">
+              <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-emerald-600 shrink-0 shadow-xs icon-glow-emerald group-hover:scale-105 transition-all">
+                <svg class="w-4 h-4 drop-shadow-[0_0_3px_#10b981]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </span>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 010 06 920 920</span>
@@ -846,8 +944,8 @@
           <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Export Resources</h4>
           <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-3.5 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
           <div class="flex flex-col gap-2.5 max-w-sm">
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
-              <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs group">
+              <svg class="w-4 h-4 text-amber-600 drop-shadow-[0_0_4px_rgba(245,158,11,0.7)] group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
             </a>
             <a href="#rfq" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm shadow-md">
@@ -863,16 +961,16 @@
     </div>
   </footer>
 
-  <!-- Quick Floating WhatsApp Button -->
+  <!-- Quick Floating WhatsApp Button (مع إضاءة نيون خضراء متوهجة) -->
   <aside aria-label="Quick WhatsApp Contact" class="fixed bottom-4 end-4 sm:bottom-6 sm:end-6 z-50 flex items-center">
     <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="wa-float-btn w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95" aria-label="Chat on WhatsApp">
-      <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.468 1.328 4.975l-1.411 5.158 5.281-1.385c1.45.792 3.097 1.252 4.802 1.252 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/>
       </svg>
     </a>
   </aside>
 
-  <!-- Script & Database -->
+  <!-- Complete Crops Database with Dynamic Updating -->
   <script>
     const BACKEND_CONFIG = {
       mode: 'whatsapp',
@@ -947,7 +1045,7 @@
       {
         id: 10, group: 'summer', category: 'vegetables',
         name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
         months: [3,4,5,6,7],
         image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80"
       },
@@ -1059,7 +1157,7 @@
       {
         id: 26, group: 'winter', category: 'vegetables',
         name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80"
       },
@@ -1080,7 +1178,7 @@
       {
         id: 29, group: 'winter', category: 'fruits',
         name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80"
       },
@@ -1122,21 +1220,21 @@
       {
         id: 35, group: 'winter', category: 'vegetables',
         name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 36, group: 'winter', category: 'vegetables',
         name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат",
-        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С نوفمبر по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 37, group: 'winter', category: 'vegetables',
         name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)",
-        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С نوفمبر по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?auto=format&fit=crop&w=800&q=80"
       },
@@ -1768,7 +1866,7 @@
           </div>
           <div class="p-4 sm:p-5 pt-0">
             <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-glow w-full py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
-              <svg class="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <svg class="w-3.5 h-3.5 text-amber-300 shrink-0 drop-shadow-[0_0_4px_#fde047]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span class="btn-req-text"></span>
             </button>
           </div>
@@ -1825,7 +1923,7 @@
           for (let m = 1; m <= 12; m++) {
             const isActive = crop.months.includes(m);
             const mName = t.months[m - 1];
-            html += `<div class="rounded ${isActive ? 'bg-green-600 text-white font-black' : 'bg-slate-100 text-slate-300'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px] font-bold">${mName}</div>`;
+            html += `<div class="rounded ${isActive ? 'bg-green-600 text-white font-black shadow-[0_0_6px_rgba(22,163,74,0.6)]' : 'bg-slate-100 text-slate-300'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px] font-bold">${mName}</div>`;
           }
           calendarEl.innerHTML = html;
         }
