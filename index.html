@@ -100,24 +100,44 @@
         radial-gradient(at 20% 90%, rgba(219, 232, 214, 0.55) 0px, transparent 50%);
     }
 
-    .btn-shine {
+    /* Glow & Lift Interaction Effects */
+    .btn-glow {
       position: relative;
       overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .btn-shine::after {
+    .btn-glow::after {
       content: '';
       position: absolute;
       top: 0;
       left: -150%;
-      width: 50%;
+      width: 60%;
       height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
       transform: skewX(-25deg);
-      transition: all 0.75s ease;
+      transition: all 0.8s ease;
     }
-    .btn-shine:hover::after {
+    .btn-glow:hover::after {
       left: 150%;
-      transition: all 0.75s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-3px) scale(1.015);
+      box-shadow: 0 12px 28px -4px rgba(20, 61, 40, 0.35), 0 0 16px 2px rgba(166, 106, 26, 0.25);
+    }
+    .btn-glow:active {
+      transform: translateY(0) scale(0.97);
+    }
+
+    .filter-btn {
+      transition: all 0.25s ease;
+    }
+    .filter-btn:hover:not(.active) {
+      transform: translateY(-2px);
+      border-color: #a66a1a;
+      box-shadow: 0 6px 14px -2px rgba(166, 106, 26, 0.18);
+    }
+    .filter-btn.active {
+      box-shadow: 0 8px 20px -3px rgba(20, 61, 40, 0.35);
     }
 
     .animate-gradient-text {
@@ -138,13 +158,13 @@
       flex-direction: column;
       justify-content: space-between;
       transform: translateZ(0);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
     }
     @media (hover: hover) {
       .spotlight-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-5px);
         border-color: #bcd2b8;
-        box-shadow: 0 14px 28px -6px rgba(20, 61, 40, 0.1);
+        box-shadow: 0 16px 32px -6px rgba(20, 61, 40, 0.12), 0 0 12px 1px rgba(47, 109, 72, 0.1);
       }
     }
 
@@ -328,7 +348,7 @@
         </nav>
 
         <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
+          <a href="#rfq" class="hidden sm:inline-flex btn-glow items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
@@ -378,17 +398,17 @@
       </p>
 
       <div class="reveal-up grid grid-cols-1 sm:grid-cols-3 sm:flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-2xl mx-auto w-full px-2">
-        <a href="#catalog" class="btn-shine py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
+        <a href="#catalog" class="btn-glow py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
           <span data-i18n="btn_catalog_hero">View 38 Produce</span>
           <svg class="w-4 h-4 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
         </a>
 
-        <a href="#rfq" class="py-3 px-4 rounded-xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
+        <a href="#rfq" class="btn-glow py-3 px-4 rounded-xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
           <svg class="w-4 h-4 text-agro-accent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="nav_rfq">Request Quote</span>
         </a>
 
-        <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
+        <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
           <span class="p-0.5 rounded bg-white/20 text-white">
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
           </span>
@@ -412,8 +432,8 @@
     </div>
   </section>
 
-  <!-- 3. Quality Assurance & Cold Chain (Placed high as requested) -->
-  <section id="quality-assurance" class="py-12 sm:py-20 lg:py-24 bg-white/70 border-t border-agro-border relative">
+  <!-- 3. Quality Assurance & Cold Chain Section -->
+  <section id="quality-assurance" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-16 reveal-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
@@ -572,8 +592,8 @@
     </div>
   </section>
 
-  <!-- 5. Global Logistics & Shipping Section -->
-  <section id="logistics" class="py-12 sm:py-20 lg:py-24 bg-white/70 border-t border-agro-border relative">
+  <!-- 5. Global Logistics Section (Fully Translated across 4 Languages) -->
+  <section id="logistics" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-10 sm:mb-16 reveal-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-goldLight border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
@@ -588,31 +608,31 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 reveal-up">
         <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div class="text-[10px] font-black text-agro-gold uppercase mb-1">Destination: EU / UK</div>
-          <h3 class="font-black text-base sm:text-lg text-slate-900 mb-2">Rotterdam / Koper</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.</p>
-          <span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold">Transit: 4 - 7 Days</span>
+          <div data-i18n="log_c1_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: EU / UK</div>
+          <h3 data-i18n="log_c1_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Rotterdam / Koper</h3>
+          <p data-i18n="log_c1_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.</p>
+          <span data-i18n="log_c1_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 4 - 7 Days</span>
         </div>
 
         <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div class="text-[10px] font-black text-agro-gold uppercase mb-1">Destination: GCC & Middle East</div>
-          <h3 class="font-black text-base sm:text-lg text-slate-900 mb-2">Jebel Ali / Jeddah</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.</p>
-          <span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold">Transit: 3 - 5 Days</span>
+          <div data-i18n="log_c2_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: GCC & Middle East</div>
+          <h3 data-i18n="log_c2_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Jebel Ali / Jeddah</h3>
+          <p data-i18n="log_c2_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.</p>
+          <span data-i18n="log_c2_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 3 - 5 Days</span>
         </div>
 
         <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div class="text-[10px] font-black text-agro-gold uppercase mb-1">Destination: Russia / CIS</div>
-          <h3 class="font-black text-base sm:text-lg text-slate-900 mb-2">Novorossiysk / SPB</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.</p>
-          <span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold">Transit: 6 - 9 Days</span>
+          <div data-i18n="log_c3_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: Russia / CIS</div>
+          <h3 data-i18n="log_c3_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Novorossiysk / SPB</h3>
+          <p data-i18n="log_c3_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.</p>
+          <span data-i18n="log_c3_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 6 - 9 Days</span>
         </div>
 
         <div class="spotlight-card p-6 rounded-2xl bg-white border border-agro-border">
-          <div class="text-[10px] font-black text-agro-gold uppercase mb-1">Destination: East Asia</div>
-          <h3 class="font-black text-base sm:text-lg text-slate-900 mb-2">Shenzhen / Shanghai</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.</p>
-          <span class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold">Transit: 18 - 22 Days</span>
+          <div data-i18n="log_c4_dest" class="text-[10px] font-black text-agro-gold uppercase mb-1 text-start">Destination: East Asia</div>
+          <h3 data-i18n="log_c4_title" class="font-black text-base sm:text-lg text-slate-900 mb-2 text-start">Shenzhen / Shanghai</h3>
+          <p data-i18n="log_c4_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.</p>
+          <span data-i18n="log_c4_transit" class="inline-block px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-[11px] font-bold self-start">Transit: 18 - 22 Days</span>
         </div>
       </div>
     </div>
@@ -704,7 +724,7 @@
           <textarea id="rfqNotes" rows="3" class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
         </div>
 
-        <button type="submit" id="rfqSubmitBtn" class="btn-shine w-full py-3 sm:py-3.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 border border-agro-goldBorder/40">
+        <button type="submit" id="rfqSubmitBtn" class="btn-glow w-full py-3.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 border border-agro-goldBorder/40">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <span data-i18n="rfq_btn_submit">Submit Formal RFQ</span>
         </button>
@@ -819,11 +839,11 @@
           <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Export Resources</h4>
           <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-3.5 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
           <div class="flex flex-col gap-2.5 max-w-sm">
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
             </a>
-            <a href="#rfq" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm shadow-md">
+            <a href="#rfq" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm shadow-md">
               <span data-i18n="cta_quote">Container Quotation</span>
             </a>
           </div>
@@ -854,7 +874,7 @@
     };
 
     // 1 to 5: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
-    // All 38 crops with matched images and 12-month calendar support
+    // All 38 crops with matched images and 12-month calendar matrix
     const CROPS = [
       {
         id: 1, group: 'priority', category: 'vegetables',
@@ -894,7 +914,7 @@
       {
         id: 6, group: 'priority', category: 'fruits',
         name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
       },
@@ -915,14 +935,14 @@
       {
         id: 9, group: 'priority', category: 'fruits',
         name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)", name_ru: "Свежая клубника (Фестиваль и Фортуна)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
       },
       {
         id: 10, group: 'summer', category: 'vegetables',
         name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
         months: [3,4,5,6,7],
         image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80"
       },
@@ -1034,7 +1054,7 @@
       {
         id: 26, group: 'winter', category: 'vegetables',
         name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80"
       },
@@ -1117,7 +1137,7 @@
       },
       {
         id: 38, group: 'winter', category: 'vegetables',
-        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)", name_ru: "Свежая пряная зелень (укроп, петрушка, киنза, мята)",
+        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)", name_ru: "Свежая пряная зелень (укроп, петрушка, кинза, мята)",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
         months: [10,11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=800&q=80"
@@ -1126,6 +1146,7 @@
 
     const translations = {
       en: {
+        page_desc: "EAX AGRO EXPORT - Premier Egyptian Fresh Produce Exporter. 38 Certified export-grade crops shipping to EU, GCC, China, and Russia.",
         months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         cert_banner: "Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards",
         cooling_banner: "Automated pre-cooling & optical sorting lines",
@@ -1138,7 +1159,7 @@
         nav_contact: "Contact Us",
         nav_rfq: "Request Quote",
         cta_quote: "Get a Quote",
-        btn_catalog_hero: "View 38 Produce Catalog",
+        btn_catalog_hero: "View 38 Produce",
         btn_pdf_catalog: "View PDF Catalog",
         hero_badge: "EAX AGRO EXPORT • Global Fresh Produce Logistics",
         hero_title_1: "Pure Premium Produce",
@@ -1194,6 +1215,22 @@
         log_badge: "Global Reach",
         log_title: "Export Ports & Shipping Corridors",
         log_desc: "Operating directly through Egypt's primary Mediterranean and Red Sea container terminals.",
+        log_c1_dest: "Destination: EU / UK",
+        log_c1_title: "Rotterdam / Koper",
+        log_c1_desc: "Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.",
+        log_c1_transit: "Transit: 4 - 7 Days",
+        log_c2_dest: "Destination: GCC & Middle East",
+        log_c2_title: "Jebel Ali / Jeddah",
+        log_c2_desc: "Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.",
+        log_c2_transit: "Transit: 3 - 5 Days",
+        log_c3_dest: "Destination: Russia & CIS",
+        log_c3_title: "Novorossiysk / Saint Petersburg",
+        log_c3_desc: "Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.",
+        log_c3_transit: "Transit: 6 - 9 Days",
+        log_c4_dest: "Destination: East Asia & China",
+        log_c4_title: "Shenzhen / Shanghai",
+        log_c4_desc: "Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.",
+        log_c4_transit: "Transit: 18 - 22 Days",
         catalog_badge: "Official Export Catalog",
         catalog_heading: "38 Export-Grade Fruits & Vegetables",
         filter_all: "All 38 Produce",
@@ -1233,6 +1270,7 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
       },
       ar: {
+        page_desc: "شركة EAX AGRO EXPORT - تصدير 38 محصولاً زراعياً مصرياً فرز أول مطابقاً للمواصفات الدولية GlobalGAP و BRC لأسواق الاتحاد الأوروبي والخليج وروسيا والصين.",
         months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
         cooling_banner: "تصدير سريع بمحطات فرز وتبريد آلي متطور",
@@ -1298,9 +1336,25 @@
         cert_c5_stat: "مجاز 100%",
         cert_trust_text: "تحليل متبقيات المبيدات: معامل معتمدة دولياً بنظام ISO 17025 تفحص كل حاوية قبل الشحن.",
         cert_ports: "ميناء دمياط • ميناء الإسكندرية • ميناء العين السخنة",
-        log_badge: "شحن عالمي",
-        log_title: "موانئ التصدير وممرات الشحن",
-        log_desc: "شحن مباشر من كبرى الموانئ المصرية على البحرين المتوسط والأحمر لجميع الأسواق العالمية.",
+        log_badge: "الوصول العالمي واللوجستيات",
+        log_title: "موانئ التصدير وممرات الشحن الدولي",
+        log_desc: "شحن مباشر عبر كبرى محطات الحاويات المصرية على البحرين الأبيض المتوسط والأحمر لجميع الأسواق العالمية.",
+        log_c1_dest: "الوجهة: الاتحاد الأوروبي وبريطانيا",
+        log_c1_title: "روتردام / كوبر",
+        log_c1_desc: "إبحار مباشر وسريع من مينائي الإسكندرية ودمياط مع إفراج جمركي تفضيلي فوري بشهادة EUR.1 دون جمارك.",
+        log_c1_transit: "مدة الإبحار: 4 - 7 أيام",
+        log_c2_dest: "الوجهة: دول الخليج والشرق الأوسط",
+        log_c2_title: "جبل علي / جدة الإسلامي",
+        log_c2_desc: "ممرات شحن بحرية وبرية مبردة تخدم سلاسل السوبرماركت في السعودية والإمارات والكويت بسلاسة.",
+        log_c2_transit: "مدة الإبحار: 3 - 5 أيام",
+        log_c3_dest: "الوجهة: روسيا ودول الكومنولث",
+        log_c3_title: "نوفوروسيسك / سانت بطرسبرغ",
+        log_c3_desc: "خطوط شحن مباشرة عبر البحر الأسود والبلطيق مع ملصقات وفحص مطابق للحجر النباتي الروسي.",
+        log_c3_transit: "مدة الإبحار: 6 - 9 أيام",
+        log_c4_dest: "الوجهة: الصين وشرق آسيا",
+        log_c4_title: "شنتشن / شنغهاي",
+        log_c4_desc: "حاويات متطورة بنظام الغلاف الجوي المضبوط (CA) للحفاظ على ثمار الحمضيات والتمور الطازجة.",
+        log_c4_transit: "مدة الإبحار: 18 - 22 يوماً",
         catalog_badge: "كتالوج التصدير الرسمي المعتمد",
         catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
         filter_all: "جميع الحاصلات (38)",
@@ -1340,6 +1394,7 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
       },
       zh: {
+        page_desc: "EAX 农业出口 - 专业直航出口 38 种符合 GlobalGAP 与 BRC 国际高品质标准的新鲜果蔬至全球市场。",
         months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "新鲜农产品出口认证：GlobalGAP, BRC 与 EUR.1 标准",
         cooling_banner: "先进自动化预冷与光学分选分级包装线",
@@ -1405,9 +1460,25 @@
         cert_c5_stat: "100% 合格签发",
         cert_trust_text: "实验室农残分析检测：装箱前由获得 ISO 17025 认证的独立实验室对每批冷柜取样化验。",
         cert_ports: "杜米亚特港 • 亚历山大港 • 苏伊士港",
-        log_badge: "全球直达",
-        log_title: "出口港口与航运走廊",
-        log_desc: "依托地中海与红海核心枢纽港口直接发运。",
+        log_badge: "全球直航网络",
+        log_title: "主要出口港口与跨国航运走廊",
+        log_desc: "依托埃及地中海与红海核心集装箱枢纽码头，实现直航全球市场。",
+        log_c1_dest: "目的港：欧盟 / 英国",
+        log_c1_title: "鹿特丹港 / 科佩尔港",
+        log_c1_desc: "自亚历山大港和杜米亚特港直航快运，凭 EUR.1 证书享受零关税快速通关。",
+        log_c1_transit: "航程周期：4 - 7 天",
+        log_c2_dest: "目的港：海湾国家及中东",
+        log_c2_title: "杰贝阿里港 / 吉达港",
+        log_c2_desc: "高效海陆联运冷链网络，稳定供应沙特、阿联酋和科威特各大商超连锁。",
+        log_c2_transit: "航程周期：3 - 5 天",
+        log_c3_dest: "目的港：俄罗斯及独联体",
+        log_c3_title: "新罗西斯克港 / 圣彼得堡港",
+        log_c3_desc: "黑海及波罗的海直航专线，全套俄语标识及官方植物检疫合规通关。",
+        log_c3_transit: "航程周期：6 - 9 天",
+        log_c4_dest: "目的港：中国及东亚",
+        log_c4_title: "深圳港 / 上海港",
+        log_c4_desc: "配备气调保鲜（CA）冷藏集装箱，长途运输中锁住柑橘和优质椰枣鲜活风味。",
+        log_c4_transit: "航程周期：18 - 22 天",
         catalog_badge: "官方出口鲜品名录",
         catalog_heading: "38 种国际出口级新鲜果蔬",
         filter_all: "全部 38 种果蔬",
@@ -1447,6 +1518,7 @@
         footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
       },
       ru: {
+        page_desc: "EAX AGRO EXPORT - Экспорт 38 отборных видов свежих овощей и фруктов высшего сорта из Египта по стандартам GlobalGAP, BRC и EUR.1 в ЕС, СНГ, Китай и Россию.",
         months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
         cert_banner: "Сертифицированный экспорт продукции: стандарты GlobalGAP, BRC и EUR.1",
         cooling_banner: "Автоматизированные линии предварительного охлаждения и оптической сортировки",
@@ -1513,8 +1585,24 @@
         cert_trust_text: "Лабораторный анализ остатков пестицидов: аккредитованные по ISO 17025 лаборатории проверяют каждый контейнер перед отгрузкой.",
         cert_ports: "Порт Дамиетта • Порт Александрия • Порт Сохна",
         log_badge: "Глобальная логистика",
-        log_title: "Экспортные порты и морские линии",
-        log_desc: "Прямые отправки через ключевые контейнерные терминалы Александрии, Дамиетты и Сохны.",
+        log_title: "Экспортные порты и судоходные маршруты",
+        log_desc: "Прямые отправки через ключевые контейнерные терминалы Средиземного и Красного морей Египта.",
+        log_c1_dest: "Направление: ЕС / Великобритания",
+        log_c1_title: "Роттердам / Копер",
+        log_c1_desc: "Прямые экспресс-линии из Александрии и Дамиетты. Беспошлинный ввоз по сертификату EUR.1.",
+        log_c1_transit: "Транзит: 4 - 7 дней",
+        log_c2_dest: "Направление: Страны Залива и Ближний Восток",
+        log_c2_title: "Джебель-Али / Джидда",
+        log_c2_desc: "Бесперебойные морские и наземные рефрижераторные коридоры для супермаркетов ОАЭ и КСА.",
+        log_c2_transit: "Транзит: 3 - 5 дней",
+        log_c3_dest: "Направление: Россия и страны СНГ",
+        log_c3_title: "Новороссийск / Санкт-Петербург",
+        log_c3_desc: "Прямые рейсы по Черному и Балтийскому морям, маркировка на русском языке и фитосанитарный контроль.",
+        log_c3_transit: "Транзит: 6 - 9 дней",
+        log_c4_dest: "Направление: Восточная Азия и Китай",
+        log_c4_title: "Шэньчжэнь / Шанхай",
+        log_c4_desc: "Контейнеры с контролируемой атмосферой (CA) для идеальной свежести цитрусовых и фиников.",
+        log_c4_transit: "Транзит: 18 - 22 дня",
         catalog_badge: "Официальный экспортный каталог",
         catalog_heading: "38 экспортных видов овощей и фруктов",
         filter_all: "Все 38 культур",
@@ -1684,7 +1772,7 @@
           </div>
 
           <div class="p-4 sm:p-5 pt-0">
-            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-shine w-full py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
+            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-glow w-full py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
               <svg class="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span>${t.btn_req_quote}</span>
             </button>
