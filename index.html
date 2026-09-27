@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-24 max-w-full overflow-x-clip">
+<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-20 max-w-full overflow-x-clip">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -18,7 +18,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@800;900&family=Noto+Sans+SC:wght@500;700;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,32 +30,31 @@
             'xs': '420px',
             'sm': '640px',
             'md': '768px',
+            'tab': '900px',
             'lg': '1024px',
             'xl': '1280px',
             '2xl': '1536px'
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
             cairo: ['Cairo', 'sans-serif'],
-            sc: ['"Noto Sans SC"', 'sans-serif'],
+            montserrat: ['Montserrat', 'sans-serif'],
+            sc: ['Noto Sans SC', 'sans-serif'],
           },
           colors: {
             agro: {
-              canvas: '#f5f8f4',
-              surface: '#ebf3e9',
-              card: '#ffffff',
-              border: '#d6e4d3',
-              primary: '#092d1b',
-              primaryHover: '#11442a',
-              accent: '#186d3f',
-              gold: '#ad761e',
-              goldLight: '#fcf6ec',
-              goldBorder: '#e8d2a6',
+              canvas: '#f3f6f1',
+              surface: '#e8efe5',
+              card: '#fcfdfb',
+              cardAlt: '#edf3ea',
+              border: '#d2ded0',
+              primary: '#143d28',
+              primaryHover: '#1c5237',
+              accent: '#2f6d48',
+              gold: '#a66a1a',
+              goldLight: '#f6edd9',
+              goldBorder: '#e8d2a7',
             }
-          },
-          boxShadow: {
-            'glass': '0 8px 32px 0 rgba(9, 45, 27, 0.05)',
-            'glow-gold': '0 0 25px -4px rgba(173, 118, 30, 0.25)',
           }
         }
       }
@@ -77,45 +76,28 @@
       max-width: 100vw;
       overflow-x: clip;
       -webkit-overflow-scrolling: touch;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      line-height: 1.55;
-      background-color: #f5f8f4;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
     body.lang-ar { 
       font-family: 'Cairo', sans-serif; 
-      line-height: 1.75; 
+      line-height: 1.7; 
+      letter-spacing: 0;
     }
     body.lang-zh { 
       font-family: 'Noto Sans SC', sans-serif; 
-      line-height: 1.65; 
+      line-height: 1.6; 
     }
 
-    .ambient-mesh {
+    .perf-bg {
+      background-color: #f3f6f1;
       background-image: 
-        radial-gradient(at 0% 0%, rgba(9, 45, 27, 0.08) 0px, transparent 55%),
-        radial-gradient(at 100% 15%, rgba(173, 118, 30, 0.1) 0px, transparent 50%),
-        radial-gradient(at 50% 65%, rgba(24, 109, 63, 0.06) 0px, transparent 65%),
-        radial-gradient(at 0% 100%, rgba(9, 45, 27, 0.08) 0px, transparent 55%);
-    }
-
-    .glass-panel {
-      background: rgba(255, 255, 255, 0.84);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(214, 228, 211, 0.85);
-    }
-
-    .glass-header {
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(214, 228, 211, 0.85);
-      transition: all 0.3s ease;
-    }
-    .header-shrunk {
-      background: rgba(255, 255, 255, 0.98) !important;
-      box-shadow: 0 10px 30px -10px rgba(9, 45, 27, 0.08);
+        radial-gradient(at 0% 0%, rgba(219, 232, 214, 0.65) 0px, transparent 50%),
+        radial-gradient(at 100% 30%, rgba(238, 223, 197, 0.45) 0px, transparent 45%),
+        radial-gradient(at 20% 90%, rgba(219, 232, 214, 0.55) 0px, transparent 50%);
     }
 
     .btn-shine {
@@ -127,44 +109,71 @@
       position: absolute;
       top: 0;
       left: -150%;
-      width: 60%;
+      width: 50%;
       height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
       transform: skewX(-25deg);
-      transition: all 0.8s ease;
+      transition: all 0.75s ease;
     }
     .btn-shine:hover::after {
       left: 150%;
-      transition: all 0.8s ease;
+      transition: all 0.75s ease;
+    }
+
+    .animate-gradient-text {
+      background-size: 200% auto;
+      animation: textShine 6s linear infinite;
+    }
+    @keyframes textShine {
+      to { background-position: 200% center; }
     }
 
     .spotlight-card {
-      background: #ffffff;
-      border: 1px solid #d6e4d3;
-      border-radius: 1.35rem;
+      background: #fcfdfb;
+      border: 1px solid #d8e3d6;
+      border-radius: 1.25rem;
       overflow: hidden;
-      box-shadow: 0 4px 20px -4px rgba(9, 45, 27, 0.04);
+      box-shadow: 0 4px 14px -3px rgba(20, 61, 40, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateZ(0);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
     }
     @media (hover: hover) {
       .spotlight-card:hover {
-        transform: translateY(-6px);
-        border-color: #9ecc94;
-        box-shadow: 0 20px 35px -8px rgba(9, 45, 27, 0.12);
+        transform: translateY(-4px);
+        border-color: #bcd2b8;
+        box-shadow: 0 14px 28px -6px rgba(20, 61, 40, 0.1);
       }
-      .spotlight-card.core-root:hover {
-        border-color: #dcb36d;
-        box-shadow: 0 20px 35px -8px rgba(173, 118, 30, 0.2);
-      }
+    }
+
+    #main-header {
+      transition: background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .glass-nav {
+      background: rgba(243, 246, 241, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .header-shrunk {
+      background: rgba(252, 253, 251, 0.98) !important;
+      box-shadow: 0 4px 20px -4px rgba(20, 61, 40, 0.08);
+    }
+
+    @keyframes wa-soft-pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+    .wa-float-btn {
+      animation: wa-soft-pulse 2.5s ease-in-out infinite;
     }
 
     .reveal-up {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(22px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal-up.is-visible {
       opacity: 1;
@@ -173,22 +182,26 @@
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @keyframes swipeMotion {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(-6px); }
+    }
+    @keyframes swipeMotionRtl {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(6px); }
+    }
+    .swipe-icon-anim {
+      animation: swipeMotion 1.4s ease-in-out infinite;
+    }
+    html[dir="rtl"] .swipe-icon-anim {
+      animation: swipeMotionRtl 1.4s ease-in-out infinite;
+    }
   </style>
 </head>
-<body class="ambient-mesh text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full overflow-x-clip">
+<body class="perf-bg text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full overflow-x-clip">
 
-  <!-- Toast Notification -->
-  <div id="toastNotification" class="fixed top-6 end-6 z-50 flex items-center gap-3 bg-agro-primary text-white px-5 py-3.5 rounded-2xl shadow-2xl transition-all duration-300 transform translate-y-[-130%] opacity-0 border border-emerald-500/30 backdrop-blur-lg">
-    <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center shrink-0">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-    </div>
-    <div>
-      <p class="font-black text-xs sm:text-sm" id="toastTitle">RFQ Dispatched</p>
-      <p class="text-[11px] text-slate-300" id="toastDesc">Redirecting to Export Desk WhatsApp...</p>
-    </div>
-  </div>
-
-  <!-- Reusable SVG Brand Assets -->
+  <!-- Global Reusable SVG Brand Assets -->
   <svg xmlns="http://www.w3.org/2000/svg" class="hidden" style="display: none;">
     <defs>
       <linearGradient id="slimGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -209,207 +222,321 @@
         <stop offset="50%" stop-color="#0c3245"/>
         <stop offset="100%" stop-color="#144b68"/>
       </linearGradient>
+
+      <filter id="subtleDrop" x="-5%" y="-5%" width="115%" height="115%">
+        <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+      </filter>
     </defs>
 
     <symbol id="eax-brand-logo" viewBox="0 0 740 380">
-      <g>
-        <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
-        <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" fill="#ffffff" opacity="0.95"/>
-        <path d="M 475 45 H 540 L 645 275 H 580 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" fill="url(#darkNavyArrow)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
+      <g filter="url(#subtleDrop)">
+        <!-- حرف E -->
+        <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" 
+              fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
+        <path d="M 65 258 L 135 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+        <path d="M 95 258 L 165 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+
+        <!-- حرف A -->
+        <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        
+        <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" 
+              fill="#ffffff" opacity="0.95"/>
+        <path d="M 385 96 L 385 162" stroke="url(#slimGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+
+        <path d="M 235 275 C 295 258 350 218 405 200 C 355 228 305 262 250 280 Z" fill="url(#slimGold)"/>
+        <path d="M 270 278 C 330 252 390 212 450 185 C 410 220 345 262 290 284 Z" fill="#063319" stroke="url(#slimGold)" stroke-width="0.8"/>
+        <path d="M 305 282 C 368 250 428 202 488 170 C 440 212 375 262 325 288 Z" fill="url(#slimGold)"/>
+
+        <!-- حرف X -->
+        <path d="M 475 45 H 540 L 645 275 H 580 Z" 
+              fill="url(#mainGreen)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+
+        <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" 
+              fill="url(#darkNavyArrow)" 
+              stroke="url(#slimGold)" 
+              stroke-width="5" 
+              stroke-linejoin="round"/>
+        <path d="M 505 260 L 630 65" stroke="url(#slimGold)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+        <!-- اسم AGRO EXPORT -->
         <path d="M 25 344 H 145" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
         <path d="M 595 344 H 715" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
-        <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="52" fill="url(#slimGold)" letter-spacing="13">
+        <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="52" fill="url(#slimGold)" letter-spacing="13">
           AGRO EXPORT
         </text>
       </g>
     </symbol>
   </svg>
 
-  <!-- Top Announcement Bar -->
-  <div class="relative z-50 bg-agro-primary text-emerald-100 py-2 px-3 sm:px-6 border-b border-emerald-900/50">
-    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 text-xs">
-      <div class="flex items-center gap-2 truncate">
-        <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+  <!-- Responsive Adaptive Announcement Bar -->
+  <div class="relative z-50 bg-[#e4ece0] text-slate-600 py-1.5 px-3 sm:px-6 border-b border-agro-border">
+    <div class="max-w-7xl mx-auto flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
+      <div class="flex items-center gap-2 sm:gap-4 truncate">
+        <span class="flex items-center gap-1.5 sm:gap-2 font-semibold text-agro-primary text-[11px] sm:text-xs truncate">
+          <span class="relative flex h-2 w-2 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-500 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-600"></span>
+          </span>
+          <span data-i18n="cert_banner" class="truncate">Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards</span>
         </span>
-        <span data-i18n="cert_banner" class="font-medium tracking-wide">Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards</span>
+        <span class="hidden md:inline-flex items-center gap-1.5 text-slate-600 font-medium text-xs border-s border-slate-300 ps-3">
+          <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span data-i18n="cooling_banner">Automated pre-cooling & optical sorting lines</span>
+        </span>
       </div>
-      <div class="flex items-center gap-4 text-[11px] font-semibold ms-auto sm:ms-0">
-        <a href="tel:+201556564646" class="hover:text-white transition-colors flex items-center gap-1.5">
-          <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <div class="shrink-0 ms-auto sm:ms-0">
+        <a href="tel:+201556564646" class="hover:text-agro-primary text-slate-800 font-extrabold tracking-wider transition-colors inline-flex items-center gap-1.5 text-[11px] sm:text-xs bg-white/60 hover:bg-white px-2.5 py-0.5 rounded-lg border border-agro-border/60">
+          <svg class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span dir="ltr">+2 015 56 56 46 46</span>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Ultra-Modern Sticky Header -->
-  <header id="main-header" class="sticky top-0 z-40 glass-header">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-20 flex items-center justify-between gap-4">
+  <!-- Adaptive Fluid Header (Mobile / Tablet / Desktop) -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="h-16 sm:h-20 lg:h-24 flex items-center justify-between gap-3">
         
-        <!-- Logo -->
+        <!-- Reusable Logo SVG -->
         <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg viewBox="0 0 740 380" class="h-9 sm:h-12 lg:h-14 w-auto transition-transform hover:scale-[1.02]">
+          <svg viewBox="0 0 740 380" class="h-9 sm:h-14 md:h-16 lg:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
             <use href="#eax-brand-logo"></use>
           </svg>
         </a>
 
-        <!-- Desktop Navigation Links -->
-        <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs xl:text-sm font-bold text-slate-700">
+        <!-- Desktop & Large Tablet Navigation -->
+        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-bold text-slate-700">
           <a href="#hero" data-i18n="nav_home" class="hover:text-agro-primary transition-colors">Home</a>
           <a href="#about" data-i18n="nav_about" class="hover:text-agro-primary transition-colors">About Us</a>
           <a href="#catalog" data-i18n="nav_produce" class="hover:text-agro-primary transition-colors">Fresh Produce</a>
           <a href="#certifications" data-i18n="nav_certs" class="hover:text-agro-primary transition-colors">Certifications</a>
-          <a href="#quality-assurance" data-i18n="nav_quality" class="hover:text-agro-primary transition-colors">Quality & Cold Chain</a>
-          <a href="#logistics" data-i18n="nav_logistics" class="hover:text-agro-primary transition-colors">Logistics</a>
-          <a href="#contact" data-i18n="nav_contact" class="hover:text-agro-primary transition-colors">Contact</a>
+          <a href="#contact" data-i18n="nav_contact" class="hover:text-agro-primary transition-colors">Contact Us</a>
         </nav>
 
-        <!-- Right Side: Header Language Picker + CTA Button -->
-        <div class="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          
-          <div class="relative" id="headerLangContainer">
-            <button type="button" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-xl bg-white border border-agro-border hover:border-agro-gold/60 text-slate-800 text-xs font-bold transition-all shadow-xs active:scale-95">
-              <span id="currentFlag" class="text-sm">🇬🇧</span>
-              <span id="headerLangLabel" class="font-extrabold uppercase text-[11px] sm:text-xs">EN</span>
-              <svg id="headerChevron" class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
-            </button>
-
-            <div id="headerLangMenu" class="hidden absolute top-full mt-2 end-0 w-52 bg-white/95 backdrop-blur-2xl border border-agro-border rounded-2xl shadow-2xl p-1.5 z-50 animate-in fade-in zoom-in-95">
-              <button type="button" onclick="selectLanguage('en')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface text-xs font-bold text-slate-800 transition-colors">
-                <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
-                <span data-check="en" class="lang-check text-emerald-600 hidden">✓</span>
-              </button>
-              <button type="button" onclick="selectLanguage('ar')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface text-xs font-bold text-slate-800 transition-colors">
-                <span class="flex items-center gap-2"><span>🇪🇬</span> العربية</span>
-                <span data-check="ar" class="lang-check text-emerald-600 hidden">✓</span>
-              </button>
-              <button type="button" onclick="selectLanguage('zh')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface text-xs font-bold text-slate-800 transition-colors">
-                <span class="flex items-center gap-2"><span>🇨🇳</span> 中文</span>
-                <span data-check="zh" class="lang-check text-emerald-600 hidden">✓</span>
-              </button>
-              <button type="button" onclick="selectLanguage('ru')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface text-xs font-bold text-slate-800 transition-colors">
-                <span class="flex items-center gap-2"><span>🇷🇺</span> Русский</span>
-                <span data-check="ru" class="lang-check text-emerald-600 hidden">✓</span>
-              </button>
-            </div>
-          </div>
-
-          <a href="#rfq" class="btn-shine hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
+        <!-- CTA & Tablet/Mobile Actions -->
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+          <a href="#rfq" class="hidden sm:inline-flex btn-shine items-center gap-1.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
-          <button type="button" id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shrink-0 transition-colors shadow-xs" aria-label="Toggle Menu">
-            <svg id="menuIconBars" class="w-5 h-5 block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          <button type="button" id="mobileMenuBtn" class="lg:hidden p-2 rounded-xl bg-agro-card border border-agro-border text-slate-700 hover:text-agro-primary shrink-0 transition-colors shadow-xs active:scale-95" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileMenu">
+            <svg id="menuIconBars" class="w-5 h-5 sm:w-6 sm:h-6 block" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
+            </svg>
+            <svg id="menuIconClose" class="w-5 h-5 sm:w-6 sm:h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
           </button>
         </div>
 
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white/98 backdrop-blur-2xl border-t border-agro-border px-5 py-5 shadow-2xl absolute top-full left-0 right-0 z-50">
-      <nav class="flex flex-col gap-2 w-full text-slate-700 font-bold text-sm">
-        <a href="#hero" data-i18n="nav_home" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Home</a>
-        <a href="#about" data-i18n="nav_about" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">About Us</a>
-        <a href="#catalog" data-i18n="nav_produce" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Fresh Produce</a>
-        <a href="#certifications" data-i18n="nav_certs" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Certifications</a>
-        <a href="#quality-assurance" data-i18n="nav_quality" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Quality & Cold Chain</a>
-        <a href="#logistics" data-i18n="nav_logistics" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Logistics</a>
-        <a href="#contact" data-i18n="nav_contact" class="mobile-nav-link py-2.5 px-3 rounded-xl hover:bg-agro-surface hover:text-agro-primary text-start">Contact</a>
-        <div class="pt-3 mt-2 border-t border-agro-border flex flex-col gap-2">
-          <a href="#rfq" data-i18n="nav_rfq" class="mobile-nav-link w-full py-3 text-center rounded-xl bg-agro-primary text-white font-extrabold shadow-md">Request Quote</a>
-          <a href="/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="w-full py-3 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300 font-bold text-xs">View PDF Catalog</a>
+    <!-- Mobile & Tablet Full-Width Adaptive Drawer -->
+    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white/98 backdrop-blur-xl border-t border-agro-border px-4 py-4 shadow-2xl absolute top-full left-0 right-0 z-50 transition-all duration-200">
+      <nav class="flex flex-col gap-1.5 w-full text-slate-700 font-bold text-sm sm:text-base">
+        <a href="#hero" data-i18n="nav_home" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Home</a>
+        <a href="#about" data-i18n="nav_about" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">About Us</a>
+        <a href="#catalog" data-i18n="nav_produce" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Fresh Produce</a>
+        <a href="#certifications" data-i18n="nav_certs" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Certifications</a>
+        <a href="#contact" data-i18n="nav_contact" class="block w-full py-2.5 px-3.5 rounded-xl hover:bg-agro-surface hover:text-agro-primary transition-colors mobile-nav-link text-start">Contact Us</a>
+        <div class="pt-3 mt-1 border-t border-agro-border flex flex-col gap-2.5">
+          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="block w-full py-3 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300 font-bold mobile-nav-link text-sm">View PDF Catalog</a>
+          <a href="#rfq" data-i18n="nav_rfq" class="block w-full py-3.5 text-center rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold shadow-md mobile-nav-link text-sm">Request Quote</a>
         </div>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section id="hero" class="relative min-h-[75vh] flex items-center justify-center py-14 sm:py-20 overflow-hidden">
+  <section id="hero" class="relative min-h-[65vh] sm:min-h-[75vh] lg:min-h-[82vh] flex items-center justify-center py-10 sm:py-16 lg:py-24 overflow-hidden">
     <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       
-      <div class="reveal-up inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-agro-goldLight border border-agro-goldBorder text-agro-gold text-xs font-black mb-6 shadow-xs">
-        <span class="w-2 h-2 rounded-full bg-amber-600 animate-pulse"></span>
+      <div class="reveal-up inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-agro-goldLight/90 border border-agro-goldBorder text-agro-gold text-[10px] sm:text-xs font-black mb-4 sm:mb-6 shadow-xs">
+        <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-amber-600 shrink-0"></span>
         <span data-i18n="hero_badge">EAX AGRO EXPORT • Global Fresh Produce Logistics</span>
       </div>
 
-      <h1 class="reveal-up text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.15] mb-6">
-        <span data-i18n="hero_title_1">Pure Premium Produce</span> <br/>
-        <span data-i18n="hero_title_2" class="text-transparent bg-clip-text bg-gradient-to-r from-agro-primary via-emerald-700 to-agro-gold">From Fertile Farms to Global Supermarkets</span>
+      <h1 class="reveal-up text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-[1.2] mb-4 sm:mb-6">
+        <span data-i18n="hero_title_1">Pure Premium Produce</span> <br class="hidden sm:inline" />
+        <span data-i18n="hero_title_2" class="animate-gradient-text text-transparent bg-clip-text bg-gradient-to-r from-agro-primary via-agro-gold to-agro-primary">From Fertile Farms to Global Supermarkets</span>
       </h1>
 
-      <p data-i18n="hero_desc" class="reveal-up text-sm sm:text-base md:text-lg text-slate-600 max-w-2xl lg:max-w-3xl mx-auto mb-8 sm:mb-10 font-normal leading-relaxed">
+      <p data-i18n="hero_desc" class="reveal-up text-xs sm:text-base md:text-lg text-slate-600 max-w-2xl lg:max-w-3xl mx-auto mb-6 sm:mb-10 leading-relaxed font-normal">
         At EAX, we specialize exclusively in sourcing, packing, and shipping 38 first-grade fresh fruits and high-demand vegetables with full compliance to GlobalGAP standards and uninterrupted Reefer cold chain logistics.
       </p>
 
       <!-- Action Buttons Row -->
-      <div class="reveal-up flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto mb-10">
-        <a href="#catalog" class="btn-shine py-3.5 px-6 rounded-2xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 transition-all">
-          <span data-i18n="btn_catalog_hero">View 38 Produce Catalog</span>
-          <svg class="w-4 h-4 text-emerald-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+      <div class="reveal-up grid grid-cols-1 sm:grid-cols-3 sm:flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-2xl mx-auto w-full px-2">
+        <a href="#catalog" class="btn-shine py-3 px-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-md flex items-center justify-center gap-2 transition-all">
+          <span data-i18n="btn_catalog_hero">View 38 Produce</span>
+          <svg class="w-4 h-4 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
         </a>
 
-        <a href="#rfq" class="py-3.5 px-6 rounded-2xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
-          <svg class="w-4 h-4 text-agro-accent" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <a href="#rfq" class="py-3 px-4 rounded-xl bg-white hover:bg-agro-surface text-slate-800 font-bold text-xs sm:text-sm border border-agro-border flex items-center justify-center gap-2 shadow-xs transition-all">
+          <svg class="w-4 h-4 text-agro-accent shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="nav_rfq">Request Quote</span>
         </a>
 
-        <a href="/sele.html" target="_blank" rel="noopener noreferrer" class="py-3.5 px-5 rounded-2xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-900 border border-amber-300/80 font-bold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all">
-          <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
-          <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
+        <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="py-3 px-4 rounded-xl bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 hover:brightness-105 text-white font-extrabold text-xs sm:text-sm shadow-md border border-amber-400/30 flex items-center justify-center gap-2 group transition-all">
+          <span class="p-0.5 rounded bg-white/20 text-white">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+            </svg>
+          </span>
+          <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
         </a>
       </div>
 
-      <!-- Quick Core 5 Bar -->
-      <div class="reveal-up glass-panel p-3.5 sm:p-4 rounded-3xl max-w-4xl mx-auto border border-agro-goldBorder/60 shadow-glass">
-        <div class="text-[11px] font-black uppercase tracking-wider text-agro-gold mb-2.5 flex items-center justify-center gap-2">
-          <span>★</span>
-          <span data-i18n="core_5_banner">Core Strategic Produce • Ranked Top Allocation</span>
-          <span>★</span>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section id="about" class="py-12 sm:py-20 lg:py-24 bg-agro-card border-t border-agro-border relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center reveal-up">
+        <span data-i18n="about_tag" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">Our Heritage & Commitment</span>
+        <h2 data-i18n="about_title" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-2 mb-3 sm:mb-4">EAX World-Class Agro Export</h2>
+        <p data-i18n="about_desc" class="text-xs sm:text-base md:text-lg text-slate-600 leading-relaxed">
+          EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-agro-surface/60 via-white/80 to-agro-surface/60 border-t border-agro-border relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center mb-8 sm:mb-14 reveal-up">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/20 text-agro-primary text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3">
+          <svg class="w-3.5 h-3.5 text-agro-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span data-i18n="cert_badge_tag">Quality & Compliance</span>
         </div>
-        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3 text-start">
-          <div onclick="selectCropForRFQ(1)" class="cursor-pointer bg-white/90 hover:bg-agro-goldLight p-2.5 rounded-2xl border border-agro-border transition-all flex items-center gap-2 group">
-            <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 font-black text-xs flex items-center justify-center">1</span>
-            <div class="truncate">
-              <p class="text-xs font-black text-slate-800 truncate group-hover:text-amber-900" data-i18n="p1_name">Sweet Potatoes</p>
-              <p class="text-[10px] text-slate-400">Beauregard</p>
+        <h2 data-i18n="cert_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Export Standards & Certifications</h2>
+        <p data-i18n="cert_statement" class="text-xs sm:text-sm md:text-base font-semibold text-slate-600 mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
+          Sourced from certified farms & packing stations compliant with global retail food safety standards
+        </p>
+      </div>
+
+      <!-- Mobile Animated Swipe Hint -->
+      <div class="sm:hidden flex items-center justify-center mb-4">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-agro-card/95 border border-agro-goldBorder/80 text-agro-gold text-[10px] font-bold shadow-xs">
+          <svg class="w-3.5 h-3.5 swipe-icon-anim shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+          </svg>
+          <span data-i18n="swipe_hint">Swipe to explore ↔</span>
+        </span>
+      </div>
+
+      <!-- Responsive Grid -->
+      <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-5 lg:gap-6 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
+        <!-- 1. GlobalG.A.P. -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-emerald-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="cert_c1_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">AUDITED</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
+            <h3 class="font-black text-base text-slate-900 group-hover:text-emerald-800 transition-colors text-start">GlobalG.A.P.</h3>
+            <p data-i18n="cert_c1_sub" class="text-xs font-bold text-emerald-700 mt-0.5 text-start">IFA Certified (v6)</p>
+            <p data-i18n="cert_c1_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.</p>
           </div>
-          <div onclick="selectCropForRFQ(2)" class="cursor-pointer bg-white/90 hover:bg-agro-goldLight p-2.5 rounded-2xl border border-agro-border transition-all flex items-center gap-2 group">
-            <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 font-black text-xs flex items-center justify-center">2</span>
-            <div class="truncate">
-              <p class="text-xs font-black text-slate-800 truncate group-hover:text-amber-900" data-i18n="p2_name">Potatoes</p>
-              <p class="text-[10px] text-slate-400">Spunta</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span data-i18n="cert_c1_reg">REG: #EAX-GGN</span>
+            <span data-i18n="cert_c1_stat" class="text-emerald-600 font-bold">100% Active</span>
+          </div>
+        </div>
+
+        <!-- 2. BRCGS -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-amber-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="cert_c2_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">GRADE A</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-600 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
+            <h3 data-i18n="cert_c2_title" class="font-black text-base text-slate-900 group-hover:text-amber-800 transition-colors text-start">BRCGS Food</h3>
+            <p data-i18n="cert_c2_sub" class="text-xs font-bold text-amber-700 mt-0.5 text-start">GFSI Benchmark</p>
+            <p data-i18n="cert_c2_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">International packinghouse hygiene, cross-contamination control, and packing audits.</p>
           </div>
-          <div onclick="selectCropForRFQ(3)" class="cursor-pointer bg-white/90 hover:bg-agro-goldLight p-2.5 rounded-2xl border border-agro-border transition-all flex items-center gap-2 group">
-            <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 font-black text-xs flex items-center justify-center">3</span>
-            <div class="truncate">
-              <p class="text-xs font-black text-slate-800 truncate group-hover:text-amber-900" data-i18n="p3_name">Carrots</p>
-              <p class="text-[10px] text-slate-400">Washed Grade A</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span data-i18n="cert_c2_cat">CAT: Fresh Crops</span>
+            <span data-i18n="cert_c2_stat" class="text-amber-600 font-bold">Grade A</span>
+          </div>
+        </div>
+
+        <!-- 3. ISO 22000 -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-sky-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="cert_c3_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">ISO AUDITED</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-sky-700 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
+            <h3 data-i18n="cert_c3_title" class="font-black text-base text-slate-900 group-hover:text-sky-800 transition-colors text-start">ISO 22000</h3>
+            <p data-i18n="cert_c3_sub" class="text-xs font-bold text-sky-700 mt-0.5 text-start">& HACCP Systems</p>
+            <p data-i18n="cert_c3_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Systematic hazard analysis, cold-storage validation, and sanitary risk control.</p>
           </div>
-          <div onclick="selectCropForRFQ(4)" class="cursor-pointer bg-white/90 hover:bg-agro-goldLight p-2.5 rounded-2xl border border-agro-border transition-all flex items-center gap-2 group">
-            <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 font-black text-xs flex items-center justify-center">4</span>
-            <div class="truncate">
-              <p class="text-xs font-black text-slate-800 truncate group-hover:text-amber-900" data-i18n="p4_name">Red Beetroot</p>
-              <p class="text-[10px] text-slate-400">Premium Export</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span data-i18n="cert_c3_std">STD: ISO 22000</span>
+            <span data-i18n="cert_c3_stat" class="text-sky-600 font-bold">Compliant</span>
+          </div>
+        </div>
+
+        <!-- 4. EUR.1 -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-agro-gold/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="cert_c4_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-amber-50/70 text-agro-gold text-[9px] font-black tracking-wider uppercase border border-amber-200">EU PREFERENCE</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-50/70 text-agro-gold flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-agro-gold group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
+            <h3 data-i18n="cert_c4_title" class="font-black text-base text-slate-900 group-hover:text-amber-900 transition-colors text-start">EUR.1 Certificate</h3>
+            <p data-i18n="cert_c4_sub" class="text-xs font-bold text-agro-gold mt-0.5 text-start">0% Duty to EU/UK</p>
+            <p data-i18n="cert_c4_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Preferential customs clearance documentation granting zero import tariff across Europe.</p>
           </div>
-          <div onclick="selectCropForRFQ(5)" class="cursor-pointer col-span-2 sm:col-span-1 bg-white/90 hover:bg-agro-goldLight p-2.5 rounded-2xl border border-agro-border transition-all flex items-center gap-2 group">
-            <span class="w-6 h-6 rounded-lg bg-amber-500/10 text-amber-800 font-black text-xs flex items-center justify-center">5</span>
-            <div class="truncate">
-              <p class="text-xs font-black text-slate-800 truncate group-hover:text-amber-900" data-i18n="p5_name">Dry Onions</p>
-              <p class="text-[10px] text-slate-400">Golden & Red</p>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span data-i18n="cert_c4_agr">AGREEMENT: EU-EG</span>
+            <span data-i18n="cert_c4_stat" class="text-agro-gold font-bold">0% Tariff</span>
+          </div>
+        </div>
+
+        <!-- 5. Phytosanitary -->
+        <div class="w-[78vw] max-w-[270px] sm:w-auto sm:max-w-none snap-center shrink-0 sm:shrink group relative bg-white rounded-2xl p-5 sm:p-6 border border-agro-border/80 hover:border-teal-500/50 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div data-i18n="cert_c5_badge" class="absolute top-3 end-3 px-2 py-0.5 rounded-md bg-teal-50 text-teal-700 text-[9px] font-black tracking-wider uppercase border border-teal-200">OFFICIAL GOV</div>
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-teal-700 group-hover:text-white transition-all duration-300 shadow-inner">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
+            <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 group-hover:text-teal-800 transition-colors text-start">Phytosanitary</h3>
+            <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5 text-start">Pest & Residue Free</p>
+            <p data-i18n="cert_c5_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free clearance.</p>
           </div>
+          <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
+            <span data-i18n="cert_c5_insp">INSPECTION: MoA</span>
+            <span data-i18n="cert_c5_stat" class="text-teal-600 font-bold">100% Passed</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust Bar -->
+      <div class="mt-6 sm:mt-8 p-3.5 sm:p-5 rounded-2xl bg-white border border-agro-border flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 shadow-xs reveal-up">
+        <div class="flex items-center gap-2 font-bold text-agro-primary text-[11px] sm:text-xs text-start">
+          <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <span data-i18n="cert_trust_text">Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.</span>
+        </div>
+        <div class="flex items-center gap-3 text-[10px] sm:text-[11px] font-semibold text-slate-500" data-i18n="cert_ports">
+          Damietta Port • Alexandria Port • Sokhna Port
         </div>
       </div>
 
@@ -417,163 +544,92 @@
   </section>
 
   <!-- Complete 38 Export Produce Catalog Section -->
-  <section id="catalog" class="py-16 sm:py-24 bg-white/70 border-t border-agro-border">
+  <section id="catalog" class="py-12 sm:py-20 bg-agro-surface/60 border-t border-agro-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 reveal-up">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 reveal-up">
         <div>
-          <span data-i18n="catalog_badge" class="text-xs font-extrabold text-agro-gold uppercase tracking-widest">Official Export Catalog</span>
-          <h2 data-i18n="catalog_heading" class="text-2xl sm:text-4xl font-black text-slate-900 mt-1">38 Export-Grade Fruits & Vegetables</h2>
+          <span data-i18n="catalog_badge" class="text-[10px] sm:text-xs font-extrabold text-agro-gold uppercase tracking-widest">Official Export Catalog</span>
+          <h2 data-i18n="catalog_heading" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-1">38 Export-Grade Fruits & Vegetables</h2>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar" id="filter-container">
-          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
-          <button type="button" onclick="handleFilterClick('core5', event)" data-i18n="filter_core5" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ The Core 5 (1-5)</button>
-          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest</button>
-          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest</button>
-          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fruits</button>
-          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Vegetables</button>
+        <!-- Adaptive Filter Tabs -->
+        <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 no-scrollbar w-full md:w-auto" id="filter-container">
+          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
+          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ Top Priority (1-5)</button>
+          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest</button>
+          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest</button>
+          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Fruits</button>
+          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Vegetables</button>
         </div>
       </div>
 
-      <!-- Search Box -->
-      <div class="relative max-w-md mb-8 reveal-up">
-        <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-3 ps-10 pe-10 rounded-2xl bg-white border border-agro-border text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs" />
+      <!-- Search Box (Direction-Aware) -->
+      <div class="relative max-w-md mb-6 sm:mb-10 reveal-up">
+        <label for="searchInput" data-i18n="search_lbl" class="sr-only">Search</label>
+        <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-2.5 sm:py-3.5 ps-10 pe-10 rounded-xl bg-white border border-agro-border text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" />
         <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1">
+        <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" aria-label="Clear Search">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
       </div>
 
       <!-- Products Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="products-grid"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-7" id="products-grid"></div>
 
       <!-- Empty State -->
-      <div id="noResultsMsg" class="hidden col-span-full py-16 text-center text-slate-500">
-        <svg class="w-12 h-12 mx-auto mb-3 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <p data-i18n="no_results" class="font-bold text-base text-slate-700">No matching produce found.</p>
-        <p data-i18n="no_results_sub" class="text-xs text-slate-400 mt-1">Try another keyword or reset filters.</p>
+      <div id="noResultsMsg" class="hidden col-span-full py-12 text-center text-slate-500">
+        <svg class="w-12 h-12 mx-auto mb-2 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <p data-i18n="no_results" class="font-bold text-sm sm:text-base text-slate-700">No matching produce found.</p>
+        <p data-i18n="no_results_sub" class="text-xs text-slate-400 mt-1">Try searching with another keyword or resetting your filter category.</p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- Quality Assurance & Cold Chain Section -->
-  <section id="quality-assurance" class="py-16 sm:py-24 border-t border-agro-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 reveal-up">
-        <span data-i18n="qa_badge" class="text-xs font-black text-agro-gold uppercase tracking-widest">Uncompromised Freshness</span>
-        <h2 data-i18n="qa_title" class="text-2xl sm:text-4xl font-black text-slate-900 mt-2">Cold Chain & Quality Control</h2>
-        <p data-i18n="qa_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up">
-        <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-agro-border">
-          <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-700 flex items-center justify-center mb-5 font-black text-xl">01</div>
-          <h3 data-i18n="qa_s1_title" class="font-extrabold text-lg text-slate-900 mb-2">Rapid Pre-Cooling</h3>
-          <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
-        </div>
-
-        <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-agro-border">
-          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center mb-5 font-black text-xl">02</div>
-          <h3 data-i18n="qa_s2_title" class="font-extrabold text-lg text-slate-900 mb-2">Optical Grading & Sizing</h3>
-          <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
-        </div>
-
-        <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-agro-border">
-          <div class="w-12 h-12 rounded-2xl bg-sky-50 text-sky-700 flex items-center justify-center mb-5 font-black text-xl">03</div>
-          <h3 data-i18n="qa_s3_title" class="font-extrabold text-lg text-slate-900 mb-2">IoT Reefer Tracking</h3>
-          <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Global Logistics Section -->
-  <section id="logistics" class="py-16 sm:py-24 bg-white/60 border-t border-agro-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 reveal-up">
-        <span data-i18n="log_badge" class="text-xs font-black text-agro-gold uppercase tracking-widest">Global Reach</span>
-        <h2 data-i18n="log_title" class="text-2xl sm:text-4xl font-black text-slate-900 mt-2">Export Ports & Shipping Corridors</h2>
-        <p data-i18n="log_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-2xl mx-auto">Operating directly through Egypt's primary Mediterranean and Red Sea container terminals.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal-up">
-        <div class="glass-panel p-6 rounded-3xl border border-agro-border">
-          <div class="text-xs font-extrabold text-agro-gold uppercase mb-1">Destination: EU / UK</div>
-          <h3 class="font-black text-lg text-slate-900 mb-2">Rotterdam / Koper</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Direct express transit from Alexandria & Damietta. EUR.1 zero tariff clearance upon docking.</p>
-          <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Transit: 4 - 7 Days</span>
-        </div>
-
-        <div class="glass-panel p-6 rounded-3xl border border-agro-border">
-          <div class="text-xs font-extrabold text-agro-gold uppercase mb-1">Destination: GCC & Middle East</div>
-          <h3 class="font-black text-lg text-slate-900 mb-2">Jebel Ali / Jeddah</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Seamless maritime and land reefer corridors serving supermarkets across UAE, KSA, and Kuwait.</p>
-          <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Transit: 3 - 5 Days</span>
-        </div>
-
-        <div class="glass-panel p-6 rounded-3xl border border-agro-border">
-          <div class="text-xs font-extrabold text-agro-gold uppercase mb-1">Destination: Russia / CIS</div>
-          <h3 class="font-black text-lg text-slate-900 mb-2">Novorossiysk / SPB</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Direct Black Sea and Baltic shipping lines with Russian language labeling and phytosanitary clearance.</p>
-          <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Transit: 6 - 9 Days</span>
-        </div>
-
-        <div class="glass-panel p-6 rounded-3xl border border-agro-border">
-          <div class="text-xs font-extrabold text-agro-gold uppercase mb-1">Destination: East Asia</div>
-          <h3 class="font-black text-lg text-slate-900 mb-2">Shenzhen / Shanghai</h3>
-          <p class="text-xs text-slate-500 leading-relaxed mb-4">Controlled Atmosphere (CA) containers preserving optimal humidity for citrus and dates.</p>
-          <span class="inline-block px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold">Transit: 18 - 22 Days</span>
-        </div>
-      </div>
     </div>
   </section>
 
   <!-- Formal RFQ Section -->
-  <section id="rfq" class="py-16 sm:py-24 border-t border-agro-border relative scroll-mt-20">
+  <section id="rfq" class="py-12 sm:py-20 bg-agro-surface/60 border-t border-agro-border relative scroll-mt-16 sm:scroll-mt-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10 reveal-up">
-        <span data-i18n="rfq_badge" class="text-xs font-black text-agro-gold uppercase tracking-widest">B2B Trade Desk</span>
-        <h2 data-i18n="rfq_title" class="text-2xl sm:text-4xl font-black text-slate-900 mt-2">Request Container Quotation (FOB / CIF)</h2>
+      <div class="text-center mb-6 sm:mb-12 reveal-up">
+        <span data-i18n="rfq_badge" class="text-[10px] sm:text-xs font-black text-agro-gold uppercase tracking-widest">B2B Trade Desk</span>
+        <h2 data-i18n="rfq_title" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-1 sm:mt-1.5">Request Container Quotation (FOB / CIF)</h2>
         <p data-i18n="rfq_desc" class="text-xs sm:text-sm text-slate-600 mt-2 max-w-xl mx-auto">Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.</p>
       </div>
 
-      <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="glass-panel p-6 sm:p-10 rounded-3xl shadow-xl space-y-5 reveal-up">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="bg-white border border-agro-border/90 p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl shadow-lg space-y-4 sm:space-y-6 reveal-up">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label for="rfqName" data-i18n="rfq_name_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Company / Contact Name *</label>
-            <input type="text" id="rfqName" required class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
+            <input type="text" id="rfqName" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
           </div>
           <div>
             <label for="rfqEmail" data-i18n="rfq_email_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Corporate Email *</label>
-            <input type="email" id="rfqEmail" required class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
+            <input type="email" id="rfqEmail" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div>
             <label for="rfqDest" data-i18n="rfq_dest_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Destination Port / Country *</label>
-            <input type="text" id="rfqDest" required class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
+            <input type="text" id="rfqDest" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
           </div>
           <div>
             <label for="rfqProduce" data-i18n="rfq_produce_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Selected Produce *</label>
-            <select id="rfqProduce" class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs"></select>
+            <select id="rfqProduce" class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs"></select>
           </div>
         </div>
 
         <div>
           <label for="rfqVolume" data-i18n="rfq_vol_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Estimated Volume (Containers) *</label>
-          <input type="text" id="rfqVolume" required class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
+          <input type="text" id="rfqVolume" required class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
         </div>
 
         <div>
           <label for="rfqNotes" data-i18n="rfq_notes_lbl" class="block text-xs font-bold text-slate-700 mb-1.5 text-start">Additional Specifications / Packaging</label>
-          <textarea id="rfqNotes" rows="3" class="w-full px-4 py-3 rounded-xl bg-white border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/20 focus:border-agro-primary transition-all shadow-xs resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
+          <textarea id="rfqNotes" rows="3" class="w-full px-3.5 py-2.5 sm:py-3 rounded-xl bg-slate-50/50 border border-agro-border text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
         </div>
 
-        <button type="submit" id="rfqSubmitBtn" class="btn-shine w-full py-4 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-sm shadow-xl flex items-center justify-center gap-2 transition-all">
+        <button type="submit" id="rfqSubmitBtn" class="btn-shine w-full py-3 sm:py-3.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2 border border-agro-goldBorder/40">
           <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           <span data-i18n="rfq_btn_submit">Submit Formal RFQ</span>
         </button>
@@ -582,26 +638,94 @@
   </section>
 
   <!-- Footer -->
-  <footer id="contact" class="bg-white/80 text-slate-600 pt-14 pb-8 border-t border-agro-border relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-agro-border">
+  <footer id="contact" class="bg-agro-surface text-slate-600 pt-10 sm:pt-14 pb-8 border-t border-agro-border relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
+          <!-- Reusable Footer Logo SVG -->
           <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
-            <svg viewBox="0 0 740 380" class="h-12 w-auto">
+            <svg viewBox="0 0 740 380" class="h-11 sm:h-14 lg:h-18 w-auto drop-shadow-sm">
               <use href="#eax-brand-logo"></use>
             </svg>
           </a>
           <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-start">
-            شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 38 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية.
+            شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 38 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.
           </p>
+
+          <!-- Language Popover Widget -->
+          <div class="relative inline-block text-start mt-5" id="langPopoverContainer">
+            <button type="button" id="langDropdownTrigger" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-2.5 px-3.5 py-2 rounded-xl bg-white/90 hover:bg-white border border-agro-border hover:border-agro-gold/60 text-slate-800 text-xs font-black shadow-xs hover:shadow-md transition-all backdrop-blur-md group active:scale-98">
+              <span class="w-6 h-6 rounded-lg bg-agro-surface flex items-center justify-center text-agro-primary group-hover:scale-105 transition-transform">
+                <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/>
+                </svg>
+              </span>
+              <span id="currentLangLabel" class="tracking-wide">العربية (Egypt)</span>
+              <svg id="langChevron" class="w-3.5 h-3.5 text-slate-400 group-hover:text-agro-primary transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/>
+              </svg>
+            </button>
+
+            <!-- Floating Menu -->
+            <div id="langDropdownMenu" class="hidden absolute bottom-full mb-2 start-0 w-64 bg-white/95 backdrop-blur-2xl border border-agro-border rounded-2xl shadow-2xl p-2 z-50 transition-all duration-200">
+              <div class="px-3 py-1.5 text-[10px] font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 mb-1 flex items-center justify-between">
+                <span>Select Language</span>
+                <span class="text-[9px] text-emerald-600 bg-emerald-50 px-1.5 py-0.5 rounded font-bold">Auto-Detect</span>
+              </div>
+              
+              <button type="button" onclick="selectLanguage('ar')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">🇪🇬</span>
+                  <div class="flex flex-col text-start">
+                    <span class="font-black text-slate-900">العربية</span>
+                    <span class="text-[10px] text-slate-400 font-medium">Egypt & Middle East</span>
+                  </div>
+                </div>
+                <span data-check="ar" class="lang-check hidden text-emerald-600">✓</span>
+              </button>
+
+              <button type="button" onclick="selectLanguage('en')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">🇬🇧</span>
+                  <div class="flex flex-col text-start">
+                    <span class="font-black text-slate-900">English</span>
+                    <span class="text-[10px] text-slate-400 font-medium">Global & European Union</span>
+                  </div>
+                </div>
+                <span data-check="en" class="lang-check hidden text-emerald-600">✓</span>
+              </button>
+
+              <button type="button" onclick="selectLanguage('zh')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">🇨🇳</span>
+                  <div class="flex flex-col text-start">
+                    <span class="font-black text-slate-900">中文 (简体)</span>
+                    <span class="text-[10px] text-slate-400 font-medium">China Market</span>
+                  </div>
+                </div>
+                <span data-check="zh" class="lang-check hidden text-emerald-600">✓</span>
+              </button>
+
+              <button type="button" onclick="selectLanguage('ru')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-agro-surface/80 text-xs font-bold text-slate-800 transition-colors group">
+                <div class="flex items-center gap-2.5">
+                  <span class="text-base">🇷🇺</span>
+                  <div class="flex flex-col text-start">
+                    <span class="font-black text-slate-900">Русский</span>
+                    <span class="text-[10px] text-slate-400 font-medium">Russia & CIS Region</span>
+                  </div>
+                </div>
+                <span data-check="ru" class="lang-check hidden text-emerald-600">✓</span>
+              </button>
+            </div>
+          </div>
         </div>
 
         <div>
-          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Direct Channels</h4>
+          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Direct Channels</h4>
           <ul class="space-y-3.5 text-xs sm:text-sm text-slate-700">
             <li class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-agro-primary shrink-0 shadow-xs">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
               <a href="tel:+201556564646" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 015 56 56 46 46</span>
@@ -609,7 +733,7 @@
             </li>
             <li class="flex items-center gap-3">
               <span class="w-8 h-8 rounded-lg bg-white border border-agro-border flex items-center justify-center text-emerald-600 shrink-0 shadow-xs">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </span>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-agro-primary font-bold tracking-wider text-slate-800">
                 <span dir="ltr">+2 010 06 920 920</span>
@@ -619,12 +743,15 @@
         </div>
 
         <div>
-          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Export Resources</h4>
-          <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-4 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
+          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-3.5 text-start">Export Resources</h4>
+          <p data-i18n="footer_quote_desc" class="text-xs text-slate-600 mb-3.5 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
           <div class="flex flex-col gap-2.5 max-w-sm">
-            <a href="/sele.html" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white border border-agro-border text-slate-800 font-bold text-xs sm:text-sm hover:bg-agro-surface transition-all shadow-xs">
               <svg class="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
+            </a>
+            <a href="#rfq" class="btn-shine w-full inline-flex items-center justify-center gap-2 py-2.5 rounded-xl bg-agro-primary text-white font-bold text-xs sm:text-sm shadow-md">
+              <span data-i18n="cta_quote">Container Quotation</span>
             </a>
           </div>
         </div>
@@ -636,202 +763,716 @@
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Quick Button -->
-  <aside aria-label="Quick WhatsApp Contact" class="fixed bottom-6 end-6 z-50">
-    <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-105 active:scale-95">
-      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+  <!-- Quick Floating WhatsApp Button -->
+  <aside aria-label="Quick WhatsApp Contact" class="fixed bottom-4 end-4 sm:bottom-6 sm:end-6 z-50 flex items-center">
+    <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="wa-float-btn w-12 h-12 sm:w-14 sm:h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-lg active:scale-95" aria-label="Chat on WhatsApp">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.468 1.328 4.975l-1.411 5.158 5.281-1.385c1.45.792 3.097 1.252 4.802 1.252 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/>
       </svg>
     </a>
   </aside>
 
-  <!-- Complete 38 Crops Database with Restored 12-Month Calendar Matrix -->
+  <!-- Products Data Architecture & Multi-Language Dictionary -->
   <script>
     const BACKEND_CONFIG = {
+      mode: 'whatsapp',
+      apiEndpoint: '/api/v1/rfq-submit',
       whatsappPhone: '201006920920'
     };
 
-    // Top 5 Ordered: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
+    // 1 to 5: Sweet Potatoes, Potatoes, Carrots, Red Beetroot, Dry Onions
+    // All 38 crops with matched images and 12-month calendar support
     const CROPS = [
-      { id: 1, group: 'core5', category: 'vegetables', name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)", season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月", season_ru: "С августа по март", months: [8,9,10,11,12,1,2,3], image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80" },
-      { id: 2, group: 'core5', category: 'vegetables', name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)", season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь", months: [1,2,3,4,5,6], image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80" },
-      { id: 3, group: 'core5', category: 'vegetables', name_en: "Fresh Washed Carrots", name_ar: "الجزر الطازج المغسول", name_zh: "新鲜水洗优质胡萝卜", name_ru: "Свежая мытая морковь", season_en: "January to May", season_ar: "من يناير حتى مايو", season_zh: "1月至5月", season_ru: "С января по май", months: [1,2,3,4,5], image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80" },
-      { id: 4, group: 'core5', category: 'vegetables', name_en: "Fresh Red Beetroot", name_ar: "البنجر / الشمندر الأحمر الطازج", name_zh: "新鲜优质红甜菜根", name_ru: "Свежая красная свекла", season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С декабря по май", months: [12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=800&q=80" },
-      { id: 5, group: 'core5', category: 'vegetables', name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)", name_ru: "Сушеный репчатый лук (желтый и красный)", season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь", months: [3,4,5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80" },
-      { id: 6, group: 'priority', category: 'fruits', name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)", season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май", months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80" },
-      { id: 7, group: 'priority', category: 'fruits', name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)", season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь", months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80" },
-      { id: 8, group: 'priority', category: 'fruits', name_en: "Fresh Table Grapes (Seedless Superior/Flame)", name_ar: "العنب الطازج بدون بذور (سوبيريور وفليم)", name_zh: "无籽鲜食葡萄 (Superior & Flame)", name_ru: "Свежий столовый виноград (Супериор и Флейм)", season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август", months: [5,6,7,8], image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80" },
-      { id: 9, group: 'priority', category: 'fruits', name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)", name_ru: "Свежая клубника (Фестиваль и Фортуна)", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80" },
-      { id: 10, group: 'summer', category: 'vegetables', name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)", season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль", months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80" },
-      { id: 11, group: 'summer', category: 'fruits', name_en: "Fresh Dates (Medjool & Barhi)", name_ar: "التمور الطازجة (المجدول والبرحي)", name_zh: "新鲜高档椰枣 (麦朵尔 Medjool & 巴尔希 Barhi)", name_ru: "Свежие финики (Меджул и Бархи)", season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月", season_ru: "С августа по декабрь", months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=800&q=80" },
-      { id: 12, group: 'summer', category: 'fruits', name_en: "Fresh Mangoes (Keitt & Kent)", name_ar: "المانجو الطازجة (كيت وكنت)", name_zh: "新鲜优质芒果 (Keitt & Kent)", name_ru: "Свежие манго (Кейт и Кент)", season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь", months: [7,8,9,10,11], image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80" },
-      { id: 13, group: 'summer', category: 'fruits', name_en: "Fresh Watermelon", name_ar: "البطيخ الطازج", name_zh: "新鲜大西瓜", name_ru: "Свежие арбузы", season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август", months: [5,6,7,8], image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80" },
-      { id: 14, group: 'summer', category: 'fruits', name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب (جاليا)", name_zh: "新鲜甜瓜与哈密瓜 (Galia)", name_ru: "Свежая дыня и канталупа (Галия)", season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август", months: [5,6,7,8], image: "https://images.unsplash.com/photo-1598025362874-49480e049c76?auto=format&fit=crop&w=800&q=80" },
-      { id: 15, group: 'summer', category: 'vegetables', name_en: "Fresh Bell Peppers (Red, Yellow, Orange)", name_ar: "الفلفل الملون (أحمر، أصفر، برتقالي)", name_zh: "新鲜温室彩椒 (红、黄、橙)", name_ru: "Свежий сладкий перец (красный, желтый, оранжевый)", season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь", months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=800&q=80" },
-      { id: 16, group: 'summer', category: 'vegetables', name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار (أحمر وأخضر)", name_zh: "新鲜红绿朝天椒 / 辣椒", name_ru: "Свежий острый перец чили", season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь", months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=800&q=80" },
-      { id: 17, group: 'summer', category: 'fruits', name_en: "Fresh Peaches", name_ar: "الخوخ الطازج", name_zh: "新鲜优质鲜桃", name_ru: "Свежие персики", season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月", season_ru: "С апреля по июль", months: [4,5,6,7], image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?auto=format&fit=crop&w=800&q=80" },
-      { id: 18, group: 'summer', category: 'fruits', name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج", name_zh: "新鲜优质油桃", name_ru: "Свежие нектарины", season_en: "May to July", season_ar: "من مايو حتى يوليو", season_zh: "5月至7月", season_ru: "С мая по июль", months: [5,6,7], image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" },
-      { id: 19, group: 'summer', category: 'fruits', name_en: "Fresh Apricots", name_ar: "المشمش الطازج", name_zh: "新鲜优质杏子", name_ru: "Свежие абрикосы", season_en: "May to June", season_ar: "من مايو حتى يونيو", season_zh: "5月至6月", season_ru: "С мая по июнь", months: [5,6], image: "https://images.unsplash.com/photo-1501250987900-211872d97eaa?auto=format&fit=crop&w=800&q=80" },
-      { id: 20, group: 'summer', category: 'fruits', name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "新鲜无花果", name_ru: "Свежий инжир", season_en: "July to October", season_ar: "من يوليو حتى أكتوبر", season_zh: "7月至10月", season_ru: "С июля по октябрь", months: [7,8,9,10], image: "https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?auto=format&fit=crop&w=800&q=80" },
-      { id: 21, group: 'summer', category: 'fruits', name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава", season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь", months: [8,9,10,11], image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80" },
-      { id: 22, group: 'summer', category: 'vegetables', name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الطازجة", name_zh: "新鲜西葫芦", name_ru: "Свежие цукини и кабачки", season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь", months: [5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1563252722-6434563a985d?auto=format&fit=crop&w=800&q=80" },
-      { id: 23, group: 'summer', category: 'vegetables', name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان الطازج", name_zh: "新鲜长茄 / 圆茄", name_ru: "Свежие баклажаны", season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь", months: [5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80" },
-      { id: 24, group: 'summer', category: 'vegetables', name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵", name_ru: "Свежая окра (бами)", season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по сентябрь", months: [5,6,7,8,9], image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=800&q=80" },
-      { id: 25, group: 'winter', category: 'vegetables', name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆", name_ru: "Свежая стручковая зеленая фасоль", season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май", months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80" },
-      { id: 26, group: 'winter', category: 'vegetables', name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук", season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май", months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80" },
-      { id: 27, group: 'winter', category: 'vegetables', name_en: "Fresh Artichokes", name_ar: "الخرشوف الطازج", name_zh: "新鲜洋蓟 / 朝鲜蓟", name_ru: "Свежие артишоки", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=800&q=80" },
-      { id: 28, group: 'winter', category: 'vegetables', name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80" },
-      { id: 29, group: 'winter', category: 'fruits', name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80" },
-      { id: 30, group: 'winter', category: 'fruits', name_en: "Fresh Lemons & Limes (Eureka & Balady)", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠 (Eureka & Balady)", name_ru: "Свежие лимоны и лаймы (Эврика и Балади)", season_en: "October to April", season_ar: "من أكتوبر حتى أبريل", season_zh: "10月至次年4月", season_ru: "С октября по апрель", months: [10,11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=800&q=80" },
-      { id: 31, group: 'winter', category: 'fruits', name_en: "Fresh Grapefruit (Star Ruby)", name_ar: "الجريب فروت (ستار روبي)", name_zh: "新鲜红心葡萄柚 (Star Ruby)", name_ru: "Свежий грейпфрут (Стар Руби)", season_en: "October to March", season_ar: "من أكتوبر حتى مارس", season_zh: "10月至次年3月", season_ru: "С октября по март", months: [10,11,12,1,2,3], image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=800&q=80" },
-      { id: 32, group: 'winter', category: 'vegetables', name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆", name_ru: "Свежий зеленый горошек и сахарные стручки", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=800&q=80" },
-      { id: 33, group: 'winter', category: 'vegetables', name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜", name_ru: "Свежая брокколи", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=800&q=80" },
-      { id: 34, group: 'winter', category: 'vegetables', name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜", name_ru: "Свежая цветная капуста", season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель", months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=800&q=80" },
-      { id: 35, group: 'winter', category: 'vegetables', name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)", season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель", months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80" },
-      { id: 36, group: 'winter', category: 'vegetables', name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат", season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март", months: [11,12,1,2,3], image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80" },
-      { id: 37, group: 'winter', category: 'vegetables', name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)", season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март", months: [11,12,1,2,3], image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?auto=format&fit=crop&w=800&q=80" },
-      { id: 38, group: 'winter', category: 'vegetables', name_en: "Fresh Culinary Herbs", name_ar: "الأعشاب العطرية الطازجة", name_zh: "新鲜出口级香草 (莳萝、欧芹)", name_ru: "Свежая пряная зелень (укроп, петрушка)", season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май", months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=800&q=80" }
+      {
+        id: 1, group: 'priority', category: 'vegetables',
+        name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)",
+        season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月", season_ru: "С августа по март",
+        months: [8,9,10,11,12,1,2,3],
+        image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 2, group: 'priority', category: 'vegetables',
+        name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)",
+        season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь",
+        months: [1,2,3,4,5,6],
+        image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 3, group: 'priority', category: 'vegetables',
+        name_en: "Fresh Washed Carrots", name_ar: "الجزر الطازج المغسول", name_zh: "新鲜水洗优质胡萝卜", name_ru: "Свежая мытая морковь",
+        season_en: "January to May", season_ar: "من يناير حتى مايو", season_zh: "1月至5月", season_ru: "С января по май",
+        months: [1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 4, group: 'priority', category: 'vegetables',
+        name_en: "Fresh Red Beetroot", name_ar: "البنجر / الشمندر الأحمر الطازج", name_zh: "新鲜优质红甜菜根", name_ru: "Свежая красная свекла",
+        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С декабря по май",
+        months: [12,1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 5, group: 'priority', category: 'vegetables',
+        name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)", name_ru: "Сушеный репчатый лук (желтый и красный)",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
+        months: [3,4,5,6,7,8,9,10],
+        image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 6, group: 'priority', category: 'fruits',
+        name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        months: [11,12,1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 7, group: 'priority', category: 'fruits',
+        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца أغسطس по декабрь",
+        months: [8,9,10,11,12],
+        image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 8, group: 'priority', category: 'fruits',
+        name_en: "Fresh Table Grapes (Seedless Superior/Flame)", name_ar: "العنب الطازج بدون بذور (سوبيريور وفليم)", name_zh: "无籽鲜食葡萄 (Superior & Flame)", name_ru: "Свежий столовый виноград (Супериор и Флейм)",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
+        months: [5,6,7,8],
+        image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 9, group: 'priority', category: 'fruits',
+        name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)", name_ru: "Свежая клубника (Фестиваль и Фортуна)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        months: [11,12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 10, group: 'summer', category: 'vegetables',
+        name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
+        months: [3,4,5,6,7],
+        image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 11, group: 'summer', category: 'fruits',
+        name_en: "Fresh Dates (Medjool & Barhi)", name_ar: "التمور الطازجة (المجدول والبرحي)", name_zh: "新鲜高档椰枣 (麦朵尔 Medjool & 巴尔希 Barhi)", name_ru: "Свежие финики (Меджул и Бархи)",
+        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月", season_ru: "С августа по декабрь",
+        months: [8,9,10,11,12],
+        image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 12, group: 'summer', category: 'fruits',
+        name_en: "Fresh Mangoes (Keitt & Kent)", name_ar: "المانجو الطازجة (كيت وكنت)", name_zh: "新鲜优质芒果 (Keitt & Kent)", name_ru: "Свежие манго (Кейт и Кент)",
+        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь",
+        months: [7,8,9,10,11],
+        image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 13, group: 'summer', category: 'fruits',
+        name_en: "Fresh Watermelon", name_ar: "البطيخ الطازج", name_zh: "新鲜大西瓜", name_ru: "Свежие арбузы",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
+        months: [5,6,7,8],
+        image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 14, group: 'summer', category: 'fruits',
+        name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب (جاليا)", name_zh: "新鲜甜瓜与哈密瓜 (Galia)", name_ru: "Свежая дыня и канталупа (Галия)",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
+        months: [5,6,7,8],
+        image: "https://images.unsplash.com/photo-1598025362874-49480e049c76?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 15, group: 'summer', category: 'vegetables',
+        name_en: "Fresh Bell Peppers (Red, Yellow, Orange)", name_ar: "الفلفل الملون (أحمر، أصفر، برتقالي)", name_zh: "新鲜温室彩椒 (红、黄、橙)", name_ru: "Свежий сладкий перец (красный, желтый, оранжевый)",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
+        months: [5,6,7,8,9,10,11],
+        image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 16, group: 'summer', category: 'vegetables',
+        name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار (أحمر وأخضر)", name_zh: "新鲜红绿朝天椒 / 辣椒", name_ru: "Свежий острый перец чили",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
+        months: [5,6,7,8,9,10,11],
+        image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 17, group: 'summer', category: 'fruits',
+        name_en: "Fresh Peaches", name_ar: "الخوخ الطازج", name_zh: "新鲜优质鲜桃", name_ru: "Свежие персики",
+        season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月", season_ru: "С апреля по июль",
+        months: [4,5,6,7],
+        image: "https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 18, group: 'summer', category: 'fruits',
+        name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج", name_zh: "新鲜优质油桃", name_ru: "Свежие нектарины",
+        season_en: "May to July", season_ar: "من مايو حتى يوليو", season_zh: "5月至7月", season_ru: "С мая по июль",
+        months: [5,6,7],
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 19, group: 'summer', category: 'fruits',
+        name_en: "Fresh Apricots", name_ar: "المشمش الطازج", name_zh: "新鲜优质杏子", name_ru: "Свежие абрикосы",
+        season_en: "May to June", season_ar: "من مايو حتى يونيو", season_zh: "5月至6月", season_ru: "С мая по июнь",
+        months: [5,6],
+        image: "https://images.unsplash.com/photo-1501250987900-211872d97eaa?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 20, group: 'summer', category: 'fruits',
+        name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "新鲜无花果", name_ru: "Свежий инжир",
+        season_en: "July to October", season_ar: "من يوليو حتى أكتوبر", season_zh: "7月至10月", season_ru: "С июля по октябрь",
+        months: [7,8,9,10],
+        image: "https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 21, group: 'summer', category: 'fruits',
+        name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
+        months: [8,9,10,11],
+        image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 22, group: 'summer', category: 'vegetables',
+        name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الطازجة", name_zh: "新鲜西葫芦", name_ru: "Свежие цукини и кабачки",
+        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
+        months: [5,6,7,8,9,10],
+        image: "https://images.unsplash.com/photo-1563252722-6434563a985d?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 23, group: 'summer', category: 'vegetables',
+        name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان الطازج", name_zh: "新鲜长茄 / 圆茄", name_ru: "Свежие баклажаны",
+        season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
+        months: [5,6,7,8,9,10],
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 24, group: 'summer', category: 'vegetables',
+        name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵", name_ru: "Свежая окра (бами)",
+        season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по сентябрь",
+        months: [5,6,7,8,9],
+        image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 25, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆", name_ru: "Свежая стручковая зеленая фасоль",
+        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
+        months: [10,11,12,1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 26, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        months: [11,12,1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 27, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Artichokes", name_ar: "الخرشوف الطازج", name_zh: "新鲜洋蓟 / 朝鲜蓟", name_ru: "Свежие артишоки",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
+        months: [12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 28, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        months: [11,12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 29, group: 'winter', category: 'fruits',
+        name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        months: [11,12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 30, group: 'winter', category: 'fruits',
+        name_en: "Fresh Lemons & Limes (Eureka & Balady)", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠 (Eureka & Balady)", name_ru: "Свежие лимоны и лаймы (Эврика и Балади)",
+        season_en: "October to April", season_ar: "من أكتوبر حتى أبريل", season_zh: "10月至次年4月", season_ru: "С октября по апрель",
+        months: [10,11,12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 31, group: 'winter', category: 'fruits',
+        name_en: "Fresh Grapefruit (Star Ruby)", name_ar: "الجريب فروت (ستار روبي)", name_zh: "新鲜红心葡萄柚 (Star Ruby)", name_ru: "Свежий грейпфрут (Стар Руби)",
+        season_en: "October to March", season_ar: "من أكتوبر حتى مارس", season_zh: "10月至次年3月", season_ru: "С октября по март",
+        months: [10,11,12,1,2,3],
+        image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 32, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆", name_ru: "Свежий зеленый горошек и сахарные стручки",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
+        months: [12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 33, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜", name_ru: "Свежая брокколи",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
+        months: [12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 34, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜", name_ru: "Свежая цветная капуста",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
+        months: [12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 35, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        months: [11,12,1,2,3,4],
+        image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 36, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С نوفمبر по март",
+        months: [11,12,1,2,3],
+        image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 37, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)",
+        season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С نوفمبر по март",
+        months: [11,12,1,2,3],
+        image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        id: 38, group: 'winter', category: 'vegetables',
+        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)", name_ru: "Свежая пряная зелень (укроп, петрушка, кинза, мята)",
+        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
+        months: [10,11,12,1,2,3,4,5],
+        image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=800&q=80"
+      }
     ];
 
     const translations = {
       en: {
+        page_desc: "EAX AGRO EXPORT - Premier Egyptian Fresh Produce Exporter. 38 Certified export-grade crops shipping to EU, GCC, China, and Russia.",
         months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         cert_banner: "Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards",
-        nav_home: "Home", nav_about: "About Us", nav_produce: "Fresh Produce", nav_certs: "Certifications", nav_quality: "Quality & Cold Chain", nav_logistics: "Logistics", nav_contact: "Contact", nav_rfq: "Request Quote", cta_quote: "Get a Quote",
-        hero_badge: "EAX AGRO EXPORT • Global Fresh Produce Logistics", hero_title_1: "Pure Premium Produce", hero_title_2: "From Fertile Farms to Global Supermarkets",
+        cooling_banner: "Automated pre-cooling & optical sorting lines",
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_produce: "Fresh Produce",
+        nav_certs: "Certifications",
+        nav_contact: "Contact Us",
+        nav_rfq: "Request Quote",
+        cta_quote: "Get a Quote",
+        btn_catalog_hero: "View 38 Produce Catalog",
+        btn_pdf_catalog: "View PDF Catalog",
+        hero_badge: "EAX AGRO EXPORT • Global Fresh Produce Logistics",
+        hero_title_1: "Pure Premium Produce",
+        hero_title_2: "From Fertile Farms to Global Supermarkets",
         hero_desc: "At EAX, we specialize exclusively in sourcing, packing, and shipping 38 first-grade fresh fruits and high-demand vegetables with full compliance to GlobalGAP standards and uninterrupted Reefer cold chain logistics.",
-        btn_catalog_hero: "View 38 Produce Catalog", btn_pdf_catalog: "PDF Catalog",
-        core_5_banner: "Core Strategic Produce • Ranked Top Allocation",
-        p1_name: "Sweet Potatoes", p2_name: "Potatoes", p3_name: "Carrots", p4_name: "Red Beetroot", p5_name: "Dry Onions",
-        about_tag: "Our Heritage & Commitment", about_title: "EAX World-Class Agro Export", about_desc: "EAX AGRO EXPORT connects Egypt's agricultural belts directly to retail supermarket distribution hubs in the European Union, GCC, China, and Russia.",
-        cert_badge_tag: "Quality & Compliance", cert_title: "Export Standards & Certifications", cert_statement: "Sourced from certified farms & packing stations compliant with global retail food safety standards",
-        cert_c1_sub: "IFA Certified (v6)", cert_c1_desc: "Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.",
-        cert_c2_sub: "GFSI Benchmark", cert_c2_desc: "International packinghouse hygiene, cross-contamination control, and packing audits.",
-        cert_c3_sub: "& HACCP Systems", cert_c3_desc: "Systematic hazard analysis, cold-storage validation, and sanitary risk control.",
-        cert_c4_sub: "0% Duty to EU/UK", cert_c4_desc: "Preferential customs clearance documentation granting zero import tariff across Europe.",
-        cert_c5_sub: "Quarantine Cleared", cert_c5_desc: "Official inspection by Egyptian Quarantine authority ensuring pest-free shipments.",
-        catalog_badge: "Official Export Catalog", catalog_heading: "38 Export-Grade Fruits & Vegetables",
-        filter_all: "All 38 Produce", filter_core5: "★ The Core 5 (1-5)", filter_priority: "Top Priority (1-9)", filter_summer: "Summer Harvest", filter_winter: "Winter Harvest", filter_fruits: "Fruits", filter_veg: "Vegetables",
-        lbl_export_season: "Season:", btn_req_quote: "Request Allocation", no_results: "No matching produce found.", no_results_sub: "Try searching with another keyword or resetting your filter category.",
-        qa_badge: "Uncompromised Freshness", qa_title: "Cold Chain & Quality Control", qa_desc: "From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.",
-        qa_s1_title: "Rapid Pre-Cooling", qa_s1_desc: "Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.",
-        qa_s2_title: "Optical Grading & Sizing", qa_s2_desc: "Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.",
-        qa_s3_title: "IoT Reefer Tracking", qa_s3_desc: "Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.",
-        log_badge: "Global Reach", log_title: "Export Ports & Shipping Corridors", log_desc: "Operating directly through Egypt's primary Mediterranean and Red Sea container terminals.",
-        rfq_badge: "B2B Trade Desk", rfq_title: "Request Container Quotation (FOB / CIF)", rfq_desc: "Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.",
-        rfq_name_lbl: "Company / Contact Name *", rfq_email_lbl: "Corporate Email *", rfq_dest_lbl: "Destination Port / Country *", rfq_produce_lbl: "Selected Produce *", rfq_vol_lbl: "Estimated Volume (Containers) *", rfq_notes_lbl: "Additional Specifications / Packaging", rfq_btn_submit: "Submit Formal RFQ",
-        rfq_name_ph: "e.g. EuroFresh Trading Ltd.", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "e.g. Rotterdam / Netherlands", rfq_vol_ph: "e.g. 2 x 40ft RF weekly", rfq_notes_ph: "Specific caliber, cartons weight, payment terms...",
-        footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 38 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs.",
-        footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.", footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
+        about_tag: "Our Heritage & Commitment",
+        about_title: "EAX World-Class Agro Export",
+        about_desc: "EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.",
+        cert_badge_tag: "Quality & Compliance",
+        cert_title: "Export Standards & Certifications",
+        cert_statement: "Sourced from certified farms & packing stations compliant with global retail food safety standards",
+        swipe_hint: "Swipe to explore ↔",
+        cert_c1_badge: "AUDITED",
+        cert_c1_sub: "IFA Certified (v6)",
+        cert_c1_desc: "Full on-farm food safety, worker welfare, and complete farm-to-shelf traceability.",
+        cert_c1_reg: "REG: #EAX-GGN",
+        cert_c1_stat: "100% Active",
+        cert_c2_badge: "GRADE A",
+        cert_c2_title: "BRCGS Food",
+        cert_c2_sub: "GFSI Benchmark",
+        cert_c2_desc: "International packinghouse hygiene, cross-contamination control, and packing audits.",
+        cert_c2_cat: "CAT: Fresh Crops",
+        cert_c2_stat: "Grade A",
+        cert_c3_badge: "ISO AUDITED",
+        cert_c3_title: "ISO 22000",
+        cert_c3_sub: "& HACCP Systems",
+        cert_c3_desc: "Systematic hazard analysis, cold-storage validation, and sanitary risk control.",
+        cert_c3_std: "STD: ISO 22000",
+        cert_c3_stat: "Compliant",
+        cert_c4_badge: "EU PREFERENCE",
+        cert_c4_title: "EUR.1 Certificate",
+        cert_c4_sub: "0% Duty to EU/UK",
+        cert_c4_desc: "Preferential customs clearance documentation granting zero import tariff across Europe.",
+        cert_c4_agr: "AGREEMENT: EU-EG",
+        cert_c4_stat: "0% Tariff",
+        cert_c5_badge: "OFFICIAL GOV",
+        cert_c5_title: "Phytosanitary",
+        cert_c5_sub: "Pest & Residue Free",
+        cert_c5_desc: "Official inspection by Egyptian Plant Quarantine ensuring quarantine-free shipment clearance.",
+        cert_c5_insp: "INSPECTION: MoA",
+        cert_c5_stat: "100% Passed",
+        cert_trust_text: "Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.",
+        cert_ports: "Damietta Port • Alexandria Port • Sokhna Port",
+        catalog_badge: "Official Export Catalog",
+        catalog_heading: "38 Export-Grade Fruits & Vegetables",
+        filter_all: "All 38 Produce",
+        filter_priority: "★ Top Priority (1-5)",
+        filter_summer: "Summer Harvest",
+        filter_winter: "Winter Harvest",
+        filter_veg: "Fresh Vegetables",
+        filter_fruits: "Fresh Fruits",
+        search_lbl: "Search",
+        search_placeholder: "Search by crop name...",
+        lbl_export_season: "Export Season:",
+        btn_req_quote: "Request Allocation",
+        no_results: "No matching produce found.",
+        no_results_sub: "Try searching with another keyword or resetting your filter category.",
+        rfq_badge: "B2B Trade Desk",
+        rfq_title: "Request Container Quotation (FOB / CIF)",
+        rfq_desc: "Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.",
+        rfq_name_lbl: "Company / Contact Name *",
+        rfq_email_lbl: "Corporate Email *",
+        rfq_dest_lbl: "Destination Port / Country *",
+        rfq_produce_lbl: "Selected Produce *",
+        rfq_vol_lbl: "Estimated Volume (Containers) *",
+        rfq_notes_lbl: "Additional Specifications / Packaging",
+        rfq_btn_submit: "Submit Formal RFQ",
+        rfq_name_ph: "e.g. EuroFresh Trading Ltd.",
+        rfq_email_ph: "procurement@company.com",
+        rfq_dest_ph: "e.g. Rotterdam / Netherlands",
+        rfq_vol_ph: "e.g. 2 x 40ft RF weekly",
+        rfq_notes_ph: "Specific caliber, cartons weight, payment terms...",
+        cat_priority: "★ Top Priority Export",
+        cat_summer: "Summer Harvest",
+        cat_winter: "Winter Harvest",
+        footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 38 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
+        footer_contact_title: "Direct Channels",
+        footer_quote_title: "Export Resources",
+        footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
+        footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
       },
       ar: {
+        page_desc: "شركة EAX AGRO EXPORT - تصدير 38 محصولاً زراعياً مصرياً فرز أول مطابقاً للمواصفات الدولية GlobalGAP و BRC لأسواق الاتحاد الأوروبي والخليج وروسيا والصين.",
         months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
-        nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات الزراعية", nav_certs: "الشهادات والاعتمادات", nav_quality: "الجودة وسلاسل التبريد", nav_logistics: "اللوجستيات والشحن", nav_contact: "اتصل بنا", nav_rfq: "طلب تسعير", cta_quote: "اطلب تسعير",
-        hero_badge: "EAX AGRO EXPORT • لتصدير الفاكهة والخضروات الطازجة", hero_title_1: "حاصلات بستانية نقية", hero_title_2: "من مزارعنا الخصبة إلى أسواق العالم",
+        cooling_banner: "تصدير سريع بمحطات فرز وتبريد آلي متطور",
+        nav_home: "الرئيسية",
+        nav_about: "من نحن",
+        nav_produce: "الحاصلات الزراعية",
+        nav_certs: "الشهادات والاعتمادات",
+        nav_contact: "اتصل بنا",
+        nav_rfq: "طلب تسعير",
+        cta_quote: "اطلب تسعير",
+        btn_catalog_hero: "تصفح كتالوج الـ 38 محصولاً",
+        btn_pdf_catalog: "كتالوج PDF للمنتجات",
+        hero_badge: "EAX AGRO EXPORT • لتصدير الفاكهة والخضروات الطازجة",
+        hero_title_1: "حاصلات بستانية نقية",
+        hero_title_2: "من مزارعنا الخصبة إلى أسواق العالم",
         hero_desc: "نكرس إمكانياتنا في EAX لتجهيز وشحن 38 محصولاً من أجود الفواكه والخضروات الطازجة فرز أول، مع التزام تام بمعايير الفرز وسلاسل التبريد المتصلة.",
-        btn_catalog_hero: "تصفح كتالوج الـ 38 محصولاً", btn_pdf_catalog: "كتالوج PDF",
-        core_5_banner: "المحاصيل الاستراتيجية الأساسية • أعلى حصة تصديرية",
-        p1_name: "البطاطا الحلوة", p2_name: "البطاطس", p3_name: "الجزر المغسول", p4_name: "البنجر الأحمر", p5_name: "البصل الجاف",
-        about_tag: "أصالتنا والتزامنا", about_title: "إياكس للتصدير الزراعي بمواصفات عالمية", about_desc: "شركة EAX للتصدير الزراعي تربط أجود الأراضي الزراعية المصرية مباشرة بمراكز التوزيع وسلاسل السوبرماركت في أوروبا، بريطانيا، الخليج، الصين، وروسيا.",
-        cert_badge_tag: "الجودة والامتثال", cert_title: "المعايير والشهادات الدولية", cert_statement: "محاصيل معتمدة من مزارع ومحطات تعبئة مطابقة لأعلى المعايير القياسية العالمية",
-        cert_c1_sub: "شهادة IFA الدولية (v6)", cert_c1_desc: "سلامة غذائية متكاملة داخل المزرعة، ومراعاة معايير العمل، وتتبع كامل من الحقل للرف.",
-        cert_c2_sub: "معيار GFSI العالمي", cert_c2_desc: "أعلى اشتراطات النظافة بمحطات التعبئة، والتحكم في التلوث المتبادل، والفحص الدقيق.",
-        cert_c3_sub: "نظام تحليل المخاطر HACCP", cert_c3_desc: "تحليل منهجي للمخاطر، وضبط جودة التخزين المبرد، والرقابة الصحية الصارمة.",
-        cert_c4_sub: "إعفاء جمركي 0% لأوروبا", cert_c4_desc: "وثيقة التخليص الجمركي التفضيلية التي تمنح إعفاءً جمركياً كاملاً في موانئ أوروبا.",
-        cert_c5_sub: "خالٍ من الآفات والمتبقيات", cert_c5_desc: "فحص رسمي ومعتمد من الحجر الزراعي المصري لضمان الإفراج السريع دون حجر.",
-        catalog_badge: "كتالوج التصدير الرسمي المعتمد", catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
-        filter_all: "جميع الحاصلات (38)", filter_core5: "★ الخمسة الأساسية (1-5)", filter_priority: "أولوية قصوى (1-9)", filter_summer: "محاصيل صيفية", filter_winter: "محاصيل شتوية", filter_fruits: "فواكه", filter_veg: "خضروات",
-        lbl_export_season: "موسم التصدير:", btn_req_quote: "حجز حصة تصديرية", no_results: "لم يتم العثور على منتجات مطابقة.", no_results_sub: "جرّب البحث بكلمة أخرى أو اختر تصنيفاً مختلفاً.",
-        qa_badge: "طزاجة لا تضاهى", qa_title: "الجودة وسلاسل التبريد المتصلة", qa_desc: "من التبريد الأولي فور الحصاد إلى الحاويات المبردة المربوطة بالأقمار الصناعية طوال مسار الشحن البحري.",
-        qa_s1_title: "التبريد المائي السريع", qa_s1_desc: "سحب حرارة الحقل فور الجني عبر أنظمة التبريد السريع لضمان أطول فترة صلاحية وقوام مثالي.",
-        qa_s2_title: "الفرز والتدريج الضوئي", qa_s2_desc: "خطوط فرز إلكترونية متطورة لفحص العيوب ونسب السكر والفرز بالمليمتر لكل ثمرة.",
-        qa_s3_title: "مراقبة الحاويات الذكية", qa_s3_desc: "حاويات 40 قدم مبردة مزودة بحساسات IoT متصلة بالأقمار الصناعية لمراقبة الحرارة والرطوبة 24/7.",
-        log_badge: "شحن عالمي", log_title: "موانئ التصدير وممرات الشحن", log_desc: "شحن مباشر من كبرى الموانئ المصرية على البحرين المتوسط والأحمر.",
-        rfq_badge: "مكتب التعاقدات B2B", rfq_title: "طلب عرض أسعار حاويات (FOB / CIF)", rfq_desc: "سجل متطلبات الشحنة لتحصل على تسعير فوري ومباشر من فريق التصدير.",
-        rfq_name_lbl: "اسم الشركة / جهة الاتصال *", rfq_email_lbl: "البريد الإلكتروني للشركة *", rfq_dest_lbl: "ميناء الوصول / الدولة *", rfq_produce_lbl: "المحصول المطلوب *", rfq_vol_lbl: "الكمية التقديرية (عدد الحاويات) *", rfq_notes_lbl: "ملاحظات إضافية أو شروط خاصة بالتعبئة", rfq_btn_submit: "إرسال طلب التسعير المعتمد",
-        rfq_name_ph: "مثل: يورو فريش للتجارة", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "مثل: روتردام / هولندا", rfq_vol_ph: "مثل: 2 حاوية 40 قدم أسبوعياً", rfq_notes_ph: "المقاسات المطلوبة، أوزان الكراتين، شروط الدفع...",
-        footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 38 محصولاً من الخضروات والفواكه الطازجة فرز أول مباشرة لسلاسل التوزيع العالمية وفق أعلى معايير الجودة.",
-        footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.", footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
+        about_tag: "أصالتنا والتزامنا",
+        about_title: "إياكس للتصدير الزراعي بمواصفات عالمية",
+        about_desc: "شركة EAX للتصدير الزراعي تدير محفظة من 38 محصولاً تصديرياً معتمداً تربط أجود الأراضي الزراعية المصرية مباشرة بمراكز التوزيع وسلاسل السوبرماركت في أوروبا، بريطانيا، الخليج، الصين، وروسيا.",
+        cert_badge_tag: "الجودة والامتثال",
+        cert_title: "المعايير والشهادات الدولية",
+        cert_statement: "محاصيل معتمدة من مزارع ومحطات تعبئة مطابقة لأعلى المعايير القياسية العالمية",
+        swipe_hint: "مرّر لرؤية باقي الكروت ↔",
+        cert_c1_badge: "معتمد ومدقق",
+        cert_c1_sub: "شهادة IFA الدولية (v6)",
+        cert_c1_desc: "سلامة غذائية متكاملة داخل المزرعة، ومراعاة معايير العمل، وتتبع كامل من الحقل للرف.",
+        cert_c1_reg: "رقم التسجيل: #EAX-GGN",
+        cert_c1_stat: "ساري 100%",
+        cert_c2_badge: "الفئة الأولى A",
+        cert_c2_title: "معيار سلامة الغذاء BRCGS",
+        cert_c2_sub: "معيار GFSI العالمي",
+        cert_c2_desc: "أعلى اشتراطات النظافة بمحطات التعبئة، والتحكم في التلوث المتبادل، والفحص الدقيق.",
+        cert_c2_cat: "التصنيف: حاصلات طازجة",
+        cert_c2_stat: "الدرجة A",
+        cert_c3_badge: "تدقيق آيزو دولي",
+        cert_c3_title: "آيزو 22000",
+        cert_c3_sub: "نظام تحليل المخاطر HACCP",
+        cert_c3_desc: "تحليل منهجي للمخاطر، وضبط جودة التخزين المبرد، والرقابة الصحية الصارمة.",
+        cert_c3_std: "المعيار: ISO 22000",
+        cert_c3_stat: "مطابق تماماً",
+        cert_c4_badge: "إعفاء أوروبي",
+        cert_c4_title: "شهادة حركة البضائع EUR.1",
+        cert_c4_sub: "إعفاء جمركي 0% لأوروبا",
+        cert_c4_desc: "وثيقة التخليص الجمركي التفضيلية التي تمنح إعفاءً جمركياً كاملاً في موانئ أوروبا.",
+        cert_c4_agr: "الاتفاقية: مصر - أوروبا",
+        cert_c4_stat: "صفر جمارك",
+        cert_c5_badge: "فحص رسمي",
+        cert_c5_title: "شهادة الصحة النباتية",
+        cert_c5_sub: "خالٍ من الآفات والمتبقيات",
+        cert_c5_desc: "فحص رسمي ومعتمد من الحجر الزراعي المصري لضمان الإفراج السريع دون حجر.",
+        cert_c5_insp: "الفحص: وزارة الزراعة المصرية",
+        cert_c5_stat: "مجاز 100%",
+        cert_trust_text: "تحليل متبقيات المبيدات: معامل معتمدة دولياً بنظام ISO 17025 تفحص كل حاوية قبل الشحن.",
+        cert_ports: "ميناء دمياط • ميناء الإسكندرية • ميناء العين السخنة",
+        catalog_badge: "كتالوج التصدير الرسمي المعتمد",
+        catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
+        filter_all: "جميع الحاصلات (38)",
+        filter_priority: "★ أولوية قصوى (1-5)",
+        filter_summer: "محاصيل صيفية",
+        filter_winter: "محاصيل شتوية",
+        filter_veg: "خضروات طازجة",
+        filter_fruits: "فواكه طازجة",
+        search_lbl: "بحث",
+        search_placeholder: "ابحث باسم المحصول...",
+        lbl_export_season: "موسم التصدير:",
+        btn_req_quote: "حجز حصة تصديرية",
+        no_results: "لم يتم العثور على منتجات مطابقة.",
+        no_results_sub: "جرّب البحث بكلمة أخرى أو اختر تصنيفاً مختلفاً.",
+        rfq_badge: "مكتب التعاقدات B2B",
+        rfq_title: "طلب عرض أسعار حاويات (FOB / CIF)",
+        rfq_desc: "سجل متطلبات الشحنة لتحصل على تسعير فوري ومباشر من فريق التصدير.",
+        rfq_name_lbl: "اسم الشركة / جهة الاتصال *",
+        rfq_email_lbl: "البريد الإلكتروني للشركة *",
+        rfq_dest_lbl: "ميناء الوصول / الدولة *",
+        rfq_produce_lbl: "المحصول المطلوب *",
+        rfq_vol_lbl: "الكمية التقديرية (عدد الحاويات) *",
+        rfq_notes_lbl: "ملاحظات إضافية أو شروط خاصة بالتعبئة",
+        rfq_btn_submit: "إرسال طلب التسعير المعتمد",
+        rfq_name_ph: "مثل: يورو فريش للتجارة",
+        rfq_email_ph: "procurement@company.com",
+        rfq_dest_ph: "مثل: روتردام / هولندا",
+        rfq_vol_ph: "مثل: 2 حاوية 40 قدم أسبوعياً",
+        rfq_notes_ph: "المقاسات المطلوبة، أوزان الكراتين، شروط الدفع...",
+        cat_priority: "★ أولوية قصوى",
+        cat_summer: "محصول صيفي",
+        cat_winter: "محصول شتوي",
+        footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 38 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
+        footer_contact_title: "قنوات الاتصال المباشرة",
+        footer_quote_title: "موارد التصدير والتعاقد",
+        footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.",
+        footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
       },
       zh: {
+        page_desc: "EAX 农业出口 - 专业直航出口 38 种符合 GlobalGAP 与 BRC 国际高品质标准的新鲜果蔬至全球市场。",
         months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "新鲜农产品出口认证：GlobalGAP, BRC 与 EUR.1 标准",
-        nav_home: "首页", nav_about: "关于我们", nav_produce: "出口果蔬", nav_certs: "国际认证", nav_quality: "品质冷链", nav_logistics: "跨国物流", nav_contact: "联系我们", nav_rfq: "集装箱报价", cta_quote: "获取报价",
-        hero_badge: "EAX 农业出口 • 全球优质新鲜果蔬供应链", hero_title_1: "天然顶级鲜品", hero_title_2: "源自肥沃农场 · 直供全球超市",
+        cooling_banner: "先进自动化预冷与光学分选分级包装线",
+        nav_home: "首页",
+        nav_about: "关于我们",
+        nav_produce: "出口果蔬",
+        nav_certs: "国际认证",
+        nav_contact: "联系我们",
+        nav_rfq: "集装箱报价单",
+        cta_quote: "获取报价",
+        btn_catalog_hero: "查看 38 种果蔬出口名录",
+        btn_pdf_catalog: "查阅产品 PDF 手册",
+        hero_badge: "EAX 农业出口 • 全球优质新鲜果蔬供应链",
+        hero_title_1: "天然顶级鲜品",
+        hero_title_2: "源自肥沃农场 · 直供全球超市",
         hero_desc: "EAX 专注于精选、包装与跨国冷链运输 38 种高品质出口级新鲜水果与蔬菜，全面遵循国际 GlobalGAP 规范与全程冷链保障。",
-        btn_catalog_hero: "查看 38 种果蔬出口名录", btn_pdf_catalog: "PDF 手册",
-        core_5_banner: "核心主力战略产品 • 重点配额供应",
-        p1_name: "优质蜜薯", p2_name: "出口土豆", p3_name: "水洗胡萝卜", p4_name: "红甜菜根", p5_name: "耐储洋葱",
-        about_tag: "品牌底蕴与承诺", about_title: "EAX 卓越标准的国际农产品出口", about_desc: "直连埃及核心农场与欧洲、海湾、中国及俄罗斯超市分拨中心，保障冷链不间断并全面遵守国际植物检疫标准。",
-        cert_badge_tag: "质量与合规体系", cert_title: "国际出口认证与标准", cert_statement: "源自符合全球零售食品安全标准的认证农场与标准化包装厂",
-        cert_c1_sub: "IFA 认证 (v6)", cert_c1_desc: "全程农场食品安全、劳工福利以及农场到货架的完整追溯体系。",
-        cert_c2_sub: "GFSI 国际基准", cert_c2_desc: "严格的国际包装厂卫生标准、交叉污染控制与国际包装质量审核。",
-        cert_c3_sub: "& HACCP 危害分析", cert_c3_desc: "系统性危害分析关键控制点、冷库贮藏验证与卫生风险严密控制。",
-        cert_c4_sub: "欧洲 / 英国 0% 关税", cert_c4_desc: "优惠原产地清关文件，在欧洲主要口岸享受免征进口关税特惠待遇。",
-        cert_c5_sub: "无有害生物与农残合格", cert_c5_desc: "埃及农业部植物检疫局官方检验出证，确保到港快速通关无需滞留。",
-        catalog_badge: "官方出口鲜品名录", catalog_heading: "38 种国际出口级新鲜果蔬",
-        filter_all: "全部 38 种果蔬", filter_core5: "★ 核心五强 (1-5)", filter_priority: "主力品类 (1-9)", filter_summer: "夏季作物", filter_winter: "冬季作物", filter_fruits: "新鲜水果", filter_veg: "优质蔬菜",
-        lbl_export_season: "出口产季:", btn_req_quote: "预订集装箱配额", no_results: "未找到相关农产品。", no_results_sub: "请尝试更换关键词或清除筛选条件。",
-        qa_badge: "品质与鲜度控制", qa_title: "冷链物流与全程质检", qa_desc: "从田间采后强制预冷到配备卫星温控系统的集装箱全程海运。",
-        qa_s1_title: "采后极速预冷", qa_s1_desc: "采摘后两小时内完成冷风降温与水预冷，快速锁住果蔬水分与货架期。",
-        qa_s2_title: "光学分选与色选分级", qa_s2_desc: "自动化精密分选线检测表皮瑕疵、糖度及毫米级精确果径分级。",
-        qa_s3_title: "IoT 智能冷柜监控", qa_s3_desc: "每个 40 尺高柜冷藏箱配备卫星定位温湿度传感系统，全程 24/7 数据在线。",
-        log_badge: "全球直达", log_title: "出口港口与航运走廊", log_desc: "依托地中海与红海核心枢纽港口直接发运。",
-        rfq_badge: "大宗采购台", rfq_title: "索取集装箱离岸/到岸报价 (FOB / CIF)", rfq_desc: "填写您的采购需求，直接与出口经理对接并获取最新船期价格。",
-        rfq_name_lbl: "公司名称 / 联系人 *", rfq_email_lbl: "企业邮箱 *", rfq_dest_lbl: "目的港口 / 国家 *", rfq_produce_lbl: "采购产品 *", rfq_vol_lbl: "预计采购量 (冷柜数量) *", rfq_notes_lbl: "包装、规格或付款补充说明", rfq_btn_submit: "提交正式报价单",
-        rfq_name_ph: "例如：EuroFresh 国际贸易有限公司", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "例如：鹿特丹港 / 荷兰", rfq_vol_ph: "例如：每周 2 条 40尺冷柜", rfq_notes_ph: "特定果径规格、纸箱净重、付款条款等...",
-        footer_about: "专注于 38 种出口级埃及优质新鲜果蔬采购、分选与温控运输的专业农产品出口商。", footer_contact_title: "直接联系方式", footer_quote_title: "出口业务与采购", footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。", footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
+        about_tag: "品牌底蕴与承诺",
+        about_title: "EAX 卓越标准的国际农产品出口",
+        about_desc: "EAX 农业出口直连埃及核心优质农场与欧洲、英国、海湾、中国及俄罗斯超市分拨中心，保障冷链不间断并全面遵守国际植物检疫标准。",
+        cert_badge_tag: "质量与合规体系",
+        cert_title: "国际出口认证与标准",
+        cert_statement: "源自符合全球零售食品安全标准的认证农场与标准化包装厂",
+        swipe_hint: "左右滑动查看更多 ↔",
+        cert_c1_badge: "已审核",
+        cert_c1_sub: "IFA 认证 (v6)",
+        cert_c1_desc: "全程农场食品安全、劳工福利以及农场到货架的完整追溯体系。",
+        cert_c1_reg: "注册编号: #EAX-GGN",
+        cert_c1_stat: "100% 审核有效",
+        cert_c2_badge: "A 级标准",
+        cert_c2_title: "BRCGS 食品安全标准",
+        cert_c2_sub: "GFSI 国际基准",
+        cert_c2_desc: "严格的国际包装厂卫生标准、交叉污染控制与国际包装质量审核。",
+        cert_c2_cat: "品类: 新鲜农作物",
+        cert_c2_stat: "获得 A 级",
+        cert_c3_badge: "ISO 权威认证",
+        cert_c3_title: "ISO 22000 体系",
+        cert_c3_sub: "& HACCP 危害分析",
+        cert_c3_desc: "系统性危害分析关键控制点、冷库贮藏验证与卫生风险严密控制。",
+        cert_c3_std: "标准: ISO 22000",
+        cert_c3_stat: "完全合规",
+        cert_c4_badge: "欧盟关税特惠",
+        cert_c4_title: "EUR.1 货物流通证书",
+        cert_c4_sub: "欧洲 / 英国 0% 优惠关税",
+        cert_c4_desc: "优惠原产地清关文件，在欧洲主要口岸享受免征进口关税特惠待遇。",
+        cert_c4_agr: "协定: 欧盟-埃及自贸协定",
+        cert_c4_stat: "零关税准入",
+        cert_c5_badge: "官方权威检验",
+        cert_c5_title: "官方植物检疫证书",
+        cert_c5_sub: "无有害生物与农残合格",
+        cert_c5_desc: "埃及农业部植物检疫局官方检验出证，确保到港快速通关无需滞留。",
+        cert_c5_insp: "官方检疫: 埃及农业部",
+        cert_c5_stat: "100% 合格签发",
+        cert_trust_text: "实验室农残分析检测：装箱前由获得 ISO 17025 认证的独立实验室对每批冷柜取样化验。",
+        cert_ports: "杜米亚特港 • 亚历山大港 • 苏伊士港",
+        catalog_badge: "官方出口鲜品名录",
+        catalog_heading: "38 种国际出口级新鲜果蔬",
+        filter_all: "全部 38 种果蔬",
+        filter_priority: "★ 核心主力 (1-5)",
+        filter_summer: "夏季产季",
+        filter_winter: "冬季产季",
+        filter_fruits: "新鲜水果",
+        filter_veg: "优质蔬菜",
+        search_lbl: "搜索",
+        search_placeholder: "按产品名称搜索...",
+        lbl_export_season: "出口产季:",
+        btn_req_quote: "预订集装箱配额",
+        no_results: "未找到相关农产品。",
+        no_results_sub: "请尝试更换关键词或清除筛选条件。",
+        rfq_badge: "外贸大宗采购台",
+        rfq_title: "索取集装箱离岸/到岸报价 (FOB / CIF)",
+        rfq_desc: "填写您的采购需求，直接通过 WhatsApp 与出口经理对接并获取最新船期价格。",
+        rfq_name_lbl: "公司名称 / 联系人 *",
+        rfq_email_lbl: "企业邮箱 *",
+        rfq_dest_lbl: "目的港口 / 国家 *",
+        rfq_produce_lbl: "采购产品 *",
+        rfq_vol_lbl: "预计采购量 (冷柜数量) *",
+        rfq_notes_lbl: "包装、规格或付款补充说明",
+        rfq_btn_submit: "提交正式报价单",
+        rfq_name_ph: "例如：EuroFresh 国际贸易有限公司",
+        rfq_email_ph: "procurement@company.com",
+        rfq_dest_ph: "例如：鹿特丹港 / 荷兰",
+        rfq_vol_ph: "例如：每周 2 条 40尺冷柜",
+        rfq_notes_ph: "特定果径规格、纸箱净重、付款条款等...",
+        cat_priority: "★ 核心主力",
+        cat_summer: "夏季作物",
+        cat_winter: "冬季作物",
+        footer_about: "专注于 38 种出口级埃及优质新鲜果蔬采购、分选与温控运输的专业农产品出口商，直连优质种植基地与跨国商超分拨中心。",
+        footer_contact_title: "直接联系方式",
+        footer_quote_title: "出口业务与采购",
+        footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。",
+        footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
       },
       ru: {
+        page_desc: "EAX AGRO EXPORT - Экспорт 38 отборных видов свежих овощей и фруктов высшего сорта из Египта по стандартам GlobalGAP, BRC и EUR.1 в ЕС, СНГ, Китай и Россию.",
         months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
-        cert_banner: "Сертифицированный экспорт: стандарты GlobalGAP, BRC и EUR.1",
-        nav_home: "Главная", nav_about: "О нас", nav_produce: "Продукция", nav_certs: "Сертификаты", nav_quality: "Контроль качества", nav_logistics: "Логистика", nav_contact: "Контакты", nav_rfq: "Запрос цен", cta_quote: "Котировка",
-        hero_badge: "EAX AGRO EXPORT • Международная логистика свежих продуктов", hero_title_1: "Премиальная свежая продукция", hero_title_2: "С плодородных полей на полки мировых сетей",
+        cert_banner: "Сертифицированный экспорт продукции: стандарты GlobalGAP, BRC и EUR.1",
+        cooling_banner: "Автоматизированные линии предварительного охлаждения и оптической сортировки",
+        nav_home: "Главная",
+        nav_about: "О нас",
+        nav_produce: "Продукция",
+        nav_certs: "Сертификаты",
+        nav_contact: "Контакты",
+        nav_rfq: "Запрос цен",
+        cta_quote: "Запросить котировку",
+        btn_catalog_hero: "Каталог 38 культур",
+        btn_pdf_catalog: "PDF-каталог продукции",
+        hero_badge: "EAX AGRO EXPORT • Международная логистика свежих продуктов",
+        hero_title_1: "Премиальная свежая продукция",
+        hero_title_2: "С плодородных полей на полки мировых сетей",
         hero_desc: "EAX специализируется на отборе, калибровке и доставке 38 первоклассных сортов свежих фруктов и востребованных овощей с непрерывной холодовой цепью и сертификацией GlobalGAP.",
-        btn_catalog_hero: "Каталог 38 культур", btn_pdf_catalog: "PDF-каталог",
-        core_5_banner: "Базовые экспортные культуры • Топ распределение",
-        p1_name: "Батат", p2_name: "Картофель", p3_name: "Морковь", p4_name: "Свекла", p5_name: "Репчатый лук",
-        about_tag: "Наши ценности и надежность", about_title: "EAX: Экспорт агропродукции мирового уровня", about_desc: "EAX соединяет ключевые сельскохозяйственные регионы Египта с распределительными центрами супермаркетов в странах ЕС, Персидского залива, Китая и России.",
-        cert_badge_tag: "Качество и стандарты", cert_title: "Международные стандарты и сертификаты", cert_statement: "Поставки с сертифицированных ферм и упаковочных станций в строгом соответствии со стандартами безопасности",
-        cert_c1_sub: "Сертификат IFA (v6)", cert_c1_desc: "Полная пищевая безопасность, благополучие персонала и отслеживаемость от поля до полки.",
-        cert_c2_sub: "Бенчмарк GFSI", cert_c2_desc: "Международный аудит гигиены упаковочных комплексов и предотвращение загрязнений.",
-        cert_c3_sub: "& Системы HACCP", cert_c3_desc: "Системный анализ контрольных точек, валидация охлаждения и строгий санконтроль.",
-        cert_c4_sub: "Преференциальный режим", cert_c4_desc: "Пакет документов подтверждения происхождения для беспошлинного ввоза в порты Европы.",
-        cert_c5_sub: "Без карантинных вредителей", cert_c5_desc: "Официальный сертификат Службы карантина растений Египта для мгновенного выпуска груза.",
-        catalog_badge: "Официальный экспортный каталог", catalog_heading: "38 экспортных видов овощей и фруктов",
-        filter_all: "Все 38 культур", filter_core5: "★ Топ-5 культур (1-5)", filter_priority: "Приоритетные (1-9)", filter_summer: "Летний сбор", filter_winter: "Зимний сбор", filter_fruits: "Фрукты", filter_veg: "Овощи",
-        lbl_export_season: "Сезон экспорта:", btn_req_quote: "Забронировать объем", no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
-        qa_badge: "Бескомпромиссная свежесть", qa_title: "Холодовая цепь и контроль качества", qa_desc: "От гидроохлаждения после сбора до рефрижераторных контейнеров с непрерывным спутниковым мониторингом.",
-        qa_s1_title: "Мгновенное охлаждение", qa_s1_desc: "Снятие полевого тепла гидроохлаждением в течение 2 часов после сбора урожая.",
-        qa_s2_title: "Оптическая калибровка", qa_s2_desc: "Автоматизированные линии отбора по внешнему виду, калибру и содержанию сахара Brix.",
-        qa_s3_title: "IoT-мониторинг рефконтейнеров", qa_s3_desc: "Каждый 40ft High Cube контейнер оснащен спутниковыми датчиками температуры и влажности.",
-        log_badge: "Глобальная логистика", log_title: "Экспортные порты и морские линии", log_desc: "Прямые отправки через ключевые контейнерные терминалы Александрии, Дамиетты и Сохны.",
-        rfq_badge: "Торговый отдел B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации для получения актуальных ставок от менеджеров экспортного отдела.",
-        rfq_name_lbl: "Название компании / Контактное лицо *", rfq_email_lbl: "Корпоративный E-mail *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Планируемый объем (контейнеры) *", rfq_notes_lbl: "Спецификация калибра / упаковка / оплата", rfq_btn_submit: "Отправить официальный запрос",
-        rfq_name_ph: "например: ООО Свежий Импорт", rfq_email_ph: "procurement@company.ru", rfq_dest_ph: "например: Новороссийск / Россия", rfq_vol_ph: "например: 3 x 40ft RF в неделю", rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
-        footer_about: "Египетская экспортная компания, специализирующаяся на поставках и логистике 38 видов отборных свежих овощей и фруктов в международные розничные сети.", footer_contact_title: "Прямые контакты", footer_quote_title: "Экспортные программы", footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.", footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены."
+        about_tag: "Наши ценности и надежность",
+        about_title: "EAX: Экспорт агропродукции мирового уровня",
+        about_desc: "EAX AGRO EXPORT соединяет ключевые сельскохозяйственные регионы Египта с распределительными центрами супермаркетов в странах ЕС, Великобритании, Персидского залива, Китая и России.",
+        cert_badge_tag: "Качество и стандарты",
+        cert_title: "Международные стандарты и сертификаты",
+        cert_statement: "Поставки с сертифицированных ферм и упаковочных станций в строгом соответствии со стандартами пищевой безопасности",
+        swipe_hint: "Смахните для просмотра ↔",
+        cert_c1_badge: "ПРОВЕРЕНО",
+        cert_c1_sub: "Сертификат IFA (v6)",
+        cert_c1_desc: "Полная пищевая безопасность, благополучие персонала и отслеживаемость от поля до полки.",
+        cert_c1_reg: "РЕГ: #EAX-GGN",
+        cert_c1_stat: "100% Активен",
+        cert_c2_badge: "КАТЕГОРИЯ A",
+        cert_c2_title: "Стандарт BRCGS",
+        cert_c2_sub: "Бенчмарк GFSI",
+        cert_c2_desc: "Международный аудит гигиены упаковочных комплексов и предотвращение перекрестного загрязнения.",
+        cert_c2_cat: "КАТ: Свежие культуры",
+        cert_c2_stat: "Класс A",
+        cert_c3_badge: "АУДИТ ISO",
+        cert_c3_title: "ISO 22000",
+        cert_c3_sub: "& Системы HACCP",
+        cert_c3_desc: "Системный анализ критических контрольных точек, валидация охлаждения и строгий санконтроль.",
+        cert_c3_std: "СТД: ISO 22000",
+        cert_c3_stat: "Соответствует",
+        cert_c4_badge: "ТАМОЖЕННЫЙ ТАРИФ",
+        cert_c4_title: "Сертификат EUR.1",
+        cert_c4_sub: "Преференциальный режим",
+        cert_c4_desc: "Пакет документов подтверждения происхождения для беспошлинного ввоза в европейские порты.",
+        cert_c4_agr: "ДОГОВОР: EG-EU",
+        cert_c4_stat: "0% Пошлина",
+        cert_c5_badge: "ГОСКОНТРОЛЬ",
+        cert_c5_title: "Фитосанитарный контроль",
+        cert_c5_sub: "Без карантинных вредителей",
+        cert_c5_desc: "Официальный сертификат Центральной службы карантина растений Египта для мгновенного выпуска груза.",
+        cert_c5_insp: "ИНСПЕКЦИЯ: Минсельхоз",
+        cert_c5_stat: "100% Пройдено",
+        cert_trust_text: "Лабораторный анализ остатков пестицидов: аккредитованные по ISO 17025 лаборатории проверяют каждый контейнер перед отгрузкой.",
+        cert_ports: "Порт Дамиетта • Порт Александрия • Порт Сохна",
+        catalog_badge: "Официальный экспортный каталог",
+        catalog_heading: "38 экспортных видов овощей и фруктов",
+        filter_all: "Все 38 культур",
+        filter_priority: "★ Топ экспорт (1-5)",
+        filter_summer: "Летний сбор",
+        filter_winter: "Зимний сбор",
+        filter_fruits: "Свежие фрукты",
+        filter_veg: "Свежие овощи",
+        search_lbl: "Поиск",
+        search_placeholder: "Поиск по названию продукта...",
+        lbl_export_season: "Сезон экспорта:",
+        btn_req_quote: "Забронировать объем",
+        no_results: "Продукция не найдена.",
+        no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
+        rfq_badge: "Торговый отдел B2B",
+        rfq_title: "Запрос стоимости контейнера (FOB / CIF)",
+        rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
+        rfq_name_lbl: "Название компании / Контактное лицо *",
+        rfq_email_lbl: "Корпоративный E-mail *",
+        rfq_dest_lbl: "Порт назначения / Страна *",
+        rfq_produce_lbl: "Выбранная продукция *",
+        rfq_vol_lbl: "Планируемый объем (контейнеры) *",
+        rfq_notes_lbl: "Спецификация калибра / упаковка / оплата",
+        rfq_btn_submit: "Отправить официальный запрос",
+        rfq_name_ph: "например: ООО Свежий Импорт",
+        rfq_email_ph: "procurement@company.ru",
+        rfq_dest_ph: "например: Новороссийск / Россия",
+        rfq_vol_ph: "например: 3 x 40ft RF в неделю",
+        rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
+        cat_priority: "★ Топ приоритет",
+        cat_summer: "Летний сбор",
+        cat_winter: "Зимний сбор",
+        footer_about: "Египетская экспортная компания, специализирующаяся на поставках и логистике 38 видов отборных свежих овощей и фруктов в международные розничные сети и распределительные центры.",
+        footer_contact_title: "Прямые контакты",
+        footer_quote_title: "Экспортные программы",
+        footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.",
+        footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены."
       }
     };
 
     let currentLang = 'en';
     let currentCategory = 'all';
+    let cardObserver = null;
+
+    function detectDeviceLanguage() {
+      const saved = localStorage.getItem('eax_lang');
+      if (saved && ['en', 'ar', 'zh', 'ru'].includes(saved)) {
+        return saved;
+      }
+      const userLangs = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
+      for (let l of userLangs) {
+        if (!l) continue;
+        const code = l.toLowerCase();
+        if (code.startsWith('ar')) return 'ar';
+        if (code.startsWith('zh')) return 'zh';
+        if (code.startsWith('ru')) return 'ru';
+        if (code.startsWith('en')) return 'en';
+      }
+      return 'en';
+    }
 
     function toggleLangDropdown(event) {
       if (event) event.stopPropagation();
-      const menu = document.getElementById('headerLangMenu');
-      const chevron = document.getElementById('headerChevron');
+      const menu = document.getElementById('langDropdownMenu');
+      const chevron = document.getElementById('langChevron');
       if (!menu) return;
       const isOpen = !menu.classList.contains('hidden');
-      menu.classList.toggle('hidden', isOpen);
-      if (chevron) chevron.classList.toggle('rotate-180', !isOpen);
+      if (isOpen) {
+        menu.classList.add('hidden');
+        if (chevron) chevron.classList.remove('rotate-180');
+      } else {
+        menu.classList.remove('hidden');
+        if (chevron) chevron.classList.add('rotate-180');
+      }
     }
 
     function closeLangDropdown() {
-      const menu = document.getElementById('headerLangMenu');
-      const chevron = document.getElementById('headerChevron');
-      if (menu) menu.classList.add('hidden');
-      if (chevron) chevron.classList.remove('rotate-180');
+      const menu = document.getElementById('langDropdownMenu');
+      const chevron = document.getElementById('langChevron');
+      if (menu && !menu.classList.contains('hidden')) {
+        menu.classList.add('hidden');
+        if (chevron) chevron.classList.remove('rotate-180');
+      }
     }
 
     function selectLanguage(lang) {
@@ -844,7 +1485,7 @@
       const select = document.getElementById('rfqProduce');
       if (!grid) return;
 
-      const t = translations[currentLang] || translations.en;
+      const t = translations[currentLang];
       const prevSelected = select ? select.value : '';
 
       grid.innerHTML = '';
@@ -854,36 +1495,29 @@
         const cropName = crop[`name_${currentLang}`] || crop.name_en;
         const cropSeason = crop[`season_${currentLang}`] || crop.season_en;
         
+        let categoryLabel = t.cat_priority;
         let badgeColor = 'bg-amber-600 text-white';
-        let groupLabel = 'Priority';
-        let isCore5 = (crop.id <= 5);
-
-        if (isCore5) {
-          badgeColor = 'bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800 text-white ring-1 ring-amber-300';
-          groupLabel = currentLang === 'ar' ? '★ الركيزة الأساسية' : '★ Core Strategic';
-        } else if (crop.group === 'summer') {
+        if (crop.group === 'summer') {
+          categoryLabel = t.cat_summer;
           badgeColor = 'bg-emerald-700 text-white';
-          groupLabel = currentLang === 'ar' ? 'صيفي' : 'Summer';
         } else if (crop.group === 'winter') {
+          categoryLabel = t.cat_winter;
           badgeColor = 'bg-sky-800 text-white';
-          groupLabel = currentLang === 'ar' ? 'شتوي' : 'Winter';
         }
 
-        // Render 12-month calendar matrix inside card
         let calendarHtml = '';
-        const monthNames = t.months || ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         for (let m = 1; m <= 12; m++) {
           const isActive = crop.months.includes(m);
-          const mName = monthNames[m - 1];
+          const mName = t.months[m - 1];
           calendarHtml += `
-            <div class="rounded ${isActive ? 'bg-emerald-600 text-white font-black' : 'bg-slate-100 text-slate-300'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px] font-bold" title="${mName}">
+            <div class="rounded ${isActive ? 'bg-green-600 text-white font-black' : 'bg-slate-100 text-slate-300'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px] font-bold">
               ${mName}
             </div>
           `;
         }
 
         const card = document.createElement('div');
-        card.className = `spotlight-card reveal-up ${isCore5 ? 'core-root ring-1 ring-agro-gold/30' : ''}`;
+        card.className = 'spotlight-card reveal-up';
         card.setAttribute('data-id', crop.id);
         card.setAttribute('data-group', crop.group);
         card.setAttribute('data-category', crop.category);
@@ -891,25 +1525,24 @@
 
         card.innerHTML = `
           <div>
-            <div class="relative aspect-[16/10] bg-slate-100 overflow-hidden">
-              <span class="absolute top-3 start-3 z-10 ${badgeColor} text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-md flex items-center gap-1">
+            <div class="relative aspect-[16/10] bg-slate-200 overflow-hidden">
+              <span class="absolute top-2.5 start-2.5 z-10 ${badgeColor} text-[10px] font-black px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
                 <span>#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
-                <span>•</span>
-                <span>${groupLabel}</span>
+                <span>${categoryLabel}</span>
               </span>
               <img 
                 src="${crop.image}" 
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80';" 
                 loading="lazy" 
-                class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" 
+                decoding="async" 
+                class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" 
                 alt="${cropName}" 
               />
             </div>
 
-            <div class="p-5">
-              <h3 class="font-black text-base sm:text-lg text-slate-900 leading-snug mb-3 text-start flex items-center gap-1.5">
-                ${isCore5 ? '<span class="text-agro-gold text-sm">★</span>' : ''}
-                <span>${crop.id}. ${cropName}</span>
+            <div class="p-4 sm:p-5">
+              <h3 class="font-bold text-base sm:text-lg text-slate-900 leading-snug mb-3 text-start">
+                ${crop.id}. ${cropName}
               </h3>
 
               <div class="border-t border-agro-border pt-3">
@@ -921,12 +1554,13 @@
                   ${calendarHtml}
                 </div>
               </div>
+
             </div>
           </div>
 
-          <div class="p-5 pt-0">
-            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-shine w-full py-2.5 rounded-xl ${isCore5 ? 'bg-gradient-to-r from-agro-primary to-emerald-900 border border-agro-goldBorder/40' : 'bg-agro-primary hover:bg-agro-primaryHover'} text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all">
-              <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="p-4 sm:p-5 pt-0">
+            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-shine w-full py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
+              <svg class="w-3.5 h-3.5 text-amber-300 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span>${t.btn_req_quote}</span>
             </button>
           </div>
@@ -945,7 +1579,12 @@
       if (select) {
         const customOpt = document.createElement('option');
         customOpt.value = "Mixed Cargo / Custom Program";
-        customOpt.textContent = currentLang === 'ar' ? "حاويات مشكلة / برنامج توريد خاص" : "Mixed Cargo / Custom Program";
+        let customText = "Mixed Cargo / Custom Program";
+        if (currentLang === 'ar') customText = "حاويات مشكلة / برنامج توريد خاص";
+        else if (currentLang === 'zh') customText = "混装拼柜 / 定制出口计划";
+        else if (currentLang === 'ru') customText = "Сборный контейнер / Индивидуальная программа";
+        
+        customOpt.textContent = customText;
         select.appendChild(customOpt);
 
         if (prevSelected && Array.from(select.options).some(o => o.value === prevSelected)) {
@@ -954,7 +1593,7 @@
       }
 
       applyFiltersAndSearch();
-      observeElements();
+      observeCardElements();
     }
 
     function selectCropForRFQ(id) {
@@ -968,7 +1607,9 @@
       if (select) {
         const targetVal = `${crop.id}. ${crop.name_en}`;
         let matched = Array.from(select.options).find(o => o.value === targetVal);
-        if (matched) select.value = targetVal;
+        if (matched) {
+          select.value = targetVal;
+        }
       }
 
       if (rfqSection) {
@@ -999,11 +1640,11 @@
       const buttons = document.querySelectorAll('.filter-btn');
 
       buttons.forEach(btn => {
-        btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0';
+        btn.className = 'filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0';
       });
 
       if (evt && evt.currentTarget) {
-        evt.currentTarget.className = 'filter-btn active px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0';
+        evt.currentTarget.className = 'filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0';
       }
 
       applyFiltersAndSearch();
@@ -1045,7 +1686,7 @@
 
         let matchesCat = false;
         if (currentCategory === 'all') matchesCat = true;
-        else if (currentCategory === 'core5') matchesCat = (id <= 5);
+        else if (currentCategory === 'priority') matchesCat = (id <= 5);
         else if (currentCategory === 'summer') matchesCat = (group === 'summer');
         else if (currentCategory === 'winter') matchesCat = (group === 'winter');
         else if (currentCategory === 'fruits') matchesCat = (cat === 'fruits');
@@ -1068,14 +1709,34 @@
       currentLang = lang;
       const html = document.documentElement;
       const body = document.body;
+      const searchInput = document.getElementById('searchInput');
 
-      const flagMap = { en: '🇬🇧', ar: '🇪🇬', zh: '🇨🇳', ru: '🇷🇺' };
-      const labelMap = { en: 'EN', ar: 'AR', zh: 'ZH', ru: 'RU' };
+      const pageTitles = {
+        en: 'EAX AGRO EXPORT | Premium Fresh Produce Exporter',
+        ar: 'EAX AGRO EXPORT | تصدير 38 محصولاً زراعياً مصرياً',
+        zh: 'EAX 农业出口 | 38种优质埃及新鲜果蔬官方名录',
+        ru: 'EAX AGRO EXPORT | Экспорт свежих фруктов и овощей из Египта'
+      };
 
-      const flagEl = document.getElementById('currentFlag');
-      const lblEl = document.getElementById('headerLangLabel');
-      if (flagEl) flagEl.textContent = flagMap[lang] || '🌐';
-      if (lblEl) lblEl.textContent = labelMap[lang] || lang.toUpperCase();
+      const langDisplayLabels = {
+        ar: 'العربية (Egypt)',
+        en: 'English (Global)',
+        zh: '中文 (China)',
+        ru: 'Русский (Russia/CIS)'
+      };
+
+      if (pageTitles[lang]) {
+        document.title = pageTitles[lang];
+        const ogTitle = document.getElementById('og-title');
+        if (ogTitle) ogTitle.setAttribute('content', pageTitles[lang]);
+      }
+
+      if (translations[lang] && translations[lang].page_desc) {
+        const metaDesc = document.getElementById('meta-desc');
+        const ogDesc = document.getElementById('og-desc');
+        if (metaDesc) metaDesc.setAttribute('content', translations[lang].page_desc);
+        if (ogDesc) ogDesc.setAttribute('content', translations[lang].page_desc);
+      }
 
       html.setAttribute('lang', lang);
       if (lang === 'ar') {
@@ -1093,8 +1754,17 @@
 
       localStorage.setItem('eax_lang', lang);
 
+      const labelEl = document.getElementById('currentLangLabel');
+      if (labelEl && langDisplayLabels[lang]) {
+        labelEl.textContent = langDisplayLabels[lang];
+      }
+
       document.querySelectorAll('.lang-check').forEach(el => {
-        el.classList.toggle('hidden', el.getAttribute('data-check') !== lang);
+        if (el.getAttribute('data-check') === lang) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
       });
 
       document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1111,97 +1781,72 @@
         }
       });
 
+      if (searchInput && translations[lang].search_placeholder) {
+        searchInput.placeholder = translations[lang].search_placeholder;
+      }
+
       renderProducts();
+      toggleMobileMenu(true);
     }
 
     function toggleMobileMenu(forceClose = false) {
       const mobileMenu = document.getElementById('mobileMenu');
+      const mobileBtn = document.getElementById('mobileMenuBtn');
       const iconBars = document.getElementById('menuIconBars');
       const iconClose = document.getElementById('menuIconClose');
 
-      if (!mobileMenu) return;
-      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (!mobileMenu || !mobileBtn) return;
+      const isCurrentlyOpen = mobileMenu.classList.contains('flex');
 
-      if (forceClose || isOpen) {
+      if (forceClose || isCurrentlyOpen) {
+        mobileMenu.classList.remove('flex');
         mobileMenu.classList.add('hidden');
-        if (iconBars) iconBars.classList.remove('hidden');
-        if (iconClose) iconClose.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        if (iconBars) iconBars.classList.replace('hidden', 'block');
+        if (iconClose) iconClose.classList.replace('block', 'hidden');
       } else {
         mobileMenu.classList.remove('hidden');
-        if (iconBars) iconBars.classList.add('hidden');
-        if (iconClose) iconClose.classList.remove('hidden');
+        mobileMenu.classList.add('flex');
+        document.body.classList.add('overflow-hidden');
+        mobileBtn.setAttribute('aria-expanded', 'true');
+        if (iconBars) iconBars.classList.replace('block', 'hidden');
+        if (iconClose) iconClose.classList.replace('hidden', 'block');
       }
     }
 
-    function showToast(title, desc) {
-      const toast = document.getElementById('toastNotification');
-      const tTitle = document.getElementById('toastTitle');
-      const tDesc = document.getElementById('toastDesc');
-      if (!toast) return;
-
-      if (tTitle) tTitle.textContent = title;
-      if (tDesc) tDesc.textContent = desc;
-
-      toast.classList.remove('translate-y-[-130%]', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
-      setTimeout(() => {
-        toast.classList.add('translate-y-[-130%]', 'opacity-0');
-        toast.classList.remove('translate-y-0', 'opacity-100');
-      }, 2800);
+    function observeCardElements() {
+      if (!cardObserver) {
+        cardObserver = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '30px', threshold: 0.05 });
+      }
+      document.querySelectorAll('#products-grid .reveal-up:not(.is-visible)').forEach(el => {
+        cardObserver.observe(el);
+      });
     }
 
-    function handleRFQSubmit(e) {
-      e.preventDefault();
-      const payload = {
-        name: document.getElementById('rfqName').value.trim(),
-        email: document.getElementById('rfqEmail').value.trim(),
-        destination: document.getElementById('rfqDest').value.trim(),
-        produce: document.getElementById('rfqProduce').value,
-        volume: document.getElementById('rfqVolume').value.trim(),
-        notes: document.getElementById('rfqNotes').value.trim() || 'Standard export terms'
-      };
+    window.addEventListener('DOMContentLoaded', () => {
+      const detectedLang = detectDeviceLanguage();
+      changeLanguage(detectedLang);
 
-      showToast(
-        currentLang === 'ar' ? 'تم تسجيل الطلب بنجاح' : 'RFQ Dispatched',
-        currentLang === 'ar' ? 'جاري توجيهك إلى مكتب التصدير...' : 'Redirecting to WhatsApp Export Desk...'
-      );
-
-      setTimeout(() => {
-        dispatchToWhatsApp(payload);
-      }, 700);
-    }
-
-    function dispatchToWhatsApp(data) {
-      const message = 
-`*New Formal RFQ | EAX AGRO EXPORT*
-*Company:* ${data.name}
-*Email:* ${data.email}
-*Destination Port:* ${data.destination}
-*Product Allocation:* ${data.produce}
-*Volume:* ${data.volume}
-*Notes:* ${data.notes}`;
-
-      const waUrl = `https://wa.me/${BACKEND_CONFIG.whatsappPhone}?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
-    }
-
-    function observeElements() {
-      const observer = new IntersectionObserver((entries, obs) => {
+      const staticObserver = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
             obs.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.05, rootMargin: '30px' });
+      }, { rootMargin: '40px', threshold: 0.05 });
 
-      document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => observer.observe(el));
-    }
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedLang = localStorage.getItem('eax_lang') || 'en';
-      changeLanguage(savedLang);
+      document.querySelectorAll('section .reveal-up, header .reveal-up').forEach(el => {
+        staticObserver.observe(el);
+      });
 
       const mobileBtn = document.getElementById('mobileMenuBtn');
       if (mobileBtn) {
@@ -1216,19 +1861,78 @@
       });
 
       document.addEventListener('click', (e) => {
-        const langContainer = document.getElementById('headerLangContainer');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        if (mobileMenu && mobileMenu.classList.contains('flex')) {
+          if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+            toggleMobileMenu(true);
+          }
+        }
+        const langContainer = document.getElementById('langPopoverContainer');
         if (langContainer && !langContainer.contains(e.target)) {
           closeLangDropdown();
         }
       });
     });
 
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      const header = document.getElementById('main-header');
-      if (header) {
-        header.classList.toggle('header-shrunk', window.scrollY > 30);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const header = document.getElementById('main-header');
+          if (header) {
+            if (window.scrollY > 30) {
+              header.classList.add('header-shrunk');
+            } else {
+              header.classList.remove('header-shrunk');
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     }, { passive: true });
+
+    async function handleRFQSubmit(e) {
+      e.preventDefault();
+      const payload = {
+        name: document.getElementById('rfqName').value.trim(),
+        email: document.getElementById('rfqEmail').value.trim(),
+        destination: document.getElementById('rfqDest').value.trim(),
+        produce: document.getElementById('rfqProduce').value,
+        volume: document.getElementById('rfqVolume').value.trim(),
+        notes: document.getElementById('rfqNotes').value.trim() || 'Standard export terms',
+        timestamp: new Date().toISOString()
+      };
+      dispatchToWhatsApp(payload);
+    }
+
+    function dispatchToWhatsApp(data) {
+      const message = 
+`*New Formal RFQ | EAX AGRO EXPORT*
+*Company:* ${data.name}
+*Email:* ${data.email}
+*Destination Port:* ${data.destination}
+*Product Allocation:* ${data.produce}
+*Volume:* ${data.volume}
+*Notes:* ${data.notes}`;
+
+      const waUrl = `https://wa.me/${BACKEND_CONFIG.whatsappPhone}?text=${encodeURIComponent(message)}`;
+      const link = document.createElement('a');
+      link.href = waUrl;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleMobileMenu(true);
+        closeLangDropdown();
+      }
+    });
   </script>
 </body>
 </html>
