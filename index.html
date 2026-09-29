@@ -127,6 +127,7 @@
       transform: translateY(0) scale(0.97);
     }
 
+    /* Luxury Icon Glow Animations */
     .icon-glow-emerald {
       box-shadow: 0 0 16px 2px rgba(16, 185, 129, 0.25);
       transition: all 0.35s ease;
@@ -210,14 +211,6 @@
     .filter-btn {
       transition: all 0.25s ease;
     }
-    .filter-btn:hover:not(.active) {
-      transform: translateY(-2px);
-      border-color: #a66a1a;
-      box-shadow: 0 6px 14px -2px rgba(166, 106, 26, 0.18);
-    }
-    .filter-btn.active {
-      box-shadow: 0 8px 20px -3px rgba(20, 61, 40, 0.35);
-    }
 
     .animate-gradient-text {
       background-size: 300% auto;
@@ -233,24 +226,57 @@
       100% { background-position: 300% center; }
     }
 
-    .spotlight-card {
-      background: #fcfdfb;
-      border: 1px solid #d8e3d6;
-      border-radius: 1.25rem;
+    /* Ultra-Modern Product Cards & Badges */
+    .modern-crop-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(210, 222, 208, 0.75);
+      border-radius: 1.5rem;
       overflow: hidden;
-      box-shadow: 0 4px 14px -3px rgba(20, 61, 40, 0.05);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transform: translateZ(0);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     @media (hover: hover) {
-      .spotlight-card:hover {
-        transform: translateY(-5px);
-        border-color: #bcd2b8;
-        box-shadow: 0 16px 32px -6px rgba(20, 61, 40, 0.12), 0 0 14px 1px rgba(47, 109, 72, 0.12);
+      .modern-crop-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(47, 109, 72, 0.4);
+        box-shadow: 0 20px 35px -8px rgba(20, 61, 40, 0.12), 0 0 20px 2px rgba(166, 106, 26, 0.08);
       }
+      .modern-crop-card:hover .crop-img-zoom {
+        transform: scale(1.08);
+      }
+    }
+
+    .crop-img-zoom {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dock-filter-bar {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(210, 222, 208, 0.85);
+      border-radius: 1.25rem;
+      padding: 0.375rem;
+    }
+
+    .month-pill {
+      transition: all 0.2s ease;
+      font-feature-settings: "tnum";
+    }
+    .month-pill.is-active {
+      background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+      color: #ffffff;
+      font-weight: 800;
+      box-shadow: 0 2px 8px -1px rgba(22, 101, 52, 0.45);
+    }
+    .month-pill.is-current-month {
+      ring: 2px solid #f59e0b;
+      outline: 2px solid #f59e0b;
+      outline-offset: -1px;
     }
 
     #main-header {
@@ -586,7 +612,7 @@
 
       <div class="flex overflow-x-auto pb-4 pt-1 snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 sm:gap-6 lg:gap-7 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 reveal-up">
         
-        <!-- QA Card 1 -->
+        <!-- QA Card 1: Emerald Neon Glow -->
         <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-emerald-500/50 transition-all duration-300">
           <div data-i18n="qa_s1_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black tracking-wider uppercase border border-emerald-200">2H POST-HARVEST</div>
           <div>
@@ -602,7 +628,7 @@
           </div>
         </div>
 
-        <!-- QA Card 2 -->
+        <!-- QA Card 2: Amber Neon Glow -->
         <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-amber-500/50 transition-all duration-300">
           <div data-i18n="qa_s2_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black tracking-wider uppercase border border-amber-200">BRIX & CALIBER</div>
           <div>
@@ -618,7 +644,7 @@
           </div>
         </div>
 
-        <!-- QA Card 3 -->
+        <!-- QA Card 3: Sky Blue Neon Glow -->
         <div class="w-[84vw] max-w-[320px] md:w-auto md:max-w-none snap-center shrink-0 md:shrink group relative bg-white rounded-2xl p-6 sm:p-8 border border-agro-border/90 shadow-sm flex flex-col justify-between hover:border-sky-500/50 transition-all duration-300">
           <div data-i18n="qa_s3_badge" class="absolute top-4 end-4 px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black tracking-wider uppercase border border-sky-200">24/7 SATELLITE</div>
           <div>
@@ -729,7 +755,7 @@
             </div>
             <h3 data-i18n="cert_c5_title" class="font-black text-base text-slate-900 text-start group-hover:text-teal-800 transition-colors">Phytosanitary</h3>
             <p data-i18n="cert_c5_sub" class="text-xs font-bold text-teal-700 mt-0.5 text-start">Pest & Residue Free</p>
-            <p data-i18n="cert_c5_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free clearance.</p>
+            <p data-i18n="cert_c5_desc" class="text-[11px] sm:text-xs text-slate-500 mt-2 leading-relaxed text-start">Official inspection by Egyptian Plant Quarantine ensuring quarantine-free shipment clearance.</p>
           </div>
           <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="cert_c5_insp">INSPECTION: MoA</span>
@@ -853,45 +879,79 @@
     </div>
   </section>
 
-  <!-- 6. Complete 38 Export Produce Catalog Section -->
-  <section id="catalog" class="py-12 sm:py-20 bg-agro-surface/60 border-t border-agro-border">
+  <!-- 6. Complete 38 Export Produce Catalog Section (Ultra-Modern Redesign) -->
+  <section id="catalog" class="py-14 sm:py-24 bg-gradient-to-b from-agro-surface/40 via-white/50 to-agro-surface/50 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 sm:gap-6 mb-6 sm:mb-8 reveal-up">
-        <div>
-          <span data-i18n="catalog_badge" class="text-[10px] sm:text-xs font-extrabold text-agro-gold uppercase tracking-widest">Official Export Catalog</span>
-          <h2 data-i18n="catalog_heading" class="text-xl sm:text-3xl lg:text-4xl font-black text-slate-900 mt-1">38 Export-Grade Fruits & Vegetables</h2>
+      <!-- Section Header with Badges & Live Stats -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 sm:mb-12 reveal-up">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-agro-primary/5 border border-agro-primary/15 text-agro-primary text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping"></span>
+            <span data-i18n="catalog_badge">Official Export Catalog</span>
+          </div>
+          <h2 data-i18n="catalog_heading" class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            38 Export-Grade Fruits & Vegetables
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-600 font-medium mt-2 max-w-xl leading-relaxed" data-i18n="catalog_sub">
+            Direct allocation from accredited Egyptian packing stations. Filter by season or search to view harvest windows and Reefer export specs.
+          </p>
         </div>
 
-        <!-- Filter Tabs -->
-        <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto pb-2 no-scrollbar w-full md:w-auto" id="filter-container">
-          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0">All 38 Produce</button>
-          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">★ Top Priority (1-5)</button>
-          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Summer Harvest</button>
-          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Winter Harvest</button>
-          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Fruits</button>
-          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0">Fresh Vegetables</button>
+        <!-- Live Products Counter Badge -->
+        <div class="flex items-center gap-3 shrink-0">
+          <div class="px-4 py-2 rounded-2xl bg-white/90 border border-agro-border shadow-xs backdrop-blur-md flex items-center gap-2.5">
+            <span class="flex h-2.5 w-2.5 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-600"></span>
+            </span>
+            <span class="text-xs font-extrabold text-slate-800">
+              <span id="visibleCropsCount" class="text-agro-primary font-black text-sm">38</span>
+              <span class="text-slate-400 font-normal"> / 38 </span>
+              <span data-i18n="counter_label">Items Active</span>
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- Search Box -->
-      <div class="relative max-w-md mb-6 sm:mb-10 reveal-up">
-        <label for="searchInput" data-i18n="search_lbl" class="sr-only">Search</label>
-        <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-2.5 sm:py-3.5 ps-10 pe-10 rounded-xl bg-white border border-agro-border text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/30 focus:border-agro-primary transition-all shadow-xs" />
-        <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1" aria-label="Clear Search">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      <!-- Modern Control Bar: Floating Filter Dock & Glass Search -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-8 sm:mb-12 reveal-up">
+        
+        <!-- Filter Pills Dock -->
+        <div class="dock-filter-bar flex items-center gap-1.5 overflow-x-auto no-scrollbar shadow-xs">
+          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-black transition-all bg-agro-primary text-white shadow-xs shrink-0">All 38 Produce</button>
+          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0">★ Top Priority (1-5)</button>
+          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0">Summer Harvest</button>
+          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0">Winter Harvest</button>
+          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0">Fresh Fruits</button>
+          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0">Fresh Vegetables</button>
+        </div>
+
+        <!-- Glass Search Box with Quick Clear -->
+        <div class="relative w-full lg:w-80 shrink-0">
+          <label for="searchInput" data-i18n="search_lbl" class="sr-only">Search produce</label>
+          <input type="text" id="searchInput" oninput="handleSearchInput()" placeholder="Search by crop name..." class="w-full py-2.5 sm:py-3 ps-10 pe-10 rounded-2xl bg-white/90 backdrop-blur-md border border-agro-border text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary/25 focus:border-agro-primary shadow-xs transition-all" />
+          <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1 transition-colors" aria-label="Clear Search">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Modern Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7" id="products-grid"></div>
+
+      <!-- Modern Empty State -->
+      <div id="noResultsMsg" class="hidden col-span-full py-16 text-center bg-white/70 backdrop-blur-md rounded-3xl border border-dashed border-agro-border my-4">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mx-auto mb-3 shadow-xs">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </div>
+        <p data-i18n="no_results" class="font-extrabold text-base text-slate-800">No matching produce found.</p>
+        <p data-i18n="no_results_sub" class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try searching with another keyword or resetting your filter category.</p>
+        <button type="button" onclick="handleFilterClick('all'); clearSearch();" class="mt-4 px-4 py-2 rounded-xl bg-agro-surface hover:bg-agro-card text-agro-primary text-xs font-bold border border-agro-border transition-all">
+          Reset All Filters
         </button>
-      </div>
-
-      <!-- Products Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-7" id="products-grid"></div>
-
-      <!-- Empty State -->
-      <div id="noResultsMsg" class="hidden col-span-full py-12 text-center text-slate-500">
-        <svg class="w-12 h-12 mx-auto mb-2 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-        <p data-i18n="no_results" class="font-bold text-sm sm:text-base text-slate-700">No matching produce found.</p>
-        <p data-i18n="no_results_sub" class="text-xs text-slate-400 mt-1">Try searching with another keyword or resetting your filter category.</p>
       </div>
 
     </div>
@@ -1054,14 +1114,14 @@
       {
         id: 5, is_priority: true, season_type: 'summer', category: 'vegetables',
         name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)", name_ru: "Сушеный репчатый лук (желтый и красный)",
-        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С مارس по октябрь",
         months: [3,4,5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 6, is_priority: true, season_type: 'winter', category: 'fruits',
         name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
       },
@@ -1166,7 +1226,7 @@
       {
         id: 21, is_priority: false, season_type: 'summer', category: 'fruits',
         name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
-        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С августа по ноябрь",
+        season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С أغسطس по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=600&q=80"
       },
@@ -1264,7 +1324,7 @@
       {
         id: 35, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
@@ -1386,6 +1446,9 @@
         c5_tech: "TECH: Smart IoT Dehumid",
         catalog_badge: "Official Export Catalog",
         catalog_heading: "38 Export-Grade Fruits & Vegetables",
+        catalog_sub: "Direct allocation from accredited Egyptian packing stations. Filter by season or search to view harvest windows and Reefer export specs.",
+        counter_label: "Items Active",
+        now_in_season: "In Season Now",
         filter_all: "All 38 Produce",
         filter_priority: "★ Top Priority (1-5)",
         filter_summer: "Summer Harvest",
@@ -1516,6 +1579,9 @@
         c5_tech: "التقنية: تفريغ رطوبة ذكي IoT",
         catalog_badge: "كتالوج التصدير الرسمي المعتمد",
         catalog_heading: "38 محصولاً بمواصفات تصدير قياسية",
+        catalog_sub: "توريد وحصص تصديرية مباشرة من محطات التعبئة والمزارع المعتمدة. استخدم الفلاتر والتقويم لمعرفة مواعيد الجني وسلاسل الشحن.",
+        counter_label: "محصول متوفر",
+        now_in_season: "موسم الحصاد الحالي",
         filter_all: "جميع الحاصلات (38)",
         filter_priority: "★ أولوية قصوى (1-5)",
         filter_summer: "محاصيل صيفية",
@@ -1646,6 +1712,9 @@
         c5_tech: "技术：智能 IoT 精密控湿除湿",
         catalog_badge: "官方出口鲜品名录",
         catalog_heading: "38 种国际出口级新鲜果蔬",
+        catalog_sub: "来自埃及标准化认证包装厂的直采配额。支持按产季筛选与检索收获窗口及冷柜出口标准。",
+        counter_label: "种农产品在售",
+        now_in_season: "当季旺季采收中",
         filter_all: "全部 38 种果蔬",
         filter_priority: "★ 核心主力 (1-5)",
         filter_summer: "夏季产季",
@@ -1776,6 +1845,9 @@
         c5_tech: "ТЕХ: Smart IoT контроль влажности",
         catalog_badge: "Официальный экспортный каталог",
         catalog_heading: "38 экспортных видов овощей и фруктов",
+        catalog_sub: "Прямые квоты с аккредитованных упаковочных комплексов Египта. Фильтруйте по сезону или находите нужные культуры.",
+        counter_label: "позиций доступно",
+        now_in_season: "Сезон сбора прямо сейчас",
         filter_all: "Все 38 культур",
         filter_priority: "★ Топ экспорт (1-5)",
         filter_summer: "Летний сбор",
@@ -1876,9 +1948,12 @@
       grid.innerHTML = '';
       if (select) select.innerHTML = '';
 
+      const currentMonth = new Date().getMonth() + 1; // 1 to 12
+
       CROPS.forEach(crop => {
+        const isCurrentActive = crop.months.includes(currentMonth);
         const card = document.createElement('div');
-        card.className = 'spotlight-card reveal-up';
+        card.className = 'modern-crop-card reveal-up group';
         card.setAttribute('data-id', crop.id);
         card.setAttribute('data-priority', crop.is_priority ? 'true' : 'false');
         card.setAttribute('data-season', crop.season_type);
@@ -1887,33 +1962,66 @@
 
         card.innerHTML = `
           <div>
-            <div class="relative aspect-[16/10] bg-slate-200 overflow-hidden">
-              <span class="crop-badge absolute top-2.5 start-2.5 z-10 text-[10px] font-black px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
-                <span>#${crop.id < 10 ? '0' + crop.id : crop.id}</span>
-                <span class="crop-badge-text"></span>
-              </span>
-              <img src="${crop.image}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105" alt="${crop.name_en}" />
-            </div>
-            <div class="p-4 sm:p-5">
-              <h3 class="crop-title font-bold text-base sm:text-lg text-slate-900 leading-snug mb-3 text-start"></h3>
-              <div class="border-t border-agro-border pt-3">
-                <div class="flex items-center justify-between text-xs font-bold mb-2">
-                  <span class="season-label text-slate-600"></span>
-                  <span class="crop-season text-emerald-700 font-extrabold"></span>
+            <!-- Image Area with Floating Badges & Ambient Lighting -->
+            <div class="relative aspect-[16/10] bg-slate-900/10 overflow-hidden">
+              <!-- Floating Glass ID & Category Badge -->
+              <div class="absolute top-3 start-3 z-10 flex items-center gap-1.5">
+                <span class="px-2.5 py-1 rounded-xl bg-black/55 backdrop-blur-md border border-white/20 text-white text-[10px] font-black tracking-wider shadow-sm">
+                  #${crop.id < 10 ? '0' + crop.id : crop.id}
+                </span>
+                <span class="crop-group-pill px-2.5 py-1 rounded-xl text-[10px] font-extrabold shadow-sm backdrop-blur-md"></span>
+              </div>
+
+              <!-- Live "In Season Now" Pulse Badge -->
+              ${isCurrentActive ? `
+                <div class="absolute top-3 end-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-950/75 backdrop-blur-md border border-emerald-400/40 text-emerald-300 text-[10px] font-black shadow-lg">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                  </span>
+                  <span class="crop-live-status tracking-wide"></span>
                 </div>
-                <div class="crop-calendar grid grid-cols-6 sm:grid-cols-12 gap-1 sm:gap-0.5 text-center"></div>
+              ` : ''}
+
+              <!-- Image with Soft Vignette -->
+              <img src="${crop.image}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="${crop.name_en}" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 sm:p-6">
+              <div class="flex items-start justify-between gap-2 mb-2.5">
+                <h3 class="crop-title font-black text-base sm:text-lg text-slate-900 leading-snug group-hover:text-agro-primary transition-colors text-start"></h3>
+              </div>
+
+              <!-- Season Details Bar -->
+              <div class="bg-agro-surface/60 rounded-xl p-2.5 mb-4 border border-agro-border/70 flex items-center justify-between gap-2">
+                <div class="flex items-center gap-1.5 text-slate-600 text-xs font-bold text-start truncate">
+                  <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  <span class="season-label text-[11px] truncate"></span>
+                </div>
+                <span class="crop-season text-xs font-black text-agro-primary shrink-0"></span>
+              </div>
+
+              <!-- 12-Month Matrix Timeline -->
+              <div>
+                <div class="crop-calendar grid grid-cols-6 sm:grid-cols-12 gap-1 text-center"></div>
               </div>
             </div>
           </div>
-          <div class="p-4 sm:p-5 pt-0">
-            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-glow w-full py-2.5 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-md">
-              <svg class="w-3.5 h-3.5 text-amber-300 shrink-0 drop-shadow-[0_0_4px_#fde047]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+
+          <!-- Modern Bottom CTA Button -->
+          <div class="p-5 sm:p-6 pt-0">
+            <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-glow w-full py-3 rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-md transition-all group/btn border border-agro-goldBorder/30">
+              <svg class="w-4 h-4 text-emerald-400 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span class="btn-req-text"></span>
+              <svg class="w-3.5 h-3.5 text-amber-300 rtl:rotate-180 group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
             </button>
           </div>
         `;
         grid.appendChild(card);
       });
+
       updateProductsContent();
     }
 
@@ -1923,32 +2031,39 @@
       const prevSelected = select ? select.value : '';
       if (select) select.innerHTML = '';
 
+      const currentMonth = new Date().getMonth() + 1;
+
       CROPS.forEach(crop => {
-        const card = document.querySelector(`#products-grid .spotlight-card[data-id="${crop.id}"]`);
+        const card = document.querySelector(`#products-grid .modern-crop-card[data-id="${crop.id}"]`);
         if (!card) return;
 
         const cropName = crop[`name_${currentLang}`] || crop.name_en;
         const cropSeason = crop[`season_${currentLang}`] || crop.season_en;
 
         let categoryLabel = t.cat_priority;
-        let badgeColor = 'bg-amber-600 text-white';
+        let badgeClasses = 'bg-amber-600/90 text-white border border-amber-400/40';
 
         if (crop.is_priority) {
           categoryLabel = t.cat_priority;
-          badgeColor = 'bg-amber-600 text-white';
+          badgeClasses = 'bg-amber-600/90 text-white border border-amber-400/40';
         } else if (crop.season_type === 'summer') {
           categoryLabel = t.cat_summer;
-          badgeColor = 'bg-emerald-700 text-white';
+          badgeClasses = 'bg-emerald-700/90 text-white border border-emerald-400/40';
         } else if (crop.season_type === 'winter') {
           categoryLabel = t.cat_winter;
-          badgeColor = 'bg-sky-800 text-white';
+          badgeClasses = 'bg-sky-800/90 text-white border border-sky-400/40';
         }
 
-        const badgeEl = card.querySelector('.crop-badge');
-        if (badgeEl) badgeEl.className = `crop-badge absolute top-2.5 start-2.5 z-10 ${badgeColor} text-[10px] font-black px-2.5 py-1 rounded-full shadow-md flex items-center gap-1.5`;
-        
-        const badgeTextEl = card.querySelector('.crop-badge-text');
-        if (badgeTextEl) badgeTextEl.textContent = categoryLabel;
+        const pillEl = card.querySelector('.crop-group-pill');
+        if (pillEl) {
+          pillEl.className = `crop-group-pill px-2.5 py-1 rounded-xl text-[10px] font-extrabold shadow-sm backdrop-blur-md ${badgeClasses}`;
+          pillEl.textContent = categoryLabel;
+        }
+
+        const liveStatusEl = card.querySelector('.crop-live-status');
+        if (liveStatusEl) {
+          liveStatusEl.textContent = t.now_in_season;
+        }
 
         const imgEl = card.querySelector('img');
         if (imgEl) imgEl.alt = `${crop.id}. ${cropName}`;
@@ -1970,8 +2085,18 @@
           let html = '';
           for (let m = 1; m <= 12; m++) {
             const isActive = crop.months.includes(m);
+            const isNow = (m === currentMonth);
             const mName = t.months[m - 1];
-            html += `<div class="rounded ${isActive ? 'bg-green-600 text-white font-black shadow-[0_0_6px_rgba(22,163,74,0.6)]' : 'bg-slate-100 text-slate-400 font-semibold'} py-1 sm:py-0.5 truncate text-[9px] sm:text-[8px]">${mName}</div>`;
+            
+            html += `
+              <div class="month-pill rounded-lg py-1 text-[9px] sm:text-[8px] tracking-tight ${
+                isActive 
+                  ? 'is-active' 
+                  : 'bg-slate-100/90 text-slate-400 font-semibold'
+              } ${isNow ? 'is-current-month' : ''}" title="${mName}">
+                ${mName}
+              </div>
+            `;
           }
           calendarEl.innerHTML = html;
         }
@@ -2026,11 +2151,11 @@
 
     function handleFilterClick(category, evt) {
       currentCategory = category;
-      document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.className = 'filter-btn px-3 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all bg-white border border-agro-border text-slate-700 hover:border-agro-gold shrink-0';
+      document.querySelectorAll('.dock-filter-bar .filter-btn').forEach(btn => {
+        btn.className = 'filter-btn px-4 py-2 rounded-xl text-xs font-bold transition-all bg-transparent text-slate-700 hover:text-agro-primary hover:bg-white/80 shrink-0';
       });
       if (evt && evt.currentTarget) {
-        evt.currentTarget.className = 'filter-btn active px-3 sm:px-4 py-2 rounded-xl text-xs font-extrabold transition-all bg-agro-primary text-white shadow-sm shrink-0';
+        evt.currentTarget.className = 'filter-btn active px-4 py-2 rounded-xl text-xs font-black transition-all bg-agro-primary text-white shadow-xs shrink-0';
       }
       applyFiltersAndSearch();
     }
@@ -2053,7 +2178,7 @@
     function applyFiltersAndSearch() {
       const searchInput = document.getElementById('searchInput');
       const query = normalizeSearchString(searchInput ? searchInput.value : '');
-      const cards = document.querySelectorAll('#products-grid .spotlight-card');
+      const cards = document.querySelectorAll('#products-grid .modern-crop-card');
       let visibleCount = 0;
 
       cards.forEach(card => {
@@ -2077,6 +2202,9 @@
         card.style.display = isMatch ? '' : 'none';
         if (isMatch) visibleCount++;
       });
+
+      const counterEl = document.getElementById('visibleCropsCount');
+      if (counterEl) counterEl.textContent = visibleCount;
 
       const noResults = document.getElementById('noResultsMsg');
       if (noResults) noResults.classList.toggle('hidden', visibleCount > 0);
