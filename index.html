@@ -452,19 +452,74 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
-    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white/98 backdrop-blur-xl border-t border-agro-border px-4 py-4 shadow-2xl absolute top-full left-0 right-0 z-50 transition-all duration-200">
-      <nav class="flex flex-col gap-1.5 w-full text-slate-700 font-bold text-sm">
-        <a href="#hero" data-i18n="nav_home" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Home</a>
-        <a href="#about" data-i18n="nav_about" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">About Us</a>
-        <a href="#quality-assurance" data-i18n="nav_quality" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Quality & Cold Chain</a>
-        <a href="#certifications" data-i18n="nav_certs" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Certifications</a>
-        <a href="#logistics" data-i18n="nav_logistics" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Shipping Lines</a>
-        <a href="#catalog" data-i18n="nav_produce" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Fresh Produce</a>
-        <a href="#contact" data-i18n="nav_contact" class="block w-full py-2 px-3 rounded-xl hover:bg-agro-surface mobile-nav-link text-start">Contact Us</a>
-        <div class="pt-3 mt-1 border-t border-agro-border flex flex-col gap-2">
-          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="block w-full py-2.5 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300 font-bold mobile-nav-link text-xs">View PDF Catalog</a>
-          <a href="#rfq" data-i18n="nav_rfq" class="block w-full py-3 text-center rounded-xl bg-agro-primary text-white font-extrabold shadow-md mobile-nav-link text-sm">Request Quote</a>
+    <!-- Mobile Drawer (قائمة الموبايل بتصميم وتوزيع احترافي ومريح) -->
+    <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white/95 backdrop-blur-2xl border-t border-agro-border px-4 py-5 shadow-2xl absolute top-full left-0 right-0 z-50 max-h-[calc(100vh-4.5rem)] overflow-y-auto transition-all duration-300">
+      <nav class="flex flex-col gap-1.5 w-full text-slate-800 font-bold text-sm">
+        <a href="#hero" data-i18n="nav_home" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Home</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#about" data-i18n="nav_about" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>About Us</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#quality-assurance" data-i18n="nav_quality" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Quality & Cold Chain</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#certifications" data-i18n="nav_certs" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Certifications</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#logistics" data-i18n="nav_logistics" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Shipping Lines</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#catalog" data-i18n="nav_produce" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Fresh Produce</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <a href="#contact" data-i18n="nav_contact" class="flex items-center justify-between w-full py-3 px-3.5 rounded-xl hover:bg-agro-surface/80 active:bg-agro-surface transition-all mobile-nav-link text-start group">
+          <span class="flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-agro-primary group-hover:scale-125 transition-transform"></span>
+            <span>Contact Us</span>
+          </span>
+          <svg class="w-4 h-4 text-slate-400 group-hover:text-agro-primary rtl:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </a>
+
+        <div class="pt-4 mt-2 border-t border-agro-border flex flex-col gap-2.5">
+          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" data-i18n="btn_pdf_catalog" class="btn-glow flex items-center justify-center gap-2 w-full py-3 text-center rounded-xl bg-amber-500/10 text-amber-900 border border-amber-300/80 font-bold mobile-nav-link text-xs shadow-xs">
+            <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
+            <span>View PDF Catalog</span>
+          </a>
+          <a href="#rfq" data-i18n="nav_rfq" class="btn-glow flex items-center justify-center gap-2 w-full py-3.5 text-center rounded-xl bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold shadow-md mobile-nav-link text-sm">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span>Request Quote</span>
+          </a>
         </div>
       </nav>
     </div>
@@ -523,13 +578,13 @@
     </div>
   </section>
 
-  <!-- 3. Quality Assurance Section -->
+  <!-- 3. Quality Assurance Section (تم تعديل العبارة إلى نضارة فائقة وجودة معتمدة) -->
   <section id="quality-assurance" class="py-12 sm:py-20 lg:py-24 bg-white/80 border-t border-agro-border relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-16 reveal-up">
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 sm:mb-3 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
           <svg class="w-3.5 h-3.5 text-emerald-600 drop-shadow-[0_0_4px_#10b981]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span data-i18n="qa_badge">Uncompromised Freshness</span>
+          <span data-i18n="qa_badge">Certified Freshness & Quality</span>
         </div>
         <h2 data-i18n="qa_title" class="text-xl sm:text-3xl lg:text-5xl font-black text-slate-900 tracking-tight">Cold Chain & Quality Control</h2>
         <p data-i18n="qa_desc" class="text-xs sm:text-sm md:text-base font-semibold text-slate-600 mt-2 sm:mt-3 max-w-2xl mx-auto leading-relaxed">
@@ -1268,7 +1323,7 @@
         about_tag: "Our Heritage & Commitment",
         about_title: "EAX World-Class Agro Export",
         about_desc: "EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 38 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia.",
-        qa_badge: "Uncompromised Freshness",
+        qa_badge: "Certified Freshness & Quality",
         qa_title: "Cold Chain & Quality Control",
         qa_desc: "From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.",
         qa_s1_badge: "2H POST-HARVEST",
@@ -1399,7 +1454,7 @@
         about_tag: "أصالتنا والتزامنا",
         about_title: "إياكس للتصدير الزراعي بمواصفات عالمية",
         about_desc: "شركة EAX للتصدير الزراعي تدير محفظة من 38 محصولاً تصديرياً معتمداً تربط أجود الأراضي الزراعية المصرية مباشرة بمراكز التوزيع وسلاسل السوبرماركت في أوروبا، بريطانيا، الخليج، الصين، وروسيا.",
-        qa_badge: "طزاجة لا تضاهى",
+        qa_badge: "نضارة فائقة وجودة معتمدة",
         qa_title: "الجودة وسلاسل التبريد المتصلة",
         qa_desc: "من التبريد الأولي فور الحصاد إلى الحاويات المبردة المربوطة بالأقمار الصناعية طوال مسار الشحن البحري.",
         qa_s1_badge: "خلال ساعتين من الحصاد",
@@ -2121,11 +2176,11 @@
       const iconClose = document.getElementById('menuIconClose');
 
       if (!mobileMenu || !mobileBtn) return;
-      const isCurrentlyOpen = mobileMenu.classList.contains('flex');
+      const isCurrentlyOpen = !mobileMenu.classList.contains('hidden');
 
       if (forceClose || isCurrentlyOpen) {
-        mobileMenu.classList.remove('flex');
         mobileMenu.classList.add('hidden');
+        mobileMenu.classList.remove('flex');
         document.body.classList.remove('overflow-hidden');
         mobileBtn.setAttribute('aria-expanded', 'false');
         if (iconBars) iconBars.classList.replace('hidden', 'block');
@@ -2189,7 +2244,7 @@
       document.addEventListener('click', (e) => {
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileBtn = document.getElementById('mobileMenuBtn');
-        if (mobileMenu && mobileMenu.classList.contains('flex')) {
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
           if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
             toggleMobileMenu(true);
           }
