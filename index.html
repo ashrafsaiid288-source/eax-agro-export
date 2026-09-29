@@ -228,10 +228,10 @@
 
     /* Ultra-Modern Product Cards & Badges */
     .modern-crop-card {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(210, 222, 208, 0.75);
+      border: 1px solid rgba(210, 222, 208, 0.85);
       border-radius: 1.5rem;
       overflow: hidden;
       display: flex;
@@ -242,7 +242,7 @@
     @media (hover: hover) {
       .modern-crop-card:hover {
         transform: translateY(-6px);
-        border-color: rgba(47, 109, 72, 0.4);
+        border-color: rgba(47, 109, 72, 0.45);
         box-shadow: 0 20px 35px -8px rgba(20, 61, 40, 0.12), 0 0 20px 2px rgba(166, 106, 26, 0.08);
       }
       .modern-crop-card:hover .crop-img-zoom {
@@ -868,7 +868,7 @@
             </div>
             <h3 class="font-black text-base sm:text-lg text-slate-900 mb-0.5 text-start group-hover:text-pink-900 transition-colors">ONE</h3>
             <p data-i18n="c5_sub" class="text-xs font-bold text-pink-700 mb-2 text-start">Ocean Network Express</p>
-            <p data-i18n="c5_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Japanese liner consortium connecting Damietta & Sokhna Port via express Suez routes to Far East (Singapore, Shenzhen, Shanghai).</p>
+            <p data-i18n="c5_desc" class="text-xs text-slate-500 leading-relaxed mb-4 text-start">Japanese liner consortium connecting Damietta & Sokhna Port via express Suez routes to Far East (Singapore, Shenzhen, Shanghai). </p>
           </div>
           <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-mono">
             <span data-i18n="c5_tech">TECH: Smart IoT Dehumid</span>
@@ -879,7 +879,7 @@
     </div>
   </section>
 
-  <!-- 6. Complete 38 Export Produce Catalog Section (Ultra-Modern Redesign) -->
+  <!-- 6. Complete 38 Export Produce Catalog Section (Ultra-Modern Redesign with B2B Specs) -->
   <section id="catalog" class="py-14 sm:py-24 bg-gradient-to-b from-agro-surface/40 via-white/50 to-agro-surface/50 border-t border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
@@ -1074,7 +1074,7 @@
     </a>
   </aside>
 
-  <!-- Complete Crops Database with Accurate Photos -->
+  <!-- Complete Crops Database with Commercial Varieties & Export Specs -->
   <script>
     const BACKEND_CONFIG = {
       whatsappPhone: '201006920920'
@@ -1085,266 +1085,380 @@
     const CROPS = [
       {
         id: 1, is_priority: true, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Sweet Potatoes (Beauregard)", name_ar: "البطاطا الحلوة (بوريجارد)", name_zh: "新鲜蜜薯 / 红薯 (Beauregard)", name_ru: "Свежий батат (Борегард)",
+        name_en: "Fresh Sweet Potatoes", name_ar: "البطاطا الحلوة التصديرية", name_zh: "优质新鲜蜜薯 / 红薯", name_ru: "Свежий батат (Сладкий картофель)",
+        varieties: ["Beauregard", "Bellevue", "Evangeline"],
+        packing: "6kg / 14kg Telescopic Cartons",
+        specs: "Cured & Washed • S, M, L, XL Graded",
         season_en: "August to March", season_ar: "من أغسطس حتى مارس", season_zh: "8月至次年3月", season_ru: "С августа по март",
         months: [8,9,10,11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 2, is_priority: true, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Potatoes (Spunta & Processing)", name_ar: "البطاطس التصديرية (سبونتا وتصنيع)", name_zh: "优质商品马铃薯 / 土豆 (Spunta)", name_ru: "Свежий картофель (Спунта и промышленный)",
+        name_en: "Fresh Table & Industry Potatoes", name_ar: "البطاطس المائدة والتصنيع", name_zh: "新鲜鲜食与加工马铃薯", name_ru: "Свежий картофель (столовый и чипсовый)",
+        varieties: ["Spunta", "Hermes", "Lady Rosetta", "Cara"],
+        packing: "10kg / 25kg Poly Mesh Bags & 1250kg Jumbo",
+        specs: "45-65mm / 65mm+ • High Dry Matter",
         season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь",
         months: [1,2,3,4,5,6],
         image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 3, is_priority: true, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Washed Carrots", name_ar: "الجزر الطازج المغسول", name_zh: "新鲜水洗优质胡萝卜", name_ru: "Свежая мытая морковь",
+        name_en: "Fresh Washed & Polished Carrots", name_ar: "الجزر المغسول والمصقول", name_zh: "新鲜水洗抛光优质胡萝卜", name_ru: "Свежая мытая и полированная морковь",
+        varieties: ["Nantes", "Kuroda", "Jerada"],
+        packing: "5kg / 10kg Poly Bags in Master Cartons",
+        specs: "Length: 15-25cm • Caliber: 25-45mm",
         season_en: "January to May", season_ar: "من يناير حتى مايو", season_zh: "1月至5月", season_ru: "С января по май",
         months: [1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 4, is_priority: true, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Red Beetroot", name_ar: "البنجر / الشمندر الأحمر الطازج", name_zh: "新鲜优质红甜菜根", name_ru: "Свежая красная свекла",
+        name_en: "Fresh Red Beetroot", name_ar: "بنجر المائدة الأحمر", name_zh: "新鲜优质红甜菜根", name_ru: "Свежая столовая красная свекла",
+        varieties: ["Detroit Dark Red", "Pablo", "Boro"],
+        packing: "5kg / 10kg Bags or Master Cartons",
+        specs: "Sizes: 50-90mm • High Betanin Content",
         season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С декабря по май",
         months: [12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 5, is_priority: true, season_type: 'summer', category: 'vegetables',
-        name_en: "Dry Onions (Golden & Red)", name_ar: "البصل الجاف (الذهبي والأحمر)", name_zh: "优质耐储干洋葱 (黄葱与红葱)", name_ru: "Сушеный репчатый лук (желтый и красный)",
-        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С مارس по октябрь",
+        name_en: "Fresh & Dry Cured Onions", name_ar: "البصل الجاف المفرز", name_zh: "优质耐储金黄与紫红干洋葱", name_ru: "Сушеный репчатый лук (желтый и красный)",
+        varieties: ["Golden Giza 6", "Red Giza 20", "White Onion"],
+        packing: "10kg / 25kg Poly Mesh Bags & Jumbo",
+        specs: "Sizes: 40-60mm / 60-80mm • Hard Cured Skin",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
         months: [3,4,5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 6, is_priority: true, season_type: 'winter', category: 'fruits',
-        name_en: "Fresh Oranges (Valencia & Navel)", name_ar: "البرتقال الطازج (فالنسيا وأبو سرة)", name_zh: "新鲜鲜橙 (夏橙 Valencia & 脐橙 Navel)", name_ru: "Свежие апельсины (Валенсия и Навел)",
+        name_en: "Fresh Egyptian Citrus Oranges", name_ar: "البرتقال المصري الفاخر", name_zh: "埃及原产优质鲜橙", name_ru: "Свежие египетские апельсины",
+        varieties: ["Valencia Late", "Navel", "Baladi Juice"],
+        packing: "15kg Standard Telescopic / Open Top Cartons",
+        specs: "Calibers: 48 - 88 • High Juice Yield (45%+)",
         season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 7, is_priority: true, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Pomegranates (Wonderful & 116)", name_ar: "الرمان الطازج (وندرفول و 116)", name_zh: "优质红石榴 (Wonderful & 116)", name_ru: "Свежие гранаты (Вандерфул и 116)",
+        name_en: "Fresh Export Pomegranates", name_ar: "الرمان الطازج عالي الجودة", name_zh: "优质红石榴", name_ru: "Свежие египетские гранаты",
+        varieties: ["Wonderful", "Early 116", "Baladi"],
+        packing: "4.5kg / 5kg Flat Open Top Cartons",
+        specs: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+",
         season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 8, is_priority: true, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Table Grapes (Seedless Superior/Flame)", name_ar: "العنب الطازج بدون بذور (سوبيريور وفليم)", name_zh: "无籽鲜食葡萄 (Superior & Flame)", name_ru: "Свежий столовый виноград (Супериор и Флейм)",
+        name_en: "Fresh Seedless Table Grapes", name_ar: "عنب المائدة بدون بذور", name_zh: "优质无籽鲜食葡萄", name_ru: "Свежий столовый бессемянный виноград",
+        varieties: ["Early Superior (White)", "Flame (Red)", "Crimson Seedless"],
+        packing: "4.5kg / 5kg Cartons (Carry Bags or 10x500g Punnets)",
+        specs: "Berry Size: 18-24mm • Brix: 16°-18°+",
         season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 9, is_priority: true, season_type: 'winter', category: 'fruits',
-        name_en: "Fresh Strawberries (Festival & Fortuna)", name_ar: "الفراولة الطازجة (فيستفال وفورتونا)", name_zh: "新鲜草莓 (Festival & Fortuna)", name_ru: "Свежая клубника (Фестиваль и Фортуна)",
+        name_en: "Fresh Export Strawberries", name_ar: "الفراولة الطازجة المبردة", name_zh: "新鲜优质草莓", name_ru: "Свежая охлажденная клубника",
+        varieties: ["Festival", "Fortuna", "Sensation", "Brilliance"],
+        packing: "2kg / 2.5kg Cartons (10x250g Flat Punnets)",
+        specs: "Caliber: 25-35mm • Hydrocooled within 2h",
         season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 10, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh & Dry Garlic (White & Red)", name_ar: "الثوم الطازج والجاف (أبيض وأحمر)", name_zh: "新鲜与干燥大蒜 (白蒜与红蒜)", name_ru: "Свежий и сушеный чеснок (белый и красный)",
+        name_en: "Fresh & Dry Garlic", name_ar: "الثوم البلدي الطازج والجاف", name_zh: "新鲜与干燥大蒜", name_ru: "Свежий и сушеный чеснок",
+        varieties: ["Pure White", "Red Baladi (Violet)"],
+        packing: "5kg / 10kg Mesh Bags or Punnet Cartons",
+        specs: "Caliber: 45-65mm+ • Roots Cleaned",
         season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
         months: [3,4,5,6,7],
         image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 11, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Dates (Medjool & Barhi)", name_ar: "التمور الطازجة (المجدول والبرحي)", name_zh: "新鲜高档椰枣 (麦朵尔 Medjool & 巴尔希 Barhi)", name_ru: "Свежие финики (Меджул и Бархи)",
-        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月", season_ru: "С августа по декабрь",
+        name_en: "Premium Fresh & Semi-Dry Dates", name_ar: "التمور الطازجة ونصف الجافة", name_zh: "新鲜高档椰枣", name_ru: "Свежие премиальные финики",
+        varieties: ["Medjool King", "Barhi Fresh", "Siwi"],
+        packing: "1kg, 2kg, 5kg Premium Gift & Retail Boxes",
+        specs: "Grades: Jumbo, Large, Medium • Moisture 18-24%",
+        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_zh: "8月至12月", season_ru: "С أغسطس по декабрь",
         months: [8,9,10,11,12],
         image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 12, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Mangoes (Keitt & Kent)", name_ar: "المانجو الطازجة (كيت وكنت)", name_zh: "新鲜优质芒果 (Keitt & Kent)", name_ru: "Свежие манго (Кейт и Кент)",
+        name_en: "Fresh Exotic Mangoes", name_ar: "المانجو التصديرية الفاخرة", name_zh: "优质新鲜芒果", name_ru: "Свежие отборные манго",
+        varieties: ["Keitt", "Kent", "Naomi", "Yasmina"],
+        packing: "4kg / 5kg Open Top Display Cartons",
+        specs: "Counts: 6 - 12 • Fiber-free • Brix 14°+",
         season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь",
         months: [7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 13, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Watermelon", name_ar: "البطيخ الطازج", name_zh: "新鲜大西瓜", name_ru: "Свежие арбузы",
+        name_en: "Fresh Watermelon", name_ar: "البطيخ الصيفي الممتاز", name_zh: "新鲜大西瓜", name_ru: "Свежие арбузы",
+        varieties: ["Aswan Hybrid", "Giza", "Crimson Sweet"],
+        packing: "Bulk Bin Containers (500kg) or Master Cartons",
+        specs: "Weight: 5 - 12kg/fruit • Brix 11°+",
         season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 14, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب (جاليا)", name_zh: "新鲜甜瓜与哈密瓜 (Galia)", name_ru: "Свежая дыня и канталупа (Галия)",
+        name_en: "Fresh Cantaloupe & Galia Melon", name_ar: "الشمام والكانتالوب", name_zh: "新鲜蜜瓜与甜瓜", name_ru: "Свежая дыня и канталупа",
+        varieties: ["Galia", "Ananas", "Cantaloupe"],
+        packing: "5kg Telescopic Cartons",
+        specs: "Counts: 5 - 8 • Dense Netting • Brix 12°+",
         season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_zh: "5月至8月", season_ru: "С мая по август",
         months: [5,6,7,8],
         image: "https://images.unsplash.com/photo-1598025362874-49480e049c76?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 15, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh Bell Peppers (Red, Yellow, Orange)", name_ar: "الفلفل الملون (أحمر، أصفر، برتقالي)", name_zh: "新鲜温室彩椒 (红、黄、橙)", name_ru: "Свежий сладкий перец (красный, желтый, оранжевый)",
+        name_en: "Greenhouse Bell Peppers", name_ar: "الفلفل الحلو الملون", name_zh: "温室彩椒 (红、黄、橙)", name_ru: "Свежий сладкий болгарский перец",
+        varieties: ["Red Blocky", "Yellow Blocky", "Orange"],
+        packing: "5kg Open Top Telescopic Cartons",
+        specs: "Calibers: 70-90mm / 80-100mm • Thick Flesh",
         season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
         months: [5,6,7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 16, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار (أحمر وأخضر)", name_zh: "新鲜红绿朝天椒 / 辣椒", name_ru: "Свежий острый перец чили",
+        name_en: "Fresh Hot Chili Peppers", name_ar: "الفلفل الحار التصديري", name_zh: "新鲜朝天椒与青红辣椒", name_ru: "Свежий острый перец чили",
+        varieties: ["Red Serenade", "Green Cayenne", "Habanero"],
+        packing: "2kg / 4kg Telescopic Cartons",
+        specs: "Length: 10-14cm • Scoville Calibrated",
         season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_zh: "5月至11月", season_ru: "С мая по ноябрь",
         months: [5,6,7,8,9,10,11],
         image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 17, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Peaches (Florida Prince)", name_ar: "الخوخ الطازج (فلوريدا برنس)", name_zh: "新鲜优质鲜桃 (Florida Prince)", name_ru: "Свежие персики (Флорида Принс)",
+        name_en: "Early European Fresh Peaches", name_ar: "الخوخ المصري المبكر", name_zh: "早熟新鲜水蜜桃", name_ru: "Свежие ранние египетские персики",
+        varieties: ["Florida Prince", "Desert Red", "Early Swell"],
+        packing: "5kg Flat Cartons / 10x500g Punnets",
+        specs: "Caliber: 50-70mm • Early European Window (April)",
         season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_zh: "4月至7月", season_ru: "С апреля по июль",
         months: [4,5,6,7],
         image: "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 18, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج", name_zh: "新鲜优质油桃", name_ru: "Свежие нектарины",
+        name_en: "Fresh Nectarines", name_ar: "النكتارين الطازج الفاخر", name_zh: "新鲜优质油桃", name_ru: "Свежие нектарины",
+        varieties: ["Sun Red", "Early Sunglo", "Silver Gem"],
+        packing: "5kg Flat Cartons / Layer Packed",
+        specs: "Caliber: 50-65mm • Intense Blush • Brix 11°+",
         season_en: "May to July", season_ar: "من مايو حتى يوليو", season_zh: "5月至7月", season_ru: "С мая по июль",
         months: [5,6,7],
         image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 19, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Apricots", name_ar: "المشمش الطازج", name_zh: "新鲜优质杏子", name_ru: "Свежие абрикосы",
+        name_en: "Fresh Apricots", name_ar: "المشمش الطازج الممتاز", name_zh: "新鲜金黄杏子", name_ru: "Свежие абрикосы",
+        varieties: ["Canino", "Baladi", "Amor"],
+        packing: "3kg / 5kg Cartons with Foam Trays",
+        specs: "Caliber: 35-50mm • Uniform Color Grading",
         season_en: "May to June", season_ar: "من مايو حتى يونيو", season_zh: "5月至6月", season_ru: "С мая по июнь",
         months: [5,6],
         image: "https://images.unsplash.com/photo-1501250987900-211872d97eaa?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 20, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "新鲜无花果", name_ru: "Свежий инжир",
+        name_en: "Fresh Figs", name_ar: "التين البرشومي الطازج", name_zh: "优质新鲜无花果", name_ru: "Свежий инжир",
+        varieties: ["Sultani", "Black Mission"],
+        packing: "1.5kg / 2kg Single Layer Cartons (Punnets)",
+        specs: "Counts: 12 - 20 • Pre-cooled & Air Freight Ready",
         season_en: "July to October", season_ar: "من يوليو حتى أكتوبر", season_zh: "7月至10月", season_ru: "С июля по октябрь",
         months: [7,8,9,10],
         image: "https://images.unsplash.com/photo-1601379327928-bedfaf9da2d0?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 21, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Fresh Guava", name_ar: "الجوافة الطازجة", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая гуава",
+        name_en: "Fresh Guava", name_ar: "الجوافة المصرية النقية", name_zh: "新鲜番石榴 / 芭乐", name_ru: "Свежая ароматная гуава",
+        varieties: ["Baladi Cream", "Banati Seedless"],
+        packing: "2.5kg / 5kg Cartons with Foam Sleeves",
+        specs: "Counts: 10 - 20 • High Vitamin C • Aromatic",
         season_en: "August to November", season_ar: "من أغسطس حتى نوفمبر", season_zh: "8月至11月", season_ru: "С أغسطس по ноябрь",
         months: [8,9,10,11],
         image: "https://images.unsplash.com/photo-1536511135899-74d32049e295?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 22, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الطازجة", name_zh: "新鲜西葫芦", name_ru: "Свежие цукини и кабачки",
+        name_en: "Fresh Zucchini / Courgettes", name_ar: "الكوسة الخضراء المنتقاة", name_zh: "新鲜西葫芦", name_ru: "Свежие кабачки и цукини",
+        varieties: ["Dark Green", "Clarita Light"],
+        packing: "5kg Cartons (Polylined)",
+        specs: "Length: 12-16cm • Caliber: 25-35mm",
         season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
         months: [5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1563252722-6434563a985d?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 23, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان الطازج", name_zh: "新鲜长茄 / 圆茄", name_ru: "Свежие баклажаны",
+        name_en: "Fresh Eggplant / Aubergine", name_ar: "الباذنجان التصديري", name_zh: "新鲜长茄与圆茄", name_ru: "Свежие баклажаны",
+        varieties: ["Classic Black Beauty", "Long Black", "Graffiti"],
+        packing: "5kg / 6kg Master Cartons",
+        specs: "Glossy Skin • Firm Calyx • Medium / Large",
         season_en: "May to October", season_ar: "من مايو حتى أكتوبر", season_zh: "5月至10月", season_ru: "С мая по октябрь",
         months: [5,6,7,8,9,10],
         image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 24, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Fresh Okra", name_ar: "البامية الخضراء الطازجة", name_zh: "新鲜优质秋葵", name_ru: "Свежая окра (бами)",
+        name_en: "Fresh Green Okra", name_ar: "البامية الخضراء الفاخرة", name_zh: "新鲜出口级秋葵", name_ru: "Свежая стручковая окра (бамия)",
+        varieties: ["Baladi Extra Fine", "Clemson Spineless"],
+        packing: "2kg / 3kg Cartons (Air & Sea)",
+        specs: "Lengths: Extra (3-5cm), Fine (5-7cm)",
         season_en: "May to September", season_ar: "من مايو حتى سبتمبر", season_zh: "5月至9月", season_ru: "С мая по сентябрь",
         months: [5,6,7,8,9],
         image: "https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 25, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Green Beans (Haricot Vert)", name_ar: "الفاصوليا الخضراء الرفيعة (فاين)", name_zh: "特级细青刀豆 / 四季豆", name_ru: "Свежая стручковая зеленая фасоль",
+        name_en: "Fresh Fine Green Beans", name_ar: "الفاصوليا الخضراء الرفيعة", name_zh: "特级细青四季豆", name_ru: "Свежая зеленая стручковая фасоль",
+        varieties: ["Haricot Vert", "Bobby Beans", "Paulista"],
+        packing: "4kg / 5kg Cartons with Micro-perforated MAP Bags",
+        specs: "Diameter: 6-8mm • Length: 10-13cm • Straight",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
         months: [10,11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 26, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜出口大葱 / 青葱", name_ru: "Свежий зеленый лук",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        name_en: "Fresh Spring Onions", name_ar: "البصل الأخضر الطازج", name_zh: "新鲜大葱与青葱", name_ru: "Свежий зеленый лук (перо)",
+        varieties: ["Photon", "White Lisbon", "Giza Baladi"],
+        packing: "2kg / 4kg Styrofoam or Cartons with Flaked Ice",
+        specs: "Shaft Length: 7-9cm • Overall: 30-40cm",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 27, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Artichokes", name_ar: "الخرشوف الطازج", name_zh: "新鲜洋蓟 / 朝鲜蓟", name_ru: "Свежие артишоки",
+        name_en: "Fresh Globe Artichokes", name_ar: "الخرشوف الطازج للأسواق الأوروبية", name_zh: "新鲜洋蓟 / 朝鲜蓟", name_ru: "Свежие артишоки",
+        varieties: ["French Violet", "Imperial Star", "Baladi"],
+        packing: "7kg - 10kg Master Cartons",
+        specs: "Diameter: 70 - 100mm • Solid Tight Heads",
         season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 28, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Iceberg Lettuce", name_ar: "الخس الآيسبرج (كابوتشا)", name_zh: "新鲜结球生菜 (球生菜)", name_ru: "Свежий салат Айсберг",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        name_en: "Fresh Iceberg Lettuce", name_ar: "خس الآيسبرج المفرز", name_zh: "新鲜球生菜 / 结球生菜", name_ru: "Свежий кочанный салат Айсберг",
+        varieties: ["Salinas", "Iceberg Crisphead"],
+        packing: "8 - 10 Heads in Telescopic Cartons (Individually Film Wrapped)",
+        specs: "Weight: 450 - 750g / head • Rapid Hydrocooled",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 29, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Fresh Mandarins & Tangerines (Fremont/Murcott)", name_ar: "اليوسفي والمندرين (فريمونت وموركوت)", name_zh: "新鲜柑橘与克里曼丁沃柑 (Murcott)", name_ru: "Свежие мандарины (Фремонт и Моркотт)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        name_en: "Fresh Mandarins & Tangerines", name_ar: "اليوسفي والمندرين التصديري", name_zh: "新鲜柑橘与沃柑", name_ru: "Свежие мандарины и клементины",
+        varieties: ["Fremont", "Murcott (Honey)", "Clementine"],
+        packing: "10kg / 15kg Standard Export Cartons",
+        specs: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 30, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Fresh Lemons & Limes (Eureka & Balady)", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠 (Eureka & Balady)", name_ru: "Свежие лимоны и лаймы (Эврика и Балади)",
+        name_en: "Fresh Lemons & Limes", name_ar: "الليمون الأضاليا والبلدي", name_zh: "新鲜柠檬与青柠", name_ru: "Свежие лимоны и лаймы",
+        varieties: ["Eureka", "Adalia", "Baladi Lime"],
+        packing: "10kg / 15kg Telescopic Cartons",
+        specs: "Counts: 80 - 138 • High Acidity & Intense Aroma",
         season_en: "October to April", season_ar: "من أكتوبر حتى أبريل", season_zh: "10月至次年4月", season_ru: "С октября по апрель",
         months: [10,11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 31, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Fresh Grapefruit (Star Ruby)", name_ar: "الجريب فروت (ستار روبي)", name_zh: "新鲜红心葡萄柚 (Star Ruby)", name_ru: "Свежий грейпфрут (Стар Руби)",
+        name_en: "Fresh Grapefruit", name_ar: "الجريب فروت الأحمر", name_zh: "新鲜红心葡萄柚", name_ru: "Свежий красный грейпфрут",
+        varieties: ["Star Ruby", "Rio Red"],
+        packing: "15kg Standard Citrus Cartons",
+        specs: "Counts: 32 - 48 • Deep Red Pulp • Thin Skin",
         season_en: "October to March", season_ar: "من أكتوبر حتى مارس", season_zh: "10月至次年3月", season_ru: "С октября по март",
         months: [10,11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1577234286642-fc512a5f8f11?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 32, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء الخضراء والقرون السكرية", name_zh: "新鲜甜脆荷兰豆与甜青豆", name_ru: "Свежий зеленый горошек и сахарные стручки",
+        name_en: "Fresh Green Peas & Sugar Snaps", name_ar: "البازلاء والقرون السكرية", name_zh: "新鲜甜荷兰豆与甜豌豆", name_ru: "Свежий зеленый горошек и сахарные стручки",
+        varieties: ["Sugar Snap", "Snow Peas (Mangetout)"],
+        packing: "3kg / 5kg Cartons (Punnets or MAP Bags)",
+        specs: "Sweet Pods • 100% Defiberized • Crunchy",
         season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 33, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Broccoli", name_ar: "البروكلي الطازج", name_zh: "新鲜西兰花 / 青花菜", name_ru: "Свежая брокколи",
+        name_en: "Fresh Broccoli", name_ar: "البروكلي الأخضر المنتقى", name_zh: "新鲜青花菜 / 西兰花", name_ru: "Свежая охлажденная брокколи",
+        varieties: ["Iron Man", "Marathon", "Parthenon"],
+        packing: "5kg - 7kg Styrofoam Boxes with Top Ice",
+        specs: "Head Size: 300 - 600g • Stem Cut 2-3cm",
         season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 34, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Cauliflower", name_ar: "القرنبيط الطازج", name_zh: "新鲜优质白花菜 / 花椰菜", name_ru: "Свежая цветная капуста",
+        name_en: "Fresh Cauliflower", name_ar: "القرنبيط الأبيض النقي", name_zh: "新鲜白花椰菜", name_ru: "Свежая цветная капуста",
+        varieties: ["White Star", "Candid Charm"],
+        packing: "6 - 8 Heads in Telescopic Cartons",
+        specs: "Head Weight: 800 - 1500g • Crisp White Curds",
         season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_zh: "12月至次年4月", season_ru: "С декабря по апрель",
         months: [12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1568584711075-3d021a7c3ca3?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 35, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜结球甘蓝 / 包菜 (白与紫甘蓝)", name_ru: "Свежая капуста (белокочанная и краснокочанная)",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        name_en: "Fresh Cabbage (White & Red)", name_ar: "الكرنب الأبيض والأحمر", name_zh: "新鲜白甘蓝与紫甘蓝", name_ru: "Свежая капуста (белая и красная)",
+        varieties: ["White Dutch", "Red Rookie"],
+        packing: "10kg - 15kg Cartons or Net Mesh Bags",
+        specs: "Weight: 1.5 - 3kg / head • Firm Tightly Closed",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4],
         image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 36, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Spinach", name_ar: "السبانخ الخضراء الطازجة", name_zh: "新鲜嫩菠菜", name_ru: "Свежий шпинат",
+        name_en: "Fresh Tender Spinach", name_ar: "السبانخ الطازجة الخضراء", name_zh: "新鲜出口级嫩菠菜", name_ru: "Свежий нежный шпинат",
+        varieties: ["Savoy", "Smooth Baby Leaf"],
+        packing: "2kg / 3kg Polylined Cartons",
+        specs: "Tender Fresh Leaves • Pre-washed & Pre-cooled",
         season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 37, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Taro Root", name_ar: "القلقاس الطازج الممتاز", name_zh: "新鲜出口级优质芋头", name_ru: "Свежий корень таро (колоказия)",
+        name_en: "Fresh Taro Root (Colocasia)", name_ar: "القلقاس الصعيدي الفاخر", name_zh: "优质新鲜芋头", name_ru: "Свежий корень таро (колоказия)",
+        varieties: ["Baladi Superior"],
+        packing: "10kg / 15kg Bags in Master Cartons",
+        specs: "Sizes: 300 - 800g • Peeled/Cleaned Available",
         season_en: "November to March", season_ar: "من نوفمبر حتى مارس", season_zh: "11月至次年3月", season_ru: "С ноября по март",
         months: [11,12,1,2,3],
         image: "https://images.unsplash.com/photo-1598965675045-45c5e72c7d05?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 38, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Fresh Culinary & Aromatic Herbs", name_ar: "الأعشاب العطرية الطازجة (شبت، بقدونس، كزبرة، نعناع)", name_zh: "新鲜出口级香草 (莳萝、欧芹、芫荽、薄荷)", name_ru: "Свежая пряная зелень (укроп, петрушка, кинза, мята)",
+        name_en: "Culinary & Aromatic Fresh Herbs", name_ar: "الأعشاب والخضروات العطرية", name_zh: "新鲜出口级香草蔬菜", name_ru: "Свежая пряная зелень (укроп, кинза, петрушка)",
+        varieties: ["Dill", "Flat Parsley", "Coriander", "Spearmint"],
+        packing: "1kg - 2kg Styrofoam with Top Ice Gel Packs",
+        specs: "Bunched & Cleaned • Daily Harvest Air Shipments",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_zh: "10月至次年5月", season_ru: "С октября по май",
         months: [10,11,12,1,2,3,4,5],
         image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=600&q=80"
@@ -1449,6 +1563,9 @@
         catalog_sub: "Direct allocation from accredited Egyptian packing stations. Filter by season or search to view harvest windows and Reefer export specs.",
         counter_label: "Items Active",
         now_in_season: "In Season Now",
+        lbl_varieties: "Commercial Varieties:",
+        lbl_specs: "Export Specs:",
+        lbl_packing: "Packaging:",
         filter_all: "All 38 Produce",
         filter_priority: "★ Top Priority (1-5)",
         filter_summer: "Summer Harvest",
@@ -1456,7 +1573,7 @@
         filter_veg: "Fresh Vegetables",
         filter_fruits: "Fresh Fruits",
         search_lbl: "Search",
-        search_placeholder: "Search by crop name...",
+        search_placeholder: "Search by crop or variety...",
         lbl_export_season: "Export Season:",
         btn_req_quote: "Request Allocation",
         no_results: "No matching produce found.",
@@ -1582,6 +1699,9 @@
         catalog_sub: "توريد وحصص تصديرية مباشرة من محطات التعبئة والمزارع المعتمدة. استخدم الفلاتر والتقويم لمعرفة مواعيد الجني وسلاسل الشحن.",
         counter_label: "محصول متوفر",
         now_in_season: "موسم الحصاد الحالي",
+        lbl_varieties: "الأصناف التصديرية:",
+        lbl_specs: "المواصفات والفرز:",
+        lbl_packing: "التعبئة والتغليف:",
         filter_all: "جميع الحاصلات (38)",
         filter_priority: "★ أولوية قصوى (1-5)",
         filter_summer: "محاصيل صيفية",
@@ -1589,7 +1709,7 @@
         filter_veg: "خضروات طازجة",
         filter_fruits: "فواكه طازجة",
         search_lbl: "بحث",
-        search_placeholder: "ابحث باسم المحصول...",
+        search_placeholder: "ابحث باسم المحصول أو الصنف...",
         lbl_export_season: "موسم التصدير:",
         btn_req_quote: "حجز حصة تصديرية",
         no_results: "لم يتم العثور على منتجات مطابقة.",
@@ -1715,6 +1835,9 @@
         catalog_sub: "来自埃及标准化认证包装厂的直采配额。支持按产季筛选与检索收获窗口及冷柜出口标准。",
         counter_label: "种农产品在售",
         now_in_season: "当季旺季采收中",
+        lbl_varieties: "主要出口品种:",
+        lbl_specs: "出口质量标准:",
+        lbl_packing: "包装规格:",
         filter_all: "全部 38 种果蔬",
         filter_priority: "★ 核心主力 (1-5)",
         filter_summer: "夏季产季",
@@ -1722,7 +1845,7 @@
         filter_fruits: "新鲜水果",
         filter_veg: "优质蔬菜",
         search_lbl: "搜索",
-        search_placeholder: "按产品名称搜索...",
+        search_placeholder: "按产品名称或品种搜索...",
         lbl_export_season: "出口产季:",
         btn_req_quote: "预订集装箱配额",
         no_results: "未找到相关农产品。",
@@ -1848,6 +1971,9 @@
         catalog_sub: "Прямые квоты с аккредитованных упаковочных комплексов Египта. Фильтруйте по сезону или находите нужные культуры.",
         counter_label: "позиций доступно",
         now_in_season: "Сезон сбора прямо сейчас",
+        lbl_varieties: "Экспортные сорта:",
+        lbl_specs: "Стандарты калибровки:",
+        lbl_packing: "Упаковка:",
         filter_all: "Все 38 культур",
         filter_priority: "★ Топ экспорт (1-5)",
         filter_summer: "Летний сбор",
@@ -1855,7 +1981,7 @@
         filter_fruits: "Свежие фрукты",
         filter_veg: "Свежие овощи",
         search_lbl: "Поиск",
-        search_placeholder: "Поиск по названию продукта...",
+        search_placeholder: "Поиск по названию или сорту...",
         lbl_export_season: "Сезон экспорта:",
         btn_req_quote: "Забронировать объем",
         no_results: "Продукция не найдена.",
@@ -1958,7 +2084,9 @@
         card.setAttribute('data-priority', crop.is_priority ? 'true' : 'false');
         card.setAttribute('data-season', crop.season_type);
         card.setAttribute('data-category', crop.category);
-        card.setAttribute('data-search', `${crop.name_en} ${crop.name_ar} ${crop.name_zh} ${crop.name_ru || ''}`.toLowerCase());
+        
+        const varietiesSearch = crop.varieties ? crop.varieties.join(' ') : '';
+        card.setAttribute('data-search', `${crop.name_en} ${crop.name_ar} ${crop.name_zh} ${crop.name_ru || ''} ${varietiesSearch}`.toLowerCase());
 
         card.innerHTML = `
           <div>
@@ -1974,7 +2102,7 @@
 
               <!-- Live "In Season Now" Pulse Badge -->
               ${isCurrentActive ? `
-                <div class="absolute top-3 end-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-950/75 backdrop-blur-md border border-emerald-400/40 text-emerald-300 text-[10px] font-black shadow-lg">
+                <div class="absolute top-3 end-3 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-950/80 backdrop-blur-md border border-emerald-400/50 text-emerald-300 text-[10px] font-black shadow-lg">
                   <span class="relative flex h-2 w-2">
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -1985,17 +2113,35 @@
 
               <!-- Image with Soft Vignette -->
               <img src="${crop.image}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="${crop.name_en}" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
             <!-- Content Area -->
             <div class="p-5 sm:p-6">
-              <div class="flex items-start justify-between gap-2 mb-2.5">
-                <h3 class="crop-title font-black text-base sm:text-lg text-slate-900 leading-snug group-hover:text-agro-primary transition-colors text-start"></h3>
+              
+              <!-- Title -->
+              <h3 class="crop-title font-black text-lg sm:text-xl text-slate-900 leading-snug group-hover:text-agro-primary transition-colors text-start mb-2.5"></h3>
+
+              <!-- Commercial Varieties Tags -->
+              <div class="mb-3.5">
+                <div class="text-[10px] uppercase font-black tracking-wider text-slate-400 mb-1.5 text-start var-lbl"></div>
+                <div class="crop-varieties-list flex flex-wrap gap-1.5"></div>
+              </div>
+
+              <!-- Export Specs Box -->
+              <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-3 mb-3.5 space-y-1.5 text-start text-xs">
+                <div class="flex items-start gap-1.5 text-slate-700">
+                  <svg class="w-3.5 h-3.5 text-agro-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+                  <span class="crop-packing font-semibold truncate text-[11px] sm:text-xs"></span>
+                </div>
+                <div class="flex items-start gap-1.5 text-slate-600">
+                  <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="crop-specs font-medium truncate text-[11px] sm:text-xs"></span>
+                </div>
               </div>
 
               <!-- Season Details Bar -->
-              <div class="bg-agro-surface/60 rounded-xl p-2.5 mb-4 border border-agro-border/70 flex items-center justify-between gap-2">
+              <div class="bg-agro-surface/60 rounded-xl p-2.5 mb-3.5 border border-agro-border/70 flex items-center justify-between gap-2">
                 <div class="flex items-center gap-1.5 text-slate-600 text-xs font-bold text-start truncate">
                   <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                   <span class="season-label text-[11px] truncate"></span>
@@ -2070,6 +2216,22 @@
 
         const titleEl = card.querySelector('.crop-title');
         if (titleEl) titleEl.textContent = `${crop.id}. ${cropName}`;
+
+        const varLbl = card.querySelector('.var-lbl');
+        if (varLbl) varLbl.textContent = t.lbl_varieties;
+
+        const varList = card.querySelector('.crop-varieties-list');
+        if (varList) {
+          varList.innerHTML = (crop.varieties || []).map(v => 
+            `<span class="px-2 py-0.5 rounded-md bg-white border border-agro-border text-slate-700 text-[10px] font-bold shadow-2xs">${v}</span>`
+          ).join('');
+        }
+
+        const packEl = card.querySelector('.crop-packing');
+        if (packEl) packEl.textContent = crop.packing || 'Standard export packaging';
+
+        const specsEl = card.querySelector('.crop-specs');
+        if (specsEl) specsEl.textContent = crop.specs || 'Certified export grade';
 
         const seasonLbl = card.querySelector('.season-label');
         if (seasonLbl) seasonLbl.textContent = t.lbl_export_season;
