@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,9 +38,9 @@
               canvas: '#f8faf7',
               surface: '#eff5ec',
               card: '#ffffff',
-              border: '#e1ebd9',
+              border: '#e2ebdd',
               primary: '#0d3822',
-              primaryHover: '#134e30',
+              primaryHover: '#124c2e',
               forest: '#05180f',
               accent: '#10b981',
               accentLight: '#ecfdf5',
@@ -50,9 +50,10 @@
             }
           },
           boxShadow: {
+            'modern': '0 4px 20px -2px rgba(13, 56, 34, 0.06), 0 2px 6px -1px rgba(13, 56, 34, 0.04)',
+            'modern-hover': '0 20px 40px -12px rgba(13, 56, 34, 0.12), 0 8px 16px -4px rgba(13, 56, 34, 0.04)',
             'glass': '0 20px 40px -15px rgba(5, 24, 15, 0.08)',
-            'glow-emerald': '0 0 30px rgba(16, 185, 129, 0.25)',
-            'card-hover': '0 24px 48px -12px rgba(13, 56, 34, 0.12)'
+            'glow-emerald': '0 0 35px rgba(16, 185, 129, 0.28)'
           }
         }
       }
@@ -78,10 +79,10 @@
 
     .hero-export-bg {
       background: 
-        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.22) 0%, transparent 45%),
-        radial-gradient(circle at 15% 80%, rgba(197, 139, 52, 0.16) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(13, 56, 34, 0.75) 0%, transparent 100%),
-        linear-gradient(180deg, rgba(5, 24, 15, 0.94) 0%, rgba(5, 24, 15, 0.99) 100%),
+        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 10% 85%, rgba(197, 139, 52, 0.18) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(13, 56, 34, 0.8) 0%, transparent 100%),
+        linear-gradient(180deg, rgba(5, 24, 15, 0.95) 0%, rgba(5, 24, 15, 0.99) 100%),
         url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000&q=85');
       background-size: cover;
       background-position: center;
@@ -89,13 +90,15 @@
     }
 
     .glass-nav {
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
     }
     .header-shrunk {
-      box-shadow: 0 10px 30px -5px rgba(5, 24, 15, 0.08);
-      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 10px 30px -10px rgba(5, 24, 15, 0.08);
+      background: rgba(255, 255, 255, 0.96);
+      padding-top: 0.5rem !important;
+      padding-bottom: 0.5rem !important;
     }
 
     .btn-modern-primary {
@@ -123,7 +126,7 @@
 
     .modern-card {
       background: #ffffff;
-      border: 1px solid #e1ebd9;
+      border: 1px solid #e2ebdd;
       border-radius: 1.75rem;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
@@ -131,7 +134,7 @@
       .modern-card:hover {
         transform: translateY(-5px);
         border-color: rgba(16, 185, 129, 0.45);
-        box-shadow: 0 20px 40px -10px rgba(5, 24, 15, 0.10);
+        box-shadow: 0 24px 48px -12px rgba(5, 24, 15, 0.12);
       }
       .modern-card:hover .crop-img-zoom { transform: scale(1.06); }
     }
@@ -175,7 +178,7 @@
         </span>
       </div>
       <div class="ms-auto flex items-center gap-3">
-        <a href="tel:+201556564646" class="hover:text-emerald-400 text-white font-extrabold tracking-wider transition-colors inline-flex items-center gap-1.5 text-[11px] bg-white/10 hover:bg-white/15 px-3 py-0.5 rounded-full border border-white/15">
+        <a href="tel:+201556564646" class="hover:text-emerald-400 text-white font-extrabold tracking-wider transition-colors inline-flex items-center gap-1.5 text-[11px] bg-white/10 hover:bg-white/15 px-3 py-0.5 rounded-full border border-white/15 backdrop-blur-sm">
           <svg class="w-3 h-3 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span dir="ltr">+2 015 56 56 46 46</span>
         </a>
@@ -183,45 +186,41 @@
     </div>
   </div>
 
-  <!-- ================= LUXURY MODERN NAVBAR ================= -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/80 transition-all duration-300 py-2 sm:py-3.5">
-    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+  <!-- ================= LUXURY MINIMAL NAVBAR (LOGO ONLY - NO TEXT) ================= -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/70 transition-all duration-300 py-2 sm:py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
-        <!-- Modern Enlarged Floating Logo Island -->
-        <a href="#hero" class="flex items-center gap-3 sm:gap-4 group focus:outline-none shrink-0" aria-label="EAX Agro Export">
-          <div class="relative p-2.5 sm:p-3 bg-white rounded-2xl border border-agro-border shadow-sm group-hover:shadow-md group-hover:border-emerald-500/40 transition-all duration-300 flex items-center justify-center">
+        <!-- Modern Floating Logo Badge Island (Clean & Isolated) -->
+        <a href="#hero" class="flex items-center group focus:outline-none shrink-0" aria-label="EAX Agro Export">
+          <div class="relative p-1.5 sm:p-2 bg-white rounded-2xl border border-agro-border shadow-xs group-hover:shadow-md group-hover:border-emerald-500/40 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
             <img 
               id="mainLogoImg"
               src="images/logo.jpeg" 
               onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
               alt="EAX AGRO EXPORT Logo" 
-              class="h-20 xs:h-24 sm:h-28 md:h-32 w-auto object-contain rounded-xl transition-transform duration-300 group-hover:scale-105" 
+              class="h-10 xs:h-11 sm:h-12 md:h-13 w-auto object-contain rounded-xl transition-transform duration-300" 
             />
-          </div>
-          <div class="hidden sm:flex flex-col text-start">
-            <span class="font-black text-lg sm:text-xl md:text-2xl tracking-tight text-agro-forest group-hover:text-emerald-700 transition-colors leading-tight">EAX AGRO EXPORT</span>
-            <span class="text-[10px] sm:text-xs tracking-widest text-slate-500 font-bold uppercase">Egyptian Fresh Produce</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-xs xl:text-sm font-bold text-slate-700">
-          <a href="#hero" data-i18n="nav_home" class="hover:text-agro-primary transition-colors py-1">Home</a>
-          <a href="#about" data-i18n="nav_about" class="hover:text-agro-primary transition-colors py-1">About Us</a>
-          <a href="#catalog" data-i18n="nav_produce" class="hover:text-agro-primary transition-colors py-1">Fresh Produce (30 Crops)</a>
-          <a href="#quality-assurance" data-i18n="nav_quality" class="hover:text-agro-primary transition-colors py-1">Cold Chain</a>
-          <a href="#certifications" data-i18n="nav_certs" class="hover:text-agro-primary transition-colors py-1">Certifications</a>
-          <a href="#logistics" data-i18n="nav_logistics" class="hover:text-agro-primary transition-colors py-1">Shipping Lines</a>
-          <a href="#contact" data-i18n="nav_contact" class="hover:text-agro-primary transition-colors py-1">Contact</a>
+        <!-- Desktop Navigation Pill Dock -->
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1 bg-agro-surface/80 rounded-full border border-agro-border text-xs xl:text-[13px] font-bold text-slate-700">
+          <a href="#hero" data-i18n="nav_home" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Home</a>
+          <a href="#about" data-i18n="nav_about" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">About Us</a>
+          <a href="#catalog" data-i18n="nav_produce" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Produce (30 Crops)</a>
+          <a href="#quality-assurance" data-i18n="nav_quality" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Cold Chain</a>
+          <a href="#certifications" data-i18n="nav_certs" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Certifications</a>
+          <a href="#logistics" data-i18n="nav_logistics" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Shipping Lines</a>
+          <a href="#contact" data-i18n="nav_contact" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Contact</a>
         </nav>
 
         <!-- Right Controls -->
-        <div class="flex items-center gap-1.5 xs:gap-2 sm:gap-3 shrink-0">
+        <div class="flex items-center gap-2 sm:gap-3 shrink-0">
           
           <!-- 4-Language Selector Dropdown -->
           <div class="relative">
-            <select id="langSelector" onchange="setLanguage(this.value)" class="appearance-none cursor-pointer bg-agro-surface hover:bg-emerald-100/60 border border-agro-border rounded-full py-1.5 ps-2.5 pe-6 xs:ps-3 xs:pe-7 text-[11px] xs:text-xs font-black text-slate-800 shadow-xs focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all">
+            <select id="langSelector" onchange="setLanguage(this.value)" class="appearance-none cursor-pointer bg-agro-surface hover:bg-emerald-100/50 border border-agro-border rounded-full py-1.5 ps-3 pe-6 xs:ps-3.5 xs:pe-7 text-[11px] xs:text-xs font-black text-slate-800 shadow-xs focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all">
               <option value="en">English (EN)</option>
               <option value="ar">العربية (AR)</option>
               <option value="ru">Русский (RU)</option>
@@ -231,19 +230,20 @@
           </div>
 
           <!-- PDF Catalog Button -->
-          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-agro-goldLight hover:bg-amber-100/70 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-xs">
+          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-agro-goldLight hover:bg-amber-100/80 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-xs">
             <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
           </a>
 
           <!-- Modern CTA Button -->
-          <a href="#rfq" class="hidden sm:inline-flex btn-modern-primary items-center justify-center px-4 md:px-5 py-2.5 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white text-xs sm:text-sm font-extrabold shadow-md transition-all">
+          <a href="#rfq" class="hidden sm:inline-flex btn-modern-primary items-center justify-center px-5 py-2.5 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white text-xs sm:text-sm font-extrabold shadow-sm transition-all">
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
-          <!-- Mobile Hamburger -->
-          <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shadow-xs transition-colors" aria-label="Menu">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7"/></svg>
+          <!-- Mobile Hamburger / Close Toggle Button -->
+          <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-2xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shadow-xs transition-colors" aria-label="Toggle Menu">
+            <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
+            <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
@@ -307,7 +307,7 @@
               <!-- Brand Identity Header -->
               <div class="flex items-center gap-4 sm:gap-5 border-b border-white/10 pb-5">
                 <div class="relative shrink-0">
-                  <div class="w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl bg-white p-3 sm:p-4 shadow-xl ring-1 ring-white/25 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
+                  <div class="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2.5 sm:p-3 shadow-xl ring-1 ring-white/25 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
                     <img 
                       src="images/logo.jpeg" 
                       onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
@@ -393,7 +393,7 @@
 
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 border border-white/15">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
           </div>
           <div class="min-w-0">
             <h4 data-i18n="p3_title" class="font-bold text-xs sm:text-sm text-white truncate">Global Markets</h4>
@@ -843,19 +843,19 @@
         </div>
       </div>
 
-      <!-- Island Filters & Modern Search -->
+      <!-- Segmented Pill Bar Filters & Modern Search -->
       <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3.5 mb-8 sm:mb-10 reveal-up">
-        <div class="dock-filter-bar flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1.5 -mx-1 px-1.5">
-          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-full text-xs font-black bg-agro-primary text-white shrink-0 shadow-xs">All (30)</button>
-          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0">★ Top Priority (1-5)</button>
-          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0">Fresh Fruits</button>
-          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0">Vegetables</button>
-          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0">Summer Harvest</button>
-          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0">Winter Harvest</button>
+        <div class="dock-filter-bar flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1.5 -mx-1 px-1.5 p-1 bg-slate-100/90 rounded-full border border-slate-200/80">
+          <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-full text-xs font-black bg-agro-primary text-white shrink-0 shadow-xs transition-all">All (30)</button>
+          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all">★ Top Priority (1-5)</button>
+          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all">Fresh Fruits</button>
+          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all">Vegetables</button>
+          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all">Summer Harvest</button>
+          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all">Winter Harvest</button>
         </div>
 
         <div class="relative w-full lg:w-80 shrink-0">
-          <input type="text" id="searchInput" oninput="handleSearchInput()" data-i18n-placeholder="search_placeholder" placeholder="Search crop or variety..." class="w-full py-2.5 ps-10 pe-10 rounded-full bg-white border border-agro-border text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary shadow-xs" />
+          <input type="text" id="searchInput" oninput="handleSearchInput()" data-i18n-placeholder="search_placeholder" placeholder="Search crop or variety..." class="w-full py-2.5 ps-10 pe-10 rounded-full bg-white border border-agro-border text-xs text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary shadow-xs transition-all" />
           <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700 p-1" aria-label="Clear Search">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
@@ -952,7 +952,7 @@
         <div>
           <a href="#hero" class="inline-flex items-center gap-3.5 mb-4 transition-transform hover:scale-105" aria-label="EAX Agro Export">
             <div class="p-3 bg-white rounded-2xl shadow-sm inline-flex items-center justify-center">
-              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-20 sm:h-24 md:h-28 w-auto object-contain rounded-xl" />
+              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 w-auto object-contain rounded-xl" />
             </div>
             <div class="text-start">
               <span class="block text-white font-black text-base sm:text-lg">EAX AGRO EXPORT</span>
@@ -1004,10 +1004,10 @@
     </div>
   </footer>
 
-  <!-- WhatsApp Floating Icon -->
+  <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
   <aside aria-label="WhatsApp" class="fixed bottom-5 end-5 sm:bottom-7 sm:end-7 z-50">
-    <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="wa-float-btn w-13 h-13 sm:w-15 sm:h-15 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-xl active:scale-95" aria-label="Chat on WhatsApp">
-      <svg class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
+    <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="wa-float-btn w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-2xl active:scale-95 transition-transform" aria-label="Chat on WhatsApp">
+      <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.468 1.328 4.975l-1.411 5.158 5.281-1.385c1.45.792 3.097 1.252 4.802 1.252 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/>
       </svg>
     </a>
@@ -1142,7 +1142,7 @@
         varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_ru: ["Фотон", "Уайт Лисбон", "Гиза"], varieties_zh: ["光子", "白里斯本", "吉萨本土"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_ru: "Пенопласт 2/4 кг с чистым льдом", packing_zh: "2/4公斤泡沫箱或加冰纸箱",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_ru: "Белая часть: 7-9 см • Общая: 30-40 см", specs_zh: "葱白长度: 7-9厘米 • 全长: 30-40厘米",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по май", season_zh: "11月至次年5月",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С نوفمبر по май", season_zh: "11月至次年5月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1187,7 +1187,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1277,7 +1277,7 @@
         varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_ru: ["Голландская белая", "Ред Руки"], varieties_zh: ["荷兰白甘蓝", "红菜心紫甘蓝"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_ru: "Коробки или сетки 10 - 15 кг", packing_zh: "10-15公斤纸箱或透气网袋",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_ru: "Вес: 1.5 - 3 кг/кочан • Плотный", specs_zh: "单颗重: 1.5-3公斤 • 紧密结球",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1298,7 +1298,7 @@
         months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         cert_banner: "Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards",
         cooling_banner: "Automated pre-cooling & optical sorting lines",
-        nav_home: "Home", nav_about: "About Us", nav_produce: "Fresh Produce (30 Crops)", nav_certs: "Certifications", nav_quality: "Quality & Cold Chain", nav_logistics: "Shipping Lines", nav_contact: "Contact",
+        nav_home: "Home", nav_about: "About Us", nav_produce: "Produce (30 Crops)", nav_certs: "Certifications", nav_quality: "Cold Chain", nav_logistics: "Shipping Lines", nav_contact: "Contact",
         cta_quote: "Get a Quote", btn_pdf_catalog: "PDF Catalog",
         hero_subtag: "GLOBAL REACH • PREMIUM QUALITY",
         hero_h1: "Bringing Quality Crops", hero_h2: "to Global Markets",
@@ -1384,8 +1384,8 @@
         months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
         cooling_banner: "تصدير سريع بمحطات فرز وتبريد آلي متطور",
-        nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات الزراعية (30)", nav_certs: "الشهادات", nav_quality: "الجودة وسلاسل التبريد", nav_logistics: "خطوط الملاحة", nav_contact: "اتصل بنا",
-        cta_quote: "اطلب تسعير", btn_pdf_catalog: "كتالوج PDF للمنتجات",
+        nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات (30)", nav_certs: "الشهادات", nav_quality: "سلاسل التبريد", nav_logistics: "خطوط الملاحة", nav_contact: "اتصل بنا",
+        cta_quote: "اطلب تسعير", btn_pdf_catalog: "كتالوج PDF",
         hero_subtag: "وصول عالمي • جودة فائقة",
         hero_h1: "نوصل أجود المحاصيل", hero_h2: "إلى الأسواق العالمية",
         hero_desc: "تربط EAX للتصدير الزراعي المزارع المصرية بالعالم، حيث نوفر منتجات طازجة عالية الجودة للأسواق الدولية بثقة وسرعة وسلاسل تبريد متصلة.",
@@ -1556,8 +1556,8 @@
         months: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         cert_banner: "认证农产品出口：符合 GlobalGAP、BRC 和 EUR.1 标准",
         cooling_banner: "自动化采后预冷与光学分选生产线",
-        nav_home: "首页", nav_about: "关于我们", nav_produce: "生鲜产品 (30种作物)", nav_certs: "国际认证", nav_quality: "冷链与品质", nav_logistics: "合作船运", nav_contact: "联系我们",
-        cta_quote: "索取报价", btn_pdf_catalog: "PDF产品目录",
+        nav_home: "首页", nav_about: "关于我们", nav_produce: "生鲜名录 (30种)", nav_certs: "国际认证", nav_quality: "冷链与品质", nav_logistics: "合作船运", nav_contact: "联系我们",
+        cta_quote: "索取报价", btn_pdf_catalog: "PDF目录",
         hero_subtag: "全球直达 • 卓越品质",
         hero_h1: "汇聚埃及优质农产", hero_h2: "直通全球国际市场",
         hero_desc: "EAX Agro Export 连接埃及肥沃农田与全球采购商，以值得信赖的高效冷链物流，为国际超市及分销网络提供高品质生鲜果蔬。",
@@ -1641,7 +1641,6 @@
     let currentLang = 'en';
     let currentCategory = 'all';
 
-    // Singleton Reveal Observer Instance
     let globalRevealObserver = null;
 
     function initRevealObserver() {
@@ -1681,7 +1680,7 @@
       CROPS.forEach(crop => {
         const isCurrentActive = crop.months.includes(currentMonth);
         const card = document.createElement('div');
-        card.className = 'modern-card reveal-up group flex flex-col justify-between overflow-hidden';
+        card.className = 'modern-card reveal-up group flex flex-col justify-between overflow-hidden shadow-modern';
         card.setAttribute('data-id', crop.id);
         card.setAttribute('data-priority', crop.is_priority ? 'true' : 'false');
         card.setAttribute('data-season', crop.season_type);
@@ -1922,12 +1921,12 @@
       currentCategory = category;
       const buttons = document.querySelectorAll('.dock-filter-bar .filter-btn');
       buttons.forEach(btn => {
-        btn.className = 'filter-btn px-4 py-2 rounded-full text-xs font-bold bg-white text-slate-700 hover:bg-agro-surface border border-agro-border shrink-0';
+        btn.className = 'filter-btn px-4 py-2 rounded-full text-xs font-bold bg-transparent text-slate-700 hover:text-agro-primary shrink-0 transition-all';
       });
 
       const activeBtn = (evt && evt.currentTarget) ? evt.currentTarget : buttons[0];
       if (activeBtn) {
-        activeBtn.className = 'filter-btn active px-4 py-2 rounded-full text-xs font-black bg-agro-primary text-white shrink-0 shadow-xs';
+        activeBtn.className = 'filter-btn active px-4 py-2 rounded-full text-xs font-black bg-agro-primary text-white shrink-0 shadow-xs transition-all';
       }
       applyFiltersAndSearch();
     }
@@ -2016,10 +2015,35 @@
       updateProductsContent();
     }
 
-    function toggleMobileMenu() {
+    function toggleMobileMenu(forceClose = false) {
       const m = document.getElementById('mobileMenu');
-      if (m) m.classList.toggle('hidden');
+      const iconOpen = document.getElementById('menuIconOpen');
+      const iconClose = document.getElementById('menuIconClose');
+      if (!m) return;
+
+      const shouldClose = forceClose || !m.classList.contains('hidden');
+
+      if (shouldClose) {
+        m.classList.add('hidden');
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
+      } else {
+        m.classList.remove('hidden');
+        if (iconOpen) iconOpen.classList.add('hidden');
+        if (iconClose) iconClose.classList.remove('hidden');
+      }
     }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('mobileMenu');
+      const btn = document.getElementById('mobileMenuBtn');
+      if (menu && !menu.classList.contains('hidden')) {
+        if (!menu.contains(e.target) && !btn.contains(e.target)) {
+          toggleMobileMenu(true);
+        }
+      }
+    });
 
     function handleRFQSubmit(e) {
       e.preventDefault();
@@ -2076,8 +2100,7 @@ ${t.wa_notes} ${payload.notes}`;
 
       document.querySelectorAll('#mobileMenu a').forEach(link => {
         link.addEventListener('click', () => {
-          const mobileMenu = document.getElementById('mobileMenu');
-          if (mobileMenu) mobileMenu.classList.add('hidden');
+          toggleMobileMenu(true);
         });
       });
     });
