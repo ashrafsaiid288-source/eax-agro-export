@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-24 overflow-x-clip">
+<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-28 overflow-x-clip">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -76,14 +76,15 @@
         radial-gradient(at 20% 85%, rgba(216, 230, 211, 0.5) 0px, transparent 50%);
     }
 
-    /* دمج اللوجو تماماً مع الهيدر */
+    /* دمج وثبات اللوجو بدون خلفيات منفصلة وبأعلى وضوح */
     .seamless-logo {
       mix-blend-mode: multiply;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      filter: contrast(106%) brightness(98%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease, height 0.3s ease;
     }
     .seamless-logo:hover {
-      transform: scale(1.04);
-      filter: drop-shadow(0 4px 12px rgba(18, 57, 36, 0.15));
+      transform: scale(1.03);
+      filter: contrast(110%) drop-shadow(0 4px 10px rgba(18, 57, 36, 0.12));
     }
 
     .btn-glow {
@@ -204,8 +205,6 @@
     .header-shrunk {
       background: rgba(244, 246, 241, 0.98) !important;
       box-shadow: 0 4px 20px -4px rgba(18, 57, 36, 0.08);
-      padding-top: 0.25rem !important;
-      padding-bottom: 0.25rem !important;
     }
 
     @keyframes wa-pulse {
@@ -258,19 +257,19 @@
     </div>
   </div>
 
-  <!-- Header مع لوجو مدمج بسلاسة وبدون أي بوكس -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-2 sm:py-3">
+  <!-- Header - فريم واسع ومرن يسمح بظهور اللوجو بشكل واضح وكبير -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-2 sm:py-3 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div id="navContainer" class="h-20 sm:h-24 lg:h-28 flex items-center justify-between gap-4 transition-all duration-300">
+      <div id="navContainer" class="flex items-center justify-between gap-3 sm:gap-6 min-h-[5.5rem] sm:min-h-[6.5rem] lg:min-h-[7.5rem] transition-all duration-300">
         
-        <!-- اللوجو مدمج ومباشر في الهيدر بدون بوكس أو حدود -->
-        <a href="#hero" class="flex items-center shrink-0 group py-1" aria-label="EAX Agro Export Home">
+        <!-- اللوجو: مساحة فريم رحبة وغير مقيدة مع الحفاظ على الدمج الطبيعي -->
+        <a href="#hero" class="flex items-center shrink-0 py-1 focus:outline-none" aria-label="EAX Agro Export Home">
           <img 
             id="mainLogoImg"
             src="images/logo.jpeg" 
             onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
             alt="EAX AGRO EXPORT Logo" 
-            class="seamless-logo h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-all duration-300" 
+            class="seamless-logo h-16 xs:h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-[200px] xs:max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] object-contain" 
           />
         </a>
 
@@ -800,13 +799,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
-          <!-- Logo Footer مدمج بسلاسة -->
-          <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
+          <!-- Logo Footer بحجم بارز ومتناسق -->
+          <a href="#hero" class="inline-block mb-4 focus:outline-none" aria-label="EAX Agro Export Home">
             <img 
               src="images/logo.jpeg" 
               onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
               alt="EAX AGRO EXPORT Logo" 
-              class="seamless-logo h-14 sm:h-18 lg:h-22 w-auto object-contain" 
+              class="seamless-logo h-20 sm:h-24 lg:h-28 w-auto max-w-[320px] object-contain" 
             />
           </a>
           <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-start">
@@ -900,7 +899,7 @@
         varieties_en: ["Golden Giza 6", "Red Giza 20", "White Onion"], varieties_ar: ["جيزة 6 ذهبي", "جيزة 20 أحمر", "بصل أبيض"], varieties_zh: ["Golden Giza 6", "Red Giza 20", "白洋葱"], varieties_ru: ["Золотистый Гиза 6", "Красный Гиза 20", "Белый лук"],
         packing_en: "10kg / 25kg Poly Mesh Bags & Jumbo", packing_ar: "أجولة شبكية 10/25 كجم وجامبو", packing_zh: "10kg/25kg 网袋 & 吨袋", packing_ru: "10кг / 25кг сетки и биг-бэги",
         specs_en: "Calibers: 40-60mm / 60-80mm • Hard Cured Skin", specs_ar: "الأحجام: 40-60 مم / 60-80 مم • قشرة صلبة", specs_zh: "尺寸: 40-60mm / 60-80mm • 坚硬干燥表皮", specs_ru: "Размеры: 40-60мм / 60-80мм • Твердая сухая шелуха",
-        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С مارس по октябрь",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
         months: [3,4,5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -918,7 +917,7 @@
         varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_zh: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсейшн", "Бриллианс"],
         packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_zh: "2kg/2.5kg 纸箱 (10x250g 扁盒装)", packing_ru: "2 кг / 2.5 кг коробки (10x250 г лотки)",
         specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_zh: "果径: 25-35mm • 2小时内极速预冷", specs_ru: "Калибр: 25-35мм • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -927,7 +926,7 @@
         varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_zh: ["Wonderful", "Early 116", "Baladi"], varieties_ru: ["Вондерфул", "Эрли 116", "Балади"],
         packing_en: "4.5kg / 5kg Flat Open Top Cartons", packing_ar: "كراتين مسطحة مفتوحة 4.5 / 5 كجم", packing_zh: "4.5kg / 5kg 敞口浅纸箱", packing_ru: "4.5 кг / 5 кг плоские открытые коробки",
         specs_en: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+", specs_ar: "حبات: 8 - 14 • حبوب داكنة • بريكس +15°", specs_zh: "数量: 8 - 14 个 • 深红果籽 • 甜度 15°+", specs_ru: "Количество: 8 - 14 • Темно-красные зерна • Brix 15°+",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца أغسطس по декабрь",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
         months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -954,7 +953,7 @@
         varieties_en: ["Detroit Dark Red", "Pablo", "Boro"], varieties_ar: ["ديترويت دارك ريد", "بابلو", "بورو"], varieties_zh: ["Detroit Dark Red", "Pablo", "Boro"], varieties_ru: ["Детройт Дарк Ред", "Пабло", "Боро"],
         packing_en: "5kg / 10kg Bags or Master Cartons", packing_ar: "أكياس أو كراتين 5 / 10 كجم", packing_zh: "5kg/10kg 网袋或外箱", packing_ru: "5кг / 10кг пакеты или коробки",
         specs_en: "Sizes: 50-90mm • High Betanin Content", specs_ar: "الأحجام: 50-90 مم • تركيز صبغة بيتانين عالي", specs_zh: "尺寸: 50-90mm • 高甜菜苷含量", specs_ru: "Размеры: 50-90мм • Высокое содержание бетанина",
-        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С декабря по май",
+        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_zh: "12月至次年5月", season_ru: "С ديسمبر по май",
         months: [12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -972,7 +971,7 @@
         varieties_en: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ar: ["كيت", "كينت", "نعومي", "ياسمينة"], varieties_zh: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ru: ["Кейтт", "Кент", "Наоми", "Ясмина"],
         packing_en: "4kg / 5kg Open Top Display Cartons", packing_ar: "كراتين مفتوحة 4 / 5 كجم", packing_zh: "4kg / 5kg 敞口展示纸箱", packing_ru: "4 кг / 5 кг открытые дисплей-коробки",
         specs_en: "Counts: 6 - 12 • Fiber-free • Brix 14°+", specs_ar: "حبات: 6 - 12 • خالية من الألياف • بريكس +14°", specs_zh: "数量: 6 - 12 个 • 无纤维 • 甜度 14°+", specs_ru: "Количество: 6 - 12 • Без волокон • Brix 14°+",
-        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь",
+        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С يوليو по ноябрь",
         months: [7,8,9,10,11], image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -987,10 +986,10 @@
       {
         id: 14, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Iced Export Spring Onions", name_ar: "بصل أخضر مغطى بالثلج", name_zh: "保鲜加冰出口大葱", name_ru: "Свежий зеленый лук со льдом",
-        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбоن", "Гиза Балади"],
+        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбон", "Гиза Балади"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_zh: "2kg/4kg 泡沫箱或纸箱加冰保鲜", packing_ru: "2 кг / 4 кг пенопластовые ящики со льдом",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_zh: "葱白长度: 7-9cm • 总长: 30-40cm", specs_ru: "Длина белой части: 7-9см • Общая: 30-40см",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1035,7 +1034,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_zh: ["Fremont柑", "茂谷柑 (蜂蜜柑)", "克里门丁橘"], varieties_ru: ["Фремонт", "Муркотт (медовый)", "Клементин"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_zh: "10kg / 15kg 标准出口纸箱", packing_ru: "10 кг / 15 кг стандартные коробки",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_zh: "果径等级: 1 - 5 • 易剥皮 • 甜度 11.5°+", specs_ru: "Калибры: 1 - 5 • Легко чистится • Brix 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1049,7 +1048,7 @@
       },
       {
         id: 21, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Star Ruby Red Grapefruit", name_ar: "جريب فروت ستار روبي أحمر", name_zh: "红心星红宝石葡萄柚", name_ru: "Красный грейпфрут Стар Руби",
+        name_en: "Star Ruby Red Grapefruit", name_ar: "جريب فروت ستار روبي أحمر", name_zh: "红心星红宝石葡萄柚", name_ru: "Красный грейпفруت Стар Руби",
         varieties_en: ["Star Ruby", "Rio Red"], varieties_ar: ["ستار روبي", "ريو ريد"], varieties_zh: ["星红宝石", "里约红"], varieties_ru: ["Стар Руби", "Рио Ред"],
         packing_en: "15kg Standard Citrus Cartons", packing_ar: "كراتين موالح قياسية 15 كجم", packing_zh: "15kg 标准柑橘纸箱", packing_ru: "15 кг стандартные коробки для цитрусовых",
         specs_en: "Counts: 32 - 48 • Deep Red Pulp • Thin Skin", specs_ar: "حبات: 32 - 48 • لب أحمر داكن • قشرة رقيقة", specs_zh: "数量: 32 - 48 个 • 深红果肉 • 薄皮", specs_ru: "Количество: 32 - 48 • Темно-красная мякоть • Тонкая кожа",
@@ -1122,7 +1121,7 @@
       {
         id: 29, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Compact White & Red Cabbage", name_ar: "كرنب أبيض وأحمر صلب", name_zh: "结球白甘蓝与紫甘蓝", name_ru: "Капуста белокочанная и краснокочанная",
-        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_zh: ["荷兰白甘蓝", "红皮甘蓝"], varieties_ru: ["Белая Голлаंदская", "Ред Руки"],
+        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_zh: ["荷兰白甘蓝", "红皮甘蓝"], varieties_ru: ["Белая Голландская", "Ред Руки"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_zh: "10kg - 15kg 纸箱或网袋", packing_ru: "10кг - 15кг коробки или сетки",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_zh: "单重: 1.5 - 3kg / 颗 • 结球紧实", specs_ru: "Вес: 1.5 - 3кг/кочан • Плотная структура",
         season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
@@ -1316,7 +1315,7 @@
         filter_all: "Все 30 культур", filter_priority: "★ Топ экспорт (1-5)", filter_summer: "Летний сбор", filter_winter: "Зимний сбор", filter_fruits: "Свежие фрукты", filter_veg: "Свежие овощи",
         search_lbl: "Поиск", search_placeholder: "Поиск по названию или сорту...", lbl_export_season: "Сезон экспорта:", btn_req_quote: "Забронировать объем",
         no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
-        rfq_badge: "Торговый отдеل B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
+        rfq_badge: "Торговый отдел B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
         rfq_name_lbl: "Название компании / Контактное лицо *", rfq_email_lbl: "Корпоративный E-mail *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Планируемый объем (контейнеры) *", rfq_notes_lbl: "Спецификация калибра / упаковка / оплата", rfq_btn_submit: "Отправить официальный запрос",
         rfq_name_ph: "например: ООО Свежий Импорт", rfq_email_ph: "procurement@company.ru", rfq_dest_ph: "например: Новороссийск / Россия", rfq_vol_ph: "например: 3 x 40ft RF в неделю", rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
         cat_priority: "★ Топ приоритет", cat_summer: "Летний сбор", cat_winter: "Зимний сбор",
@@ -1816,7 +1815,7 @@
       }
     });
 
-    // انكماش ذكي وسلس للهيدر ومقاس اللوجو عند السكرول
+    // انكماش متوازن وأنيق للهيدر بدون ما يصغر اللوجو زيادة عن اللزوم
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
@@ -1828,18 +1827,18 @@
 
           if (header) header.classList.toggle('header-shrunk', isShrunk);
           if (navContainer) {
-            navContainer.classList.toggle('h-20', !isShrunk);
-            navContainer.classList.toggle('sm:h-24', !isShrunk);
-            navContainer.classList.toggle('lg:h-28', !isShrunk);
-            navContainer.classList.toggle('h-14', isShrunk);
-            navContainer.classList.toggle('sm:h-16', isShrunk);
-            navContainer.classList.toggle('lg:h-16', isShrunk);
+            navContainer.classList.toggle('min-h-[5.5rem]', !isShrunk);
+            navContainer.classList.toggle('sm:min-h-[6.5rem]', !isShrunk);
+            navContainer.classList.toggle('lg:min-h-[7.5rem]', !isShrunk);
+            navContainer.classList.toggle('min-h-[4.25rem]', isShrunk);
+            navContainer.classList.toggle('sm:min-h-[5rem]', isShrunk);
+            navContainer.classList.toggle('lg:min-h-[5.5rem]', isShrunk);
           }
           if (logoImg) {
             if (isShrunk) {
-              logoImg.className = 'seamless-logo h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300';
+              logoImg.className = 'seamless-logo h-12 xs:h-14 sm:h-16 md:h-18 lg:h-20 w-auto max-w-[170px] sm:max-w-[260px] object-contain';
             } else {
-              logoImg.className = 'seamless-logo h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-all duration-300';
+              logoImg.className = 'seamless-logo h-16 xs:h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-[200px] xs:max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] object-contain';
             }
           }
           ticking = false;
