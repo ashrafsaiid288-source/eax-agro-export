@@ -76,27 +76,14 @@
         radial-gradient(at 20% 85%, rgba(216, 230, 211, 0.5) 0px, transparent 50%);
     }
 
-    /* Logo Interactive Styling */
-    .brand-interactive-container {
-      perspective: 800px;
-      transform-style: preserve-3d;
-      transition: transform 0.15s ease-out;
+    /* دمج اللوجو تماماً مع الهيدر */
+    .seamless-logo {
+      mix-blend-mode: multiply;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
     }
-    .brand-interactive-card {
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .header-shrunk .brand-interactive-card {
-      padding: 0.35rem 0.6rem !important;
-      border-color: rgba(210, 222, 208, 0.8) !important;
-      box-shadow: 0 4px 12px -2px rgba(18, 57, 36, 0.08) !important;
-    }
-    .header-shrunk #mainLogoImg {
-      height: 2.5rem !important; /* ~40px */
-    }
-    @media (min-width: 640px) {
-      .header-shrunk #mainLogoImg {
-        height: 3.25rem !important; /* ~52px */
-      }
+    .seamless-logo:hover {
+      transform: scale(1.04);
+      filter: drop-shadow(0 4px 12px rgba(18, 57, 36, 0.15));
     }
 
     .btn-glow {
@@ -208,15 +195,17 @@
       outline-offset: -1px;
     }
 
-    #main-header { transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; }
+    #main-header { transition: background-color 0.25s ease, box-shadow 0.25s ease, padding 0.25s ease; }
     .glass-nav {
       background: rgba(244, 246, 241, 0.94);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
     .header-shrunk {
-      background: rgba(255, 255, 255, 0.98) !important;
+      background: rgba(244, 246, 241, 0.98) !important;
       box-shadow: 0 4px 20px -4px rgba(18, 57, 36, 0.08);
+      padding-top: 0.25rem !important;
+      padding-bottom: 0.25rem !important;
     }
 
     @keyframes wa-pulse {
@@ -269,27 +258,20 @@
     </div>
   </div>
 
-  <!-- Header with Dynamic Floating Logo -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-1 sm:py-2">
+  <!-- Header مع لوجو مدمج بسلاسة وبدون أي بوكس -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-2 sm:py-3">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div id="navContainer" class="h-20 sm:h-24 lg:h-28 flex items-center justify-between gap-3 transition-all duration-300">
+      <div id="navContainer" class="h-20 sm:h-24 lg:h-28 flex items-center justify-between gap-4 transition-all duration-300">
         
-        <!-- Interactive 3D Brand Logo -->
-        <a href="#hero" id="brandLogoLink" class="brand-interactive-container flex items-center shrink-0 group py-1" aria-label="EAX Agro Export Home">
-          <div class="brand-interactive-card relative p-2 sm:p-2.5 rounded-2xl bg-white/90 hover:bg-white backdrop-blur-xl border border-agro-border shadow-sm group-hover:border-agro-gold/60 group-hover:shadow-2xl flex items-center justify-center overflow-hidden">
-            <!-- Ambient Brand Aura -->
-            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/15 via-amber-500/20 to-emerald-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-            <!-- Dynamic Specular Glow -->
-            <div id="logoGlow" class="absolute -inset-full bg-radial from-white/40 to-transparent opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"></div>
-
-            <img 
-              id="mainLogoImg"
-              src="images/logo.jpeg" 
-              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
-              alt="EAX AGRO EXPORT Logo" 
-              class="h-14 sm:h-18 md:h-20 lg:h-24 w-auto object-contain drop-shadow-sm transition-all duration-300 group-hover:scale-105" 
-            />
-          </div>
+        <!-- اللوجو مدمج ومباشر في الهيدر بدون بوكس أو حدود -->
+        <a href="#hero" class="flex items-center shrink-0 group py-1" aria-label="EAX Agro Export Home">
+          <img 
+            id="mainLogoImg"
+            src="images/logo.jpeg" 
+            onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+            alt="EAX AGRO EXPORT Logo" 
+            class="seamless-logo h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-all duration-300" 
+          />
         </a>
 
         <!-- Desktop Nav -->
@@ -818,16 +800,14 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
-          <!-- Logo Footer -->
-          <a href="#hero" class="inline-block mb-4 group" aria-label="EAX Agro Export Home">
-            <div class="p-2 sm:p-2.5 rounded-2xl bg-white/90 border border-agro-border shadow-xs group-hover:border-agro-gold/50 group-hover:shadow-md transition-all inline-flex items-center justify-center">
-              <img 
-                src="images/logo.jpeg" 
-                onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
-                alt="EAX AGRO EXPORT Logo" 
-                class="h-12 sm:h-16 lg:h-20 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-300" 
-              />
-            </div>
+          <!-- Logo Footer مدمج بسلاسة -->
+          <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
+            <img 
+              src="images/logo.jpeg" 
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+              alt="EAX AGRO EXPORT Logo" 
+              class="seamless-logo h-14 sm:h-18 lg:h-22 w-auto object-contain" 
+            />
           </a>
           <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-start">
             An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 30 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.
@@ -920,7 +900,7 @@
         varieties_en: ["Golden Giza 6", "Red Giza 20", "White Onion"], varieties_ar: ["جيزة 6 ذهبي", "جيزة 20 أحمر", "بصل أبيض"], varieties_zh: ["Golden Giza 6", "Red Giza 20", "白洋葱"], varieties_ru: ["Золотистый Гиза 6", "Красный Гиза 20", "Белый лук"],
         packing_en: "10kg / 25kg Poly Mesh Bags & Jumbo", packing_ar: "أجولة شبكية 10/25 كجم وجامبو", packing_zh: "10kg/25kg 网袋 & 吨袋", packing_ru: "10кг / 25кг сетки и биг-бэги",
         specs_en: "Calibers: 40-60mm / 60-80mm • Hard Cured Skin", specs_ar: "الأحجام: 40-60 مم / 60-80 مم • قشرة صلبة", specs_zh: "尺寸: 40-60mm / 60-80mm • 坚硬干燥表皮", specs_ru: "Размеры: 40-60мм / 60-80мм • Твердая сухая шелуха",
-        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С марта по октябрь",
+        season_en: "March to October", season_ar: "من مارس حتى أكتوبر", season_zh: "3月至10月", season_ru: "С مارس по октябрь",
         months: [3,4,5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -938,7 +918,7 @@
         varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_zh: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсейшн", "Бриллианс"],
         packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_zh: "2kg/2.5kg 纸箱 (10x250g 扁盒装)", packing_ru: "2 кг / 2.5 кг коробки (10x250 г лотки)",
         specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_zh: "果径: 25-35mm • 2小时内极速预冷", specs_ru: "Калибр: 25-35мм • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -947,7 +927,7 @@
         varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_zh: ["Wonderful", "Early 116", "Baladi"], varieties_ru: ["Вондерфул", "Эрли 116", "Балади"],
         packing_en: "4.5kg / 5kg Flat Open Top Cartons", packing_ar: "كراتين مسطحة مفتوحة 4.5 / 5 كجم", packing_zh: "4.5kg / 5kg 敞口浅纸箱", packing_ru: "4.5 кг / 5 кг плоские открытые коробки",
         specs_en: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+", specs_ar: "حبات: 8 - 14 • حبوب داكنة • بريكس +15°", specs_zh: "数量: 8 - 14 个 • 深红果籽 • 甜度 15°+", specs_ru: "Количество: 8 - 14 • Темно-красные зерна • Brix 15°+",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца августа по декабрь",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_zh: "8月下旬至12月", season_ru: "С конца أغسطس по декабрь",
         months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1010,7 +990,7 @@
         varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбоن", "Гиза Балади"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_zh: "2kg/4kg 泡沫箱或纸箱加冰保鲜", packing_ru: "2 кг / 4 кг пенопластовые ящики со льдом",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_zh: "葱白长度: 7-9cm • 总长: 30-40cm", specs_ru: "Длина белой части: 7-9см • Общая: 30-40см",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1028,7 +1008,7 @@
         varieties_en: ["Salinas", "Iceberg Crisphead"], varieties_ar: ["ساليناس", "آيسبرج كريسب هيد"], varieties_zh: ["Salinas生菜", "结球冰山生菜"], varieties_ru: ["Салинас", "Айсберг Криспхед"],
         packing_en: "8 - 10 Heads in Telescopic Cartons", packing_ar: "8 - 10 رؤوس مغلفة في كراتين تلسكوبية", packing_zh: "8 - 10 颗单独覆膜纸箱包装", packing_ru: "8 - 10 кочанов в коробках (каждый в пленке)",
         specs_en: "Weight: 450 - 750g / head • Rapid Hydrocooled", specs_ar: "الوزن: 450 - 750 جم للرأس • تبريد مائي فوري", specs_zh: "单颗重量: 450 - 750g • 快速水预冷", specs_ru: "Вес: 450 - 750г/кочан • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1336,7 +1316,7 @@
         filter_all: "Все 30 культур", filter_priority: "★ Топ экспорт (1-5)", filter_summer: "Летний сбор", filter_winter: "Зимний сбор", filter_fruits: "Свежие фрукты", filter_veg: "Свежие овощи",
         search_lbl: "Поиск", search_placeholder: "Поиск по названию или сорту...", lbl_export_season: "Сезон экспорта:", btn_req_quote: "Забронировать объем",
         no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
-        rfq_badge: "Торговый отдел B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
+        rfq_badge: "Торговый отдеل B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру для предоставления актуальных ставок.",
         rfq_name_lbl: "Название компании / Контактное лицо *", rfq_email_lbl: "Корпоративный E-mail *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Планируемый объем (контейнеры) *", rfq_notes_lbl: "Спецификация калибра / упаковка / оплата", rfq_btn_submit: "Отправить официальный запрос",
         rfq_name_ph: "например: ООО Свежий Импорт", rfq_email_ph: "procurement@company.ru", rfq_dest_ph: "например: Новороссийск / Россия", rfq_vol_ph: "например: 3 x 40ft RF в неделю", rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
         cat_priority: "★ Топ приоритет", cat_summer: "Летний сбор", cat_winter: "Зимний сбор",
@@ -1799,40 +1779,8 @@
       document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => globalObserver.observe(el));
     }
 
-    // 3D Parallax Tilt & Magnetic Effect for Logo
-    function initLogo3DInteractions() {
-      const logoLink = document.getElementById('brandLogoLink');
-      const logoGlow = document.getElementById('logoGlow');
-      if (!logoLink) return;
-
-      logoLink.addEventListener('mousemove', (e) => {
-        const rect = logoLink.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const deltaX = (x - centerX) / centerX;
-        const deltaY = (y - centerY) / centerY;
-
-        const rotateX = -deltaY * 18; // Max 18deg
-        const rotateY = deltaX * 18;
-
-        logoLink.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-        if (logoGlow) {
-          logoGlow.style.left = `${x - rect.width}px`;
-          logoGlow.style.top = `${y - rect.height}px`;
-        }
-      });
-
-      logoLink.addEventListener('mouseleave', () => {
-        logoLink.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
-      });
-    }
-
     window.addEventListener('DOMContentLoaded', () => {
       initProductsDOM();
-      initLogo3DInteractions();
       changeLanguage(detectDeviceLanguage());
 
       const mobileBtn = document.getElementById('mobileMenuBtn');
@@ -1868,14 +1816,15 @@
       }
     });
 
-    // Dynamic Header & Logo shrink on scroll
+    // انكماش ذكي وسلس للهيدر ومقاس اللوجو عند السكرول
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const header = document.getElementById('main-header');
           const navContainer = document.getElementById('navContainer');
-          const isShrunk = window.scrollY > 35;
+          const logoImg = document.getElementById('mainLogoImg');
+          const isShrunk = window.scrollY > 30;
 
           if (header) header.classList.toggle('header-shrunk', isShrunk);
           if (navContainer) {
@@ -1884,7 +1833,14 @@
             navContainer.classList.toggle('lg:h-28', !isShrunk);
             navContainer.classList.toggle('h-14', isShrunk);
             navContainer.classList.toggle('sm:h-16', isShrunk);
-            navContainer.classList.toggle('lg:h-18', isShrunk);
+            navContainer.classList.toggle('lg:h-16', isShrunk);
+          }
+          if (logoImg) {
+            if (isShrunk) {
+              logoImg.className = 'seamless-logo h-10 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300';
+            } else {
+              logoImg.className = 'seamless-logo h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-all duration-300';
+            }
           }
           ticking = false;
         });
