@@ -89,39 +89,18 @@
       background-attachment: fixed;
     }
 
-    /* Scrolled Header State */
+    /* Fixed Dark Glass on Scroll */
     .header-shrunk {
-      box-shadow: 0 10px 30px -10px rgba(5, 24, 15, 0.12);
-      background: rgba(255, 255, 255, 0.95) !important;
-      backdrop-filter: blur(20px) !important;
-      -webkit-backdrop-filter: blur(20px) !important;
-      border-bottom-color: rgba(226, 235, 221, 0.8) !important;
+      box-shadow: 0 14px 35px -10px rgba(0, 0, 0, 0.45);
+      background: rgba(5, 24, 15, 0.92) !important;
+      backdrop-filter: blur(24px) !important;
+      -webkit-backdrop-filter: blur(24px) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
       padding-top: 0.35rem !important;
       padding-bottom: 0.35rem !important;
     }
     .header-shrunk #mainLogoImg {
       height: 2.75rem !important;
-    }
-    .header-shrunk .nav-pill-dock {
-      background: #eff5ec !important;
-      border-color: #e2ebdd !important;
-    }
-    .header-shrunk .nav-link-item {
-      color: #334155 !important;
-    }
-    .header-shrunk .nav-link-item:hover {
-      color: #0d3822 !important;
-      background-color: #ffffff !important;
-    }
-    .header-shrunk .lang-select-box {
-      background: #eff5ec !important;
-      color: #0f172a !important;
-      border-color: #e2ebdd !important;
-    }
-    .header-shrunk .mobile-menu-btn {
-      background: #ffffff !important;
-      color: #334155 !important;
-      border-color: #e2ebdd !important;
     }
 
     .btn-modern-primary {
@@ -209,10 +188,10 @@
     </div>
   </div>
 
-  <!-- ================= UNIFIED HERO CONTAINER WITH INTEGRATED HEADER ================= -->
+  <!-- ================= UNIFIED HERO CONTAINER WITH PERMANENT DARK-GLASS NAVBAR ================= -->
   <div class="relative hero-export-bg overflow-hidden text-white flex flex-col justify-between">
 
-    <!-- INTEGRATED FLOATING NAVBAR (NO SEPARATE WHITE BAR) -->
+    <!-- FLOATING PERMANENT DARK-GLASS NAVBAR (NEVER TURNS WHITE) -->
     <header id="main-header" class="sticky top-0 z-40 bg-transparent border-b border-transparent transition-all duration-300 py-3 sm:py-4">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between gap-4">
@@ -231,14 +210,14 @@
           </a>
 
           <!-- Desktop Navigation Pill Dock -->
-          <nav class="nav-pill-dock hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-xs xl:text-[13px] font-bold transition-all">
-            <a href="#hero" data-i18n="nav_home" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Home</a>
-            <a href="#about" data-i18n="nav_about" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">About Us</a>
-            <a href="#catalog" data-i18n="nav_produce" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Produce (30 Crops)</a>
-            <a href="#quality-assurance" data-i18n="nav_quality" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Cold Chain</a>
-            <a href="#certifications" data-i18n="nav_certs" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Certifications</a>
-            <a href="#logistics" data-i18n="nav_logistics" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Shipping Lines</a>
-            <a href="#contact" data-i18n="nav_contact" class="nav-link-item text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Contact</a>
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-xs xl:text-[13px] font-bold transition-all">
+            <a href="#hero" data-i18n="nav_home" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Home</a>
+            <a href="#about" data-i18n="nav_about" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">About Us</a>
+            <a href="#catalog" data-i18n="nav_produce" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Produce (30 Crops)</a>
+            <a href="#quality-assurance" data-i18n="nav_quality" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Cold Chain</a>
+            <a href="#certifications" data-i18n="nav_certs" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Certifications</a>
+            <a href="#logistics" data-i18n="nav_logistics" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Shipping Lines</a>
+            <a href="#contact" data-i18n="nav_contact" class="text-white hover:text-emerald-300 hover:bg-white/15 px-3.5 py-1.5 rounded-full transition-all">Contact</a>
           </nav>
 
           <!-- Right Controls -->
@@ -246,11 +225,11 @@
             
             <!-- 4-Language Selector Dropdown -->
             <div class="relative">
-              <select id="langSelector" onchange="setLanguage(this.value)" class="lang-select-box appearance-none cursor-pointer bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-xl rounded-full py-2 ps-3.5 pe-7 xs:ps-4 xs:pe-8 text-[11px] xs:text-xs font-black shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all">
-                <option value="en" class="text-slate-800 bg-white">English (EN)</option>
-                <option value="ar" class="text-slate-800 bg-white">العربية (AR)</option>
-                <option value="ru" class="text-slate-800 bg-white">Русский (RU)</option>
-                <option value="zh" class="text-slate-800 bg-white">中文 (ZH)</option>
+              <select id="langSelector" onchange="setLanguage(this.value)" class="appearance-none cursor-pointer bg-white/15 hover:bg-white/25 border border-white/25 text-white backdrop-blur-xl rounded-full py-2 ps-3.5 pe-7 xs:ps-4 xs:pe-8 text-[11px] xs:text-xs font-black shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-400 transition-all">
+                <option value="en" class="text-slate-900 bg-white">English (EN)</option>
+                <option value="ar" class="text-slate-900 bg-white">العربية (AR)</option>
+                <option value="ru" class="text-slate-900 bg-white">Русский (RU)</option>
+                <option value="zh" class="text-slate-900 bg-white">中文 (ZH)</option>
               </select>
               <div class="pointer-events-none absolute end-2.5 top-1/2 -translate-y-1/2 text-white/80 text-[10px]">▼</div>
             </div>
@@ -267,7 +246,7 @@
             </a>
 
             <!-- Mobile Hamburger Toggle Button -->
-            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="mobile-menu-btn lg:hidden p-2.5 rounded-2xl bg-white/15 border border-white/25 text-white hover:bg-white/25 shadow-xs transition-colors backdrop-blur-md" aria-label="Toggle Menu">
+            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-2xl bg-white/15 border border-white/25 text-white hover:bg-white/25 shadow-xs transition-colors backdrop-blur-md" aria-label="Toggle Menu">
               <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
               <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -276,7 +255,7 @@
       </div>
 
       <!-- Mobile Drawer -->
-      <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-[#05180f]/95 backdrop-blur-2xl border-t border-white/15 px-5 py-4 space-y-1 shadow-2xl text-white mt-3">
+      <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-[#05180f]/98 backdrop-blur-2xl border-t border-white/15 px-5 py-4 space-y-1 shadow-2xl text-white mt-3">
         <a href="#hero" data-i18n="nav_home" class="block py-2.5 px-3 rounded-xl hover:bg-white/10 text-sm font-bold">Home</a>
         <a href="#about" data-i18n="nav_about" class="block py-2.5 px-3 rounded-xl hover:bg-white/10 text-sm font-bold">About Us</a>
         <a href="#catalog" data-i18n="nav_produce" class="block py-2.5 px-3 rounded-xl hover:bg-white/10 text-sm font-bold">Fresh Produce (30 Crops)</a>
