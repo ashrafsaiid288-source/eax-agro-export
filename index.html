@@ -164,6 +164,17 @@
     }
     .btn-modern-primary:active { transform: translateY(0) scale(0.98); }
 
+    .btn-modern-secondary {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-modern-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -4px rgba(13, 56, 34, 0.15);
+    }
+    .btn-modern-secondary:active { transform: translateY(0) scale(0.98); }
+
     .modern-card {
       background: #ffffff;
       border: 1px solid #e2ebdd;
@@ -623,7 +634,7 @@
           <div>
             <span data-i18n="qa_s3_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">24/7 SATELLITE</span>
             <div class="w-12 h-12 rounded-2xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-4">
-              <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
+              <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" width="24" height="24" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
             </div>
             <h3 data-i18n="qa_s3_title" class="font-black text-lg text-agro-forest mb-2">IoT Reefer Tracking</h3>
             <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
@@ -819,7 +830,7 @@
         <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
             <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
             <span data-i18n="ship_c5_tag" class="text-[10px] font-black text-agro-primary uppercase">ASIA & SUEZ</span>
             <h4 class="font-black text-base text-agro-forest mt-1">ONE</h4>
@@ -912,8 +923,8 @@
       <div id="rfqSuccessToast" class="hidden mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-start text-xs sm:text-sm flex items-center gap-3 transition-all duration-300">
         <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 font-bold">✓</span>
         <div>
-          <span class="font-black block" data-i18n="rfq_success_title">Quotation Prepared Successfully!</span>
-          <span class="text-emerald-700 text-xs block" data-i18n="rfq_success_sub">Redirecting you to our official export trade desk on WhatsApp...</span>
+          <span class="font-black block" id="rfqToastTitle" data-i18n="rfq_success_title">Quotation Prepared Successfully!</span>
+          <span class="text-emerald-700 text-xs block" id="rfqToastSub" data-i18n="rfq_success_sub">Redirecting you to our official export trade desk on WhatsApp...</span>
         </div>
       </div>
 
@@ -956,10 +967,23 @@
           <textarea id="rfqNotes" rows="2" class="w-full px-4 py-3 rounded-2xl bg-slate-50 border border-agro-border text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-agro-primary resize-none" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
         </div>
 
-        <button type="submit" class="btn-modern-primary w-full py-4 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white font-black text-sm shadow-md flex items-center justify-center gap-2">
-          <span data-i18n="rfq_btn_submit">Submit Formal RFQ via WhatsApp</span>
-          <span class="rtl:-scale-x-100">→</span>
-        </button>
+        <!-- RFQ Action Buttons (Primary WhatsApp + Secondary Copy Backup) -->
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <!-- WhatsApp Direct Submit -->
+          <button type="submit" class="btn-modern-primary flex-1 py-4 px-6 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white font-black text-sm shadow-md flex items-center justify-center gap-2">
+            <span data-i18n="rfq_btn_submit">Submit Formal RFQ via WhatsApp</span>
+            <span class="rtl:-scale-x-100">→</span>
+          </button>
+
+          <!-- Backup Copy Text Button with Glass Glow -->
+          <button type="button" id="copyRfqBtn" onclick="handleCopyRFQ()" class="btn-modern-secondary sm:w-auto px-6 py-4 rounded-full bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-800 border border-slate-200 hover:border-emerald-300 font-extrabold text-sm flex items-center justify-center gap-2.5 transition-all">
+            <span id="copyIconBox" class="w-6 h-6 rounded-lg glass-icon-box-light flex items-center justify-center text-slate-600 shrink-0">
+              <svg id="copySvgDefault" class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"/></svg>
+              <svg id="copySvgSuccess" class="w-3.5 h-3.5 hidden text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+            </span>
+            <span id="copyBtnText" data-i18n="rfq_btn_copy">Copy RFQ Text</span>
+          </button>
+        </div>
       </form>
     </div>
   </section>
@@ -1362,9 +1386,13 @@
         search_placeholder: "Search crop or variety...",
         no_results: "No matching produce found.", no_results_sub: "Try searching with another keyword or resetting your filter category.", reset_filters_btn: "Reset All Filters",
         rfq_badge: "B2B Trade Desk", rfq_title: "Request Container Quotation (FOB / CIF)", rfq_desc: "Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.",
-        rfq_name_lbl: "Company / Contact Name *", rfq_email_lbl: "Corporate Email *", rfq_dest_lbl: "Destination Port / Country *", rfq_produce_lbl: "Selected Produce *", rfq_vol_lbl: "Estimated Volume (Containers) *", rfq_incoterm_lbl: "Incoterm / Price Basis", rfq_notes_lbl: "Additional Specifications / Packaging", rfq_btn_submit: "Submit Formal RFQ via WhatsApp",
+        rfq_name_lbl: "Company / Contact Name *", rfq_email_lbl: "Corporate Email *", rfq_dest_lbl: "Destination Port / Country *", rfq_produce_lbl: "Selected Produce *", rfq_vol_lbl: "Estimated Volume (Containers) *", rfq_incoterm_lbl: "Incoterm / Price Basis", rfq_notes_lbl: "Additional Specifications / Packaging", 
+        rfq_btn_submit: "Submit Formal RFQ via WhatsApp",
+        rfq_btn_copy: "Copy RFQ Text",
+        rfq_btn_copied: "Copied to Clipboard!",
         rfq_name_ph: "e.g. EuroFresh Trading Ltd.", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "e.g. Rotterdam / Netherlands", rfq_vol_ph: "e.g. 2 x 40ft RF weekly", rfq_notes_ph: "Specific caliber, cartons weight, payment terms...",
         rfq_success_title: "Quotation Prepared Successfully!", rfq_success_sub: "Redirecting you to our official export trade desk on WhatsApp...",
+        rfq_copy_toast_title: "RFQ Text Copied Successfully!", rfq_copy_toast_sub: "You can now paste and email or message it directly to us.",
         cat_priority: "★ Top Priority", cat_summer: "Summer Harvest", cat_winter: "Winter Harvest", now_in_season: "In Season Now", lbl_varieties: "Export Varieties:", lbl_export_season: "Season:", btn_req_quote: "Request Allocation",
         footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 27 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
         footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
@@ -1446,9 +1474,13 @@
         search_placeholder: "ابحث عن محصول أو صنف تصديري...",
         no_results: "لم يتم العثور على منتجات مطابقة.", no_results_sub: "جرّب البحث بكلمة أخرى أو اختر تصنيفاً مختلفاً.", reset_filters_btn: "إعادة ضبط الفلاتر",
         rfq_badge: "مكتب التعاقدات B2B", rfq_title: "طلب عرض أسعار حاويات (FOB / CIF)", rfq_desc: "سجل متطلبات الشحنة لتحصل على تسعير فوري ومباشر من فريق التصدير عبر الواتساب.",
-        rfq_name_lbl: "اسم الشركة / جهة الاتصال *", rfq_email_lbl: "البريد الإلكتروني للشركة *", rfq_dest_lbl: "ميناء الوصول / الدولة *", rfq_produce_lbl: "المحصول المطلوب *", rfq_vol_lbl: "الكمية التقديرية (عدد الحاويات) *", rfq_incoterm_lbl: "شرط الشحن الدولي (Incoterm)", rfq_notes_lbl: "ملاحظات إضافية أو شروط خاصة بالتعبئة", rfq_btn_submit: "إرسال طلب التسعير عبر واتساب",
+        rfq_name_lbl: "اسم الشركة / جهة الاتصال *", rfq_email_lbl: "البريد الإلكتروني للشركة *", rfq_dest_lbl: "ميناء الوصول / الدولة *", rfq_produce_lbl: "المحصول المطلوب *", rfq_vol_lbl: "الكمية التقديرية (عدد الحاويات) *", rfq_incoterm_lbl: "شرط الشحن الدولي (Incoterm)", rfq_notes_lbl: "ملاحظات إضافية أو شروط خاصة بالتعبئة", 
+        rfq_btn_submit: "إرسال طلب التسعير عبر واتساب",
+        rfq_btn_copy: "نسخ نص الطلب (احتياطي)",
+        rfq_btn_copied: "تم نسخ الطلب بنجاح!",
         rfq_name_ph: "مثل: يورو فريش للتجارة الدولية", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "مثل: ميناء روتردام / هولندا", rfq_vol_ph: "مثل: 2 حاوية 40 قدم أسبوعياً", rfq_notes_ph: "المقاسات المطلوبة، أوزان الكراتين، شروط الدفع...",
         rfq_success_title: "تم تجهيز طلب التسعير بنجاح!", rfq_success_sub: "جارٍ توجيهك الآن إلى مكتب التصدير والمبيعات عبر واتساب...",
+        rfq_copy_toast_title: "تم نسخ بيانات الطلب بنجاح!", rfq_copy_toast_sub: "يمكنك الآن لصق البيانات في بريد إلكتروني أو رسالة مباشرة.",
         cat_priority: "★ أولوية قصوى", cat_summer: "محصول صيفي", cat_winter: "محصول شتوي", now_in_season: "موسم الحصاد الحالي", lbl_varieties: "الأصناف التصديرية:", lbl_export_season: "الموسم:", btn_req_quote: "حجز حصة تصديرية",
         footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 27 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.",
@@ -1530,9 +1562,13 @@
         search_placeholder: "Поиск культуры или сорта...",
         no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтры.", reset_filters_btn: "Сбросить фильтры",
         rfq_badge: "B2B Запросы", rfq_title: "Запрос котировки на контейнер (FOB / CIF)", rfq_desc: "Заполните форму требований к партии. Запрос будет мгновенно передан нашему экспортному отделу в WhatsApp.",
-        rfq_name_lbl: "Компания / Контактное лицо *", rfq_email_lbl: "Корпоративный Email *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Ориентировочный объем (контейнеры) *", rfq_incoterm_lbl: "Базис поставки (Incoterms)", rfq_notes_lbl: "Дополнительные требования и калибры", rfq_btn_submit: "Отправить официальный запрос в WhatsApp",
+        rfq_name_lbl: "Компания / Контактное лицо *", rfq_email_lbl: "Корпоративный Email *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Ориентировочный объем (контейнеры) *", rfq_incoterm_lbl: "Базис поставки (Incoterms)", rfq_notes_lbl: "Дополнительные требования и калибры", 
+        rfq_btn_submit: "Отправить официальный запрос в WhatsApp",
+        rfq_btn_copy: "Скопировать текст запроса",
+        rfq_btn_copied: "Скопировано в буфер!",
         rfq_name_ph: "напр., ТД Восток Фрут", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "напр., Новороссийск / Россия", rfq_vol_ph: "напр., 3 рефконтейнера 40ft в неделю", rfq_notes_ph: "Требуемый калибр, тип упаковки, условия оплаты...",
         rfq_success_title: "Запрос успешно сформирован!", rfq_success_sub: "Перенаправляем вас в официальный экспортный отдел в WhatsApp...",
+        rfq_copy_toast_title: "Текст запроса скопирован!", rfq_copy_toast_sub: "Теперь вы можете вставить его в письмо или мессенджер.",
         cat_priority: "★ Высший приоритет", cat_summer: "Летний урожай", cat_winter: "Зимний урожай", now_in_season: "Сейчас в сезоне", lbl_varieties: "Экспортные сорта:", lbl_export_season: "Сезон:", btn_req_quote: "Запросить квоту",
         footer_about: "Египетский агроэкспортер полного цикла: калибровка, предрейсовая подготовка и морская доставка 27 видов свежих овощей и фруктов напрямую в международные торговые сети.",
         footer_contact_title: "Прямые контакты", footer_quote_title: "Ресурсы для контрактов", footer_quote_desc: "Свяжитесь с нашими менеджерами для получения сезонных программ цен FOB/CIF.",
@@ -1614,9 +1650,13 @@
         search_placeholder: "搜索作物或品种名称...",
         no_results: "未找到符合条件的农产品。", no_results_sub: "请尝试输入其他关键词或重置筛选类别。", reset_filters_btn: "重置所有筛选",
         rfq_badge: "B2B 采购中心", rfq_title: "集装箱询价单 (FOB / CIF)", rfq_desc: "填写您的订购需求，询价将直接发送给出口经理，为您快速提供最新季度报价。",
-        rfq_name_lbl: "公司名称 / 联系人姓名 *", rfq_email_lbl: "企业邮箱 *", rfq_dest_lbl: "目的港口 / 所在国家 *", rfq_produce_lbl: "意向农产品 *", rfq_vol_lbl: "预计采购量 (集装箱柜数) *", rfq_incoterm_lbl: "国际贸易术语 (Incoterms)", rfq_notes_lbl: "其他规格要求 / 包装细节", rfq_btn_submit: "通过 WhatsApp 提交正式询价",
+        rfq_name_lbl: "公司名称 / 联系人姓名 *", rfq_email_lbl: "企业邮箱 *", rfq_dest_lbl: "目的港口 / 所在国家 *", rfq_produce_lbl: "意向农产品 *", rfq_vol_lbl: "预计采购量 (集装箱柜数) *", rfq_incoterm_lbl: "国际贸易术语 (Incoterms)", rfq_notes_lbl: "其他规格要求 / 包装细节", 
+        rfq_btn_submit: "通过 WhatsApp 提交正式询价",
+        rfq_btn_copy: "复制询价单文本",
+        rfq_btn_copied: "已复制到剪贴板！",
         rfq_name_ph: "例如：某某国际贸易有限公司", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "例如：鹿特丹港 / 荷兰，或 青岛港 / 中国", rfq_vol_ph: "例如：每周 2 个 40英尺冷藏箱", rfq_notes_ph: "特定果径大小、箱装重量、付款条件等...",
         rfq_success_title: "询价单生成完毕！", rfq_success_sub: "正在为您跳转至官方 WhatsApp 贸易专席...",
+        rfq_copy_toast_title: "询价单已复制成功！", rfq_copy_toast_sub: "您可以直接粘贴并通过邮件或聊天工具发送给我们。",
         cat_priority: "★ 核心主打", cat_summer: "夏季作物", cat_winter: "冬季作物", now_in_season: "当前正在产季", lbl_varieties: "出口品种:", lbl_export_season: "产季周期:", btn_req_quote: "申请采购配额",
         footer_about: "埃及综合农业出口商，专注于27种出口级优质果蔬的采后分选、智能包装与全球冷链运输，直供国际零售巨头与批发集散中心。",
         footer_contact_title: "直通联系方式", footer_quote_title: "订购资源", footer_quote_desc: "直接联络出口业务经理，获取最新季度 FOB/CIF 供货方案。",
@@ -2032,8 +2072,8 @@
         if (iconClose) iconClose.classList.add('hidden');
       } else {
         m.classList.remove('hidden');
-        if (iconOpen) iconOpen.classList.add('hidden');
-        if (iconClose) iconClose.classList.remove('hidden');
+        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconClose) iconClose.classList.add('hidden');
       }
     }
 
@@ -2047,8 +2087,8 @@
       }
     });
 
-    function handleRFQSubmit(e) {
-      e.preventDefault();
+    // Helper: Build standardized RFQ message string
+    function buildRFQMessage() {
       const t = translations[currentLang];
       const selectedCropVal = document.getElementById('rfqProduce').value;
 
@@ -2070,8 +2110,7 @@
         notes: document.getElementById('rfqNotes').value.trim() || 'Standard export terms'
       };
 
-      const msg = 
-`${t.wa_header}
+      return `${t.wa_header}
 ${t.wa_company} ${payload.name}
 ${t.wa_email} ${payload.email}
 ${t.wa_dest} ${payload.destination}
@@ -2079,15 +2118,90 @@ ${t.wa_incoterm} ${payload.incoterm}
 ${t.wa_product} ${payload.produce}
 ${t.wa_volume} ${payload.volume}
 ${t.wa_notes} ${payload.notes}`;
+    }
 
+    // Direct WhatsApp submit
+    function handleRFQSubmit(e) {
+      e.preventDefault();
+      const t = translations[currentLang];
+      const msg = buildRFQMessage();
       const waUrl = `https://wa.me/${BACKEND_CONFIG.whatsappPhone}?text=${encodeURIComponent(msg)}`;
       
       const toast = document.getElementById('rfqSuccessToast');
+      const toastTitle = document.getElementById('rfqToastTitle');
+      const toastSub = document.getElementById('rfqToastSub');
+
       if (toast) {
+        toastTitle.textContent = t.rfq_success_title;
+        toastSub.textContent = t.rfq_success_sub;
         toast.classList.remove('hidden');
       }
 
       window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    // Backup: Copy RFQ text to clipboard
+    async function handleCopyRFQ() {
+      const form = document.getElementById('rfqForm');
+      if (form && !form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const t = translations[currentLang];
+      const msg = buildRFQMessage();
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(msg);
+        } else {
+          const textArea = document.createElement("textarea");
+          textArea.value = msg;
+          textArea.style.position = "fixed";
+          textArea.style.left = "-999999px";
+          textArea.style.top = "-999999px";
+          document.body.appendChild(textArea);
+          textArea.focus();
+          textArea.select();
+          document.execCommand('copy');
+          textArea.remove();
+        }
+
+        // Visual Feedback on Button
+        const copyBtn = document.getElementById('copyRfqBtn');
+        const copyText = document.getElementById('copyBtnText');
+        const copySvgDef = document.getElementById('copySvgDefault');
+        const copySvgSucc = document.getElementById('copySvgSuccess');
+
+        if (copyText) copyText.textContent = t.rfq_btn_copied;
+        if (copySvgDef) copySvgDef.classList.add('hidden');
+        if (copySvgSucc) copySvgSucc.classList.remove('hidden');
+        if (copyBtn) {
+          copyBtn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+        }
+
+        // Show Toast
+        const toast = document.getElementById('rfqSuccessToast');
+        const toastTitle = document.getElementById('rfqToastTitle');
+        const toastSub = document.getElementById('rfqToastSub');
+        if (toast) {
+          toastTitle.textContent = t.rfq_copy_toast_title;
+          toastSub.textContent = t.rfq_copy_toast_sub;
+          toast.classList.remove('hidden');
+        }
+
+        setTimeout(() => {
+          if (copyText) copyText.textContent = t.rfq_btn_copy;
+          if (copySvgDef) copySvgDef.classList.remove('hidden');
+          if (copySvgSucc) copySvgSucc.classList.add('hidden');
+          if (copyBtn) {
+            copyBtn.classList.remove('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+          }
+        }, 2500);
+
+      } catch (err) {
+        console.error('Copy failed: ', err);
+      }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
