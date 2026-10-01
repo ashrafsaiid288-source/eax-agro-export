@@ -90,15 +90,18 @@
     }
 
     .glass-nav {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
     }
     .header-shrunk {
       box-shadow: 0 10px 30px -10px rgba(5, 24, 15, 0.08);
-      background: rgba(255, 255, 255, 0.96);
-      padding-top: 0.5rem !important;
-      padding-bottom: 0.5rem !important;
+      background: rgba(255, 255, 255, 0.98);
+      padding-top: 0.35rem !important;
+      padding-bottom: 0.35rem !important;
+    }
+    .header-shrunk #mainLogoImg {
+      height: 2.85rem !important; /* يصغر تدريجياً وبنعومة أثناء التمرير */
     }
 
     .btn-modern-primary {
@@ -186,26 +189,26 @@
     </div>
   </div>
 
-  <!-- ================= LUXURY MINIMAL NAVBAR (LOGO ONLY - NO TEXT) ================= -->
+  <!-- ================= LUXURY MINIMAL NAVBAR (ENLARGED PROMINENT LOGO) ================= -->
   <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/70 transition-all duration-300 py-2 sm:py-3">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between gap-4">
         
-        <!-- Modern Floating Logo Badge Island -->
+        <!-- Large Floating Logo Badge Island -->
         <a href="#hero" class="flex items-center group focus:outline-none shrink-0" aria-label="EAX Agro Export">
-          <div class="relative p-1.5 sm:p-2 bg-white rounded-2xl border border-agro-border shadow-xs group-hover:shadow-md group-hover:border-emerald-500/40 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
+          <div class="relative p-2 sm:p-2.5 bg-white rounded-2xl border border-agro-border shadow-sm group-hover:shadow-md group-hover:border-emerald-500/40 group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
             <img 
               id="mainLogoImg"
               src="images/logo.jpeg" 
               onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
               alt="EAX AGRO EXPORT Logo" 
-              class="h-10 xs:h-11 sm:h-12 md:h-13 w-auto object-contain rounded-xl transition-transform duration-300" 
+              class="h-[52px] xs:h-[60px] sm:h-[72px] md:h-[78px] w-auto object-contain rounded-xl transition-all duration-300" 
             />
           </div>
         </a>
 
         <!-- Desktop Navigation Pill Dock -->
-        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1 bg-agro-surface/80 rounded-full border border-agro-border text-xs xl:text-[13px] font-bold text-slate-700">
+        <nav class="hidden lg:flex items-center gap-1 xl:gap-2 px-3 py-1.5 bg-agro-surface/80 rounded-full border border-agro-border text-xs xl:text-[13px] font-bold text-slate-700">
           <a href="#hero" data-i18n="nav_home" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Home</a>
           <a href="#about" data-i18n="nav_about" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">About Us</a>
           <a href="#catalog" data-i18n="nav_produce" class="hover:text-agro-primary hover:bg-white px-3.5 py-1.5 rounded-full transition-all">Produce (30 Crops)</a>
@@ -220,17 +223,17 @@
           
           <!-- 4-Language Selector Dropdown -->
           <div class="relative">
-            <select id="langSelector" onchange="setLanguage(this.value)" class="appearance-none cursor-pointer bg-agro-surface hover:bg-emerald-100/50 border border-agro-border rounded-full py-1.5 ps-3 pe-6 xs:ps-3.5 xs:pe-7 text-[11px] xs:text-xs font-black text-slate-800 shadow-xs focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all">
+            <select id="langSelector" onchange="setLanguage(this.value)" class="appearance-none cursor-pointer bg-agro-surface hover:bg-emerald-100/50 border border-agro-border rounded-full py-2 ps-3.5 pe-7 xs:ps-4 xs:pe-8 text-[11px] xs:text-xs font-black text-slate-800 shadow-xs focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all">
               <option value="en">English (EN)</option>
               <option value="ar">العربية (AR)</option>
               <option value="ru">Русский (RU)</option>
               <option value="zh">中文 (ZH)</option>
             </select>
-            <div class="pointer-events-none absolute end-2 xs:end-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-[10px]">▼</div>
+            <div class="pointer-events-none absolute end-2.5 top-1/2 -translate-y-1/2 text-slate-500 text-[10px]">▼</div>
           </div>
 
           <!-- PDF Catalog Button -->
-          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-agro-goldLight hover:bg-amber-100/80 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-xs">
+          <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-agro-goldLight hover:bg-amber-100/80 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-xs">
             <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
           </a>
@@ -241,7 +244,7 @@
           </a>
 
           <!-- Mobile Hamburger / Close Toggle Button -->
-          <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-2xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shadow-xs transition-colors" aria-label="Toggle Menu">
+          <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-2xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shadow-xs transition-colors" aria-label="Toggle Menu">
             <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
             <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -331,12 +334,12 @@
                 </div>
               </div>
 
-              <!-- Expanded Description -->
+              <!-- Description -->
               <p data-i18n="hero_profile_desc" class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed font-normal">
                 A specialized Egyptian agro-export enterprise operating automated packing stations and global maritime cold chains, delivering 30 certified fresh crops directly to international supermarket networks and food distributors across Europe, the Gulf, Russia, and Asia.
               </p>
 
-              <!-- Bento Metric Grid: Roomier and Fully Responsive -->
+              <!-- Bento Metric Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4.5 text-start">
                 <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 sm:p-5 hover:border-emerald-500/40 hover:bg-white/[0.09] transition-all">
                   <span data-i18n="hero_cap_label" class="block text-[11px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider">Annual Export Capacity</span>
@@ -502,7 +505,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center">
         
         <div class="lg:col-span-5 text-start space-y-3 reveal-up">
-          <h3 data-i18n="why_title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">Why Choose EAX?</h3>
+          <h3 data-i18n="why_title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight">Why Choose EAX؟</h3>
           <p data-i18n="why_desc" class="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-md">
             We combine local harvesting expertise with seamless global reefer supply chains to deliver the finest agricultural products worldwide.
           </p>
@@ -1137,7 +1140,7 @@
         varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_ru: ["Фотон", "Уайт Лисбон", "Гиза"], varieties_zh: ["光子", "白里斯本", "吉萨本土"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_ru: "Пенопласт 2/4 кг с чистым льдом", packing_zh: "2/4公斤泡沫箱或加冰纸箱",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_ru: "Белая часть: 7-9 см • Общая: 30-40 см", specs_zh: "葱白长度: 7-9厘米 • 全长: 30-40厘米",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С نوفمبر по май", season_zh: "11月至次年5月",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по май", season_zh: "11月至次年5月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1603048297172-c9254479895a?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1182,7 +1185,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по май", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1272,14 +1275,14 @@
         varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_ru: ["Голландская белая", "Ред Руки"], varieties_zh: ["荷兰白甘蓝", "红菜心紫甘蓝"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_ru: "Коробки или сетки 10 - 15 кг", packing_zh: "10-15公斤纸箱或透气网袋",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_ru: "Вес: 1.5 - 3 кг/кочан • Плотный", specs_zh: "单颗重: 1.5-3公斤 • 紧密结球",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по май", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по май", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 30, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Air-Freight Culinary Herbs", name_ar: "أعشاب طازجة للشحن الجوي اليومي", name_ru: "Свежая зелень авиадоставкой", name_zh: "航空直航鲜食用香草",
         varieties_en: ["Dill", "Flat Parsley", "Coriander", "Spearmint"], varieties_ar: ["شبت", "بقدونس مفلطح", "كزبرة", "نعناع طازج"], varieties_ru: ["Укроп", "Петрушка листовая", "Кинза", "Мята"], varieties_zh: ["莳萝", "平叶欧芹", "香菜", "绿薄荷"],
-        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хладоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
+        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хلاдоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
         specs_en: "Bunched & Cleaned • Daily Harvest Air Shipments", specs_ar: "حزم نظيفة ومغسولة • حصاد وشحن طيران يومي", specs_ru: "Мытая в пучках • Ежедневные авиарейсы", specs_zh: "捆扎清洗 • 采摘当日航空直飞",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_ru: "С октября по май", season_zh: "10月至次年5月",
         months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=600&q=80"
