@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-24 overflow-x-clip">
+<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-24 overflow-x-hidden">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -83,13 +83,13 @@
     body.lang-ar { font-family: 'Cairo', sans-serif; line-height: 1.7; letter-spacing: 0; }
     body.lang-zh { font-family: 'Noto Sans SC', sans-serif; line-height: 1.6; }
 
-    /* Ultra-Modern Hero Background with Egyptian Citrus Export & Reefer Logistics */
+    /* Modern Agro-Export Farmlands Background */
     .hero-export-bg {
       background: 
-        radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.2) 0%, transparent 45%),
-        radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.18) 0%, transparent 45%),
-        linear-gradient(180deg, rgba(8, 28, 17, 0.88) 0%, rgba(8, 28, 17, 0.96) 100%),
-        url('https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=2000&q=85');
+        radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.28) 0%, transparent 50%),
+        radial-gradient(circle at 15% 85%, rgba(245, 158, 11, 0.2) 0%, transparent 45%),
+        linear-gradient(180deg, rgba(8, 28, 17, 0.84) 0%, rgba(8, 28, 17, 0.95) 100%),
+        url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2000&q=85');
       background-size: cover;
       background-position: center;
     }
@@ -104,13 +104,32 @@
       100% { transform: translateY(10px) rotate(-1deg) scale(1.02); }
     }
 
-    /* High-Impact Interactive Logo Glow */
-    .logo-glow-interactive {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Modern Backlit Aura Behind Hero Media */
+    .hero-glow-sphere {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(85px);
+      pointer-events: none;
+      z-index: 0;
+      animation: pulseAura 8s ease-in-out infinite alternate;
     }
-    .logo-glow-interactive:hover {
-      transform: scale(1.06) translateY(-3px);
-      box-shadow: 0 16px 36px -6px rgba(34, 197, 94, 0.4), 0 0 20px 2px rgba(161, 101, 24, 0.25);
+    @keyframes pulseAura {
+      0% { opacity: 0.45; transform: scale(0.95) translate3d(0, 0, 0); }
+      50% { opacity: 0.85; transform: scale(1.12) translate3d(12px, -12px, 0); }
+      100% { opacity: 0.55; transform: scale(1.02) translate3d(-10px, 10px, 0); }
+    }
+
+    .ambient-backlit-logo {
+      mix-blend-mode: screen;
+      filter: drop-shadow(0 0 50px rgba(34, 197, 94, 0.75)) 
+              drop-shadow(0 0 100px rgba(16, 185, 129, 0.45))
+              brightness(1.2) contrast(1.15);
+      animation: floatAmbient 9s ease-in-out infinite alternate;
+    }
+    @keyframes floatAmbient {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(2deg); }
+      100% { transform: translateY(8px) rotate(-1.5deg); }
     }
 
     .glass-dock {
@@ -121,7 +140,7 @@
     }
 
     .glass-nav {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
     }
@@ -233,7 +252,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-[#fbfdfa] text-slate-800 antialiased selection:bg-emerald-600 selection:text-white relative w-full overflow-x-clip">
+<body class="bg-[#fbfdfa] text-slate-800 antialiased selection:bg-emerald-600 selection:text-white relative w-full overflow-x-hidden">
 
   <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
   <div class="relative z-50 bg-[#e6ede2] text-slate-700 py-1.5 px-3 sm:px-6 border-b border-agro-border">
@@ -260,22 +279,20 @@
     </div>
   </div>
 
-  <!-- ================= MODERN NAVBAR (BIG ENLARGED & INTERACTIVE BRAND LOGO) ================= -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-3 sm:py-4 transition-all duration-300">
+  <!-- ================= MODERN NAVBAR (ENLARGED & SEAMLESS LOGO) ================= -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-2 sm:py-3 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
-        <!-- Big Brand Interactive Logo (تم تكبيره وإزالة أي قيود ارتفاع) -->
-        <a href="#hero" class="flex items-center shrink-0 focus:outline-none group logo-glow-interactive" aria-label="EAX Agro Export Home">
-          <div class="bg-white px-4 py-2 sm:px-6 sm:py-3 rounded-2xl border-2 border-agro-border shadow-md group-hover:border-agro-accent transition-all flex items-center justify-center">
-            <img 
-              id="mainLogoImg"
-              src="images/logo.jpeg" 
-              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
-              alt="EAX AGRO EXPORT Logo" 
-              class="h-14 sm:h-20 md:h-24 lg:h-28 w-auto object-contain transition-transform duration-300" 
-            />
-          </div>
+        <!-- Pure Seamless Brand Logo (كبير ومندمج بدون إطار أو خلفية مستطيلة) -->
+        <a href="#hero" class="flex items-center shrink-0 focus:outline-none group py-0.5" aria-label="EAX Agro Export Home">
+          <img 
+            id="mainLogoImg"
+            src="images/logo.jpeg" 
+            onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+            alt="EAX AGRO EXPORT Logo" 
+            class="h-16 sm:h-20 md:h-24 lg:h-28 w-auto object-contain mix-blend-multiply drop-shadow-sm transition-transform duration-300 group-hover:scale-105" 
+          />
         </a>
 
         <!-- Desktop Navigation -->
@@ -294,7 +311,7 @@
           
           <!-- Language Selector -->
           <div class="relative inline-block text-start" id="langPopoverContainer">
-            <button type="button" id="langDropdownTrigger" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full bg-slate-100/90 hover:bg-slate-200/90 border border-agro-border text-slate-800 text-xs font-bold transition-all shadow-xs">
+            <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-2.5 rounded-full bg-slate-100/90 hover:bg-slate-200/90 border border-agro-border text-slate-800 text-xs font-bold transition-all shadow-xs">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
               <span id="currentLangLabel">English</span>
               <svg id="langChevron" class="w-3.5 h-3.5 text-slate-400 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
@@ -339,15 +356,15 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
+    <!-- Mobile Drawer with Full i18n Translations -->
     <div id="mobileMenu" class="hidden lg:hidden flex-col w-full bg-white border-t border-agro-border px-4 py-4 space-y-2">
-      <a href="#hero" class="block py-2 text-sm font-bold text-slate-800">Home</a>
-      <a href="#about" class="block py-2 text-sm font-bold text-slate-800">About Us</a>
-      <a href="#catalog" class="block py-2 text-sm font-bold text-slate-800">Fresh Produce (30 Crops)</a>
-      <a href="#quality-assurance" class="block py-2 text-sm font-bold text-slate-800">Quality & Cold Chain</a>
-      <a href="#certifications" class="block py-2 text-sm font-bold text-slate-800">Certifications</a>
-      <a href="#logistics" class="block py-2 text-sm font-bold text-slate-800">Shipping Lines</a>
-      <a href="#contact" class="block py-2 text-sm font-bold text-slate-800">Contact Us</a>
+      <a href="#hero" data-i18n="nav_home" class="block py-2 text-sm font-bold text-slate-800">Home</a>
+      <a href="#about" data-i18n="nav_about" class="block py-2 text-sm font-bold text-slate-800">About Us</a>
+      <a href="#catalog" data-i18n="nav_produce" class="block py-2 text-sm font-bold text-slate-800">Fresh Produce (30 Crops)</a>
+      <a href="#quality-assurance" data-i18n="nav_quality" class="block py-2 text-sm font-bold text-slate-800">Quality & Cold Chain</a>
+      <a href="#certifications" data-i18n="nav_certs" class="block py-2 text-sm font-bold text-slate-800">Certifications</a>
+      <a href="#logistics" data-i18n="nav_logistics" class="block py-2 text-sm font-bold text-slate-800">Shipping Lines</a>
+      <a href="#contact" data-i18n="nav_contact" class="block py-2 text-sm font-bold text-slate-800">Contact Us</a>
       <div class="pt-2 border-t border-slate-100 flex flex-col gap-2">
         <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="block text-center py-2.5 rounded-full bg-amber-500/10 text-amber-900 border border-amber-300 font-bold text-xs" data-i18n="btn_pdf_catalog">View PDF Catalog</a>
         <a href="#rfq" class="block text-center py-3 rounded-full bg-[#1b6b3b] text-white font-extrabold text-sm" data-i18n="cta_quote">Request Quote</a>
@@ -355,16 +372,16 @@
     </div>
   </header>
 
-  <!-- ================= 1. HERO SECTION (ULTRA MODERN + WATERMARK LOGO + AGRO-EXPORT VISUALS) ================= -->
+  <!-- ================= 1. HERO SECTION (FARMLANDS + BACKLIT GLOWING LOGO) ================= -->
   <section id="hero" class="relative hero-export-bg min-h-[96vh] flex flex-col justify-between pt-16 sm:pt-24 pb-14 overflow-hidden text-white">
     
-    <!-- Giant Visible Ambient Brand Watermark in Background (علامة مائية واضحة للوجو في الخلفية) -->
+    <!-- Giant Visible Ambient Brand Watermark in Background -->
     <div class="absolute -right-20 lg:right-4 top-1/2 -translate-y-1/2 w-[450px] sm:w-[650px] lg:w-[850px] pointer-events-none select-none z-0 opacity-15 floating-watermark mix-blend-screen filter drop-shadow-[0_0_50px_rgba(34,197,94,0.3)]">
       <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Ambient Logo" class="w-full h-auto rounded-full object-contain" />
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <!-- Left Hero Copy -->
         <div class="lg:col-span-6 space-y-6 text-start reveal-up">
@@ -395,61 +412,56 @@
           </div>
         </div>
 
-        <!-- Right Hero Visual: Real Agricultural Export Packing & Shipping Terminal -->
-        <div class="lg:col-span-6 relative reveal-up">
-          <div class="relative mx-auto max-w-lg lg:max-w-none">
-            
-            <!-- Floating Glowing Emblem of EAX Big Logo -->
-            <div class="mb-5 flex items-center justify-start lg:justify-center">
-              <div class="bg-white/95 backdrop-blur-2xl px-6 py-4 rounded-3xl border-2 border-white/60 shadow-2xl flex items-center gap-4 logo-glow-interactive">
-                <img 
-                  src="images/logo.jpeg" 
-                  onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
-                  alt="EAX AGRO EXPORT Brand" 
-                  class="h-16 sm:h-20 lg:h-24 w-auto object-contain" 
-                />
-                <div class="text-start border-s-2 border-slate-200 ps-4">
-                  <span class="block text-xs sm:text-sm font-black text-emerald-950 tracking-wider uppercase">Official Export Terminal</span>
-                  <span class="block text-[11px] font-bold text-slate-500">GlobalGAP • BRCGS • Reefer Fleet</span>
-                  <span class="inline-flex items-center gap-1 text-[10px] text-amber-700 font-extrabold mt-0.5">
-                    <span>🌍 Shipping to EU, GCC, Russia & China</span>
-                  </span>
-                </div>
-              </div>
-            </div>
+        <!-- Right Hero Visual: Farm Showcase with Glowing Backlit Company Logo -->
+        <div class="lg:col-span-6 relative flex items-center justify-center reveal-up">
+          
+          <!-- 1. Glowing Neon Halo Spheres in the Deep Background -->
+          <div class="hero-glow-sphere w-72 h-72 sm:w-96 sm:h-96 bg-gradient-to-tr from-emerald-500/50 via-teal-400/40 to-amber-500/30 -top-12 -right-8"></div>
+          <div class="hero-glow-sphere w-64 h-64 sm:w-80 sm:h-80 bg-emerald-600/35 -bottom-10 -left-6" style="animation-delay: -4s;"></div>
 
-            <!-- Integrated Agricultural Export Showcase (Packed Fresh Crops in Master Cartons for Worldwide Dispatch) -->
-            <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl group">
-              <div class="relative h-80 sm:h-96 w-full">
-                <!-- Direct Agricultural Produce Export Image (High-grade Citrus & Produce in Export Packing) -->
+          <!-- 2. Integrated Backlit Logo Radiating From Behind the Card -->
+          <div class="absolute -top-14 sm:-top-20 -right-6 sm:-right-10 w-48 sm:w-64 lg:w-72 pointer-events-none select-none z-0 ambient-backlit-logo opacity-75">
+            <img 
+              src="images/logo.jpeg" 
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+              alt="EAX Backlit Glowing Logo" 
+              class="w-full h-auto rounded-full object-contain"
+            />
+          </div>
+
+          <!-- 3. Modern Export Farm Showcase Card -->
+          <div class="relative w-full max-w-lg lg:max-w-none z-10">
+            <div class="relative rounded-3xl overflow-hidden border border-white/25 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] backdrop-blur-xs group">
+              <div class="relative h-84 sm:h-96 w-full">
+                <!-- Pristine Agricultural Export Farmlands -->
                 <img 
-                  src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=1200&q=80" 
-                  alt="Fresh Egyptian Citrus Export Cartons Ready for Shipping" 
+                  src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=1200&q=80" 
+                  alt="Egyptian Export-Grade Farmlands & Harvesting" 
                   class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
                 />
                 
                 <!-- Bottom Glassmorphism Export Tag -->
-                <div class="absolute bottom-0 inset-x-0 h-44 bg-gradient-to-t from-black/95 via-black/60 to-transparent flex items-end p-5">
-                  <div class="flex items-center gap-4 bg-white/15 backdrop-blur-md p-3.5 rounded-2xl border border-white/25 w-full">
+                <div class="absolute bottom-0 inset-x-0 h-44 bg-gradient-to-t from-[#081c11]/95 via-[#081c11]/60 to-transparent flex items-end p-5">
+                  <div class="flex items-center gap-4 bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/20 w-full shadow-lg">
                     <img 
                       src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=200&q=80" 
                       alt="Export-Grade Packed Produce" 
-                      class="w-16 h-16 rounded-xl object-cover shrink-0 border border-white/40 shadow-md" 
+                      class="w-16 h-16 rounded-xl object-cover shrink-0 border border-white/30 shadow-md" 
                     />
                     <div class="text-start">
                       <div class="flex items-center gap-2">
-                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/30 text-emerald-300 text-[10px] font-black uppercase">Direct From Station</span>
-                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/30 text-amber-300 text-[10px] font-black uppercase">Reefer Cold Chain</span>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-500/30 text-emerald-300 text-[10px] font-black uppercase tracking-wider">Direct From Farm</span>
+                        <span class="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/30 text-amber-300 text-[10px] font-black uppercase tracking-wider">Reefer Cold Chain</span>
                       </div>
-                      <h4 class="text-xs sm:text-sm font-bold text-white mt-1">Egyptian Harvest to Worldwide Ports</h4>
-                      <p class="text-[11px] text-slate-300">Damietta & Alexandria Ports ➔ Rotterdam, Novorossiysk & Jebel Ali</p>
+                      <h4 class="text-xs sm:text-sm font-bold text-white mt-1">From Certified Egyptian Soil to Worldwide Ports</h4>
+                      <p class="text-[11px] text-slate-300">Alexandria & Damietta ➔ Rotterdam, Novorossiysk, GCC & Asia</p>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
+
         </div>
 
       </div>
@@ -643,7 +655,6 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 reveal-up">
-        <!-- Pre-cooling -->
         <div class="group relative bg-white rounded-2xl p-6 sm:p-7 border border-agro-border shadow-xs hover:border-emerald-500/50 transition-all text-start flex flex-col justify-between">
           <div>
             <div data-i18n="qa_s1_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[9px] font-black uppercase border border-emerald-200 mb-4">2H POST-HARVEST</div>
@@ -659,7 +670,6 @@
           </div>
         </div>
 
-        <!-- Optical Grading -->
         <div class="group relative bg-white rounded-2xl p-6 sm:p-7 border border-agro-border shadow-xs hover:border-amber-500/50 transition-all text-start flex flex-col justify-between">
           <div>
             <div data-i18n="qa_s2_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-700 text-[9px] font-black uppercase border border-amber-200 mb-4">BRIX & CALIBER</div>
@@ -675,7 +685,6 @@
           </div>
         </div>
 
-        <!-- IoT Tracking -->
         <div class="group relative bg-white rounded-2xl p-6 sm:p-7 border border-agro-border shadow-xs hover:border-sky-500/50 transition-all text-start flex flex-col justify-between">
           <div>
             <div data-i18n="qa_s3_badge" class="inline-block px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-700 text-[9px] font-black uppercase border border-sky-200 mb-4">24/7 SATELLITE</div>
@@ -1004,15 +1013,15 @@
     </div>
   </section>
 
-  <!-- ================= 9. FOOTER (BIG ENLARGED & INTERACTIVE BRAND LOGO) ================= -->
+  <!-- ================= 9. FOOTER ================= -->
   <footer id="contact" class="bg-[#081c11] text-slate-400 pt-16 pb-10 border-t border-white/10 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-10 border-b border-white/10">
         
-        <!-- Col 1: Brand & Prominent Large Interactive Logo -->
+        <!-- Col 1: Brand & Prominent Seamless Logo -->
         <div>
-          <a href="#hero" class="bg-white px-5 py-3 rounded-2xl inline-block mb-5 shadow-lg logo-glow-interactive group border-2 border-emerald-500/30" aria-label="EAX Agro Export Home">
-            <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 w-auto object-contain" />
+          <a href="#hero" class="inline-block mb-4 transition-transform hover:scale-105" aria-label="EAX Agro Export Home">
+            <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 w-auto object-contain rounded-2xl drop-shadow-[0_0_20px_rgba(34,197,94,0.35)]" />
           </a>
           <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm text-start font-medium">
             An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 30 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.
@@ -1092,7 +1101,7 @@
         varieties_en: ["Valencia Late", "Navel", "Baladi Juice"], varieties_ar: ["فالنسيا صيفي", "أبو سرة", "بلدي عصير"], varieties_zh: ["夏橙 (Valencia)", "脐橙 (Navel)", "果汁甜橙"], varieties_ru: ["Валенсия", "Навель", "Балади для сока"],
         packing_en: "15kg Standard Telescopic / Open Top Cartons", packing_ar: "كراتين تلسكوبية أو مفتوحة 15 كجم", packing_zh: "15kg 伸缩纸箱 / 敞口纸箱", packing_ru: "15 кг телескопические / открытые коробки",
         specs_en: "Calibers: 48 - 88 • Juice Yield (45%+)", specs_ar: "أحجام: 48 - 88 • نسبة عصير (+45%)", specs_zh: "果径: 48 - 88 • 高出汁率 (45%+)", specs_ru: "Калибры: 48 - 88 • Высокий выход сока (45%+)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1128,7 +1137,7 @@
         varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_zh: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсейшн", "Бриллианс"],
         packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_zh: "2kg/2.5kg 纸箱 (10x250g 扁盒装)", packing_ru: "2 кг / 2.5 кг коробки (10x250 г лотки)",
         specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_zh: "果径: 25-35mm • 2小时内极速预冷", specs_ru: "Калибр: 25-35мм • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1182,7 +1191,7 @@
         varieties_en: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ar: ["كيت", "كينت", "نعومي", "ياسمينة"], varieties_zh: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ru: ["Кейтт", "Кент", "Наоми", "Ясмина"],
         packing_en: "4kg / 5kg Open Top Display Cartons", packing_ar: "كراتين مفتوحة 4 / 5 كجم", packing_zh: "4kg / 5kg 敞口展示纸箱", packing_ru: "4 кг / 5 кг открытые дисплей-коробки",
         specs_en: "Counts: 6 - 12 • Fiber-free • Brix 14°+", specs_ar: "حبات: 6 - 12 • خالية من الألياف • بريكس +14°", specs_zh: "数量: 6 - 12 个 • 无纤维 • 甜度 14°+", specs_ru: "Количество: 6 - 12 • Без волокон • Brix 14°+",
-        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С يوليو по ноябрь",
+        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_zh: "7月至11月", season_ru: "С июля по ноябрь",
         months: [7,8,9,10,11], image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1197,7 +1206,7 @@
       {
         id: 14, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Iced Export Spring Onions", name_ar: "بصل أخضر مغطى بالثلج", name_zh: "保鲜加冰出口大葱", name_ru: "Свежий зеленый лук со льдом",
-        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбоن", "Гиза Балади"],
+        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбон", "Гиза Балади"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_zh: "2kg/4kg 泡沫箱或纸箱加冰保鲜", packing_ru: "2 кг / 4 кг пенопластовые ящики со льдом",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_zh: "葱白长度: 7-9cm • 总长: 30-40cm", specs_ru: "Длина белой части: 7-9см • Общая: 30-40см",
         season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年4月", season_ru: "С ноября по май",
@@ -1218,7 +1227,7 @@
         varieties_en: ["Salinas", "Iceberg Crisphead"], varieties_ar: ["ساليناس", "آيسبرج كريسب هيد"], varieties_zh: ["Salinas生菜", "结球冰山生菜"], varieties_ru: ["Салинас", "Айсберг Криспхед"],
         packing_en: "8 - 10 Heads in Telescopic Cartons", packing_ar: "8 - 10 رؤوس مغلفة في كراتين تلسكوبية", packing_zh: "8 - 10 颗单独覆膜纸箱包装", packing_ru: "8 - 10 кочанов в коробках (каждый в пленке)",
         specs_en: "Weight: 450 - 750g / head • Rapid Hydrocooled", specs_ar: "الوزن: 450 - 750 جم للرأس • تبريد مائي فوري", specs_zh: "单颗重量: 450 - 750g • 快速水预冷", specs_ru: "Вес: 450 - 750г/кочан • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1355,7 +1364,7 @@
         months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
         cert_banner: "Certified Produce Export: GlobalGAP, BRC & EUR.1 Standards",
         cooling_banner: "Automated pre-cooling & optical sorting lines",
-        nav_home: "Home", nav_about: "About Us", nav_produce: "Fresh Produce (30 Crops)", nav_certs: "Certifications", nav_quality: "Quality", nav_logistics: "Shipping Lines", nav_contact: "Contact",
+        nav_home: "Home", nav_about: "About Us", nav_produce: "Fresh Produce (30 Crops)", nav_certs: "Certifications", nav_quality: "Quality & Cold Chain", nav_logistics: "Shipping Lines", nav_contact: "Contact",
         cta_quote: "Get a Quote", btn_pdf_catalog: "View PDF Catalog",
         hero_subtag: "GLOBAL REACH • PREMIUM QUALITY",
         hero_h1: "Bringing Quality Crops", hero_h2: "to Global Markets",
@@ -1392,14 +1401,15 @@
         cat_priority: "★ Top Priority", cat_summer: "Summer Harvest", cat_winter: "Winter Harvest", now_in_season: "In Season Now", lbl_varieties: "Export Varieties:", lbl_export_season: "Season:", btn_req_quote: "Request Allocation",
         footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 30 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
         footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
-        footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved."
+        footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved.",
+        mixed_cargo_option: "Mixed Cargo / Custom Program"
       },
       ar: {
         page_desc: "شركة EAX للتصدير الزراعي تربط المزارعين بالعالم وتورد أجود المحاصيل الطازجة للأسواق الدولية.",
         months: ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"],
         cert_banner: "اعتمادات تصدير الحاصلات: GlobalGAP, BRC & EUR.1",
         cooling_banner: "تصدير سريع بمحطات فرز وتبريد آلي متطور",
-        nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات الزراعية (30)", nav_certs: "الشهادات", nav_quality: "الجودة", nav_logistics: "خطوط الملاحة", nav_contact: "اتصل بنا",
+        nav_home: "الرئيسية", nav_about: "من نحن", nav_produce: "الحاصلات الزراعية (30)", nav_certs: "الشهادات", nav_quality: "الجودة وسلاسل التبريد", nav_logistics: "خطوط الملاحة", nav_contact: "اتصل بنا",
         cta_quote: "اطلب تسعير", btn_pdf_catalog: "كتالوج PDF للمنتجات",
         hero_subtag: "وصول عالمي • جودة فائقة",
         hero_h1: "نوصل أجود المحاصيل", hero_h2: "إلى الأسواق العالمية",
@@ -1436,7 +1446,8 @@
         cat_priority: "★ أولوية قصوى", cat_summer: "محصول صيفي", cat_winter: "محصول شتوي", now_in_season: "موسم الحصاد الحالي", lbl_varieties: "الأصناف التصديرية:", lbl_export_season: "الموسم:", btn_req_quote: "حجز حصة تصديرية",
         footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 30 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.",
-        footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة."
+        footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة.",
+        mixed_cargo_option: "حاويات مشكلة / برنامج توريد خاص"
       },
       zh: {
         page_desc: "EAX 农业出口连接优质农场与世界，为国际市场提供高品质新鲜农产品。",
@@ -1480,14 +1491,15 @@
         cat_priority: "★ 核心主力", cat_summer: "夏季作物", cat_winter: "冬季作物", now_in_season: "当季旺季采收中", lbl_varieties: "出口品种:", lbl_export_season: "产季:", btn_req_quote: "预订集装箱配额",
         footer_about: "专注于 30 种出口级埃及优质新鲜果蔬采购、分选与温控运输的专业农产品出口商，直连优质种植基地与跨国商超分拨中心。",
         footer_contact_title: "直接联系方式", footer_quote_title: "出口业务与采购", footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。",
-        footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。"
+        footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。",
+        mixed_cargo_option: "拼箱混合配额 / 定制供应计划"
       },
       ru: {
         page_desc: "EAX AGRO EXPORT соединяет фермеров с миром, поставляя свежие высококачественные фрукты и овощи на международные рынки.",
         months: ["Янв", "Фев", "Мар", "Апр", "Май", "Июн", "Июл", "Авг", "Сен", "Окт", "Ноя", "Дек"],
         cert_banner: "Сертифицированный экспорт продукции: стандарты GlobalGAP, BRC и EUR.1",
         cooling_banner: "Автоматизированные линии предварительного охлаждения и оптической сортировки",
-        nav_home: "Главная", nav_about: "О нас", nav_produce: "30 культур", nav_certs: "Сертификаты", nav_quality: "Качество", nav_logistics: "Судоходство", nav_contact: "Контакты",
+        nav_home: "Главная", nav_about: "О нас", nav_produce: "30 культур", nav_certs: "Сертификаты", nav_quality: "Качество и холод", nav_logistics: "Судоходство", nav_contact: "Контакты",
         cta_quote: "Запрос цен", btn_pdf_catalog: "PDF-каталог продукции",
         hero_subtag: "ГЛОБАЛЬНЫЙ ОХВАТ • ПРЕМИУМ КАЧЕСТВО",
         hero_h1: "Поставляем лучшие культуры", hero_h2: "на мировые рынки",
@@ -1518,13 +1530,14 @@
         catalog_sub: "Прямые квоты с аккредитованных упаковочных станций Египта. Фильтруйте по сезону или находите нужные культуры.",
         filter_all: "Все (30)", filter_priority: "★ Топ экспорт (1-5)", filter_summer: "Летний сбор", filter_winter: "Зимний сбор", filter_veg: "Свежие овощи", filter_fruits: "Свежие фрукты",
         no_results: "Продукция не найдена.", no_results_sub: "Попробуйте изменить поисковый запрос или сбросить фильтр.",
-        rfq_badge: "Торговый отдеل B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру в WhatsApp.",
+        rfq_badge: "Торговый отдел B2B", rfq_title: "Запрос стоимости контейнера (FOB / CIF)", rfq_desc: "Заполните форму спецификации. Запрос автоматически направляется экспортному менеджеру в WhatsApp.",
         rfq_name_lbl: "Компания / Контактное лицо *", rfq_email_lbl: "Корпоративный E-mail *", rfq_dest_lbl: "Порт назначения *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Планируемый объем *", rfq_notes_lbl: "Спецификация калибра / упаковка / оплата", rfq_btn_submit: "Отправить запрос в WhatsApp",
         rfq_name_ph: "например: ООО Свежий Импорт", rfq_email_ph: "procurement@company.ru", rfq_dest_ph: "например: Новороссийск / Россия", rfq_vol_ph: "например: 3 x 40ft RF в неделю", rfq_notes_ph: "Требуемый калибр, вес упаковки, паллетирование...",
         cat_priority: "★ Топ экспорт", cat_summer: "Летний сбор", cat_winter: "Зимний сбор", now_in_season: "Сезон сбора сейчас", lbl_varieties: "Экспортные сорта:", lbl_export_season: "Сезон:", btn_req_quote: "Забронировать объем",
         footer_about: "Египетская экспортная компания, специализирующаяся на поставках и логистике 30 видов отборных свежих овощей и фруктов в международные розничные сети и распределительные центры.",
         footer_contact_title: "Прямые контакты", footer_quote_title: "Экспортные программы", footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.",
-        footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены."
+        footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены.",
+        mixed_cargo_option: "Сборный контейнер / Индивидуальная программа"
       }
     };
 
@@ -1744,8 +1757,7 @@
       if (select) {
         const customOpt = document.createElement('option');
         customOpt.value = "Mixed Cargo / Custom Program";
-        let customText = (currentLang === 'ar') ? "حاويات مشكلة / برنامج توريد خاص" : "Mixed Cargo / Custom Program";
-        customOpt.textContent = customText;
+        customOpt.textContent = t.mixed_cargo_option;
         select.appendChild(customOpt);
 
         if (prevSelected && Array.from(select.options).some(o => o.value === prevSelected)) {
@@ -1844,9 +1856,12 @@
       if (event) event.stopPropagation();
       const menu = document.getElementById('langDropdownMenu');
       const chevron = document.getElementById('langChevron');
+      const trigger = document.getElementById('langDropdownTrigger');
       if (menu) {
+        const isClosed = menu.classList.contains('hidden');
         menu.classList.toggle('hidden');
-        if (chevron) chevron.classList.toggle('rotate-180', !menu.classList.contains('hidden'));
+        if (chevron) chevron.classList.toggle('rotate-180', isClosed);
+        if (trigger) trigger.setAttribute('aria-expanded', isClosed ? 'true' : 'false');
       }
     }
 
@@ -1882,8 +1897,10 @@
 
       const menu = document.getElementById('langDropdownMenu');
       const chevron = document.getElementById('langChevron');
+      const trigger = document.getElementById('langDropdownTrigger');
       if (menu) menu.classList.add('hidden');
       if (chevron) chevron.classList.remove('rotate-180');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
 
       updateProductsContent();
     }
@@ -1935,13 +1952,24 @@
       initProductsDOM();
       selectLanguage(detectDeviceLanguage());
       
+      // Close Language Menu on click outside
       document.addEventListener('click', () => {
         const menu = document.getElementById('langDropdownMenu');
         const chevron = document.getElementById('langChevron');
+        const trigger = document.getElementById('langDropdownTrigger');
         if (menu && !menu.classList.contains('hidden')) {
           menu.classList.add('hidden');
           if (chevron) chevron.classList.remove('rotate-180');
+          if (trigger) trigger.setAttribute('aria-expanded', 'false');
         }
+      });
+
+      // Auto-close mobile drawer on link click
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', () => {
+          const mobileMenu = document.getElementById('mobileMenu');
+          if (mobileMenu) mobileMenu.classList.add('hidden');
+        });
       });
     });
 
