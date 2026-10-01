@@ -1001,7 +1001,7 @@
     const BACKEND_CONFIG = { whatsappPhone: '201006920920' };
     const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22375%22%20viewBox%3D%220%200%20600%20375%22%3E%3Crect%20fill%3D%22%23e8efe5%22%20width%3D%22600%22%20height%3D%22375%22%20%2F%3E%3Ctext%20fill%3D%22%23143d28%22%20font-family%3D%22sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3EEAX%20AGRO%20EXPORT%3C%2Ftext%3E%3C%2Fsvg%3E";
 
-    // 27-Crops Real Export Array
+    // 27-Crops Real Export Array (Reordered for Market Priority)
     const CROPS = [
       {
         id: 1, is_priority: true, season_type: 'winter', category: 'vegetables',
@@ -1013,22 +1013,22 @@
         months: [8,9,10,11,12,1,2,3], image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 2, is_priority: true, season_type: 'winter', category: 'fruits',
-        name_en: "Valencia & Navel Citrus", name_ar: "موالح وبرتقال فالنسيا وبسرة", name_ru: "Апельсины Валенсия и Навел", name_zh: "瓦伦西亚与脐橙",
-        varieties_en: ["Valencia Late", "Navel", "Baladi Juice"], varieties_ar: ["فالنسيا صيفي", "أبو سرة", "بلدي عصير"], varieties_ru: ["Валенсия", "Навел", "Соковый"], varieties_zh: ["晚熟瓦伦西亚", "脐橙", "优质汁橙"],
-        packing_en: "15kg Standard Telescopic / Open Top Cartons", packing_ar: "كراتين تلسكوبية أو مفتوحة 15 كجم", packing_ru: "Коробки 15 кг телескоп / открытые", packing_zh: "15公斤标准纸箱 / 敞口箱",
-        specs_en: "Calibers: 48 - 88 • Juice Yield (45%+)", specs_ar: "أحجام: 48 - 88 • نسبة عصير (+45%)", specs_ru: "Калибры: 48 - 88 • Сок 45%+", specs_zh: "口径规格: 48 - 88 • 出汁率 45%+",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по май", season_zh: "11月至次年5月",
-        months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 3, is_priority: true, season_type: 'winter', category: 'vegetables',
+        id: 2, is_priority: true, season_type: 'winter', category: 'vegetables',
         name_en: "Table & Processing Potatoes", name_ar: "بطاطس المائدة والتصنيع", name_ru: "Картофель столовый и для фри", name_zh: "鲜食与加工马铃薯",
         varieties_en: ["Spunta", "Hermes", "Lady Rosetta", "Cara"], varieties_ar: ["سبونتا", "هيرميس", "ليدي روزيتا", "كارا"], varieties_ru: ["Спунта", "Гермес", "Леди Розетта", "Кара"], varieties_zh: ["斯普恩塔", "赫尔墨斯", "罗塞塔夫人", "卡拉"],
         packing_en: "10kg / 25kg Poly Mesh Bags & 1250kg Jumbo", packing_ar: "أجولة 10/25 كجم وجامبو 1250 كجم", packing_ru: "Сетки 10/25 кг и биг-бэги 1250 кг", packing_zh: "10/25公斤网袋及1250公斤大袋",
         specs_en: "45-65mm / 65mm+ • High Dry Matter", specs_ar: "45-65 مم / +65 مم • مادة جافة عالية", specs_ru: "45-65 мм / 65+ мм • Сухое вещество+", specs_zh: "45-65毫米 / 65毫米以上 • 高干物质",
         season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_ru: "С января по июнь", season_zh: "1月中旬至6月",
         months: [1,2,3,4,5,6], image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3, is_priority: true, season_type: 'winter', category: 'vegetables',
+        name_en: "Polished Table Carrots", name_ar: "جزر مائدة مصقول ومغسول", name_ru: "Морковь мытая столовая", name_zh: "水洗抛光鲜胡萝卜",
+        varieties_en: ["Nantes", "Kuroda", "Jerada"], varieties_ar: ["نانتس", "كورودا", "جيرادا"], varieties_ru: ["Нантская", "Курода", "Джерада"], varieties_zh: ["南特", "黑田五寸", "杰拉达"],
+        packing_en: "5kg / 10kg Poly Bags in Master Cartons", packing_ar: "أكياس 5/10 كجم في كراتين ماستر", packing_ru: "Пакеты 5/10 кг в коробках", packing_zh: "5/10公斤袋装外加主纸箱",
+        specs_en: "Length: 15-25cm • Caliber: 25-45mm", specs_ar: "الطول: 15-25 سم • القطر: 25-45 مم", specs_ru: "Длина: 15-25 см • Калибр: 25-45 мм", specs_zh: "长度: 15-25厘米 • 直径: 25-45毫米",
+        season_en: "January to May", season_ar: "من يناير حتى مايو", season_ru: "С января по май", season_zh: "1月至5月",
+        months: [1,2,3,4,5], image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 4, is_priority: true, season_type: 'summer', category: 'vegetables',
@@ -1040,124 +1040,16 @@
         months: [3,4,5,6,7,8,9,10], image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 5, is_priority: true, season_type: 'summer', category: 'fruits',
-        name_en: "Prime Seedless Table Grapes", name_ar: "عنب مائدة فاخر بدون بذور", name_ru: "Виноград столовый бессемянный", name_zh: "特级无核鲜食葡萄",
-        varieties_en: ["Early Superior (White)", "Flame (Red)", "Crimson Seedless"], varieties_ar: ["إيرلي سوبريور", "فليم أحمر", "كريمسون"], varieties_ru: ["Супериор белый", "Флейм красный", "Кримсон"], varieties_zh: ["早熟白葡萄", "火焰红", "克瑞森无核"],
-        packing_en: "4.5kg / 5kg Cartons (Carry Bags or Punnets)", packing_ar: "كراتين 4.5/5 كجم (أكياس أو علب بلاستيك)", packing_ru: "Коробки 4.5/5 кг (пакеты или лотки)", packing_zh: "4.5/5公斤纸箱 (手提袋或小盒包装)",
-        specs_en: "Berry Size: 18-24mm • Brix: 16°-18°+", specs_ar: "حجم الحبة: 18-24 مم • بريكس: +16°", specs_ru: "Ягода: 18-24 мм • Брикс: 16-18°+", specs_zh: "果粒大小: 18-24毫米 • 糖度: 16°-18°+",
-        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_ru: "С мая по август", season_zh: "5月至8月",
-        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80"
+        id: 5, is_priority: true, season_type: 'winter', category: 'fruits',
+        name_en: "Valencia & Navel Citrus", name_ar: "موالح وبرتقال فالنسيا وبسرة", name_ru: "Апельсины Валенсия и Навел", name_zh: "瓦伦西亚与脐橙",
+        varieties_en: ["Valencia Late", "Navel", "Baladi Juice"], varieties_ar: ["فالنسيا صيفي", "أبو سرة", "بلدي عصير"], varieties_ru: ["Валенсия", "Навел", "Соковый"], varieties_zh: ["晚熟瓦伦西亚", "脐橙", "优质汁橙"],
+        packing_en: "15kg Standard Telescopic / Open Top Cartons", packing_ar: "كراتين تلسكوبية أو مفتوحة 15 كجم", packing_ru: "Коробки 15 кг телескоп / открытые", packing_zh: "15公斤标准纸箱 / 敞口箱",
+        specs_en: "Calibers: 48 - 88 • Juice Yield (45%+)", specs_ar: "أحجام: 48 - 88 • نسبة عصير (+45%)", specs_ru: "Калибры: 48 - 88 • Сок 45%+", specs_zh: "口径规格: 48 - 88 • 出汁率 45%+",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по май", season_zh: "11月至次年5月",
+        months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 6, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Hydrocooled Winter Strawberries", name_ar: "فراولة مبردة هيدروليكياً", name_ru: "Клубника свежая гидроохлажденная", name_zh: "预冷保鲜冬季草莓",
-        varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсация", "Бриллианс"], varieties_zh: ["节日", "福尔图娜", "感觉", "光芒"],
-        packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_ru: "Коробки 2 / 2.5 кг (10х250г лотки)", packing_zh: "2/2.5公斤纸箱 (10x250克扁盒)",
-        specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_ru: "Калибр: 25-35 мм • Охлаждение за 2ч", specs_zh: "口径: 25-35毫米 • 采后2小时水冷",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
-        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 7, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Wonderful Crimson Pomegranates", name_ar: "رمان وندرفول داكن", name_ru: "Гранат сорта Вандерфул", name_zh: "万德福深红石榴",
-        varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_ru: ["Вандерфул", "Ранний 116", "Балади"], varieties_zh: ["万德福", "早熟116", "本地品种"],
-        packing_en: "4.5kg / 5kg Flat Open Top Cartons", packing_ar: "كراتين مسطحة مفتوحة 4.5 / 5 كجم", packing_ru: "Коробки 4.5 / 5 кг открытые", packing_zh: "4.5/5公斤平口敞口纸箱",
-        specs_en: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+", specs_ar: "حبات: 8 - 14 • حبوب داكنة • بريكس +15°", specs_ru: "Штук: 8 - 14 • Яркие зерна • Брикс 15°+", specs_zh: "果数: 8-14个 • 宝石红果粒 • 糖度 15°+",
-        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_ru: "С конца августа по декабрь", season_zh: "8月下旬至12月",
-        months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 8, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Polished Table Carrots", name_ar: "جزر مائدة مصقول ومغسول", name_ru: "Морковь мытая столовая", name_zh: "水洗抛光鲜胡萝卜",
-        varieties_en: ["Nantes", "Kuroda", "Jerada"], varieties_ar: ["نانتس", "كورودا", "جيرادا"], varieties_ru: ["Нантская", "Курода", "Джерада"], varieties_zh: ["南特", "黑田五寸", "杰拉达"],
-        packing_en: "5kg / 10kg Poly Bags in Master Cartons", packing_ar: "أكياس 5/10 كجم في كراتين ماستر", packing_ru: "Пакеты 5/10 кг в коробках", packing_zh: "5/10公斤袋装外加主纸箱",
-        specs_en: "Length: 15-25cm • Caliber: 25-45mm", specs_ar: "الطول: 15-25 سم • القطر: 25-45 مم", specs_ru: "Длина: 15-25 см • Калибр: 25-45 мм", specs_zh: "长度: 15-25厘米 • 直径: 25-45毫米",
-        season_en: "January to May", season_ar: "من يناير حتى مايو", season_ru: "С января по май", season_zh: "1月至5月",
-        months: [1,2,3,4,5], image: "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 9, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Dry Red & White Garlic", name_ar: "ثوم جاف بلدي (أبيض وأحمر)", name_ru: "Чеснок сушеный белый и красный", name_zh: "干燥白皮与红皮大蒜",
-        varieties_en: ["Pure White", "Red Baladi (Violet)"], varieties_ar: ["أبيض نقي", "بلدي أحمر"], varieties_ru: ["Чисто белый", "Фиолетовый местный"], varieties_zh: ["纯白蒜", "红皮紫皮蒜"],
-        packing_en: "5kg / 10kg Mesh Bags or Punnet Cartons", packing_ar: "أجولة 5/10 كجم أو كراتين", packing_ru: "Сетки 5/10 кг или коробки", packing_zh: "5/10公斤网袋或盒装纸箱",
-        specs_en: "Caliber: 45-65mm+ • Clean Roots & Stems", specs_ar: "القطر: 45-65 مم+ • جذور وسيقان نظيفة", specs_ru: "Калибр: 45-65 мм+ • Чистый корень", specs_zh: "口径: 45-65毫米以上 • 根茎修剪整齐",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_ru: "С марта по июль", season_zh: "3月至7月",
-        months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 10, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "High-Brix Red Beetroot", name_ar: "بنجر مائدة أحمر داكن", name_ru: "Свекла столовая темно-красная", name_zh: "高糖红甜菜根",
-        varieties_en: ["Detroit Dark Red", "Pablo", "Boro"], varieties_ar: ["ديترويت دارك ريد", "بابلو", "بورو"], varieties_ru: ["Детройт", "Пабло", "Боро"], varieties_zh: ["底特律深红", "巴勃罗", "博罗"],
-        packing_en: "5kg / 10kg Bags or Master Cartons", packing_ar: "أكياس أو كراتين 5 / 10 كجم", packing_ru: "Мешки или коробки 5 / 10 кг", packing_zh: "5/10公斤袋装或纸箱",
-        specs_en: "Sizes: 50-90mm • High Betanin Content", specs_ar: "الأحجام: 50-90 مم • تركيز صبغة بيتانين عالي", specs_ru: "Размеры: 50-90 мм • Насыщенный цвет", specs_zh: "尺寸: 50-90毫米 • 甜菜红素含量高",
-        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_ru: "С декабря по май", season_zh: "12月至次年5月",
-        months: [12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 11, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Premium Medjool & Siwi Dates", name_ar: "تمور المجدول والسيوي الفاخرة", name_ru: "Финики Меджул и Сиви", name_zh: "特级麦扎尔与西维椰枣",
-        varieties_en: ["Medjool King", "Barhi Fresh", "Siwi"], varieties_ar: ["مجدول", "برحي طازج", "سيوي"], varieties_ru: ["Меджул Кинг", "Бархи свежий", "Сиви"], varieties_zh: ["麦扎尔之王", "新鲜巴尔希", "西维"],
-        packing_en: "1kg, 2kg, 5kg Premium Gift & Retail Boxes", packing_ar: "عبوات فاخرة 1، 2، و 5 كجم", packing_ru: "Коробки премиум 1, 2, 5 кг", packing_zh: "1/2/5公斤精品礼盒及零售箱",
-        specs_en: "Grades: Jumbo, Large, Medium • Moisture 18-24%", specs_ar: "فرز: جامبو، كبير، متوسط • رطوبة 18-24%", specs_ru: "Джамбо, крупный, средний • Влажность 18-24%", specs_zh: "特大号/大号/中号 • 水分含量 18-24%",
-        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_ru: "С августа по декабрь", season_zh: "8月至12月",
-        months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 12, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Exotic Keitt & Kent Mangoes", name_ar: "مانجو كيت وكينت الفاخرة", name_ru: "Манго Кент и Кейт", name_zh: "优质凯特与肯特芒果",
-        varieties_en: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ar: ["كيت", "كينت", "نعومي", "ياسمينة"], varieties_ru: ["Кейт", "Кент", "Наоми", "Ясмина"], varieties_zh: ["凯特", "肯特", "娜奥米", "雅斯敏"],
-        packing_en: "4kg / 5kg Open Top Display Cartons", packing_ar: "كراتين مفتوحة 4 / 5 كجم", packing_ru: "Коробки 4 / 5 кг открытые", packing_zh: "4/5公斤展示纸箱",
-        specs_en: "Counts: 6 - 12 • Fiber-free • Brix 14°+", specs_ar: "حبات: 6 - 12 • خالية من الألياف • بريكس +14°", specs_ru: "Калибр: 6 - 12 шт • Без волокон • Брикс 14°+", specs_zh: "果数: 6-12个 • 无纤维细腻果肉 • 糖度 14°+",
-        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_ru: "С июля по ноябрь", season_zh: "7月至11月",
-        months: [7,8,9,10,11], image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 13, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Extra-Fine Haricot Green Beans", name_ar: "فاصوليا خضراء رفيعة (Haricot)", name_ru: "Стручковая фасоль тонкая", name_zh: "特细法式绿四季豆",
-        varieties_en: ["Haricot Vert", "Bobby Beans", "Paulista"], varieties_ar: ["فاصوليا رفيعة", "بوبي", "بوليستا"], varieties_ru: ["Арико вер", "Бобби", "Паулиста"], varieties_zh: ["极细青刀豆", "鲍比豆", "保利斯塔"],
-        packing_en: "4kg / 5kg Cartons with MAP Bags", packing_ar: "كراتين 4 / 5 كجم بأكياس تحكم هوائي MAP", packing_ru: "Коробки 4/5 кг с пакетами MAP", packing_zh: "4/5公斤气调保鲜袋纸箱",
-        specs_en: "Diameter: 6-8mm • Straight Calibrated Pods", specs_ar: "القطر: 6-8 مم • قرون مستقيمة معايرة", specs_ru: "Диаметр: 6-8 мм • Прямые стручки", specs_zh: "直径: 6-8毫米 • 笔直均匀荚果",
-        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_ru: "С октября по май", season_zh: "10月至次年5月",
-        months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 14, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Imperial Globe Artichokes", name_ar: "خرشوف إمبريال أوروبي", name_ru: "Артишоки Империал", name_zh: "皇家圆球洋蓟 / 朝鲜蓟",
-        varieties_en: ["French Violet", "Imperial Star", "Baladi"], varieties_ar: ["فرنساوي بنفسجي", "إمبريال ستار", "بلدي"], varieties_ru: ["Фиолетовый французский", "Империал стар", "Балади"], varieties_zh: ["法国紫", "帝国之星", "本地品种"],
-        packing_en: "7kg - 10kg Master Cartons", packing_ar: "كراتين ماستر 7 - 10 كجم", packing_ru: "Коробки 7 - 10 кг", packing_zh: "7-10公斤外箱",
-        specs_en: "Diameter: 70 - 100mm • Solid Tight Heads", specs_ar: "القطر: 70 - 100 مم • رؤوس مصمتة ومغلقة", specs_ru: "Диаметр: 70 - 100 мм • Плотные головки", specs_zh: "直径: 70-100毫米 • 紧实饱满花苞",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_ru: "С декабря по апрель", season_zh: "12月至次年4月",
-        months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 15, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Blocky Greenhouse Bell Peppers", name_ar: "فلفل رومي ملون (بيوت محمية)", name_ru: "Перец сладкий кубовидный", name_zh: "温室彩椒 (方形甜椒)",
-        varieties_en: ["Red Blocky", "Yellow Blocky", "Orange"], varieties_ar: ["أحمر", "أصفر", "برتقالي"], varieties_ru: ["Красный", "Желтый", "Оранжевый"], varieties_zh: ["红彩椒", "黄彩椒", "橙彩椒"],
-        packing_en: "5kg Open Top Telescopic Cartons", packing_ar: "كراتين تلسكوبية مفتوحة 5 كجم", packing_ru: "Коробки открытые 5 кг", packing_zh: "5公斤敞口纸箱",
-        specs_en: "Calibers: 70-90mm / 80-100mm • Thick Flesh", specs_ar: "القطر: 70-90 مم / 80-100 مم • جدار ثمرة سميك", specs_ru: "Калибр: 70-90 мм / 80-100 мм • Толстостенный", specs_zh: "口径: 70-90毫米 / 80-100毫米 • 肉厚紧致",
-        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_ru: "С мая по ноябрь", season_zh: "5月至11月",
-        months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 16, is_priority: false, season_type: 'summer', category: 'vegetables',
-        name_en: "Scoville-Calibrated Hot Chilies", name_ar: "فلفل حار معاير الشدة", name_ru: "Перец острый чили", name_zh: "史高维尔级辣度标定辣椒",
-        varieties_en: ["Red Serenade", "Green Cayenne", "Habanero"], varieties_ar: ["سيريناد أحمر", "كايين أخضر", "هابانيرو"], varieties_ru: ["Серенада красный", "Кайенский зеленый", "Хабанеро"], varieties_zh: ["红小夜曲", "绿卡宴", "哈瓦那"],
-        packing_en: "2kg / 4kg Telescopic Cartons", packing_ar: "كراتين تلسكوبية 2 / 4 كجم", packing_ru: "Коробки 2 / 4 кг телескоп", packing_zh: "2/4公斤套装纸箱",
-        specs_en: "Length: 10-14cm • Scoville Heat Index Certified", specs_ar: "الطول: 10-14 سم • معايرة مؤشر سكوفيل للحرارة", specs_ru: "Длина: 10-14 см • Контроль остроты Сковилла", specs_zh: "长度: 10-14厘米 • 认证辣度指数",
-        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_ru: "С мая по ноябрь", season_zh: "5月至11月",
-        months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 17, is_priority: false, season_type: 'winter', category: 'fruits',
-        name_en: "Murcott & Fremont Mandarins", name_ar: "يوسفي موركوت وفريمونت", name_ru: "Мандарины Муркотт и Фримонт", name_zh: "茂谷柑与弗里蒙特柑橘",
-        varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
-        packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
-        specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
-        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 18, is_priority: false, season_type: 'winter', category: 'fruits',
         name_en: "Eureka Lemons & Baladi Limes", name_ar: "ليمون أضاليا يوريكا وبلدي", name_ru: "Лимоны Эврика и лаймы", name_zh: "尤力克黄柠檬与青柠",
         varieties_en: ["Eureka", "Adalia", "Baladi Lime"], varieties_ar: ["يوريكا", "أضاليا", "ليمون بلدي"], varieties_ru: ["Эврика", "Адалия", "Местный лайм"], varieties_zh: ["尤力克", "阿达利亚", "本地青柠"],
         packing_en: "10kg / 15kg Telescopic Cartons", packing_ar: "كراتين تلسكوبية 10 / 15 كجم", packing_ru: "Телескопические коробки 10 / 15 кг", packing_zh: "10/15公斤套装纸箱",
@@ -1166,34 +1058,115 @@
         months: [10,11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1590502593747-42a996133562?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 19, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Early Florida Stone Peaches", name_ar: "خوخ فلوريدا برنس المبكر", name_ru: "Персики Флорида Принс", name_zh: "早熟佛罗里达王子桃",
-        varieties_en: ["Florida Prince", "Desert Red", "Early Swell"], varieties_ar: ["فلوريدا برنس", "ديزرت ريد", "إيرلي سويل"], varieties_ru: ["Флорида Принс", "Дезерт Ред", "Эрли Свелл"], varieties_zh: ["佛罗里达王子", "沙漠红", "早膨大"],
-        packing_en: "5kg Flat Cartons / 10x500g Punnets", packing_ar: "كراتين 5 كجم / 10 علب بلاستيك 500 جم", packing_ru: "Коробки 5 кг / 10х500г лотки", packing_zh: "5公斤平箱 / 10x500克小盒",
-        specs_en: "Caliber: 50-70mm • Early European Air Window", specs_ar: "القطر: 50-70 مم • حصاد مبكر للأسواق الأوروبية", specs_ru: "Калибр: 50-70 мм • Ранний авиа-экспорт", specs_zh: "口径: 50-70毫米 • 欧洲早期空运档期",
-        season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_ru: "С апреля по июль", season_zh: "4月至7月",
-        months: [4,5,6,7], image: "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=600&q=80"
+        id: 7, is_priority: false, season_type: 'summer', category: 'vegetables',
+        name_en: "Dry Red & White Garlic", name_ar: "ثوم جاف بلدي (أبيض وأحمر)", name_ru: "Чеснок сушеный белый и красный", name_zh: "干燥白皮与红皮大蒜",
+        varieties_en: ["Pure White", "Red Baladi (Violet)"], varieties_ar: ["أبيض نقي", "بلدي أحمر"], varieties_ru: ["Чисто белый", "Фиолетовый местный"], varieties_zh: ["纯白蒜", "红皮紫皮蒜"],
+        packing_en: "5kg / 10kg Mesh Bags or Punnet Cartons", packing_ar: "أجولة 5/10 كجم أو كراتين", packing_ru: "Сетки 5/10 кг или коробки", packing_zh: "5/10公斤网袋或盒装纸箱",
+        specs_en: "Caliber: 45-65mm+ • Clean Roots & Stems", specs_ar: "القطر: 45-65 مم+ • جذور وسيقان نظيفة", specs_ru: "Калибр: 45-65 мм+ • Чистый корень", specs_zh: "口径: 45-65毫米以上 • 根茎修剪整齐",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_ru: "С مارس по июль", season_zh: "3月至7月",
+        months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 20, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Crimson Sweet Watermelons", name_ar: "بطيخ كريمسون سويت الهجين", name_ru: "Арбузы Кримсон Свит", name_zh: "深红甜心西瓜",
-        varieties_en: ["Aswan Hybrid", "Giza", "Crimson Sweet"], varieties_ar: ["هجين أسوان", "جيزة", "كريمسون سويت"], varieties_ru: ["Асуан Гибрид", "Гиза", "Кримсон Свит"], varieties_zh: ["阿斯旺杂交", "吉萨", "红甜心"],
-        packing_en: "Bulk Bin Containers (500kg) or Master Cartons", packing_ar: "صناديق خشبية 500 كجم أو كراتين ماستر", packing_ru: "Контейнеры 500 кг или коробки", packing_zh: "500公斤大型木箱或主纸箱",
-        specs_en: "Weight: 5 - 12kg/fruit • Brix 11°+", specs_ar: "الوزن: 5 - 12 كجم/حبة • بريكس +11°", specs_ru: "Вес: 5 - 12 кг/шт • Брикс 11°+", specs_zh: "单果重: 5-12公斤 • 糖度 11°+",
+        id: 8, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "Export-Grade Fresh Tomatoes", name_ar: "طماطم مائدة وشيري تصديرية", name_ru: "Томаты свежие экспортные", name_zh: "出口级鲜食与樱桃番茄",
+        varieties_en: ["Cherry & Plum", "Roma", "Round Beef"], varieties_ar: ["شيري وبلحية", "روما للتصنيع", "مدورة هجين"], varieties_ru: ["Черри и сливовидные", "Рома", "Круглые"], varieties_zh: ["樱桃与李形番茄", "罗马番茄", "优质圆番茄"],
+        packing_en: "5kg / 6kg Open-Top Cartons & Punnets", packing_ar: "كراتين مفتوحة 5 / 6 كجم وعلب شيري", packing_ru: "Коробки 5/6 кг открытые и лотки", packing_zh: "5/6公斤敞口纸箱与精品盒装",
+        specs_en: "Calibers: 47-67mm • Color Stage 2-3 • Firm Flesh", specs_ar: "أحجام: 47-67 مم • درجة نضج 2-3 • ثمار صلبة خالية من التشققات", specs_ru: "Калибры: 47-67 мм • Степень зрелости 2-3", specs_zh: "口径: 47-67毫米 • 熟度2-3级 • 果肉紧实无裂痕",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по май", season_zh: "11月至次年5月",
+        months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 9, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "High-Brix Red Beetroot", name_ar: "بنجر مائدة أحمر داكن", name_ru: "Свекла столовая темно-красная", name_zh: "高糖红甜菜根",
+        varieties_en: ["Detroit Dark Red", "Pablo", "Boro"], varieties_ar: ["ديترويت دارك ريد", "بابلو", "بورو"], varieties_ru: ["Детройт", "Пабло", "Боро"], varieties_zh: ["底特律深红", "巴勃罗", "博罗"],
+        packing_en: "5kg / 10kg Bags or Master Cartons", packing_ar: "أكياس أو كراتين 5 / 10 كجم", packing_ru: "Мешки или коробки 5 / 10 кг", packing_zh: "5/10公斤袋装或纸箱",
+        specs_en: "Sizes: 50-90mm • High Betanin Content", specs_ar: "الأحجام: 50-90 مم • تركيز صبغة بيتانين عالي", specs_ru: "Размеры: 50-90 мм • Насыщенный цвет", specs_zh: "尺寸: 50-90毫米 • 甜菜红素含量高",
+        season_en: "December to May", season_ar: "من ديسمبر حتى مايو", season_ru: "С декабря по май", season_zh: "12月至次年5月",
+        months: [12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1526470608268-f674ce90ebd4?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 10, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Prime Seedless Table Grapes", name_ar: "عنب مائدة فاخر بدون بذور", name_ru: "Виноград столовый бессемянный", name_zh: "特级无核鲜食葡萄",
+        varieties_en: ["Early Superior (White)", "Flame (Red)", "Crimson Seedless"], varieties_ar: ["إيرلي سوبريور", "فليم أحمر", "كريمسون"], varieties_ru: ["Супериор белый", "Флейм красный", "Кримсон"], varieties_zh: ["早熟白葡萄", "火焰红", "克瑞森无核"],
+        packing_en: "4.5kg / 5kg Cartons (Carry Bags or Punnets)", packing_ar: "كراتين 4.5/5 كجم (أكياس أو علب بلاستيك)", packing_ru: "Коробки 4.5/5 кг (пакеты или лотки)", packing_zh: "4.5/5公斤纸箱 (手提袋或小盒包装)",
+        specs_en: "Berry Size: 18-24mm • Brix: 16°-18°+", specs_ar: "حجم الحبة: 18-24 مم • بريكس: +16°", specs_ru: "Ягода: 18-24 мм • Брикс: 16-18°+", specs_zh: "果粒大小: 18-24毫米 • 糖度: 16°-18°+",
         season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_ru: "С мая по август", season_zh: "5月至8月",
-        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80"
+        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 21, is_priority: false, season_type: 'summer', category: 'fruits',
-        name_en: "Aromatic Galia & Cantaloupe", name_ar: "شمام جاليا وكانتالوب عطري", name_ru: "Дыни Галия и Канталупа", name_zh: "香浓加利亚甜瓜与哈密瓜",
-        varieties_en: ["Galia", "Ananas", "Cantaloupe"], varieties_ar: ["جاليا", "أناناس", "كانتالوب"], varieties_ru: ["Галия", "Ананасная", "Канталупа"], varieties_zh: ["加利亚", "菠萝蜜瓜", "哈密甜瓜"],
-        packing_en: "5kg Telescopic Cartons", packing_ar: "كراتين تلسكوبية 5 كجم", packing_ru: "Коробки телескопические 5 кг", packing_zh: "5公斤套装纸箱",
-        specs_en: "Counts: 5 - 8 • Dense Netting • Brix 12°+", specs_ar: "حبات: 5 - 8 • شبكة متماسكة • بريكس +12°", specs_ru: "Штук: 5 - 8 • Густая сетка • Брикс 12°+", specs_zh: "果数: 5-8个 • 网纹密实 • 糖度 12°+",
-        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_ru: "С мая по август", season_zh: "5月至8月",
-        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1598025362874-49480e049c76?auto=format&fit=crop&w=600&q=80"
+        id: 11, is_priority: false, season_type: 'winter', category: 'fruits',
+        name_en: "Hydrocooled Winter Strawberries", name_ar: "فراولة مبردة هيدروليكياً", name_ru: "Клубника свежая гидроохлажденная", name_zh: "预冷保鲜冬季草莓",
+        varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсация", "Бриллианс"], varieties_zh: ["节日", "福尔图娜", "感觉", "光芒"],
+        packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_ru: "Коробки 2 / 2.5 кг (10х250г лотки)", packing_zh: "2/2.5公斤纸箱 (10x250克扁盒)",
+        specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_ru: "Калибр: 25-35 мм • Охлаждение за 2ч", specs_zh: "口径: 25-35毫米 • 采后2小时水冷",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
+        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 22, is_priority: false, season_type: 'winter', category: 'vegetables',
+        id: 12, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Wonderful Crimson Pomegranates", name_ar: "رمان وندرفول داكن", name_ru: "Гранат сорта Вандерфул", name_zh: "万德福深红石榴",
+        varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_ru: ["Вандерфул", "Ранний 116", "Балади"], varieties_zh: ["万德福", "早熟116", "本地品种"],
+        packing_en: "4.5kg / 5kg Flat Open Top Cartons", packing_ar: "كراتين مسطحة مفتوحة 4.5 / 5 كجم", packing_ru: "Коробки 4.5 / 5 кг открытые", packing_zh: "4.5/5公斤平口敞口纸箱",
+        specs_en: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+", specs_ar: "حبات: 8 - 14 • حبوب داكنة • بريكس +15°", specs_ru: "Штук: 8 - 14 • Яркие зерна • Брикс 15°+", specs_zh: "果数: 8-14个 • 宝石红果粒 • 糖度 15°+",
+        season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_ru: "С конца августа по декабрь", season_zh: "8月下旬至12月",
+        months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1541344999736-83eca872f241?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 13, is_priority: false, season_type: 'winter', category: 'fruits',
+        name_en: "Murcott & Fremont Mandarins", name_ar: "يوسفي موركوت وفريمونت", name_ru: "Мандарины Муркотт и Фримонт", name_zh: "茂谷柑与弗里蒙特柑橘",
+        varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
+        packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
+        specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чиستятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
+        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 14, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Premium Medjool & Siwi Dates", name_ar: "تمور المجدول والسيوي الفاخرة", name_ru: "Финики Меджул и Сиви", name_zh: "特级麦扎尔与西维椰枣",
+        varieties_en: ["Medjool King", "Barhi Fresh", "Siwi"], varieties_ar: ["مجدول", "برحي طازج", "سيوي"], varieties_ru: ["Меджул Кинг", "Бархи свежий", "Сиви"], varieties_zh: ["麦扎尔之王", "新鲜巴尔希", "西维"],
+        packing_en: "1kg, 2kg, 5kg Premium Gift & Retail Boxes", packing_ar: "عبوات فاخرة 1، 2، و 5 كجم", packing_ru: "Коробки премиум 1, 2, 5 кг", packing_zh: "1/2/5公斤精品礼盒及零售箱",
+        specs_en: "Grades: Jumbo, Large, Medium • Moisture 18-24%", specs_ar: "فرز: جامبو، كبير، متوسط • رطوبة 18-24%", specs_ru: "Джамбо, крупный, средний • Влажность 18-24%", specs_zh: "特大号/大号/中号 • 水分含量 18-24%",
+        season_en: "August to December", season_ar: "من أغسطس حتى ديسمبر", season_ru: "С августа по декабрь", season_zh: "8月至12月",
+        months: [8,9,10,11,12], image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 15, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "Extra-Fine Haricot Green Beans", name_ar: "فاصوليا خضراء رفيعة (Haricot)", name_ru: "Стручковая фасоль тонкая", name_zh: "特细法式绿四季豆",
+        varieties_en: ["Haricot Vert", "Bobby Beans", "Paulista"], varieties_ar: ["فاصوليا رفيعة", "بوبي", "بوليستا"], varieties_ru: ["Арико вер", "Бобби", "Паулиста"], varieties_zh: ["极细青刀豆", "鲍比豆", "保利斯塔"],
+        packing_en: "4kg / 5kg Cartons with MAP Bags", packing_ar: "كراتين 4 / 5 كجم بأكياس تحكم هوائي MAP", packing_ru: "Коробки 4/5 кг с пакетами MAP", packing_zh: "4/5公斤气调保鲜袋纸箱",
+        specs_en: "Diameter: 6-8mm • Straight Calibrated Pods", specs_ar: "القطر: 6-8 مم • قرون مستقيمة معايرة", specs_ru: "Диаметр: 6-8 мм • Прямые стручки", specs_zh: "直径: 6-8毫米 • 笔直均匀荚果",
+        season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_ru: "С октября по май", season_zh: "10月至次年5月",
+        months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 16, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Exotic Keitt & Kent Mangoes", name_ar: "مانجو كيت وكينت الفاخرة", name_ru: "Манго Кент и Кейт", name_zh: "优质凯特与肯特芒果",
+        varieties_en: ["Keitt", "Kent", "Naomi", "Yasmina"], varieties_ar: ["كيت", "كينت", "نعومي", "ياسمينة"], varieties_ru: ["Кейт", "Кент", "Наоми", "Ясмина"], varieties_zh: ["凯特", "肯特", "娜奥米", "雅斯敏"],
+        packing_en: "4kg / 5kg Open Top Display Cartons", packing_ar: "كراتين مفتوحة 4 / 5 كجم", packing_ru: "Коробки 4 / 5 кг открытые", packing_zh: "4/5公斤展示纸箱",
+        specs_en: "Counts: 6 - 12 • Fiber-free • Brix 14°+", specs_ar: "حبات: 6 - 12 • خالية من الألياف • بريكس +14°", specs_ru: "Калибр: 6 - 12 шт • Без волокон • Брикс 14°+", specs_zh: "果数: 6-12个 • 无纤维细腻果肉 • 糖度 14°+",
+        season_en: "July to November", season_ar: "من يوليو حتى نوفمبر", season_ru: "С июля по ноябрь", season_zh: "7月至11月",
+        months: [7,8,9,10,11], image: "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 17, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "Imperial Globe Artichokes", name_ar: "خرشوف إمبريال أوروبي", name_ru: "Артишоки Империал", name_zh: "皇家圆球洋蓟 / 朝鲜蓟",
+        varieties_en: ["French Violet", "Imperial Star", "Baladi"], varieties_ar: ["فرنساوي بنفسجي", "إمبريال ستار", "بلدي"], varieties_ru: ["Фиолетовый французский", "Империал стар", "Балади"], varieties_zh: ["法国紫", "帝国之星", "本地品种"],
+        packing_en: "7kg - 10kg Master Cartons", packing_ar: "كراتين ماستر 7 - 10 كجم", packing_ru: "Коробки 7 - 10 кг", packing_zh: "7-10公斤外箱",
+        specs_en: "Diameter: 70 - 100mm • Solid Tight Heads", specs_ar: "القطر: 70 - 100 مم • رؤوس مصمتة ومغلقة", specs_ru: "Диаметр: 70 - 100 мм • Плотные головки", specs_zh: "直径: 70-100毫米 • 紧实饱满花苞",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_ru: "С декабря по апрель", season_zh: "12月至次年4月",
+        months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1518843875459-f738682238a6?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 18, is_priority: false, season_type: 'summer', category: 'vegetables',
+        name_en: "Blocky Greenhouse Bell Peppers", name_ar: "فلفل رومي ملون (بيوت محمية)", name_ru: "Перец сладкий кубовидный", name_zh: "温室彩椒 (方形甜椒)",
+        varieties_en: ["Red Blocky", "Yellow Blocky", "Orange"], varieties_ar: ["أحمر", "أصفر", "برتقالي"], varieties_ru: ["Красный", "Желтый", "Оранжевый"], varieties_zh: ["红彩椒", "黄彩椒", "橙彩椒"],
+        packing_en: "5kg Open Top Telescopic Cartons", packing_ar: "كراتين تلسكوبية مفتوحة 5 كجم", packing_ru: "Коробки открытые 5 кг", packing_zh: "5公斤敞口纸箱",
+        specs_en: "Calibers: 70-90mm / 80-100mm • Thick Flesh", specs_ar: "القطر: 70-90 مم / 80-100 مم • جدار ثمرة سميك", specs_ru: "Калибр: 70-90 мм / 80-100 мм • Толстостенный", specs_zh: "口径: 70-90毫米 / 80-100毫米 • 肉厚紧致",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_ru: "С мая по ноябрь", season_zh: "5月至11月",
+        months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 19, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Defiberized Sugar Snap Peas", name_ar: "بسلة سكرية مقرمشة خالية من الألياف", name_ru: "Горошек сахарный стручковый", name_zh: "去筋无丝脆甜豌豆荚",
         varieties_en: ["Sugar Snap", "Snow Peas (Mangetout)"], varieties_ar: ["قرون سكرية", "بازلاء الجليد"], varieties_ru: ["Шугар Снэп", "Сноу Пиз (Манжту)"], varieties_zh: ["甜脆豆", "荷兰豆"],
         packing_en: "3kg / 5kg Cartons (Punnets or MAP Bags)", packing_ar: "كراتين 3 / 5 كجم (علب أو أكياس MAP)", packing_ru: "Коробки 3 / 5 кг (лотки или MAP)", packing_zh: "3/5公斤纸箱 (盒装或MAP气调袋)",
@@ -1202,25 +1175,7 @@
         months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1587735243615-c03f25aaff15?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 23, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Crown-Cut Fresh Broccoli", name_ar: "بروكلي تيجان أخضر نقي", name_ru: "Брокколи свежая (короны)", name_zh: "精修皇冠西兰花",
-        varieties_en: ["Iron Man", "Marathon", "Parthenon"], varieties_ar: ["أيرون مان", "ماراثون", "بارثينون"], varieties_ru: ["Айрон Мен", "Марафон", "Парфенон"], varieties_zh: ["铁人", "马拉松", "帕特农"],
-        packing_en: "5kg - 7kg Styrofoam Boxes with Top Ice", packing_ar: "صناديق فوم 5-7 كجم مبردة بالثلج", packing_ru: "Пенопластовые боксы 5-7 кг с ледяным слоем", packing_zh: "5-7公斤上铺碎冰泡沫保鲜箱",
-        specs_en: "Head Size: 300 - 600g • Stem Cut 2-3cm", specs_ar: "حجم الرأس: 300 - 600 جم • قطع الساق 2-3 سم", specs_ru: "Вес головки: 300 - 600 г • Ножка 2-3 см", specs_zh: "花头: 300-600克 • 茎秆保留 2-3厘米",
-        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_ru: "С декабря по апрель", season_zh: "12月至次年4月",
-        months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 24, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Compact White & Red Cabbage", name_ar: "كرنب أبيض وأحمر صلب", name_ru: "Капуста белокочанная и краснокочанная", name_zh: "结球紧实白甘蓝与紫甘蓝",
-        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_ru: ["Голландская белая", "Ред Руки"], varieties_zh: ["荷兰白甘蓝", "红菜心紫甘蓝"],
-        packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_ru: "Коробки или сетки 10 - 15 кг", packing_zh: "10-15公斤纸箱或透气网袋",
-        specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_ru: "Вес: 1.5 - 3 кг/кочан • Плотный", specs_zh: "单颗重: 1.5-3公斤 • 紧密结球",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
-        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 25, is_priority: false, season_type: 'winter', category: 'vegetables',
+        id: 20, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Air-Freight Culinary Herbs", name_ar: "أعشاب طازجة للشحن الجوي اليومي", name_ru: "Свежая зелень авиадоставкой", name_zh: "航空直航鲜食用香草",
         varieties_en: ["Dill", "Flat Parsley", "Coriander", "Spearmint"], varieties_ar: ["شبت", "بقدونس مفلطح", "كزبرة", "نعناع طازج"], varieties_ru: ["Укроп", "Петрушка листовая", "Кинза", "Мята"], varieties_zh: ["莳萝", "平叶欧芹", "香菜", "绿薄荷"],
         packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хладоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
@@ -1229,22 +1184,67 @@
         months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 26, is_priority: false, season_type: 'winter', category: 'vegetables',
-        name_en: "Export-Grade Fresh Tomatoes", name_ar: "طماطم مائدة وشيري تصديرية", name_ru: "Томаты свежие экспортные", name_zh: "出口级鲜食与樱桃番茄",
-        varieties_en: ["Cherry & Plum", "Roma", "Round Beef"], varieties_ar: ["شيري وبلحية", "روما للتصنيع", "مدورة هجين"], varieties_ru: ["Черри и сливовидные", "Рома", "Круглые"], varieties_zh: ["樱桃与李形番茄", "罗马番茄", "优质圆番茄"],
-        packing_en: "5kg / 6kg Open-Top Cartons & Punnets", packing_ar: "كراتين مفتوحة 5 / 6 كجم وعلب شيري", packing_ru: "Коробки 5/6 кг открытые и лотки", packing_zh: "5/6公斤敞口纸箱与精品盒装",
-        specs_en: "Calibers: 47-67mm • Color Stage 2-3 • Firm Flesh", specs_ar: "أحجام: 47-67 مم • درجة نضج 2-3 • ثمار صلبة خالية من التشققات", specs_ru: "Калибры: 47-67 мм • Степень зрелости 2-3", specs_zh: "口径: 47-67毫米 • 熟度2-3级 • 果肉紧实无裂痕",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_ru: "С ноября по апрель", season_zh: "11月至次年5月",
-        months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80"
+        id: 21, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "Crown-Cut Fresh Broccoli", name_ar: "بروكلي تيجان أخضر نقي", name_ru: "Брокколи свежая (короны)", name_zh: "精修皇冠西兰花",
+        varieties_en: ["Iron Man", "Marathon", "Parthenon"], varieties_ar: ["أيرون مان", "ماراثون", "بارثينون"], varieties_ru: ["Айрон Мен", "Марафон", "Парфенон"], varieties_zh: ["铁人", "马拉松", "帕特农"],
+        packing_en: "5kg - 7kg Styrofoam Boxes with Top Ice", packing_ar: "صناديق فوم 5-7 كجم مبردة بالثلج", packing_ru: "Пенопластовые боксы 5-7 кг с ледяным слоем", packing_zh: "5-7公斤上铺碎冰泡沫保鲜箱",
+        specs_en: "Head Size: 300 - 600g • Stem Cut 2-3cm", specs_ar: "حجم الرأس: 300 - 600 جم • قطع الساق 2-3 سم", specs_ru: "Вес головки: 300 - 600 г • Ножка 2-3 см", specs_zh: "花头: 300-600克 • 茎秆保留 2-3厘米",
+        season_en: "December to April", season_ar: "من ديسمبر حتى أبريل", season_ru: "С декабря по апрель", season_zh: "12月至次年4月",
+        months: [12,1,2,3,4], image: "https://images.unsplash.com/photo-1584270357125-9c988e040c74?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 27, is_priority: false, season_type: 'winter', category: 'fruits',
+        id: 22, is_priority: false, season_type: 'summer', category: 'vegetables',
+        name_en: "Scoville-Calibrated Hot Chilies", name_ar: "فلفل حار معاير الشدة", name_ru: "Перец острый чили", name_zh: "史高维尔级辣度标定辣椒",
+        varieties_en: ["Red Serenade", "Green Cayenne", "Habanero"], varieties_ar: ["سيريناد أحمر", "كايين أخضر", "هابانيرو"], varieties_ru: ["Серенада красный", "Кайенский зеленый", "Хабанеро"], varieties_zh: ["红小夜曲", "绿卡宴", "哈瓦那"],
+        packing_en: "2kg / 4kg Telescopic Cartons", packing_ar: "كراتين تلسكوبية 2 / 4 كجم", packing_ru: "Коробки 2 / 4 кг телескоп", packing_zh: "2/4公斤套装纸箱",
+        specs_en: "Length: 10-14cm • Scoville Heat Index Certified", specs_ar: "الطول: 10-14 سم • معايرة مؤشر سكوفيل للحرارة", specs_ru: "Длина: 10-14 см • Контроль остроты Сковилла", specs_zh: "长度: 10-14厘米 • 认证辣度指数",
+        season_en: "May to November", season_ar: "من مايو حتى نوفمبر", season_ru: "С мая по ноябрь", season_zh: "5月至11月",
+        months: [5,6,7,8,9,10,11], image: "https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 23, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Early Florida Stone Peaches", name_ar: "خوخ فلوريدا برنس المبكر", name_ru: "Персики Флорида Принс", name_zh: "早熟佛罗里达王子桃",
+        varieties_en: ["Florida Prince", "Desert Red", "Early Swell"], varieties_ar: ["فلوريدا برنس", "ديزرت ريد", "إيرلي سويل"], varieties_ru: ["Флорида Принс", "Дезерт Ред", "Эрли Свелл"], varieties_zh: ["佛罗里达王子", "沙漠红", "早膨大"],
+        packing_en: "5kg Flat Cartons / 10x500g Punnets", packing_ar: "كراتين 5 كجم / 10 علب بلاستيك 500 جم", packing_ru: "Коробки 5 кг / 10х500г лотки", packing_zh: "5公斤平箱 / 10x500克小盒",
+        specs_en: "Caliber: 50-70mm • Early European Air Window", specs_ar: "القطر: 50-70 مم • حصاد مبكر للأسواق الأوروبية", specs_ru: "Калибр: 50-70 мм • Ранний авиа-экспорт", specs_zh: "口径: 50-70毫米 • 欧洲早期空运档期",
+        season_en: "April to July", season_ar: "من أبريل حتى يوليو", season_ru: "С апреля по июль", season_zh: "4月至7月",
+        months: [4,5,6,7], image: "https://images.unsplash.com/photo-1629828874514-c1e5103f2150?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 24, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Aromatic Galia & Cantaloupe", name_ar: "شمام جاليا وكانتالوب عطري", name_ru: "Дыни Галия и Канталупа", name_zh: "香浓加利亚甜瓜与哈密瓜",
+        varieties_en: ["Galia", "Ananas", "Cantaloupe"], varieties_ar: ["جاليا", "أناناس", "كانتالوب"], varieties_ru: ["Галия", "Ананасная", "Канталупа"], varieties_zh: ["加利亚", "菠萝蜜瓜", "哈密甜瓜"],
+        packing_en: "5kg Telescopic Cartons", packing_ar: "كراتين تلسكوبية 5 كجم", packing_ru: "Коробки телескопические 5 кг", packing_zh: "5公斤套装纸箱",
+        specs_en: "Counts: 5 - 8 • Dense Netting • Brix 12°+", specs_ar: "حبات: 5 - 8 • شبكة متماسكة • بريكس +12°", specs_ru: "Штук: 5 - 8 • Густая сетка • Брикс 12°+", specs_zh: "果数: 5-8个 • 网纹密实 • 糖度 12°+",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_ru: "С мая по август", season_zh: "5月至8月",
+        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1598025362874-49480e049c76?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 25, is_priority: false, season_type: 'summer', category: 'fruits',
+        name_en: "Crimson Sweet Watermelons", name_ar: "بطيخ كريمسون سويت الهجين", name_ru: "Арбузы Кримсон Свит", name_zh: "深红甜心西瓜",
+        varieties_en: ["Aswan Hybrid", "Giza", "Crimson Sweet"], varieties_ar: ["هجين أسوان", "جيزة", "كريمسون سويت"], varieties_ru: ["Асуан Гибрид", "Гиза", "Кримсон Свит"], varieties_zh: ["阿斯旺杂交", "吉萨", "红甜心"],
+        packing_en: "Bulk Bin Containers (500kg) or Master Cartons", packing_ar: "صناديق خشبية 500 كجم أو كراتين ماستر", packing_ru: "Контейнеры 500 кг или коробки", packing_zh: "500公斤大型木箱或主纸箱",
+        specs_en: "Weight: 5 - 12kg/fruit • Brix 11°+", specs_ar: "الوزن: 5 - 12 كجم/حبة • بريكس +11°", specs_ru: "Вес: 5 - 12 кг/шт • Брикс 11°+", specs_zh: "单果重: 5-12公斤 • 糖度 11°+",
+        season_en: "May to August", season_ar: "من مايو حتى أغسطس", season_ru: "С мая по август", season_zh: "5月至8月",
+        months: [5,6,7,8], image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 26, is_priority: false, season_type: 'winter', category: 'fruits',
         name_en: "Mediterranean Table Olives", name_ar: "زيتون مائدة متوسطي فاخر", name_ru: "Оливки столовые средиземноморские", name_zh: "地中海特级鲜食橄榄",
         varieties_en: ["Picual", "Manzanilla", "Kalamata", "Aggizi"], varieties_ar: ["مانزانيللا", "بيكوال", "كلاماتا", "عجيزي تفاحي"], varieties_ru: ["Мансанилья", "Пикуаль", "Каламата", "Аггизи"], varieties_zh: ["曼萨尼亚", "皮夸尔", "卡拉马塔", "阿吉兹"],
         packing_en: "10kg / 15kg Food-Grade Pails & Fresh Cartons", packing_ar: "عبوات 10 / 15 كجم غذائية وكراتين مبردة", packing_ru: "Ведра 10/15 кг и свежие коробки", packing_zh: "10/15公斤食品级专用桶及保鲜纸箱",
         specs_en: "Counts: 140/160 - 200/220 pcs/kg • Hand-Picked", specs_ar: "عيار: 140/160 - 200/220 حبة/كجم • جمع يدوي نقي", specs_ru: "Калибр: 140/160 - 200/220 шт/кг • Ручной сбор", specs_zh: "规格: 140/160 - 200/220 粒/公斤 • 手工甄选无伤",
         season_en: "September to January", season_ar: "من سبتمبر حتى يناير", season_ru: "С сентября по январь", season_zh: "9月至次年1月",
         months: [9,10,11,12,1], image: "https://images.unsplash.com/photo-1541256942802-7b29ec656b2c?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 27, is_priority: false, season_type: 'winter', category: 'vegetables',
+        name_en: "Compact White & Red Cabbage", name_ar: "كرنب أبيض وأحمر صلب", name_ru: "Капуста белокочанная и краснокочанная", name_zh: "结球紧实白甘蓝与紫甘蓝",
+        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_ru: ["Голландская белая", "Ред Руки"], varieties_zh: ["荷兰白甘蓝", "红菜心紫甘蓝"],
+        packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_ru: "Коробки или сетки 10 - 15 кг", packing_zh: "10-15公斤纸箱或透气网袋",
+        specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_ru: "Вес: 1.5 - 3 кг/кочан • Плотный", specs_zh: "单颗重: 1.5-3公斤 • 紧密结球",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
+        months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       }
     ];
 
@@ -1973,7 +1973,7 @@
         if (iconClose) iconClose.classList.add('hidden');
       } else {
         m.classList.remove('hidden');
-        if (iconOpen) iconOpen.classList.add('hidden');
+        if (iconOpen) iconOpen.classList.remove('hidden');
         if (iconClose) iconClose.classList.remove('hidden');
       }
     }
