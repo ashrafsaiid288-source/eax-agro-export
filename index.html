@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (Play CDN for dev / replace with dist/output.css for full static production) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -101,7 +101,7 @@
       padding-bottom: 0.35rem !important;
     }
     .header-shrunk #mainLogoImg {
-      height: 2.85rem !important; /* يصغر تدريجياً وبنعومة أثناء التمرير */
+      height: 2.85rem !important;
     }
 
     .btn-modern-primary {
@@ -189,7 +189,7 @@
     </div>
   </div>
 
-  <!-- ================= LUXURY MINIMAL NAVBAR (ENLARGED PROMINENT LOGO) ================= -->
+  <!-- ================= LUXURY MINIMAL NAVBAR ================= -->
   <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/70 transition-all duration-300 py-2 sm:py-3">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between gap-4">
@@ -243,7 +243,7 @@
             <span data-i18n="cta_quote">Get a Quote</span>
           </a>
 
-          <!-- Mobile Hamburger / Close Toggle Button -->
+          <!-- Mobile Hamburger Toggle Button -->
           <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-2xl bg-white border border-agro-border text-slate-700 hover:text-agro-primary shadow-xs transition-colors" aria-label="Toggle Menu">
             <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
             <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -273,7 +273,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 my-auto">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-10 items-center">
         
-        <!-- Left Hero Copy (5 Cols) -->
+        <!-- Left Hero Copy -->
         <div class="lg:col-span-5 space-y-4 sm:space-y-6 text-start reveal-up">
           <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 text-[10px] sm:text-xs font-black tracking-widest shadow-sm">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -289,7 +289,6 @@
             EAX Agro Export connects farmers with the world, delivering fresh, high-quality agricultural products to international markets with trust, efficiency, and uninterrupted Reefer cold chain logistics.
           </p>
 
-          <!-- Action Buttons -->
           <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-3.5 pt-2">
             <a href="#catalog" class="btn-modern-primary inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:py-4 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm shadow-xl transition-all group">
               <span data-i18n="btn_products">Our Products</span>
@@ -302,12 +301,11 @@
           </div>
         </div>
 
-        <!-- Right Hero: Expanded & Widened Executive Bento Card (7 Cols) -->
+        <!-- Right Hero Bento Card -->
         <div class="lg:col-span-7 relative flex items-center justify-center reveal-up w-full">
           <div class="relative w-full z-10">
             <div class="bg-agro-forest/95 backdrop-blur-2xl rounded-3xl sm:rounded-[2.25rem] p-6 xs:p-7 sm:p-9 lg:p-10 border border-white/20 shadow-2xl text-start space-y-6 sm:space-y-7 ring-1 ring-white/10">
               
-              <!-- Brand Identity Header -->
               <div class="flex flex-col xs:flex-row items-start xs:items-center gap-4 sm:gap-6 border-b border-white/10 pb-6">
                 <div class="relative shrink-0">
                   <div class="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2.5 sm:p-3 shadow-xl ring-1 ring-white/30 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
@@ -334,12 +332,10 @@
                 </div>
               </div>
 
-              <!-- Description -->
               <p data-i18n="hero_profile_desc" class="text-xs sm:text-sm md:text-base text-slate-200 leading-relaxed font-normal">
                 A specialized Egyptian agro-export enterprise operating automated packing stations and global maritime cold chains, delivering 30 certified fresh crops directly to international supermarket networks and food distributors across Europe, the Gulf, Russia, and Asia.
               </p>
 
-              <!-- Bento Metric Grid -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4.5 text-start">
                 <div class="bg-white/[0.06] border border-white/10 rounded-2xl p-4 sm:p-5 hover:border-emerald-500/40 hover:bg-white/[0.09] transition-all">
                   <span data-i18n="hero_cap_label" class="block text-[11px] sm:text-xs text-slate-400 uppercase font-bold tracking-wider">Annual Export Capacity</span>
@@ -359,7 +355,6 @@
                 </div>
               </div>
 
-              <!-- Quality Stamp -->
               <div class="pt-4 border-t border-white/10 flex items-center gap-3 text-xs sm:text-sm text-slate-300">
                 <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                 <span data-i18n="hero_cert_summary" class="font-medium leading-relaxed">Full Traceability & Zero-Residue Testing (ISO 17025 Labs)</span>
@@ -1002,8 +997,20 @@
     </div>
   </footer>
 
-  <!-- ================= WHATSAPP FLOATING BUTTON ================= -->
-  <aside aria-label="WhatsApp" class="fixed bottom-5 end-5 sm:bottom-7 sm:end-7 z-50">
+  <!-- ================= BACK TO TOP & WHATSAPP FLOATING BUTTONS ================= -->
+  <aside aria-label="Quick Actions" class="fixed bottom-5 end-5 sm:bottom-7 sm:end-7 z-50 flex flex-col items-center gap-3">
+    <!-- Back to Top Button -->
+    <button 
+      type="button" 
+      id="backToTopBtn" 
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" 
+      class="opacity-0 pointer-events-none translate-y-3 transition-all duration-300 w-11 h-11 sm:w-12 sm:h-12 bg-agro-forest/90 hover:bg-agro-forest text-white rounded-full flex items-center justify-center shadow-xl border border-white/20 backdrop-blur-md active:scale-95" 
+      aria-label="Back to Top"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg>
+    </button>
+
+    <!-- WhatsApp Floating Button -->
     <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="wa-float-btn w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full flex items-center justify-center shadow-2xl active:scale-95 transition-transform" aria-label="Chat on WhatsApp">
       <svg class="w-7 h-7 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="currentColor">
         <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.468 1.328 4.975l-1.411 5.158 5.281-1.385c1.45.792 3.097 1.252 4.802 1.252 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/>
@@ -1185,7 +1192,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по май", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1275,14 +1282,14 @@
         varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_ru: ["Голландская белая", "Ред Руки"], varieties_zh: ["荷兰白甘蓝", "红菜心紫甘蓝"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_ru: "Коробки или сетки 10 - 15 кг", packing_zh: "10-15公斤纸箱或透气网袋",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_ru: "Вес: 1.5 - 3 кг/кочан • Плотный", specs_zh: "单颗重: 1.5-3公斤 • 紧密结球",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по май", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 30, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Air-Freight Culinary Herbs", name_ar: "أعشاب طازجة للشحن الجوي اليومي", name_ru: "Свежая зелень авиадоставкой", name_zh: "航空直航鲜食用香草",
         varieties_en: ["Dill", "Flat Parsley", "Coriander", "Spearmint"], varieties_ar: ["شبت", "بقدونس مفلطح", "كزبرة", "نعناع طازج"], varieties_ru: ["Укроп", "Петрушка листовая", "Кинза", "Мята"], varieties_zh: ["莳萝", "平叶欧芹", "香菜", "绿薄荷"],
-        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хلاдоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
+        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хладоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
         specs_en: "Bunched & Cleaned • Daily Harvest Air Shipments", specs_ar: "حزم نظيفة ومغسولة • حصاد وشحن طيران يومي", specs_ru: "Мытая в пучках • Ежедневные авиарейсы", specs_zh: "捆扎清洗 • 采摘当日航空直飞",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_ru: "С октября по май", season_zh: "10月至次年5月",
         months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=600&q=80"
@@ -1713,7 +1720,7 @@
                 </div>
               ` : ''}
 
-              <img src="${crop.image}" width="600" height="375" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="" />
+              <img src="${crop.image}" width="600" height="375" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="${crop.name_en}" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
@@ -2075,10 +2082,10 @@ ${t.wa_notes} ${payload.notes}`;
       const toast = document.getElementById('rfqSuccessToast');
       if (toast) {
         toast.classList.remove('hidden');
-        setTimeout(() => toast.classList.add('hidden'), 5000);
       }
 
-      window.open(waUrl, '_blank', 'noopener,noreferrer');
+      // Safe navigation without mobile pop-up blockers
+      window.location.href = waUrl;
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -2099,6 +2106,17 @@ ${t.wa_notes} ${payload.notes}`;
     window.addEventListener('scroll', () => {
       const header = document.getElementById('main-header');
       if (header) header.classList.toggle('header-shrunk', window.scrollY > 25);
+
+      const topBtn = document.getElementById('backToTopBtn');
+      if (topBtn) {
+        if (window.scrollY > 400) {
+          topBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-3');
+          topBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        } else {
+          topBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-3');
+          topBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        }
+      }
     }, { passive: true });
   </script>
 </body>
