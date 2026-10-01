@@ -15,9 +15,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://eax-agro-export.vercel.app/images/logo.jpeg" />
 
-  <!-- Google Fonts -->
+  <!-- Preconnect External CDNs for Instant Asset Delivery -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
@@ -187,7 +188,7 @@
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
-        <!-- Modern Floating Logo Island (Enlarged) -->
+        <!-- Modern Floating Logo Island -->
         <a href="#hero" class="flex items-center gap-2 sm:gap-3 group focus:outline-none shrink-0" aria-label="EAX Agro Export">
           <div class="relative p-1.5 bg-white rounded-xl sm:rounded-2xl border border-agro-border/90 shadow-sm group-hover:shadow-md group-hover:border-emerald-500/40 transition-all duration-300 flex items-center justify-center">
             <img 
@@ -424,6 +425,10 @@
               src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80" 
               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80';"
               alt="Egyptian Export-Grade Farm Harvest" 
+              width="800"
+              height="450"
+              loading="lazy"
+              decoding="async"
               class="w-full h-80 sm:h-96 lg:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105" 
             />
             <div class="absolute inset-0 bg-gradient-to-t from-agro-forest/70 via-transparent to-transparent"></div>
@@ -609,7 +614,6 @@
       <div class="text-center mb-8 sm:mb-14 reveal-up">
         <span data-i18n="cert_badge_tag" class="text-xs font-black tracking-widest text-agro-gold uppercase">Quality & Compliance</span>
         <h2 data-i18n="cert_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Export Standards & Certifications</h2>
-        <!-- Swipe Hint on Mobile -->
         <p class="lg:hidden text-[11px] text-emerald-700 font-bold mt-2.5 flex items-center justify-center gap-1.5">
           <span>⟷</span>
           <span data-i18n="swipe_hint">Swipe sideways to browse</span>
@@ -714,7 +718,6 @@
       <div class="text-center mb-8 sm:mb-14 reveal-up">
         <span data-i18n="carrier_badge" class="text-xs font-black tracking-widest text-agro-gold uppercase">Global Maritime Alliances</span>
         <h2 data-i18n="carrier_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Top 5 Global Shipping Lines</h2>
-        <!-- Swipe Hint on Mobile -->
         <p class="lg:hidden text-[11px] text-emerald-700 font-bold mt-2.5 flex items-center justify-center gap-1.5">
           <span>⟷</span>
           <span data-i18n="swipe_hint">Swipe sideways to browse</span>
@@ -868,12 +871,21 @@
   </section>
 
   <!-- ================= 8. MODERN B2B RFQ ================= -->
-  <section id="rfq" class="py-16 sm:py-24 bg-agro-canvas border-b border-agro-border">
+  <section id="rfq" class="py-16 sm:py-24 bg-agro-canvas border-b border-agro-border relative">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8 sm:mb-10 reveal-up">
         <span data-i18n="rfq_badge" class="text-xs font-black text-agro-gold uppercase tracking-widest">B2B Trade Desk</span>
         <h2 data-i18n="rfq_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Request Container Quotation (FOB / CIF)</h2>
         <p data-i18n="rfq_desc" class="text-xs sm:text-sm text-slate-600 mt-1">Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.</p>
+      </div>
+
+      <!-- Live Success Banner Container -->
+      <div id="rfqSuccessToast" class="hidden mb-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-start text-xs sm:text-sm flex items-center gap-3 transition-all duration-300">
+        <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center shrink-0 font-bold">✓</span>
+        <div>
+          <span class="font-black block" data-i18n="rfq_success_title">Quotation Prepared Successfully!</span>
+          <span class="text-emerald-700 text-xs block" data-i18n="rfq_success_sub">Redirecting you to our official export trade desk on WhatsApp...</span>
+        </div>
       </div>
 
       <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="bg-white border border-agro-border p-6 sm:p-10 rounded-3xl shadow-sm space-y-5 reveal-up">
@@ -1049,7 +1061,7 @@
         varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсация", "Бриллианс"], varieties_zh: ["节日", "福尔图娜", "感觉", "光芒"],
         packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_ru: "Коробки 2 / 2.5 кг (10х250г лотки)", packing_zh: "2/2.5公斤纸箱 (10x250克扁盒)",
         specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_ru: "Калибр: 25-35 мм • Охлаждение за 2ч", specs_zh: "口径: 25-35毫米 • 采后2小时水冷",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1166,7 +1178,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1263,7 +1275,7 @@
         id: 30, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Air-Freight Culinary Herbs", name_ar: "أعشاب طازجة للشحن الجوي اليومي", name_ru: "Свежая зелень авиадоставкой", name_zh: "航空直航鲜食用香草",
         varieties_en: ["Dill", "Flat Parsley", "Coriander", "Spearmint"], varieties_ar: ["شبت", "بقدونس مفلطح", "كزبرة", "نعناع طازج"], varieties_ru: ["Укроп", "Петрушка листовая", "Кинза", "Мята"], varieties_zh: ["莳萝", "平叶欧芹", "香菜", "绿薄荷"],
-        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хلاдоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
+        packing_en: "1kg - 2kg Styrofoam with Top Ice Gel Packs", packing_ar: "فوم 1-2 كجم مع أكياس جل الثلج", packing_ru: "Пенопласт 1-2 кг с гелевыми хладоэлементами", packing_zh: "1-2公斤泡沫箱内配冰凝胶袋",
         specs_en: "Bunched & Cleaned • Daily Harvest Air Shipments", specs_ar: "حزم نظيفة ومغسولة • حصاد وشحن طيران يومي", specs_ru: "Мытая в пучках • Ежедневные авиарейсы", specs_zh: "捆扎清洗 • 采摘当日航空直飞",
         season_en: "October to May", season_ar: "من أكتوبر حتى مايو", season_ru: "С октября по май", season_zh: "10月至次年5月",
         months: [10,11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1618164435735-413d3b066c9a?auto=format&fit=crop&w=600&q=80"
@@ -1337,6 +1349,7 @@
         rfq_badge: "B2B Trade Desk", rfq_title: "Request Container Quotation (FOB / CIF)", rfq_desc: "Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.",
         rfq_name_lbl: "Company / Contact Name *", rfq_email_lbl: "Corporate Email *", rfq_dest_lbl: "Destination Port / Country *", rfq_produce_lbl: "Selected Produce *", rfq_vol_lbl: "Estimated Volume (Containers) *", rfq_incoterm_lbl: "Incoterm / Price Basis", rfq_notes_lbl: "Additional Specifications / Packaging", rfq_btn_submit: "Submit Formal RFQ via WhatsApp",
         rfq_name_ph: "e.g. EuroFresh Trading Ltd.", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "e.g. Rotterdam / Netherlands", rfq_vol_ph: "e.g. 2 x 40ft RF weekly", rfq_notes_ph: "Specific caliber, cartons weight, payment terms...",
+        rfq_success_title: "Quotation Prepared Successfully!", rfq_success_sub: "Redirecting you to our official export trade desk on WhatsApp...",
         cat_priority: "★ Top Priority", cat_summer: "Summer Harvest", cat_winter: "Winter Harvest", now_in_season: "In Season Now", lbl_varieties: "Export Varieties:", lbl_export_season: "Season:", btn_req_quote: "Request Allocation",
         footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 30 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
         footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
@@ -1422,6 +1435,7 @@
         rfq_badge: "مكتب التعاقدات B2B", rfq_title: "طلب عرض أسعار حاويات (FOB / CIF)", rfq_desc: "سجل متطلبات الشحنة لتحصل على تسعير فوري ومباشر من فريق التصدير عبر الواتساب.",
         rfq_name_lbl: "اسم الشركة / جهة الاتصال *", rfq_email_lbl: "البريد الإلكتروني للشركة *", rfq_dest_lbl: "ميناء الوصول / الدولة *", rfq_produce_lbl: "المحصول المطلوب *", rfq_vol_lbl: "الكمية التقديرية (عدد الحاويات) *", rfq_incoterm_lbl: "شرط الشحن الدولي (Incoterm)", rfq_notes_lbl: "ملاحظات إضافية أو شروط خاصة بالتعبئة", rfq_btn_submit: "إرسال طلب التسعير عبر واتساب",
         rfq_name_ph: "مثل: يورو فريش للتجارة الدولية", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "مثل: ميناء روتردام / هولندا", rfq_vol_ph: "مثل: 2 حاوية 40 قدم أسبوعياً", rfq_notes_ph: "المقاسات المطلوبة، أوزان الكراتين، شروط الدفع...",
+        rfq_success_title: "تم تجهيز طلب التسعير بنجاح!", rfq_success_sub: "جارٍ توجيهك الآن إلى مكتب التصدير والمبيعات عبر واتساب...",
         cat_priority: "★ أولوية قصوى", cat_summer: "محصول صيفي", cat_winter: "محصول شتوي", now_in_season: "موسم الحصاد الحالي", lbl_varieties: "الأصناف التصديرية:", lbl_export_season: "الموسم:", btn_req_quote: "حجز حصة تصديرية",
         footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 30 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.",
@@ -1507,6 +1521,7 @@
         rfq_badge: "B2B Запросы", rfq_title: "Запрос котировки на контейнер (FOB / CIF)", rfq_desc: "Заполните форму требований к партии. Запрос будет мгновенно передан нашему экспортному отделу в WhatsApp.",
         rfq_name_lbl: "Компания / Контактное лицо *", rfq_email_lbl: "Корпоративный Email *", rfq_dest_lbl: "Порт назначения / Страна *", rfq_produce_lbl: "Выбранная продукция *", rfq_vol_lbl: "Ориентировочный объем (контейнеры) *", rfq_incoterm_lbl: "Базис поставки (Incoterms)", rfq_notes_lbl: "Дополнительные требования и калибры", rfq_btn_submit: "Отправить официальный запрос в WhatsApp",
         rfq_name_ph: "напр., ТД Восток Фрут", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "напр., Новороссийск / Россия", rfq_vol_ph: "напр., 3 рефконтейнера 40ft в неделю", rfq_notes_ph: "Требуемый калибр, тип упаковки, условия оплаты...",
+        rfq_success_title: "Запрос успешно сформирован!", rfq_success_sub: "Перенаправляем вас в официальный экспортный отдел в WhatsApp...",
         cat_priority: "★ Высший приоритет", cat_summer: "Летний урожай", cat_winter: "Зимний урожай", now_in_season: "Сейчас в сезоне", lbl_varieties: "Экспортные сорта:", lbl_export_season: "Сезон:", btn_req_quote: "Запросить квоту",
         footer_about: "Египетский агроэкспортер полного цикла: калибровка, предрейсовая подготовка и морская доставка 30 видов свежих овощей и фруктов напрямую в международные торговые сети.",
         footer_contact_title: "Прямые контакты", footer_quote_title: "Ресурсы для контрактов", footer_quote_desc: "Свяжитесь с нашими менеджерами для получения сезонных программ цен FOB/CIF.",
@@ -1592,6 +1607,7 @@
         rfq_badge: "B2B 采购中心", rfq_title: "集装箱询价单 (FOB / CIF)", rfq_desc: "填写您的订购需求，询价将直接发送给出口经理，为您快速提供最新季度报价。",
         rfq_name_lbl: "公司名称 / 联系人姓名 *", rfq_email_lbl: "企业邮箱 *", rfq_dest_lbl: "目的港口 / 所在国家 *", rfq_produce_lbl: "意向农产品 *", rfq_vol_lbl: "预计采购量 (集装箱柜数) *", rfq_incoterm_lbl: "国际贸易术语 (Incoterms)", rfq_notes_lbl: "其他规格要求 / 包装细节", rfq_btn_submit: "通过 WhatsApp 提交正式询价",
         rfq_name_ph: "例如：某某国际贸易有限公司", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "例如：鹿特丹港 / 荷兰，或 青岛港 / 中国", rfq_vol_ph: "例如：每周 2 个 40英尺冷藏箱", rfq_notes_ph: "特定果径大小、箱装重量、付款条件等...",
+        rfq_success_title: "询价单生成完毕！", rfq_success_sub: "正在为您跳转至官方 WhatsApp 贸易专席...",
         cat_priority: "★ 核心主打", cat_summer: "夏季作物", cat_winter: "冬季作物", now_in_season: "当前正在产季", lbl_varieties: "出口品种:", lbl_export_season: "产季周期:", btn_req_quote: "申请采购配额",
         footer_about: "埃及综合农业出口商，专注于30种出口级优质果蔬的采后分选、智能包装与全球冷链运输，直供国际零售巨头与批发集散中心。",
         footer_contact_title: "直通联系方式", footer_quote_title: "订购资源", footer_quote_desc: "直接联络出口业务经理，获取最新季度 FOB/CIF 供货方案。",
@@ -1615,6 +1631,27 @@
 
     let currentLang = 'en';
     let currentCategory = 'all';
+
+    // Singleton Reveal Observer Instance
+    let globalRevealObserver = null;
+
+    function initRevealObserver() {
+      if (!globalRevealObserver) {
+        globalRevealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              e.target.classList.add('is-visible');
+              globalRevealObserver.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.05 });
+      }
+    }
+
+    function observeAllRevealElements() {
+      initRevealObserver();
+      document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => globalRevealObserver.observe(el));
+    }
 
     function detectDeviceLanguage() {
       const navLang = (navigator.languages && navigator.languages[0]) || navigator.language || navigator.userLanguage || '';
@@ -1649,7 +1686,7 @@
           ...(crop.varieties_zh || [])
         ].join(' ');
 
-        card.setAttribute('data-search', allSearchTerms.toLowerCase());
+        card.setAttribute('data-search', allSearchTerms.toLowerCase().normalize('NFC'));
 
         card.innerHTML = `
           <div>
@@ -1671,7 +1708,7 @@
                 </div>
               ` : ''}
 
-              <img src="${crop.image}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="" />
+              <img src="${crop.image}" width="600" height="375" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}';" loading="lazy" decoding="async" class="crop-img-zoom w-full h-full object-cover" alt="" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none"></div>
             </div>
 
@@ -1862,7 +1899,7 @@
 
     function normalizeSearchString(str) {
       if (!str) return '';
-      return str.toLowerCase()
+      return str.toLowerCase().normalize('NFC')
         .replace(/[\u0640]/g, '')
         .replace(/[أإآء]/g, 'ا')
         .replace(/ة/g, 'ه')
@@ -1975,13 +2012,6 @@
       if (m) m.classList.toggle('hidden');
     }
 
-    function observeAllRevealElements() {
-      const obs = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-      }, { threshold: 0.05 });
-      document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => obs.observe(el));
-    }
-
     function handleRFQSubmit(e) {
       e.preventDefault();
       const t = translations[currentLang];
@@ -2016,6 +2046,14 @@ ${t.wa_volume} ${payload.volume}
 ${t.wa_notes} ${payload.notes}`;
 
       const waUrl = `https://wa.me/${BACKEND_CONFIG.whatsappPhone}?text=${encodeURIComponent(msg)}`;
+      
+      // UX Feedback Banner
+      const toast = document.getElementById('rfqSuccessToast');
+      if (toast) {
+        toast.classList.remove('hidden');
+        setTimeout(() => toast.classList.add('hidden'), 5000);
+      }
+
       window.open(waUrl, '_blank', 'noopener,noreferrer');
     }
 
