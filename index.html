@@ -77,6 +77,45 @@
     body.lang-ar { font-family: 'Cairo', sans-serif; line-height: 1.7; }
     body.lang-zh { font-family: 'Noto Sans SC', sans-serif; line-height: 1.6; }
 
+    /* ULTRA MODERN GLASSMORPHIC & GLOWING ICONS */
+    .glass-icon-box {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-icon-box:hover {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: rgba(16, 185, 129, 0.7);
+      box-shadow: 0 0 30px rgba(16, 185, 129, 0.55), inset 0 0 15px rgba(16, 185, 129, 0.3);
+      transform: translateY(-3px) scale(1.08);
+    }
+    .glass-icon-box:hover svg {
+      color: #34d399 !important;
+      filter: drop-shadow(0 0 8px rgba(52, 211, 153, 0.8));
+    }
+
+    .glass-icon-box-light {
+      background: rgba(13, 56, 34, 0.04);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(13, 56, 34, 0.09);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-icon-box-light:hover {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.6);
+      box-shadow: 0 0 25px rgba(16, 185, 129, 0.35), inset 0 0 10px rgba(16, 185, 129, 0.2);
+      transform: translateY(-3px) scale(1.08);
+    }
+    .glass-icon-box-light:hover svg {
+      color: #059669 !important;
+      filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.7));
+    }
+
     .hero-export-bg {
       background: 
         radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.25) 0%, transparent 45%),
@@ -172,7 +211,7 @@
           
           <!-- Logo Container -->
           <a href="#hero" class="flex items-center group focus:outline-none shrink-0" aria-label="EAX Agro Export">
-            <div class="relative p-2 sm:p-2.5 bg-white/95 rounded-2xl border border-white/25 shadow-md group-hover:border-emerald-400 group-hover:scale-105 transition-all duration-300 flex items-center justify-center backdrop-blur-md">
+            <div class="relative p-2 sm:p-2.5 glass-icon-box rounded-2xl group-hover:scale-105 transition-all duration-300 flex items-center justify-center">
               <img 
                 id="mainLogoImg"
                 src="images/logo.jpeg" 
@@ -208,9 +247,11 @@
               <div class="pointer-events-none absolute end-2.5 top-1/2 -translate-y-1/2 text-white/80 text-[10px]">▼</div>
             </div>
 
-            <!-- PDF Catalog Button -->
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-agro-goldLight hover:bg-amber-100 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-sm">
-              <svg class="w-3.5 h-3.5 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <!-- PDF Catalog Button with Glass Icon -->
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-full bg-agro-goldLight hover:bg-amber-100 text-amber-950 border border-agro-goldBorder font-bold text-xs transition-all shadow-sm group">
+              <span class="w-6 h-6 rounded-lg glass-icon-box-light flex items-center justify-center text-agro-gold shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
               <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
             </a>
 
@@ -220,7 +261,7 @@
             </a>
 
             <!-- Mobile Hamburger Toggle Button -->
-            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-2xl bg-white/15 border border-white/25 text-white hover:bg-white/25 shadow-xs transition-colors backdrop-blur-md" aria-label="Toggle Menu">
+            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 glass-icon-box rounded-2xl text-white shadow-xs transition-colors" aria-label="Toggle Menu">
               <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
               <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -270,8 +311,10 @@
                 <span data-i18n="btn_products">Our Products</span>
                 <span class="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:-scale-x-100">→</span>
               </a>
-              <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-bold text-xs sm:text-sm border border-white/20 shadow-md transition-all">
-                <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/15 backdrop-blur-md text-white font-bold text-xs sm:text-sm border border-white/20 shadow-md transition-all group">
+                <span class="w-6 h-6 rounded-lg glass-icon-box flex items-center justify-center text-amber-300 shrink-0">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </span>
                 <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
               </a>
             </div>
@@ -284,7 +327,7 @@
                 
                 <div class="flex flex-col xs:flex-row items-start xs:items-center gap-4 sm:gap-6 border-b border-white/10 pb-6">
                   <div class="relative shrink-0">
-                    <div class="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 rounded-2xl bg-white p-2.5 sm:p-3 shadow-xl ring-1 ring-white/30 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
+                    <div class="w-24 h-24 xs:w-28 xs:h-28 sm:w-32 sm:h-32 rounded-2xl glass-icon-box p-2.5 sm:p-3 flex items-center justify-center overflow-hidden">
                       <img 
                         src="images/logo.jpeg" 
                         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
@@ -332,7 +375,9 @@
                 </div>
 
                 <div class="pt-4 border-t border-white/10 flex items-center gap-3 text-xs sm:text-sm text-slate-300">
-                  <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  <div class="w-8 h-8 rounded-xl glass-icon-box flex items-center justify-center text-emerald-400 shrink-0">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  </div>
                   <span data-i18n="hero_cert_summary" class="font-medium leading-relaxed">Full Traceability & Zero-Residue Testing (ISO 17025 Labs)</span>
                 </div>
 
@@ -343,12 +388,13 @@
         </div>
       </div>
 
-      <!-- 4-Pillar Floating Bento Dock -->
+      <!-- 4-Pillar Floating Bento Dock with Glass Neon Icons -->
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 pt-10">
         <div class="bg-white/[0.07] backdrop-blur-2xl rounded-3xl p-4 sm:p-6 border border-white/15 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-start">
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 border border-white/15">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+          
+          <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl glass-icon-box text-emerald-400 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p1_title" class="font-bold text-xs sm:text-sm text-white truncate">Fresh Produce</h4>
@@ -356,9 +402,9 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 border border-white/15">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl glass-icon-box text-emerald-400 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p2_title" class="font-bold text-xs sm:text-sm text-white truncate">Reliable Supply</h4>
@@ -366,9 +412,9 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 border border-white/15">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl glass-icon-box text-emerald-400 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p3_title" class="font-bold text-xs sm:text-sm text-white truncate">Global Markets</h4>
@@ -376,15 +422,16 @@
             </div>
           </div>
 
-          <div class="flex items-center gap-3">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 border border-white/15">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+          <div class="flex items-center gap-3 group cursor-pointer">
+            <div class="w-12 h-12 rounded-2xl glass-icon-box text-emerald-400 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p4_title" class="font-bold text-xs sm:text-sm text-white truncate">Sustainable Future</h4>
               <p data-i18n="p4_sub" class="text-[10px] sm:text-xs text-slate-300 truncate">For Generations</p>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -426,9 +473,9 @@
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border">
-              <div class="w-10 h-10 rounded-xl bg-white text-emerald-700 shadow-sm flex items-center justify-center shrink-0 border border-agro-border">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border group cursor-pointer">
+              <div class="w-11 h-11 rounded-xl glass-icon-box-light text-emerald-700 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap1_t" class="text-xs font-bold text-slate-900">Quality Assurance</h5>
@@ -436,9 +483,9 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border">
-              <div class="w-10 h-10 rounded-xl bg-white text-emerald-700 shadow-sm flex items-center justify-center shrink-0 border border-agro-border">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border group cursor-pointer">
+              <div class="w-11 h-11 rounded-xl glass-icon-box-light text-emerald-700 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap2_t" class="text-xs font-bold text-slate-900">Farmer Support</h5>
@@ -446,9 +493,9 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border">
-              <div class="w-10 h-10 rounded-xl bg-white text-emerald-700 shadow-sm flex items-center justify-center shrink-0 border border-agro-border">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border group cursor-pointer">
+              <div class="w-11 h-11 rounded-xl glass-icon-box-light text-emerald-700 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap3_t" class="text-xs font-bold text-slate-900">Safe & Compliant</h5>
@@ -456,9 +503,9 @@
               </div>
             </div>
 
-            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border">
-              <div class="w-10 h-10 rounded-xl bg-white text-emerald-700 shadow-sm flex items-center justify-center shrink-0 border border-agro-border">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+            <div class="flex items-start gap-3.5 p-3.5 rounded-2xl bg-agro-surface/60 border border-agro-border group cursor-pointer">
+              <div class="w-11 h-11 rounded-xl glass-icon-box-light text-emerald-700 flex items-center justify-center shrink-0">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap4_t" class="text-xs font-bold text-slate-900">Worldwide Distribution</h5>
@@ -485,33 +532,33 @@
         </div>
 
         <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center sm:text-start reveal-up">
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-emerald-400 mb-1.5">
-              <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 group cursor-pointer">
+            <div class="w-10 h-10 rounded-xl glass-icon-box text-emerald-400 flex items-center justify-center mb-2">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">10+</div>
             <p data-i18n="st1" class="text-[11px] text-slate-300 mt-0.5">Years of Experience</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-emerald-400 mb-1.5">
-              <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 group cursor-pointer">
+            <div class="w-10 h-10 rounded-xl glass-icon-box text-emerald-400 flex items-center justify-center mb-2">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">50+</div>
             <p data-i18n="st2" class="text-[11px] text-slate-300 mt-0.5">Countries Served</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-emerald-400 mb-1.5">
-              <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 group cursor-pointer">
+            <div class="w-10 h-10 rounded-xl glass-icon-box text-emerald-400 flex items-center justify-center mb-2">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">1000+</div>
             <p data-i18n="st3" class="text-[11px] text-slate-300 mt-0.5">Trusted Farmers</p>
           </div>
 
-          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-emerald-400 mb-1.5">
-              <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10 group cursor-pointer">
+            <div class="w-10 h-10 rounded-xl glass-icon-box text-emerald-400 flex items-center justify-center mb-2">
+              <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl lg:text-4xl font-black text-white">100%</div>
             <p data-i18n="st4" class="text-[11px] text-slate-300 mt-0.5">Commitment to Quality</p>
@@ -542,11 +589,11 @@
 
       <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 reveal-up">
         
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start group">
           <div>
             <span data-i18n="qa_s1_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">2H POST-HARVEST</span>
-            <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/></svg>
+            <div class="w-12 h-12 rounded-2xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/></svg>
             </div>
             <h3 data-i18n="qa_s1_title" class="font-black text-lg text-agro-forest mb-2">Rapid Pre-Cooling</h3>
             <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
@@ -557,11 +604,11 @@
           </div>
         </div>
 
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start group">
           <div>
             <span data-i18n="qa_s2_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">BRIX & CALIBER</span>
-            <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
+            <div class="w-12 h-12 rounded-2xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
             </div>
             <h3 data-i18n="qa_s2_title" class="font-black text-lg text-agro-forest mb-2">Optical Grading & Sizing</h3>
             <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
@@ -572,11 +619,11 @@
           </div>
         </div>
 
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start group">
           <div>
             <span data-i18n="qa_s3_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">24/7 SATELLITE</span>
-            <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
+            <div class="w-12 h-12 rounded-2xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
             </div>
             <h3 data-i18n="qa_s3_title" class="font-black text-lg text-agro-forest mb-2">IoT Reefer Tracking</h3>
             <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-slate-500 leading-relaxed">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
@@ -604,10 +651,10 @@
 
       <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 md:overflow-visible md:pb-0 reveal-up text-start">
         
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <h4 class="font-black text-sm text-agro-forest">GlobalG.A.P.</h4>
             <p data-i18n="cert_c1_sub" class="text-[11px] font-bold text-agro-primary mt-0.5">IFA Certified (v6)</p>
@@ -619,10 +666,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
             <h4 class="font-black text-sm text-agro-forest">BRCGS Food</h4>
             <p data-i18n="cert_c2_sub" class="text-[11px] font-bold text-agro-primary mt-0.5">GFSI Benchmark</p>
@@ -634,10 +681,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
             <h4 class="font-black text-sm text-agro-forest">ISO 22000</h4>
             <p data-i18n="cert_c3_sub" class="text-[11px] font-bold text-agro-primary mt-0.5">& HACCP Systems</p>
@@ -649,10 +696,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h4 class="font-black text-sm text-agro-forest">EUR.1 Document</h4>
             <p data-i18n="cert_c4_sub" class="text-[11px] font-bold text-agro-gold mt-0.5">0% Duty to EU/UK</p>
@@ -664,10 +711,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
             <h4 data-i18n="cert_c5_title" class="font-black text-sm text-agro-forest">Phytosanitary</h4>
             <p data-i18n="cert_c5_sub" class="text-[11px] font-bold text-agro-primary mt-0.5">Quarantine Passed</p>
@@ -683,7 +730,9 @@
       <!-- Trust Banner -->
       <div class="mt-8 p-4 sm:p-5 rounded-2xl bg-agro-surface border border-agro-border flex flex-wrap items-center justify-between gap-3 text-xs text-slate-600 shadow-xs reveal-up">
         <div class="flex items-center gap-2.5 font-bold text-agro-forest text-xs sm:text-sm text-start">
-          <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <div class="w-8 h-8 rounded-xl glass-icon-box-light flex items-center justify-center text-emerald-700 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
           <span data-i18n="cert_trust_text">Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.</span>
         </div>
         <div data-i18n="cert_trust_ports" class="flex items-center gap-2 text-xs font-semibold text-slate-600">
@@ -707,10 +756,10 @@
 
       <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 md:overflow-visible md:pb-0 reveal-up text-start">
         
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/></svg>
             </div>
             <span data-i18n="ship_c1_tag" class="text-[10px] font-black text-agro-gold uppercase">#1 WORLD CARRIER</span>
             <h4 class="font-black text-base text-agro-forest mt-1">MSC</h4>
@@ -722,10 +771,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
             <span data-i18n="ship_c2_tag" class="text-[10px] font-black text-agro-primary uppercase">COLD CHAIN LEADER</span>
             <h4 class="font-black text-base text-agro-forest mt-1">Maersk Line</h4>
@@ -737,10 +786,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/></svg>
             </div>
             <span data-i18n="ship_c3_tag" class="text-[10px] font-black text-agro-primary uppercase">MEDITERRANEAN</span>
             <h4 class="font-black text-base text-agro-forest mt-1">CMA CGM</h4>
@@ -752,10 +801,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg>
             </div>
             <span data-i18n="ship_c4_tag" class="text-[10px] font-black text-agro-primary uppercase">GERMAN QUALITY</span>
             <h4 class="font-black text-base text-agro-forest mt-1">Hapag-Lloyd</h4>
@@ -767,10 +816,10 @@
           </div>
         </div>
 
-        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start">
+        <div class="modern-card p-5 flex flex-col justify-between w-[78vw] xs:w-[270px] sm:w-[280px] md:w-auto shrink-0 snap-start group">
           <div>
-            <div class="w-10 h-10 rounded-xl bg-agro-surface text-agro-primary flex items-center justify-center mb-3">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <div class="w-10 h-10 rounded-xl glass-icon-box-light text-agro-primary flex items-center justify-center mb-3">
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
             <span data-i18n="ship_c5_tag" class="text-[10px] font-black text-agro-primary uppercase">ASIA & SUEZ</span>
             <h4 class="font-black text-base text-agro-forest mt-1">ONE</h4>
@@ -839,8 +888,8 @@
 
       <!-- Empty State -->
       <div id="noResultsMsg" class="hidden py-16 text-center bg-agro-canvas rounded-3xl border border-dashed border-agro-border my-6">
-        <div class="w-14 h-14 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mx-auto mb-3 shadow-xs">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <div class="w-14 h-14 rounded-2xl glass-icon-box-light text-agro-primary flex items-center justify-center mx-auto mb-3">
+          <svg class="w-7 h-7 text-emerald-700" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </div>
         <p data-i18n="no_results" class="font-extrabold text-base text-slate-800">No matching produce found.</p>
         <p data-i18n="no_results_sub" class="text-xs text-slate-500 mt-1 max-w-sm mx-auto">Try searching with another keyword or resetting your filter category.</p>
@@ -922,7 +971,7 @@
         
         <div>
           <a href="#hero" class="inline-flex items-center gap-3.5 mb-4 transition-transform hover:scale-105" aria-label="EAX Agro Export">
-            <div class="p-3 bg-white rounded-2xl shadow-sm inline-flex items-center justify-center">
+            <div class="p-3 glass-icon-box rounded-2xl inline-flex items-center justify-center">
               <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 w-auto object-contain rounded-xl" />
             </div>
             <div class="text-start">
@@ -938,15 +987,15 @@
         <div>
           <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Direct Channels</h4>
           <ul class="space-y-3.5 text-xs sm:text-sm text-slate-300">
-            <li class="flex items-center gap-3">
-              <span class="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-emerald-400 shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <li class="flex items-center gap-3 group cursor-pointer">
+              <span class="w-9 h-9 rounded-xl glass-icon-box flex items-center justify-center text-emerald-400 shrink-0">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
               <a href="tel:+201556564646" class="hover:text-white font-bold tracking-wider"><span dir="ltr">+2 015 56 56 46 46</span></a>
             </li>
-            <li class="flex items-center gap-3">
-              <span class="w-9 h-9 rounded-xl bg-emerald-600/20 border border-emerald-400/30 flex items-center justify-center text-emerald-400 shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            <li class="flex items-center gap-3 group cursor-pointer">
+              <span class="w-9 h-9 rounded-xl glass-icon-box flex items-center justify-center text-emerald-400 shrink-0">
+                <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </span>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-white font-bold tracking-wider"><span dir="ltr">+2 010 06 920 920</span></a>
             </li>
@@ -957,8 +1006,10 @@
           <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Export Resources</h4>
           <p data-i18n="footer_quote_desc" class="text-xs text-slate-400 mb-4 leading-relaxed text-start">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
           <div class="flex flex-col gap-3 max-w-sm">
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs shadow-xs transition-all">
-              <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs shadow-xs transition-all group">
+              <span class="w-6 h-6 rounded-lg glass-icon-box flex items-center justify-center text-amber-300 shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
             </a>
             <a href="#rfq" class="btn-modern-primary w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-agro-primary hover:bg-agro-primaryHover text-white font-bold text-xs shadow-md">
@@ -982,10 +1033,10 @@
       type="button" 
       id="backToTopBtn" 
       onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" 
-      class="opacity-0 pointer-events-none translate-y-3 transition-all duration-300 w-11 h-11 sm:w-12 sm:h-12 bg-agro-forest/90 hover:bg-agro-forest text-white rounded-full flex items-center justify-center shadow-xl border border-white/20 backdrop-blur-md active:scale-95" 
+      class="opacity-0 pointer-events-none translate-y-3 transition-all duration-300 w-11 h-11 sm:w-12 sm:h-12 glass-icon-box text-white rounded-full flex items-center justify-center shadow-xl active:scale-95" 
       aria-label="Back to Top"
     >
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg>
+      <svg class="w-5 h-5 text-emerald-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5"/></svg>
     </button>
 
     <!-- WhatsApp Floating Button -->
@@ -1678,18 +1729,24 @@
 
               <div class="bg-agro-canvas border border-agro-border rounded-2xl p-3 mb-3.5 space-y-1.5 text-start text-xs">
                 <div class="flex items-start gap-2 text-slate-700">
-                  <svg class="w-3.5 h-3.5 text-agro-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+                  <span class="w-5 h-5 rounded-md glass-icon-box-light flex items-center justify-center shrink-0 text-agro-gold mt-0.5">
+                    <svg class="w-3 h-3 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
+                  </span>
                   <span class="crop-packing font-semibold truncate text-[11px] sm:text-xs"></span>
                 </div>
                 <div class="flex items-start gap-2 text-slate-600">
-                  <svg class="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  <span class="w-5 h-5 rounded-md glass-icon-box-light flex items-center justify-center shrink-0 text-emerald-600 mt-0.5">
+                    <svg class="w-3 h-3 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </span>
                   <span class="crop-specs font-medium truncate text-[11px] sm:text-xs"></span>
                 </div>
               </div>
 
               <div class="bg-agro-surface rounded-2xl p-2.5 mb-3.5 border border-agro-border flex items-center justify-between gap-2">
                 <div class="flex items-center gap-1.5 text-slate-600 text-xs font-bold text-start truncate">
-                  <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  <span class="w-5 h-5 rounded-md glass-icon-box-light flex items-center justify-center shrink-0 text-agro-gold">
+                    <svg class="w-3 h-3 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                  </span>
                   <span class="season-label text-[11px] truncate"></span>
                 </div>
                 <span class="crop-season text-xs font-black text-agro-forest shrink-0"></span>
@@ -1703,7 +1760,9 @@
 
           <div class="p-5 sm:p-6 pt-0">
             <button type="button" onclick="selectCropForRFQ(${crop.id})" class="btn-modern-primary w-full py-3 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white font-extrabold text-xs flex items-center justify-center gap-2 shadow-xs transition-all group/btn">
-              <svg class="w-4 h-4 text-emerald-300 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              <span class="w-6 h-6 rounded-lg glass-icon-box flex items-center justify-center text-emerald-300 group-hover/btn:scale-110 transition-transform shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </span>
               <span class="btn-req-text"></span>
               <span class="rtl:-scale-x-100">→</span>
             </button>
@@ -1973,7 +2032,7 @@
         if (iconClose) iconClose.classList.add('hidden');
       } else {
         m.classList.remove('hidden');
-        if (iconOpen) iconOpen.classList.remove('hidden');
+        if (iconOpen) iconOpen.classList.add('hidden');
         if (iconClose) iconClose.classList.remove('hidden');
       }
     }
