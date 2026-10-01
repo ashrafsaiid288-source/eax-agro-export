@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-20 overflow-x-clip">
+<html lang="en" dir="ltr" class="scroll-smooth scroll-pt-24 overflow-x-clip">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
@@ -13,7 +13,7 @@
   <meta id="og-title" property="og:title" content="EAX AGRO EXPORT | Premium Fresh Produce Exporter" />
   <meta id="og-desc" property="og:description" content="Official 30-produce export catalog. GlobalGAP, BRCGS & EUR.1 standards." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,6 +76,29 @@
         radial-gradient(at 20% 85%, rgba(216, 230, 211, 0.5) 0px, transparent 50%);
     }
 
+    /* Logo Interactive Styling */
+    .brand-interactive-container {
+      perspective: 800px;
+      transform-style: preserve-3d;
+      transition: transform 0.15s ease-out;
+    }
+    .brand-interactive-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-shrunk .brand-interactive-card {
+      padding: 0.35rem 0.6rem !important;
+      border-color: rgba(210, 222, 208, 0.8) !important;
+      box-shadow: 0 4px 12px -2px rgba(18, 57, 36, 0.08) !important;
+    }
+    .header-shrunk #mainLogoImg {
+      height: 2.5rem !important; /* ~40px */
+    }
+    @media (min-width: 640px) {
+      .header-shrunk #mainLogoImg {
+        height: 3.25rem !important; /* ~52px */
+      }
+    }
+
     .btn-glow {
       position: relative;
       overflow: hidden;
@@ -99,9 +122,7 @@
     }
     .btn-glow:active { transform: translateY(0) scale(0.98); }
 
-    [class*="icon-glow-"] {
-      transition: all 0.35s ease;
-    }
+    [class*="icon-glow-"] { transition: all 0.35s ease; }
     .icon-glow-emerald { box-shadow: 0 0 14px 2px rgba(16, 185, 129, 0.2); }
     .group:hover .icon-glow-emerald { box-shadow: 0 0 24px 4px rgba(16, 185, 129, 0.55); }
 
@@ -187,7 +208,7 @@
       outline-offset: -1px;
     }
 
-    #main-header { transition: background-color 0.25s ease, box-shadow 0.25s ease; }
+    #main-header { transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; }
     .glass-nav {
       background: rgba(244, 246, 241, 0.94);
       backdrop-filter: blur(12px);
@@ -223,51 +244,6 @@
 </head>
 <body class="perf-bg text-slate-800 antialiased selection:bg-agro-goldLight selection:text-agro-gold relative w-full overflow-x-clip">
 
-  <!-- SVG Brand Assets -->
-  <svg xmlns="http://www.w3.org/2000/svg" class="hidden">
-    <defs>
-      <linearGradient id="slimGold" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#fff0bd"/>
-        <stop offset="35%" stop-color="#d9a838"/>
-        <stop offset="70%" stop-color="#8a5a06"/>
-        <stop offset="100%" stop-color="#e8bf56"/>
-      </linearGradient>
-      <linearGradient id="mainGreen" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#0e4b29"/>
-        <stop offset="50%" stop-color="#062e17"/>
-        <stop offset="100%" stop-color="#021c0d"/>
-      </linearGradient>
-      <linearGradient id="darkNavyArrow" x1="0%" y1="100%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#07202c"/>
-        <stop offset="50%" stop-color="#0c3245"/>
-        <stop offset="100%" stop-color="#144b68"/>
-      </linearGradient>
-      <filter id="subtleDrop" x="-5%" y="-5%" width="115%" height="115%">
-        <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
-      </filter>
-    </defs>
-    <symbol id="eax-brand-logo" viewBox="0 0 740 380">
-      <g filter="url(#subtleDrop)">
-        <path d="M 40 45 H 245 V 98 H 120 V 140 H 225 V 185 H 120 V 225 H 250 V 275 H 40 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 55 60 H 230 V 83 H 105 V 155 H 210 V 170 H 105 V 240 H 235 V 260 H 55 Z" fill="none" stroke="url(#slimGold)" stroke-width="1" opacity="0.65"/>
-        <path d="M 65 258 L 135 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-        <path d="M 95 258 L 165 185" stroke="url(#slimGold)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
-        <path d="M 355 45 H 415 L 498 275 H 432 L 412 195 H 358 L 338 275 H 272 L 355 45 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 385 88 C 362 118 360 148 385 168 C 410 148 408 118 385 88 Z" fill="#ffffff" opacity="0.95"/>
-        <path d="M 385 96 L 385 162" stroke="url(#slimGold)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-        <path d="M 235 275 C 295 258 350 218 405 200 C 355 228 305 262 250 280 Z" fill="url(#slimGold)"/>
-        <path d="M 270 278 C 330 252 390 212 450 185 C 410 220 345 262 290 284 Z" fill="#063319" stroke="url(#slimGold)" stroke-width="0.8"/>
-        <path d="M 305 282 C 368 250 428 202 488 170 C 440 212 375 262 325 288 Z" fill="url(#slimGold)"/>
-        <path d="M 475 45 H 540 L 645 275 H 580 Z" fill="url(#mainGreen)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 465 275 L 600 82 L 570 82 L 635 15 L 700 75 L 668 75 L 532 275 Z" fill="url(#darkNavyArrow)" stroke="url(#slimGold)" stroke-width="5" stroke-linejoin="round"/>
-        <path d="M 505 260 L 630 65" stroke="url(#slimGold)" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
-        <path d="M 25 344 H 145" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
-        <path d="M 595 344 H 715" stroke="url(#slimGold)" stroke-width="4.5" stroke-linecap="round"/>
-        <text x="370" y="356" text-anchor="middle" font-family="'Montserrat', 'Inter', sans-serif" font-weight="900" font-size="52" fill="url(#slimGold)" letter-spacing="13">AGRO EXPORT</text>
-      </g>
-    </symbol>
-  </svg>
-
   <!-- Announcement Bar -->
   <div class="relative z-50 bg-[#e3eae0] text-slate-700 py-1.5 px-3 sm:px-6 border-b border-agro-border">
     <div class="max-w-7xl mx-auto flex flex-wrap sm:flex-nowrap justify-between items-center gap-2">
@@ -293,14 +269,27 @@
     </div>
   </div>
 
-  <!-- Header -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative">
+  <!-- Header with Dynamic Floating Logo -->
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border relative py-1 sm:py-2">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-      <div class="h-16 sm:h-20 lg:h-24 flex items-center justify-between gap-3">
-        <a href="#hero" class="flex items-center shrink-0 py-1" aria-label="EAX Agro Export Home">
-          <svg viewBox="0 0 740 380" class="h-9 sm:h-14 md:h-16 lg:h-20 w-auto drop-shadow-sm transition-transform duration-200 hover:scale-[1.02]">
-            <use href="#eax-brand-logo"></use>
-          </svg>
+      <div id="navContainer" class="h-20 sm:h-24 lg:h-28 flex items-center justify-between gap-3 transition-all duration-300">
+        
+        <!-- Interactive 3D Brand Logo -->
+        <a href="#hero" id="brandLogoLink" class="brand-interactive-container flex items-center shrink-0 group py-1" aria-label="EAX Agro Export Home">
+          <div class="brand-interactive-card relative p-2 sm:p-2.5 rounded-2xl bg-white/90 hover:bg-white backdrop-blur-xl border border-agro-border shadow-sm group-hover:border-agro-gold/60 group-hover:shadow-2xl flex items-center justify-center overflow-hidden">
+            <!-- Ambient Brand Aura -->
+            <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/15 via-amber-500/20 to-emerald-700/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+            <!-- Dynamic Specular Glow -->
+            <div id="logoGlow" class="absolute -inset-full bg-radial from-white/40 to-transparent opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-300"></div>
+
+            <img 
+              id="mainLogoImg"
+              src="images/logo.jpeg" 
+              onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+              alt="EAX AGRO EXPORT Logo" 
+              class="h-14 sm:h-18 md:h-20 lg:h-24 w-auto object-contain drop-shadow-sm transition-all duration-300 group-hover:scale-105" 
+            />
+          </div>
         </a>
 
         <!-- Desktop Nav -->
@@ -829,10 +818,16 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pb-8 sm:pb-10 border-b border-agro-border">
         <div>
-          <a href="#hero" class="inline-block mb-4" aria-label="EAX Agro Export Home">
-            <svg viewBox="0 0 740 380" class="h-11 sm:h-14 lg:h-18 w-auto drop-shadow-sm">
-              <use href="#eax-brand-logo"></use>
-            </svg>
+          <!-- Logo Footer -->
+          <a href="#hero" class="inline-block mb-4 group" aria-label="EAX Agro Export Home">
+            <div class="p-2 sm:p-2.5 rounded-2xl bg-white/90 border border-agro-border shadow-xs group-hover:border-agro-gold/50 group-hover:shadow-md transition-all inline-flex items-center justify-center">
+              <img 
+                src="images/logo.jpeg" 
+                onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
+                alt="EAX AGRO EXPORT Logo" 
+                class="h-12 sm:h-16 lg:h-20 w-auto object-contain drop-shadow-xs group-hover:scale-105 transition-transform duration-300" 
+              />
+            </div>
           </a>
           <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-sm text-start">
             An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 30 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.
@@ -907,14 +902,14 @@
         varieties_en: ["Valencia Late", "Navel", "Baladi Juice"], varieties_ar: ["فالنسيا صيفي", "أبو سرة", "بلدي عصير"], varieties_zh: ["夏橙 (Valencia)", "脐橙 (Navel)", "果汁甜橙"], varieties_ru: ["Валенсия", "Навель", "Балади для сока"],
         packing_en: "15kg Standard Telescopic / Open Top Cartons", packing_ar: "كراتين تلسكوبية أو مفتوحة 15 كجم", packing_zh: "15kg 伸缩纸箱 / 敞口纸箱", packing_ru: "15 кг телескопические / открытые коробки",
         specs_en: "Calibers: 48 - 88 • Juice Yield (45%+)", specs_ar: "أحجام: 48 - 88 • نسبة عصير (+45%)", specs_zh: "果径: 48 - 88 • 高出汁率 (45%+)", specs_ru: "Калибры: 48 - 88 • Высокий выход сока (45%+)",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 3, is_priority: true, season_type: 'winter', category: 'vegetables',
         name_en: "Table & Processing Potatoes", name_ar: "بطاطس المائدة والتصنيع", name_zh: "鲜食与加工马铃薯", name_ru: "Картофель столовый и чипсовый",
         varieties_en: ["Spunta", "Hermes", "Lady Rosetta", "Cara"], varieties_ar: ["سبونتا", "هيرميس", "ليدي روزيتا", "كارا"], varieties_zh: ["Spunta", "Hermes", "Lady Rosetta", "Cara"], varieties_ru: ["Спунта", "Гермес", "Леди Розетта", "Кара"],
-        packing_en: "10kg / 25kg Poly Mesh Bags & 1250kg Jumbo", packing_ar: "أجولة 10/25 كجم وجامبو 1250 كجم", packing_zh: "10kg/25kg 网袋 & 1250kg 吨袋", packing_ru: "10кг / 25кг сетки и 1250кг биг-бэги",
+        packing_en: "10kg / 25kg Poly Mesh Bags & 1250kg Jumbo", packing_ar: "أجولة 10/25 كجم وجامبو 1250 كجم", packing_zh: "10kg/25kg 网袋 & 吨袋", packing_ru: "10кг / 25кг сетки и 1250кг биг-бэги",
         specs_en: "45-65mm / 65mm+ • High Dry Matter", specs_ar: "45-65 مم / +65 مم • مادة جافة عالية", specs_zh: "45-65mm / 65mm+ • 高干物质", specs_ru: "45-65мм / 65мм+ • Высокое содержание сухих веществ",
         season_en: "Mid-January to June", season_ar: "من منتصف يناير حتى يونيو", season_zh: "1月中旬至6月", season_ru: "С середины января по июнь",
         months: [1,2,3,4,5,6], image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=600&q=80"
@@ -943,7 +938,7 @@
         varieties_en: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ar: ["فيستيفال", "فورتونا", "سينسيشن", "بريليانس"], varieties_zh: ["Festival", "Fortuna", "Sensation", "Brilliance"], varieties_ru: ["Фестиваль", "Фортуна", "Сенсейшн", "Бриллианс"],
         packing_en: "2kg / 2.5kg Cartons (10x250g Flat Punnets)", packing_ar: "كراتين 2 / 2.5 كجم (10 علب × 250 جم)", packing_zh: "2kg/2.5kg 纸箱 (10x250g 扁盒装)", packing_ru: "2 кг / 2.5 кг коробки (10x250 г лотки)",
         specs_en: "Caliber: 25-35mm • Hydrocooled within 2h", specs_ar: "القطر: 25-35 مم • تبريد مائي خلال ساعتين", specs_zh: "果径: 25-35mm • 2小时内极速预冷", specs_ru: "Калибр: 25-35мм • Быстрое гидроохлаждение",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -970,7 +965,7 @@
         varieties_en: ["Pure White", "Red Baladi (Violet)"], varieties_ar: ["أبيض نقي", "بلدي أحمر"], varieties_zh: ["纯白蒜", "紫皮蒜"], varieties_ru: ["Чисто белый", "Красный Балади (фиолетовый)"],
         packing_en: "5kg / 10kg Mesh Bags or Punnet Cartons", packing_ar: "أجولة 5/10 كجم أو كراتين", packing_zh: "5kg/10kg 网袋或小盒纸箱", packing_ru: "5кг / 10кг сетки или коробки",
         specs_en: "Caliber: 45-65mm+ • Clean Roots & Stems", specs_ar: "القطر: 45-65 مم+ • جذور وسيقان نظيفة", specs_zh: "果径: 45-65mm+ • 根部已清理", specs_ru: "Калибр: 45-65мм+ • Корни очищены",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
         months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1012,7 +1007,7 @@
       {
         id: 14, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Iced Export Spring Onions", name_ar: "بصل أخضر مغطى بالثلج", name_zh: "保鲜加冰出口大葱", name_ru: "Свежий зеленый лук со льдом",
-        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбон", "Гиза Балади"],
+        varieties_en: ["Photon", "White Lisbon", "Giza Baladi"], varieties_ar: ["فوتون", "وايت لشبونة", "بلدي"], varieties_zh: ["Photon", "白里斯本葱", "吉萨大葱"], varieties_ru: ["Фотон", "Уайт Лисбоن", "Гиза Балади"],
         packing_en: "2kg / 4kg Styrofoam or Cartons with Ice", packing_ar: "فوم أو كراتين 2/4 كجم مع ثلج نقي", packing_zh: "2kg/4kg 泡沫箱或纸箱加冰保鲜", packing_ru: "2 кг / 4 кг пенопластовые ящики со льдом",
         specs_en: "Shaft Length: 7-9cm • Overall: 30-40cm", specs_ar: "طول الرأس الأبيض: 7-9 سم • الإجمالي: 30-40 سم", specs_zh: "葱白长度: 7-9cm • 总长: 30-40cm", specs_ru: "Длина белой части: 7-9см • Общая: 30-40см",
         season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
@@ -1147,7 +1142,7 @@
       {
         id: 29, is_priority: false, season_type: 'winter', category: 'vegetables',
         name_en: "Compact White & Red Cabbage", name_ar: "كرنب أبيض وأحمر صلب", name_zh: "结球白甘蓝与紫甘蓝", name_ru: "Капуста белокочанная и краснокочанная",
-        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_zh: ["荷兰白甘蓝", "红皮甘蓝"], varieties_ru: ["Белая Голландская", "Ред Руки"],
+        varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_zh: ["荷兰白甘蓝", "红皮甘蓝"], varieties_ru: ["Белая Голлаंदская", "Ред Руки"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_zh: "10kg - 15kg 纸箱或网袋", packing_ru: "10кг - 15кг коробки или сетки",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_zh: "单重: 1.5 - 3kg / 颗 • 结球紧实", specs_ru: "Вес: 1.5 - 3кг/кочан • Плотная структура",
         season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
@@ -1804,8 +1799,40 @@
       document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => globalObserver.observe(el));
     }
 
+    // 3D Parallax Tilt & Magnetic Effect for Logo
+    function initLogo3DInteractions() {
+      const logoLink = document.getElementById('brandLogoLink');
+      const logoGlow = document.getElementById('logoGlow');
+      if (!logoLink) return;
+
+      logoLink.addEventListener('mousemove', (e) => {
+        const rect = logoLink.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const deltaX = (x - centerX) / centerX;
+        const deltaY = (y - centerY) / centerY;
+
+        const rotateX = -deltaY * 18; // Max 18deg
+        const rotateY = deltaX * 18;
+
+        logoLink.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        if (logoGlow) {
+          logoGlow.style.left = `${x - rect.width}px`;
+          logoGlow.style.top = `${y - rect.height}px`;
+        }
+      });
+
+      logoLink.addEventListener('mouseleave', () => {
+        logoLink.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       initProductsDOM();
+      initLogo3DInteractions();
       changeLanguage(detectDeviceLanguage());
 
       const mobileBtn = document.getElementById('mobileMenuBtn');
@@ -1841,12 +1868,24 @@
       }
     });
 
+    // Dynamic Header & Logo shrink on scroll
     let ticking = false;
     window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const header = document.getElementById('main-header');
-          if (header) header.classList.toggle('header-shrunk', window.scrollY > 30);
+          const navContainer = document.getElementById('navContainer');
+          const isShrunk = window.scrollY > 35;
+
+          if (header) header.classList.toggle('header-shrunk', isShrunk);
+          if (navContainer) {
+            navContainer.classList.toggle('h-20', !isShrunk);
+            navContainer.classList.toggle('sm:h-24', !isShrunk);
+            navContainer.classList.toggle('lg:h-28', !isShrunk);
+            navContainer.classList.toggle('h-14', isShrunk);
+            navContainer.classList.toggle('sm:h-16', isShrunk);
+            navContainer.classList.toggle('lg:h-18', isShrunk);
+          }
           ticking = false;
         });
         ticking = true;
