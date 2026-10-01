@@ -89,13 +89,13 @@
     }
 
     .glass-nav {
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
     }
     .header-shrunk {
       box-shadow: 0 10px 30px -5px rgba(5, 24, 15, 0.08);
-      background: rgba(255, 255, 255, 0.97);
+      background: rgba(255, 255, 255, 0.98);
     }
 
     .btn-modern-primary {
@@ -184,23 +184,23 @@
   </div>
 
   <!-- ================= LUXURY MODERN NAVBAR ================= -->
-  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/80 transition-all duration-300 py-2 sm:py-3">
+  <header id="main-header" class="sticky top-0 z-40 glass-nav border-b border-agro-border/80 transition-all duration-300 py-2 sm:py-3.5">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between">
         
-        <!-- Modern Floating Logo Island (Enlarged) -->
-        <a href="#hero" class="flex items-center gap-2.5 sm:gap-4 group focus:outline-none shrink-0" aria-label="EAX Agro Export">
-          <div class="relative p-2 bg-white rounded-xl sm:rounded-2xl border border-agro-border shadow-sm group-hover:shadow-md group-hover:border-emerald-500/40 transition-all duration-300 flex items-center justify-center">
+        <!-- Modern Enlarged Floating Logo Island -->
+        <a href="#hero" class="flex items-center gap-3 sm:gap-4 group focus:outline-none shrink-0" aria-label="EAX Agro Export">
+          <div class="relative p-2.5 sm:p-3 bg-white rounded-2xl border border-agro-border shadow-sm group-hover:shadow-md group-hover:border-emerald-500/40 transition-all duration-300 flex items-center justify-center">
             <img 
               id="mainLogoImg"
               src="images/logo.jpeg" 
               onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
               alt="EAX AGRO EXPORT Logo" 
-              class="h-16 xs:h-20 sm:h-24 md:h-28 w-auto object-contain rounded-lg sm:rounded-xl transition-transform duration-300 group-hover:scale-105" 
+              class="h-20 xs:h-24 sm:h-28 md:h-32 w-auto object-contain rounded-xl transition-transform duration-300 group-hover:scale-105" 
             />
           </div>
           <div class="hidden sm:flex flex-col text-start">
-            <span class="font-black text-base sm:text-lg md:text-xl tracking-tight text-agro-forest group-hover:text-emerald-700 transition-colors leading-tight">EAX AGRO EXPORT</span>
+            <span class="font-black text-lg sm:text-xl md:text-2xl tracking-tight text-agro-forest group-hover:text-emerald-700 transition-colors leading-tight">EAX AGRO EXPORT</span>
             <span class="text-[10px] sm:text-xs tracking-widest text-slate-500 font-bold uppercase">Egyptian Fresh Produce</span>
           </div>
         </a>
@@ -307,7 +307,7 @@
               <!-- Brand Identity Header -->
               <div class="flex items-center gap-4 sm:gap-5 border-b border-white/10 pb-5">
                 <div class="relative shrink-0">
-                  <div class="w-28 h-28 xs:w-32 xs:h-32 sm:w-36 sm:h-36 md:w-44 md:h-44 rounded-2xl sm:rounded-3xl bg-white p-2.5 sm:p-3 shadow-xl ring-1 ring-white/25 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
+                  <div class="w-32 h-32 xs:w-36 xs:h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-2xl sm:rounded-3xl bg-white p-3 sm:p-4 shadow-xl ring-1 ring-white/25 flex items-center justify-center overflow-hidden transition-transform duration-300 hover:scale-[1.03]">
                     <img 
                       src="images/logo.jpeg" 
                       onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
@@ -326,7 +326,7 @@
                       <span data-i18n="hero_verified">Verified</span>
                     </span>
                   </div>
-                  <h3 data-i18n="hero_profile_title" class="text-lg xs:text-xl sm:text-2xl font-black text-white truncate mt-1">EAX AGRO EXPORT</h3>
+                  <h3 data-i18n="hero_profile_title" class="text-xl xs:text-2xl sm:text-3xl font-black text-white truncate mt-1">EAX AGRO EXPORT</h3>
                   <p data-i18n="hero_profile_sub" class="text-xs sm:text-sm text-slate-300 font-medium truncate">Alexandria & Cairo • Global Cold-Chain</p>
                 </div>
               </div>
@@ -548,7 +548,7 @@
   <!-- ================= 4. COLD CHAIN & QUALITY ================= -->
   <section id="quality-assurance" class="py-16 sm:py-24 bg-agro-canvas border-b border-agro-border relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-10 sm:mb-14 reveal-up">
+      <div class="text-center mb-8 sm:mb-14 reveal-up">
         <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white border border-agro-border text-agro-primary text-xs font-black uppercase tracking-widest mb-3 shadow-xs">
           <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span data-i18n="qa_badge">Certified Freshness & Quality</span>
@@ -557,10 +557,17 @@
         <p data-i18n="qa_desc" class="text-xs sm:text-sm font-medium text-slate-600 mt-2 max-w-2xl mx-auto leading-relaxed">
           From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.
         </p>
+        <!-- Swipe Hint on Mobile Only -->
+        <p class="md:hidden text-[11px] text-emerald-700 font-bold mt-2.5 flex items-center justify-center gap-1.5">
+          <span>⟷</span>
+          <span data-i18n="swipe_hint">Swipe sideways to browse</span>
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal-up">
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start">
+      <!-- Mobile: Horizontal Slider | iPad, Laptop & Desktop: Responsive 3-Col Grid -->
+      <div class="flex overflow-x-auto no-scrollbar snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:pb-0 reveal-up">
+        
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
           <div>
             <span data-i18n="qa_s1_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">2H POST-HARVEST</span>
             <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
@@ -575,7 +582,7 @@
           </div>
         </div>
 
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start">
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
           <div>
             <span data-i18n="qa_s2_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">BRIX & CALIBER</span>
             <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
@@ -590,7 +597,7 @@
           </div>
         </div>
 
-        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start">
+        <div class="modern-card p-6 sm:p-8 flex flex-col justify-between text-start w-[82vw] xs:w-[300px] sm:w-[320px] md:w-auto shrink-0 snap-start">
           <div>
             <span data-i18n="qa_s3_badge" class="inline-block px-3 py-1 rounded-full bg-agro-surface text-agro-primary text-[10px] font-black uppercase tracking-wider mb-4 border border-agro-border">24/7 SATELLITE</span>
             <div class="w-12 h-12 rounded-2xl bg-agro-surface text-agro-primary flex items-center justify-center mb-4">
@@ -944,8 +951,8 @@
         
         <div>
           <a href="#hero" class="inline-flex items-center gap-3.5 mb-4 transition-transform hover:scale-105" aria-label="EAX Agro Export">
-            <div class="p-2.5 bg-white rounded-2xl shadow-sm inline-flex items-center justify-center">
-              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 md:h-24 w-auto object-contain rounded-xl" />
+            <div class="p-3 bg-white rounded-2xl shadow-sm inline-flex items-center justify-center">
+              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-20 sm:h-24 md:h-28 w-auto object-contain rounded-xl" />
             </div>
             <div class="text-start">
               <span class="block text-white font-black text-base sm:text-lg">EAX AGRO EXPORT</span>
@@ -1069,7 +1076,7 @@
       {
         id: 7, is_priority: false, season_type: 'summer', category: 'fruits',
         name_en: "Wonderful Crimson Pomegranates", name_ar: "رمان وندرفول داكن", name_ru: "Гранат сорта Вандерфул", name_zh: "万德福深红石榴",
-        varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_ru: ["Вандерفул", "Ранний 116", "Балади"], varieties_zh: ["万德福", "早熟116", "本地品种"],
+        varieties_en: ["Wonderful", "Early 116", "Baladi"], varieties_ar: ["وندرفول", "إيرلي 116", "بلدي"], varieties_ru: ["Вандерфул", "Ранний 116", "Балади"], varieties_zh: ["万德福", "早熟116", "本地品种"],
         packing_en: "4.5kg / 5kg Flat Open Top Cartons", packing_ar: "كراتين مسطحة مفتوحة 4.5 / 5 كجم", packing_ru: "Коробки 4.5 / 5 кг открытые", packing_zh: "4.5/5公斤平口敞口纸箱",
         specs_en: "Counts: 8 - 14 • Deep Crimson Arils • Brix 15°+", specs_ar: "حبات: 8 - 14 • حبوب داكنة • بريكس +15°", specs_ru: "Штук: 8 - 14 • Яркие зерна • Брикс 15°+", specs_zh: "果数: 8-14个 • 宝石红果粒 • 糖度 15°+",
         season_en: "Late August to December", season_ar: "من أواخر أغسطس حتى ديسمبر", season_ru: "С конца августа по декабрь", season_zh: "8月下旬至12月",
@@ -1180,7 +1187,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_ru: ["Фримонт", "Муркотт медовый", "Клементин"], varieties_zh: ["弗里蒙特", "茂谷蜜柑", "克莱门氏小柑橘"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_ru: "Экспортные коробки 10 / 15 кг", packing_zh: "10/15公斤标准出口纸箱",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_ru: "Калибры: 1 - 5 • Легко чистятся • Брикс 11.5°+", specs_zh: "规格: 1-5号 • 易剥皮 • 糖度 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С ноября по апрель", season_zh: "11月至次年4月",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_ru: "С نوفمبر по апрель", season_zh: "11月至次年4月",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1216,7 +1223,7 @@
         varieties_en: ["Sun Red", "Early Sunglo", "Silver Gem"], varieties_ar: ["صن ريد", "إيرلي صن جلو", "سيلفر جيم"], varieties_ru: ["Сан Ред", "Сангло", "Сильвер Джем"], varieties_zh: ["太阳红", "早光辉", "银宝"],
         packing_en: "5kg Flat Cartons / Layer Packed", packing_ar: "كراتين 5 كجم / رص طبقات منتظم", packing_ru: "Коробки 5 кг рядовой укладки", packing_zh: "5公斤分层平整包装箱",
         specs_en: "Caliber: 50-65mm • Intense Blush • Brix 11°+", specs_ar: "القطر: 50-65 مم • تلوين أحمر قوي • بريكس +11°", specs_ru: "Калибр: 50-65 мм • Яркий румянец • Брикс 11°+", specs_zh: "口径: 50-65毫米 • 红晕饱满 • 糖度 11°+",
-        season_en: "May to July", season_ar: "من مايو حتى يوليو", season_ru: "С мая по июль",
+        season_en: "May to July", season_ar: "من مايو حتى يوليو", season_ru: "С мая по июль", season_zh: "5月至7月",
         months: [5,6,7], image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
       },
       {
