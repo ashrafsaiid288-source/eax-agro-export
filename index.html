@@ -306,7 +306,7 @@
 <body class="selection:bg-agro-primary selection:text-white relative w-full overflow-x-hidden">
 
   <!-- ================= 1. HERO WRAPPER ================= -->
-  <div class="relative hero-export-bg overflow-hidden text-white flex flex-col justify-between min-h-[96vh]">
+  <div class="relative hero-export-bg text-white flex flex-col justify-between min-h-screen pb-12">
 
     <!-- SMART HEADER -->
     <header id="main-header" class="smart-header py-3 sm:py-4 border-b border-white/10 bg-[#02130b]/98 backdrop-blur-md shadow-lg">
@@ -410,7 +410,7 @@
     </header>
 
     <!-- HERO CONTENT -->
-    <section id="hero" class="w-full z-10 pt-36 sm:pt-40 md:pt-48 pb-12 sm:pb-16 my-auto">
+   <section id="hero" class="w-full z-10 pt-28 sm:pt-32 md:pt-36 pb-8 my-auto"></section>
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center">
           
@@ -442,16 +442,16 @@
           </div>
 
           <!-- Right Hero: Profile Card -->
-          <div class="lg:col-span-6 relative flex items-center justify-center reveal-up">
+          <div class="lg:col-span-6 relative flex items-center justify-center reveal-up mt-6 lg:mt-0">
             <div class="soft-glow-orb w-72 h-72 sm:w-80 sm:h-80 bg-emerald-500 -top-10 -right-10"></div>
             <div class="soft-glow-orb w-60 h-60 sm:w-72 sm:h-72 bg-amber-600 -bottom-10 -left-10"></div>
 
-            <div class="relative w-full max-w-lg lg:max-w-none z-10">
-              <div class="bg-agro-forest/90 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 border border-white/15 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] text-start space-y-5 sm:space-y-6">
+            <div class="relative w-full max-w-xl lg:max-w-none z-10">
+              <div class="bg-agro-forest/95 backdrop-blur-2xl rounded-3xl p-5 sm:p-7 md:p-8 border border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] text-start space-y-5">
                 
-                <div class="flex items-center gap-4 sm:gap-6 border-b border-white/10 pb-5">
+                <div class="flex items-center gap-4 sm:gap-5 border-b border-white/10 pb-5">
                   <div class="relative shrink-0">
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl bg-white p-3 shadow-2xl border border-emerald-400/40 flex items-center justify-center">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white p-2.5 shadow-xl border border-emerald-400/40 flex items-center justify-center">
                       <img 
                         src="images/logo.jpeg" 
                         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
@@ -459,19 +459,19 @@
                         class="w-full h-full object-contain rounded-xl" 
                       />
                     </div>
-                    <span class="absolute -bottom-1 -end-1 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-500 text-white text-xs shadow-md font-black">✓</span>
+                    <span class="absolute -bottom-1 -end-1 flex h-5 w-5 sm:h-6 sm:w-6 items-center justify-center rounded-full bg-emerald-500 text-white text-[10px] sm:text-xs shadow-md font-black">✓</span>
                   </div>
 
                   <div class="min-w-0 flex-1">
-                    <div class="flex items-center justify-between gap-1.5 flex-wrap">
-                      <span data-i18n="hero_profile_badge" class="inline-block text-[10px] sm:text-[11px] font-black uppercase tracking-widest text-emerald-400">Corporate Export Profile</span>
+                    <div class="flex items-center justify-between gap-2 flex-wrap mb-1">
+                      <span data-i18n="hero_profile_badge" class="inline-block text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-emerald-400">Corporate Export Profile</span>
                       <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 text-emerald-300 text-[10px] font-bold border border-white/15">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                         <span data-i18n="hero_verified_badge">Verified</span>
                       </span>
                     </div>
-                    <h3 data-i18n="hero_profile_title" class="text-xl xs:text-2xl sm:text-3xl font-black text-white truncate mt-1">EAX AGRO EXPORT</h3>
-                    <p data-i18n="hero_profile_loc" class="text-xs sm:text-sm text-slate-300 font-medium truncate">Alexandria & Cairo • Global Cold-Chain</p>
+                    <h3 data-i18n="hero_profile_title" class="text-lg xs:text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">EAX AGRO EXPORT</h3>
+                    <p data-i18n="hero_profile_loc" class="text-xs sm:text-sm text-slate-300 font-medium mt-1 leading-snug">Alexandria & Cairo • Global Cold-Chain</p>
                   </div>
                 </div>
 
@@ -479,35 +479,34 @@
                   A specialized Egyptian agro-export enterprise operating automated packing stations and global maritime cold chains, delivering 27 certified fresh crops directly to international supermarket networks and food distributors across Europe, the Gulf, Russia, and Asia.
                 </p>
 
-                <div class="grid grid-cols-1 xs:grid-cols-2 gap-3 text-start">
-                  <div class="group bg-white/[0.04] border border-white/10 rounded-2xl p-3.5 hover:border-emerald-500/50 hover:bg-white/[0.07] transition-all">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-start">
+                  <div class="bg-white/[0.05] border border-white/10 rounded-2xl p-3 sm:p-3.5 hover:border-emerald-500/50 transition-all">
                     <span data-i18n="hero_cap_label" class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Annual Export Capacity</span>
-                    <span data-i18n="hero_cap_val" class="block text-sm sm:text-base font-black text-emerald-400 mt-0.5">45,000+ Metric Tons</span>
+                    <span data-i18n="hero_cap_val" class="block text-sm sm:text-base font-black text-emerald-400 mt-1">45,000+ Metric Tons</span>
                   </div>
-                  <div class="group bg-white/[0.04] border border-white/10 rounded-2xl p-3.5 hover:border-amber-500/50 hover:bg-white/[0.07] transition-all">
+                  <div class="bg-white/[0.05] border border-white/10 rounded-2xl p-3 sm:p-3.5 hover:border-amber-500/50 transition-all">
                     <span data-i18n="hero_cold_label" class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Cold-Chain Telemetry</span>
-                    <span data-i18n="hero_cold_val" class="block text-sm sm:text-base font-black text-amber-300 mt-0.5">100% IoT Monitored</span>
+                    <span data-i18n="hero_cold_val" class="block text-sm sm:text-base font-black text-amber-300 mt-1">100% IoT Monitored</span>
                   </div>
-                  <div class="group bg-white/[0.04] border border-white/10 rounded-2xl p-3.5 hover:border-emerald-500/50 hover:bg-white/[0.07] transition-all">
+                  <div class="bg-white/[0.05] border border-white/10 rounded-2xl p-3 sm:p-3.5 hover:border-emerald-500/50 transition-all">
                     <span data-i18n="hero_hubs_label" class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Maritime Dispatch Hubs</span>
-                    <span data-i18n="hero_hubs_val" class="block text-xs sm:text-sm font-bold text-white mt-0.5">Alexandria & Damietta</span>
+                    <span data-i18n="hero_hubs_val" class="block text-xs sm:text-sm font-bold text-white mt-1">Alexandria & Damietta</span>
                   </div>
-                  <div class="group bg-white/[0.04] border border-white/10 rounded-2xl p-3.5 hover:border-emerald-500/50 hover:bg-white/[0.07] transition-all">
+                  <div class="bg-white/[0.05] border border-white/10 rounded-2xl p-3 sm:p-3.5 hover:border-emerald-500/50 transition-all">
                     <span data-i18n="hero_tariff_label" class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Tariff Advantage</span>
-                    <span data-i18n="hero_tariff_val" class="block text-xs sm:text-sm font-bold text-white mt-0.5">EUR.1 (0% Import Duty)</span>
+                    <span data-i18n="hero_tariff_val" class="block text-xs sm:text-sm font-bold text-white mt-1">EUR.1 (0% Import Duty)</span>
                   </div>
                 </div>
 
-                <div class="pt-3 border-t border-white/10 flex items-center gap-2.5 text-[11px] sm:text-xs text-slate-300">
-                  <div class="icon-glow-box w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/30">
+                <div class="pt-3 border-t border-white/10 flex items-start sm:items-center gap-2.5 text-[11px] sm:text-xs text-slate-300">
+                  <div class="icon-glow-box w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/30 mt-0.5 sm:mt-0">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                   </div>
-                  <span data-i18n="hero_cert_summary" class="truncate font-medium">Full Traceability & Zero-Residue Testing (ISO 17025 Labs)</span>
+                  <span data-i18n="hero_cert_summary" class="font-medium leading-relaxed">Full Traceability & Zero-Residue Testing (ISO 17025 Labs)</span>
                 </div>
 
               </div>
             </div>
-
           </div>
 
         </div>
@@ -1540,11 +1539,19 @@
         rfq_name_lbl: "Company / Contact Name *", rfq_email_lbl: "Corporate Email *", rfq_dest_lbl: "Destination Port / Country *", rfq_produce_lbl: "Selected Produce *", rfq_vol_lbl: "Estimated Volume (Containers) *", rfq_inco_lbl: "Incoterm / Price Basis", rfq_notes_lbl: "Additional Specifications / Packaging", rfq_btn_submit: "Submit Formal RFQ via WhatsApp",
         rfq_name_ph: "e.g. EuroFresh Trading Ltd.", rfq_email_ph: "procurement@company.com", rfq_dest_ph: "e.g. Rotterdam / Netherlands", rfq_vol_ph: "e.g. 2 x 40ft RF weekly", rfq_notes_ph: "Specific caliber, cartons weight, payment terms...",
         opt_fob: "FOB (Alexandria / Damietta / Sokhna)", opt_cif: "CIF (Destination Port)", opt_cfr: "CFR (Cost & Freight)",
-        cat_priority: "★ Top Priority", cat_summer: "Summer Harvest", cat_winter: "Winter Harvest", now_in_season: "In Season Now", lbl_varieties: "Export Varieties:", lbl_export_season: "Season:", btn_req_quote: "Request Allocation",
-       footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 27 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
-        footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
+       cat_priority: "★ Top Priority", 
+        cat_summer: "Summer Harvest", 
+        cat_winter: "Winter Harvest", 
+        now_in_season: "In Season Now", 
+        lbl_varieties: "Export Varieties:", 
+        lbl_export_season: "Season:", 
+        btn_req_quote: "Request Allocation",
+        footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 27 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
+        footer_contact_title: "Direct Channels", 
+        footer_quote_title: "Export Resources", 
+        footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
         footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved.",
-        mixed_cargo_footer_aboutoption: "Mixed Cargo / Custom Program",
+        mixed_cargo_option: "Mixed Cargo / Custom Program",
         swipe_hint: "← Swipe horizontally to explore →"
       },
       ar: {
