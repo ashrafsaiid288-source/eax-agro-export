@@ -74,6 +74,9 @@
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     html, body {
       max-width: 100vw;
       overflow-x: hidden;
@@ -82,6 +85,7 @@
       -webkit-font-smoothing: antialiased;
       background-color: #f8faf9;
       color: #052316;
+      transform: translateZ(0);
     }
     body.lang-ar { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
     body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
@@ -116,6 +120,7 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.35;
+      transform: translateZ(0);
     }
 
     .glass-dock {
@@ -133,26 +138,26 @@
       left: 0;
       right: 0;
       z-index: 50;
-      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
       will-change: transform;
+      transform: translateZ(0);
     }
     .header-hidden {
       transform: translateY(-115%);
       box-shadow: none !important;
     }
     .header-scrolled {
-      background: rgba(3, 19, 11, 0.96) !important;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55);
-      border-bottom: 1px solid rgba(52, 211, 153, 0.25) !important;
+      background: #02130b !important;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65);
+      border-bottom: 1px solid rgba(52, 211, 153, 0.3) !important;
     }
 
     .glass-card-fresh {
       background: #ffffff;
       border: 1px solid #e2ece6;
       box-shadow: 0 8px 24px -6px rgba(5, 35, 22, 0.05);
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+      will-change: transform, box-shadow;
     }
     .glass-card-fresh:hover {
       border-color: rgba(16, 185, 129, 0.45);
@@ -162,7 +167,7 @@
     /* Modern Neon Specular Icons */
     .icon-glow-box {
       position: relative;
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
       isolation: isolate;
     }
     .icon-glow-box::after {
@@ -192,7 +197,7 @@
     }
 
     .icon-glow-gold {
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease;
     }
     .group:hover .icon-glow-gold,
     .icon-glow-gold:hover {
@@ -206,7 +211,8 @@
     .btn-glow {
       position: relative;
       overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.2s ease;
+      will-change: transform;
     }
     .btn-glow::after {
       content: '';
@@ -235,7 +241,8 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 10px 30px -10px rgba(5, 35, 22, 0.06);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+      will-change: transform, box-shadow;
     }
     @media (hover: hover) {
       .modern-crop-card:hover {
@@ -249,6 +256,7 @@
     }
     .crop-img-zoom {
       transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
     }
 
     .dock-filter-bar {
@@ -260,7 +268,7 @@
     }
 
     .month-pill {
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
       font-feature-settings: "tnum";
     }
     .month-pill.is-active {
@@ -276,12 +284,13 @@
 
     .reveal-up {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(22px) translateZ(0);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
     }
     .reveal-up.is-visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) translateZ(0);
     }
 
     @keyframes wa-pulse {
@@ -322,7 +331,7 @@
   <div class="relative hero-export-bg overflow-hidden text-white flex flex-col justify-between min-h-[96vh]">
 
     <!-- SMART AUTO-HIDE HEADER (REVEALS ON SCROLL UP) -->
-    <header id="main-header" class="smart-header py-3 sm:py-4 border-b border-white/10 bg-agro-forest/40 backdrop-blur-md">
+    <header id="main-header" class="smart-header py-3 sm:py-4 border-b border-white/10 bg-agro-forestDeep/95 backdrop-blur-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
           
@@ -361,29 +370,29 @@
           <!-- Right Controls -->
           <div class="flex items-center gap-2 sm:gap-3 shrink-0">
             
-            <!-- Language Dropdown (Styled with same opaque glass badge as the menu button) -->
+            <!-- Language Dropdown: High Contrast, Solid Non-Transparent Background -->
             <div class="relative inline-block text-start" id="langPopoverContainer">
-              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white text-[11px] sm:text-xs font-black backdrop-blur-md transition-all shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-400">
+              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white text-[11px] sm:text-xs font-black transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span id="currentLangLabel">English</span>
-                <svg id="langChevron" class="w-3.5 h-3.5 text-slate-200 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                <svg id="langChevron" class="w-3.5 h-3.5 text-slate-200 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
               </button>
 
-              <div id="langDropdownMenu" class="hidden absolute top-full mt-2 end-0 w-44 sm:w-48 bg-[#041a0f]/98 backdrop-blur-2xl border border-emerald-500/40 rounded-2xl shadow-2xl p-1.5 z-50">
-                <button type="button" onclick="selectLanguage('ar')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-emerald-800/60 text-xs font-bold text-white transition-colors">
-                  <div class="flex items-center gap-2"><span>🇪🇬</span><span>العربية</span></div>
+              <div id="langDropdownMenu" class="hidden absolute top-full mt-2 end-0 w-44 sm:w-48 bg-[#02180e] border border-emerald-500/50 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.8)] p-2 z-50">
+                <button type="button" onclick="selectLanguage('ar')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-emerald-800/70 text-xs font-bold text-white transition-colors">
+                  <div class="flex items-center gap-2.5"><span>🇪🇬</span><span>العربية</span></div>
                   <span data-check="ar" class="lang-check hidden text-emerald-400 font-bold">✓</span>
                 </button>
-                <button type="button" onclick="selectLanguage('en')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-emerald-800/60 text-xs font-bold text-white transition-colors">
-                  <div class="flex items-center gap-2"><span>🇬🇧</span><span>English</span></div>
+                <button type="button" onclick="selectLanguage('en')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-emerald-800/70 text-xs font-bold text-white transition-colors">
+                  <div class="flex items-center gap-2.5"><span>🇬🇧</span><span>English</span></div>
                   <span data-check="en" class="lang-check hidden text-emerald-400 font-bold">✓</span>
                 </button>
-                <button type="button" onclick="selectLanguage('zh')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-emerald-800/60 text-xs font-bold text-white transition-colors">
-                  <div class="flex items-center gap-2"><span>🇨🇳</span><span>中文 (简体)</span></div>
+                <button type="button" onclick="selectLanguage('zh')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-emerald-800/70 text-xs font-bold text-white transition-colors">
+                  <div class="flex items-center gap-2.5"><span>🇨🇳</span><span>中文 (简体)</span></div>
                   <span data-check="zh" class="lang-check hidden text-emerald-400 font-bold">✓</span>
                 </button>
-                <button type="button" onclick="selectLanguage('ru')" class="w-full flex items-center justify-between px-3 py-2 rounded-xl hover:bg-emerald-800/60 text-xs font-bold text-white transition-colors">
-                  <div class="flex items-center gap-2"><span>🇷🇺</span><span>Русский</span></div>
+                <button type="button" onclick="selectLanguage('ru')" class="w-full flex items-center justify-between px-3 py-2.5 rounded-xl hover:bg-emerald-800/70 text-xs font-bold text-white transition-colors">
+                  <div class="flex items-center gap-2.5"><span>🇷🇺</span><span>Русский</span></div>
                   <span data-check="ru" class="lang-check hidden text-emerald-400 font-bold">✓</span>
                 </button>
               </div>
@@ -401,7 +410,7 @@
             </a>
 
             <!-- Mobile Hamburger Menu Button -->
-            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white transition-all backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu">
+            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu">
               <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
               <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -410,7 +419,7 @@
       </div>
 
       <!-- Mobile Dropdown Navigation -->
-      <div id="mobileMenu" class="hidden lg:hidden w-full bg-[#03140c] border-t border-emerald-500/30 px-4 sm:px-6 py-5 space-y-2 shadow-2xl transition-all">
+      <div id="mobileMenu" class="hidden lg:hidden w-full bg-[#02180e] border-t border-emerald-500/30 px-4 sm:px-6 py-5 space-y-2 shadow-2xl transition-all">
         <a href="#hero" data-i18n="nav_home" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">Home</a>
         <a href="#about" data-i18n="nav_about" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">About Us</a>
         <a href="#catalog" data-i18n="nav_produce" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">Fresh Produce (27 Crops)</a>
@@ -1325,7 +1334,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_zh: ["Fremont柑", "茂谷柑 (蜂蜜柑)", "克里门丁橘"], varieties_ru: ["Фремонт", "Муркотт (медовый)", "Клементин"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_zh: "10kg / 15kg 标准出口纸箱", packing_ru: "10 кг / 15 кг стандартные коробки",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_zh: "果径等级: 1 - 5 • 易剥皮 • 甜度 11.5°+", specs_ru: "Калибры: 1 - 5 • Легко чистится • Brix 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -2129,7 +2138,7 @@
       if (!revealObserver) {
         revealObserver = new IntersectionObserver((entries) => {
           entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
       }
       document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => revealObserver.observe(el));
     }
@@ -2203,18 +2212,16 @@
       if (!headerEl) return;
       if (mobileMenu && !mobileMenu.classList.contains('hidden')) return;
 
-      // Dark blur styling when scrolled away from top
       if (currentScrollY > 30) {
         headerEl.classList.add('header-scrolled');
       } else {
         headerEl.classList.remove('header-scrolled');
       }
 
-      // Hide when scrolling DOWN, reveal when scrolling UP
       const scrollDifference = currentScrollY - lastScrollY;
-      if (currentScrollY > 100 && scrollDifference > 4) {
+      if (currentScrollY > 100 && scrollDifference > 6) {
         headerEl.classList.add('header-hidden');
-      } else if (scrollDifference < -4 || currentScrollY <= 60) {
+      } else if (scrollDifference < -6 || currentScrollY <= 60) {
         headerEl.classList.remove('header-hidden');
       }
 
