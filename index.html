@@ -50,15 +50,18 @@
           },
           colors: {
             agro: {
-              forest: '#041d11',
-              forestDeep: '#020f08',
-              primary: '#0b5230',
-              primaryHover: '#073c22',
+              forest: '#052316',
+              forestDeep: '#02130b',
+              primary: '#094328',
+              primaryHover: '#062f1c',
               emerald: '#10b981',
               lightGreen: '#34d399',
               gold: '#d97706',
               goldLight: '#fef3c7',
-              goldBorder: '#fde68a'
+              goldBorder: '#fde68a',
+              canvas: '#f8faf9',
+              cardBg: '#ffffff',
+              borderLight: '#e2ece6'
             }
           }
         }
@@ -77,59 +80,55 @@
       font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
-      background-color: #f1f7f3;
-      color: #041d11;
+      background-color: #f8faf9;
+      color: #052316;
     }
     body.lang-ar { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
     body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
 
-    /* Ultra Modern Ambient Gradients */
-    .bg-agro-fresh-gradient {
+    /* Modern European Clean Gradients */
+    .bg-agro-clean-canvas {
       background: 
-        radial-gradient(circle at 10% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
-        radial-gradient(circle at 90% 80%, rgba(217, 119, 6, 0.10) 0%, transparent 40%),
-        radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.08) 0%, transparent 60%),
-        linear-gradient(180deg, #f3f8f5 0%, #e6f0e9 100%);
+        radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
+        radial-gradient(circle at 90% 90%, rgba(217, 119, 6, 0.04) 0%, transparent 40%),
+        linear-gradient(180deg, #ffffff 0%, #f4f8f5 100%);
     }
 
-    .bg-agro-mint-soft {
+    .bg-agro-soft-mist {
       background: 
-        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.14) 0%, transparent 50%),
-        radial-gradient(circle at 15% 85%, rgba(217, 119, 6, 0.08) 0%, transparent 45%),
-        linear-gradient(180deg, #e6f0e9 0%, #d8e8dc 100%);
+        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.06) 0%, transparent 50%),
+        linear-gradient(180deg, #f4f8f5 0%, #ebf3ee 100%);
     }
 
-    /* Seamless Hero */
+    /* Seamless Deep Nordic Hero */
     .hero-export-bg {
       background: 
-        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.38) 0%, transparent 50%),
-        radial-gradient(circle at 15% 90%, rgba(217, 119, 6, 0.22) 0%, transparent 45%),
-        linear-gradient(180deg, rgba(3, 18, 10, 0.90) 0%, rgba(2, 12, 7, 0.97) 85%, #f1f7f3 100%),
+        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.32) 0%, transparent 50%),
+        radial-gradient(circle at 15% 90%, rgba(217, 119, 6, 0.20) 0%, transparent 45%),
+        linear-gradient(180deg, rgba(3, 19, 11, 0.92) 0%, rgba(2, 13, 7, 0.98) 85%, #f8faf9 100%),
         url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=2200&q=85');
       background-size: cover;
       background-position: center;
     }
 
-    /* Ambient Orbs */
     .soft-glow-orb {
       position: absolute;
       border-radius: 9999px;
-      filter: blur(100px);
+      filter: blur(110px);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.45;
+      opacity: 0.35;
     }
 
-    /* Modern Glassmorphism Dock */
+    /* Glass Dock & Smart Header */
     .glass-dock {
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.45);
     }
 
-    /* Smart Header */
     .smart-header {
       transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
       will-change: transform, opacity;
@@ -140,27 +139,26 @@
       pointer-events: none;
     }
     .header-scrolled {
-      background: rgba(4, 21, 12, 0.97) !important;
+      background: rgba(3, 19, 11, 0.97) !important;
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6);
-      border-bottom: 1px solid rgba(52, 211, 153, 0.3) !important;
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
+      border-bottom: 1px solid rgba(52, 211, 153, 0.25) !important;
     }
 
-    /* Ultra Modern Glass Cards */
+    /* Pristine Global-Standard White Card */
     .glass-card-fresh {
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      box-shadow: 0 12px 30px -8px rgba(4, 29, 17, 0.08);
+      background: #ffffff;
+      border: 1px solid #e2ece6;
+      box-shadow: 0 8px 24px -6px rgba(5, 35, 22, 0.05);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .glass-card-fresh:hover {
-      box-shadow: 0 20px 40px -10px rgba(4, 29, 17, 0.16);
+      border-color: rgba(16, 185, 129, 0.45);
+      box-shadow: 0 16px 36px -8px rgba(5, 35, 22, 0.1);
     }
 
-    /* Glowing Interactive Icons (The Core Modern Request) */
+    /* Modern Neon Specular Icons */
     .icon-glow-box {
       position: relative;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -169,28 +167,27 @@
     .icon-glow-box::after {
       content: '';
       position: absolute;
-      inset: -4px;
+      inset: -3px;
       border-radius: inherit;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.6) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, transparent 70%);
       opacity: 0;
       z-index: -1;
       transform: scale(0.85);
-      transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
-      filter: blur(8px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      filter: blur(6px);
     }
     .group:hover .icon-glow-box,
     .icon-glow-box:hover {
-      transform: translateY(-3px) scale(1.08);
-      border-color: rgba(16, 185, 129, 0.85) !important;
-      background: rgba(16, 185, 129, 0.18) !important;
+      transform: translateY(-2px) scale(1.08);
+      border-color: rgba(16, 185, 129, 0.7) !important;
+      background: #ecfdf5 !important;
       color: #059669 !important;
-      box-shadow: 0 0 20px 3px rgba(16, 185, 129, 0.45);
+      box-shadow: 0 0 18px 2px rgba(16, 185, 129, 0.35);
     }
     .group:hover .icon-glow-box::after,
     .icon-glow-box:hover::after {
       opacity: 1;
-      transform: scale(1.2);
-      filter: blur(12px);
+      transform: scale(1.15);
     }
 
     .icon-glow-gold {
@@ -198,14 +195,14 @@
     }
     .group:hover .icon-glow-gold,
     .icon-glow-gold:hover {
-      transform: translateY(-3px) scale(1.08);
-      border-color: rgba(217, 119, 6, 0.85) !important;
-      background: rgba(217, 119, 6, 0.18) !important;
+      transform: translateY(-2px) scale(1.08);
+      border-color: rgba(217, 119, 6, 0.7) !important;
+      background: #fffbeb !important;
       color: #d97706 !important;
-      box-shadow: 0 0 20px 3px rgba(217, 119, 6, 0.45);
+      box-shadow: 0 0 18px 2px rgba(217, 119, 6, 0.35);
     }
 
-    /* Buttons with Specular Glow */
+    /* Buttons */
     .btn-glow {
       position: relative;
       overflow: hidden;
@@ -225,27 +222,27 @@
     .btn-glow:hover::after { left: 160%; }
     .btn-glow:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 28px -6px rgba(11, 82, 48, 0.5);
+      box-shadow: 0 12px 26px -6px rgba(9, 67, 40, 0.45);
     }
     .btn-glow:active { transform: translateY(0) scale(0.98); }
 
     /* Modern Crop Card */
     .modern-crop-card {
       background: #ffffff;
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      border-radius: 1.75rem;
+      border: 1px solid #e2ece6;
+      border-radius: 1.5rem;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 14px 34px -10px rgba(4, 29, 17, 0.08);
+      box-shadow: 0 10px 30px -10px rgba(5, 35, 22, 0.06);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     @media (hover: hover) {
       .modern-crop-card:hover {
         transform: translateY(-6px);
-        border-color: rgba(16, 185, 129, 0.75);
-        box-shadow: 0 24px 46px -10px rgba(4, 29, 17, 0.2), 0 0 2px 1px rgba(16, 185, 129, 0.4);
+        border-color: rgba(16, 185, 129, 0.65);
+        box-shadow: 0 22px 42px -10px rgba(5, 35, 22, 0.12), 0 0 1px 1px rgba(16, 185, 129, 0.3);
       }
       .modern-crop-card:hover .crop-img-zoom {
         transform: scale(1.08);
@@ -257,13 +254,11 @@
 
     /* Dock Filter Bar */
     .dock-filter-bar {
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: #ffffff;
+      border: 1px solid #d9e7df;
       border-radius: 9999px;
       padding: 0.35rem;
-      box-shadow: 0 8px 24px -4px rgba(4, 29, 17, 0.08);
+      box-shadow: 0 4px 20px -4px rgba(5, 35, 22, 0.05);
     }
 
     /* Month Mini Pills */
@@ -272,10 +267,10 @@
       font-feature-settings: "tnum";
     }
     .month-pill.is-active {
-      background: #0b5230;
+      background: #094328;
       color: #ffffff;
       font-weight: 800;
-      box-shadow: 0 2px 6px rgba(11, 82, 48, 0.4);
+      box-shadow: 0 2px 6px rgba(9, 67, 40, 0.35);
     }
     .month-pill.is-current-month {
       outline: 2px solid #d97706;
@@ -295,7 +290,7 @@
 
     @keyframes wa-pulse {
       0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(37, 211, 102, 0.4); }
-      50% { transform: scale(1.07); box-shadow: 0 0 28px rgba(37, 211, 102, 0.75); }
+      50% { transform: scale(1.06); box-shadow: 0 0 28px rgba(37, 211, 102, 0.75); }
     }
     .wa-float-btn { animation: wa-pulse 3s ease-in-out infinite; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -396,7 +391,7 @@
       </div>
 
       <!-- Mobile Menu -->
-      <div id="mobileMenu" class="hidden lg:hidden w-full bg-[#051f12] border-t border-emerald-500/30 px-4 sm:px-6 py-5 space-y-2 shadow-2xl transition-all">
+      <div id="mobileMenu" class="hidden lg:hidden w-full bg-[#03140c] border-t border-emerald-500/30 px-4 sm:px-6 py-5 space-y-2 shadow-2xl transition-all">
         <a href="#hero" data-i18n="nav_home" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">Home</a>
         <a href="#about" data-i18n="nav_about" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">About Us</a>
         <a href="#catalog" data-i18n="nav_produce" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">Fresh Produce (27 Crops)</a>
@@ -572,12 +567,12 @@
   </div>
 
   <!-- ================= 2. ABOUT US SECTION ================= -->
-  <section id="about" class="py-16 sm:py-20 md:py-24 bg-agro-fresh-gradient border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="about" class="py-16 sm:py-20 md:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
         
         <div class="lg:col-span-5 reveal-up">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-agro-emerald/30 bg-white">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-agro-borderLight bg-white">
             <img 
               src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?auto=format&fit=crop&w=800&q=80" 
               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=80';" 
@@ -600,49 +595,49 @@
             </h2>
           </div>
           
-          <p data-i18n="about_p1" class="text-xs sm:text-sm text-agro-forestDeep leading-relaxed font-bold">
+          <p data-i18n="about_p1" class="text-xs sm:text-sm text-agro-forestDeep/85 leading-relaxed font-semibold">
             EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 27 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia under strict cold-chain standards and international GlobalGAP certifications.
           </p>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-2">
             
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-100/90 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-300/80 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap1_t" class="text-xs sm:text-sm font-black text-agro-forest">Quality Assurance</h5>
-                <p data-i18n="ap1_d" class="text-[11px] text-agro-forestDeep/85 mt-0.5 font-semibold">Strict quality control at every stage</p>
+                <p data-i18n="ap1_d" class="text-[11px] text-agro-forestDeep/75 mt-0.5 font-medium">Strict quality control at every stage</p>
               </div>
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-100/90 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-300/80 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap2_t" class="text-xs sm:text-sm font-black text-agro-forest">Farmer Support</h5>
-                <p data-i18n="ap2_d" class="text-[11px] text-agro-forestDeep/85 mt-0.5 font-semibold">Building stronger grower communities</p>
+                <p data-i18n="ap2_d" class="text-[11px] text-agro-forestDeep/75 mt-0.5 font-medium">Building stronger grower communities</p>
               </div>
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-100/90 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-300/80 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap3_t" class="text-xs sm:text-sm font-black text-agro-forest">Safe & Compliant</h5>
-                <p data-i18n="ap3_d" class="text-[11px] text-agro-forestDeep/85 mt-0.5 font-semibold">GlobalGAP, BRC & EUR.1 Certified</p>
+                <p data-i18n="ap3_d" class="text-[11px] text-agro-forestDeep/75 mt-0.5 font-medium">GlobalGAP, BRC & EUR.1 Certified</p>
               </div>
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-100/90 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-300/80 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
+                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap4_t" class="text-xs sm:text-sm font-black text-agro-forest">Worldwide Distribution</h5>
-                <p data-i18n="ap4_d" class="text-[11px] text-agro-forestDeep/85 mt-0.5 font-semibold">From our farms to your destination</p>
+                <p data-i18n="ap4_d" class="text-[11px] text-agro-forestDeep/75 mt-0.5 font-medium">From our farms to your destination</p>
               </div>
             </div>
 
@@ -661,13 +656,13 @@
   </section>
 
   <!-- ================= 3. WHY CHOOSE EAX ================= -->
-  <section id="why-choose" class="py-16 sm:py-20 bg-agro-mint-soft border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="why-choose" class="py-16 sm:py-20 bg-agro-soft-mist border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         
         <div class="lg:col-span-5 text-start space-y-2 reveal-up">
           <h3 data-i18n="why_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest tracking-tight">Why Choose EAX?</h3>
-          <p data-i18n="why_desc" class="text-agro-forestDeep/90 text-xs sm:text-sm leading-relaxed max-w-md font-bold">
+          <p data-i18n="why_desc" class="text-agro-forestDeep/85 text-xs sm:text-sm leading-relaxed max-w-md font-semibold">
             We combine local harvesting expertise with seamless global reefer supply chains to deliver the finest agricultural products worldwide.
           </p>
         </div>
@@ -675,35 +670,35 @@
         <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-5 text-center sm:text-start reveal-up">
           
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
-            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-300/80 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
+              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">10+</div>
-            <p data-i18n="st1" class="text-[10px] sm:text-xs text-agro-forestDeep/85 font-bold">Years of Experience</p>
+            <p data-i18n="st1" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Years of Experience</p>
           </div>
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
-            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-300/80 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
+              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">50+</div>
-            <p data-i18n="st2" class="text-[10px] sm:text-xs text-agro-forestDeep/85 font-bold">Countries Served</p>
+            <p data-i18n="st2" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Countries Served</p>
           </div>
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
-            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-300/80 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
+              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">1000+</div>
-            <p data-i18n="st3" class="text-[10px] sm:text-xs text-agro-forestDeep/85 font-bold">Trusted Farmers</p>
+            <p data-i18n="st3" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Trusted Farmers</p>
           </div>
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
-            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center border border-emerald-300/80 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
+              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">100%</div>
-            <p data-i18n="st4" class="text-[10px] sm:text-xs text-agro-forestDeep/85 font-bold">Commitment to Quality</p>
+            <p data-i18n="st4" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Commitment to Quality</p>
           </div>
 
         </div>
@@ -713,61 +708,61 @@
   </section>
 
   <!-- ================= 4. QUALITY ASSURANCE & COLD CHAIN ================= -->
-  <section id="quality-assurance" class="py-16 sm:py-20 md:py-24 bg-agro-fresh-gradient border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="quality-assurance" class="py-16 sm:py-20 md:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-10 sm:mb-16 reveal-up">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-agro-emerald/30 text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-agro-borderLight text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
           <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span data-i18n="qa_badge">Certified Freshness & Quality</span>
         </div>
         <h2 data-i18n="qa_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest tracking-tight">Cold Chain & Quality Control</h2>
-        <p data-i18n="qa_desc" class="text-xs sm:text-sm font-bold text-agro-forestDeep/85 mt-2 max-w-2xl mx-auto leading-relaxed">
+        <p data-i18n="qa_desc" class="text-xs sm:text-sm font-bold text-agro-forestDeep/75 mt-2 max-w-2xl mx-auto leading-relaxed">
           From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 reveal-up">
         
-        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/80 transition-all text-start flex flex-col justify-between">
+        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/60 transition-all text-start flex flex-col justify-between">
           <div>
-            <div data-i18n="qa_s1_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase border border-emerald-300 mb-4">2H POST-HARVEST</div>
-            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
+            <div data-i18n="qa_s1_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-900 text-[10px] font-black uppercase border border-emerald-200 mb-4">2H POST-HARVEST</div>
+            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50/80 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
               <svg class="w-7 h-7 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18m-18 0l3-3m-3 3l3 3m12-3l3-3m0 0l-3 3M7.5 7.5l9 9m-9 0l9-9"/></svg>
             </div>
             <h3 data-i18n="qa_s1_title" class="font-black text-base sm:text-lg text-agro-forest mb-2">Rapid Pre-Cooling</h3>
-            <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-agro-forestDeep/85 leading-relaxed font-semibold">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
+            <p data-i18n="qa_s1_desc" class="text-xs sm:text-sm text-agro-forestDeep/75 leading-relaxed font-semibold">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-emerald-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
             <span data-i18n="qa_s1_spec1">TEMP: 2°C - 4°C</span>
             <span data-i18n="qa_s1_spec2" class="text-emerald-700">Hydrocooled</span>
           </div>
         </div>
 
-        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/80 transition-all text-start flex flex-col justify-between">
+        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/60 transition-all text-start flex flex-col justify-between">
           <div>
-            <div data-i18n="qa_s2_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase border border-emerald-300 mb-4">BRIX & CALIBER</div>
-            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
+            <div data-i18n="qa_s2_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-900 text-[10px] font-black uppercase border border-emerald-200 mb-4">BRIX & CALIBER</div>
+            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50/80 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
               <svg class="w-7 h-7 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
             </div>
             <h3 data-i18n="qa_s2_title" class="font-black text-base sm:text-lg text-agro-forest mb-2">Optical Grading & Sizing</h3>
-            <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-agro-forestDeep/85 leading-relaxed font-semibold">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
+            <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-agro-forestDeep/75 leading-relaxed font-semibold">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-emerald-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
             <span data-i18n="qa_s2_spec1">ACCURACY: ±0.5mm</span>
             <span data-i18n="qa_s2_spec2" class="text-agro-gold">100% Inspected</span>
           </div>
         </div>
 
-        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/80 transition-all text-start flex flex-col justify-between">
+        <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/60 transition-all text-start flex flex-col justify-between">
           <div>
-            <div data-i18n="qa_s3_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-100 text-emerald-900 text-[10px] font-black uppercase border border-emerald-300 mb-4">24/7 SATELLITE</div>
-            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
+            <div data-i18n="qa_s3_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-900 text-[10px] font-black uppercase border border-emerald-200 mb-4">24/7 SATELLITE</div>
+            <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50/80 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
               <svg class="w-7 h-7 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M5.106 11.856c3.807-3.808 9.98-3.808 13.788 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
             </div>
             <h3 data-i18n="qa_s3_title" class="font-black text-base sm:text-lg text-agro-forest mb-2">IoT Reefer Tracking</h3>
-            <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-agro-forestDeep/85 leading-relaxed font-semibold">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
+            <p data-i18n="qa_s3_desc" class="text-xs sm:text-sm text-agro-forestDeep/75 leading-relaxed font-semibold">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
           </div>
-          <div class="mt-6 pt-4 border-t border-emerald-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] text-agro-forest font-mono font-bold">
             <span data-i18n="qa_s3_spec1">TELEMETRY: IoT Live</span>
             <span data-i18n="qa_s3_spec2" class="text-emerald-700">Unbroken Cold</span>
           </div>
@@ -778,7 +773,7 @@
   </section>
 
   <!-- ================= 5. CERTIFICATIONS ================= -->
-  <section id="certifications" class="py-16 sm:py-24 bg-agro-mint-soft border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="certifications" class="py-16 sm:py-24 bg-agro-soft-mist border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-10 sm:mb-14 reveal-up">
         <span data-i18n="cert_badge_tag" class="text-xs font-black tracking-widest text-agro-gold uppercase">Quality & Compliance</span>
@@ -788,80 +783,80 @@
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 reveal-up text-start">
         
         <!-- Cert 1 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
             </div>
             <h4 data-i18n="c1_title" class="font-black text-xs sm:text-sm text-agro-forest">GlobalG.A.P.</h4>
             <p data-i18n="c1_sub" class="text-[10px] sm:text-[11px] font-bold text-emerald-700 mt-0.5">IFA Certified (v6)</p>
-            <p data-i18n="c1_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/85 mt-2 leading-relaxed font-medium">Full on-farm food safety and traceability.</p>
+            <p data-i18n="c1_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/75 mt-2 leading-relaxed font-medium">Full on-farm food safety and traceability.</p>
           </div>
-          <div class="mt-4 pt-2.5 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="c1_meta1">REG: #EAX-GGN</span>
             <span data-i18n="c1_meta2" class="text-emerald-700">Active</span>
           </div>
         </div>
 
         <!-- Cert 2 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
             </div>
             <h4 data-i18n="c2_title" class="font-black text-xs sm:text-sm text-agro-forest">BRCGS Food</h4>
             <p data-i18n="c2_sub" class="text-[10px] sm:text-[11px] font-bold text-emerald-700 mt-0.5">GFSI Benchmark</p>
-            <p data-i18n="c2_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/85 mt-2 leading-relaxed font-medium">Packinghouse hygiene and safety audits.</p>
+            <p data-i18n="c2_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/75 mt-2 leading-relaxed font-medium">Packinghouse hygiene and safety audits.</p>
           </div>
-          <div class="mt-4 pt-2.5 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="c2_meta1">CAT: Fresh</span>
             <span data-i18n="c2_meta2" class="text-emerald-700">Grade A</span>
           </div>
         </div>
 
         <!-- Cert 3 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
             </div>
             <h4 data-i18n="c3_title" class="font-black text-xs sm:text-sm text-agro-forest">ISO 22000</h4>
             <p data-i18n="c3_sub" class="text-[10px] sm:text-[11px] font-bold text-emerald-700 mt-0.5">& HACCP Systems</p>
-            <p data-i18n="c3_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/85 mt-2 leading-relaxed font-medium">Systematic hazard analysis & cold chain.</p>
+            <p data-i18n="c3_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/75 mt-2 leading-relaxed font-medium">Systematic hazard analysis & cold chain.</p>
           </div>
-          <div class="mt-4 pt-2.5 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="c3_meta1">STD: 22000</span>
             <span data-i18n="c3_meta2" class="text-emerald-700">Compliant</span>
           </div>
         </div>
 
         <!-- Cert 4 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-amber-500 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-amber-500/60 transition-all">
           <div>
             <div class="icon-glow-gold w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center mb-3 border border-amber-200">
               <svg class="w-5 h-5 text-agro-gold transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h4 data-i18n="c4_title" class="font-black text-xs sm:text-sm text-agro-forest">EUR.1 Document</h4>
             <p data-i18n="c4_sub" class="text-[10px] sm:text-[11px] font-bold text-agro-gold mt-0.5">0% Duty to EU/UK</p>
-            <p data-i18n="c4_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/85 mt-2 leading-relaxed font-medium">Preferential zero import tariff documentation.</p>
+            <p data-i18n="c4_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/75 mt-2 leading-relaxed font-medium">Preferential zero import tariff documentation.</p>
           </div>
-          <div class="mt-4 pt-2.5 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="c4_meta1">EU-EG</span>
             <span data-i18n="c4_meta2" class="text-agro-gold">0% Tariff</span>
           </div>
         </div>
 
         <!-- Cert 5 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 col-span-2 sm:col-span-1 flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 col-span-2 sm:col-span-1 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
             </div>
             <h4 data-i18n="c5_title" class="font-black text-xs sm:text-sm text-agro-forest">Phytosanitary</h4>
             <p data-i18n="c5_sub" class="text-[10px] sm:text-[11px] font-bold text-emerald-700 mt-0.5">Quarantine Passed</p>
-            <p data-i18n="c5_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/85 mt-2 leading-relaxed font-medium">Inspection ensuring quarantine-free clearance.</p>
+            <p data-i18n="c5_desc" class="text-[10px] sm:text-[11px] text-agro-forestDeep/75 mt-2 leading-relaxed font-medium">Inspection ensuring quarantine-free clearance.</p>
           </div>
-          <div class="mt-4 pt-2.5 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="mt-4 pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="c5_meta1">MoA Inspection</span>
             <span data-i18n="c5_meta2" class="text-emerald-700">100% Passed</span>
           </div>
@@ -870,9 +865,9 @@
       </div>
 
       <!-- Trust Banner -->
-      <div class="mt-8 p-4 sm:p-5 rounded-2xl glass-card-fresh flex flex-wrap items-center justify-between gap-3 text-xs text-agro-forestDeep shadow-sm reveal-up">
+      <div class="mt-8 p-4 sm:p-5 rounded-2xl glass-card-fresh flex flex-wrap items-center justify-between gap-3 text-xs text-agro-forestDeep/85 shadow-sm reveal-up">
         <div class="flex items-center gap-2.5 font-bold text-agro-forest text-xs sm:text-sm text-start">
-          <div class="icon-glow-box w-7 h-7 rounded-lg bg-emerald-100 flex items-center justify-center text-emerald-700 shrink-0 border border-emerald-300">
+          <div class="icon-glow-box w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 shrink-0 border border-emerald-200">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
           <span data-i18n="cert_trust_text">Laboratory Residue Analysis: ISO 17025 accredited labs test every container prior to loading.</span>
@@ -885,7 +880,7 @@
   </section>
 
   <!-- ================= 6. SHIPPING LINES ================= -->
-  <section id="logistics" class="py-16 sm:py-24 bg-agro-fresh-gradient border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="logistics" class="py-16 sm:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-10 sm:mb-14 reveal-up">
         <span data-i18n="carrier_badge" class="text-xs font-black tracking-widest text-agro-gold uppercase">Global Maritime Alliances</span>
@@ -895,80 +890,80 @@
       <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 reveal-up text-start">
         
         <!-- MSC -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M2.25 19.5h19.5a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5H2.25A1.5 1.5 0 0 0 .75 15v3a1.5 1.5 0 0 0 1.5 1.5zM6 4.5h12l1.5 6H4.5L6 4.5z"/></svg>
             </div>
             <span data-i18n="ship1_tag" class="text-[10px] font-black text-agro-gold uppercase">#1 WORLD CARRIER</span>
             <h4 class="font-black text-sm sm:text-base text-agro-forest mt-1">MSC</h4>
-            <p data-i18n="ship1_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/85 mt-1 leading-relaxed font-semibold">Direct loops from Alexandria & Damietta to Black Sea & Europe.</p>
+            <p data-i18n="ship1_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/75 mt-1 leading-relaxed font-semibold">Direct loops from Alexandria & Damietta to Black Sea & Europe.</p>
           </div>
-          <div class="pt-3 mt-3 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="ship1_spec1">Medlog Smart Reefer</span>
             <span data-i18n="ship1_spec2" class="text-emerald-700">Daily Priority</span>
           </div>
         </div>
 
         <!-- Maersk -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             </div>
             <span data-i18n="ship2_tag" class="text-[10px] font-black text-emerald-700 uppercase">COLD CHAIN LEADER</span>
             <h4 class="font-black text-sm sm:text-base text-agro-forest mt-1">Maersk Line</h4>
-            <p data-i18n="ship2_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/85 mt-1 leading-relaxed font-semibold">Port Said East hub with direct 4-6 day loops to Rotterdam.</p>
+            <p data-i18n="ship2_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/75 mt-1 leading-relaxed font-semibold">Port Said East hub with direct 4-6 day loops to Rotterdam.</p>
           </div>
-          <div class="pt-3 mt-3 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="ship2_spec1">StarCool® CA + RCM</span>
             <span data-i18n="ship2_spec2" class="text-emerald-700">Live Telemetry</span>
           </div>
         </div>
 
         <!-- CMA CGM -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20M12 2a14.5 14.5 0 0 1 0 20M2 12h20"/></svg>
             </div>
             <span data-i18n="ship3_tag" class="text-[10px] font-black text-emerald-700 uppercase">MEDITERRANEAN</span>
             <h4 class="font-black text-sm sm:text-base text-agro-forest mt-1">CMA CGM</h4>
-            <p data-i18n="ship3_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/85 mt-1 leading-relaxed font-semibold">Alexandria TMT terminal operator for southern Europe.</p>
+            <p data-i18n="ship3_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/75 mt-1 leading-relaxed font-semibold">Alexandria TMT terminal operator for southern Europe.</p>
           </div>
-          <div class="pt-3 mt-3 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="ship3_spec1">Climactive® Low-O2</span>
             <span data-i18n="ship3_spec2" class="text-emerald-700">Citrus Loop</span>
           </div>
         </div>
 
         <!-- Hapag-Lloyd -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition-all">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5z"/></svg>
             </div>
             <span data-i18n="ship4_tag" class="text-[10px] font-black text-emerald-700 uppercase">GERMAN QUALITY</span>
             <h4 class="font-black text-sm sm:text-base text-agro-forest mt-1">Hapag-Lloyd</h4>
-            <p data-i18n="ship4_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/85 mt-1 leading-relaxed font-semibold">Damietta terminal partner for North Europe and the UK.</p>
+            <p data-i18n="ship4_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/75 mt-1 leading-relaxed font-semibold">Damietta terminal partner for North Europe and the UK.</p>
           </div>
-          <div class="pt-3 mt-3 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="ship4_spec1">ExtraFresh Plus®</span>
             <span data-i18n="ship4_spec2" class="text-emerald-700">Atmospheric Mod</span>
           </div>
         </div>
 
         <!-- ONE -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500 transition-all col-span-1 xs:col-span-2 lg:col-span-1">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all col-span-1 xs:col-span-2 lg:col-span-1">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
             <span data-i18n="ship5_tag" class="text-[10px] font-black text-emerald-700 uppercase">ASIA & SUEZ</span>
             <h4 class="font-black text-sm sm:text-base text-agro-forest mt-1">ONE</h4>
-            <p data-i18n="ship5_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/85 mt-1 leading-relaxed font-semibold">Express routes connecting Sokhna Port to Singapore & Shanghai.</p>
+            <p data-i18n="ship5_desc" class="text-[11px] sm:text-xs text-agro-forestDeep/75 mt-1 leading-relaxed font-semibold">Express routes connecting Sokhna Port to Singapore & Shanghai.</p>
           </div>
-          <div class="pt-3 mt-3 border-t border-emerald-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
+          <div class="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-agro-forest font-mono font-bold">
             <span data-i18n="ship5_spec1">IoT Dehumid</span>
             <span data-i18n="ship5_spec2" class="text-emerald-700">Fast Asia Transit</span>
           </div>
@@ -979,20 +974,20 @@
   </section>
 
   <!-- ================= 7. COMPLETE 27-CROP CATALOG ================= -->
-  <section id="catalog" class="py-16 sm:py-24 bg-agro-mint-soft border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="catalog" class="py-16 sm:py-24 bg-agro-soft-mist border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Catalog Heading -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 reveal-up">
         <div class="text-start max-w-2xl">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-agro-emerald/30 text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-agro-borderLight text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-ping"></span>
             <span data-i18n="catalog_badge">Official Export Catalog</span>
           </div>
           <h2 data-i18n="catalog_heading" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest tracking-tight">
             27 Export-Grade Fruits & Vegetables
           </h2>
-          <p data-i18n="catalog_sub" class="text-xs sm:text-sm text-agro-forestDeep/90 font-black mt-1">
+          <p data-i18n="catalog_sub" class="text-xs sm:text-sm text-agro-forestDeep/75 font-bold mt-1">
             Direct allocation from accredited Egyptian packing stations. Filter by season or search to view harvest windows and Reefer export specs.
           </p>
         </div>
@@ -1012,15 +1007,15 @@
         
         <div class="dock-filter-bar flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 px-1">
           <button type="button" onclick="handleFilterClick('all', event)" data-i18n="filter_all" class="filter-btn active px-4 py-2 rounded-full text-xs font-black bg-agro-primary text-white shrink-0 shadow-sm transition-all">All (27)</button>
-          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all">★ Top Priority (1-5)</button>
-          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all">Fresh Fruits</button>
-          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all">Vegetables</button>
-          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all">Summer Harvest</button>
-          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all">Winter Harvest</button>
+          <button type="button" onclick="handleFilterClick('priority', event)" data-i18n="filter_priority" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all">★ Top Priority (1-5)</button>
+          <button type="button" onclick="handleFilterClick('fruits', event)" data-i18n="filter_fruits" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all">Fresh Fruits</button>
+          <button type="button" onclick="handleFilterClick('vegetables', event)" data-i18n="filter_veg" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all">Vegetables</button>
+          <button type="button" onclick="handleFilterClick('summer', event)" data-i18n="filter_summer" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all">Summer Harvest</button>
+          <button type="button" onclick="handleFilterClick('winter', event)" data-i18n="filter_winter" class="filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all">Winter Harvest</button>
         </div>
 
         <div class="relative w-full lg:w-80 shrink-0">
-          <input type="text" id="searchInput" oninput="handleSearchInput()" data-i18n-placeholder="search_ph" placeholder="Search crop or variety..." class="w-full py-2.5 ps-10 pe-10 rounded-full bg-white border border-agro-emerald/30 text-xs text-agro-forest placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary shadow-xs transition-all font-semibold" />
+          <input type="text" id="searchInput" oninput="handleSearchInput()" data-i18n-placeholder="search_ph" placeholder="Search crop or variety..." class="w-full py-2.5 ps-10 pe-10 rounded-full bg-white border border-agro-borderLight text-xs text-agro-forest placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-agro-primary shadow-xs transition-all font-semibold" />
           <svg class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           <button type="button" id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute end-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-agro-forest p-1" aria-label="Clear Search">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
@@ -1032,12 +1027,12 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" id="products-grid"></div>
 
       <!-- Empty State -->
-      <div id="noResultsMsg" class="hidden py-16 text-center glass-card-fresh rounded-3xl border border-dashed border-agro-emerald/40 my-8">
+      <div id="noResultsMsg" class="hidden py-16 text-center glass-card-fresh rounded-3xl border border-dashed border-slate-300 my-8">
         <div class="icon-glow-box w-14 h-14 rounded-2xl bg-white text-emerald-700 flex items-center justify-center mx-auto mb-3 shadow-xs border border-emerald-200">
           <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         </div>
         <p data-i18n="no_results" class="font-extrabold text-base text-agro-forest">No matching produce found.</p>
-        <p data-i18n="no_results_sub" class="text-xs text-agro-forestDeep/80 mt-1 max-w-sm mx-auto font-medium">Try searching with another keyword or resetting your filter category.</p>
+        <p data-i18n="no_results_sub" class="text-xs text-agro-forestDeep/75 mt-1 max-w-sm mx-auto font-medium">Try searching with another keyword or resetting your filter category.</p>
         <button type="button" onclick="handleFilterClick('all'); clearSearch();" data-i18n="btn_reset_filters" class="mt-4 px-5 py-2.5 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white text-xs font-bold transition-all shadow-xs">Reset All Filters</button>
       </div>
 
@@ -1045,45 +1040,45 @@
   </section>
 
   <!-- ================= 8. B2B RFQ SECTION ================= -->
-  <section id="rfq" class="py-16 sm:py-24 bg-agro-fresh-gradient border-b border-agro-emerald/20 relative overflow-hidden">
+  <section id="rfq" class="py-16 sm:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="text-center mb-8 sm:mb-10 reveal-up">
         <span data-i18n="rfq_badge" class="text-xs font-black text-agro-gold uppercase tracking-widest">B2B Trade Desk</span>
         <h2 data-i18n="rfq_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Request Container Quotation (FOB / CIF)</h2>
-        <p data-i18n="rfq_desc" class="text-xs sm:text-sm text-agro-forestDeep/90 mt-1 font-bold">Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.</p>
+        <p data-i18n="rfq_desc" class="text-xs sm:text-sm text-agro-forestDeep/75 mt-1 font-bold">Fill out your shipment requirements. Requests are routed directly to our export managers for immediate pricing.</p>
       </div>
 
       <form id="rfqForm" onsubmit="handleRFQSubmit(event)" class="glass-card-fresh p-5 sm:p-8 md:p-10 rounded-3xl shadow-xl space-y-4 sm:space-y-5 reveal-up">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="rfqName" data-i18n="rfq_name_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Company / Contact Name *</label>
-            <input type="text" id="rfqName" required class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
+            <input type="text" id="rfqName" required class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_name_ph" placeholder="e.g. EuroFresh Trading Ltd." />
           </div>
           <div>
             <label for="rfqEmail" data-i18n="rfq_email_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Corporate Email *</label>
-            <input type="email" id="rfqEmail" required class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
+            <input type="email" id="rfqEmail" required class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_email_ph" placeholder="procurement@company.com" />
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="rfqDest" data-i18n="rfq_dest_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Destination Port / Country *</label>
-            <input type="text" id="rfqDest" required class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
+            <input type="text" id="rfqDest" required class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_dest_ph" placeholder="e.g. Rotterdam / Netherlands" />
           </div>
           <div>
             <label for="rfqProduce" data-i18n="rfq_produce_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Selected Produce *</label>
-            <select id="rfqProduce" class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all font-semibold"></select>
+            <select id="rfqProduce" class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all font-semibold"></select>
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="rfqVolume" data-i18n="rfq_vol_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Estimated Volume (Containers) *</label>
-            <input type="text" id="rfqVolume" required class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
+            <input type="text" id="rfqVolume" required class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 transition-all font-semibold" data-i18n-placeholder="rfq_vol_ph" placeholder="e.g. 2 x 40ft RF weekly" />
           </div>
           <div>
             <label for="rfqIncoterm" data-i18n="rfq_inco_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Incoterm / Price Basis</label>
-            <select id="rfqIncoterm" class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all font-semibold">
+            <select id="rfqIncoterm" class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary transition-all font-semibold">
               <option value="FOB Egyptian Ports" data-i18n="opt_fob">FOB (Alexandria / Damietta / Sokhna)</option>
               <option value="CIF Destination Port" data-i18n="opt_cif">CIF (Destination Port)</option>
               <option value="CFR Destination Port" data-i18n="opt_cfr">CFR (Cost & Freight)</option>
@@ -1093,7 +1088,7 @@
 
         <div>
           <label for="rfqNotes" data-i18n="rfq_notes_lbl" class="block text-xs font-black text-agro-forest mb-1.5 text-start">Additional Specifications / Packaging</label>
-          <textarea id="rfqNotes" rows="2" class="w-full px-4 py-3 rounded-2xl bg-white/95 border border-agro-emerald/30 text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 resize-none transition-all font-semibold" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
+          <textarea id="rfqNotes" rows="2" class="w-full px-4 py-3 rounded-2xl bg-slate-50/70 border border-agro-borderLight text-xs sm:text-sm text-agro-forest focus:outline-none focus:ring-2 focus:ring-agro-primary placeholder-slate-400 resize-none transition-all font-semibold" data-i18n-placeholder="rfq_notes_ph" placeholder="Specific caliber, cartons weight, payment terms..."></textarea>
         </div>
 
         <button type="submit" class="btn-glow w-full py-4 rounded-full bg-agro-primary hover:bg-agro-primaryHover text-white font-black text-xs sm:text-sm shadow-xl flex items-center justify-center gap-2">
@@ -1105,7 +1100,7 @@
   </section>
 
   <!-- ================= 9. FOOTER ================= -->
-  <footer id="contact" class="bg-agro-forestDeep text-slate-300 pt-16 pb-10 border-t border-agro-emerald/20 relative overflow-hidden">
+  <footer id="contact" class="bg-agro-forestDeep text-slate-300 pt-16 pb-10 border-t border-white/10 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
         
@@ -1179,7 +1174,7 @@
   <!-- ================= JAVASCRIPT ENGINE ================= -->
   <script>
     const BACKEND_CONFIG = { whatsappPhone: '201006920920' };
-    const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22375%22%20viewBox%3D%220%200%20600%20375%22%3E%3Crect%20fill%3D%22%23bdd2c2%22%20width%3D%22600%22%20height%3D%22375%22%20%2F%3E%3Ctext%20fill%3D%22%230b5230%22%20font-family%3D%22sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3EEAX%20AGRO%20EXPORT%3C%2Ftext%3E%3C%2Fsvg%3E";
+    const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22375%22%20viewBox%3D%220%200%20600%20375%22%3E%3Crect%20fill%3D%22%23e2ece6%22%20width%3D%22600%22%20height%3D%22375%22%20%2F%3E%3Ctext%20fill%3D%22%23094328%22%20font-family%3D%22sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3EEAX%20AGRO%20EXPORT%3C%2Ftext%3E%3C%2Fsvg%3E";
 
     const CROPS = [
       {
@@ -1242,7 +1237,7 @@
         varieties_en: ["Pure White", "Red Baladi (Violet)"], varieties_ar: ["أبيض نقي", "بلدي أحمر"], varieties_zh: ["纯白蒜", "紫皮蒜"], varieties_ru: ["Чисто белый", "Красный Балади (фиолетовый)"],
         packing_en: "5kg / 10kg Mesh Bags or Punnet Cartons", packing_ar: "أجولة 5/10 كجم أو كراتين", packing_zh: "5kg/10kg 网袋或小盒纸箱", packing_ru: "5кг / 10кг сетки или коробки",
         specs_en: "Caliber: 45-65mm+ • Clean Roots & Stems", specs_ar: "القطر: 45-65 مم+ • جذور وسيقان نظيفة", specs_zh: "果径: 45-65mm+ • 根部已清理", specs_ru: "Калибр: 45-65мм+ • Корни очищены",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
         months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1251,7 +1246,7 @@
         varieties_en: ["Round Table", "Cherry Plum", "Roma Beef"], varieties_ar: ["طماطم مائدة مدورة", "شيري بلوم", "روما بييف"], varieties_zh: ["圆果番茄", "樱桃小番茄", "罗马番茄"], varieties_ru: ["Круглые столовые", "Черри Слива", "Рома"],
         packing_en: "5kg - 6kg Telescopic Cartons or 10x500g Punnets", packing_ar: "كراتين 5-6 كجم أو 10 علب × 500 جم", packing_zh: "5kg - 6kg 伸缩纸箱或 10x500g 盒装", packing_ru: "5-6 кг телескопические коробки или 10x500г лотки",
         specs_en: "Caliber: 47-67mm • Firm Flesh • Turning/Red Stage", specs_ar: "القطر: 47-67 مم • قوام صلب • مرحلة تلوين متدرجة ومكتملة", specs_zh: "果径: 47-67mm • 果肉紧实 • 适合长途温控海运", specs_ru: "Калибр: 47-67мм • Плотная мякоть • Разная степень зрелости",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1771,7 +1766,7 @@
 
         card.innerHTML = `
           <div>
-            <div class="relative aspect-[16/10] bg-emerald-950/10 overflow-hidden">
+            <div class="relative aspect-[16/10] bg-slate-100 overflow-hidden">
               <div class="absolute top-3 start-3 z-10 flex items-center gap-2">
                 <span class="px-2.5 py-1 rounded-full bg-agro-forestDeep/85 backdrop-blur-md border border-white/20 text-white text-[10px] font-black tracking-wider shadow-sm">
                   #${crop.id < 10 ? '0' + crop.id : crop.id}
@@ -1801,18 +1796,18 @@
                 <div class="crop-varieties-list flex flex-wrap gap-1.5"></div>
               </div>
 
-              <div class="bg-emerald-50/70 border border-emerald-200/60 rounded-2xl p-3 mb-3.5 space-y-1.5 text-start text-xs">
+              <div class="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 mb-3.5 space-y-1.5 text-start text-xs">
                 <div class="flex items-start gap-2 text-agro-forest font-semibold">
                   <svg class="w-4 h-4 text-agro-gold shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"/></svg>
                   <span class="crop-packing font-bold truncate text-xs"></span>
                 </div>
-                <div class="flex items-start gap-2 text-agro-forestDeep font-semibold">
+                <div class="flex items-start gap-2 text-agro-forestDeep/80 font-semibold">
                   <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                   <span class="crop-specs truncate text-xs"></span>
                 </div>
               </div>
 
-              <div class="bg-[#f0f7f2] rounded-2xl p-2.5 mb-3.5 border border-emerald-200/80 flex items-center justify-between gap-2 shadow-2xs">
+              <div class="bg-slate-50 rounded-2xl p-2.5 mb-3.5 border border-slate-200/80 flex items-center justify-between gap-2 shadow-2xs">
                 <div class="flex items-center gap-1.5 text-agro-forest font-bold text-xs text-start truncate">
                   <svg class="w-3.5 h-3.5 text-agro-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                   <span class="season-label text-[11px] truncate"></span>
@@ -1891,7 +1886,7 @@
         const varList = card.querySelector('.crop-varieties-list');
         if (varList) {
           varList.innerHTML = localizedVarieties.map(v => 
-            `<span class="px-2.5 py-1 rounded-lg bg-emerald-50 border border-emerald-200/80 text-agro-forest text-[10px] font-bold shadow-2xs">${v}</span>`
+            `<span class="px-2.5 py-1 rounded-lg bg-slate-50 border border-slate-200 text-agro-forest text-[10px] font-bold shadow-2xs">${v}</span>`
           ).join('');
         }
 
@@ -1919,7 +1914,7 @@
             const mName = t.months[m - 1];
             html += `
               <div class="month-pill rounded-lg py-1 text-[9px] tracking-tight ${
-                isActive ? 'is-active' : 'bg-emerald-100/70 text-slate-600 font-semibold'
+                isActive ? 'is-active' : 'bg-slate-100 text-slate-500 font-semibold'
               } ${isNow ? 'is-current-month' : ''}" title="${mName}">
                 ${mName}
               </div>
@@ -1976,7 +1971,7 @@
       currentCategory = category;
       const buttons = document.querySelectorAll('.dock-filter-bar .filter-btn');
       buttons.forEach(btn => {
-        btn.className = 'filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-100 shrink-0 transition-all';
+        btn.className = 'filter-btn px-4 py-2 rounded-full text-xs font-bold text-agro-forest hover:bg-emerald-50 shrink-0 transition-all';
       });
 
       const activeBtn = (evt && evt.currentTarget) ? evt.currentTarget : buttons[0];
