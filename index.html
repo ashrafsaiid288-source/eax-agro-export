@@ -86,7 +86,6 @@
     body.lang-ar { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
     body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
 
-    /* Modern European Clean Gradients */
     .bg-agro-clean-canvas {
       background: 
         radial-gradient(circle at 10% 10%, rgba(16, 185, 129, 0.05) 0%, transparent 45%),
@@ -100,7 +99,6 @@
         linear-gradient(180deg, #f4f8f5 0%, #ebf3ee 100%);
     }
 
-    /* Seamless Deep Nordic Hero */
     .hero-export-bg {
       background: 
         radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.32) 0%, transparent 50%),
@@ -120,7 +118,6 @@
       opacity: 0.35;
     }
 
-    /* Glass Dock & Smart Header */
     .glass-dock {
       background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(20px);
@@ -129,24 +126,28 @@
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.45);
     }
 
+    /* Fixed Auto-Hide & Reveal Sticky Header */
     .smart-header {
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
-      will-change: transform, opacity;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      will-change: transform;
     }
     .header-hidden {
-      transform: translateY(-110%);
-      opacity: 0;
-      pointer-events: none;
+      transform: translateY(-115%);
+      box-shadow: none !important;
     }
     .header-scrolled {
-      background: rgba(3, 19, 11, 0.97) !important;
+      background: rgba(3, 19, 11, 0.96) !important;
       backdrop-filter: blur(24px);
       -webkit-backdrop-filter: blur(24px);
-      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55);
       border-bottom: 1px solid rgba(52, 211, 153, 0.25) !important;
     }
 
-    /* Pristine Global-Standard White Card */
     .glass-card-fresh {
       background: #ffffff;
       border: 1px solid #e2ece6;
@@ -202,7 +203,6 @@
       box-shadow: 0 0 18px 2px rgba(217, 119, 6, 0.35);
     }
 
-    /* Buttons */
     .btn-glow {
       position: relative;
       overflow: hidden;
@@ -226,7 +226,6 @@
     }
     .btn-glow:active { transform: translateY(0) scale(0.98); }
 
-    /* Modern Crop Card */
     .modern-crop-card {
       background: #ffffff;
       border: 1px solid #e2ece6;
@@ -252,7 +251,6 @@
       transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Dock Filter Bar */
     .dock-filter-bar {
       background: #ffffff;
       border: 1px solid #d9e7df;
@@ -261,7 +259,6 @@
       box-shadow: 0 4px 20px -4px rgba(5, 35, 22, 0.05);
     }
 
-    /* Month Mini Pills */
     .month-pill {
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       font-feature-settings: "tnum";
@@ -277,7 +274,6 @@
       outline-offset: -1px;
     }
 
-    /* Scroll In View */
     .reveal-up {
       opacity: 0;
       transform: translateY(22px);
@@ -295,6 +291,29 @@
     .wa-float-btn { animation: wa-pulse 3s ease-in-out infinite; }
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Mobile Horizontal Snap Row Utility */
+    @media (max-width: 767px) {
+      .mobile-horizontal-snap {
+        display: flex !important;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory !important;
+        -webkit-overflow-scrolling: touch !important;
+        gap: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+        padding-bottom: 0.75rem !important;
+      }
+      .mobile-horizontal-snap > * {
+        scroll-snap-align: start !important;
+        flex: 0 0 85% !important;
+        min-width: 85% !important;
+      }
+      .mobile-horizontal-snap-small > * {
+        flex: 0 0 76% !important;
+        min-width: 76% !important;
+      }
+    }
   </style>
 </head>
 <body class="selection:bg-agro-primary selection:text-white relative w-full overflow-x-hidden">
@@ -302,8 +321,8 @@
   <!-- ================= 1. HERO WRAPPER ================= -->
   <div class="relative hero-export-bg overflow-hidden text-white flex flex-col justify-between min-h-[96vh]">
 
-    <!-- SMART AUTO-HIDE HEADER -->
-    <header id="main-header" class="smart-header fixed top-0 inset-x-0 z-50 py-3 sm:py-4 border-b border-white/10 bg-agro-forest/40 backdrop-blur-md">
+    <!-- SMART AUTO-HIDE HEADER (REVEALS ON SCROLL UP) -->
+    <header id="main-header" class="smart-header py-3 sm:py-4 border-b border-white/10 bg-agro-forest/40 backdrop-blur-md">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
           
@@ -342,12 +361,12 @@
           <!-- Right Controls -->
           <div class="flex items-center gap-2 sm:gap-3 shrink-0">
             
-            <!-- Language Dropdown -->
+            <!-- Language Dropdown (Styled with same opaque glass badge as the menu button) -->
             <div class="relative inline-block text-start" id="langPopoverContainer">
-              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-full bg-white/15 hover:bg-white/25 border border-white/20 text-white text-[11px] sm:text-xs font-black backdrop-blur-md transition-all shadow-xs hover:border-emerald-400/50">
+              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white text-[11px] sm:text-xs font-black backdrop-blur-md transition-all shadow-xs focus:outline-none focus:ring-2 focus:ring-emerald-400">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span id="currentLangLabel">English</span>
-                <svg id="langChevron" class="w-3 h-3 text-slate-200 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                <svg id="langChevron" class="w-3.5 h-3.5 text-slate-200 transition-transform duration-200" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
               </button>
 
               <div id="langDropdownMenu" class="hidden absolute top-full mt-2 end-0 w-44 sm:w-48 bg-[#041a0f]/98 backdrop-blur-2xl border border-emerald-500/40 rounded-2xl shadow-2xl p-1.5 z-50">
@@ -371,18 +390,18 @@
             </div>
 
             <!-- PDF Catalog Link -->
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/15 hover:bg-white/25 text-amber-300 border border-amber-300/30 font-bold text-xs backdrop-blur-md transition-all shadow-xs hover:border-amber-300 hover:shadow-[0_0_15px_rgba(217,119,6,0.4)]">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-amber-300 border border-amber-300/30 font-bold text-xs backdrop-blur-md transition-all shadow-xs hover:border-amber-300 hover:shadow-[0_0_15px_rgba(217,119,6,0.4)]">
               <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
             </a>
 
             <!-- Get A Quote Button -->
-            <a href="#rfq" class="hidden sm:inline-flex btn-glow items-center justify-center px-4 sm:px-5 py-2 rounded-full bg-emerald-500 hover:bg-emerald-400 text-agro-forestDeep text-xs sm:text-sm font-black shadow-md transition-all">
+            <a href="#rfq" class="hidden sm:inline-flex btn-glow items-center justify-center px-4 sm:px-5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-agro-forestDeep text-xs sm:text-sm font-black shadow-md transition-all">
               <span data-i18n="cta_quote">Get a Quote</span>
             </a>
 
-            <!-- Mobile Menu Button -->
-            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white transition-all backdrop-blur-md focus:outline-none" aria-label="Toggle Navigation Menu">
+            <!-- Mobile Hamburger Menu Button -->
+            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-xl bg-white/15 hover:bg-white/25 border border-white/20 text-white transition-all backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu">
               <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"/></svg>
               <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -390,7 +409,7 @@
         </div>
       </div>
 
-      <!-- Mobile Menu -->
+      <!-- Mobile Dropdown Navigation -->
       <div id="mobileMenu" class="hidden lg:hidden w-full bg-[#03140c] border-t border-emerald-500/30 px-4 sm:px-6 py-5 space-y-2 shadow-2xl transition-all">
         <a href="#hero" data-i18n="nav_home" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">Home</a>
         <a href="#about" data-i18n="nav_about" class="block py-3 px-4 rounded-xl hover:bg-white/10 text-sm font-extrabold text-white">About Us</a>
@@ -710,7 +729,7 @@
   <!-- ================= 4. QUALITY ASSURANCE & COLD CHAIN ================= -->
   <section id="quality-assurance" class="py-16 sm:py-20 md:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-10 sm:mb-16 reveal-up">
+      <div class="text-center mb-8 sm:mb-16 reveal-up">
         <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-agro-borderLight text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
           <svg class="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           <span data-i18n="qa_badge">Certified Freshness & Quality</span>
@@ -719,9 +738,11 @@
         <p data-i18n="qa_desc" class="text-xs sm:text-sm font-bold text-agro-forestDeep/75 mt-2 max-w-2xl mx-auto leading-relaxed">
           From harvest pre-cooling to computer-monitored refrigerated containers across maritime routes.
         </p>
+        <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-3 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 reveal-up">
+      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
+      <div class="mobile-horizontal-snap md:grid md:grid-cols-3 md:gap-6 no-scrollbar reveal-up">
         
         <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/60 transition-all text-start flex flex-col justify-between">
           <div>
@@ -775,12 +796,14 @@
   <!-- ================= 5. CERTIFICATIONS ================= -->
   <section id="certifications" class="py-16 sm:py-24 bg-agro-soft-mist border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-10 sm:mb-14 reveal-up">
+      <div class="text-center mb-8 sm:mb-14 reveal-up">
         <span data-i18n="cert_badge_tag" class="text-xs font-black tracking-widest text-agro-gold uppercase">Quality & Compliance</span>
         <h2 data-i18n="cert_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Export Standards & Certifications</h2>
+        <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-2 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 reveal-up text-start">
+      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
+      <div class="mobile-horizontal-snap mobile-horizontal-snap-small md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
         
         <!-- Cert 1 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
@@ -847,7 +870,7 @@
         </div>
 
         <!-- Cert 5 -->
-        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 col-span-2 sm:col-span-1 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
+        <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
@@ -882,12 +905,14 @@
   <!-- ================= 6. SHIPPING LINES ================= -->
   <section id="logistics" class="py-16 sm:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-10 sm:mb-14 reveal-up">
+      <div class="text-center mb-8 sm:mb-14 reveal-up">
         <span data-i18n="carrier_badge" class="text-xs font-black tracking-widest text-agro-gold uppercase">Global Maritime Alliances</span>
         <h2 data-i18n="carrier_title" class="text-2xl sm:text-3xl lg:text-4xl font-black text-agro-forest mt-1">Top 5 Global Shipping Lines</h2>
+        <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-2 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4 reveal-up text-start">
+      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
+      <div class="mobile-horizontal-snap mobile-horizontal-snap-small md:grid md:grid-cols-2 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
         
         <!-- MSC -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
@@ -954,7 +979,7 @@
         </div>
 
         <!-- ONE -->
-        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all col-span-1 xs:col-span-2 lg:col-span-1">
+        <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
               <svg class="w-5 h-5 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
@@ -1246,7 +1271,7 @@
         varieties_en: ["Round Table", "Cherry Plum", "Roma Beef"], varieties_ar: ["طماطم مائدة مدورة", "شيري بلوم", "روما بييف"], varieties_zh: ["圆果番茄", "樱桃小番茄", "罗马番茄"], varieties_ru: ["Круглые столовые", "Черри Слива", "Рома"],
         packing_en: "5kg - 6kg Telescopic Cartons or 10x500g Punnets", packing_ar: "كراتين 5-6 كجم أو 10 علب × 500 جم", packing_zh: "5kg - 6kg 伸缩纸箱或 10x500g 盒装", packing_ru: "5-6 кг телескопические коробки или 10x500г лотки",
         specs_en: "Caliber: 47-67mm • Firm Flesh • Turning/Red Stage", specs_ar: "القطر: 47-67 مم • قوام صلب • مرحلة تلوين متدرجة ومكتملة", specs_zh: "果径: 47-67mm • 果肉紧实 • 适合长途温控海运", specs_ru: "Калибр: 47-67мм • Плотная мякоть • Разная степень зрелости",
-        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С نوفمبر по май",
+        season_en: "November to May", season_ar: "من نوفمبر حتى مايو", season_zh: "11月至次年5月", season_ru: "С ноября по май",
         months: [11,12,1,2,3,4,5], image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1300,7 +1325,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_zh: ["Fremont柑", "茂谷柑 (蜂蜜柑)", "克里门丁橘"], varieties_ru: ["Фремонт", "Муркотт (медовый)", "Клементин"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_zh: "10kg / 15kg 标准出口纸箱", packing_ru: "10 кг / 15 кг стандартные коробки",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_zh: "果径等级: 1 - 5 • 易剥皮 • 甜度 11.5°+", specs_ru: "Калибры: 1 - 5 • Легко чистится • Brix 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1494,7 +1519,8 @@
         footer_about: "An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 27 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.",
         footer_contact_title: "Direct Channels", footer_quote_title: "Export Resources", footer_quote_desc: "Reach out directly to our export managers for FOB/CIF season pricing programs.",
         footer_copy: "© 2026 EAX AGRO EXPORT. All rights reserved.",
-        mixed_cargo_option: "Mixed Cargo / Custom Program"
+        mixed_cargo_option: "Mixed Cargo / Custom Program",
+        swipe_hint: "← Swipe horizontally to explore →"
       },
       ar: {
         page_desc: "شركة EAX للتصدير الزراعي تربط المزارعين بالعالم وتورد أجود المحاصيل الطازجة للأسواق الدولية.",
@@ -1567,7 +1593,8 @@
         footer_about: "شركة تصدير زراعي مصرية متخصصة في توريد وتجهيز 27 محصولاً من الخضروات والفواكه الطازجة فرز أول، نربط المزارع ومحطات التعبئة المعتمدة مباشرة بسلاسل التوزيع والأسواق العالمية وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         footer_contact_title: "قنوات الاتصال المباشرة", footer_quote_title: "موارد التصدير والتعاقد", footer_quote_desc: "تواصل مع مديري التصدير للحصول على برامج تسعير الموسم بعقود FOB أو CIF.",
         footer_copy: "© 2026 EAX AGRO EXPORT. جميع الحقوق محفوظة.",
-        mixed_cargo_option: "حاويات مشكلة / برنامج توريد خاص"
+        mixed_cargo_option: "حاويات مشكلة / برنامج توريد خاص",
+        swipe_hint: "← اسحب أفقياً لتصفح المزيد →"
       },
       zh: {
         page_desc: "EAX 农业出口连接优质农场与世界，为国际市场提供高品质新鲜农产品。",
@@ -1640,7 +1667,8 @@
         footer_about: "专注于 27 种出口级埃及优质新鲜果蔬采购、分选与温控运输的专业农产品出口商，直连优质种植基地与跨国商超分拨中心。",
         footer_contact_title: "直接联系方式", footer_quote_title: "出口业务与采购", footer_quote_desc: "直接联系出口经理了解当季 FOB/CIF 价格与锁定发货配额。",
         footer_copy: "© 2026 EAX AGRO EXPORT. 保留所有权利。",
-        mixed_cargo_option: "拼箱混合配额 / 定制供应计划"
+        mixed_cargo_option: "拼箱混合配额 / 定制供应计划",
+        swipe_hint: "← 水平滑动浏览更多 →"
       },
       ru: {
         page_desc: "EAX AGRO EXPORT соединяет фермеров с миром, поставляя свежие высококачественные фрукты и овощи на международные рынки.",
@@ -1713,7 +1741,8 @@
         footer_about: "Египетская экспортная компания, специализирующаяся на поставках и логистике 27 видов отборных свежих овощей и фруктов в международные розничные сети и распределительные центры.",
         footer_contact_title: "Прямые контакты", footer_quote_title: "Экспортные программы", footer_quote_desc: "Свяжитесь напрямую с нашими экспертами по экспорту для фиксации сезонных цен FOB/CIF.",
         footer_copy: "© 2026 EAX AGRO EXPORT. Все права защищены.",
-        mixed_cargo_option: "Сборный контейнер / Индивидуальная программа"
+        mixed_cargo_option: "Сборный контейнер / Индивидуальная программа",
+        swipe_hint: "← Прокрутите по горизонтали →"
       }
     };
 
@@ -2163,30 +2192,33 @@
       });
     });
 
-    /* Auto-Hide Header */
-    let lastScrollY = window.scrollY;
+    /* Professional Sticky Header: Hide on Scroll Down, Reveal on Scroll Up */
+    let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
     const headerEl = document.getElementById('main-header');
 
     window.addEventListener('scroll', () => {
-      const currentScrollY = window.scrollY;
+      const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
       const mobileMenu = document.getElementById('mobileMenu');
 
       if (!headerEl) return;
       if (mobileMenu && !mobileMenu.classList.contains('hidden')) return;
 
-      if (currentScrollY > 40) {
+      // Dark blur styling when scrolled away from top
+      if (currentScrollY > 30) {
         headerEl.classList.add('header-scrolled');
       } else {
         headerEl.classList.remove('header-scrolled');
       }
 
-      if (currentScrollY > 120 && currentScrollY > lastScrollY) {
+      // Hide when scrolling DOWN, reveal when scrolling UP
+      const scrollDifference = currentScrollY - lastScrollY;
+      if (currentScrollY > 100 && scrollDifference > 4) {
         headerEl.classList.add('header-hidden');
-      } else {
+      } else if (scrollDifference < -4 || currentScrollY <= 60) {
         headerEl.classList.remove('header-hidden');
       }
 
-      lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+      lastScrollY = Math.max(0, currentScrollY);
     }, { passive: true });
   </script>
 </body>
