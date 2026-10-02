@@ -131,7 +131,6 @@
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.45);
     }
 
-    /* Fixed Header - Disappears when scrolling down, reveals ONLY at the very top */
     .smart-header {
       position: fixed;
       top: 0;
@@ -160,7 +159,6 @@
       box-shadow: 0 16px 36px -8px rgba(5, 35, 22, 0.1);
     }
 
-    /* Modern Neon Specular Icons */
     .icon-glow-box {
       position: relative;
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
@@ -192,18 +190,6 @@
       transform: scale(1.15);
     }
 
-    .icon-glow-gold {
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease;
-    }
-    .group:hover .icon-glow-gold,
-    .icon-glow-gold:hover {
-      transform: translateY(-2px) scale(1.08);
-      border-color: rgba(217, 119, 6, 0.7) !important;
-      background: #fffbeb !important;
-      color: #d97706 !important;
-      box-shadow: 0 0 18px 2px rgba(217, 119, 6, 0.35);
-    }
-
     .btn-glow {
       position: relative;
       overflow: hidden;
@@ -226,7 +212,6 @@
       transform: translateY(-2px);
       box-shadow: 0 12px 26px -6px rgba(9, 67, 40, 0.45);
     }
-    .btn-glow:active { transform: translateY(0) scale(0.98); }
 
     .modern-crop-card {
       background: #ffffff;
@@ -297,7 +282,6 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* Mobile Horizontal Snap Row Utility */
     @media (max-width: 767px) {
       .mobile-horizontal-snap {
         display: flex !important;
@@ -314,10 +298,6 @@
         flex: 0 0 85% !important;
         min-width: 85% !important;
       }
-      .mobile-horizontal-snap-small > * {
-        flex: 0 0 76% !important;
-        min-width: 76% !important;
-      }
     }
   </style>
 </head>
@@ -326,27 +306,27 @@
   <!-- ================= 1. HERO WRAPPER ================= -->
   <div class="relative hero-export-bg overflow-hidden text-white flex flex-col justify-between min-h-[96vh]">
 
-    <!-- SMART HEADER: VISIBLE ONLY AT THE VERY TOP -->
+    <!-- SMART HEADER: ENLARGED LOGO -->
     <header id="main-header" class="smart-header py-3 sm:py-4 border-b border-white/10 bg-[#02130b]/98 backdrop-blur-md shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between">
           
           <!-- Brand Logo: Scaled Up Significantly -->
-          <a href="#hero" class="flex items-center gap-3 sm:gap-4 shrink-0 focus:outline-none group" aria-label="EAX Agro Export Home">
-            <div class="p-1.5 sm:p-2 bg-white rounded-2xl shadow-md border border-white/40 transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.55)]">
+          <a href="#hero" class="flex items-center gap-3.5 sm:gap-5 shrink-0 focus:outline-none group" aria-label="EAX Agro Export Home">
+            <div class="p-2 sm:p-2.5 bg-white rounded-2xl shadow-md border border-white/50 transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.55)]">
               <img 
                 id="mainLogoImg" 
                 src="images/logo.jpeg" 
                 onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
                 alt="EAX Logo" 
-                class="h-12 xs:h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain rounded-xl" 
+                class="h-16 xs:h-18 sm:h-20 md:h-24 w-auto object-contain rounded-xl" 
               />
             </div>
             <div class="flex flex-col text-start">
-              <span class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-none text-white drop-shadow-sm group-hover:text-emerald-300 transition-colors">
+              <span class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-none text-white drop-shadow-sm group-hover:text-emerald-300 transition-colors">
                 EAX
               </span>
-              <span class="text-[10px] sm:text-xs md:text-sm font-black uppercase tracking-wider text-emerald-300 leading-tight mt-1" data-i18n="header_sub_brand">
+              <span class="text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider text-emerald-300 leading-tight mt-1" data-i18n="header_sub_brand">
                 AGRO EXPORT
               </span>
             </div>
@@ -363,10 +343,8 @@
             <a href="#contact" data-i18n="nav_contact" class="hover:text-emerald-300 transition-colors">Contact</a>
           </nav>
 
-          <!-- Right Controls: Language & Mobile Menu -->
+          <!-- Right Controls -->
           <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-            
-            <!-- Language Dropdown: Solid Luxury Container -->
             <div class="relative inline-block text-start" id="langPopoverContainer">
               <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white text-xs font-black transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400">
                 <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -394,18 +372,15 @@
               </div>
             </div>
 
-            <!-- PDF Catalog Link -->
             <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-amber-300 border border-amber-300/30 font-bold text-xs backdrop-blur-md transition-all shadow-xs hover:border-amber-300 hover:shadow-[0_0_15px_rgba(217,119,6,0.4)]">
               <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
               <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
             </a>
 
-            <!-- Get A Quote Button -->
             <a href="#rfq" class="hidden sm:inline-flex btn-glow items-center justify-center px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-agro-forestDeep text-xs sm:text-sm font-black shadow-md transition-all">
               <span data-i18n="cta_quote">Get a Quote</span>
             </a>
 
-            <!-- Three Bars Mobile Hamburger Menu Button -->
             <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu">
               <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
               <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
@@ -432,11 +407,10 @@
     </header>
 
     <!-- HERO CONTENT -->
-    <section id="hero" class="w-full z-10 pt-32 sm:pt-36 md:pt-44 pb-12 sm:pb-16 my-auto">
+    <section id="hero" class="w-full z-10 pt-36 sm:pt-40 md:pt-48 pb-12 sm:pb-16 my-auto">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 lg:gap-14 items-center">
           
-          <!-- Left Hero Copy -->
           <div class="lg:col-span-6 space-y-4 sm:space-y-6 text-start reveal-up">
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-emerald-300 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-widest shadow-sm">
               <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
@@ -452,7 +426,6 @@
               EAX Agro Export connects farmers with the world, delivering fresh, high-quality agricultural products to international markets with trust, efficiency, and uninterrupted Reefer cold chain logistics.
             </p>
 
-            <!-- Action Buttons -->
             <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-3.5 pt-2">
               <a href="#catalog" class="btn-glow inline-flex items-center justify-center gap-2 px-7 sm:px-8 py-3.5 sm:py-4 rounded-full bg-emerald-500 hover:bg-emerald-400 text-agro-forestDeep font-black text-xs sm:text-sm shadow-xl transition-all group">
                 <span data-i18n="btn_products">Our Products</span>
@@ -465,7 +438,7 @@
             </div>
           </div>
 
-          <!-- Right Hero: High-Contrast Executive Card (Enlarged Logo) -->
+          <!-- Right Hero: High-Contrast Executive Card (Larger Logo) -->
           <div class="lg:col-span-6 relative flex items-center justify-center reveal-up">
             <div class="soft-glow-orb w-72 h-72 sm:w-80 sm:h-80 bg-emerald-500 -top-10 -right-10"></div>
             <div class="soft-glow-orb w-60 h-60 sm:w-72 sm:h-72 bg-amber-600 -bottom-10 -left-10"></div>
@@ -473,10 +446,9 @@
             <div class="relative w-full max-w-lg lg:max-w-none z-10">
               <div class="bg-agro-forest/90 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 border border-white/15 shadow-[0_30px_70px_-15px_rgba(0,0,0,0.7)] text-start space-y-5 sm:space-y-6">
                 
-                <!-- Card Header -->
                 <div class="flex items-center gap-4 sm:gap-6 border-b border-white/10 pb-5">
                   <div class="relative shrink-0">
-                    <div class="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-2xl bg-white p-2.5 shadow-2xl border border-emerald-400/40 flex items-center justify-center">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-2xl bg-white p-3 shadow-2xl border border-emerald-400/40 flex items-center justify-center">
                       <img 
                         src="images/logo.jpeg" 
                         onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" 
@@ -500,12 +472,10 @@
                   </div>
                 </div>
 
-                <!-- Overview Paragraph -->
                 <p data-i18n="hero_profile_desc" class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed">
                   A specialized Egyptian agro-export enterprise operating automated packing stations and global maritime cold chains, delivering 27 certified fresh crops directly to international supermarket networks and food distributors across Europe, the Gulf, Russia, and Asia.
                 </p>
 
-                <!-- Capabilities Grid -->
                 <div class="grid grid-cols-1 xs:grid-cols-2 gap-3 text-start">
                   <div class="group bg-white/[0.04] border border-white/10 rounded-2xl p-3.5 hover:border-emerald-500/50 hover:bg-white/[0.07] transition-all">
                     <span data-i18n="hero_cap_label" class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Annual Export Capacity</span>
@@ -525,7 +495,6 @@
                   </div>
                 </div>
 
-                <!-- Footer Quality Stamp -->
                 <div class="pt-3 border-t border-white/10 flex items-center gap-2.5 text-[11px] sm:text-xs text-slate-300">
                   <div class="icon-glow-box w-6 h-6 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-400/30">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
@@ -590,24 +559,24 @@
     </section>
   </div>
 
-  <!-- ================= 2. ABOUT US SECTION ================= -->
+  <!-- ================= 2. ABOUT US SECTION (UPDATED REAL HARVEST IMAGE) ================= -->
   <section id="about" class="py-16 sm:py-20 md:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-10 items-center">
         
-        <!-- Authentic Egyptian Agricultural Landscape Image -->
+        <!-- Authentic Commercial Egyptian Farm & Harvesting Field Image -->
         <div class="lg:col-span-5 reveal-up">
-          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-agro-borderLight bg-white">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-agro-borderLight bg-white group">
             <img 
-              src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=85" 
+              src="https://images.unsplash.com/photo-1595974482597-4b8da8879bc5?auto=format&fit=crop&w=1200&q=85" 
               onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1000&q=80';" 
-              alt="Fertile Egyptian Agricultural Lands & Nile Delta Fields" 
-              class="w-full h-72 sm:h-80 md:h-96 lg:h-[460px] object-cover" 
+              alt="Egyptian Commercial Agricultural Land, Certified Farms & Fresh Harvesting Fields" 
+              class="w-full h-72 sm:h-80 md:h-96 lg:h-[480px] object-cover transition-transform duration-700 group-hover:scale-105" 
             />
-            <div class="absolute inset-0 bg-gradient-to-t from-agro-forestDeep/95 via-agro-forestDeep/20 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-agro-forestDeep/95 via-agro-forestDeep/30 to-transparent"></div>
             <div class="absolute bottom-5 sm:bottom-6 start-5 sm:start-6 end-5 sm:end-6 text-white text-start">
-              <span class="px-3 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-[10px] font-black uppercase tracking-wider" data-i18n="about_img_badge">Egyptian Fertile Soils</span>
-              <p class="text-xs sm:text-sm font-bold mt-1.5 text-slate-100" data-i18n="about_img_sub">Carefully cultivated and harvested under rigorous European compliance.</p>
+              <span class="px-3 py-1 rounded-full bg-emerald-600/90 backdrop-blur-md text-[10px] font-black uppercase tracking-wider shadow-sm" data-i18n="about_img_badge">Egyptian Fertile Soils</span>
+              <p class="text-xs sm:text-sm font-bold mt-2 text-slate-100 drop-shadow-sm" data-i18n="about_img_sub">Carefully cultivated and harvested under rigorous European compliance.</p>
             </div>
           </div>
         </div>
@@ -747,7 +716,6 @@
         <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-3 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
       <div class="mobile-horizontal-snap md:grid md:grid-cols-3 md:gap-6 no-scrollbar reveal-up">
         
         <div class="group glass-card-fresh rounded-3xl p-6 sm:p-7 hover:border-emerald-500/60 transition-all text-start flex flex-col justify-between">
@@ -808,10 +776,8 @@
         <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-2 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
-      <div class="mobile-horizontal-snap mobile-horizontal-snap-small md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
+      <div class="mobile-horizontal-snap md:grid md:grid-cols-3 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
         
-        <!-- Cert 1 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -827,7 +793,6 @@
           </div>
         </div>
 
-        <!-- Cert 2 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -843,7 +808,6 @@
           </div>
         </div>
 
-        <!-- Cert 3 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -859,7 +823,6 @@
           </div>
         </div>
 
-        <!-- Cert 4 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-amber-500/60 transition-all">
           <div>
             <div class="icon-glow-gold w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center mb-3 border border-amber-200">
@@ -875,7 +838,6 @@
           </div>
         </div>
 
-        <!-- Cert 5 -->
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -893,7 +855,6 @@
 
       </div>
 
-      <!-- Trust Banner -->
       <div class="mt-8 p-4 sm:p-5 rounded-2xl glass-card-fresh flex flex-wrap items-center justify-between gap-3 text-xs text-agro-forestDeep/85 shadow-sm reveal-up">
         <div class="flex items-center gap-2.5 font-bold text-agro-forest text-xs sm:text-sm text-start">
           <div class="icon-glow-box w-7 h-7 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-700 shrink-0 border border-emerald-200">
@@ -917,10 +878,8 @@
         <span class="md:hidden block text-[11px] font-black text-emerald-700 mt-2 animate-pulse" data-i18n="swipe_hint">← Swipe horizontally to explore →</span>
       </div>
 
-      <!-- HORIZONTAL SNAP SLIDER ON MOBILE, GRID ON MD+ -->
-      <div class="mobile-horizontal-snap mobile-horizontal-snap-small md:grid md:grid-cols-2 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
+      <div class="mobile-horizontal-snap md:grid md:grid-cols-2 lg:grid-cols-5 md:gap-4 no-scrollbar reveal-up text-start">
         
-        <!-- MSC -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -936,7 +895,6 @@
           </div>
         </div>
 
-        <!-- Maersk -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -952,7 +910,6 @@
           </div>
         </div>
 
-        <!-- CMA CGM -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -968,7 +925,6 @@
           </div>
         </div>
 
-        <!-- Hapag-Lloyd -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -984,7 +940,6 @@
           </div>
         </div>
 
-        <!-- ONE -->
         <div class="group glass-card-fresh p-4 sm:p-5 rounded-2xl flex flex-col justify-between hover:border-emerald-500/60 transition-all">
           <div>
             <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center mb-3 border border-emerald-200">
@@ -1008,7 +963,6 @@
   <section id="catalog" class="py-16 sm:py-24 bg-agro-soft-mist border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Catalog Heading -->
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 reveal-up">
         <div class="text-start max-w-2xl">
           <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-agro-borderLight text-agro-forest text-[10px] sm:text-xs font-black uppercase tracking-widest mb-2 shadow-xs">
@@ -1033,7 +987,6 @@
         </div>
       </div>
 
-      <!-- Controls -->
       <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-8 reveal-up">
         
         <div class="dock-filter-bar flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 px-1">
@@ -1054,10 +1007,8 @@
         </div>
       </div>
 
-      <!-- 27 Crops Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6" id="products-grid"></div>
 
-      <!-- Empty State -->
       <div id="noResultsMsg" class="hidden py-16 text-center glass-card-fresh rounded-3xl border border-dashed border-slate-300 my-8">
         <div class="icon-glow-box w-14 h-14 rounded-2xl bg-white text-emerald-700 flex items-center justify-center mx-auto mb-3 shadow-xs border border-emerald-200">
           <svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -1130,56 +1081,60 @@
     </div>
   </section>
 
-  <!-- ================= 9. LIGHT & FRESH LUXURY FOOTER ================= -->
-  <footer id="contact" class="bg-[#edf5f0] text-agro-forest pt-16 pb-10 border-t border-emerald-200/60 relative overflow-hidden">
+  <!-- ================= 9. LUXURY DEEP-DARK AGRO FOOTER ================= -->
+  <footer id="contact" class="bg-[#02180e] text-slate-100 pt-16 pb-10 border-t border-emerald-500/25 relative overflow-hidden">
+    
+    <!-- Subtle glow orb for footer ambience -->
+    <div class="soft-glow-orb w-96 h-96 bg-emerald-500/10 -bottom-20 -right-20"></div>
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-emerald-200/50">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-white/10">
         
-        <!-- Col 1 (Enlarged Logo with Crisp Badge) -->
+        <!-- Col 1: Significantly Enlarged Footer Logo & Bio -->
         <div>
-          <a href="#hero" class="inline-flex items-center gap-3.5 mb-4 transition-transform hover:scale-105" aria-label="EAX Agro Export Home">
-            <div class="p-1.5 bg-white rounded-2xl shadow-sm border border-emerald-200/70">
-              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-16 sm:h-20 w-auto object-contain rounded-xl" />
+          <a href="#hero" class="inline-flex items-center gap-4 mb-5 transition-transform hover:scale-105" aria-label="EAX Agro Export Home">
+            <div class="p-2 sm:p-2.5 bg-white rounded-2xl shadow-xl border border-emerald-400/40">
+              <img src="images/logo.jpeg" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg';" alt="EAX Logo" class="h-20 sm:h-24 md:h-28 w-auto object-contain rounded-xl" />
             </div>
             <div class="flex flex-col text-start">
-              <span class="text-2xl sm:text-3xl font-black text-agro-forest">EAX</span>
-              <span class="text-xs font-extrabold text-emerald-700 uppercase tracking-wider" data-i18n="header_sub_brand">AGRO EXPORT</span>
+              <span class="text-3xl sm:text-4xl font-black text-white tracking-tight">EAX</span>
+              <span class="text-xs sm:text-sm font-extrabold text-emerald-400 uppercase tracking-widest mt-0.5" data-i18n="header_sub_brand">AGRO EXPORT</span>
             </div>
           </a>
-          <p data-i18n="footer_about" class="text-xs sm:text-sm text-agro-forestDeep/85 leading-relaxed max-w-sm text-start font-medium">
+          <p data-i18n="footer_about" class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm text-start font-normal">
             An integrated Egyptian agricultural export enterprise managing the packing, supply, and shipping of 27 commercial fresh fruits and vegetables directly to global retail chains and wholesale distribution hubs under strict cold-chain standards.
           </p>
         </div>
 
         <!-- Col 2: Direct Channels -->
         <div>
-          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Direct Channels</h4>
-          <ul class="space-y-3.5 text-xs sm:text-sm text-agro-forest">
-            <li class="flex items-center gap-3">
-              <div class="icon-glow-box w-9 h-9 rounded-xl bg-white border border-emerald-300/80 shadow-xs flex items-center justify-center text-emerald-700 shrink-0">
+          <h4 data-i18n="footer_contact_title" class="text-xs font-black text-amber-400 uppercase tracking-widest mb-5 text-start">Direct Channels</h4>
+          <ul class="space-y-4 text-xs sm:text-sm text-slate-200">
+            <li class="flex items-center gap-3.5">
+              <div class="icon-glow-box w-10 h-10 rounded-xl bg-white/10 border border-emerald-400/30 shadow-xs flex items-center justify-center text-emerald-400 shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
-              <a href="tel:+201006920920" class="hover:text-emerald-700 font-bold tracking-wider transition-colors"><span dir="ltr">+20 100 692 0920</span></a>
+              <a href="tel:+201006920920" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">+20 100 692 0920</span></a>
             </li>
-            <li class="flex items-center gap-3">
-              <div class="icon-glow-box w-9 h-9 rounded-xl bg-emerald-100/80 border border-emerald-300 shadow-xs flex items-center justify-center text-emerald-800 shrink-0">
+            <li class="flex items-center gap-3.5">
+              <div class="icon-glow-box w-10 h-10 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 shadow-xs flex items-center justify-center text-[#25D366] shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </div>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-700 font-bold tracking-wider transition-colors"><span dir="ltr">+20 100 692 0920</span></a>
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">+20 100 692 0920</span></a>
             </li>
           </ul>
         </div>
 
         <!-- Col 3: Export Resources -->
         <div>
-          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-agro-gold uppercase tracking-widest mb-4 text-start">Export Resources</h4>
-          <p data-i18n="footer_quote_desc" class="text-xs text-agro-forestDeep/80 mb-4 leading-relaxed text-start font-medium">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
-          <div class="flex flex-col gap-2.5 max-w-sm">
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-white hover:bg-emerald-50 border border-emerald-300/80 text-agro-forest font-bold text-xs shadow-xs transition-all">
-              <svg class="w-4 h-4 text-agro-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <h4 data-i18n="footer_quote_title" class="text-xs font-black text-amber-400 uppercase tracking-widest mb-5 text-start">Export Resources</h4>
+          <p data-i18n="footer_quote_desc" class="text-xs text-slate-300 mb-5 leading-relaxed text-start font-normal">Reach out directly to our export managers for FOB/CIF season pricing programs.</p>
+          <div class="flex flex-col gap-3 max-w-sm">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs backdrop-blur-md transition-all shadow-sm">
+              <svg class="w-4 h-4 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
               <span data-i18n="btn_pdf_catalog">View PDF Catalog</span>
             </a>
-            <a href="#rfq" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-3 rounded-2xl bg-agro-primary hover:bg-agro-primaryHover text-white font-black text-xs shadow-md">
+            <a href="#rfq" class="btn-glow w-full inline-flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-agro-forestDeep font-black text-xs shadow-lg transition-all">
               <span data-i18n="cta_quote">Request Allocation</span>
             </a>
           </div>
@@ -1187,7 +1142,7 @@
 
       </div>
 
-      <div class="pt-8 text-center text-xs text-agro-forestDeep/70 font-semibold">
+      <div class="pt-8 text-center text-xs text-slate-400 font-medium">
         <span data-i18n="footer_copy">&copy; 2026 EAX AGRO EXPORT. All rights reserved.</span>
       </div>
     </div>
@@ -1439,7 +1394,7 @@
         varieties_en: ["White Dutch", "Red Rookie"], varieties_ar: ["أبيض هولندي", "ريد روكي"], varieties_zh: ["荷兰白甘蓝", "红皮甘蓝"], varieties_ru: ["Белая Голландская", "Ред Руки"],
         packing_en: "10kg - 15kg Cartons or Net Mesh Bags", packing_ar: "كراتين أو أجولة 10 - 15 كجم", packing_zh: "10kg - 15kg 纸箱或网袋", packing_ru: "10кг - 15кг коробки или сетки",
         specs_en: "Weight: 1.5 - 3kg / head • Firm Tightly Closed", specs_ar: "الوزن: 1.5 - 3 كجم/رأس • متماسك ومغلق بإحكام", specs_zh: "单重: 1.5 - 3kg / 颗 • 结球紧实", specs_ru: "Вес: 1.5 - 3кг/кочан • Плотная структура",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1555,7 +1510,7 @@
         about_tag: "أصالتنا والتزامنا", about_h2: "إياكس للتصدير الزراعي بمواصفات عالمية",
         about_p1: "شركة EAX للتصدير الزراعي تدير محفظة من 27 محصولاً تصديرياً معتمداً تربط أجود الأراضي الزراعية المصرية مباشرة بمراكز التوزيع وسلاسل السوبرماركت في أوروبا، بريطانيا، الخليج، الصين، وروسيا وفق أعلى معايير الجودة وسلاسل التبريد المتصلة.",
         about_btn: "تصفح كتالوج الحاصلات",
-        about_img_badge: "تربة مصرية خصبة", about_img_sub: "زراعة وجني بعناية فائقة وفق معايير الجودة والاشتراطات الأوروبية.",
+        about_img_badge: "تربة مصرية خصبة ومزارع تصدير", about_img_sub: "زراعة وجني بعناية فائقة وفق معايير الجودة والاشتراطات الأوروبية.",
         ap1_t: "ضمان الجودة", ap1_d: "رقابة صارمة في كل مرحلة",
         ap2_t: "دعم المزارعين", ap2_d: "تنمية وتطوير مجتمعات المزارعين",
         ap3_t: "أمان ومطابقة دولية", ap3_d: "شهادات GlobalGAP و BRC و EUR.1",
@@ -1629,7 +1584,7 @@
         about_tag: "品牌底蕴与承诺", about_h2: "EAX 卓越标准的国际农产品出口",
         about_p1: "EAX 农业出口是埃及领先的农产品出口企业，管理27种优质出口作物，直连欧洲、英国、海湾、中国及俄罗斯超市分拨中心。",
         about_btn: "浏览果蔬名录",
-        about_img_badge: "埃及肥沃土壤", about_img_sub: "严格按照欧洲标准精细培育与采摘。",
+        about_img_badge: "埃及肥沃土壤与出口基地", about_img_sub: "严格按照欧洲标准精细培育与采摘。",
         ap1_t: "品质保证", ap1_d: "全流程严格质检",
         ap2_t: "农户支持", ap2_d: "扶持优质种植农户基地",
         ap3_t: "安全合规", ap3_d: "GlobalGAP 与 BRC 国际权威认证",
@@ -2198,9 +2153,7 @@
       });
     });
 
-    /* Sticky Header Logic: Visible ONLY at the absolute top (<= 80px) */
     const headerEl = document.getElementById('main-header');
-
     window.addEventListener('scroll', () => {
       const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
       const mobileMenu = document.getElementById('mobileMenu');
@@ -2208,11 +2161,9 @@
       if (!headerEl) return;
       if (mobileMenu && !mobileMenu.classList.contains('hidden')) return;
 
-      // If user scrolls down beyond 80px, hide the header completely
       if (currentScrollY > 80) {
         headerEl.classList.add('header-hidden');
       } else {
-        // Only reveal when user scrolls back to the very top
         headerEl.classList.remove('header-hidden');
       }
     }, { passive: true });
