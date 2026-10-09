@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>EAX AGRO EXPORT — Official 27-Produce Export Catalog & Trade Guide 2026</title>
+  <title>EAX AGRO EXPORT — Official Corporate Trade Guide & 27-Produce Export Catalog 2026</title>
   
-  <!-- Modern Typography -->
+  <!-- Premium Typography: Alexandria (Arabic), Plus Jakarta Sans (Latin), Space Grotesk (Data/Numbers) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   
-  <!-- html2pdf Library -->
+  <!-- html2pdf Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -26,132 +26,109 @@
     }
 
     :root {
-      --agro-forest: #052316;
-      --agro-forestDeep: #02130b;
-      --agro-primary: #094328;
-      --agro-emerald: #10b981;
-      --agro-lightGreen: #34d399;
-      --agro-gold: #d97706;
-      --agro-goldLight: #fef3c7;
-      --agro-canvas: #f8faf9;
-      --agro-cardBg: #ffffff;
-      --agro-borderLight: #e2ece6;
-      --shadow-fresh: 0 10px 25px -8px rgba(5, 35, 22, 0.06);
+      --eax-dark: #02120a;
+      --eax-dark-surface: #041f12;
+      --eax-card-bg: #092c1c;
+      --eax-forest: #073520;
+      --eax-emerald: #10b981;
+      --eax-emerald-glow: rgba(16, 185, 129, 0.4);
+      --eax-mint: #34d399;
+      --eax-accent-gold: #f59e0b;
+      --eax-gold-subtle: rgba(245, 158, 11, 0.15);
+      --eax-canvas-light: #f8faf9;
+      --eax-surface-white: #ffffff;
+      --eax-border-light: #e2ece6;
+      --eax-border-glass: rgba(255, 255, 255, 0.12);
+      --eax-text-slate: #526759;
     }
 
     body {
       margin: 0;
       padding: 0;
-      background: #010603;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      color: var(--agro-forest);
+      background: #010804;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #052316;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    
+
     html[dir="rtl"] body {
-      font-family: 'Cairo', sans-serif !important;
-      line-height: 1.45;
+      font-family: 'Alexandria', sans-serif !important;
+      line-height: 1.5;
     }
 
-    html[dir="rtl"] *, html[dir="rtl"] *::before, html[dir="rtl"] *::after {
-      letter-spacing: normal !important;
-    }
-
-    html[lang="zh"] body {
-      font-family: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif;
-    }
-
-    .font-mono {
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
+    .font-num {
+      font-family: 'Space Grotesk', monospace !important;
       font-variant-numeric: tabular-nums;
       direction: ltr !important;
       unicode-bidi: isolate !important;
       display: inline-block;
     }
 
-    html[dir="rtl"] .crop-hs,
-    html[dir="rtl"] .crop-id-num,
-    html[dir="rtl"] .counter-num,
-    html[dir="rtl"] .phone-num {
-      direction: ltr !important;
-      unicode-bidi: isolate !important;
-      font-family: 'JetBrains Mono', Consolas, monospace !important;
-    }
-
-    /* Floating Capsule Navbar */
-    .control-panel {
+    /* Fixed Modern Glass Nav */
+    .control-nav {
       position: fixed;
-      top: 14px;
+      top: 16px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10000;
       display: flex;
       gap: 6px;
       align-items: center;
-      background: rgba(2, 19, 11, 0.94);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background: rgba(2, 18, 10, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       padding: 6px 14px;
-      border-radius: 999px;
+      border-radius: 9999px;
       border: 1px solid rgba(16, 185, 129, 0.35);
-      box-shadow: 0 20px 45px rgba(0,0,0,0.65);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      width: max-content;
-      max-width: calc(100vw - 24px);
     }
-    .control-panel.nav-hidden {
-      transform: translate(-50%, -90px);
-      opacity: 0;
-      pointer-events: none;
-    }
-    .lang-btn {
+    .lang-chip {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #dfede2;
-      padding: 6px 12px;
-      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #e2ece6;
+      padding: 6px 14px;
+      border-radius: 9999px;
       font-weight: 700;
       font-size: 11px;
       cursor: pointer;
       transition: all 0.25s ease;
     }
-    .lang-btn.active, .lang-btn:hover {
-      background: var(--agro-emerald);
-      border-color: var(--agro-emerald);
-      color: var(--agro-forestDeep);
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    .lang-chip.active, .lang-chip:hover {
+      background: var(--eax-emerald);
+      border-color: var(--eax-emerald);
+      color: #02120a;
+      box-shadow: 0 0 16px var(--eax-emerald-glow);
     }
-
-    .print-btn {
+    .download-action-btn {
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: #ffffff;
       border: none;
-      padding: 6px 18px;
-      border-radius: 999px;
+      padding: 7px 20px;
+      border-radius: 9999px;
       font-weight: 800;
       font-size: 11px;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
-      transition: all 0.2s ease;
-      white-space: nowrap;
-      margin-inline-start: 6px;
+      box-shadow: 0 4px 18px rgba(16, 185, 129, 0.45);
+      transition: transform 0.2s ease;
+      margin-inline-start: 8px;
     }
-    .print-btn:hover { transform: scale(1.02); }
+    .download-action-btn:hover { transform: scale(1.03); }
 
-    /* Exact A4 Landscape Page Container */
+    /* A4 Landscape Sheets */
     .page {
       width: 297mm;
       height: 210mm;
       max-height: 210mm;
       background: #ffffff;
-      margin: 20px auto;
+      margin: 24px auto;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      border-radius: 12px;
-      box-shadow: 0 25px 65px rgba(0,0,0,0.65);
+      border-radius: 14px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.75);
       page-break-inside: avoid;
       break-inside: avoid;
       page-break-after: always;
@@ -164,71 +141,70 @@
 
     .page-header {
       height: 14mm;
-      padding: 0 14mm;
+      padding: 0 15mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--agro-borderLight);
+      border-bottom: 1px solid var(--eax-border-light);
       background: #ffffff;
       flex-shrink: 0;
     }
-    .header-brand {
+    .header-logo-group {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 14px;
+      gap: 12px;
+      font-size: 14.5px;
       font-weight: 900;
-      color: var(--agro-forest);
+      color: var(--eax-dark);
     }
-    .header-brand img {
+    .header-logo-group img {
       height: 28px;
       width: auto;
       object-fit: contain;
       border-radius: 6px;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.25);
     }
-    .header-brand span span { color: var(--agro-emerald); }
-    .header-tag {
+    .header-tag-pill {
       font-size: 8.5px;
       font-weight: 800;
-      letter-spacing: 1.2px;
-      color: var(--agro-primary);
+      letter-spacing: 1.4px;
+      color: var(--eax-forest);
       text-transform: uppercase;
       background: #ecfdf5;
-      padding: 3.5px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3.5px 12px;
+      border-radius: 9999px;
+      border: 1px solid rgba(16, 185, 129, 0.35);
     }
-    
+
     .page-content {
       flex: 1;
-      padding: 5mm 14mm 4mm;
+      padding: 5.5mm 15mm 4mm;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: var(--agro-canvas);
+      background: var(--eax-canvas-light);
     }
-    
+
     .page-footer {
       height: 8.5mm;
-      padding: 0 14mm;
+      padding: 0 15mm;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--agro-borderLight);
+      border-top: 1px solid var(--eax-border-light);
       font-size: 8.5px;
       font-weight: 700;
-      color: #526759;
+      color: var(--eax-text-slate);
       background: #ffffff;
       flex-shrink: 0;
     }
 
-    /* Cover Page */
-    .cover-bg {
+    /* Cover Page Modern Mesh */
+    .cover-layout {
       background: 
-        radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.30) 0%, transparent 50%),
-        radial-gradient(circle at 15% 90%, rgba(217, 119, 6, 0.20) 0%, transparent 45%),
-        linear-gradient(180deg, #03130b 0%, #020d07 85%, #010603 100%);
+        radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 20% 85%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
+        linear-gradient(180deg, #02120a 0%, #031c11 60%, #010804 100%);
       color: #ffffff;
       padding: 10mm 16mm;
       display: flex;
@@ -237,281 +213,178 @@
       height: 210mm;
       position: relative;
     }
-    .cover-header-row {
+    .cover-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
       z-index: 2;
     }
-    .emerald-badge {
-      display: inline-flex;
+    .cover-hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 32px;
       align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.45);
-      color: #34d399;
-      font-size: 9.5px;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-    .cover-hero-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 36px;
-      margin: 4px 0;
+      margin: 6px 0;
       flex: 1;
-      position: relative;
       z-index: 2;
     }
-    .cover-text-side { flex: 1.25; }
-    
-    .cover-logo-side {
-      flex: 1.05;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 28px;
-      padding: 22px 24px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(20px);
-      position: relative;
-      overflow: hidden;
-    }
-    .logo-badge-inner {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 16px 24px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      height: 155px;
-    }
-    .logo-badge-inner img {
-      max-height: 125px;
-      max-width: 100%;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      display: block;
-    }
-    .logo-seal-text {
-      margin-top: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 9.5px;
-      font-weight: 800;
-      color: #34d399;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-    
-    .brand-hero-title {
-      margin: 0 0 6px 0;
-      font-size: 42px;
+    .brand-title-lead {
+      font-size: 40px;
       font-weight: 900;
       letter-spacing: -0.02em;
       text-transform: uppercase;
       color: #ffffff;
       line-height: 1;
+      margin: 0 0 6px;
     }
-
-    .cover-title {
-      font-size: 26px;
+    .brand-tagline {
+      font-size: 24px;
       font-weight: 900;
-      line-height: 1.2;
-      margin: 6px 0 10px;
+      line-height: 1.25;
+      margin: 6px 0 12px;
     }
-    .cover-title span.highlight {
-      color: #34d399;
-    }
-    .cover-desc {
-      font-size: 12px;
+    .brand-tagline span { color: var(--eax-mint); }
+    .brand-desc-body {
+      font-size: 11.8px;
       font-weight: 500;
       color: #cbd5e1;
       line-height: 1.65;
       margin: 0;
-      max-width: 560px;
+      max-width: 580px;
     }
-    .cover-metrics {
+
+    .cover-badge-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--eax-border-glass);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(24px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cover-logo-well {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 16px 26px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      width: 100%;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cover-logo-well img {
+      max-height: 120px;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .cover-kpi-deck {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
-      border-top: 1px solid rgba(255,255,255,0.12);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
       padding-top: 12px;
-      position: relative;
       z-index: 2;
     }
-    .metric-card {
+    .cover-kpi-item {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 16px;
       padding: 10px 14px;
       backdrop-filter: blur(10px);
     }
-    .metric-card h3 { margin: 0; font-size: 17px; font-weight: 900; color: #34d399; }
-    .metric-card p { margin: 3px 0 0; font-size: 9px; font-weight: 600; color: #94a3b8; line-height: 1.4; }
+    .cover-kpi-item h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 900;
+      color: var(--eax-mint);
+    }
+    .cover-kpi-item p {
+      margin: 2px 0 0;
+      font-size: 8.8px;
+      font-weight: 600;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
 
-    /* Bento Value Pillars */
-    .pillar-row {
+    /* Bento Grid Pillars */
+    .bento-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
       margin: 8px 0;
       flex: 1;
-      align-items: stretch;
     }
-    .pillar-box {
-      background: var(--agro-cardBg);
-      border: 1px solid var(--agro-borderLight);
+    .bento-card {
+      background: #ffffff;
+      border: 1px solid var(--eax-border-light);
       border-radius: 18px;
       padding: 16px 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-fresh);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 8px 24px -6px rgba(5, 35, 22, 0.05);
     }
-    .pillar-header-row {
+    .bento-top {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
-    .pillar-icon-box {
-      width: 42px;
-      height: 42px;
+    .bento-icon-frame {
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       background: #ecfdf5;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #059669;
     }
-    .pillar-icon-box svg { width: 22px; height: 22px; }
-    .pillar-box .num { 
-      font-size: 12px; 
-      font-weight: 900; 
-      color: #059669; 
-      background: #ecfdf5; 
-      padding: 3px 10px; 
-      border-radius: 999px; 
-      border: 1px solid rgba(16, 185, 129, 0.25);
+    .bento-icon-frame svg { width: 22px; height: 22px; }
+    .bento-card h4 {
+      margin: 0 0 4px;
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--eax-dark);
+      line-height: 1.3;
     }
-    .pillar-box h4 { margin: 0 0 5px; font-size: 14.5px; font-weight: 900; color: var(--agro-forest); line-height: 1.3; }
-    .pillar-box p { margin: 0; font-size: 10.8px; font-weight: 500; color: #354a3a; line-height: 1.55; }
-    .pillar-tag-bottom {
-      font-size: 9.5px;
+    .bento-card p {
+      margin: 0;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: #354a3a;
+      line-height: 1.55;
+    }
+    .bento-tag {
+      font-size: 9px;
       font-weight: 800;
       color: #059669;
       margin-top: 10px;
       background: #f4fbf7;
       border: 1px solid rgba(16, 185, 129, 0.2);
       border-radius: 6px;
-      padding: 4px 10px;
-      display: inline-block;
+      padding: 3.5px 9px;
       width: fit-content;
     }
 
-    /* Page 3 Certs & Logistics */
-    .p3-split-layout {
-      display: grid;
-      grid-template-columns: 1.15fr 1.1fr;
-      gap: 14px;
-      flex: 1;
-      margin-top: 6px;
-    }
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 9px;
-    }
-    .cert-pill-card {
-      background: #ffffff;
-      border: 1px solid var(--agro-borderLight);
-      border-radius: 12px;
-      padding: 10px 14px;
-      box-shadow: var(--shadow-fresh);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .cert-pill-card .badge {
-      display: inline-block;
-      font-size: 8px;
-      font-weight: 900;
-      background: #ecfdf5;
-      color: #059669;
-      padding: 2px 7px;
-      border-radius: 4px;
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      margin-bottom: 4px;
-      width: fit-content;
-    }
-    .cert-pill-card h4 { margin: 0 0 3px; font-size: 12.2px; font-weight: 800; color: var(--agro-forest); line-height: 1.25; }
-    .cert-pill-card p { margin: 0; font-size: 9.5px; font-weight: 500; color: #526759; line-height: 1.45; }
-
-    .shipping-box {
-      background: #ffffff;
-      border: 1px solid var(--agro-borderLight);
-      border-radius: 16px;
-      padding: 12px 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: var(--shadow-fresh);
-    }
-    .carrier-pill {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6.5px 10px;
-      background: #f8faf9;
-      border: 1px solid #e2ece6;
-      border-radius: 8px;
-      margin-bottom: 5px;
-    }
-    .carrier-pill b { font-size: 11.5px; color: var(--agro-forest); }
-    .carrier-pill span { font-size: 9px; font-weight: 700; color: #059669; }
-
-    /* Catalog Table */
-    .catalog-header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 6px;
-      flex-shrink: 0;
-    }
-    .catalog-table-wrap {
-      width: 100%;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .catalog-table {
+    /* Table Specification Matrix */
+    .trade-matrix-table {
       width: 100%;
       height: 100%;
       border-collapse: separate;
       border-spacing: 0 3.5px;
       table-layout: fixed;
     }
-    .catalog-table thead { height: 26px; }
-    .catalog-table th {
+    .trade-matrix-table thead { height: 26px; }
+    .trade-matrix-table th {
       background: #eaf3ed;
-      color: var(--agro-forest);
+      color: var(--eax-dark);
       font-weight: 800;
       font-size: 9.5px;
       text-align: left;
@@ -521,61 +394,29 @@
       white-space: nowrap;
       vertical-align: middle;
     }
-    .catalog-table th:first-child { border-radius: 6px 0 0 6px; }
-    .catalog-table th:last-child { border-radius: 0 6px 6px 0; }
-    html[dir="rtl"] .catalog-table th { text-align: right; }
-    html[dir="rtl"] .catalog-table th:first-child { border-radius: 0 6px 6px 0; }
-    html[dir="rtl"] .catalog-table th:last-child { border-radius: 6px 0 0 6px; }
+    .trade-matrix-table th:first-child { border-radius: 6px 0 0 6px; }
+    .trade-matrix-table th:last-child { border-radius: 0 6px 6px 0; }
+    html[dir="rtl"] .trade-matrix-table th { text-align: right; }
+    html[dir="rtl"] .trade-matrix-table th:first-child { border-radius: 0 6px 6px 0; }
+    html[dir="rtl"] .trade-matrix-table th:last-child { border-radius: 6px 0 0 6px; }
 
-    .catalog-table tbody tr { height: 16mm !important; }
-    .catalog-table td {
+    .trade-matrix-table tbody tr { height: 16.5mm !important; }
+    .trade-matrix-table td {
       padding: 0 8px;
       vertical-align: middle;
       font-weight: 600;
-      color: var(--agro-forest);
+      color: var(--eax-dark);
       font-size: 10.5px;
       background: #ffffff;
-      border-top: 1px solid var(--agro-borderLight);
-      border-bottom: 1px solid var(--agro-borderLight);
+      border-top: 1px solid var(--eax-border-light);
+      border-bottom: 1px solid var(--eax-border-light);
     }
-    .catalog-table td:first-child { border-left: 1px solid var(--agro-borderLight); border-radius: 8px 0 0 8px; }
-    .catalog-table td:last-child { border-right: 1px solid var(--agro-borderLight); border-radius: 0 8px 8px 0; }
-    html[dir="rtl"] .catalog-table td:first-child { border-left: none; border-right: 1px solid var(--agro-borderLight); border-radius: 0 8px 8px 0; }
-    html[dir="rtl"] .catalog-table td:last-child { border-right: none; border-left: 1px solid var(--agro-borderLight); border-radius: 8px 0 0 8px; }
+    .trade-matrix-table td:first-child { border-left: 1px solid var(--eax-border-light); border-radius: 8px 0 0 8px; }
+    .trade-matrix-table td:last-child { border-right: 1px solid var(--eax-border-light); border-radius: 0 8px 8px 0; }
+    html[dir="rtl"] .trade-matrix-table td:first-child { border-left: none; border-right: 1px solid var(--eax-border-light); border-radius: 0 8px 8px 0; }
+    html[dir="rtl"] .trade-matrix-table td:last-child { border-right: none; border-left: 1px solid var(--eax-border-light); border-radius: 8px 0 0 8px; }
 
-    .cal-cell { padding: 0 6px !important; vertical-align: middle; }
-    .cal-pill {
-      display: inline-block;
-      background: #f4f8f5;
-      border: 1px solid #d5e5db;
-      border-radius: 6px;
-      padding: 3px 8px;
-      color: #094328;
-      font-size: 9.3px;
-      font-weight: 700;
-      line-height: 1.35;
-      max-width: 100%;
-      word-break: break-word;
-    }
-    html[dir="rtl"] .cal-pill { font-family: 'Cairo', sans-serif !important; font-size: 9px; }
-
-    .temp-pill {
-      display: inline-block;
-      background: #fbfdfc;
-      border: 1px solid #e1ece5;
-      border-radius: 5px;
-      padding: 2.5px 6px;
-      color: var(--agro-forest);
-      font-weight: 800;
-      font-size: 9.5px;
-      white-space: nowrap;
-      line-height: 1.3;
-    }
-
-    .crop-name { font-size: 11.8px; font-weight: 800; color: var(--agro-forest); line-height: 1.25; }
-    .crop-sub { color: #526759; font-size: 9.3px; font-weight: 500; display: block; margin-top: 1px; line-height: 1.35; }
-    
-    .crop-hs {
+    .hs-tag {
       display: inline-block;
       font-size: 8px;
       font-weight: 800;
@@ -584,29 +425,40 @@
       padding: 1px 4px;
       border-radius: 3px;
       margin-inline-start: 4px;
-      border: 0.5px solid rgba(16, 185, 129, 0.3);
+      border: 0.5px solid rgba(16, 185, 129, 0.35);
     }
-    
-    .badge-grp {
+    .spec-pill {
       display: inline-block;
-      font-size: 7.8px;
-      font-weight: 800;
-      padding: 1.5px 5px;
-      border-radius: 4px;
-      margin-inline-start: 3px;
+      background: #f4f8f5;
+      border: 1px solid #d5e5db;
+      border-radius: 5px;
+      padding: 2.5px 7px;
+      color: #073520;
+      font-size: 9px;
+      font-weight: 700;
+      line-height: 1.35;
+      max-width: 100%;
+      word-break: break-word;
     }
-    .bg-p { background: #fef3c7; color: #b45309; border: 1px solid rgba(217, 119, 6, 0.25); }
-    .bg-s { background: #ecfdf5; color: #047857; border: 1px solid rgba(16, 185, 129, 0.25); }
-    .bg-w { background: #eff6ff; color: #1d4ed8; border: 1px solid rgba(59, 130, 246, 0.25); }
+    .temp-pill {
+      display: inline-block;
+      background: #fbfdfc;
+      border: 1px solid #e1ece5;
+      border-radius: 5px;
+      padding: 2.5px 6px;
+      font-weight: 800;
+      font-size: 9.3px;
+      white-space: nowrap;
+    }
 
-    .season-track {
+    .month-track {
       display: flex;
       gap: 2px;
       width: 100%;
       max-width: 165px;
       direction: ltr !important;
     }
-    .s-dot {
+    .m-cell {
       flex: 1;
       height: 14px;
       font-size: 7.5px;
@@ -617,81 +469,72 @@
       border-radius: 2.5px;
       background: #eef3f0;
       color: #718778;
-      font-family: 'JetBrains Mono', sans-serif !important;
+      font-family: 'Space Grotesk', monospace !important;
       direction: ltr !important;
       unicode-bidi: isolate;
     }
-    .s-dot.active {
-      background: var(--agro-primary);
+    .m-cell.active {
+      background: var(--eax-forest);
       color: #ffffff;
       font-weight: 900;
-      box-shadow: 0 1px 3px rgba(9, 67, 40, 0.35);
+      box-shadow: 0 1px 3px rgba(7, 53, 32, 0.4);
     }
 
     /* Executive Back Cover */
-    .page-back {
-      background: #02130b;
+    .back-cover-sheet {
+      background: radial-gradient(circle at 50% 10%, #052615 0%, #02120a 75%, #010603 100%);
       color: #ffffff;
       justify-content: center;
       align-items: center;
-      text-align: center;
       padding: 8mm 16mm;
       height: 210mm;
     }
-    .back-box {
+    .back-card-glass {
       background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      border: 1px solid var(--eax-border-glass);
       border-radius: 24px;
-      padding: 18px 24px;
-      max-width: 960px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-      text-align: left;
-      backdrop-filter: blur(20px);
+      padding: 20px 26px;
+      max-width: 980px;
+      width: 100%;
+      box-shadow: 0 30px 65px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(24px);
     }
-    html[dir="rtl"] .back-box { text-align: right; }
 
-    .interactive-dock {
+    .contacts-grid-quad {
       display: grid;
-      grid-template-columns: 2.2fr 1fr;
-      gap: 16px;
-      align-items: center;
-      margin-top: 12px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      padding-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
     }
-    .contact-cols { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .c-col h6 {
+    .contact-card-sub {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 10px 14px;
+    }
+    .contact-card-sub h6 {
       margin: 0 0 2px;
       font-size: 9.5px;
       font-weight: 900;
-      color: #34d399;
+      color: var(--eax-mint);
       text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
-    .c-col a, .c-col p {
+    .contact-card-sub a, .contact-card-sub p {
       margin: 0;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 800;
       color: #ffffff;
       text-decoration: none;
       display: block;
     }
-    .c-col a:hover { color: #34d399; }
-    .c-col span { font-size: 9px; font-weight: 600; color: #94a3b8; }
-
-    .qr-side { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
-    html[dir="rtl"] .qr-side { justify-content: flex-start; }
-    .qr-card { text-align: center; }
-    .qr-card img {
-      width: 72px;
-      height: 72px;
-      border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 3px;
-      background: #ffffff;
+    .contact-card-sub a:hover { color: var(--eax-mint); }
+    .contact-card-sub span {
+      font-size: 8.8px;
+      font-weight: 600;
+      color: #94a3b8;
     }
-    .qr-card p { margin: 3px 0 0; font-size: 8.5px; font-weight: 800; color: #cbd5e1; }
 
-    /* PDF Strict Mode Styles */
+    /* Exact PDF Mode Overrides */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -703,228 +546,212 @@
       width: 297mm !important;
       height: 210mm !important;
       max-height: 210mm !important;
-      min-height: 210mm !important;
       margin: 0 !important;
       padding: 0 !important;
       box-shadow: none !important;
       border-radius: 0 !important;
       border: none !important;
-      page-break-inside: avoid !important;
-      break-inside: avoid !important;
-      page-break-after: always !important;
-      break-after: page !important;
-      overflow: hidden !important;
-      display: flex !important;
     }
-    .pdf-render-mode .page:last-child {
-      page-break-after: avoid !important;
-      break-after: avoid !important;
-    }
-
-    .pdf-render-mode .cover-bg { height: 210mm !important; padding: 10mm 16mm !important; }
-    .pdf-render-mode .page-back { height: 210mm !important; }
   </style>
 </head>
 <body>
 
-  <!-- Floating Navigation Controls -->
-  <div class="control-panel" id="smartNavbar">
-    <button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
-    <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">العربية</button>
-    <button class="lang-btn" data-lang="ru" onclick="setLang('ru')">Русский</button>
-    <button class="lang-btn" data-lang="zh" onclick="setLang('zh')">中文</button>
+  <!-- Floating Controller Bar -->
+  <div class="control-nav" id="catalogNav">
+    <button class="lang-chip active" data-lang="en" onclick="switchLanguage('en')">English</button>
+    <button class="lang-chip" data-lang="ar" onclick="switchLanguage('ar')">العربية</button>
+    <button class="lang-chip" data-lang="ru" onclick="switchLanguage('ru')">Русский</button>
+    <button class="lang-chip" data-lang="zh" onclick="switchLanguage('zh')">中文 (简体)</button>
     
-    <button class="print-btn" onclick="exportCatalogPDF()" data-k="btn_print">📥 Download PDF</button>
+    <button class="download-action-btn" onclick="generatePdfDocument()" data-k="btn_print">📥 Download PDF</button>
   </div>
 
   <div id="catalog-container">
-    <!-- PAGE 1: COVER -->
-    <div class="page cover-bg" id="page-1">
-      <div class="cover-header-row">
-        <div class="emerald-badge">
+    <!-- ================= PAGE 1: COVER ================= -->
+    <div class="page cover-layout" id="page-1">
+      <div class="cover-top-bar">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:5px 14px; border-radius:9999px; background:rgba(16,185,129,0.14); border:1px solid rgba(16,185,129,0.4); color:#34d399; font-size:9.5px; font-weight:800; letter-spacing:1px;">
           <span>★</span>
           <span data-k="cover_tag">OFFICIAL 27-PRODUCE EXPORT CATALOG • 2026</span>
         </div>
-        <div style="font-size: 10px; font-weight: 800; color: #34d399;" data-k="cover_top_rt">
+        <div style="font-size:10px; font-weight:800; color:#34d399;" data-k="cover_top_rt">
           EGYPTIAN AGRICULTURAL EXPORTS
         </div>
       </div>
 
-      <div class="cover-hero-wrap">
-        <div class="cover-text-side">
-          <h1 class="brand-hero-title">EAX AGRO EXPORT</h1>
-          
-          <div class="cover-title">
+      <div class="cover-hero-grid">
+        <div>
+          <h1 class="brand-title-lead">EAX AGRO EXPORT</h1>
+          <div class="brand-tagline">
             <span data-k="c_t1">Bringing Quality Crops</span><br>
-            <span class="highlight" data-k="c_t2">to Global Markets</span>
+            <span data-k="c_t2" style="color:#34d399;">to Global Markets</span>
           </div>
-          <p class="cover-desc" data-k="c_desc">
+          <p class="brand-desc-body" data-k="c_desc">
             Direct allocation of 27 export-grade fruits and vegetables from accredited Egyptian packing stations. Uninterrupted Reefer cold-chain maritime logistics to the European Union, the UK, GCC countries, China, and Russia.
           </p>
         </div>
 
-        <div class="cover-logo-side">
-          <div class="logo-badge-inner">
+        <div class="cover-badge-card">
+          <div class="cover-logo-well">
             <img 
               id="main-brand-logo" 
               src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" 
               crossorigin="anonymous" 
               onerror="this.onerror=null;this.src='images/logo.jpeg';" 
-              alt="EAX AGRO EXPORT Official Logo"
+              alt="EAX AGRO EXPORT Logo" 
             />
           </div>
-          <div class="logo-seal-text">
+          <div style="margin-top:12px; display:flex; align-items:center; gap:6px; font-size:9.5px; font-weight:800; color:#34d399; text-transform:uppercase; letter-spacing:1.5px;">
             <span>✓</span>
             <span data-k="cover_seal">Verified Corporate Exporter</span>
           </div>
         </div>
       </div>
 
-      <div class="cover-metrics">
-        <div class="metric-card">
-          <h3 data-k="m1_t" class="font-mono">27 Crops</h3>
+      <div class="cover-kpi-deck">
+        <div class="cover-kpi-item">
+          <h3 data-k="m1_t" class="font-num">27 Crops</h3>
           <p data-k="m1_d">Certified export-grade fruits & vegetables.</p>
         </div>
-        <div class="metric-card">
-          <h3 data-k="m2_t" class="font-mono">45,000+ MT</h3>
+        <div class="cover-kpi-item">
+          <h3 data-k="m2_t" class="font-num">45,000+ MT</h3>
           <p data-k="m2_d">Annual automated packing and shipping capacity.</p>
         </div>
-        <div class="metric-card">
-          <h3 data-k="m3_t" class="font-mono">EUR.1 Document</h3>
+        <div class="cover-kpi-item">
+          <h3 data-k="m3_t" class="font-num">EUR.1 Document</h3>
           <p data-k="m3_d">0% preferential import tariff to EU & UK markets.</p>
         </div>
-        <div class="metric-card">
-          <h3 data-k="m4_t" class="font-mono">100% IoT Telemetry</h3>
+        <div class="cover-kpi-item">
+          <h3 data-k="m4_t" class="font-num">100% IoT Telemetry</h3>
           <p data-k="m4_d">Satellite temperature and cold-chain monitoring.</p>
         </div>
       </div>
     </div>
 
-    <!-- PAGE 2: CORPORATE PROFILE & VALUE PILLARS -->
+    <!-- ================= PAGE 2: CORPORATE PROFILE & PILLARS ================= -->
     <div class="page" id="page-2">
       <div class="page-header">
-        <div class="header-brand">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
-          <span>EAX <span>AGRO EXPORT</span></span>
+        <div class="header-logo-group">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <span>EAX <span style="color:#10b981;">AGRO EXPORT</span></span>
         </div>
-        <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
+        <div class="header-tag-pill" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
 
       <div class="page-content" style="justify-content: space-between;">
-        <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px;">
-          <div style="flex: 1.6;">
-            <span style="font-size: 9.5px; font-weight: 800; color: #059669; text-transform: uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
-            <h2 style="font-size: 20px; font-weight: 900; color: var(--agro-forest); margin: 2px 0 4px;" data-k="company_title_full">EAX World-Class Agro Export</h2>
-            <p style="font-size: 11.5px; font-weight: 500; color: #354a3a; line-height: 1.6; margin: 0;" data-k="p2_lead">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:20px;">
+          <div style="flex: 1.65;">
+            <span style="font-size:9.5px; font-weight:800; color:#059669; text-transform:uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
+            <h2 style="font-size:20px; font-weight:900; color:var(--eax-dark); margin:2px 0 4px;" data-k="company_title_full">EAX World-Class Agro Export</h2>
+            <p style="font-size:11.2px; font-weight:500; color:#354a3a; line-height:1.6; margin:0;" data-k="p2_lead">
               EAX AGRO EXPORT is an integrated Egyptian agricultural exporter managing 27 distinct commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia under strict cold-chain standards and international GlobalGAP certifications.
             </p>
           </div>
 
-          <div style="flex: 0.8; background: #ffffff; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 16px; padding: 12px 16px; box-shadow: var(--shadow-fresh); text-align: center;">
-            <div style="font-size: 10.5px; font-weight: 900; color: #059669; text-transform: uppercase;" data-k="p2_badge_title">
+          <div style="flex: 0.8; background:#ffffff; border:1px solid rgba(16, 185, 129, 0.35); border-radius:16px; padding:12px 16px; box-shadow:0 8px 24px -6px rgba(5,35,22,0.06); text-align:center;">
+            <div style="font-size:10px; font-weight:900; color:#059669; text-transform:uppercase;" data-k="p2_badge_title">
               ★ Quality Guarantee
             </div>
-            <div style="font-size: 13.5px; font-weight: 900; color: var(--agro-forest); margin: 4px 0 2px;" data-k="p2_badge_sub">
+            <div style="font-size:13.5px; font-weight:900; color:var(--eax-dark); margin:3px 0 2px;" data-k="p2_badge_sub">
               Supermarket Class A Specs
             </div>
-            <p style="font-size: 9px; color: #526759; margin: 0; line-height: 1.45;" data-k="p2_badge_desc">
+            <p style="font-size:8.8px; color:#526759; margin:0; line-height:1.45;" data-k="p2_badge_desc">
               Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.
             </p>
           </div>
         </div>
 
-        <!-- Trust Metrics -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
-          <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-fresh);">
-            <div style="width: 38px; height: 38px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #059669; flex-shrink: 0;">
+        <!-- Trust Statistics -->
+        <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; margin:4px 0;">
+          <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="width:38px; height:38px; border-radius:10px; background:#ecfdf5; display:flex; align-items:center; justify-content:center; color:#059669; flex-shrink:0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="10" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--agro-forest); line-height: 1.1;">10+</div>
-              <div style="font-size: 8px; font-weight: 800; color: #059669; text-transform: uppercase; margin-top: 1px;" data-k="stat1_t">Years of Experience</div>
+              <div class="font-num" style="font-size:18px; font-weight:900; color:var(--eax-dark); line-height:1.1;">10+</div>
+              <div style="font-size:8px; font-weight:800; color:#059669; text-transform:uppercase; margin-top:1px;" data-k="stat1_t">Years of Experience</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-fresh);">
-            <div style="width: 38px; height: 38px; border-radius: 10px; background: #fef3c7; display: flex; align-items: center; justify-content: center; color: #d97706; flex-shrink: 0;">
+          <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="width:38px; height:38px; border-radius:10px; background:#fef3c7; display:flex; align-items:center; justify-content:center; color:#d97706; flex-shrink:0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="50" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--agro-forest); line-height: 1.1;">50+</div>
-              <div style="font-size: 8px; font-weight: 800; color: #059669; text-transform: uppercase; margin-top: 1px;" data-k="stat2_t">Countries Served</div>
+              <div class="font-num" style="font-size:18px; font-weight:900; color:var(--eax-dark); line-height:1.1;">50+</div>
+              <div style="font-size:8px; font-weight:800; color:#059669; text-transform:uppercase; margin-top:1px;" data-k="stat2_t">Countries Served</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-fresh);">
-            <div style="width: 38px; height: 38px; border-radius: 10px; background: #eff6ff; display: flex; align-items: center; justify-content: center; color: #2563eb; flex-shrink: 0;">
+          <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="width:38px; height:38px; border-radius:10px; background:#eff6ff; display:flex; align-items:center; justify-content:center; color:#2563eb; flex-shrink:0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="1000" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--agro-forest); line-height: 1.1;">1000+</div>
-              <div style="font-size: 8px; font-weight: 800; color: #059669; text-transform: uppercase; margin-top: 1px;" data-k="stat3_t">Trusted Farmers</div>
+              <div class="font-num" style="font-size:18px; font-weight:900; color:var(--eax-dark); line-height:1.1;">1000+</div>
+              <div style="font-size:8px; font-weight:800; color:#059669; text-transform:uppercase; margin-top:1px;" data-k="stat3_t">Trusted Farmers</div>
             </div>
           </div>
 
-          <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-fresh);">
-            <div style="width: 38px; height: 38px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #059669; flex-shrink: 0;">
+          <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px;">
+            <div style="width:38px; height:38px; border-radius:10px; background:#ecfdf5; display:flex; align-items:center; justify-content:center; color:#059669; flex-shrink:0;">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <div class="counter-num" data-target="100" data-suffix="%" style="font-size: 19px; font-weight: 900; color: var(--agro-forest); line-height: 1.1;">100%</div>
-              <div style="font-size: 8px; font-weight: 800; color: #059669; text-transform: uppercase; margin-top: 1px;" data-k="stat4_t">Commitment to Quality</div>
+              <div class="font-num" style="font-size:18px; font-weight:900; color:var(--eax-dark); line-height:1.1;">100%</div>
+              <div style="font-size:8px; font-weight:800; color:#059669; text-transform:uppercase; margin-top:1px;" data-k="stat4_t">Commitment to Quality</div>
             </div>
           </div>
         </div>
 
-        <!-- Bento Pillars -->
-        <div class="pillar-row">
-          <div class="pillar-box">
+        <!-- 3 Bento Pillars -->
+        <div class="bento-container">
+          <div class="bento-card">
             <div>
-              <div class="pillar-header-row">
-                <div class="pillar-icon-box">
+              <div class="bento-top">
+                <div class="bento-icon-frame">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18m0-18l3 3m-3-3l-3 3m0 12l3 3m0 0l3-3M3 12h18"/></svg>
                 </div>
-                <div class="num crop-id-num">01</div>
+                <div class="font-num" style="font-size:12px; font-weight:900; color:#059669; background:#ecfdf5; padding:2px 8px; border-radius:999px;">01</div>
               </div>
               <h4 data-k="pil1_t">Rapid Pre-Cooling</h4>
               <p data-k="pil1_d">Crops undergo forced-air hydrocooling and rapid room pre-cooling within 2 hours of field picking to eliminate field heat and lock in shelf life.</p>
             </div>
-            <div class="pillar-tag-bottom" data-k="pil1_tag">✓ 2H Post-Harvest Pull</div>
+            <div class="bento-tag" data-k="pil1_tag">✓ 2H Post-Harvest Pull</div>
           </div>
 
-          <div class="pillar-box">
+          <div class="bento-card">
             <div>
-              <div class="pillar-header-row">
-                <div class="pillar-icon-box" style="background: #fef3c7; color: #d97706; border-color: rgba(217,119,6,0.25);">
+              <div class="bento-top">
+                <div class="bento-icon-frame" style="background:#fef3c7; color:#d97706; border-color:rgba(217,119,6,0.3);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M3 12h3m12 0h3M12 3v3m0 12v3"/></svg>
                 </div>
-                <div class="num crop-id-num">02</div>
+                <div class="font-num" style="font-size:12px; font-weight:900; color:#d97706; background:#fef3c7; padding:2px 8px; border-radius:999px;">02</div>
               </div>
               <h4 data-k="pil2_t">Optical Grading & Sizing</h4>
               <p data-k="pil2_d">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
             </div>
-            <div class="pillar-tag-bottom" data-k="pil2_tag">✓ ±0.5mm Caliber Precision</div>
+            <div class="bento-tag" data-k="pil2_tag" style="color:#d97706; background:#fffbeb; border-color:rgba(217,119,6,0.25);">✓ ±0.5mm Caliber Precision</div>
           </div>
 
-          <div class="pillar-box">
+          <div class="bento-card">
             <div>
-              <div class="pillar-header-row">
-                <div class="pillar-icon-box" style="background: #eff6ff; color: #2563eb; border-color: rgba(37,99,235,0.2);">
+              <div class="bento-top">
+                <div class="bento-icon-frame" style="background:#eff6ff; color:#2563eb; border-color:rgba(37,99,235,0.25);">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M1.924 8.674c5.565-5.565 14.587-5.565 20.152 0M12 18.75a.75.75 0 1 1 0-1.5.75.75 0 0 1 0 1.5z"/></svg>
                 </div>
-                <div class="num crop-id-num">03</div>
+                <div class="font-num" style="font-size:12px; font-weight:900; color:#2563eb; background:#eff6ff; padding:2px 8px; border-radius:999px;">03</div>
               </div>
               <h4 data-k="pil3_t">IoT Reefer Tracking</h4>
               <p data-k="pil3_d">Every 40ft High Cube Reefer container is outfitted with satellite temperature, humidity, and gas monitors for 24/7 telemetry until discharge.</p>
             </div>
-            <div class="pillar-tag-bottom" data-k="pil3_tag">✓ 24/7 Live Cold-Chain</div>
+            <div class="bento-tag" data-k="pil3_tag" style="color:#2563eb; background:#f8fafc; border-color:rgba(37,99,235,0.25);">✓ 24/7 Live Cold-Chain</div>
           </div>
         </div>
 
-        <!-- Footer Strip -->
-        <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 12px; padding: 9px 18px; display: flex; justify-content: space-between; align-items: center; font-size: 9px; color: #526759; box-shadow: var(--shadow-fresh);">
-          <span style="font-weight: 700; color: var(--agro-forest);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
-          <span style="font-weight: 800; color: #059669;" data-k="p2_audit_sub">Full ISO 17025 Lab Certificate With Every Container</span>
+        <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:12px; padding:9px 18px; display:flex; justify-content:space-between; align-items:center; font-size:9px; color:#526759;">
+          <span style="font-weight:700; color:var(--eax-dark);" data-k="p2_audit_note">🛡 Certified Export Packhouses & Farms Audited Annually Under GlobalG.A.P. & BRCGS Protocols</span>
+          <span style="font-weight:800; color:#059669;" data-k="p2_audit_sub">Full ISO 17025 Lab Certificate With Every Container</span>
         </div>
       </div>
 
@@ -934,104 +761,110 @@
       </div>
     </div>
 
-    <!-- PAGE 3: CERTIFICATIONS & TOP 5 GLOBAL SHIPPING LINES -->
+    <!-- ================= PAGE 3: CERTIFICATIONS & TOP 5 CARRIERS ================= -->
     <div class="page" id="page-3">
       <div class="page-header">
-        <div class="header-brand">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
-          <span>EAX <span>AGRO EXPORT</span></span>
+        <div class="header-logo-group">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <span>EAX <span style="color:#10b981;">AGRO EXPORT</span></span>
         </div>
-        <div class="header-tag" data-k="p3_tag">STANDARDS & MARITIME CARRIER ALLIANCES</div>
+        <div class="header-tag-pill" data-k="p3_tag">STANDARDS & MARITIME CARRIER ALLIANCES</div>
       </div>
+
       <div class="page-content" style="justify-content: space-between;">
         <div>
-          <span style="font-size: 9.5px; font-weight: 800; color: #059669; text-transform: uppercase;" data-k="p3_sub">Compliance & Cold Chain Carriers</span>
-          <h2 style="font-size: 20px; font-weight: 900; color: var(--agro-forest); margin: 2px 0 4px;" data-k="p3_h2">Export Standards & Top 5 Shipping Lines</h2>
+          <span style="font-size:9.5px; font-weight:800; color:#059669; text-transform:uppercase;" data-k="p3_sub">Compliance & Cold Chain Carriers</span>
+          <h2 style="font-size:20px; font-weight:900; color:var(--eax-dark); margin:2px 0 4px;" data-k="p3_h2">Export Standards & Top 5 Shipping Lines</h2>
         </div>
 
-        <div class="p3-split-layout">
-          <!-- Certifications 4-Pack -->
-          <div class="certs-grid">
-            <div class="cert-pill-card">
-              <span class="badge">IFA v6</span>
-              <h4>GlobalG.A.P.</h4>
-              <p data-k="c_d1">On-farm food safety, worker welfare, and complete lot traceability from seed to harvest.</p>
+        <div style="display:grid; grid-template-columns:1.15fr 1.1fr; gap:14px; flex:1; margin-top:6px;">
+          <!-- 4 Certifications -->
+          <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:9px;">
+            <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; justify-content:center;">
+              <span style="display:inline-block; font-size:8px; font-weight:900; background:#ecfdf5; color:#059669; padding:2px 7px; border-radius:4px; margin-bottom:4px; width:fit-content;">IFA v6</span>
+              <h4 style="margin:0 0 3px; font-size:12.5px; font-weight:800; color:var(--eax-dark);">GlobalG.A.P.</h4>
+              <p style="margin:0; font-size:9.5px; font-weight:500; color:#526759; line-height:1.45;" data-k="c_d1">On-farm food safety, worker welfare, and complete lot traceability from seed to harvest.</p>
             </div>
-            <div class="cert-pill-card">
-              <span class="badge">GRADE A</span>
-              <h4>BRCGS Food Safety</h4>
-              <p data-k="c_d2">GFSI benchmark hygiene audits across washing, optical sizing, and automated packing stations.</p>
+
+            <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; justify-content:center;">
+              <span style="display:inline-block; font-size:8px; font-weight:900; background:#ecfdf5; color:#059669; padding:2px 7px; border-radius:4px; margin-bottom:4px; width:fit-content;">GRADE A</span>
+              <h4 style="margin:0 0 3px; font-size:12.5px; font-weight:800; color:var(--eax-dark);">BRCGS Food Safety</h4>
+              <p style="margin:0; font-size:9.5px; font-weight:500; color:#526759; line-height:1.45;" data-k="c_d2">GFSI benchmark hygiene audits across washing, optical sizing, and automated packing stations.</p>
             </div>
-            <div class="cert-pill-card">
-              <span class="badge">0% TARIFF</span>
-              <h4>EUR.1 Certificate</h4>
-              <p data-k="c_d3">Official preferential bilateral customs documentation granting 0% import duty across EU & UK.</p>
+
+            <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; justify-content:center;">
+              <span style="display:inline-block; font-size:8px; font-weight:900; background:#fef3c7; color:#b45309; padding:2px 7px; border-radius:4px; margin-bottom:4px; width:fit-content;">0% TARIFF</span>
+              <h4 style="margin:0 0 3px; font-size:12.5px; font-weight:800; color:var(--eax-dark);">EUR.1 Certificate</h4>
+              <p style="margin:0; font-size:9.5px; font-weight:500; color:#526759; line-height:1.45;" data-k="c_d3">Official preferential bilateral customs documentation granting 0% import duty across EU & UK.</p>
             </div>
-            <div class="cert-pill-card">
-              <span class="badge">HACCP</span>
-              <h4>ISO 22000:2018</h4>
-              <p data-k="c_d4">Systematic hazard analysis and uninterrupted refrigerated cold-chain management.</p>
+
+            <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; justify-content:center;">
+              <span style="display:inline-block; font-size:8px; font-weight:900; background:#ecfdf5; color:#059669; padding:2px 7px; border-radius:4px; margin-bottom:4px; width:fit-content;">HACCP</span>
+              <h4 style="margin:0 0 3px; font-size:12.5px; font-weight:800; color:var(--eax-dark);">ISO 22000:2018</h4>
+              <p style="margin:0; font-size:9.5px; font-weight:500; color:#526759; line-height:1.45;" data-k="c_d4">Systematic hazard analysis and uninterrupted refrigerated cold-chain management.</p>
             </div>
           </div>
 
-          <!-- Top 5 Shipping Lines Box -->
-          <div class="shipping-box">
+          <!-- Top 5 Shipping Lines -->
+          <div style="background:#ffffff; border:1px solid var(--eax-border-light); border-radius:16px; padding:12px 16px; display:flex; flex-direction:column; justify-content:space-between;">
             <div>
-              <div style="font-size: 11px; font-weight: 900; color: var(--agro-forest); margin-bottom: 6px;" data-k="ship_box_title">
+              <div style="font-size:11px; font-weight:900; color:var(--eax-dark); margin-bottom:6px;" data-k="ship_box_title">
                 Strategic Alliances with Global Carriers
               </div>
-              <div class="carrier-pill">
-                <div><b>MSC</b> <span style="color:#64748b; font-size:9.5px;">• Medlog Smart Reefer</span></div>
-                <span>Alexandria & Damietta Direct</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 10px; background:#f8faf9; border:1px solid #e2ece6; border-radius:8px; margin-bottom:5px;">
+                <div><b style="font-size:11.5px; color:var(--eax-dark);">MSC</b> <span style="color:#64748b; font-size:9px;">• Medlog Smart Reefer</span></div>
+                <span style="font-size:9px; font-weight:700; color:#059669;">Alexandria & Damietta Direct</span>
               </div>
-              <div class="carrier-pill">
-                <div><b>Maersk Line</b> <span style="color:#64748b; font-size:9.5px;">• StarCool® CA</span></div>
-                <span>Port Said 4-6 Days to Rotterdam</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 10px; background:#f8faf9; border:1px solid #e2ece6; border-radius:8px; margin-bottom:5px;">
+                <div><b style="font-size:11.5px; color:var(--eax-dark);">Maersk Line</b> <span style="color:#64748b; font-size:9px;">• StarCool® CA</span></div>
+                <span style="font-size:9px; font-weight:700; color:#059669;">Port Said 4-6 Days to Rotterdam</span>
               </div>
-              <div class="carrier-pill">
-                <div><b>CMA CGM</b> <span style="color:#64748b; font-size:9.5px;">• Climactive® Low-O2</span></div>
-                <span>Alexandria TMT Southern Europe Loop</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 10px; background:#f8faf9; border:1px solid #e2ece6; border-radius:8px; margin-bottom:5px;">
+                <div><b style="font-size:11.5px; color:var(--eax-dark);">CMA CGM</b> <span style="color:#64748b; font-size:9px;">• Climactive® Low-O2</span></div>
+                <span style="font-size:9px; font-weight:700; color:#059669;">Alexandria TMT Southern Europe</span>
               </div>
-              <div class="carrier-pill">
-                <div><b>Hapag-Lloyd</b> <span style="color:#64748b; font-size:9.5px;">• ExtraFresh Plus®</span></div>
-                <span>Damietta North Europe & UK Hub</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 10px; background:#f8faf9; border:1px solid #e2ece6; border-radius:8px; margin-bottom:5px;">
+                <div><b style="font-size:11.5px; color:var(--eax-dark);">Hapag-Lloyd</b> <span style="color:#64748b; font-size:9px;">• ExtraFresh Plus®</span></div>
+                <span style="font-size:9px; font-weight:700; color:#059669;">Damietta North Europe & UK Hub</span>
               </div>
-              <div class="carrier-pill">
-                <div><b>ONE</b> <span style="color:#64748b; font-size:9.5px;">• IoT Dehumid</span></div>
-                <span>Sokhna Express to Asia & Suez</span>
+              <div style="display:flex; justify-content:space-between; align-items:center; padding:6px 10px; background:#f8faf9; border:1px solid #e2ece6; border-radius:8px;">
+                <div><b style="font-size:11.5px; color:var(--eax-dark);">ONE</b> <span style="color:#64748b; font-size:9px;">• IoT Dehumid</span></div>
+                <span style="font-size:9px; font-weight:700; color:#059669;">Sokhna Express to Asia & Suez</span>
               </div>
             </div>
-            <div style="font-size: 8.8px; color: #526759; font-weight: 600; margin-top: 4px;" data-k="t_note">
+            <div style="font-size:8.8px; color:#526759; font-weight:600; margin-top:4px;" data-k="t_note">
               * Active maritime departure hubs: Damietta Port • Alexandria Port • Sokhna Port.
             </div>
           </div>
         </div>
       </div>
+
       <div class="page-footer">
         <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
         <span data-k="ft_p3">PAGE 03</span>
       </div>
     </div>
 
-    <!-- PAGE 4: CROPS 01 TO 09 (Top Priority & Roots) -->
+    <!-- ================= PAGE 4: CROPS 01 TO 09 ================= -->
     <div class="page" id="page-4">
       <div class="page-header">
-        <div class="header-brand">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
-          <span>EAX <span>AGRO EXPORT</span></span>
+        <div class="header-logo-group">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <span>EAX <span style="color:#10b981;">AGRO EXPORT</span></span>
         </div>
-        <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 09</div>
+        <div class="header-tag-pill" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 09</div>
       </div>
+
       <div class="page-content">
-        <div class="catalog-header-bar">
-          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--agro-forest);" data-k="cat_t1">Top Priority Commercial Produce</h3>
-          <div style="font-size: 9px; font-weight: 700; color: #526759;">
-            <span style="display: inline-block; width: 9px; height: 9px; background: var(--agro-primary); border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-shrink:0;">
+          <h3 style="margin:0; font-size:14px; font-weight:900; color:var(--eax-dark);" data-k="cat_t1">Top Priority Commercial Produce</h3>
+          <div style="font-size:9px; font-weight:700; color:#526759;">
+            <span style="display:inline-block; width:9px; height:9px; background:var(--eax-forest); border-radius:2px; vertical-align:middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
-        <div class="catalog-table-wrap">
-          <table class="catalog-table">
+        <div style="width:100%; flex:1; display:flex; flex-direction:column; overflow:hidden;">
+          <table class="trade-matrix-table">
             <thead>
               <tr>
                 <th style="width: 3.5%;">#</th>
@@ -1047,31 +880,33 @@
           </table>
         </div>
       </div>
+
       <div class="page-footer">
         <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
         <span data-k="ft_p4">PAGE 04</span>
       </div>
     </div>
 
-    <!-- PAGE 5: CROPS 10 TO 18 (Grapes, Berries, Summer Fruits & Greenhouse) -->
+    <!-- ================= PAGE 5: CROPS 10 TO 18 ================= -->
     <div class="page" id="page-5">
       <div class="page-header">
-        <div class="header-brand">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
-          <span>EAX <span>AGRO EXPORT</span></span>
+        <div class="header-logo-group">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <span>EAX <span style="color:#10b981;">AGRO EXPORT</span></span>
         </div>
-        <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 10 TO 18</div>
+        <div class="header-tag-pill" data-k="cat_p2">EXPORT CATALOG • CROPS 10 TO 18</div>
       </div>
+
       <div class="page-content">
-        <div class="catalog-header-bar">
-          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--agro-forest);" data-k="cat_t2">Table Grapes, Berries, Mangoes & Dates</h3>
-          <div style="font-size: 9px; font-weight: 700; color: #526759;">
-            <span style="display: inline-block; width: 9px; height: 9px; background: var(--agro-primary); border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-shrink:0;">
+          <h3 style="margin:0; font-size:14px; font-weight:900; color:var(--eax-dark);" data-k="cat_t2">Table Grapes, Berries, Mangoes & Dates</h3>
+          <div style="font-size:9px; font-weight:700; color:#526759;">
+            <span style="display:inline-block; width:9px; height:9px; background:var(--eax-forest); border-radius:2px; vertical-align:middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
-        <div class="catalog-table-wrap">
-          <table class="catalog-table">
+        <div style="width:100%; flex:1; display:flex; flex-direction:column; overflow:hidden;">
+          <table class="trade-matrix-table">
             <thead>
               <tr>
                 <th style="width: 3.5%;">#</th>
@@ -1087,31 +922,33 @@
           </table>
         </div>
       </div>
+
       <div class="page-footer">
         <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
         <span data-k="ft_p5">PAGE 05</span>
       </div>
     </div>
 
-    <!-- PAGE 6: CROPS 19 TO 27 (Gourmet Legumes, Melons & Culinary Herbs) -->
+    <!-- ================= PAGE 6: CROPS 19 TO 27 ================= -->
     <div class="page" id="page-6">
       <div class="page-header">
-        <div class="header-brand">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
-          <span>EAX <span>AGRO EXPORT</span></span>
+        <div class="header-logo-group">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <span>EAX <span style="color:#10b981;">AGRO EXPORT</span></span>
         </div>
-        <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 19 TO 27</div>
+        <div class="header-tag-pill" data-k="cat_p3">EXPORT CATALOG • CROPS 19 TO 27</div>
       </div>
+
       <div class="page-content">
-        <div class="catalog-header-bar">
-          <h3 style="margin: 0; font-size: 14px; font-weight: 900; color: var(--agro-forest);" data-k="cat_t3">Artichokes, Melons, Brassicas & Air-Freight Herbs</h3>
-          <div style="font-size: 9px; font-weight: 700; color: #526759;">
-            <span style="display: inline-block; width: 9px; height: 9px; background: var(--agro-primary); border-radius: 2px; vertical-align: middle;"></span> <span data-k="leg_act">Harvest Window</span>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-shrink:0;">
+          <h3 style="margin:0; font-size:14px; font-weight:900; color:var(--eax-dark);" data-k="cat_t3">Artichokes, Melons, Brassicas & Air-Freight Herbs</h3>
+          <div style="font-size:9px; font-weight:700; color:#526759;">
+            <span style="display:inline-block; width:9px; height:9px; background:var(--eax-forest); border-radius:2px; vertical-align:middle;"></span> <span data-k="leg_act">Harvest Window</span>
           </div>
         </div>
 
-        <div class="catalog-table-wrap">
-          <table class="catalog-table">
+        <div style="width:100%; flex:1; display:flex; flex-direction:column; overflow:hidden;">
+          <table class="trade-matrix-table">
             <thead>
               <tr>
                 <th style="width: 3.5%;">#</th>
@@ -1127,55 +964,53 @@
           </table>
         </div>
       </div>
+
       <div class="page-footer">
         <span data-k="ft_text">EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE</span>
         <span data-k="ft_p6">PAGE 06</span>
       </div>
     </div>
 
-    <!-- PAGE 7: CORPORATE EXECUTIVE BACK COVER -->
-    <div class="page page-back" id="page-7">
-      <div class="back-box">
-        <div style="text-align: center; margin-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
-          <div style="display: inline-block; direction: ltr !important; unicode-bidi: isolate;">
-            <h1 style="margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 4px; text-transform: uppercase; color: #ffffff; font-family: 'Plus Jakarta Sans', sans-serif;">
-              EAX AGRO EXPORT
-            </h1>
-            <div style="font-size: 9px; font-weight: 800; letter-spacing: 3px; color: #34d399; text-transform: uppercase; margin-top: 2px;">
-              EGYPTIAN PREMIUM AGRICULTURAL EXPORTS
-            </div>
+    <!-- ================= PAGE 7: EXECUTIVE TRADE DESK BACK COVER ================= -->
+    <div class="page back-cover-sheet" id="page-7">
+      <div class="back-card-glass">
+        <div style="text-align:center; margin-bottom:12px; border-bottom:1px solid rgba(255,255,255,0.12); padding-bottom:8px;">
+          <h1 style="margin:0; font-size:26px; font-weight:900; letter-spacing:4px; text-transform:uppercase; color:#ffffff;">
+            EAX AGRO EXPORT
+          </h1>
+          <div style="font-size:9px; font-weight:800; letter-spacing:2.5px; color:#34d399; text-transform:uppercase; margin-top:2px;">
+            EGYPTIAN PREMIUM AGRICULTURAL EXPORTS
           </div>
-
-          <h3 style="font-size: 15.5px; font-weight: 900; color: #ffffff; margin: 6px 0 2px;" data-k="b_title">Global Export Trade Desk & RFQ Allotment</h3>
-          <p style="font-size: 10.5px; font-weight: 500; color: #cbd5e1; margin: 0 auto; max-width: 640px; line-height: 1.55;" data-k="b_sub">
+          <h3 style="font-size:15px; font-weight:900; color:#ffffff; margin:6px 0 2px;" data-k="b_title">Global Export Trade Desk & RFQ Allotment</h3>
+          <p style="font-size:10px; font-weight:500; color:#cbd5e1; margin:0 auto; max-width:650px; line-height:1.55;" data-k="b_sub">
             Your certified gateway to premium Egyptian fresh produce. Connecting modern packing stations directly to international supermarket networks and food distributors across Europe, the Gulf, Russia, and Asia.
           </p>
         </div>
 
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; text-align: start;">
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px;">
-            <div style="font-size: 16px; margin-bottom: 2px;">📍</div>
-            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: #34d399;" data-k="c_hq_t">Operations Hub & Stations</h5>
-            <p style="margin: 0; font-size: 9px; color: #94a3b8; line-height: 1.5;" data-k="c_hq_d">
+        <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; margin-bottom:10px; text-align:start;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 12px;">
+            <div style="font-size:14px; margin-bottom:2px;">📍</div>
+            <h5 style="margin:0 0 2px; font-size:10.5px; font-weight:800; color:#34d399;" data-k="c_hq_t">Operations Hub & Stations</h5>
+            <p style="margin:0; font-size:8.8px; color:#94a3b8; line-height:1.45;" data-k="c_hq_d">
               Alexandria & Cairo, Egypt.<br>
               Direct proximity to fertile Delta farms and high-speed cold chain highways.
             </p>
           </div>
 
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px;">
-            <div style="font-size: 16px; margin-bottom: 2px;">🚢</div>
-            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: #34d399;" data-k="c_ports_t">Maritime Dispatch Ports</h5>
-            <p style="margin: 0; font-size: 9px; color: #94a3b8; line-height: 1.5;" data-k="c_ports_d">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 12px;">
+            <div style="font-size:14px; margin-bottom:2px;">🚢</div>
+            <h5 style="margin:0 0 2px; font-size:10.5px; font-weight:800; color:#34d399;" data-k="c_ports_t">Maritime Dispatch Ports</h5>
+            <p style="margin:0; font-size:8.8px; color:#94a3b8; line-height:1.45;" data-k="c_ports_d">
               • Alexandria Container Terminal<br>
               • Damietta Port & East Port Said<br>
               • Sokhna Terminal (Red Sea & Asia Lines)
             </p>
           </div>
 
-          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px;">
-            <div style="font-size: 16px; margin-bottom: 2px;">📋</div>
-            <h5 style="margin: 0 0 3px; font-size: 11px; font-weight: 800; color: #34d399;" data-k="c_legal_t">Commercial & Trade Terms</h5>
-            <p style="margin: 0; font-size: 9px; color: #94a3b8; line-height: 1.5;" data-k="c_legal_d">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:10px 12px;">
+            <div style="font-size:14px; margin-bottom:2px;">📋</div>
+            <h5 style="margin:0 0 2px; font-size:10.5px; font-weight:800; color:#34d399;" data-k="c_legal_t">Commercial & Trade Terms</h5>
+            <p style="margin:0; font-size:8.8px; color:#94a3b8; line-height:1.45;" data-k="c_legal_d">
               • Incoterms 2020: FOB, CFR, CIF<br>
               • Flexible Supermarket Program Allocations<br>
               • EUR.1 (0% Tariff) & Phytosanitary Clearances
@@ -1183,65 +1018,70 @@
           </div>
         </div>
 
-        <!-- Contact & Interactive Dock -->
-        <div class="interactive-dock">
-          <div class="contact-cols">
-            <div class="c-col">
+        <!-- Official Contact Dock (Synced from Live Web Platform) -->
+        <div style="display:grid; grid-template-columns:2.3fr 1fr; gap:14px; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+          <div class="contacts-grid-quad">
+            <div class="contact-card-sub">
               <h6 data-k="c_p_t">Direct Calling & WhatsApp Desk</h6>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export" target="_blank" rel="noopener noreferrer" dir="ltr" class="phone-num">
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export" target="_blank" rel="noopener noreferrer" class="font-num">
                 +20 100 692 0920 ↗
               </a>
               <span data-k="c_p_sub">Direct Export WhatsApp (Click to Chat)</span>
             </div>
-            
-            <div class="c-col">
+
+            <div class="contact-card-sub">
               <h6 data-k="c_p2_t">Customer Care Phone</h6>
-              <a href="tel:+201556564646" dir="ltr" class="phone-num">
+              <a href="tel:+201556564646" class="font-num">
                 +20 155 656 4646 ↗
               </a>
               <span data-k="c_p2_sub">Direct Corporate Support Line</span>
             </div>
 
-            <div class="c-col">
+            <div class="contact-card-sub">
               <h6 data-k="c_e_t">Corporate Procurement Emails</h6>
               <a href="mailto:info@eax-agro.com">info@eax-agro.com ↗</a>
-              <span data-k="c_e_sub">General Inquiries & Official RFQs</span>
+              <span data-k="c_e_sub">Official RFQs & Season Programs</span>
             </div>
 
-            <div class="c-col">
-              <h6 data-k="c_web_t">Official Digital Web Platform</h6>
-              <a href="https://eax-agro-export.vercel.app" target="_blank" rel="noopener noreferrer">eax-agro-export.vercel.app ↗</a>
-              <span data-k="c_web_sub">27 Produce Online Specs & Telemetry</span>
+            <div class="contact-card-sub">
+              <h6 data-k="c_e2_t">Direct Export Department</h6>
+              <a href="mailto:export@eax-agro.com">export@eax-agro.com ↗</a>
+              <span data-k="c_e2_sub">Container Bookings & Logistics</span>
             </div>
           </div>
 
-          <div class="qr-side">
-            <div class="qr-card">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F201006920920%3Ftext%3DHello%2520EAX%2520Agro%2520Export" 
-                   alt="WhatsApp QR" 
-                   crossorigin="anonymous" 
-                   onerror="this.style.display='none'">
-              <p data-k="qr_wa">Instant WhatsApp</p>
+          <div style="display:flex; align-items:center; justify-content:center; gap:14px;">
+            <div style="text-align:center;">
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwa.me%2F201006920920%3Ftext%3DHello%2520EAX%2520Agro%2520Export" 
+                alt="WhatsApp QR" 
+                crossorigin="anonymous" 
+                style="width:68px; height:68px; border-radius:8px; background:#fff; padding:3px;"
+              />
+              <p style="margin:3px 0 0; font-size:8px; font-weight:800; color:#cbd5e1;" data-k="qr_wa">WhatsApp Desk</p>
             </div>
-            <div class="qr-card">
-              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Feax-agro-export.vercel.app" 
-                   alt="Portal QR" 
-                   crossorigin="anonymous" 
-                   onerror="this.style.display='none'">
-              <p data-k="qr_portal">Live Web Portal</p>
+            <div style="text-align:center;">
+              <img 
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Feax-agro-export.vercel.app" 
+                alt="Portal QR" 
+                crossorigin="anonymous" 
+                style="width:68px; height:68px; border-radius:8px; background:#fff; padding:3px;"
+              />
+              <p style="margin:3px 0 0; font-size:8px; font-weight:800; color:#cbd5e1;" data-k="qr_portal">Web Portal</p>
             </div>
           </div>
         </div>
 
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 8px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 8.8px; color: #94a3b8;">
-          <span style="font-weight: 700;">GlobalG.A.P. IFA v6 • BRCGS Grade A • ISO 22000 • ISO 17025 Labs • EUR.1 (0% Tariff)</span>
-          <span style="font-weight: 900; color: #ffffff;" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:6px; margin-top:8px; display:flex; justify-content:space-between; align-items:center; font-size:8.5px; color:#94a3b8;">
+          <span style="font-weight:700;">GlobalG.A.P. IFA v6 • BRCGS Grade A • ISO 22000 • ISO 17025 Labs • EUR.1 (0% Tariff)</span>
+          <span style="font-weight:900; color:#ffffff;" data-k="ft_copy">© 2026 EAX AGRO EXPORT. All Rights Reserved.</span>
         </div>
       </div>
     </div>
   </div>
 
   <script>
+    // Rasterize logo to avoid CORS blocking inside html2pdf / html2canvas
     function rasterizeLogo() {
       return new Promise((resolve) => {
         const targetImg = document.getElementById('main-brand-logo');
@@ -1544,7 +1384,6 @@
     const I18N = {
       en: {
         btn_print: "📥 Download PDF",
-        header_logo: "EAX <span>AGRO EXPORT</span>",
         company_title_full: "EAX World-Class Agro Export",
         cover_tag: "OFFICIAL 27-PRODUCE EXPORT CATALOG • 2026",
         cover_top_rt: "EGYPTIAN AGRICULTURAL EXPORTS",
@@ -1595,9 +1434,9 @@
         c_legal_t: "Commercial & Trade Terms", c_legal_d: "• Incoterms 2020: FOB, CFR, CIF<br>• Flexible Supermarket Program Allocations<br>• EUR.1 (0% Tariff) & Phytosanitary Clearances",
         c_p_t: "Direct Calling & WhatsApp Desk", c_p_sub: "Direct Export WhatsApp (Click to Chat)",
         c_p2_t: "Customer Care Phone", c_p2_sub: "Direct Corporate Support Line",
-        c_e_t: "Corporate Procurement Emails", c_e_sub: "General Inquiries & Official RFQs",
-        c_web_t: "Official Digital Web Platform", c_web_sub: "27 Produce Online Specs & Telemetry",
-        qr_wa: "Instant WhatsApp", qr_portal: "Live Web Portal",
+        c_e_t: "Corporate Procurement Emails", c_e_sub: "Official RFQs & Season Programs",
+        c_e2_t: "Direct Export Department", c_e2_sub: "Container Bookings & Logistics",
+        qr_wa: "WhatsApp Desk", qr_portal: "Web Portal",
         ft_text: "EAX AGRO EXPORT • OFFICIAL EXPORT BROCHURE",
         ft_p2: "PAGE 02", ft_p3: "PAGE 03", ft_p4: "PAGE 04", ft_p5: "PAGE 05", ft_p6: "PAGE 06",
         ft_copy: "© 2026 EAX AGRO EXPORT. All Rights Reserved.",
@@ -1605,7 +1444,6 @@
       },
       ar: {
         btn_print: "📥 تحميل الكتالوج PDF",
-        header_logo: "EAX <span>AGRO EXPORT</span>",
         company_title_full: "إياكس للتصدير الزراعي بمواصفات عالمية",
         cover_tag: "كتالوج التصدير الرسمي لـ 27 محصولاً • 2026",
         cover_top_rt: "الحاصلات الزراعية المصرية الفاخرة",
@@ -1657,7 +1495,7 @@
         c_p_t: "واتساب إدارة التصدير المباشر", c_p_sub: "تواصل مباشر مع مديري التصدير (اضغط للمحادثة)",
         c_p2_t: "هاتف الدعم وخدمة العملاء", c_p2_sub: "الخط المباشر للاتصال المؤسسي",
         c_e_t: "البريد الإلكتروني للتعاقدات الرسمية", c_e_sub: "إدارة التوريد وطلبات التسعير الرسمية",
-        c_web_t: "البوابة الإلكترونية الرسمية للشركة", c_web_sub: "مواصفات الـ 27 محصولاً ونظام التتبع الحي",
+        c_e2_t: "إدارة التصدير والشحن المباشر", c_e2_sub: "حجز الحاويات واللوجستيات البحرية",
         qr_wa: "محادثة واتساب فورية", qr_portal: "بوابة الموقع الرسمية",
         ft_text: "EAX AGRO EXPORT • كتالوج التصدير الرسمي المعتمد",
         ft_p2: "صفحة 02", ft_p3: "صفحة 03", ft_p4: "صفحة 04", ft_p5: "صفحة 05", ft_p6: "صفحة 06",
@@ -1666,7 +1504,6 @@
       },
       ru: {
         btn_print: "📥 Скачать PDF",
-        header_logo: "EAX <span>AGRO EXPORT</span>",
         company_title_full: "EAX: Экспорт агропродукции мирового уровня",
         cover_tag: "ОФИЦИАЛЬНЫЙ КАТАЛОГ 27 КУЛЬТУР • 2026",
         cover_top_rt: "СВЕЖАЯ СЕЛЬХОЗПРОДУКЦИЯ ИЗ ЕГИПТА",
@@ -1715,7 +1552,7 @@
         c_p_t: "Прямой WhatsApp ВЭД", c_p_sub: "Отдел международных контрактов (чат)",
         c_p2_t: "Телефон поддержки", c_p2_sub: "Прямая телефонная линия компании",
         c_e_t: "Корпоративная почта", c_e_sub: "Контракты и официальные запросы цен",
-        c_web_t: "Официальный веб-портал", c_web_sub: "Спецификации 27 культур и онлайн-трекинг",
+        c_e2_t: "Отдел морской логистики", c_e2_sub: "Бронирование рефконтейнеров",
         qr_wa: "Чат WhatsApp", qr_portal: "Веб-портал компании",
         ft_text: "EAX AGRO EXPORT • ОФИЦИАЛЬНАЯ БРОШЮРА",
         ft_p2: "СТР 02", ft_p3: "СТР 03", ft_p4: "СТР 04", ft_p5: "СТР 05", ft_p6: "СТР 06",
@@ -1724,7 +1561,6 @@
       },
       zh: {
         btn_print: "📥 下载 PDF 目录",
-        header_logo: "EAX <span>AGRO EXPORT</span>",
         company_title_full: "EAX 国际标准世界级农业出口",
         cover_tag: "官方27种果蔬出口名录 • 2026",
         cover_top_rt: "埃及顶级农产品出口",
@@ -1776,7 +1612,7 @@
         c_p_t: "出口部官方 WhatsApp", c_p_sub: "直接对接出口业务经理 (点击洽谈)",
         c_p2_t: "企业客服热线", c_p2_sub: "官方企业直拨热线",
         c_e_t: "大宗采购企业官方邮箱", c_e_sub: "官方商务询价与配额确认",
-        c_web_t: "官方数字化贸易门户", c_web_sub: "27种果蔬线上规格与物联网追溯",
+        c_e2_t: "海运冷链出口部", c_e2_sub: "集装箱订舱与船期跟踪",
         qr_wa: "扫码即刻沟通", qr_portal: "官方网站门户",
         ft_text: "EAX AGRO EXPORT • 官方出口目录",
         ft_p2: "第 02 页", ft_p3: "第 03 页", ft_p4: "第 04 页", ft_p5: "第 05 页", ft_p6: "第 06 页",
@@ -1785,46 +1621,28 @@
       }
     };
 
-    let currentLang = 'en';
-    let counterTimers = [];
+    let activeLang = 'en';
 
-    function runCountersAnimation() {
-      counterTimers.forEach(t => clearInterval(t));
-      counterTimers = [];
-      document.querySelectorAll('.counter-num').forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const prefix = counter.getAttribute('data-prefix') || '';
-        const suffix = counter.getAttribute('data-suffix') || '';
-        let current = 0;
-        const step = Math.max(target / 25, 1);
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            counter.innerText = prefix + target + suffix;
-            clearInterval(timer);
-          } else {
-            counter.innerText = prefix + Math.floor(current) + suffix;
-          }
-        }, 30);
-        counterTimers.push(timer);
-      });
-    }
-
-    function renderDynamicTables(lang) {
+    function renderProduceTables(lang) {
       const t = I18N[lang];
       const tableRows = { 1: [], 2: [], 3: [] };
 
       CROPS_DATA.forEach(crop => {
         const cInfo = crop[lang] || crop.en;
-        let bClass = 'bg-p';
+        let bClass = 'background:#fef3c7; color:#b45309; border:1px solid rgba(217,119,6,0.3);';
         let bText = (lang === 'ar' ? 'أولوية' : (lang === 'ru' ? 'Топ' : (lang === 'zh' ? '核心' : 'Priority')));
-        if (crop.grp === 's') { bClass = 'bg-s'; bText = (lang === 'ar' ? 'صيفي' : (lang === 'ru' ? 'Лето' : (lang === 'zh' ? '夏季' : 'Summer'))); }
-        else if (crop.grp === 'w') { bClass = 'bg-w'; bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зима' : (lang === 'zh' ? '冬季' : 'Winter'))); }
+        if (crop.grp === 's') { 
+          bClass = 'background:#ecfdf5; color:#047857; border:1px solid rgba(16,185,129,0.3);'; 
+          bText = (lang === 'ar' ? 'صيفي' : (lang === 'ru' ? 'Лето' : (lang === 'zh' ? '夏季' : 'Summer'))); 
+        } else if (crop.grp === 'w') { 
+          bClass = 'background:#eff6ff; color:#1d4ed8; border:1px solid rgba(59,130,246,0.3);'; 
+          bText = (lang === 'ar' ? 'شتوي' : (lang === 'ru' ? 'Зيма' : (lang === 'zh' ? '冬季' : 'Winter'))); 
+        }
 
         let dots = '';
         for (let m = 1; m <= 12; m++) {
           const isAct = crop.months.includes(m);
-          dots += `<span class="s-dot ${isAct ? 'active' : ''}">${t.months[m-1]}</span>`;
+          dots += `<span class="m-cell ${isAct ? 'active' : ''}">${t.months[m-1]}</span>`;
         }
 
         const packText = crop.pack[lang] || crop.pack.en;
@@ -1835,20 +1653,20 @@
 
         const rowHtml = `
           <tr>
-            <td><strong class="crop-id-num" style="color:#059669; font-size:10px;">${cropIdFormatted}</strong></td>
+            <td><strong class="font-num" style="color:#059669; font-size:10px;">${cropIdFormatted}</strong></td>
             <td>
               <div>
-                <span class="crop-name">${cInfo.name}</span>
-                <span class="crop-hs">HS ${crop.hs}</span>
-                <span class="badge-grp ${bClass}">${bText}</span>
-                <span class="crop-sub">${cInfo.sub}</span>
+                <span style="font-size:11.5px; font-weight:800; color:var(--eax-dark); line-height:1.25;">${cInfo.name}</span>
+                <span class="hs-tag font-num">HS ${crop.hs}</span>
+                <span style="display:inline-block; font-size:7.5px; font-weight:800; padding:1px 4.5px; border-radius:4px; margin-inline-start:3px; ${bClass}">${bText}</span>
+                <span style="color:#526759; font-size:9.2px; font-weight:500; display:block; margin-top:1px; line-height:1.35;">${cInfo.sub}</span>
               </div>
             </td>
-            <td class="cal-cell"><span class="cal-pill"><bdi>${calText}</bdi></span></td>
+            <td style="padding:0 6px;"><span class="spec-pill"><bdi>${calText}</bdi></span></td>
             <td>${packText}</td>
             <td><span class="temp-pill"><bdi>${tempText}</bdi></span></td>
             <td>${shipText}</td>
-            <td><div class="season-track">${dots}</div></td>
+            <td><div class="month-track">${dots}</div></td>
           </tr>
         `;
         const bucket = crop.id <= 9 ? 1 : crop.id <= 18 ? 2 : 3;
@@ -1861,13 +1679,13 @@
       }
     }
 
-    function setLang(lang) {
-      currentLang = lang;
+    function switchLanguage(lang) {
+      activeLang = lang;
       const html = document.documentElement;
       html.setAttribute('lang', lang);
       html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 
-      document.querySelectorAll('.lang-btn').forEach(btn => {
+      document.querySelectorAll('.lang-chip').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
       });
 
@@ -1877,24 +1695,15 @@
         if (t[k]) el.innerHTML = t[k];
       });
 
-      renderDynamicTables(lang);
-      runCountersAnimation();
+      renderProduceTables(lang);
     }
 
-    async function exportCatalogPDF() {
+    async function generatePdfDocument() {
       const container = document.getElementById('catalog-container');
-      const btn = document.querySelector('.print-btn');
+      const btn = document.querySelector('.download-action-btn');
       const oldText = btn.innerText;
-      btn.innerText = (currentLang === 'ar' ? '⏳ جاري تصدير PDF...' : '⏳ Generating PDF...');
+      btn.innerText = (activeLang === 'ar' ? '⏳ جاري إنشاء الكتالوج...' : '⏳ Generating Document...');
       btn.disabled = true;
-
-      counterTimers.forEach(t => clearInterval(t));
-      document.querySelectorAll('.counter-num').forEach(counter => {
-        const target = counter.getAttribute('data-target');
-        const prefix = counter.getAttribute('data-prefix') || '';
-        const suffix = counter.getAttribute('data-suffix') || '';
-        counter.innerText = prefix + target + suffix;
-      });
 
       if (document.fonts) await document.fonts.ready;
       await rasterizeLogo();
@@ -1905,7 +1714,7 @@
 
       const opt = {
         margin:       0,
-        filename:     `EAX_Agro_Export_Official_Catalog_2026_${currentLang}.pdf`,
+        filename:     `EAX_Agro_Export_Official_Catalog_2026_${activeLang}.pdf`,
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 2, useCORS: true, logging: false, scrollY: 0, scrollX: 0, windowWidth: 1122 },
         jsPDF:        { unit: 'mm', format: [297, 210], orientation: 'landscape' },
@@ -1928,26 +1737,9 @@
       }
     }
 
-    let lastScrollTop = 0;
-    const navbar = document.getElementById('smartNavbar');
-
-    window.addEventListener('scroll', () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > 60) {
-        if (scrollTop > lastScrollTop) {
-          navbar.classList.add('nav-hidden');
-        } else {
-          navbar.classList.remove('nav-hidden');
-        }
-      } else {
-        navbar.classList.remove('nav-hidden');
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, { passive: true });
-
     window.addEventListener('DOMContentLoaded', async () => {
       await rasterizeLogo();
-      setLang('en');
+      switchLanguage('en');
     });
   </script>
 </body>
