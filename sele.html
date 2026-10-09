@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX AGRO EXPORT — Official Export Catalog & Trade Guide 2026</title>
   
-  <!-- Modern Typography (Cairo, Plus Jakarta Sans, Noto Sans SC) -->
+  <!-- Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -43,7 +43,7 @@
       margin: 0;
       padding: 0;
       background: #010603;
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       color: var(--agro-forest);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
@@ -58,8 +58,12 @@
       letter-spacing: normal !important;
     }
 
+    html[lang="zh"] body {
+      font-family: 'Noto Sans SC', 'Plus Jakarta Sans', sans-serif;
+    }
+
     .font-mono {
-      font-family: 'JetBrains Mono', monospace !important;
+      font-family: 'JetBrains Mono', Consolas, monospace !important;
       font-variant-numeric: tabular-nums;
       direction: ltr !important;
       unicode-bidi: isolate !important;
@@ -72,7 +76,7 @@
     html[dir="rtl"] .phone-num {
       direction: ltr !important;
       unicode-bidi: isolate !important;
-      font-family: 'JetBrains Mono', monospace !important;
+      font-family: 'JetBrains Mono', Consolas, monospace !important;
     }
 
     /* Floating Capsule Navbar */
@@ -90,7 +94,7 @@
       -webkit-backdrop-filter: blur(20px);
       padding: 6px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+      border: 1px solid rgba(16, 185, 129, 0.35);
       box-shadow: 0 20px 45px rgba(0,0,0,0.65);
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
       width: max-content;
@@ -169,12 +173,20 @@
       flex-shrink: 0;
     }
     .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 14px;
       font-weight: 900;
-      letter-spacing: -0.02em;
       color: var(--agro-forest);
     }
-    .header-brand span { color: var(--agro-emerald); }
+    .header-brand img {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+    .header-brand span span { color: var(--agro-emerald); }
     .header-tag {
       font-size: 8.5px;
       font-weight: 800;
@@ -205,12 +217,12 @@
       border-top: 1px solid var(--agro-borderLight);
       font-size: 8.5px;
       font-weight: 700;
-      color: var(--text-muted, #526759);
+      color: #526759;
       background: #ffffff;
       flex-shrink: 0;
     }
 
-    /* Modern Cover Page (Dark Agro Theme) */
+    /* Cover Page */
     .cover-bg {
       background: 
         radial-gradient(circle at 85% 15%, rgba(16, 185, 129, 0.28) 0%, transparent 50%),
@@ -264,7 +276,7 @@
       background: #ffffff;
       border: 1px solid rgba(16, 185, 129, 0.35);
       border-radius: 24px;
-      padding: 14px 20px;
+      padding: 16px 20px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       position: relative;
       overflow: hidden;
@@ -274,6 +286,7 @@
       height: 100%;
       object-fit: contain;
       display: block;
+      border-radius: 14px;
     }
     
     .brand-hero-title {
@@ -723,7 +736,13 @@
         </div>
 
         <div class="cover-logo-side">
-          <img id="main-brand-logo" alt="EAX AGRO EXPORT Official Logo">
+          <img 
+            id="main-brand-logo" 
+            src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" 
+            crossorigin="anonymous" 
+            onerror="this.onerror=null;this.src='images/logo.jpeg';" 
+            alt="EAX AGRO EXPORT Official Logo"
+          />
         </div>
       </div>
 
@@ -750,7 +769,10 @@
     <!-- PAGE 2: CORPORATE TRUST & QUALITY HUB -->
     <div class="page" id="page-2">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
       </div>
 
@@ -781,7 +803,7 @@
         <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 4px 0;">
           <div style="background: #ffffff; border: 1px solid var(--agro-borderLight); border-radius: 14px; padding: 10px 14px; display: flex; align-items: center; gap: 10px; box-shadow: var(--shadow-fresh);">
             <div style="width: 38px; height: 38px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; color: #059669; flex-shrink: 0;">
-              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div>
               <div class="counter-num" data-target="45" data-suffix="+" style="font-size: 19px; font-weight: 900; color: var(--agro-forest); line-height: 1.1;">45+</div>
@@ -881,7 +903,10 @@
     <!-- PAGE 3: CERTS & TRANSIT -->
     <div class="page" id="page-3">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="p3_tag">INTERNATIONAL STANDARDS & MARITIME LOGISTICS</div>
       </div>
       <div class="page-content" style="justify-content: space-between;">
@@ -955,7 +980,10 @@
     <!-- PAGE 4: CROPS 01 TO 10 -->
     <div class="page" id="page-4">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="cat_p1">EXPORT CATALOG • CROPS 01 TO 10</div>
       </div>
       <div class="page-content">
@@ -992,7 +1020,10 @@
     <!-- PAGE 5: CROPS 11 TO 20 -->
     <div class="page" id="page-5">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="cat_p2">EXPORT CATALOG • CROPS 11 TO 20</div>
       </div>
       <div class="page-content">
@@ -1029,7 +1060,10 @@
     <!-- PAGE 6: CROPS 21 TO 30 -->
     <div class="page" id="page-6">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="cat_p3">EXPORT CATALOG • CROPS 21 TO 30</div>
       </div>
       <div class="page-content">
@@ -1066,7 +1100,10 @@
     <!-- PAGE 7: CROPS 31 TO 38 -->
     <div class="page" id="page-7">
       <div class="page-header">
-        <div class="header-brand" data-k="header_logo">EAX <span>AGRO EXPORT</span></div>
+        <div class="header-brand">
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="Logo" />
+          <span>EAX <span>AGRO EXPORT</span></span>
+        </div>
         <div class="header-tag" data-k="cat_p4">EXPORT CATALOG • CROPS 31 TO 38</div>
       </div>
       <div class="page-content">
@@ -1206,45 +1243,33 @@
     </div>
   </div>
 
-  <!-- Offscreen Vector Logo Engine -->
-  <div id="svg-logo-source" style="position: absolute; left: -9999px; top: -9999px; width: 940px; height: 480px; visibility: hidden;">
-    <svg id="raw-logo-svg" viewBox="0 0 940 480" width="940" height="480" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#34d399"/><stop offset="50%" stop-color="#10b981"/><stop offset="100%" stop-color="#059669"/>
-        </linearGradient>
-        <linearGradient id="greenLetter" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#0f4927"/><stop offset="45%" stop-color="#072d17"/><stop offset="100%" stop-color="#02140a"/>
-        </linearGradient>
-      </defs>
-      <g>
-        <!-- سيتم توليد الشعار هنا ديناميكياً بنفس دقة الويبسايت -->
-        <rect width="940" height="480" fill="#ffffff"/>
-        <text x="470" y="260" font-family="'Plus Jakarta Sans', sans-serif" font-size="64" font-weight="900" fill="#094328" text-anchor="middle">EAX AGRO EXPORT</text>
-      </g>
-    </svg>
-  </div>
-
   <script>
     function rasterizeLogo() {
       return new Promise((resolve) => {
         const targetImg = document.getElementById('main-brand-logo');
         if (!targetImg) return resolve();
-        // استخدام شمس وورقة الشجر الخاصة بالهوية البصرية
-        targetImg.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(`
-          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
-            <rect width="400" height="180" fill="#ffffff"/>
-            <text x="20" y="75" font-family="'Plus Jakarta Sans', sans-serif" font-size="38" font-weight="900" fill="#052316" letter-spacing="1">EAX</text>
-            <text x="20" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="900" fill="#10b981" letter-spacing="3">AGRO EXPORT</text>
-            <circle cx="330" cy="90" r="45" fill="none" stroke="#10b981" stroke-width="6"/>
-            <path d="M 310 90 Q 330 60 350 90 Q 330 120 310 90 Z" fill="#10b981"/>
-          </svg>
-        `);
-        resolve();
+        if (targetImg.src && targetImg.src.startsWith('data:image')) return resolve();
+
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function () {
+          try {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.naturalWidth || 800;
+            canvas.height = img.naturalHeight || 500;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            targetImg.src = canvas.toDataURL('image/jpeg', 0.95);
+            resolve();
+          } catch (e) {
+            resolve();
+          }
+        };
+        img.onerror = () => resolve();
+        img.src = targetImg.src;
       });
     }
 
-    // نفس قاعدة بيانات الـ 38 محصولاً الأصلية
     const CROPS_DATA = [
       { id:1, hs:'071420', grp:'p', months:[8,9,10,11,12,1,2,3],
         temp:{ en:'+12°C to +14°C', ar:'من +12 إلى +14°م', ru:'от +12°C до +14°C', zh:'+12°C 至 +14°C' },
@@ -1256,13 +1281,403 @@
         ru:{ name:"Батат свежий", sub:"Борегард, Бельвю" },
         zh:{ name:"新鲜红薯 / 蜜薯", sub:"Beauregard 品种" }
       },
-      // ... باقي المحاصيل الـ 38 بنفس الهيكل الأصلي
+      { id:2, hs:'080510', grp:'p', months:[11,12,1,2,3,4,5],
+        temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'15kg telescopic carton', ar:'كرتون تلسكوبي 15 كجم', ru:'Телескоп. короб 15кг', zh:'15公斤天地盖纸箱' },
+        cal:{ en:'40, 48, 56, 64, 72, 88', ar:'40، 48، 56، 64، 72، 88', ru:'40, 48, 56, 64, 72, 88', zh:'40, 48, 56, 64, 72, 88' },
+        en:{ name:"Fresh Oranges", sub:"Valencia & Navel" },
+        ar:{ name:"البرتقال الطازج", sub:"فالنسيا، أبو سرة" },
+        ru:{ name:"Свежие апельсины", sub:"Валенсия, Навел" },
+        zh:{ name:"新鲜甜橙", sub:"夏橙 Valencia & 脐橙 Navel" }
+      },
+      { id:3, hs:'070190', grp:'p', months:[1,2,3,4,5,6],
+        temp:{ en:'+4°C to +8°C', ar:'من +4 إلى +8°م', ru:'от +4°C до +8°C', zh:'+4°C 至 +8°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg / 25kg mesh, bins', ar:'أجولة شبكية 10/25 كجم، باليتات', ru:'Сетки 10кг/25кг, биг-бэги', zh:'10/25公斤网眼袋或大箱' },
+        cal:{ en:'45mm+, 55mm+, 65mm+', ar:'45مم+، 55مم+، 65مم+', ru:'45мм+, 55мм+, 65мм+', zh:'45mm+, 55mm+, 65mm+' },
+        en:{ name:"Ware Potatoes", sub:"Spunta, Hermes, Rosetta" },
+        ar:{ name:"بطاطس المائدة والتصنيع", sub:"سبونتا، هيرمس، روزيتا" },
+        ru:{ name:"Картофель товарный", sub:"Спунта, Гермес" },
+        zh:{ name:"新鲜商品马铃薯", sub:"Spunta 优质土豆" }
+      },
+      { id:4, hs:'070310', grp:'p', months:[3,4,5,6,7,8,9,10],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg / 25kg mesh bags', ar:'أجولة شبكية 10 كجم / 25 كجم', ru:'Сетки 10кг / 25кг', zh:'10公斤 / 25公斤网袋' },
+        cal:{ en:'40-60, 50-70, 70-90mm', ar:'40-60، 50-70، 70-90 مم', ru:'40-60, 50-70, 70-90мм', zh:'40-60, 50-70, 70-90mm' },
+        en:{ name:"Dry Onions", sub:"Golden Yellow & Red" },
+        ar:{ name:"البصل الجاف التصديري", sub:"الأصفر الذهبي والأحمر" },
+        ru:{ name:"Лук репчатый", sub:"Желтый и красный" },
+        zh:{ name:"耐储干洋葱", sub:"黄皮与红皮洋葱" }
+      },
+      { id:5, hs:'081090', grp:'p', months:[8,9,10,11,12],
+        temp:{ en:'+5°C to +7°C', ar:'من +5 إلى +7°م', ru:'от +5°C до +7°C', zh:'+5°C 至 +7°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'4.5kg flat carton', ar:'كرتون مسطح 4.5 كجم', ru:'Короб 4.5кг', zh:'4.5公斤平口纸箱' },
+        cal:{ en:'6, 7, 8, 9, 10, 12, 14', ar:'6، 7، 8، 9، 10، 12، 14', ru:'6, 7, 8, 9, 10, 12, 14', zh:'6, 7, 8, 9, 10, 12, 14' },
+        en:{ name:"Fresh Pomegranates", sub:"Wonderful, 116" },
+        ar:{ name:"الرمان الطازج", sub:"وندرفول، صنف 116" },
+        ru:{ name:"Свежий гранат", sub:"Вандерфул, 116" },
+        zh:{ name:"优质红石榴", sub:"Wonderful & 116" }
+      },
+      { id:6, hs:'080610', grp:'p', months:[5,6,7,8],
+        temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
+        pack:{ en:'4.5kg carry bags, 5kg punnets', ar:'أكياس 4.5 كجم، بانتس 5 كجم', ru:'Пакеты 4.5кг, пунеты 5кг', zh:'4.5公斤提袋 / 5公斤盒装' },
+        cal:{ en:'16mm - 24mm+', ar:'16مم - 24مم+', ru:'16мм - 24мм+', zh:'果径 16mm - 24mm+' },
+        en:{ name:"Table Grapes", sub:"Superior, Flame, Crimson" },
+        ar:{ name:"عنب المائدة بدون بذور", sub:"سوبيريور، فليم، كريمسون" },
+        ru:{ name:"Столовый виноград", sub:"Супериор, Флейм" },
+        zh:{ name:"无籽鲜食葡萄", sub:"Superior & Flame" }
+      },
+      { id:7, hs:'081010', grp:'p', months:[11,12,1,2,3,4],
+        temp:{ en:'+1°C to +2°C', ar:'من +1 إلى +2°م', ru:'от +1°C до +2°C', zh:'+1°C 至 +2°C' },
+        ship:{ en:'Fast Reefer / Air', ar:'بحري سريع / جوي اختياري', ru:'Быстрый реф / Авиа', zh:'快船冷链 / 空运' },
+        pack:{ en:'2kg flat (8x250g punnets)', ar:'كرتون 2 كجم (8 عبوات 250جم)', ru:'Короб 2кг (8x250г)', zh:'2公斤盒装 (8x250克)' },
+        cal:{ en:'25mm+, brix 9%+', ar:'25مم+، سكر 9%+', ru:'25мм+, brix 9%+', zh:'25mm+, 糖度 9%+' },
+        en:{ name:"Fresh Strawberries", sub:"Festival, Fortuna" },
+        ar:{ name:"الفراولة الطازجة الفاخرة", sub:"فستيفال، فورتونا" },
+        ru:{ name:"Свежая клубника", sub:"Фестиваль, Фортуна" },
+        zh:{ name:"新鲜草莓", sub:"Festival & Fortuna" }
+      },
+      { id:8, hs:'070320', grp:'s', months:[3,4,5,6,7],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg / 10kg cartons/mesh', ar:'كرتون أو شبك 5 كجم / 10 كجم', ru:'Коробки/сетки 5кг/10кг', zh:'5/10公斤纸箱或网眼袋' },
+        cal:{ en:'40mm, 50mm, 60mm+', ar:'40مم، 50مم، 60مم+', ru:'40мм, 50мм, 60мм+', zh:'40mm, 50mm, 60mm+' },
+        en:{ name:"Garlic (Fresh & Dry)", sub:"Pure White & Purple Red" },
+        ar:{ name:"الثوم الطازج والجاف", sub:"أبيض بلدي وأحمر" },
+        ru:{ name:"Чеснок свежий/сухой", sub:"Белый и фиолетовый" },
+        zh:{ name:"新鲜与干燥大蒜", sub:"纯白蒜与紫红蒜" }
+      },
+      { id:9, hs:'080410', grp:'s', months:[8,9,10,11,12],
+        temp:{ en:'-18°C / 0°C', ar:'-18°م / 0°م', ru:'-18°C / 0°C', zh:'-18°C / 0°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'1kg / 2kg / 5kg boxes', ar:'علب 1 كجم / 2 كجم / 5 كجم', ru:'Коробки 1кг / 2кг / 5кг', zh:'1/2/5公斤高档礼盒' },
+        cal:{ en:'Med, Large, Jumbo', ar:'متوسط، كبير، جامبو', ru:'Средний, крупный, джамбо', zh:'中果、大果、特大果' },
+        en:{ name:"Fresh Dates", sub:"Medjool & Barhi" },
+        ar:{ name:"التمور الطازجة الفاخرة", sub:"المجدول، البرحي" },
+        ru:{ name:"Свежие финики", sub:"Меджул, Бархи" },
+        zh:{ name:"新鲜高档椰枣", sub:"Medjool & Barhi" }
+      },
+      { id:10, hs:'080450', grp:'s', months:[7,8,9,10,11],
+        temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Морской рефконтейнер', zh:'快速冷藏海运' },
+        pack:{ en:'4kg / 5kg ventilated box', ar:'كرتون مهوى 4 كجم / 5 كجم', ru:'Вентил. короб 4кг/5кг', zh:'4/5公斤透气果箱' },
+        cal:{ en:'6, 7, 8, 9, 10, 12', ar:'6، 7، 8، 9، 10، 12', ru:'6, 7, 8, 9, 10, 12', zh:'6, 7, 8, 9, 10, 12' },
+        en:{ name:"Fresh Mangoes", sub:"Keitt, Kent, Naomi" },
+        ar:{ name:"المانجو الطازجة", sub:"كيت، كينت، نعومي" },
+        ru:{ name:"Свежее манго", sub:"Кейт, Кент" },
+        zh:{ name:"新鲜优质芒果", sub:"Keitt & Kent" }
+      },
+      { id:11, hs:'080711', grp:'s', months:[5,6,7,8],
+        temp:{ en:'+10°C to +14°C', ar:'من +10 إلى +14°م', ru:'от +10°C до +14°C', zh:'+10°C 至 +14°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'Paper wrapped in bins', ar:'مغلف بالورق في باليتات خشبية', ru:'В бумаге в бин-боксах', zh:'包纸大木箱包装' },
+        cal:{ en:'4-6kg, 6-8kg, 8-12kg', ar:'4-6 كجم، 6-8 كجم، 8-12 كجم', ru:'4-6кг, 6-8кг, 8-12кг', zh:'4-6kg, 6-8kg, 8-12kg' },
+        en:{ name:"Fresh Watermelon", sub:"Aswan & Giza Crimson" },
+        ar:{ name:"البطيخ الطازج", sub:"أسواني، جيزة أحمر" },
+        ru:{ name:"Арбузы свежие", sub:"Асуан, Гиза" },
+        zh:{ name:"新鲜大西瓜", sub:"Crimson 优质品种" }
+      },
+      { id:12, hs:'080719', grp:'s', months:[5,6,7,8],
+        temp:{ en:'+6°C to +8°C', ar:'من +6 إلى +8°م', ru:'от +6°C до +8°C', zh:'+6°C 至 +8°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg open cartons', ar:'كرتون مفتوح 5 كجم', ru:'Открытый короб 5кг', zh:'5公斤敞口纸箱' },
+        cal:{ en:'5, 6, 7, 8, 9 pcs', ar:'5، 6، 7، 8، 9 حبات', ru:'5, 6, 7, 8, 9 шт', zh:'5, 6, 7, 8, 9 粒/箱' },
+        en:{ name:"Cantaloupe & Galia", sub:"Galia, Ananas Melon" },
+        ar:{ name:"الشمام والكانتالوب", sub:"جاليا، أناناس" },
+        ru:{ name:"Дыня и Галия", sub:"Галия, Ананасная" },
+        zh:{ name:"甜瓜与哈密瓜", sub:"Galia 甜蜜瓜" }
+      },
+      { id:13, hs:'070960', grp:'s', months:[5,6,7,8,9,10,11],
+        temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg cartons / flowpack', ar:'كرتون 5 كجم / فلو باك', ru:'Короб 5кг / флоупак', zh:'5公斤箱装或流延膜包' },
+        cal:{ en:'M (60-80mm), L (80-100mm)', ar:'متوسط (60-80مم)، كبير (80-100مم)', ru:'M (60-80мм), L (80-100мм)', zh:'中号(60-80mm), 大号(80-100mm)' },
+        en:{ name:"Bell Peppers", sub:"Red, Yellow, Orange" },
+        ar:{ name:"الفلفل الملون الرومي", sub:"أحمر، أصفر، برتقالي" },
+        ru:{ name:"Перец сладкий", sub:"Красный, желтый" },
+        zh:{ name:"温室彩椒", sub:"红、黄、橙色彩椒" }
+      },
+      { id:14, hs:'070960', grp:'s', months:[5,6,7,8,9,10,11],
+        temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'2kg / 4kg cartons', ar:'كرتون 2 كجم / 4 كجم', ru:'Коробки 2кг / 4кг', zh:'2公斤 / 4公斤纸箱' },
+        cal:{ en:'Length: 6-10cm', ar:'الطول: 6-10 سم', ru:'Длина: 6-10см', zh:'长度: 6-10cm' },
+        en:{ name:"Chili Peppers", sub:"Hot Red & Green Jalapeño" },
+        ar:{ name:"الفلفل الحار التصديري", sub:"شطة حمراء وخضراء" },
+        ru:{ name:"Острый перец", sub:"Красный и зеленый" },
+        zh:{ name:"朝天椒 / 辣椒", sub:"新鲜红绿辣椒" }
+      },
+      { id:15, hs:'080930', grp:'s', months:[4,5,6,7],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'4kg/5kg tray cartons', ar:'كرتون صواني 4 كجم / 5 كجم', ru:'Короб с ячейками 4/5кг', zh:'4/5公斤托盘纸箱' },
+        cal:{ en:'A, B (60-75mm)', ar:'A، B (60-75مم)', ru:'Калибр A, B (60-75мм)', zh:'级别 A, B (60-75mm)' },
+        en:{ name:"Fresh Peaches", sub:"Early Swell, Florida Prince" },
+        ar:{ name:"الخوخ الطازج", sub:"إيرلي سويل، فلوريدا برنس" },
+        ru:{ name:"Свежие персики", sub:"Флорида Принс" },
+        zh:{ name:"新鲜水蜜桃", sub:"早期优质品种" }
+      },
+      { id:16, hs:'080930', grp:'s', months:[5,6,7],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'4kg carton, 10x500g punnets', ar:'كرتون 4 كجم، عبوات 10×500جم', ru:'Короб 4кг, 10x500г', zh:'4公斤箱装 (10x500克)' },
+        cal:{ en:'55mm to 75mm+', ar:'55مم إلى 75مم+', ru:'55мм - 75мм+', zh:'55mm 至 75mm+' },
+        en:{ name:"Fresh Nectarines", sub:"Yellow & White Flesh" },
+        ar:{ name:"النكتارين الفاخر", sub:"أصفر وأبيض" },
+        ru:{ name:"Нектарины", sub:"Желтые и белые" },
+        zh:{ name:"新鲜油桃", sub:"黄肉与白肉油桃" }
+      },
+      { id:17, hs:'080910', grp:'s', months:[5,6],
+        temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'3kg / 5kg lined cartons', ar:'كرتون مبطن 3 كجم / 5 كجم', ru:'Коробки 3кг / 5кг', zh:'3/5公斤防震纸箱' },
+        cal:{ en:'35mm to 50mm', ar:'35مم إلى 50مم', ru:'35мм - 50мм', zh:'35mm 至 50mm' },
+        en:{ name:"Fresh Apricots", sub:"Canino, Hamawi" },
+        ar:{ name:"المشمش الطازج", sub:"كانينو، حموي" },
+        ru:{ name:"Абрикосы", sub:"Канино, Хамави" },
+        zh:{ name:"新鲜杏子", sub:"Canino 甜杏" }
+      },
+      { id:18, hs:'080420', grp:'s', months:[7,8,9,10],
+        temp:{ en:'+1°C to +3°C', ar:'من +1 إلى +3°م', ru:'от +1°C до +3°C', zh:'+1°C 至 +3°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'1.5kg / 2kg cup trays', ar:'صواني عيون 1.5 كجم / 2 كجم', ru:'Лотки 1.5кг / 2кг', zh:'1.5/2公斤特制窝托' },
+        cal:{ en:'30-50g / pc', ar:'30-50 جم / حبة', ru:'30-50г / шт', zh:'30-50克/个' },
+        en:{ name:"Fresh Figs", sub:"Black Mission, Sultani" },
+        ar:{ name:"التين البرشومي الطازج", sub:"سلطاني، أسود" },
+        ru:{ name:"Инжир свежий", sub:"Султани, Черный" },
+        zh:{ name:"新鲜无花果", sub:"Black Mission 优质品种" }
+      },
+      { id:19, hs:'080450', grp:'s', months:[8,9,10,11],
+        temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'2kg / 4kg foam netted', ar:'كرتون 2/4 كجم بشبك فوم وقائي', ru:'Короб 2/4кг в сетке', zh:'2/4公斤带泡沫防震网' },
+        cal:{ en:'100-200g / pc', ar:'100-200 جم / حبة', ru:'100-200г / шт', zh:'100-200克/个' },
+        en:{ name:"Fresh Guava", sub:"White & Pink Baladi" },
+        ar:{ name:"الجوافة الطازجة", sub:"أبيض وبمبي بلدي" },
+        ru:{ name:"Гуава свежая", sub:"Белая и розовая" },
+        zh:{ name:"新鲜番石榴", sub:"白心与红心芭乐" }
+      },
+      { id:20, hs:'070993', grp:'s', months:[5,6,7,8,9,10],
+        temp:{ en:'+6°C to +8°C', ar:'من +6 إلى +8°م', ru:'от +6°C до +8°C', zh:'+6°C 至 +8°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg telescopic box', ar:'كرتون تلسكوبي 5 كجم', ru:'Телескоп. короб 5кг', zh:'5公斤天地盖箱' },
+        cal:{ en:'10-14cm, 14-18cm', ar:'10-14 سم، 14-18 سم', ru:'10-14см, 14-18см', zh:'10-14cm, 14-18cm' },
+        en:{ name:"Zucchini / Courgettes", sub:"Dark & Light Green" },
+        ar:{ name:"الكوسة الطازجة", sub:"خضراء داكنة وفاتحة" },
+        ru:{ name:"Кабачки / Цукини", sub:"Темно-зеленые" },
+        zh:{ name:"新鲜西葫芦", sub:"深绿与浅绿" }
+      },
+      { id:21, hs:'070930', grp:'s', months:[5,6,7,8,9,10],
+        temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg / 6kg cartons', ar:'كرتون 5 كجم / 6 كجم', ru:'Коробки 5кг / 6кг', zh:'5公斤 / 6公斤纸箱' },
+        cal:{ en:'200-400g / pc', ar:'200-400 جم / حبة', ru:'200-400г / шт', zh:'200-400克/个' },
+        en:{ name:"Fresh Eggplant", sub:"Black Beauty, Classic" },
+        ar:{ name:"الباذنجان الرومي الطازج", sub:"أسود كلاسيك" },
+        ru:{ name:"Баклажаны", sub:"Черная классика" },
+        zh:{ name:"新鲜茄子", sub:"圆茄与长茄" }
+      },
+      { id:22, hs:'070999', grp:'s', months:[5,6,7,8,9],
+        temp:{ en:'+7°C to +9°C', ar:'من +7 إلى +9°م', ru:'от +7°C до +9°C', zh:'+7°C 至 +9°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'2kg / 3kg vented cartons', ar:'كرتون مهوى 2 كجم / 3 كجم', ru:'Вентил. короб 2/3кг', zh:'2/3公斤透气箱' },
+        cal:{ en:'Extra Fine (3-5cm), Zero', ar:'إكسترا فاين (3-5 سم)، زيرو', ru:'Экстра Файн (3-5см), Зеро', zh:'特细级 (3-5cm), 零号' },
+        en:{ name:"Fresh Okra", sub:"Extra Fine, Zero, One" },
+        ar:{ name:"البامية الطازجة", sub:"إكسترا فاين، زيرو" },
+        ru:{ name:"Бамия (Окра)", sub:"Экстра Файн, Зеро" },
+        zh:{ name:"新鲜秋葵", sub:"特细级与零号级" }
+      },
+      { id:23, hs:'070820', grp:'w', months:[10,11,12,1,2,3,4,5],
+        temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'1.5kg / 4kg MAP bags', ar:'أكياس حفظ 1.5/4 كجم', ru:'Пакеты 1.5кг / 4кг', zh:'1.5/4公斤气调保鲜袋' },
+        cal:{ en:'Extra Fine (6-8mm), Fine', ar:'إكسترا فاين (6-8مم)، فاين', ru:'Экстра Файн (6-8мм), Файн', zh:'特细 (6-8mm), 一级' },
+        en:{ name:"Green Beans", sub:"Haricot Vert, Bobby" },
+        ar:{ name:"الفاصوليا الخضراء الرفيعة", sub:"هاريكوت فيرت، بوبي" },
+        ru:{ name:"Стручковая фасоль", sub:"Тонкая спаржевая" },
+        zh:{ name:"特级四季豆", sub:"Haricot Vert 细豆" }
+      },
+      { id:24, hs:'070310', grp:'w', months:[11,12,1,2,3,4,5],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'14 bunches / 2kg iced', ar:'14 ربطة / كرتون 2 كجم بالثلج', ru:'14 пучков / 2кг со льдом', zh:'14把 / 2公斤加冰箱' },
+        cal:{ en:'30cm+ length, 12mm bulb', ar:'طول 30 سم+، بصلة 12 مم', ru:'Длина 30см+, луковица 12мм', zh:'长度 30cm+, 葱白 12mm' },
+        en:{ name:"Spring Onions", sub:"Photon, Giza" },
+        ar:{ name:"البصل الأخضر الطازج", sub:"فوتون، جيزة" },
+        ru:{ name:"Зеленый лук", sub:"Перо свежее" },
+        zh:{ name:"新鲜大葱 / 青葱", sub:"出口水洗葱" }
+      },
+      { id:25, hs:'070991', grp:'w', months:[12,1,2,3,4],
+        temp:{ en:'+1°C to +3°C', ar:'من +1 إلى +3°م', ru:'от +1°C до +3°C', zh:'+1°C 至 +3°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg / 10kg cartons', ar:'كرتون 5 كجم / 10 كجم', ru:'Коробки 5кг / 10кг', zh:'5公斤 / 10公斤纸箱' },
+        cal:{ en:'24, 30, 36, 40 counts', ar:'24، 30، 36، 40 حبة', ru:'24, 30, 36, 40 шт', zh:'24, 30, 36, 40 个/箱' },
+        en:{ name:"Fresh Artichokes", sub:"French Violet, Baladi" },
+        ar:{ name:"الخرشوف الطازج", sub:"فرنساوي، بلدي" },
+        ru:{ name:"Артишоки свежие", sub:"Французский фиолетовый" },
+        zh:{ name:"新鲜洋蓟 / 朝鲜蓟", sub:"法式紫色洋蓟" }
+      },
+      { id:26, hs:'070511', grp:'w', months:[11,12,1,2,3,4],
+        temp:{ en:'+1°C to +2°C', ar:'من +1 إلى +2°م', ru:'от +1°C до +2°C', zh:'+1°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10-12 pcs wrapped', ar:'10-12 حبة مغلفة بالكرتون', ru:'10-12 шт в пленке', zh:'10-12 颗单个套袋箱装' },
+        cal:{ en:'400-600g, 600-800g', ar:'400-600 جم، 600-800 جم', ru:'400-600г, 600-800г', zh:'400-600克, 600-800克' },
+        en:{ name:"Iceberg Lettuce", sub:"Crisphead Premium" },
+        ar:{ name:"خس الكابوتشا / الآيسبرج", sub:"كرسب هيد مغلف" },
+        ru:{ name:"Салат Айсберг", sub:"Плотный кочан" },
+        zh:{ name:"新鲜球生菜", sub:"结球生菜 Iceberg" }
+      },
+      { id:27, hs:'080521', grp:'w', months:[11,12,1,2,3,4],
+        temp:{ en:'+4°C to +6°C', ar:'من +4 إلى +6°م', ru:'от +4°C до +6°C', zh:'+4°C 至 +6°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg / 15kg cartons', ar:'كرتون 10 كجم / 15 كجم', ru:'Коробки 10кг / 15кг', zh:'10公斤 / 15公斤纸箱' },
+        cal:{ en:'1, 2, 3, 4, 5', ar:'1، 2، 3، 4، 5', ru:'Калибры 1, 2, 3, 4, 5', zh:'级别 1, 2, 3, 4, 5' },
+        en:{ name:"Mandarins", sub:"Fremont, Murcott" },
+        ar:{ name:"اليوسفي والمندرين", sub:"فريمونت، موركوت" },
+        ru:{ name:"Мандарины", sub:"Фримонт, Муркотт" },
+        zh:{ name:"新鲜柑橘沃柑", sub:"Fremont & Murcott" }
+      },
+      { id:28, hs:'080550', grp:'w', months:[10,11,12,1,2,3,4],
+        temp:{ en:'+8°C to +10°C', ar:'من +8 إلى +10°م', ru:'от +8°C до +10°C', zh:'+8°C 至 +10°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'15kg carton / 5kg lime', ar:'كرتون 15 كجم / 5 كجم ليمون أخضر', ru:'Короб 15кг / 5кг лайм', zh:'15公斤箱装 / 5公斤青柠' },
+        cal:{ en:'64, 75, 88, 100, 113', ar:'64، 75، 88، 100، 113', ru:'64, 75, 88, 100, 113', zh:'64, 75, 88, 100, 113' },
+        en:{ name:"Lemons & Limes", sub:"Eureka & Baladi Lime" },
+        ar:{ name:"الليمون الأضاليا والبلدي", sub:"يوريكا، ليمون أخضر" },
+        ru:{ name:"Лимоны и Лаймы", sub:"Эврика, Балади" },
+        zh:{ name:"柠檬与青柠", sub:"尤力克 Eureka 柠檬" }
+      },
+      { id:29, hs:'080540', grp:'w', months:[10,11,12,1,2,3],
+        temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'15kg export carton', ar:'كرتون تصدير 15 كجم', ru:'Экспортный короб 15кг', zh:'15公斤出口标准纸箱' },
+        cal:{ en:'32, 36, 40, 48, 56', ar:'32، 36، 40، 48، 56', ru:'32, 36, 40, 48, 56', zh:'32, 36, 40, 48, 56' },
+        en:{ name:"Grapefruit", sub:"Star Ruby Red" },
+        ar:{ name:"الجريب فروت الأحمر", sub:"ستار روبي" },
+        ru:{ name:"Грейпфрут", sub:"Стар Руби" },
+        zh:{ name:"红心葡萄柚", sub:"Star Ruby 优质品种" }
+      },
+      { id:30, hs:'070810', grp:'w', months:[12,1,2,3,4],
+        temp:{ en:'+1°C to +3°C', ar:'من +1 إلى +3°م', ru:'от +1°C до +3°C', zh:'+1°C 至 +3°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'1.5kg / 2.5kg cartons', ar:'كرتون 1.5 كجم / 2.5 كجم', ru:'Коробки 1.5кг / 2.5кг', zh:'1.5公斤 / 2.5公斤小箱' },
+        cal:{ en:'Pods: 7-9mm', ar:'قطر القرون: 7-9 مم', ru:'Стручки: 7-9мм', zh:'豆荚粗度: 7-9mm' },
+        en:{ name:"Peas & Sugar Snaps", sub:"Green Peas, Mangetout" },
+        ar:{ name:"البازلاء والقرون السكرية", sub:"بسلة خضراء، مانج تو" },
+        ru:{ name:"Горошек и Сноупис", sub:"Зеленый сахарный" },
+        zh:{ name:"甜脆豆与荷兰豆", sub:"Sugar Snaps 甜豆" }
+      },
+      { id:31, hs:'070410', grp:'w', months:[12,1,2,3,4],
+        temp:{ en:'+0°C to +1°C', ar:'من +0 إلى +1°م', ru:'от 0°C до +1°C', zh:'+0°C 至 +1°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'5kg/8kg polystyrene iced', ar:'فوم 5/8 كجم بالثلج المبشور', ru:'Пенопласт 5/8кг со льдом', zh:'5/8公斤加碎冰保丽龙箱' },
+        cal:{ en:'300-600g', ar:'300-600 جم', ru:'Головки: 300-600г', zh:'花球重: 300-600克' },
+        en:{ name:"Fresh Broccoli", sub:"Calabrese Dome" },
+        ar:{ name:"البروكلي الأخضر الطازج", sub:"رؤوس متماسكة" },
+        ru:{ name:"Брокколи свежая", sub:"Калабрезе" },
+        zh:{ name:"新鲜西兰花", sub:"高品质紧实花球" }
+      },
+      { id:32, hs:'070410', grp:'w', months:[12,1,2,3,4],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'6-8 heads / carton', ar:'6-8 رؤوس بالكرتون', ru:'6-8 головок в коробе', zh:'6-8 颗/箱 单套袋' },
+        cal:{ en:'800-1500g', ar:'800-1500 جم', ru:'Кочан: 800-1500г', zh:'花球重: 800-1500克' },
+        en:{ name:"Fresh Cauliflower", sub:"Pure Snow White" },
+        ar:{ name:"القرنبيط الأبيض الطازج", sub:"قرص أبيض ناصع" },
+        ru:{ name:"Цветная капуста", sub:"Белоснежная" },
+        zh:{ name:"新鲜白花椰菜", sub:"纯白密实花球" }
+      },
+      { id:33, hs:'070610', grp:'w', months:[1,2,3,4,5],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg bags in cartons', ar:'أكياس 10 كجم داخل كراتين', ru:'Пакеты 10кг в коробах', zh:'10公斤袋装内衬箱' },
+        cal:{ en:'14-18cm, 18-22cm', ar:'14-18 سم، 18-22 سم', ru:'14-18см, 18-22см', zh:'14-18cm, 18-22cm' },
+        en:{ name:"Washed Carrots", sub:"Nantes Sweet Type" },
+        ar:{ name:"الجزر الطازج المغسول", sub:"نانتس سكري" },
+        ru:{ name:"Морковь мытая", sub:"Нантская сладкая" },
+        zh:{ name:"新鲜水洗胡萝卜", sub:"Nantes 甜胡萝卜" }
+      },
+      { id:34, hs:'070690', grp:'w', months:[12,1,2,3,4,5],
+        temp:{ en:'+1°C to +3°C', ar:'من +1 إلى +3°م', ru:'от +1°C до +3°C', zh:'+1°C 至 +3°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg mesh bags / box', ar:'أجولة شبكية / كرتون 10 كجم', ru:'Сетки / коробки 10кг', zh:'10公斤网眼袋或纸箱' },
+        cal:{ en:'50-70mm, 70-90mm', ar:'50-70 مم، 70-90 مم', ru:'50-70мм, 70-90мм', zh:'50-70mm, 70-90mm' },
+        en:{ name:"Fresh Beetroot", sub:"Detroit Dark Red" },
+        ar:{ name:"البنجر / الشمندر الأحمر", sub:"ديترويت أحمر داكن" },
+        ru:{ name:"Свекла столовая", sub:"Детройт" },
+        zh:{ name:"新鲜甜菜根", sub:"Detroit 深红甜菜" }
+      },
+      { id:35, hs:'070490', grp:'w', months:[11,12,1,2,3,4],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg / 15kg mesh bags', ar:'أجولة شبكية 10 كجم / 15 كجم', ru:'Сетки 10кг / 15кг', zh:'10公斤 / 15公斤网眼袋' },
+        cal:{ en:'1.2kg to 2.5kg', ar:'1.2 كجم إلى 2.5 كجم', ru:'1.2 - 2.5кг / кочан', zh:'单球重 1.2kg 至 2.5kg' },
+        en:{ name:"Cabbage (White/Red)", sub:"Round Winter Type" },
+        ar:{ name:"الكرنب الأبيض والأحمر", sub:"ملفوف شتوي" },
+        ru:{ name:"Капуста (Белая/Красная)", sub:"Круглая плотная" },
+        zh:{ name:"新鲜甘蓝 / 包菜", sub:"白甘蓝与紫甘蓝" }
+      },
+      { id:36, hs:'070970', grp:'w', months:[11,12,1,2,3],
+        temp:{ en:'+0°C to +2°C', ar:'من +0 إلى +2°م', ru:'от 0°C до +2°C', zh:'+0°C 至 +2°C' },
+        ship:{ en:'Fast Reefer Vessel', ar:'شحن بحري مبرد سريع', ru:'Быстрый морской реф', zh:'快速冷藏海运' },
+        pack:{ en:'3kg / 5kg vented iced', ar:'كرتون مهوى بالثلج 3/5 كجم', ru:'Вентил. короб со льдом', zh:'3/5公斤加冰透气箱' },
+        cal:{ en:'Clean washed bunches', ar:'حزم مغسولة ومنظفة', ru:'Мытые пучки', zh:'精选水洗捆装' },
+        en:{ name:"Fresh Spinach", sub:"Savoy & Flat Leaf" },
+        ar:{ name:"السبانخ الخضراء الطازجة", sub:"أوراق عريضة منظفة" },
+        ru:{ name:"Шпинат свежий", sub:"Листовой" },
+        zh:{ name:"新鲜菠菜", sub:"大叶厚嫩菠菜" }
+      },
+      { id:37, hs:'071440', grp:'w', months:[11,12,1,2,3],
+        temp:{ en:'+10°C to +12°C', ar:'من +10 إلى +12°م', ru:'от +10°C до +12°C', zh:'+10°C 至 +12°C' },
+        ship:{ en:'40ft Reefer', ar:'حاويات 40 قدم ريفير', ru:'40ft Рефконтейнер', zh:'40尺冷藏集装箱' },
+        pack:{ en:'10kg cartons / mesh', ar:'كرتون / أجولة شبكية 10 كجم', ru:'Короба / сетки 10кг', zh:'10公斤箱装或网袋' },
+        cal:{ en:'500-1000g / pc', ar:'500-1000 جم / حبة', ru:'500-1000г / шт', zh:'500-1000克/个' },
+        en:{ name:"Taro Root", sub:"Egyptian Colocasia" },
+        ar:{ name:"القلقاس البلدي المقشور", sub:"درنات نظيفة ممتازة" },
+        ru:{ name:"Таро (Колоказия)", sub:"Очищенный" },
+        zh:{ name:"新鲜芋头", sub:"高品质精选芋头" }
+      },
+      { id:38, hs:'121190', grp:'w', months:[10,11,12,1,2,3,4,5],
+        temp:{ en:'+2°C to +4°C', ar:'من +2 إلى +4°م', ru:'от +2°C до +4°C', zh:'+2°C 至 +4°C' },
+        ship:{ en:'Fast Reefer / Air', ar:'بحري سريع / جوي اختياري', ru:'Быстрый реф / Авиа', zh:'快船冷链 / 空运' },
+        pack:{ en:'1kg/2kg polystyrene iced', ar:'فوم 1/2 كجم بالثلج', ru:'Пенопласт 1/2кг со льдом', zh:'1/2公斤加冰保丽龙箱' },
+        cal:{ en:'Bunches: 50g, 100g, 150g', ar:'حزم: 50 جم، 100 جم، 150 جم', ru:'Пучки 50г, 100г, 150г', zh:'把重: 50g, 100g, 150g' },
+        en:{ name:"Culinary Herbs", sub:"Dill, Parsley, Coriander" },
+        ar:{ name:"الأعشاب الطبية والعطرية", sub:"شبت، بقدونس، كزبرة، نعناع" },
+        ru:{ name:"Свежая зелень", sub:"Укроп, петрушка, мята" },
+        zh:{ name:"新鲜出口香草", sub:"莳萝、欧芹、芫荽、薄荷" }
+      }
     ];
 
     const TRANSIT_DATA = [
-      { port: { en: "Koper / Ravenna", ar: "كوبر / رافينا", ru: "Копер / Равенна", zh: "科佩尔 / 拉文纳" }, region: { en: "Slovenia / Italy", ar: "سلوفينيا / إيطاليا", ru: "Словения / Италия", zh: "斯洛文尼亚 / 意大利" }, time: { en: "3 – 4 Days", ar: "3 – 4 أيام", ru: "3 – 4 дня", zh: "3 – 4 天" } },
-      { port: { en: "Piraeus", ar: "بيرايوس", ru: "Пирей", zh: "比雷埃夫斯" }, region: { en: "Greece", ar: "اليونان", ru: "Греция", zh: "希腊" }, time: { en: "2 – 3 Days", ar: "2 – 3 أيام", ru: "2 – 3 дня", zh: "2 – 3 天" } },
-      { port: { en: "Rotterdam / Antwerp", ar: "روتردام / أنتويرب", ru: "Роттердам / Антверпен", zh: "鹿特丹 / 安特卫普" }, region: { en: "Netherlands / Belgium", ar: "هولندا / بلجيكا", ru: "Нидерланды / Бельгия", zh: "荷兰 / 比利时" }, time: { en: "8 – 10 Days", ar: "8 – 10 أيام", ru: "8 – 10 дней", zh: "8 – 10 天" } }
+      { port: { en: "Koper / Ravenna", ar: "كوبر / رافينا", ru: "Копер / Равенна", zh: "科佩尔 / 拉文纳" },
+        region: { en: "Slovenia / Italy", ar: "سلوفينيا / إيطاليا", ru: "Словения / Италия", zh: "斯洛文尼亚 / 意大利" },
+        time: { en: "3 – 4 Days", ar: "3 – 4 أيام", ru: "3 – 4 дня", zh: "3 – 4 天" }
+      },
+      { port: { en: "Piraeus", ar: "بيرايوس", ru: "Пирей", zh: "比雷埃夫斯" },
+        region: { en: "Greece", ar: "اليونان", ru: "Греция", zh: "希腊" },
+        time: { en: "2 – 3 Days", ar: "2 – 3 أيام", ru: "2 – 3 дня", zh: "2 – 3 天" }
+      },
+      { port: { en: "Marseille / Fos", ar: "مارسيليا / فوس", ru: "Марсель / Фос", zh: "马赛 / 福斯" },
+        region: { en: "France", ar: "فرنسا", ru: "Франция", zh: "法国" },
+        time: { en: "5 – 6 Days", ar: "5 – 6 أيام", ru: "5 – 6 дней", zh: "5 – 6 天" }
+      },
+      { port: { en: "Rotterdam / Antwerp", ar: "روتردام / أنتويرب", ru: "Роттердам / Антверпен", zh: "鹿特丹 / 安特卫普" },
+        region: { en: "Netherlands / Belgium", ar: "هولندا / بلجيكا", ru: "Нидерланды / Бельгия", zh: "荷兰 / 比利时" },
+        time: { en: "8 – 10 Days", ar: "8 – 10 أيام", ru: "8 – 10 дней", zh: "8 – 10 天" }
+      },
+      { port: { en: "Novorossiysk", ar: "نوفوروسيسك", ru: "Новороссийск", zh: "新罗西斯克" },
+        region: { en: "Russia (Black Sea)", ar: "روسيا (البحر الأسود)", ru: "Россия (Черное море)", zh: "俄罗斯 (黑海)" },
+        time: { en: "4 – 5 Days", ar: "4 – 5 أيام", ru: "4 – 5 дней", zh: "4 – 5 天" }
+      },
+      { port: { en: "Jeddah / Jebel Ali", ar: "جدة / جبل علي", ru: "Джидда / Джебель Али", zh: "吉达 / 杰贝阿里" },
+        region: { en: "Saudi Arabia / UAE", ar: "السعودية / الإمارات", ru: "Сауд. Аравия / ОАЭ", zh: "沙特 / 阿联酋" },
+        time: { en: "3 – 6 Days", ar: "3 – 6 أيام", ru: "3 – 6 дней", zh: "3 – 6 天" }
+      }
     ];
 
     const I18N = {
@@ -1285,7 +1700,10 @@
         p2_badge_title: "★ Quality Guarantee",
         p2_badge_sub: "Supermarket Class A Specs",
         p2_badge_desc: "Guaranteed compliance with strict EU MRL limits, supermarket specs, and unbroken cold-chain protocols.",
-        stat1_t: "Global Destinations", stat2_t: "Strict EU MRL Compliance", stat3_t: "Pre-Cooling Pull", stat4_t: "Live Cold Chain IoT",
+        stat1_t: "Global Destinations",
+        stat2_t: "Strict EU MRL Compliance",
+        stat3_t: "Pre-Cooling Pull",
+        stat4_t: "Live Cold Chain IoT",
         pil1_t: "Strict Field Monitoring", pil1_d: "Pre-harvest soil testing and residue analysis guarantee compliance. Full lot traceability down to specific farm sectors.", pil1_tag: "✓ 100% Traceable Farms",
         pil2_t: "Optical Sorting & Curing", pil2_d: "Automated electronic grading calibrates weight, sizing, and brix sugars. Controlled curing tunnels guarantee superior firmness and shelf life.", pil2_tag: "✓ Supermarket Class A Standards",
         pil3_t: "Unbroken Cold Chain", pil3_d: "Forced-air pre-cooling stations pull field heat within 2 hours of packing. Sealed cold docks load directly into 40ft High-Cube Reefers.", pil3_tag: "✓ Live Data Loggers",
@@ -1303,10 +1721,14 @@
         t_mat_title: "Direct Port Transit Times (From Egypt)",
         th_port: "Destination Port", th_country: "Region", th_days: "Direct Sail Time",
         t_note: "* Departures via Alexandria, Damietta, and Port Said West Terminals.",
-        cat_p1: "EXPORT CATALOG • CROPS 01 TO 10", cat_t1: "Top Priority Commercial Exports",
-        cat_p2: "EXPORT CATALOG • CROPS 11 TO 20", cat_t2: "Summer Fruits & Greenhouse Cultivation",
-        cat_p3: "EXPORT CATALOG • CROPS 21 TO 30", cat_t3: "Citrus, Legumes & Open-Field Vegetables",
-        cat_p4: "EXPORT CATALOG • CROPS 31 TO 38", cat_t4: "Brassicas, Root Crops & Culinary Herbs",
+        cat_p1: "EXPORT CATALOG • CROPS 01 TO 10",
+        cat_t1: "Top Priority Commercial Exports",
+        cat_p2: "EXPORT CATALOG • CROPS 11 TO 20",
+        cat_t2: "Summer Fruits & Greenhouse Cultivation",
+        cat_p3: "EXPORT CATALOG • CROPS 21 TO 30",
+        cat_t3: "Citrus, Legumes & Open-Field Vegetables",
+        cat_p4: "EXPORT CATALOG • CROPS 31 TO 38",
+        cat_t4: "Brassicas, Root Crops & Culinary Herbs",
         th_crop: "Crop & Variety", th_cal: "Caliber / Sizes", th_pack: "Export Packaging", th_temp: "Temp (°C)", th_ship: "Freight Mode", th_seas: "Harvest Calendar",
         leg_act: "Harvest Window",
         b_title: "Global Export & Trade Desk",
@@ -1343,7 +1765,10 @@
         p2_badge_title: "★ ضمان الجودة والامتثال",
         p2_badge_sub: "معايير السوبرماركت الفئة الأولى A",
         p2_badge_desc: "مطابقة تامة للمواصفات الأوروبية ومعايير متبقيات المبيدات مع تبريد مستمر من الحقل حتى الوصول.",
-        stat1_t: "دولة وجهة تصديرية", stat2_t: "التزام تام بمعايير الاتحاد الأوروبي MRL", stat3_t: "سحب حرارة الحقل فوراً", stat4_t: "تتبع حراري حي للحاويات",
+        stat1_t: "دولة وجهة تصديرية",
+        stat2_t: "التزام تام بمعايير الاتحاد الأوروبي MRL",
+        stat3_t: "سحب حرارة الحقل فوراً",
+        stat4_t: "تتبع حراري حي للحاويات",
         pil1_t: "مراقبة صارمة للحقول", pil1_d: "فحص دوري للتربة وتحليل دقيق لمتبقيات المبيدات قبل الحصاد لضمان الامتثال، مع تتبع كامل للشحنة حتى الحقل.", pil1_tag: "✓ مزارع قابلة للتتبع 100%",
         pil2_t: "فرز آلي ومعالجة حرارية", pil2_d: "خطوط فرز إلكترونية تفرز الحجم والوزن ونسبة السكريات. معالجة حرارية Curing لضمان الصلابة وأطول عمر تسويقي.", pil2_tag: "✓ معايير الجودة المعتمدة للسوبرماركت",
         pil3_t: "سلاسل تبريد غير منقطعة", pil3_d: "محطات تبريد سريع Pre-cooling فور التعبئة، مع شحن فوري عبر أرصفة معزولة لحاويات ريفير 40 قدم مجهزة بالكامل.", pil3_tag: "✓ مسجلات حرارية ذكية لحظية",
@@ -1361,10 +1786,14 @@
         t_mat_title: "زمن الإبحار المباشر من الموانئ المصرية",
         th_port: "ميناء الوصول", th_country: "الدولة / الإقليم", th_days: "مدة الإبحار المباشر",
         t_note: "* الإبحار أسبوعياً عبر موانئ الإسكندرية، دمياط، ومحطة غرب بورسعيد.",
-        cat_p1: "كتالوج التصدير الرسمي • المحاصيل 01 إلى 10", cat_t1: "المحاصيل ذات الأولوية التصديرية الكبرى",
-        cat_p2: "كتالوج التصدير الرسمي • المحاصيل 11 إلى 20", cat_t2: "المحاصيل الصيفية والزراعات المحمية الفاخرة",
-        cat_p3: "كتالوج التصدير الرسمي • المحاصيل 21 إلى 30", cat_t3: "الموالح والبقوليات وخضروات الحقل المفتوح",
-        cat_p4: "كتالوج التصدير الرسمي • المحاصيل 31 إلى 38", cat_t4: "الصليبيات والجذور والدرنات والأعشاب العطرية",
+        cat_p1: "كتالوج التصدير الرسمي • المحاصيل 01 إلى 10",
+        cat_t1: "المحاصيل ذات الأولوية التصديرية الكبرى",
+        cat_p2: "كتالوج التصدير الرسمي • المحاصيل 11 إلى 20",
+        cat_t2: "المحاصيل الصيفية والزراعات المحمية الفاخرة",
+        cat_p3: "كتالوج التصدير الرسمي • المحاصيل 21 إلى 30",
+        cat_t3: "الموالح والبقوليات وخضروات الحقل المفتوح",
+        cat_p4: "كتالوج التصدير الرسمي • المحاصيل 31 إلى 38",
+        cat_t4: "الصليبيات والجذور والدرنات والأعشاب العطرية",
         th_crop: "المحصول والصنف", th_cal: "المقاسات / العيار", th_pack: "نوع التعبئة والكرتون", th_temp: "الحرارة (°م)", th_ship: "نمط الشحن", th_seas: "تقويم الحصاد والتصدير",
         leg_act: "موسم الحصاد الفعلي",
         b_title: "مكتب التجارة والتصدير الدولي",
@@ -1401,7 +1830,10 @@
         p2_badge_title: "★ Гарантия качества",
         p2_badge_sub: "Supermarket Class A Specs",
         p2_badge_desc: "Строгое соответствие европейским нормам MRL, требованиям ритейла и непрерывная холодовая цепь.",
-        stat1_t: "Стран экспорта", stat2_t: "Strict EU MRL Compliance", stat3_t: "Быстрое охлаждение", stat4_t: "IoT мониторинг 24/7",
+        stat1_t: "Стран экспорта",
+        stat2_t: "Strict EU MRL Compliance",
+        stat3_t: "Быстрое охлаждение",
+        stat4_t: "IoT мониторинг 24/7",
         pil1_t: "Контроль на полях", pil1_d: "Анализы почвы и контроль пестицидов до сбора гарантируют соблюдение норм. Полная прослеживаемость каждой партии до конкретного сектора поля.", pil1_tag: "✓ 100% Прослеживаемость",
         pil2_t: "Оптическая калибровка", pil2_d: "Автоматические линии сортируют по размеру, весу и сахару brix. Процесс сушки гарантирует сохранность при транспортировке.", pil2_tag: "✓ Supermarket Class A Standards",
         pil3_t: "Холодовая цепь", pil3_d: "Быстрое охлаждение Pre-cooling за 2 часа после сбора. Прямая погрузка через герметичные доки в 40-футовые рефконтейнеры.", pil3_tag: "✓ Онлайн термологгеры",
@@ -1419,10 +1851,14 @@
         t_mat_title: "Сроки прямой морской доставки из портов Египта",
         th_port: "Порт назначения", th_country: "Регион", th_days: "Срок доставки",
         t_note: "* Отгрузка через терминалы Александрии, Думьята и Порт-Саида.",
-        cat_p1: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 01 — 10", cat_t1: "Приоритетные коммерческие культуры",
-        cat_p2: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 11 — 20", cat_t2: "Летний урожай и тепличные культуры",
-        cat_p3: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 21 — 30", cat_t3: "Цитрусовые, бобовые и грунтовые овощи",
-        cat_p4: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 31 — 38", cat_t4: "Капуста, корнеплоды и свежая зелень",
+        cat_p1: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 01 — 10",
+        cat_t1: "Приоритетные коммерческие культуры",
+        cat_p2: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 11 — 20",
+        cat_t2: "Летний урожай и тепличные культуры",
+        cat_p3: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 21 — 30",
+        cat_t3: "Цитрусовые, бобовые и грунтовые овощи",
+        cat_p4: "ЭКСПОРТНЫЙ КАТАЛОГ • ПОЗИЦИИ 31 — 38",
+        cat_t4: "Капуста, корнеплоды и свежая зелень",
         th_crop: "Культура и сорт", th_cal: "Калибр / Размер", th_pack: "Экспортная упаковка", th_temp: "Темп. (°C)", th_ship: "Логистика", th_seas: "Календарь сезона",
         leg_act: "Период сбора урожая",
         b_title: "Международный экспортный отдел",
@@ -1459,7 +1895,10 @@
         p2_badge_title: "★ 卓越品质承诺",
         p2_badge_sub: "Supermarket Class A Specs",
         p2_badge_desc: "严格符合欧盟农残限量(MRL)标准及商超采购规格，全程不间断冷链运输保障。",
-        stat1_t: "全球出口目的地", stat2_t: "Strict EU MRL Compliance", stat3_t: "采后强风极速预冷", stat4_t: "实时温湿度冷链监控",
+        stat1_t: "全球出口目的地",
+        stat2_t: "Strict EU MRL Compliance",
+        stat3_t: "采后强风极速预冷",
+        stat4_t: "实时温湿度冷链监控",
         pil1_t: "农场严密监测", pil1_d: "采收前全面化验土壤与农药残留，确保合规。实现全流程地块级批次精准追溯。", pil1_tag: "✓ 100% 农场可追溯",
         pil2_t: "光学分选与控温", pil2_d: "自动化智能分选线精准按重量、大小和糖度分级。专业控温愈伤大幅提高果蔬保鲜期。", pil2_tag: "✓ Supermarket Class A Standards",
         pil3_t: "全程不间断冷链", pil3_d: "采后2小时内即刻进行强风快速预冷。密封式冷库月台直接装入40尺冷藏集装箱。", pil3_tag: "✓ 实时温控数据记录",
@@ -1477,10 +1916,14 @@
         t_mat_title: "埃及主要口岸直航海运时效 (天数)",
         th_port: "目的港口", th_country: "国家/地区", th_days: "直航海运时效",
         t_note: "* 航线覆盖亚历山大港、杜米亚特港及塞得港西码头。",
-        cat_p1: "出口鲜品目录 • 序号 01 至 10", cat_t1: "核心优势出口产品",
-        cat_p2: "出口鲜品目录 • 序号 11 至 20", cat_t2: "夏季水果与优质设施农业鲜品",
-        cat_p3: "出口鲜品目录 • 序号 21 至 30", cat_t3: "柑橘类、豆类与大田露天蔬菜",
-        cat_p4: "出口鲜品目录 • 序号 31 至 38", cat_t4: "甘蓝类、根茎类与出口新鲜香草",
+        cat_p1: "出口鲜品目录 • 序号 01 至 10",
+        cat_t1: "核心优势出口产品",
+        cat_p2: "出口鲜品目录 • 序号 11 至 20",
+        cat_t2: "夏季水果与优质设施农业鲜品",
+        cat_p3: "出口鲜品目录 • 序号 21 至 30",
+        cat_t3: "柑橘类、豆类与大田露天蔬菜",
+        cat_p4: "出口鲜品目录 • 序号 31 至 38",
+        cat_t4: "甘蓝类、根茎类与出口新鲜香草",
         th_crop: "作物与主要品种", th_cal: "规格果径 / 级别", th_pack: "出口专用包装", th_temp: "适宜温度", th_ship: "跨国物流方式", th_seas: "产季日历",
         leg_act: "实际采收出口月份",
         b_title: "全球外贸与采购中心",
@@ -1652,6 +2095,23 @@
         btn.disabled = false;
       }
     }
+
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('smartNavbar');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > 60) {
+        if (scrollTop > lastScrollTop) {
+          navbar.classList.add('nav-hidden');
+        } else {
+          navbar.classList.remove('nav-hidden');
+        }
+      } else {
+        navbar.classList.remove('nav-hidden');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
 
     window.addEventListener('DOMContentLoaded', async () => {
       await rasterizeLogo();
