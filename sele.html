@@ -31,14 +31,7 @@
       "@type": "PostalAddress",
       "addressCountry": "EG"
     },
-    "areaServed": ["European Union", "United Kingdom", "GCC", "Russia", "China"],
-    "knowsAbout": [
-      "Egyptian Citrus Export",
-      "Fresh Produce Cold Chain Logistics",
-      "Beauregard Sweet Potatoes Export",
-      "GlobalGAP Certified Egyptian Farms",
-      "Reefer Container Shipping to EU and GCC"
-    ]
+    "areaServed": ["European Union", "United Kingdom", "GCC", "Russia", "China"]
   }
   </script>
 
@@ -57,8 +50,8 @@
           fontFamily: {
             sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
             cairo: ['Cairo', 'sans-serif'],
-            sc: ['"Noto Sans SC"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
-            scSerif: ['"Noto Serif SC"', '"Songti SC"', 'serif']
+            sc: ['"Noto Sans SC"', 'sans-serif'],
+            scSerif: ['"Noto Serif SC"', 'serif']
           },
           colors: {
             agro: {
@@ -97,11 +90,10 @@
       -webkit-font-smoothing: antialiased;
       background-color: #f8faf9;
       color: #052316;
-      transform: translateZ(0);
     }
-    body.lang-ar { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
-    body.lang-zh { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; letter-spacing: 0.02em; }
-    body.lang-zh h1, body.lang-zh h2 { font-family: 'Noto Serif SC', 'Noto Sans SC', serif; }
+    body.lang-ar { font-family: 'Cairo', sans-serif; }
+    body.lang-zh { font-family: 'Noto Sans SC', sans-serif; }
+    body.lang-zh h1, body.lang-zh h2 { font-family: 'Noto Serif SC', serif; }
 
     .bg-agro-clean-canvas {
       background: 
@@ -133,7 +125,6 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.35;
-      transform: translateZ(0);
     }
 
     .glass-dock {
@@ -150,22 +141,17 @@
       left: 0;
       right: 0;
       z-index: 50;
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-      will-change: transform;
-      transform: translateZ(0);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .header-hidden {
       transform: translateY(-120%);
-      box-shadow: none !important;
-      pointer-events: none;
     }
 
     .glass-card-fresh {
       background: #ffffff;
       border: 1px solid #e2ece6;
       box-shadow: 0 8px 24px -6px rgba(5, 35, 22, 0.05);
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
-      will-change: transform, box-shadow;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     }
     .glass-card-fresh:hover {
       border-color: rgba(16, 185, 129, 0.45);
@@ -173,54 +159,20 @@
     }
 
     .icon-glow-box {
-      position: relative;
-      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-      isolation: isolate;
-    }
-    .icon-glow-box::after {
-      content: '';
-      position: absolute;
-      inset: -3px;
-      border-radius: inherit;
-      background: radial-gradient(circle, rgba(16, 185, 129, 0.5) 0%, transparent 70%);
-      opacity: 0;
-      z-index: -1;
-      transform: scale(0.85);
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      filter: blur(6px);
+      transition: transform 0.3s ease, background-color 0.3s ease;
     }
     .group:hover .icon-glow-box,
     .icon-glow-box:hover {
-      transform: translateY(-2px) scale(1.08);
-      border-color: rgba(16, 185, 129, 0.7) !important;
-      background: #ecfdf5 !important;
+      transform: translateY(-2px) scale(1.05);
+      background-color: #ecfdf5 !important;
       color: #059669 !important;
-      box-shadow: 0 0 18px 2px rgba(16, 185, 129, 0.35);
-    }
-    .group:hover .icon-glow-box::after,
-    .icon-glow-box:hover::after {
-      opacity: 1;
-      transform: scale(1.15);
     }
 
     .btn-glow {
       position: relative;
       overflow: hidden;
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, background-color 0.2s ease;
-      will-change: transform;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .btn-glow::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -150%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transform: skewX(-20deg);
-      transition: all 0.75s ease;
-    }
-    .btn-glow:hover::after { left: 160%; }
     .btn-glow:hover {
       transform: translateY(-2px);
       box-shadow: 0 12px 26px -6px rgba(9, 67, 40, 0.45);
@@ -235,22 +187,18 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: 0 10px 30px -10px rgba(5, 35, 22, 0.06);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-      will-change: transform, box-shadow;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
     }
-    @media (hover: hover) {
-      .modern-crop-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(16, 185, 129, 0.65);
-        box-shadow: 0 22px 42px -10px rgba(5, 35, 22, 0.12), 0 0 1px 1px rgba(16, 185, 129, 0.3);
-      }
-      .modern-crop-card:hover .crop-img-zoom {
-        transform: scale(1.08);
-      }
+    .modern-crop-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(16, 185, 129, 0.65);
+      box-shadow: 0 20px 40px -10px rgba(5, 35, 22, 0.12);
     }
     .crop-img-zoom {
-      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
+      transition: transform 0.6s ease;
+    }
+    .modern-crop-card:hover .crop-img-zoom {
+      transform: scale(1.06);
     }
 
     .dock-filter-bar {
@@ -261,30 +209,29 @@
       box-shadow: 0 4px 20px -4px rgba(5, 35, 22, 0.05);
     }
 
-    .month-pill {
-      transition: background-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-      font-feature-settings: "tnum";
-    }
     .month-pill.is-active {
       background: #094328;
       color: #ffffff;
       font-weight: 800;
-      box-shadow: 0 2px 6px rgba(9, 67, 40, 0.35);
     }
     .month-pill.is-current-month {
       outline: 2px solid #d97706;
       outline-offset: -1px;
     }
 
+    /* Fallback آمن لضمان ظهور المحتوى فوراً */
     .reveal-up {
-      opacity: 0;
-      transform: translateY(22px) translateZ(0);
-      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .reveal-up.is-visible {
       opacity: 1;
-      transform: translateY(0) translateZ(0);
+      transform: translateY(0);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .js-ready .reveal-up {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    .js-ready .reveal-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @keyframes wa-pulse {
@@ -326,7 +273,7 @@
           
           <!-- Brand Logo -->
           <a href="#hero" class="flex items-center gap-3.5 sm:gap-5 shrink-0 focus:outline-none group" aria-label="EAX Agro Export Home">
-            <div class="p-2 sm:p-2.5 bg-white rounded-2xl shadow-md border border-white/50 transition-transform duration-300 group-hover:scale-105 group-hover:shadow-[0_0_25px_rgba(16,185,129,0.55)]">
+            <div class="p-2 sm:p-2.5 bg-white rounded-2xl shadow-md border border-white/50 transition-transform duration-300 group-hover:scale-105">
               <img 
                 id="mainLogoImg" 
                 src="images/logo.jpeg" 
@@ -359,8 +306,8 @@
           <!-- Right Controls -->
           <div class="flex items-center gap-2 sm:gap-3 shrink-0">
             <div class="relative inline-block text-start" id="langPopoverContainer">
-              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white text-xs font-black transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400">
-                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <button type="button" id="langDropdownTrigger" aria-haspopup="true" aria-expanded="false" onclick="toggleLangDropdown(event)" class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white text-xs font-black transition-all shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
                 <span id="currentLangLabel">English</span>
                 <svg id="langChevron" class="w-3.5 h-3.5 text-slate-200 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
               </button>
@@ -386,7 +333,7 @@
               </div>
             </div>
 
-            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-amber-300 border border-amber-300/30 font-bold text-xs backdrop-blur-md transition-all shadow-xs hover:border-amber-300 hover:shadow-[0_0_15px_rgba(217,119,6,0.4)]">
+            <a href="https://eax-agro-export.vercel.app/sele.html" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-white/15 hover:bg-white/25 text-amber-300 border border-amber-300/30 font-bold text-xs backdrop-blur-md transition-all shadow-xs">
               <svg class="w-3.5 h-3.5 text-amber-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
               <span data-i18n="btn_pdf_catalog">PDF Catalog</span>
             </a>
@@ -395,7 +342,7 @@
               <span data-i18n="cta_quote">Get a Quote</span>
             </a>
 
-            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white transition-all shadow-md focus:outline-none focus:ring-2 focus:ring-emerald-400" aria-label="Toggle Navigation Menu">
+            <button type="button" id="mobileMenuBtn" onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl bg-[#031c11] hover:bg-[#062c1b] border border-emerald-500/40 text-white transition-all shadow-md" aria-label="Toggle Navigation Menu">
               <svg id="hamburgerIcon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
               <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2.3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
@@ -529,7 +476,7 @@
           
           <div class="group flex items-center gap-3.5 cursor-default">
             <div class="icon-glow-box w-11 h-11 rounded-2xl bg-white/10 text-emerald-300 flex items-center justify-center shrink-0 border border-white/20">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p1_title" class="font-bold text-xs sm:text-sm text-white truncate">Fresh Produce</h4>
@@ -539,7 +486,7 @@
 
           <div class="group flex items-center gap-3.5 cursor-default">
             <div class="icon-glow-box w-11 h-11 rounded-2xl bg-white/10 text-emerald-300 flex items-center justify-center shrink-0 border border-white/20">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p2_title" class="font-bold text-xs sm:text-sm text-white truncate">Reliable Supply</h4>
@@ -549,7 +496,7 @@
 
           <div class="group flex items-center gap-3.5 cursor-default">
             <div class="icon-glow-box w-11 h-11 rounded-2xl bg-white/10 text-emerald-300 flex items-center justify-center shrink-0 border border-white/20">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p3_title" class="font-bold text-xs sm:text-sm text-white truncate">Global Markets</h4>
@@ -559,7 +506,7 @@
 
           <div class="group flex items-center gap-3.5 cursor-default">
             <div class="icon-glow-box w-11 h-11 rounded-2xl bg-white/10 text-emerald-300 flex items-center justify-center shrink-0 border border-white/20">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/></svg>
             </div>
             <div class="min-w-0">
               <h4 data-i18n="p4_title" class="font-bold text-xs sm:text-sm text-white truncate">Sustainable Future</h4>
@@ -608,8 +555,8 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 pt-2">
             
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap1_t" class="text-xs sm:text-sm font-black text-agro-forest">Quality Assurance</h5>
@@ -618,8 +565,8 @@
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap2_t" class="text-xs sm:text-sm font-black text-agro-forest">Farmer Support</h5>
@@ -628,8 +575,8 @@
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap3_t" class="text-xs sm:text-sm font-black text-agro-forest">Safe & Compliant</h5>
@@ -638,8 +585,8 @@
             </div>
 
             <div class="group flex items-start gap-3.5 p-3.5 rounded-2xl glass-card-fresh cursor-default">
-              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200 shadow-xs">
-                <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              <div class="icon-glow-box w-11 h-11 rounded-xl bg-emerald-50 text-emerald-900 flex items-center justify-center shrink-0 border border-emerald-200">
+                <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
               </div>
               <div>
                 <h5 data-i18n="ap4_t" class="text-xs sm:text-sm font-black text-agro-forest">Worldwide Distribution</h5>
@@ -675,9 +622,9 @@
 
         <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-5 text-center sm:text-start reveal-up">
           
-         <div class="group p-4 rounded-2xl glass-card-fresh space-y-1.5 cursor-default">
+          <div class="group p-4 rounded-2xl glass-card-fresh space-y-1.5 cursor-default">
             <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">10+</div>
             <p data-i18n="st1" class="text-[10px] sm:text-xs text-agro-forestDeep/90 font-bold">Years of Field & Packing Experience</p>
@@ -686,7 +633,7 @@
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
             <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">50+</div>
             <p data-i18n="st2" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Countries Served</p>
@@ -694,7 +641,7 @@
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
             <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">1000+</div>
             <p data-i18n="st3" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Trusted Farmers</p>
@@ -702,7 +649,7 @@
 
           <div class="group p-4 rounded-2xl glass-card-fresh space-y-2 cursor-default">
             <div class="icon-glow-box w-10 h-10 rounded-xl bg-emerald-50 text-emerald-800 flex items-center justify-center border border-emerald-200 mb-1 mx-auto sm:mx-0">
-              <svg class="w-5 h-5 transition-transform duration-300 group-hover:scale-110 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <svg class="w-5 h-5 text-emerald-700" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
             <div class="text-2xl sm:text-3xl font-black text-agro-forest">100%</div>
             <p data-i18n="st4" class="text-[10px] sm:text-xs text-agro-forestDeep/75 font-bold">Commitment to Quality</p>
@@ -713,7 +660,6 @@
       </div>
     </div>
   </section>
-
   <!-- ================= 4. QUALITY ASSURANCE & COLD CHAIN ================= -->
   <section id="quality-assurance" class="py-16 sm:py-20 md:py-24 bg-agro-clean-canvas border-b border-agro-borderLight relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -750,7 +696,7 @@
           <div>
             <div data-i18n="qa_s2_badge" class="inline-block px-3 py-1 rounded-lg bg-emerald-50 text-emerald-900 text-[10px] font-black uppercase border border-emerald-200 mb-4">BRIX & CALIBER</div>
             <div class="icon-glow-box w-13 h-13 rounded-2xl bg-emerald-50/80 text-emerald-800 flex items-center justify-center mb-4 border border-emerald-200">
-              <svg class="w-7 h-7 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
+              <svg class="w-7 h-7 text-emerald-700 transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="3" r="3"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 12h3m12 0h3M12 3v3m0 12v3m-6.364-2.636l2.121-2.121m8.486-8.486l2.121-2.121m-12.728 0l2.121 2.121m8.486 8.486l2.121 2.121"/></svg>
             </div>
             <h3 data-i18n="qa_s2_title" class="font-black text-base sm:text-lg text-agro-forest mb-2">Optical Grading & Sizing</h3>
             <p data-i18n="qa_s2_desc" class="text-xs sm:text-sm text-agro-forestDeep/75 leading-relaxed font-semibold">Automated sorting lines inspect skin blemishes, brix sweetness levels, and millimeter-exact caliber distribution prior to export packaging.</p>
@@ -838,7 +784,7 @@
 
         <div class="group glass-card-fresh rounded-2xl p-4 sm:p-5 flex flex-col justify-between hover:border-amber-500/60 transition-all">
           <div>
-            <div class="icon-glow-gold w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center mb-3 border border-amber-200">
+            <div class="icon-glow-box w-11 h-11 rounded-xl bg-amber-50 flex items-center justify-center mb-3 border border-amber-200">
               <svg class="w-5 h-5 text-agro-gold transition-transform duration-300 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
             <h4 data-i18n="c4_title" class="font-black text-xs sm:text-sm text-agro-forest">EUR.1 Document</h4>
@@ -1125,7 +1071,7 @@
               
               <!-- LinkedIn -->
               <a href="https://www.linkedin.com/in/eax-agro-export-8701b4440" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#0A66C2] border border-white/10 hover:border-[#0A66C2] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(10,102,194,0.5)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#0A66C2] border border-white/10 hover:border-[#0A66C2] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="LinkedIn">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
@@ -1134,7 +1080,7 @@
 
               <!-- Facebook -->
               <a href="https://www.facebook.com/profile.php?id=61595152400470" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#1877F2] border border-white/10 hover:border-[#1877F2] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(24,119,242,0.5)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#1877F2] border border-white/10 hover:border-[#1877F2] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="Facebook">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/>
@@ -1143,7 +1089,7 @@
 
               <!-- Instagram -->
               <a href="https://www.instagram.com/eax_agro_export" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] border border-white/10 hover:border-transparent text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(220,39,67,0.5)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] border border-white/10 hover:border-transparent text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="Instagram">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
@@ -1152,7 +1098,7 @@
 
               <!-- X (Twitter) -->
               <a href="https://x.com/EAXAgroExpt8hc" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-black border border-white/10 hover:border-slate-500 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-black border border-white/10 hover:border-slate-500 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="X">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -1161,7 +1107,7 @@
 
               <!-- TikTok -->
               <a href="https://www.tiktok.com/@eaxagroexport" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-black border border-white/10 hover:border-pink-500 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(254,44,85,0.45)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-black border border-white/10 hover:border-pink-500 text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="TikTok">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.26 6.26 0 0 0 1.86-4.49V8.52a8.27 8.27 0 0 0 4.84 1.57V6.69z"/>
@@ -1170,7 +1116,7 @@
 
               <!-- YouTube -->
               <a href="https://www.youtube.com/@EAX-Agro-Export" target="_blank" rel="noopener noreferrer" 
-                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#FF0000] border border-white/10 hover:border-[#FF0000] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] hover:-translate-y-1" 
+                 class="group/social relative p-2.5 rounded-xl bg-white/[0.05] hover:bg-[#FF0000] border border-white/10 hover:border-[#FF0000] text-slate-300 hover:text-white transition-all duration-300 shadow-sm hover:-translate-y-1" 
                  aria-label="YouTube">
                 <svg class="w-4 h-4 fill-current transition-transform duration-300 group-hover/social:scale-110" viewBox="0 0 24 24">
                   <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -1181,38 +1127,30 @@
           </div>
         </div>
 
-       <div>
+        <div>
           <h4 data-i18n="footer_contact_title" class="text-xs font-black text-amber-400 uppercase tracking-widest mb-5 text-start">Direct Channels</h4>
           <ul class="space-y-4 text-xs sm:text-sm text-slate-200">
-            <!-- Phone -->
             <li class="flex items-center gap-3.5">
               <div class="icon-glow-box w-10 h-10 rounded-xl bg-white/10 border border-emerald-400/30 shadow-xs flex items-center justify-center text-emerald-400 shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </div>
               <a href="tel:+201556564646" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">+20 155 656 4646</span></a>
             </li>
-            <!-- WhatsApp -->
             <li class="flex items-center gap-3.5">
               <div class="icon-glow-box w-10 h-10 rounded-xl bg-[#25D366]/20 border border-[#25D366]/40 shadow-xs flex items-center justify-center text-[#25D366] shrink-0">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
               </div>
               <a href="https://wa.me/201006920920?text=Hello%20EAX%20AGRO%20EXPORT" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">+20 100 692 0920</span></a>
             </li>
-            <!-- Email -->
             <li class="flex items-center gap-3.5">
               <div class="icon-glow-box w-10 h-10 rounded-xl bg-white/10 border border-emerald-400/30 shadow-xs flex items-center justify-center text-emerald-400 shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
               </div>
               <a href="mailto:info@eax-agro.com" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">info@eax-agro.com</span></a>
             </li>
-            <!-- Export Email -->
             <li class="flex items-center gap-3.5">
               <div class="icon-glow-box w-10 h-10 rounded-xl bg-white/10 border border-emerald-400/30 shadow-xs flex items-center justify-center text-emerald-400 shrink-0">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                </svg>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
               </div>
               <a href="mailto:export@eax-agro.com" class="hover:text-emerald-300 font-bold tracking-wider transition-colors"><span dir="ltr">export@eax-agro.com</span></a>
             </li>
@@ -1253,6 +1191,13 @@
   <script>
     const BACKEND_CONFIG = { whatsappPhone: '201006920920' };
     const FALLBACK_IMAGE = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22600%22%20height%3D%22375%22%20viewBox%3D%220%200%20600%20375%22%3E%3Crect%20fill%3D%22%23e2ece6%22%20width%3D%22600%22%20height%3D%22375%22%20%2F%3E%3Ctext%20fill%3D%22%23094328%22%20font-family%3D%22sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dy%3D%22.3em%22%3EEAX%20AGRO%20EXPORT%3C%2Ftext%3E%3C%2Fsvg%3E";
+
+    function safeGetStorage(key) {
+      try { return localStorage.getItem(key); } catch (e) { return null; }
+    }
+    function safeSetStorage(key, val) {
+      try { localStorage.setItem(key, val); } catch (e) {}
+    }
 
     const CROPS = [
       {
@@ -1315,7 +1260,7 @@
         varieties_en: ["Pure White", "Red Baladi (Violet)"], varieties_ar: ["أبيض نقي", "بلدي أحمر"], varieties_zh: ["纯白皮蒜", "红皮紫蒜 (Baladi)"], varieties_ru: ["Чисто белый", "Красный Балади (фиолетовый)"],
         packing_en: "5kg / 10kg Mesh Bags or Punnet Cartons", packing_ar: "أجولة 5/10 كجم أو كراتين", packing_zh: "5kg / 10kg 精致网袋或小盒外箱", packing_ru: "5кг / 10кг сетки или коробки",
         specs_en: "Caliber: 45-65mm+ • Clean Roots & Stems", specs_ar: "القطر: 45-65 مم+ • جذور وسيقان نظيفة", specs_zh: "蒜头横径: 45-65mm+ • 剪茎修根彻底", specs_ru: "Калибр: 45-65мм+ • Корни очищены",
-        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С مارس по июль",
+        season_en: "March to July", season_ar: "من مارس حتى يوليو", season_zh: "3月至7月", season_ru: "С марта по июль",
         months: [3,4,5,6,7], image: "https://images.unsplash.com/photo-1540148426945-6cf22a6b2383?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1378,7 +1323,7 @@
         varieties_en: ["Fremont", "Murcott (Honey)", "Clementine"], varieties_ar: ["فريمونت", "موركوت (عسلي)", "كليمنتين"], varieties_zh: ["弗里蒙特 (Fremont)", "茂谷蜜柑 (Murcott)", "克莱门氏小柑橘"], varieties_ru: ["Фремонт", "Муркотт (медовый)", "Клементин"],
         packing_en: "10kg / 15kg Standard Export Cartons", packing_ar: "كراتين تصدير قياسية 10 / 15 كجم", packing_zh: "10公斤 / 15公斤 标准出口瓦楞纸箱", packing_ru: "10 кг / 15 кг стандартные коробки",
         specs_en: "Calibers: 1 - 5 • Easy Peeling • Brix 11.5°+", specs_ar: "أحجام: 1 - 5 • سهل التقشير • بريكس +11.5°", specs_zh: "规格等级: 1 - 5号 • 极易剥皮 • 糖度 11.5°+", specs_ru: "Калибры: 1 - 5 • Легко чистится • Brix 11.5°+",
-        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С ноября по апрель",
+        season_en: "November to April", season_ar: "من نوفمبر حتى أبريل", season_zh: "11月至次年4月", season_ru: "С نوفمبر по апрель",
         months: [11,12,1,2,3,4], image: "https://images.unsplash.com/photo-1582281298055-e25b89a0153c?auto=format&fit=crop&w=600&q=80"
       },
       {
@@ -1817,7 +1762,7 @@
     let revealObserver = null;
 
     function detectDeviceLanguage() {
-      const manualChoice = localStorage.getItem('eax_user_selected_lang');
+      const manualChoice = safeGetStorage('eax_user_selected_lang');
       if (manualChoice && ['en', 'ar', 'zh', 'ru'].includes(manualChoice)) return manualChoice;
 
       const deviceLangs = navigator.languages || [navigator.language || navigator.userLanguage || 'en'];
@@ -2151,7 +2096,7 @@
     }
 
     function selectLanguage(lang) {
-      localStorage.setItem('eax_user_selected_lang', lang);
+      safeSetStorage('eax_user_selected_lang', lang);
       currentLang = lang;
       const html = document.documentElement;
       const body = document.body;
@@ -2219,12 +2164,18 @@
     }
 
     function observeAllRevealElements() {
-      if (!revealObserver) {
+      if (!revealObserver && window.IntersectionObserver) {
         revealObserver = new IntersectionObserver((entries) => {
           entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
-        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px -20px 0px' });
       }
-      document.querySelectorAll('.reveal-up:not(.is-visible)').forEach(el => revealObserver.observe(el));
+      
+      const elements = document.querySelectorAll('.reveal-up:not(.is-visible)');
+      if (revealObserver) {
+        elements.forEach(el => revealObserver.observe(el));
+      } else {
+        elements.forEach(el => el.classList.add('is-visible'));
+      }
     }
 
     function handleRFQSubmit(e) {
@@ -2254,7 +2205,8 @@
       window.open(waUrl, '_blank');
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
+    function bootstrapApp() {
+      document.documentElement.classList.add('js-ready');
       initProductsDOM();
       selectLanguage(detectDeviceLanguage());
       
@@ -2287,7 +2239,13 @@
           if (close) close.classList.add('hidden');
         });
       });
-    });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bootstrapApp);
+    } else {
+      bootstrapApp();
+    }
 
     const headerEl = document.getElementById('main-header');
     let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
@@ -2309,3 +2267,4 @@
   </script>
 </body>
 </html>
+  
