@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX Agro Export — Official Corporate Trade Guide 2026</title>
   
-  <!-- Premium Modern Fonts -->
+  <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
   
   <!-- html2pdf Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -26,31 +26,31 @@
     }
 
     :root {
-      --bg-body: #0b1510;
+      --bg-body: #0a130e;
       --bg-page: #fbfdfc;
-      --bg-subtle: #f2f6f4;
+      --bg-subtle: #f1f5f3;
       --bg-card: #ffffff;
-      --bg-card-alt: #f7faf8;
+      --bg-card-alt: #f6faf7;
       
-      --text-heading: #12241b;
-      --text-body: #2c3e34;
-      --text-muted: #596e62;
+      --text-heading: #102419;
+      --text-body: #25382d;
+      --text-muted: #536b5d;
       
-      --accent-green: #1f4e3c;
-      --accent-green-hover: #163a2c;
-      --accent-green-subtle: #edf5f0;
-      --border-accent: #bdd4c7;
+      --accent-green: #1a4d3a;
+      --accent-green-hover: #123829;
+      --accent-green-subtle: #eaf3ee;
+      --border-accent: #b4cfc1;
       
-      --accent-brass: #8f6127;
-      --accent-brass-subtle: #faf5ed;
-      --border-brass: #e6d5be;
+      --accent-brass: #87591e;
+      --accent-brass-subtle: #faf4eb;
+      --border-brass: #e4d0b6;
       
-      --border-main: #dfede5;
-      --border-card: #cadcd2;
+      --border-main: #dceae1;
+      --border-card: #c2d7cb;
       
-      --shadow-sm: 0 2px 5px rgba(18, 36, 27, 0.04);
-      --shadow-md: 0 6px 18px rgba(18, 36, 27, 0.07);
-      --shadow-lg: 0 22px 50px rgba(0, 0, 0, 0.4);
+      --shadow-sm: 0 2px 6px rgba(16, 36, 25, 0.05);
+      --shadow-md: 0 8px 22px rgba(16, 36, 25, 0.08);
+      --shadow-lg: 0 24px 50px rgba(0, 0, 0, 0.45);
     }
 
     body {
@@ -76,60 +76,64 @@
       display: inline-block;
     }
 
-    /* Floating Control Bar */
+    /* Floating Navigation Controls */
     .control-nav {
       position: fixed;
-      top: 16px;
+      top: 14px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 10000;
       display: flex;
       gap: 8px;
       align-items: center;
-      background: rgba(18, 36, 27, 0.95);
+      background: rgba(16, 36, 25, 0.95);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      padding: 8px 18px;
+      padding: 7px 18px;
       border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
+      max-width: 95vw;
+      overflow-x: auto;
     }
     .lang-chip {
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e4ebe7;
+      color: #e2ede6;
       padding: 6px 14px;
       border-radius: 9999px;
       font-weight: 700;
       font-size: 12px;
       cursor: pointer;
+      white-space: nowrap;
       transition: all 0.2s ease;
     }
     .lang-chip.active, .lang-chip:hover {
-      background: #255d48;
-      border-color: #255d48;
+      background: #235843;
+      border-color: #235843;
       color: #ffffff;
-      box-shadow: 0 0 16px rgba(37, 93, 72, 0.5);
+      box-shadow: 0 0 14px rgba(35, 88, 67, 0.5);
     }
     .download-action-btn {
-      background: linear-gradient(135deg, #255d48 0%, #15392b 100%);
+      background: linear-gradient(135deg, #235843 0%, #143527 100%);
       color: #ffffff;
       border: none;
-      padding: 7px 22px;
+      padding: 7px 20px;
       border-radius: 9999px;
       font-weight: 800;
       font-size: 12px;
       cursor: pointer;
-      margin-inline-start: 10px;
-      box-shadow: 0 4px 14px rgba(37, 93, 72, 0.4);
+      white-space: nowrap;
+      margin-inline-start: 8px;
+      box-shadow: 0 4px 14px rgba(35, 88, 67, 0.4);
       transition: all 0.2s ease;
     }
     .download-action-btn:hover { 
       transform: translateY(-1px); 
-      box-shadow: 0 6px 18px rgba(37, 93, 72, 0.55);
+      box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
     }
 
-    /* A4 Landscape Sheets */
+    /* Page Definition (Base A4 Landscape) */
     .page {
       width: 297mm;
       height: 210mm;
@@ -152,7 +156,6 @@
       break-after: avoid !important;
     }
 
-    /* Modern Unified Header */
     .page-header {
       height: 13mm;
       padding: 0 16mm;
@@ -167,7 +170,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: 0.3px;
       color: var(--text-heading);
@@ -217,7 +220,7 @@
     /* Cover Page */
     .cover-layout {
       background: 
-        radial-gradient(circle at 88% 18%, rgba(31, 78, 60, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 88% 18%, rgba(26, 77, 58, 0.08) 0%, transparent 45%),
         linear-gradient(180deg, #ffffff 0%, #f1f6f3 100%);
       padding: 12mm 18mm;
       display: flex;
@@ -262,7 +265,6 @@
       margin: 0;
       max-width: 610px;
     }
-
     .cover-badge-card {
       background: #ffffff;
       border: 1px solid var(--border-card);
@@ -290,7 +292,6 @@
       max-width: 100%;
       object-fit: contain;
     }
-
     .cover-kpi-deck {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -362,28 +363,30 @@
       margin-top: 10px;
     }
 
-    /* ================= COMPACT MODERN 4-CARD PRODUCT GRID ================= */
+    /* ================= FULL-FIT EXPANDED PRODUCT GRID ================= */
     .products-dense-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      gap: 9px;
+      gap: 10px;
       flex: 1;
       height: 100%;
       margin-top: 3px;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
 
+    /* Expanded Product Card Filling Space Exactly */
     .crop-dense-card {
       background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: 9px;
-      padding: 9px 13px 8px;
+      border: 1.5px solid var(--border-card);
+      border-radius: 10px;
+      padding: 10px 14px 9px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-sm);
       height: 100%;
+      min-height: 0;
     }
 
     .crop-header-line {
@@ -393,17 +396,18 @@
       border-bottom: 1.5px solid var(--border-main);
       padding-bottom: 4px;
       margin-bottom: 4px;
+      flex-shrink: 0;
     }
     .crop-name-title {
-      font-size: 13.5px;
-      font-weight: 800;
+      font-size: 14.5px;
+      font-weight: 900;
       color: var(--text-heading);
       margin: 0;
-      line-height: 1.2;
+      line-height: 1.15;
     }
     .crop-sub-botanical {
-      font-size: 9px;
-      font-weight: 600;
+      font-size: 9.8px;
+      font-weight: 700;
       color: var(--accent-green);
       margin-top: 1px;
     }
@@ -414,8 +418,8 @@
       gap: 2px;
     }
     .crop-id-badge {
-      font-size: 10px;
-      font-weight: 800;
+      font-size: 10.5px;
+      font-weight: 900;
       color: var(--accent-green);
       background: var(--accent-green-subtle);
       border: 1px solid var(--border-accent);
@@ -423,13 +427,13 @@
       border-radius: 4px;
     }
     .crop-hs-code {
-      font-size: 8px;
-      font-weight: 700;
+      font-size: 8.5px;
+      font-weight: 800;
       color: var(--text-muted);
     }
 
     .crop-narrative {
-      font-size: 9.3px;
+      font-size: 9.8px;
       font-weight: 500;
       color: var(--text-body);
       line-height: 1.48;
@@ -438,22 +442,27 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      flex-shrink: 0;
     }
 
-    /* 8-Zone Full Spec Matrix (Eliminates Blank Space) */
+    /* 8-Zone Full Spec Matrix: Enlarged & Flex-Filled */
     .crop-spec-matrix {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--border-main);
-      border-radius: 6px;
+      grid-template-rows: repeat(4, 1fr);
+      border: 1.5px solid var(--border-main);
+      border-radius: 7px;
       overflow: hidden;
       margin-bottom: 5px;
       background: var(--bg-card-alt);
+      flex: 1;
+      min-height: 0;
     }
     .spec-row {
       display: flex;
       flex-direction: column;
-      padding: 3.5px 7px;
+      justify-content: center;
+      padding: 4px 8px;
       border-bottom: 1px solid var(--border-main);
     }
     .spec-row:nth-child(odd) {
@@ -464,17 +473,17 @@
       border-bottom: none;
     }
     .spec-label {
-      font-size: 7.6px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.25px;
+      letter-spacing: 0.3px;
       line-height: 1.1;
-      margin-bottom: 1px;
+      margin-bottom: 1.5px;
     }
     .spec-value {
-      font-size: 8.8px;
-      font-weight: 700;
+      font-size: 9.6px;
+      font-weight: 800;
       color: var(--text-heading);
       line-height: 1.25;
       white-space: nowrap;
@@ -482,35 +491,36 @@
       text-overflow: ellipsis;
     }
 
-    /* 4-Item Compact Bottom Strip */
+    /* 4-Item Prominent Bottom Strip */
     .crop-footer-strip {
       display: grid;
-      grid-template-columns: 1.2fr 0.9fr 1.1fr 0.8fr;
+      grid-template-columns: 1.2fr 0.95fr 1.05fr 0.8fr;
       gap: 6px;
       align-items: center;
       background: #ffffff;
-      border: 1px solid var(--border-main);
+      border: 1.5px solid var(--border-main);
       border-radius: 6px;
-      padding: 3.5px 7px;
-      font-size: 8.5px;
+      padding: 4px 8px;
+      font-size: 9px;
+      flex-shrink: 0;
     }
     .strip-item {
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: 3.5px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
     .strip-item .strip-lbl {
       color: var(--text-muted);
-      font-weight: 700;
-      font-size: 7.8px;
+      font-weight: 800;
+      font-size: 8.2px;
     }
     .strip-item .strip-val {
       color: var(--text-heading);
-      font-weight: 800;
-      font-size: 8.4px;
+      font-weight: 900;
+      font-size: 9px;
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -521,8 +531,8 @@
     /* Route Overview Card (Page 10 Fill Card) */
     .routes-fill-card {
       background: #ffffff;
-      border: 1px solid var(--border-card);
-      border-radius: 9px;
+      border: 1.5px solid var(--border-card);
+      border-radius: 10px;
       padding: 10px 14px;
       display: flex;
       flex-direction: column;
@@ -534,15 +544,101 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 4px 8px;
+      padding: 4.5px 8px;
       background: var(--bg-card-alt);
       border: 1px solid var(--border-main);
       border-radius: 5px;
       margin-bottom: 4px;
-      font-size: 8.8px;
+      font-size: 9.3px;
     }
 
-    /* PDF Rendering Overrides */
+    /* ================= MOBILE & IPAD RESPONSIVENESS ================= */
+    @media screen and (max-width: 1024px) {
+      .page {
+        width: 100% !important;
+        max-width: 98vw !important;
+        height: auto !important;
+        max-height: none !important;
+        margin: 16px auto !important;
+        border-radius: 12px;
+      }
+      .page-header {
+        height: auto;
+        padding: 12px 16px;
+      }
+      .page-content {
+        padding: 14px 16px;
+        overflow: visible;
+      }
+      .page-footer {
+        height: auto;
+        padding: 10px 16px;
+      }
+      .products-dense-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 12px;
+        height: auto;
+      }
+      .crop-dense-card {
+        height: auto;
+        min-height: 290px;
+      }
+      .crop-spec-matrix {
+        grid-template-rows: repeat(4, auto);
+      }
+      .spec-row {
+        padding: 6px 8px;
+      }
+      .spec-value {
+        font-size: 10px;
+        white-space: normal;
+        word-break: break-word;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .control-nav {
+        top: 8px;
+        padding: 5px 12px;
+        gap: 5px;
+      }
+      .lang-chip {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+      .download-action-btn {
+        padding: 5px 14px;
+        font-size: 11px;
+      }
+      .cover-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .cover-kpi-deck {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      .bento-container {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .products-dense-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+      .crop-dense-card {
+        min-height: auto;
+        padding: 12px 14px;
+      }
+      .crop-footer-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
+      }
+    }
+
+    /* PDF Rendering Mode (Restores Fixed Pristine Print Bounds) */
     .pdf-render-mode {
       width: 297mm !important;
       max-width: 297mm !important;
@@ -559,6 +655,14 @@
       box-shadow: none !important;
       border-radius: 0 !important;
       border: none !important;
+    }
+    .pdf-render-mode .products-dense-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: repeat(2, 1fr) !important;
+      height: 100% !important;
+    }
+    .pdf-render-mode .crop-dense-card {
+      height: 100% !important;
     }
   </style>
 </head>
@@ -1111,7 +1215,7 @@
         zh:{ name:"鲜食与加工级马铃薯", sub:"Spunta, Hermes 与 Rosetta", desc:"天然沙漠深井喷灌基地采收。表皮金黄无褐斑，零青枯病官方认证，高干物质坚实耐切，商超与薯片加工首选。" }
       },
       { id:3, hs:'0706.10',
-        season:{ en:'January – May', ar:'يناير – مايو', ru:'Январь – Май', zh:'1月 – 5月' },
+        season:{ en:'January – May', ar:'يناير – مايو', ru:'Яنварь – Май', zh:'1月 – 5月' },
         temp:'+0°C to +2°C',
         pack:{ en:'5kg / 10kg Poly Liner Master Box', ar:'كراتين ماستر 5/10 كجم مبطنة بولي', ru:'5/10 кг полипакеты в коробах', zh:'5kg/10kg 衬膜保鲜出口主纸箱' },
         cal:{ en:'Length: 16-24cm • Caliber: 25-45mm', ar:'الطول: 16-24 سم • القطر: 25-45 مم', ru:'Длина: 16-24 см • Диам: 25-45 мм', zh:'长度: 16-24cm • 直径: 25-45mm' },
@@ -1406,7 +1510,7 @@
         cal:{ en:'Pod Length: 7-10cm Uniform • Plump Pods', ar:'طول القرن: 7-10 سم منتظم • قرون ممتلئة غضة', ru:'Длина стручка: 7-10 см • Налитые', zh:'豆荚长度: 7-10cm 均一 • 鼓粒饱满' },
         spec:{ en:'100% Manually Defiberized • Stringless Snap', ar:'منزوعة الألياف يدوياً 100% • قطم مقرمش ناعم', ru:'100% ручная очистка от волокон', zh:'100%手工逐荚撕除双侧背腹侧筋 • 极脆' },
         origin:{ en:'Menofia & Delta High-Tech Farms', ar:'مزارع المنوفية والدلتا النموذجية المتطورة', ru:'Минуфия и хозяйства Дельты', zh:'米努夫省与三角洲现代化现代农业园' },
-        transit:{ en:'Air Freight or 15d Fast Sea Reefer', ar:'شحن جوي أو بحري سريع 15 يوماً', ru:'Авиа или 15 дней морской реф', zh:'航空直运 或 15天快船恒温冷藏' },
+        transit:{ en:'Air Freight or 15d Fast Sea Reefer', ar:'شحن جوي أو بحري سريع 15 يوماً', ru:'Авиа или 15 дней морской реف', zh:'航空直运 或 15天快船恒温冷藏' },
         vent:{ en:'RH 95% • Micro-Perforated MAP Bags', ar:'رطوبة 95% • أكياس MAP مثقبة دقيقاً', ru:'Влажность 95% • Микроперфорация', zh:'相对湿度 95% • 微孔透气薄膜气调锁鲜' },
         cert:{ en:'Zero Chemical Residues • Class A GFSI', ar:'خلو تام من المبيدات • مواصفات GFSI فئة A', ru:'MRL чистый • Сертификат GFSI', zh:'零化学农残检疫 • GFSI国际一级品规' },
         pallet:{ en:'150-180 Cartons / Euro Pallet', ar:'150-180 كرتونة / بالتة أوروبية', ru:'150-180 коробок / паллет', zh:'150-180箱 / 欧标木托盘' },
@@ -1485,7 +1589,7 @@
         zh:{ name:"阿斯旺杂交与红宝石甜大西瓜", sub:"Aswan Hybrid 与 Crimson Sweet", desc:"产自上埃及日照充足温暖沙壤。椭圆饱满条纹分明，瓜皮坚固致密抗压极强，瓜瓤大红脆甜多汁起沙，中心含糖稳定在 11.5° Brix 以上。" }
       },
       { id:25, hs:'0807.19',
-        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Август', zh:'5月 – 8月' },
+        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Авгуست', zh:'5月 – 8月' },
         temp:'+6°C to +8°C',
         pack:{ en:'5kg Telescopic Boxes with Foam Nets', ar:'كراتين تلسكوبية 5 كجم بأكمام فوم مرنة', ru:'5 кг телескопические короба с сеткой', zh:'5kg 纸箱装配柔软减震发泡网套' },
         cal:{ en:'Counts: 5, 6, 7, 8 Melons/Box (800-1400g)', ar:'الأعداد: 5، 6، 7، 8 ثمار (800-1400 جم)', ru:'Калибры: 5, 6, 7, 8 шт (800-1400г)', zh:'装箱数: 5, 6, 7, 8颗/箱 (单果800-1400g)' },
