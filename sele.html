@@ -9,17 +9,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-  
+
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
-    }
-
-    @page {
-      size: A4 landscape;
-      margin: 0;
     }
 
     :root {
@@ -86,7 +81,7 @@
       background: rgba(16, 36, 25, 0.95);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      padding: 7px 18px;
+      padding: 8px 18px;
       border-radius: 9999px;
       border: 1px solid rgba(255, 255, 255, 0.18);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
@@ -130,27 +125,19 @@
       box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
     }
 
-    /* Page Definition (Base A4 Landscape) */
+    /* Page Definition (Base Standard Landscape) */
     .page {
       width: 297mm;
       height: 209mm;
       max-height: 209mm;
       background: var(--bg-page);
-      margin: 24px auto;
+      margin: 26px auto;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      border-radius: 6px;
+      border-radius: 8px;
       box-shadow: var(--shadow-lg);
-      break-after: page;
-      page-break-after: always;
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-    .page:last-child {
-      break-after: avoid !important;
-      page-break-after: avoid !important;
     }
 
     .page-header {
@@ -385,8 +372,6 @@
       box-shadow: var(--shadow-sm);
       height: 100%;
       min-height: 0;
-      break-inside: avoid;
-      page-break-inside: avoid;
     }
 
     .crop-header-line {
@@ -549,21 +534,58 @@
       font-size: 9px;
     }
 
-    /* Screen Responsiveness */
+    /* ========================================================
+       INTERACTIVE MOBILE & TABLET MODE (SCREEN ONLY)
+       تنسيقات الشاشات فقط: بدون التأثير إطلاقاً على الطباعة والـ PDF
+    ======================================================== */
     @media screen and (max-width: 1024px) {
+      body {
+        padding: 70px 10px 20px;
+      }
       .page {
         width: 100% !important;
-        max-width: 98vw !important;
+        max-width: 900px !important;
         height: auto !important;
         max-height: none !important;
-        margin: 16px auto !important;
-        border-radius: 12px;
+        margin: 20px auto !important;
+        border-radius: 16px;
+        box-shadow: var(--shadow-md);
+      }
+      .page-header {
+        height: auto;
+        padding: 14px 18px;
+      }
+      .page-content {
+        height: auto !important;
+        overflow: visible !important;
+        padding: 16px 18px;
+      }
+      .page-footer {
+        height: auto;
+        padding: 12px 18px;
+      }
+      .cover-layout {
+        height: auto !important;
+        padding: 24px 18px;
+        gap: 24px;
+      }
+      .cover-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .cover-kpi-deck {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      .bento-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
       .products-dense-grid {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
-        gap: 12px;
+        gap: 14px;
         height: auto;
       }
       .crop-dense-card {
@@ -579,18 +601,47 @@
       }
     }
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 640px) {
       .control-nav {
         top: 8px;
-        padding: 5px 12px;
-        gap: 5px;
+        padding: 6px 14px;
+        gap: 6px;
       }
-      .cover-hero-grid, .cover-kpi-deck, .bento-container, .products-dense-grid {
-        grid-template-columns: 1fr !important;
+      .lang-chip {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+      .download-action-btn {
+        padding: 6px 14px;
+        font-size: 11px;
+      }
+      .brand-title-lead {
+        font-size: 28px;
+      }
+      .brand-tagline {
+        font-size: 16px;
+      }
+      .cover-kpi-deck {
+        grid-template-columns: 1fr;
+      }
+      .products-dense-grid {
+        grid-template-columns: 1fr;
+      }
+      .crop-footer-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 6px;
       }
     }
 
-    /* Strict Clean Print Engine Rules */
+    /* ========================================================
+       PERFECT A4 PRINT / PDF RENDERING ENGINE
+       القواعد الصارمة للطباعة: تضمن 11 صفحة نظيفة وبدون أي فراغات
+    ======================================================== */
+    @page {
+      size: 297mm 210mm landscape;
+      margin: 0;
+    }
+
     @media print {
       html, body {
         width: 297mm !important;
@@ -598,10 +649,17 @@
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
+        overflow: visible !important;
       }
 
       .control-nav {
         display: none !important;
+      }
+
+      #catalog-container {
+        width: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
 
       .page {
@@ -627,24 +685,62 @@
 
       .cover-layout {
         height: 209mm !important;
+        max-height: 209mm !important;
+        padding: 12mm 18mm !important;
+      }
+
+      .cover-hero-grid {
+        display: grid !important;
+        grid-template-columns: 1.45fr 0.85fr !important;
+        gap: 32px !important;
+      }
+
+      .cover-kpi-deck {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .bento-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .page-header {
+        height: 13mm !important;
+        padding: 0 16mm !important;
       }
 
       .page-content {
         height: calc(209mm - 13mm - 7.5mm) !important;
+        padding: 4mm 16mm 3.5mm !important;
         overflow: hidden !important;
+      }
+
+      .page-footer {
+        height: 7.5mm !important;
+        padding: 0 16mm !important;
       }
 
       .products-dense-grid {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr) !important;
         grid-template-rows: repeat(2, 1fr) !important;
+        gap: 8px !important;
         height: 100% !important;
       }
 
       .crop-dense-card {
         height: 100% !important;
+        min-height: 0 !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
+        padding: 9px 12px 8px !important;
+      }
+
+      .crop-footer-strip {
+        grid-template-columns: 1.2fr 0.95fr 1.05fr 0.8fr !important;
       }
     }
   </style>
@@ -1200,7 +1296,7 @@
         pack:{ en:'10kg / 25kg Mesh Bags & Jumbo', ar:'أجولة شبكية 10/25 كجم وجامبو', ru:'10/25 кг сетки или биг-бэги', zh:'10kg/25kg 坚韧透气网袋或吨袋' },
         cal:{ en:'40-60mm, 60-80mm, 80-100mm+ Extra', ar:'40-60 مم، 60-80 مم، 80-100 مم+ إكسترا', ru:'40-60 мм, 60-80 мм, 80-100 мм', zh:'40-60mm, 60-80mm, 80-100mm+' },
         spec:{ en:'Natural Sun Cure • >3 Tight Dry Tunics', ar:'تجفيف شمسي متدرج • +3 قشور جافة محكمة', ru:'Сушка на солнце • 3+ сухих чешуи', zh:'田间自然阶梯固皮 • 干硬鳞皮≥3层' },
-        origin:{ en:'Beni Suef & Assiut Alluvial Plains', ar:'سهول بني سويف وأسيوط الطميية', ru:'Бени-Суэйف и Асьют', zh:'贝尼苏韦夫与艾斯尤特冲积平原' },
+        origin:{ en:'Beni Suef & Assiut Alluvial Plains', ar:'سهول بني سويف وأسيوط الطميية', ru:'Бени-Суэйф и Асьют', zh:'贝尼苏韦夫与艾斯尤特冲积平原' },
         transit:{ en:'50+ Days Maritime Reefer Endurance', ar:'تحمل ملاحي فائق يتعدى 50 يوماً', ru:'50+ дней морского перехода', zh:'远洋航线超长耐受 50+ 天' },
         vent:{ en:'RH 65-70% • Dry Air Vent: 25 cbm/h', ar:'رطوبة 65-70% • تهوية جافة 25 م³/س', ru:'Влажность 65-70% • Вент: 25 м³/ч', zh:'相对湿度 65-70% • 干燥通风 25 cbm/h' },
         cert:{ en:'Phytosanitary OK • UNECE Class I', ar:'شهادة حجر زراعي • رتبة أولى دولية', ru:'Фитосанитарный • UNECE Class I', zh:'官方植检证书 • UNECE一级出口标准' },
@@ -1387,7 +1483,7 @@
         pack:{ en:'4kg / 5kg Cartons with MAP Gas Liners', ar:'كراتين 4/5 كجم بأكياس MAP جو معدل', ru:'4/5 кг коробки с MAP-пакетами', zh:'4kg/5kg 纸箱内置 MAP 气调锁鲜袋' },
         cal:{ en:'6-8mm (Extra Fine) • 8-10mm (Fine) • 10-14cm', ar:'6-8 مم (رفيعة جداً) • 8-10 مم • طول 10-14 سم', ru:'6-8 мм (экстра) • 8-10 мм • 10-14 см', zh:'6-8mm (特细级) • 8-10mm (精选细级) • 10-14cm' },
         spec:{ en:'100% Straight • Stringless • Snap Crisp', ar:'مستقيمة 100% • خالية من الخيوط • هشة مقرمشة', ru:'100% прямые • Без волокон • Хруст', zh:'100%条直无弯曲 • 手工无筋 • 折断清脆' },
-        origin:{ en:'Sharkia & Ismailia Fertile Soils', ar:'أراضي الشرقية والإسماعيلية الخصبة', ru:'Шаркия и Исмаилия', zh:'东部省与伊斯梅利亚肥沃农田' },
+        origin:{ en:'Sharkia & Ismailia Fertile Soils', ar:'أراضي الشرقية والإسماعيلية الخصبة', ru:'Шارкия и Исмаилия', zh:'东部省与伊斯梅利亚肥沃农田' },
         transit:{ en:'Air Freight or 14-16d Sea Reefer', ar:'شحن جوي أو شحن بحري مبرد 14-16 يوماً', ru:'Авиа или 14-16 дней в рефе', zh:'空运直航 或 14-16天快船气调冷藏' },
         vent:{ en:'RH 95% • Modified Atmosphere Packaging', ar:'رطوبة 95% • تحكم غازي محكم MAP', ru:'Влажность 95% • MAP-пленка', zh:'相对湿度 95% • 专业MAP气调延缓呼吸' },
         cert:{ en:'Zero Chemical Residues • GlobalGAP IFA', ar:'خلو تام من المتبقيات • جلوبال جاب v6', ru:'Чистота MRL • GlobalGAP v6', zh:'严苛零农残达标 • GlobalGAP IFA v6' },
@@ -1459,7 +1555,7 @@
         transit:{ en:'25 Days Ocean Container Journey', ar:'تحمل إبحار بحري مبرد 25 يوماً', ru:'25 дней морской перевозки', zh:'集装箱气调冷链海运 25 天' },
         vent:{ en:'RH 95-98% • Hydrocooled <3h Post-Pick', ar:'رطوبة 95-98% • تبريد مائي فوري 3 ساعات', ru:'Влажность 95-98% • Гидроохлаждение', zh:'相对湿度 95-98% • 采后3小时极速水冷' },
         cert:{ en:'EUR.1 Tariff Free • GlobalGAP IFA v6', ar:'EUR.1 إعفاء جمركي 0% • جلوبال جاب', ru:'EUR.1 (0% пошлина) • GlobalGAP', zh:'EUR.1 零关税协定 • GlobalGAP认证' },
-        pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / паллет', zh:'64-72箱 / 欧标托盘' },
+        pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / паلlet', zh:'64-72箱 / 欧标托盘' },
         shiptype:{ en:'40ft Reefer Container (18 MT)', ar:'حاوية 40 قدم مبردة (18 طن)', ru:'40ft HC рефконтейнер (18 т)', zh:'40尺冷藏集装箱 (18吨)' },
         en:{ name:"Imperial Globe Artichokes", sub:"French Violet & Imperial Star", desc:"Cultivated in traditional Nile Delta clay belts. Spherical heads with tightly overlapping outer bracts and thick, tender hearts. Neatly cut stems, hydrocooled against oxidation." },
         ar:{ name:"خرشوف إمبريال بلدي وبنفسجي", sub:"فرنساوي بنفسجي وإمبريال ستار البلدي", desc:"زراعات أراضي الدلتا الطميية الخصبة. رؤوس كروية مصمتة ذات قنابات متراكبة وقاعدة لحمية سميكة، تُقلم السيقان بدقة وتُبرد مائياً لمنع أي أكسدة أو تغير لوني." },
@@ -1491,7 +1587,7 @@
         spec:{ en:'Dense Blue-Green Florets • 0 Yellow • Solid Stem', ar:'حبيبات متراصة زرقاء مخضرة • بلا اصفرار', ru:'Плотные темно-зеленые бутоны', zh:'花蕾紧密墨绿坚实 • 绝无黄化 • 茎实心' },
         origin:{ en:'Alexandria Suburbs & Kafr El-Dawar', ar:'ضواحي الإسكندرية ومزارع كفر الدوار', ru:'Александрия и Кафр-эд-Даввар', zh:'亚历山大郊区与卡夫拉·达瓦尔生产区' },
         transit:{ en:'22 Days Marine Reefer Endurance', ar:'تحمل بحري مبرد ومثلج 22 يوماً', ru:'22 дня морской доставки', zh:'密闭温控冷藏海运可达 22 天' },
-        vent:{ en:'RH 98-100% • Drainage Hole Styro Box', ar:'رطوبة 98-100% • ثقوب لتصريف مياه الذوبان', ru:'Влажность 98-100% • Сток талой воды', zh:'相对湿度 98-100% • 箱底设标准融水微孔' },
+        vent:{ en:'RH 98-100% • Drainage Hole Styro Box', ar:'رطوبة 98-100% • ثقوب لتصريف مياه الذوبان', ru:'Вلاжность 98-100% • Сток талой воды', zh:'相对湿度 98-100% • 箱底设标准融水微孔' },
         cert:{ en:'BRCGS Packhouse • GlobalGAP IFA v6', ar:'محطة معتمدة BRCGS • جلوبال جاب v6', ru:'BRCGS упаковка • GlobalGAP IFA', zh:'BRCGS出口包装厂 • GlobalGAP认证' },
         pallet:{ en:'60-70 Styro Boxes / Euro Pallet', ar:'60-70 صندوق فوم / بالتة أوروبية', ru:'60-70 термобоксов / паллет', zh:'60-70泡沫箱 / 托盘' },
         shiptype:{ en:'40ft Reefer Container (14 MT)', ar:'حاوية 40 قدم مبردة (14 طن)', ru:'40ft HC рефконтейнер (14 т)', zh:'40尺冷藏集装箱 (14吨)' },
@@ -1527,7 +1623,7 @@
         transit:{ en:'Air Cargo or 14d Fast Reefer Ship', ar:'شحن جوي سريع أو سفن تبريد 14 يوماً', ru:'Авиа или 14 дней морской реф', zh:'空运黄金期直发 或 14天特快冷藏班轮' },
         vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Влажность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket Class A', ar:'جلوبال جاب v6 • اشتراطات سلاسل السوبرماركت', ru:'GlobalGAP IFA • Класс А', zh:'GlobalGAP IFA • 欧洲商超一级标准' },
-        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / паллет', zh:'140-160平托盘 / 托盘' },
+        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / паلlet', zh:'140-160平托盘 / 托盘' },
         shiptype:{ en:'Air Cargo / 40ft Reefer (16 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (16 طن)', ru:'Авиа / 40ft реф (16 т)', zh:'空运集装板 / 40尺冷藏柜 (16吨)' },
         en:{ name:"Early Florida Stone Peaches", sub:"Florida Prince & Desert Red", desc:"Captures the Mediterranean's earliest seasonal harvest window. Red blush over yellow ground, sweet melting flesh with balanced acidity, and strict firmness suitable for sea and air freight." },
         ar:{ name:"خوخ فلوريدا برنس المبكر للتصدير", sub:"فلوريدا برنس وديزرت ريد التصديري", desc:"يقتنص أول نافذة حصاد مبكرة بحوض المتوسط. ثمار ذات تلوين أحمر قاني على خلفية ذهبية، لحم سكري عصيري متوازن الحموضة وصلابة قوية تناسب الشحن الجوي والبحري." },
@@ -1552,7 +1648,7 @@
         zh:{ name:"阿斯旺杂交与红宝石甜大西瓜", sub:"Aswan Hybrid 与 Crimson Sweet", desc:"产自上埃及日照充足温暖沙壤。椭圆饱满条纹分明，瓜皮坚固致密抗压极强，瓜瓤大红脆甜多汁起沙，中心含糖稳定在 11.5° Brix 以上。" }
       },
       { id:25, hs:'0807.19',
-        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Авгуست', zh:'5月 – 8月' },
+        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Август', zh:'5月 – 8月' },
         temp:'+6°C to +8°C',
         pack:{ en:'5kg Telescopic Boxes with Foam Nets', ar:'كراتين تلسكوبية 5 كجم بأكمام فوم مرنة', ru:'5 кг телескопические короба с сеткой', zh:'5kg 纸箱装配柔软减震发泡网套' },
         cal:{ en:'Counts: 5, 6, 7, 8 Melons/Box (800-1400g)', ar:'الأعداد: 5، 6، 7، 8 ثمار (800-1400 جم)', ru:'Калибры: 5, 6, 7, 8 шт (800-1400г)', zh:'装箱数: 5, 6, 7, 8颗/箱 (单果800-1400g)' },
@@ -2128,7 +2224,6 @@
     }
 
     async function generatePdfDocument() {
-      // التأكد من استقرار الخطوط قبل أمر الطباعة الأصلي
       if (document.fonts) await document.fonts.ready;
       window.print();
     }
