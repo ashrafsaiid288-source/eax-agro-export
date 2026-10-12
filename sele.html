@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Direct PDF Generation Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -125,11 +128,11 @@
       box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
     }
 
-    /* Page Definition (Desktop Screen Standard) */
+    /* Page Definition (Base Standard Landscape) */
     .page {
       width: 297mm;
-      height: 210mm;
-      max-height: 210mm;
+      height: 209.5mm;
+      max-height: 209.5mm;
       background: var(--bg-page);
       margin: 26px auto;
       position: relative;
@@ -181,7 +184,7 @@
 
     .page-content {
       flex: 1;
-      height: calc(210mm - 13mm - 7.5mm);
+      height: calc(209.5mm - 13mm - 7.5mm);
       padding: 4mm 16mm 3.5mm;
       display: flex;
       flex-direction: column;
@@ -203,7 +206,7 @@
       flex-shrink: 0;
     }
 
-    /* Cover Page Layout */
+    /* Cover Page */
     .cover-layout {
       background: 
         radial-gradient(circle at 88% 18%, rgba(26, 77, 58, 0.08) 0%, transparent 45%),
@@ -212,7 +215,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 210mm;
+      height: 209.5mm;
       border-top: 6px solid var(--accent-green);
     }
     .cover-top-bar {
@@ -536,55 +539,55 @@
     }
 
     /* ========================================================
-       RESPONSIVE & INTERACTIVE SCREEN MODE (MOBILE & TABLET / IPAD)
+       RESPONSIVE & MOBILE / TABLET FIX (NO CROPPING)
     ======================================================== */
-    @media screen and (max-width: 1080px) {
+    @media screen and (max-width: 1024px) {
       body {
-        padding: 76px 14px 30px;
+        padding: 70px 10px 20px;
       }
       .page {
         width: 100% !important;
-        max-width: 960px !important;
+        max-width: 100% !important;
         height: auto !important;
         max-height: none !important;
-        margin: 24px auto !important;
-        border-radius: 16px;
+        margin: 20px auto !important;
+        border-radius: 14px;
         box-shadow: var(--shadow-md);
       }
       .page-header {
         height: auto;
-        padding: 16px 20px;
+        padding: 14px 18px;
       }
       .page-content {
         height: auto !important;
         overflow: visible !important;
-        padding: 18px 20px;
+        padding: 16px 18px;
       }
       .page-footer {
         height: auto;
-        padding: 14px 20px;
+        padding: 12px 18px;
       }
       .cover-layout {
         height: auto !important;
-        padding: 28px 20px;
-        gap: 24px;
+        padding: 24px 18px;
+        gap: 20px;
       }
       .cover-hero-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
       }
       .cover-kpi-deck {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 10px;
       }
       .bento-container {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 12px;
       }
       .products-dense-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
-        gap: 14px;
+        gap: 12px;
         height: auto;
       }
       .crop-dense-card {
@@ -600,15 +603,11 @@
       }
     }
 
-    @media screen and (max-width: 680px) {
-      body {
-        padding: 70px 10px 24px;
-      }
+    @media screen and (max-width: 640px) {
       .control-nav {
         top: 8px;
         padding: 6px 12px;
         gap: 6px;
-        width: 96vw;
       }
       .lang-chip {
         padding: 5px 10px;
@@ -619,10 +618,10 @@
         font-size: 11px;
       }
       .brand-title-lead {
-        font-size: 28px;
+        font-size: 26px;
       }
       .brand-tagline {
-        font-size: 16px;
+        font-size: 15px;
       }
       .cover-kpi-deck {
         grid-template-columns: 1fr;
@@ -637,7 +636,7 @@
     }
 
     /* ========================================================
-       STRICT A4 LANDSCAPE PRINT ENGINE (ZERO BLANK PAGES)
+       STRICT A4 PRINT CONFIGURATION (100% FIT, NO BLANK PAGES)
     ======================================================== */
     @page {
       size: 297mm 210mm landscape;
@@ -646,8 +645,8 @@
 
     @media print {
       html, body {
-        width: 297mm !important;
-        height: 210mm !important;
+        width: 100% !important;
+        height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
@@ -659,17 +658,16 @@
       }
 
       #catalog-container {
-        width: 297mm !important;
+        width: 100% !important;
         margin: 0 !important;
         padding: 0 !important;
       }
 
       .page {
         width: 297mm !important;
-        height: 210mm !important;
-        max-height: 210mm !important;
-        min-height: 210mm !important;
-        margin: 0 !important;
+        height: 209mm !important;
+        max-height: 209mm !important;
+        margin: 0 auto !important;
         padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
@@ -687,8 +685,8 @@
       }
 
       .cover-layout {
-        height: 210mm !important;
-        max-height: 210mm !important;
+        height: 209mm !important;
+        max-height: 209mm !important;
         padding: 12mm 18mm !important;
       }
 
@@ -716,7 +714,7 @@
       }
 
       .page-content {
-        height: calc(210mm - 13mm - 7.5mm) !important;
+        height: calc(209mm - 13mm - 7.5mm) !important;
         padding: 4mm 16mm 3.5mm !important;
         overflow: hidden !important;
       }
@@ -1023,7 +1021,7 @@
     <div class="page" id="page-6">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p3">EXPORT SPECIFICATIONS • PART 03 (CROPS 09 - 12)</div>
@@ -1277,7 +1275,7 @@
         zh:{ name:"鲜食与加工级马铃薯", sub:"Spunta, Hermes 与 Rosetta", desc:"天然沙漠深井喷灌基地采收。表皮金黄无褐斑，零青枯病官方认证，高干物质坚实耐切，商超与薯片加工首选。" }
       },
       { id:3, hs:'0706.10',
-        season:{ en:'January – May', ar:'يناير – مايو', ru:'Январь – Май', zh:'1月 – 5月' },
+        season:{ en:'January – May', ar:'يناير – مايو', ru:'Яنварь – Май', zh:'1月 – 5月' },
         temp:'+0°C to +2°C',
         pack:{ en:'5kg / 10kg Poly Liner Master Box', ar:'كراتين ماستر 5/10 كجم مبطنة بولي', ru:'5/10 кг полипакеты в коробах', zh:'5kg/10kg 衬膜保鲜出口主纸箱' },
         cal:{ en:'Length: 16-24cm • Caliber: 25-45mm', ar:'الطول: 16-24 سم • القطر: 25-45 مم', ru:'Длина: 16-24 см • Диам: 25-45 мм', zh:'长度: 16-24cm • 直径: 25-45mm' },
@@ -1539,7 +1537,7 @@
         spec:{ en:'Hand Picked • Zero Bruising • Flesh:Pit >80%', ar:'حصاد يدوي • بدون كدمات • نسبة لحم لنواة >80%', ru:'Ручной сбор • Без помятостей • Мякоть >80%', zh:'逐颗人工轻采 • 零碰伤 • 果肉占比>80%' },
         origin:{ en:'Matrouh, Siwa & North Sinai Groves', ar:'مزارع مطروح، سيوة، وشمال سيناء', ru:'Матрух, Сива и Синай', zh:'马特鲁、锡瓦绿洲与西奈半岛原产园' },
         transit:{ en:'30 Days Fresh / 180d In-Brine Marine', ar:'30 يوماً طازجاً / 180 يوماً بالمحلول الملحي', ru:'30 дней свежие / 180 в рассоле', zh:'鲜果冷链 30天 / 盐渍长期保鲜储运' },
-        vent:{ en:'RH 85-90% • Heavy Duty Crates Pack', ar:'رطوبة 85-90% • أقفاص مهواة عالية التحمل', ru:'Влажность 85-90% • Прочные ящики', zh:'相对湿度 85-90% • 高韧性食品级周转筐' },
+        vent:{ en:'RH 85-90% • Heavy Duty Crates Pack', ar:'رطوبة 85-90% • أقفاص مهواة عالية التحمل', ru:'Вلاжность 85-90% • Прочные ящики', zh:'相对湿度 85-90% • 高韧性食品级周转筐' },
         cert:{ en:'Phytosanitary OK • Pure Processing Grade', ar:'مطابقة حجر زراعي • فئة تصنيع وتخليل أولى', ru:'Фитосанитарный • Сорт экстра', zh:'官方植物检疫合格 • 特优加工级标准' },
         pallet:{ en:'60-70 Crates / Heavy Pallet', ar:'60-70 قفص / بالتة ثقيلة', ru:'60-70 ящиков / паллет', zh:'60-70筐 / 重型托盘' },
         shiptype:{ en:'40ft Reefer / Dry Tank (22 MT)', ar:'حاوية 40 قدم مبردة / تانك (22 طن)', ru:'40ft реф / танк (22 т)', zh:'40尺冷藏柜 / 食品集装桶 (22吨)' },
@@ -1607,7 +1605,7 @@
         spec:{ en:'Scoville Tested (30k-80k SHU) • Crisp Wall', ar:'حرارة 30,000-80,000 سكوفيل • قشرة صلبة', ru:'Острота 30,000-80,000 SHU', zh:'实验室实测辣度 30,000-80,000 SHU' },
         origin:{ en:'Fayoum Oasis & Sandy Desert Fields', ar:'واحات الفيوم والمزارع الصحراوية الرملية', ru:'Фаюм и пустынные фермы', zh:'法尤姆绿洲与现代沙漠高渗灌区' },
         transit:{ en:'28 Days Marine Container Freshness', ar:'28 يوماً نضارة بالتبريد البحري بالحاويات', ru:'28 дней свежести в рефе', zh:'集装箱冷链运输保鲜 28 天' },
-        vent:{ en:'RH 90-95% • Vent Flow: 15 cbm/h', ar:'رطوبة 90-95% • تدفق تهوية 15 م³/ساعة', ru:'Влажность 90-95% • Вент: 15 м³/ч', zh:'相对湿度 90-95% • 换气通风 15 cbm/h' },
+        vent:{ en:'RH 90-95% • Vent Flow: 15 cbm/h', ar:'رطوبة 90-95% • تدفق تهوية 15 م³/ساعة', ru:'Вلاжность 90-95% • Вент: 15 м³/ч', zh:'相对湿度 90-95% • 换气通风 15 cbm/h' },
         cert:{ en:'Lab SHU Certified • ISO 22000:2018', ar:'شهادة معملية معتمدة لـ SHU • أيزو 22000', ru:'Лабораторный SHU • ISO 22000', zh:'附辣度实验室检定书 • ISO 22000' },
         pallet:{ en:'160-200 Boxes / Standard Pallet', ar:'160-200 كرتونة / بالتة قياسية', ru:'160-200 коробок / паллет', zh:'160-200箱 / 托盘' },
         shiptype:{ en:'40ft Reefer Container (16 MT)', ar:'حاوية 40 قدم مبردة (16 طن)', ru:'40ft HC рефконтейнер (16 т)', zh:'40尺冷藏集装箱 (16吨)' },
@@ -1634,7 +1632,7 @@
         zh:{ name:"极早熟佛罗里达王子水蜜桃", sub:"Florida Prince 与 Desert Red", desc:"抢占地中海产区首轮极早熟供应黄金窗口。鲜红粉晕覆盖金黄底色，香气四溢甘甜汁浓微酸可口，硬度达标，兼顾空运及快船。" }
       },
       { id:24, hs:'0807.11',
-        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Авгуست', zh:'5月 – 8月' },
+        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Август', zh:'5月 – 8月' },
         temp:'+10°C to +14°C',
         pack:{ en:'500kg Timber Bins & 2-3 pc Cartons', ar:'صناديق خشب 500 كجم وكراتين 2-3 حبات', ru:'500 кг контейнеры или гофробоксы', zh:'500kg 实木大料箱 或 2-3颗装瓦楞箱' },
         cal:{ en:'5-8kg (M), 8-12kg (L), 12kg+ (Jumbo King)', ar:'5-8 كجم (وسط)، 8-12 كجم (كبير)، +12 كجم جامبو كينج', ru:'5-8 кг (сред), 8-12 кг, 12 кг+ (джамбо)', zh:'单果重: 5-8kg (中), 8-12kg (大), 12kg+' },
@@ -2229,9 +2227,44 @@
       renderDenseCatalog(lang);
     }
 
+    // Direct PDF Generation & Download without dialog prompts
     async function generatePdfDocument() {
+      const btn = document.querySelector('.download-action-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '⏳ Generating...';
+      btn.disabled = true;
+
       if (document.fonts) await document.fonts.ready;
-      window.print();
+
+      const element = document.getElementById('catalog-container');
+      const opt = {
+        margin:       0,
+        filename:     `EAX-Agro-Export-Trade-Catalog-2026-${activeLang.toUpperCase()}.pdf`,
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { 
+          scale: 2, 
+          useCORS: true, 
+          letterRendering: true,
+          scrollX: 0,
+          scrollY: 0
+        },
+        jsPDF:        { 
+          unit: 'mm', 
+          format: [297, 210], 
+          orientation: 'landscape' 
+        },
+        pagebreak:    { mode: ['css', 'legacy'] }
+      };
+
+      try {
+        await html2pdf().set(opt).from(element).save();
+      } catch (err) {
+        console.error('Direct download fallback:', err);
+        window.print();
+      } finally {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      }
     }
 
     window.addEventListener('DOMContentLoaded', () => {
