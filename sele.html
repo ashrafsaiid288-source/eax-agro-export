@@ -2,16 +2,13 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" id="viewportMeta" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>EAX Agro Export — Official Corporate Trade Guide 2026</title>
   
   <!-- Premium Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Direct PDF Engine -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
     *, *::before, *::after {
@@ -58,16 +55,16 @@
       overflow-x: hidden;
     }
 
-    /* إصلاح تراكب وتشابك الحروف في اللغة العربية */
+    /* حل مشكلة تراكب الحروف العربي نهائياً */
     html[dir="rtl"] body {
       font-family: 'Alexandria', sans-serif !important;
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
-    html[dir="rtl"] *, 
-    html[dir="rtl"] *::before, 
+    html[dir="rtl"] *,
+    html[dir="rtl"] *::before,
     html[dir="rtl"] *::after {
-      letter-spacing: 0 !important;
+      letter-spacing: normal !important;
       word-spacing: normal !important;
     }
 
@@ -548,15 +545,14 @@
       font-size: 9px;
     }
 
-    /* حماية عناصر الـ QR من التراكب */
     .qr-flex-group {
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 14px;
     }
     .qr-box-single {
       text-align: center;
-      margin: 0 8px;
       flex-shrink: 0;
     }
     .qr-box-single img {
@@ -572,7 +568,7 @@
     }
 
     /* ========================================================
-       RESPONSIVE & MOBILE / TABLET MODE
+       RESPONSIVE MOBILE/TABLET BROWSING (SCREEN ONLY)
     ======================================================== */
     @media screen and (max-width: 1024px) {
       body {
@@ -669,52 +665,8 @@
     }
 
     /* ========================================================
-       CLASS FORCED DURING PDF GENERATION (PREVENTS CROPPING)
+       PERFECT A4 PRINT ENGINE (ZERO CUT, ZERO OVERLAPS)
     ======================================================== */
-    body.rendering-pdf-mode {
-      padding: 0 !important;
-      background: #ffffff !important;
-    }
-    body.rendering-pdf-mode .control-nav {
-      display: none !important;
-    }
-    body.rendering-pdf-mode .page {
-      width: 297mm !important;
-      height: 209.5mm !important;
-      max-height: 209.5mm !important;
-      margin: 0 !important;
-      border-radius: 0 !important;
-      box-shadow: none !important;
-      break-after: page !important;
-      page-break-after: always !important;
-    }
-    body.rendering-pdf-mode .cover-hero-grid {
-      display: grid !important;
-      grid-template-columns: 1.45fr 0.85fr !important;
-      gap: 32px !important;
-    }
-    body.rendering-pdf-mode .cover-kpi-deck {
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 14px !important;
-    }
-    body.rendering-pdf-mode .bento-container {
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 14px !important;
-    }
-    body.rendering-pdf-mode .products-dense-grid {
-      display: grid !important;
-      grid-template-columns: repeat(2, 1fr) !important;
-      grid-template-rows: repeat(2, 1fr) !important;
-      gap: 8px !important;
-      height: 100% !important;
-    }
-    body.rendering-pdf-mode .crop-dense-card {
-      height: 100% !important;
-    }
-
-    /* STRICT BROWSER PRINT ENGINE */
     @page {
       size: 297mm 210mm landscape;
       margin: 0 !important;
@@ -722,27 +674,109 @@
 
     @media print {
       html, body {
-        width: 100% !important;
+        width: 297mm !important;
+        min-width: 297mm !important;
+        max-width: 297mm !important;
+        height: auto !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
+        overflow: visible !important;
       }
+
       .control-nav {
         display: none !important;
       }
+
+      #catalog-container {
+        width: 297mm !important;
+        min-width: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
       .page {
         width: 297mm !important;
+        min-width: 297mm !important;
+        max-width: 297mm !important;
         height: 209mm !important;
+        min-height: 209mm !important;
         max-height: 209mm !important;
-        margin: 0 auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
         break-after: page !important;
         page-break-after: always !important;
       }
+
       .page:last-child {
         break-after: auto !important;
         page-break-after: auto !important;
+      }
+
+      .cover-layout {
+        height: 209mm !important;
+        max-height: 209mm !important;
+        padding: 12mm 18mm !important;
+      }
+
+      .cover-hero-grid {
+        display: grid !important;
+        grid-template-columns: 1.45fr 0.85fr !important;
+        gap: 32px !important;
+      }
+
+      .cover-kpi-deck {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .bento-container {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 14px !important;
+      }
+
+      .page-header {
+        height: 13mm !important;
+        padding: 0 16mm !important;
+      }
+
+      .page-content {
+        height: calc(209mm - 13mm - 7.5mm) !important;
+        padding: 4mm 16mm 3.5mm !important;
+        overflow: hidden !important;
+      }
+
+      .page-footer {
+        height: 7.5mm !important;
+        padding: 0 16mm !important;
+      }
+
+      .products-dense-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        gap: 8px !important;
+        height: 100% !important;
+      }
+
+      .crop-dense-card {
+        height: 100% !important;
+        min-height: 0 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        padding: 9px 12px 8px !important;
+      }
+
+      .crop-footer-strip {
+        grid-template-columns: 1.2fr 0.95fr 1.05fr 0.8fr !important;
       }
     }
   </style>
@@ -1281,7 +1315,7 @@
         spec:{ en:'Hydrocooled <2h • Brix 8.5°+ • 0% Green', ar:'تبريد مائي ساعتين • بريكس +8.5° • دون اخضرار', ru:'Гидроохлаждение <2ч • Brix 8.5°+', zh:'采后2小时水冷 • 糖度≥8.5° • 零青头' },
         origin:{ en:'Ismailia & Nubaria Sandy Plains', ar:'سهول الإسماعيلية والنوبارية الرملية', ru:'Исмаилия и Нубария', zh:'伊斯梅利亚与努巴里亚沙壤平原' },
         transit:{ en:'30+ Days Chilled Storage Integrity', ar:'حفظ مبرد ممتاز يتعدى 30 يوماً', ru:'30+ дней в холодном трюме', zh:'高湿低温环境持久保鲜 30+ 天' },
-        vent:{ en:'RH 95-98% • Moisture-Sealed Liner', ar:'رطوبة 95-98% • بطانة بوليسترين عازلة', ru:'Вلاжность 95-98% • Пленка', zh:'相对湿度 95-98% • 锁水保鲜衬袋' },
+        vent:{ en:'RH 95-98% • Moisture-Sealed Liner', ar:'رطوبة 95-98% • بطانة بوليسترين عازلة', ru:'Влажность 95-98% • Пленка', zh:'相对湿度 95-98% • 锁水保鲜衬袋' },
         cert:{ en:'GlobalGAP IFA • Rigorous Pesticide Audit', ar:'جلوبال جاب • فحص دوري دقيق للمتبقيات', ru:'GlobalGAP • Контроль пестицидов', zh:'GlobalGAP • 农残严格检测监控' },
         pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / паллет', zh:'64-72箱 / 标准海运托盘' },
         shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 т)', zh:'40尺高柜冷藏集装箱 (24吨)' },
@@ -1332,7 +1366,7 @@
         spec:{ en:'Natural Wax • Citric Acid 5-7% • Juice 35%+', ar:'تشميع غذائي • حموضة 5-7% • عصير +35%', ru:'Пищевой воск • Кислотность 5-7%', zh:'天然食品级果蜡 • 柠檬酸5-7% • 出汁≥35%' },
         origin:{ en:'Qalyubia & Beheira Citrus Orchards', ar:'بساتين الموالح بالقليوبية والبحيرة', ru:'Кальюбия и Бухейра сады', zh:'盖卢比尤与布海拉优质柑橘果园' },
         transit:{ en:'35 Days Fresh Container Journey', ar:'35 يوماً نضارة بالحاويات البحرية', ru:'35 дней свежести в пути', zh:'航程鲜活度维系 35 天' },
-        vent:{ en:'RH 85-90% • Vent: 15 cbm/h Flow', ar:'رطوبة 85-90% • تهوية 15 م³/ساعة', ru:'Вلاжность 85-90% • Вент: 15 м³/ч', zh:'相对湿度 85-90% • 通风 15 cbm/h' },
+        vent:{ en:'RH 85-90% • Vent: 15 cbm/h Flow', ar:'رطوبة 85-90% • تهوية 15 م³/ساعة', ru:'Влажность 85-90% • Вент: 15 м³/ч', zh:'相对湿度 85-90% • 通风 15 cbm/h' },
         cert:{ en:'GlobalGAP IFA v6 • ISO 22000:2018', ar:'جلوبال جاب v6 • أيزو 22000:2018', ru:'GlobalGAP • ISO 22000:2018', zh:'GlobalGAP IFA v6 • ISO 22000认证' },
         pallet:{ en:'70-80 Cartons / Export Pallet', ar:'70-80 كرتونة / بالتة تصدير', ru:'70-80 коробок / паллет', zh:'70-80箱 / 国际标准托盘' },
         shiptype:{ en:'40ft Reefer Container (22 MT)', ar:'حاوية 40 قدم مبردة (22 طن)', ru:'40ft HC рефконтейнер (22 т)', zh:'40尺高柜冷藏集装箱 (22吨)' },
@@ -1366,7 +1400,7 @@
         spec:{ en:'Firmness >6.5 kg/cm2 • Fresh Green Calyx', ar:'صلابة تفوق 6.5 كجم/سم2 • كأس أخضر سليم', ru:'Плотность >6.5 кг/см2 • Зеленый чашелистик', zh:'果肉硬度>6.5 kg/cm² • 鲜绿萼片' },
         origin:{ en:'Nubaria & Modern Glasshouse Belts', ar:'النوبارية والصوبات التكنولوجية الحديثة', ru:'Нубария и современные теплицы', zh:'努巴里亚与现代化连栋温室群' },
         transit:{ en:'25 Days Conditioned Maritime Transit', ar:'25 يوماً نقل بحري مبرد ومكيف', ru:'25 дней морской перевозки', zh:'控温冷链海运周期 25 天' },
-        vent:{ en:'RH 85-90% • Controlled Vent: 15 cbm/h', ar:'رطوبة 85-90% • تهوية محكمة 15 م³/ساعة', ru:'Вلاжность 85-90% • Вент: 15 м³/ч', zh:'相对湿度 85-90% • 换气 15 cbm/h' },
+        vent:{ en:'RH 85-90% • Controlled Vent: 15 cbm/h', ar:'رطوبة 85-90% • تهوية محكمة 15 م³/ساعة', ru:'Влажность 85-90% • Вент: 15 м³/ч', zh:'相对湿度 85-90% • 换气 15 cbm/h' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket Class A', ar:'جلوبال جاب v6 • توريد سلاسل كبرى فئة A', ru:'GlobalGAP IFA v6 • Класс А', zh:'GlobalGAP IFA v6 • 欧洲商超A级品规' },
         pallet:{ en:'140-160 Trays / Standard Pallet', ar:'140-160 صينية / بالتة قياسية', ru:'140-160 лотков / паллет', zh:'140-160托盘盒 / 海运托盘' },
         shiptype:{ en:'40ft Reefer Container (20 MT)', ar:'حاوية 40 قدم مبردة (20 طن)', ru:'40ft HC рефконтейнер (20 т)', zh:'40尺冷藏集装箱 (20吨)' },
@@ -1471,7 +1505,7 @@
         vent:{ en:'Ventilation Flow: 15-20 cbm/h', ar:'معدل تدفق تهوية: 15-20 م³/ساعة', ru:'Вент: 15-20 м³/ч', zh:'海运通风: 15-20 cbm/h' },
         cert:{ en:'EUR.1 Free Trade • BRCGS Grade A Pack', ar:'EUR.1 إعفاء جمركي • شهادة BRCGS فئة A', ru:'EUR.1 (0% пошлина) • BRCGS', zh:'EUR.1 零关税协定 • BRCGS A级加工厂' },
         pallet:{ en:'70-80 Boxes / Export Pallet', ar:'70-80 كرتونة / بالتة تصدير', ru:'70-80 коробок / паллет', zh:'70-80箱 / 标准托盘' },
-        shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 т)', zh:'40尺冷藏集装箱 (24吨)' },
+        shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 ت)', zh:'40尺冷藏集装箱 (24吨)' },
         en:{ name:"Murcott & Honey Mandarins", sub:"Fremont, Murcott, Clementine", desc:"Renowned for rich honey sweetness and vibrant deep-orange peel. Smooth rind separates effortlessly. High juice content, calibrated under automated optical sizing lines." },
         ar:{ name:"يوسفي موركوت وفريمونت عسلي", sub:"فريمونت، موركوت العسلي، وكليمنتين", desc:"يتميز بحلاوة عسلية مركزة ولون برتقالي محمر جذاب. قشرة ملساء ناعمة سهلة التقشير باليد تماماً، ونسبة عصير طبيعية تفوق 42% مدرجة بأحدث الأنظمة الضوئية." },
         ru:{ name:"Мандарины Муркотт и Фремонт", sub:"Фремонт, Муркотт, Клементин", desc:"Насыщенный медовый вкус и темно-оранжевая кожура. Легко очищаются, высокое содержание сока, калибровка на оптических линиях." },
@@ -1521,7 +1555,7 @@
         transit:{ en:'25 Days Reefer Marine Preservation', ar:'حفظ بحري مبرد 25 يوماً بالحاوية', ru:'25 дней в рефконтейнере', zh:'冷藏集装箱安全海运 25 天' },
         vent:{ en:'RH 90-95% • Vent Flow: 15 cbm/h', ar:'رطوبة 90-95% • تدفق تهوية 15 م³/ساعة', ru:'Влажность 90-95% • Вент: 15 м³/ч', zh:'相对湿度 90-95% • 通风换气 15 cbm/h' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket A Spec', ar:'جلوبال جاب v6 • توريد سلاسل كبرى فئة A', ru:'GlobalGAP v6 • Класс А', zh:'GlobalGAP IFA v6 • 商超特级A级品规' },
-        pallet:{ en:'140 Cartons / Euro Standard Pallet', ar:'140 كرتونة / بالتة أوروبية قياسية', ru:'140 коробок / паلlet', zh:'140箱 / 欧标木托盘' },
+        pallet:{ en:'140 Cartons / Euro Standard Pallet', ar:'140 كرتونة / بالتة أوروبية قياسية', ru:'140 коробок / паллет', zh:'140箱 / 欧标木托盘' },
         shiptype:{ en:'40ft Reefer Container (16 MT)', ar:'حاوية 40 قدم مبردة (16 طن)', ru:'40ft HC рефконтейнер (16 т)', zh:'40尺冷藏集装箱 (16吨)' },
         en:{ name:"Blocky Greenhouse Bell Peppers", sub:"Red, Yellow & Orange Blocky", desc:"Grown in modern climate-controlled glasshouses. Thick fleshy walls (>7mm), uniform four-chamber symmetry, brilliant waxy sheen, and resilience against transit dehydration." },
         ar:{ name:"فلفل رومي ألوان (صوبات محمية)", sub:"أحمر قاني، أصفر ذهبي، وبرتقالي ناصع", desc:"إنتاج صوبات زراعية حديثة. جدران لحمية سميكة تفوق 7 مم وتماثل رباعي الفصوص، لمعان شمعي فائق وخلو من التبقعات مع مقاومة ممتازة للجفاف أثناء الشحن المبرد." },
@@ -1553,7 +1587,7 @@
         spec:{ en:'Tight Bracts • Heavy Dense Core • Zero Feathers', ar:'قنابات محكمة • قلب ثقيل مصمت • دون ترييش', ru:'Плотные чешуи • Плотное донце', zh:'苞片紧锁无松散 • 花托肉厚 • 零空心' },
         origin:{ en:'Alexandria Basin & Beheira Silt Belts', ar:'حوض الإسكندرية والبحيرة الطميي الغني', ru:'Александрия и Бухейра', zh:'亚历山大沿海沉积盆地与布海拉肥田' },
         transit:{ en:'25 Days Ocean Container Journey', ar:'تحمل إبحار بحري مبرد 25 يوماً', ru:'25 дней морской перевозки', zh:'集装箱气调冷链海运 25 天' },
-        vent:{ en:'RH 95-98% • Hydrocooled <3h Post-Pick', ar:'رطوبة 95-98% • تبريد مائي فوري 3 ساعات', ru:'Вلاжность 95-98% • Гидроохлаждение', zh:'相对湿度 95-98% • 采后3小时极速水冷' },
+        vent:{ en:'RH 95-98% • Hydrocooled <3h Post-Pick', ar:'رطوبة 95-98% • تبريد مائي فوري 3 ساعات', ru:'Влажность 95-98% • Гидроохлаждение', zh:'相对湿度 95-98% • 采后3小时极速水冷' },
         cert:{ en:'EUR.1 Tariff Free • GlobalGAP IFA v6', ar:'EUR.1 إعفاء جمركي 0% • جلوبال جاب', ru:'EUR.1 (0% пошлина) • GlobalGAP', zh:'EUR.1 零关税协定 • GlobalGAP认证' },
         pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / паллет', zh:'64-72箱 / 欧标托盘' },
         shiptype:{ en:'40ft Reefer Container (18 MT)', ar:'حاوية 40 قدم مبردة (18 طن)', ru:'40ft HC рефконтейнер (18 т)', zh:'40尺冷藏集装箱 (18吨)' },
@@ -1573,7 +1607,7 @@
         vent:{ en:'RH 95% • Micro-Perforated MAP Bags', ar:'رطوبة 95% • أكياس MAP مثقبة دقيقاً', ru:'Влажность 95% • Микроперфорация', zh:'相对湿度 95% • 微孔透气薄膜气调锁鲜' },
         cert:{ en:'Zero Chemical Residues • Class A GFSI', ar:'خلو تام من المبيدات • مواصفات GFSI فئة A', ru:'MRL чистый • Сертификат GFSI', zh:'零化学农残检疫 • GFSI国际一级品规' },
         pallet:{ en:'150-180 Cartons / Euro Pallet', ar:'150-180 كرتونة / بالتة أوروبية', ru:'150-180 коробок / паллет', zh:'150-180箱 / 欧标木托盘' },
-        shiptype:{ en:'Air Freight / 40ft Reefer (14 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (14 طن)', ru:'Авиа / 40ft реф (14 т)', zh:'空运打板 / 40尺冷藏集装箱 (14吨)' },
+        shiptype:{ en:'Air Freight / 40ft Reefer (14 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (14 طن)', ru:'Авиа / 40ft реф (14 т)', zh:'航空集装板 / 40尺冷藏集装箱 (14吨)' },
         en:{ name:"Defiberized Sugar Snap Peas", sub:"Sugar Snap & Mangetout Snow Peas", desc:"Hand-picked and manually de-stringed pod by pod. Plump, sweet, and crunchy with zero fibrous strings. Chilled immediately and packed in micro-perforated liners." },
         ar:{ name:"بازلاء وبسلة سكرية خالية الألياف", sub:"قرون سكرية (سناب بيز) وبازلاء الثلج", desc:"تُجنى يدوياً وتُنزع خيوطها الجانبية قرناً تلو الآخر. قرون مكتنزة بالغة الحلاوة ومقرمشة دون أي شوائب ليفية، تُبرد فوراً وتُعبأ بأكياس مثقبة مجهرياً لحفظ الخضار الزاهي." },
         ru:{ name:"Сахарный горошек без волокон", sub:"Сахарный Снап и Манжту", desc:"Ручной сбор и удаление продольных волокон со стручка. Сочные сладкие стручки с хрустящей текстурой. Упаковка в микроперфорированную пленку." },
@@ -1617,11 +1651,11 @@
         season:{ en:'April – July', ar:'أبريل – يوليو', ru:'Апрель – Июль', zh:'4月 – 7月' },
         temp:'+0°C to +2°C',
         pack:{ en:'5kg Flat Trays & 10x500g Punnets', ar:'صواني مسطحة 5 كجم و 10 علب × 500 جم', ru:'5 кг плоские лотки • 10x500г', zh:'5kg 单层托盘平箱 • 10x500g 盒' },
-        cal:{ en:'50-55mm, 55-60mm, 60-65mm, 65-70mm', ar:'50-55 مم، 55-60 مم، 60-65 مم، 65-70 مم', ru:'50-55 мм, 55-60 мм, 60-65 мм', zh:'果径等级: 50-55mm, 55-60mm, 60-65mm' },
+        cal:{ en:'50-55mm, 55-60mm, 60-65mm, 65-70mm', ar:'50-55 مم، 55-60 مم، 60-65 مم، 65-70 مم', ru:'50-55 мм, 55-60 мм, 60-65 مم', zh:'果径等级: 50-55mm, 55-60mm, 60-65mm' },
         spec:{ en:'Firmness 4.5-5.5 kg/cm2 • Blush >70% • Brix 11°+', ar:'صلابة 4.5-5.5 كجم/سم2 • تلوين +70% • بريكس +11°', ru:'Твердость 4.5-5.5 • Румянец >70%', zh:'硬度达标 4.5-5.5 kg/cm² • 红晕覆盖>70%' },
         origin:{ en:'Nubaria & North Delta Orchards', ar:'بساتين النوبارية وشمال الدلتا المبكرة', ru:'Нубария и Северная Дельта', zh:'努巴里亚与北三角洲特早熟果园' },
         transit:{ en:'Air Cargo or 14d Fast Reefer Ship', ar:'شحن جوي سريع أو سفن تبريد 14 يوماً', ru:'Авиа или 14 дней морской реф', zh:'空运黄金期直发 或 14天特快冷藏班轮' },
-        vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Влажность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
+        vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Вلاжность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket Class A', ar:'جلوبال جاب v6 • اشتراطات سلاسل السوبرماركت', ru:'GlobalGAP IFA • Класс А', zh:'GlobalGAP IFA • 欧洲商超一级标准' },
         pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / палlet', zh:'140-160平托盘 / 托盘' },
         shiptype:{ en:'Air Cargo / 40ft Reefer (16 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (16 طن)', ru:'Авиа / 40ft реф (16 т)', zh:'空运集装板 / 40尺冷藏柜 (16吨)' },
@@ -1638,7 +1672,7 @@
         spec:{ en:'Brix >11.5° • Rind >18mm • Heavy Solid Heart', ar:'بريكس +11.5° • قشرة +18 مم • قلب مرمل مصمت', ru:'Brix >11.5° • Кора >18 мм • Без пустот', zh:'中心含糖≥11.5° Brix • 瓜皮厚韧>18mm' },
         origin:{ en:'Aswan & Upper Egypt Sunny Basins', ar:'سهول أسوان وصعيد مصر المشمسة العذبة', ru:'Асуан и Верхний Египет', zh:'阿斯旺与上埃及日照充足温暖沙壤' },
         transit:{ en:'35 Days Heavy Container Stacking Run', ar:'تحمل رص بحري وشحن لـ 35 يوماً متواصلاً', ru:'35 дней доставки в контейнере', zh:'瓜皮极强抗压，耐高堆码海运 35 天' },
-        vent:{ en:'RH 85-90% • Vent Flow: 20 cbm/h', ar:'رطوبة 85-90% • تهوية مستمرة 20 م³/ساعة', ru:'Вلاжность 85-90% • Вент: 20 м³/ч', zh:'相对湿度 85-90% • 保持对流 20 cbm/h' },
+        vent:{ en:'RH 85-90% • Vent Flow: 20 cbm/h', ar:'رطوبة 85-90% • تهوية مستمرة 20 م³/ساعة', ru:'Влажность 85-90% • Вент: 20 м³/ч', zh:'相对湿度 85-90% • 保持对流 20 cbm/h' },
         cert:{ en:'EUR.1 Certificate • GlobalGAP IFA v6', ar:'EUR.1 إعفاء تفضيلي • جلوبال جاب v6', ru:'EUR.1 (0% пошлина) • GlobalGAP', zh:'EUR.1 零关税协定 • GlobalGAP认证' },
         pallet:{ en:'2 Timber Bins or 44 Boxes / Pallet', ar:'2 صندوق خشبي أو 44 كرتونة / بالتة', ru:'2 бина или 44 короба / паллет', zh:'2个大型木箱 或 44箱 / 托盘' },
         shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 т)', zh:'40尺冷藏集装箱 (24吨)' },
@@ -2225,50 +2259,29 @@
       renderDenseCatalog(lang);
     }
 
-    // Direct Clean PDF Generation (No Overlaps, No Arabic Letter Distortion)
+    // تقنية الـ Viewport Zooming السحرية لطباعة A4 كاملة من الفون والآيباد بدون أي قص
     async function generatePdfDocument() {
-      const btn = document.querySelector('.download-action-btn');
-      const originalText = btn.innerHTML;
-      btn.innerHTML = '⏳ Generating...';
-      btn.disabled = true;
+      const vMeta = document.getElementById('viewportMeta');
+      const originalViewport = vMeta ? vMeta.getAttribute('content') : '';
 
-      // Force print layout momentarily so mobile screens render full A4 landscape
-      document.body.classList.add('rendering-pdf-mode');
-
-      if (document.fonts) await document.fonts.ready;
-      await new Promise(r => setTimeout(r, 250)); // Allow DOM repaint
-
-      const element = document.getElementById('catalog-container');
-      const opt = {
-        margin:       0,
-        filename:     `EAX-Agro-Export-Trade-Catalog-2026-${activeLang.toUpperCase()}.pdf`,
-        image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { 
-          scale: 2, 
-          useCORS: true, 
-          letterRendering: false, // Critical for Arabic connected text
-          scrollX: 0,
-          scrollY: 0,
-          windowWidth: 1122 // Exactly 297mm in CSS px at 96 DPI
-        },
-        jsPDF:        { 
-          unit: 'mm', 
-          format: [297, 210], 
-          orientation: 'landscape' 
-        },
-        pagebreak:    { mode: ['css', 'legacy'] }
-      };
-
-      try {
-        await html2pdf().set(opt).from(element).save();
-      } catch (err) {
-        console.error('Direct PDF error:', err);
-        window.print();
-      } finally {
-        document.body.classList.remove('rendering-pdf-mode');
-        btn.innerHTML = originalText;
-        btn.disabled = false;
+      // 1. إجبار الموبايل والآيباد على فتح مقاس A4 Landscape كامل (1122px)
+      if (vMeta) {
+        vMeta.setAttribute('content', 'width=1122, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
       }
+
+      // 2. انتظار رندر الخطوط والمقاس الجديد
+      if (document.fonts) await document.fonts.ready;
+      await new Promise(r => setTimeout(r, 200));
+
+      // 3. استدعاء الطباعة الأصلية الصافية
+      window.print();
+
+      // 4. استرجاع مقاس الشاشة الطبيعي للموبايل فور الانتهاء
+      setTimeout(() => {
+        if (vMeta && originalViewport) {
+          vMeta.setAttribute('content', originalViewport);
+        }
+      }, 1000);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
