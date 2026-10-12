@@ -125,11 +125,11 @@
       box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
     }
 
-    /* Page Definition (Base Standard Landscape) */
+    /* Page Definition (Desktop Screen Standard) */
     .page {
       width: 297mm;
-      height: 209mm;
-      max-height: 209mm;
+      height: 210mm;
+      max-height: 210mm;
       background: var(--bg-page);
       margin: 26px auto;
       position: relative;
@@ -181,6 +181,7 @@
 
     .page-content {
       flex: 1;
+      height: calc(210mm - 13mm - 7.5mm);
       padding: 4mm 16mm 3.5mm;
       display: flex;
       flex-direction: column;
@@ -202,7 +203,7 @@
       flex-shrink: 0;
     }
 
-    /* Cover Page */
+    /* Cover Page Layout */
     .cover-layout {
       background: 
         radial-gradient(circle at 88% 18%, rgba(26, 77, 58, 0.08) 0%, transparent 45%),
@@ -211,7 +212,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 209mm;
+      height: 210mm;
       border-top: 6px solid var(--accent-green);
     }
     .cover-top-bar {
@@ -535,54 +536,52 @@
     }
 
     /* ========================================================
-       INTERACTIVE MOBILE & TABLET MODE (SCREEN ONLY)
-       تنسيقات الشاشات فقط: بدون التأثير إطلاقاً على الطباعة والـ PDF
+       RESPONSIVE & INTERACTIVE SCREEN MODE (MOBILE & TABLET / IPAD)
     ======================================================== */
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1080px) {
       body {
-        padding: 70px 10px 20px;
+        padding: 76px 14px 30px;
       }
       .page {
         width: 100% !important;
-        max-width: 900px !important;
+        max-width: 960px !important;
         height: auto !important;
         max-height: none !important;
-        margin: 20px auto !important;
+        margin: 24px auto !important;
         border-radius: 16px;
         box-shadow: var(--shadow-md);
       }
       .page-header {
         height: auto;
-        padding: 14px 18px;
+        padding: 16px 20px;
       }
       .page-content {
         height: auto !important;
         overflow: visible !important;
-        padding: 16px 18px;
+        padding: 18px 20px;
       }
       .page-footer {
         height: auto;
-        padding: 12px 18px;
+        padding: 14px 20px;
       }
       .cover-layout {
         height: auto !important;
-        padding: 24px 18px;
+        padding: 28px 20px;
         gap: 24px;
       }
       .cover-hero-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 24px;
       }
       .cover-kpi-deck {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 12px;
       }
       .bento-container {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 14px;
       }
       .products-dense-grid {
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         gap: 14px;
@@ -601,11 +600,15 @@
       }
     }
 
-    @media screen and (max-width: 640px) {
+    @media screen and (max-width: 680px) {
+      body {
+        padding: 70px 10px 24px;
+      }
       .control-nav {
         top: 8px;
-        padding: 6px 14px;
+        padding: 6px 12px;
         gap: 6px;
+        width: 96vw;
       }
       .lang-chip {
         padding: 5px 10px;
@@ -634,18 +637,17 @@
     }
 
     /* ========================================================
-       PERFECT A4 PRINT / PDF RENDERING ENGINE
-       القواعد الصارمة للطباعة: تضمن 11 صفحة نظيفة وبدون أي فراغات
+       STRICT A4 LANDSCAPE PRINT ENGINE (ZERO BLANK PAGES)
     ======================================================== */
     @page {
       size: 297mm 210mm landscape;
-      margin: 0;
+      margin: 0 !important;
     }
 
     @media print {
       html, body {
         width: 297mm !important;
-        height: 100% !important;
+        height: 210mm !important;
         margin: 0 !important;
         padding: 0 !important;
         background: #ffffff !important;
@@ -664,28 +666,29 @@
 
       .page {
         width: 297mm !important;
-        height: 209mm !important;
-        max-height: 209mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
+        min-height: 210mm !important;
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
         border: none !important;
-        break-after: page !important;
-        page-break-after: always !important;
+        overflow: hidden !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
-        overflow: hidden !important;
+        break-after: page !important;
+        page-break-after: always !important;
       }
 
       .page:last-child {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
+        break-after: auto !important;
+        page-break-after: auto !important;
       }
 
       .cover-layout {
-        height: 209mm !important;
-        max-height: 209mm !important;
+        height: 210mm !important;
+        max-height: 210mm !important;
         padding: 12mm 18mm !important;
       }
 
@@ -713,7 +716,7 @@
       }
 
       .page-content {
-        height: calc(209mm - 13mm - 7.5mm) !important;
+        height: calc(210mm - 13mm - 7.5mm) !important;
         padding: 4mm 16mm 3.5mm !important;
         overflow: hidden !important;
       }
@@ -786,7 +789,7 @@
               id="main-brand-logo" 
               src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" 
               crossorigin="anonymous" 
-              onerror="this.onerror=null;this.src='images/logo.jpeg';" 
+              onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'120\' height=\'40\' viewBox=\'0 0 120 40\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'16\'>EAX AGRO</text></svg>';" 
               alt="EAX Agro Export Logo" 
             />
           </div>
@@ -820,7 +823,7 @@
     <div class="page" id="page-2">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="p2_tag">COMPANY PROFILE & QUALITY PHILOSOPHY</div>
@@ -894,7 +897,7 @@
     <div class="page" id="page-3">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="p3_tag">STANDARDS & MARITIME CARRIER ALLIANCES</div>
@@ -976,7 +979,7 @@
     <div class="page" id="page-4">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p1">EXPORT SPECIFICATIONS • PART 01 (CROPS 01 - 04)</div>
@@ -998,7 +1001,7 @@
     <div class="page" id="page-5">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p2">EXPORT SPECIFICATIONS • PART 02 (CROPS 05 - 08)</div>
@@ -1015,11 +1018,12 @@
         <span data-k="ft_p5">PAGE 05</span>
       </div>
     </div>
+
     <!-- ================= PAGE 6: SPECIFICATIONS PART 03 ================= -->
     <div class="page" id="page-6">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p3">EXPORT SPECIFICATIONS • PART 03 (CROPS 09 - 12)</div>
@@ -1041,7 +1045,7 @@
     <div class="page" id="page-7">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p4">EXPORT SPECIFICATIONS • PART 04 (CROPS 13 - 16)</div>
@@ -1063,7 +1067,7 @@
     <div class="page" id="page-8">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p5">EXPORT SPECIFICATIONS • PART 05 (CROPS 17 - 20)</div>
@@ -1085,7 +1089,7 @@
     <div class="page" id="page-9">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p6">EXPORT SPECIFICATIONS • PART 06 (CROPS 21 - 24)</div>
@@ -1107,7 +1111,7 @@
     <div class="page" id="page-10">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='images/logo.jpeg';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p7">EXPORT SPECIFICATIONS • PART 07 (CROPS 25 - 27)</div>
@@ -1175,7 +1179,7 @@
           <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
             <div style="background:#ffffff; border:1px solid var(--border-card); border-radius:8px; padding:8px 10px; box-shadow:var(--shadow-sm);">
               <div style="font-size:8.2px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="c_p_t">Direct Calling & WhatsApp Desk</div>
-              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export" target="_blank" rel="noopener noreferrer" class="font-num" style="font-size:12px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;">
+              <a href="https://wa.me/201006920920?text=Hello%20EAX%20Agro%20Export" target="_blank" rel="noopener noreferrer" class="font-num" style="font-size:12px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;" dir="ltr">
                 +20 100 692 0920 ↗
               </a>
               <span style="font-size:7.8px; color:var(--text-muted);" data-k="c_p_sub">Direct Export WhatsApp (Click to Chat)</span>
@@ -1183,7 +1187,7 @@
 
             <div style="background:#ffffff; border:1px solid var(--border-card); border-radius:8px; padding:8px 10px; box-shadow:var(--shadow-sm);">
               <div style="font-size:8.2px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="c_p2_t">Customer Care Phone</div>
-              <a href="tel:+201556564646" class="font-num" style="font-size:12px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;">
+              <a href="tel:+201556564646" class="font-num" style="font-size:12px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;" dir="ltr">
                 +20 155 656 4646 ↗
               </a>
               <span style="font-size:7.8px; color:var(--text-muted);" data-k="c_p2_sub">Direct Corporate Support Line</span>
@@ -1191,7 +1195,7 @@
 
             <div style="background:#ffffff; border:1px solid var(--border-card); border-radius:8px; padding:8px 10px; box-shadow:var(--shadow-sm);">
               <div style="font-size:8.2px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="c_e_t">Corporate Procurement Emails</div>
-              <a href="mailto:info@eax-agro.com" style="font-size:11px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;">
+              <a href="mailto:info@eax-agro.com" style="font-size:11px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;" dir="ltr">
                 info@eax-agro.com ↗
               </a>
               <span style="font-size:7.8px; color:var(--text-muted);" data-k="c_e_sub">Official RFQs & Season Programs</span>
@@ -1199,7 +1203,7 @@
 
             <div style="background:#ffffff; border:1px solid var(--border-card); border-radius:8px; padding:8px 10px; box-shadow:var(--shadow-sm);">
               <div style="font-size:8.2px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="c_e2_t">Direct Export Department</div>
-              <a href="mailto:export@eax-agro.com" style="font-size:11px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;">
+              <a href="mailto:export@eax-agro.com" style="font-size:11px; font-weight:800; color:var(--text-heading); text-decoration:none; display:block; margin:1px 0;" dir="ltr">
                 export@eax-agro.com ↗
               </a>
               <span style="font-size:7.8px; color:var(--text-muted);" data-k="c_e2_sub">Container Bookings & Logistics</span>
@@ -1235,7 +1239,6 @@
       </div>
     </div>
   </div>
-
   <!-- ================= SCRIPTS & PRODUCE DATABASE ================= -->
   <script>
     const CROPS_DATA = [
@@ -1483,7 +1486,7 @@
         pack:{ en:'4kg / 5kg Cartons with MAP Gas Liners', ar:'كراتين 4/5 كجم بأكياس MAP جو معدل', ru:'4/5 кг коробки с MAP-пакетами', zh:'4kg/5kg 纸箱内置 MAP 气调锁鲜袋' },
         cal:{ en:'6-8mm (Extra Fine) • 8-10mm (Fine) • 10-14cm', ar:'6-8 مم (رفيعة جداً) • 8-10 مم • طول 10-14 سم', ru:'6-8 мм (экстра) • 8-10 мм • 10-14 см', zh:'6-8mm (特细级) • 8-10mm (精选细级) • 10-14cm' },
         spec:{ en:'100% Straight • Stringless • Snap Crisp', ar:'مستقيمة 100% • خالية من الخيوط • هشة مقرمشة', ru:'100% прямые • Без волокон • Хруст', zh:'100%条直无弯曲 • 手工无筋 • 折断清脆' },
-        origin:{ en:'Sharkia & Ismailia Fertile Soils', ar:'أراضي الشرقية والإسماعيلية الخصبة', ru:'Шارкия и Исмаилия', zh:'东部省与伊斯梅利亚肥沃农田' },
+        origin:{ en:'Sharkia & Ismailia Fertile Soils', ar:'أراضي الشرقية والإسماعيلية الخصبة', ru:'Шаркия и Исмаилия', zh:'东部省与伊斯梅利亚肥沃农田' },
         transit:{ en:'Air Freight or 14-16d Sea Reefer', ar:'شحن جوي أو شحن بحري مبرد 14-16 يوماً', ru:'Авиа или 14-16 дней в рефе', zh:'空运直航 或 14-16天快船气调冷藏' },
         vent:{ en:'RH 95% • Modified Atmosphere Packaging', ar:'رطوبة 95% • تحكم غازي محكم MAP', ru:'Влажность 95% • MAP-пленка', zh:'相对湿度 95% • 专业MAP气调延缓呼吸' },
         cert:{ en:'Zero Chemical Residues • GlobalGAP IFA', ar:'خلو تام من المتبقيات • جلوبال جاب v6', ru:'Чистота MRL • GlobalGAP v6', zh:'严苛零农残达标 • GlobalGAP IFA v6' },
@@ -1555,7 +1558,7 @@
         transit:{ en:'25 Days Ocean Container Journey', ar:'تحمل إبحار بحري مبرد 25 يوماً', ru:'25 дней морской перевозки', zh:'集装箱气调冷链海运 25 天' },
         vent:{ en:'RH 95-98% • Hydrocooled <3h Post-Pick', ar:'رطوبة 95-98% • تبريد مائي فوري 3 ساعات', ru:'Влажность 95-98% • Гидроохлаждение', zh:'相对湿度 95-98% • 采后3小时极速水冷' },
         cert:{ en:'EUR.1 Tariff Free • GlobalGAP IFA v6', ar:'EUR.1 إعفاء جمركي 0% • جلوبال جاب', ru:'EUR.1 (0% пошлина) • GlobalGAP', zh:'EUR.1 零关税协定 • GlobalGAP认证' },
-        pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / паلlet', zh:'64-72箱 / 欧标托盘' },
+        pallet:{ en:'64-72 Master Boxes / Europallet', ar:'64-72 كرتونة ماستر / بالتة', ru:'64-72 коробок / палlet', zh:'64-72箱 / 欧标托盘' },
         shiptype:{ en:'40ft Reefer Container (18 MT)', ar:'حاوية 40 قدم مبردة (18 طن)', ru:'40ft HC рефконтейнер (18 т)', zh:'40尺冷藏集装箱 (18吨)' },
         en:{ name:"Imperial Globe Artichokes", sub:"French Violet & Imperial Star", desc:"Cultivated in traditional Nile Delta clay belts. Spherical heads with tightly overlapping outer bracts and thick, tender hearts. Neatly cut stems, hydrocooled against oxidation." },
         ar:{ name:"خرشوف إمبريال بلدي وبنفسجي", sub:"فرنساوي بنفسجي وإمبريال ستار البلدي", desc:"زراعات أراضي الدلتا الطميية الخصبة. رؤوس كروية مصمتة ذات قنابات متراكبة وقاعدة لحمية سميكة، تُقلم السيقان بدقة وتُبرد مائياً لمنع أي أكسدة أو تغير لوني." },
@@ -1587,7 +1590,7 @@
         spec:{ en:'Dense Blue-Green Florets • 0 Yellow • Solid Stem', ar:'حبيبات متراصة زرقاء مخضرة • بلا اصفرار', ru:'Плотные темно-зеленые бутоны', zh:'花蕾紧密墨绿坚实 • 绝无黄化 • 茎实心' },
         origin:{ en:'Alexandria Suburbs & Kafr El-Dawar', ar:'ضواحي الإسكندرية ومزارع كفر الدوار', ru:'Александрия и Кафр-эд-Даввар', zh:'亚历山大郊区与卡夫拉·达瓦尔生产区' },
         transit:{ en:'22 Days Marine Reefer Endurance', ar:'تحمل بحري مبرد ومثلج 22 يوماً', ru:'22 дня морской доставки', zh:'密闭温控冷藏海运可达 22 天' },
-        vent:{ en:'RH 98-100% • Drainage Hole Styro Box', ar:'رطوبة 98-100% • ثقوب لتصريف مياه الذوبان', ru:'Вلاжность 98-100% • Сток талой воды', zh:'相对湿度 98-100% • 箱底设标准融水微孔' },
+        vent:{ en:'RH 98-100% • Drainage Hole Styro Box', ar:'رطوبة 98-100% • ثقوب لتصريف مياه الذوبان', ru:'Влажность 98-100% • Сток талой воды', zh:'相对湿度 98-100% • 箱底设标准融水微孔' },
         cert:{ en:'BRCGS Packhouse • GlobalGAP IFA v6', ar:'محطة معتمدة BRCGS • جلوبال جاب v6', ru:'BRCGS упаковка • GlobalGAP IFA', zh:'BRCGS出口包装厂 • GlobalGAP认证' },
         pallet:{ en:'60-70 Styro Boxes / Euro Pallet', ar:'60-70 صندوق فوم / بالتة أوروبية', ru:'60-70 термобоксов / паллет', zh:'60-70泡沫箱 / 托盘' },
         shiptype:{ en:'40ft Reefer Container (14 MT)', ar:'حاوية 40 قدم مبردة (14 طن)', ru:'40ft HC рефконтейнер (14 т)', zh:'40尺冷藏集装箱 (14吨)' },
@@ -1623,7 +1626,7 @@
         transit:{ en:'Air Cargo or 14d Fast Reefer Ship', ar:'شحن جوي سريع أو سفن تبريد 14 يوماً', ru:'Авиа или 14 дней морской реф', zh:'空运黄金期直发 或 14天特快冷藏班轮' },
         vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Влажность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket Class A', ar:'جلوبال جاب v6 • اشتراطات سلاسل السوبرماركت', ru:'GlobalGAP IFA • Класс А', zh:'GlobalGAP IFA • 欧洲商超一级标准' },
-        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / паلlet', zh:'140-160平托盘 / 托盘' },
+        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / палlet', zh:'140-160平托盘 / 托盘' },
         shiptype:{ en:'Air Cargo / 40ft Reefer (16 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (16 طن)', ru:'Авиа / 40ft реф (16 т)', zh:'空运集装板 / 40尺冷藏柜 (16吨)' },
         en:{ name:"Early Florida Stone Peaches", sub:"Florida Prince & Desert Red", desc:"Captures the Mediterranean's earliest seasonal harvest window. Red blush over yellow ground, sweet melting flesh with balanced acidity, and strict firmness suitable for sea and air freight." },
         ar:{ name:"خوخ فلوريدا برنس المبكر للتصدير", sub:"فلوريدا برنس وديزرت ريد التصديري", desc:"يقتنص أول نافذة حصاد مبكرة بحوض المتوسط. ثمار ذات تلوين أحمر قاني على خلفية ذهبية، لحم سكري عصيري متوازن الحموضة وصلابة قوية تناسب الشحن الجوي والبحري." },
@@ -1631,7 +1634,7 @@
         zh:{ name:"极早熟佛罗里达王子水蜜桃", sub:"Florida Prince 与 Desert Red", desc:"抢占地中海产区首轮极早熟供应黄金窗口。鲜红粉晕覆盖金黄底色，香气四溢甘甜汁浓微酸可口，硬度达标，兼顾空运及快船。" }
       },
       { id:24, hs:'0807.11',
-        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Август', zh:'5月 – 8月' },
+        season:{ en:'May – August', ar:'مايو – أغسطس', ru:'Май – Авгуست', zh:'5月 – 8月' },
         temp:'+10°C to +14°C',
         pack:{ en:'500kg Timber Bins & 2-3 pc Cartons', ar:'صناديق خشب 500 كجم وكراتين 2-3 حبات', ru:'500 кг контейнеры или гофробоксы', zh:'500kg 实木大料箱 或 2-3颗装瓦楞箱' },
         cal:{ en:'5-8kg (M), 8-12kg (L), 12kg+ (Jumbo King)', ar:'5-8 كجم (وسط)، 8-12 كجم (كبير)، +12 كجم جامبو كينج', ru:'5-8 кг (сред), 8-12 кг, 12 кг+ (джамбо)', zh:'单果重: 5-8kg (中), 8-12kg (大), 12kg+' },
@@ -1682,7 +1685,7 @@
         zh:{ name:"结球坚硬耐储白甘蓝与紫甘蓝", sub:"White Dutch 与 Red Rookie", desc:"得益于深厚底肥土质滋养，单头实心如石。外包叶干净完整紧抱菜芯，极耐低温恒湿环境堆码海运，到达港口切口洁白。" }
       },
       { id:27, hs:'1211.90',
-        season:{ en:'October – May', ar:'أكتوبر – مايو', ru:'Октябрь – Май', zh:'10月 – 次年5月' },
+        season:{ en:'October – May', ar:'أكتوبر – مايو', ru:'Ноябрь – Май', zh:'10月 – 次年5月' },
         temp:'+2°C to +4°C (Air-Freight)',
         pack:{ en:'1-2kg Sealed Styrofoam with Ice Gel', ar:'صناديق فوم محكمة 1-2 كجم مع جل تبريد', ru:'1-2 кг термобоксы с гелевым льдом', zh:'1-2kg 密封保温泡沫箱配环保冷凝胶垫' },
         cal:{ en:'Stem Length: 15-20cm • Bunched 100g, 150g, Bulk', ar:'طول الساق: 15-20 سم • حزم 100، 150 جم أو صب', ru:'Длина: 15-20 см • Пучки по 100г, 150г', zh:'把长: 15-20cm • 分把 100g, 150g 或 散装' },
@@ -2056,7 +2059,7 @@
         7: document.getElementById('dense-grid-7')
       };
 
-      Object.values(grids).forEach(g => { if (g) g.innerHTML = ''; });
+      const gridBuffers = { 1: [], 2: [], 3: [], 4: [], 5: [], 6: [], 7: [] };
       const t = I18N[lang] || I18N.en;
 
       CROPS_DATA.forEach(crop => {
@@ -2155,53 +2158,56 @@
         else if (crop.id > 8) targetGridIndex = 3;
         else if (crop.id > 4) targetGridIndex = 2;
 
-        if (grids[targetGridIndex]) {
-          grids[targetGridIndex].insertAdjacentHTML('beforeend', cardHtml);
-        }
+        gridBuffers[targetGridIndex].push(cardHtml);
       });
 
-      // 4th Balance Card on Page 10
-      if (grids[7]) {
-        const balanceCardHtml = `
-          <div class="routes-fill-card">
-            <div>
-              <div class="crop-header-line">
-                <div>
-                  <h4 class="crop-name-title" style="color:var(--accent-green);">${t.r_head}</h4>
-                  <div class="crop-sub-botanical">${t.r_sub}</div>
-                </div>
-                <span class="crop-id-badge font-num">REEFER</span>
+      // Balance Card on Page 10
+      const balanceCardHtml = `
+        <div class="routes-fill-card">
+          <div>
+            <div class="crop-header-line">
+              <div>
+                <h4 class="crop-name-title" style="color:var(--accent-green);">${t.r_head}</h4>
+                <div class="crop-sub-botanical">${t.r_sub}</div>
               </div>
-
-              <div style="margin: 6px 0;">
-                <div class="route-item-row">
-                  <span style="font-weight:700; color:var(--text-heading);">${t.r1_t}</span>
-                  <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r1_v}</span>
-                </div>
-                <div class="route-item-row">
-                  <span style="font-weight:700; color:var(--text-heading);">${t.r2_t}</span>
-                  <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r2_v}</span>
-                </div>
-                <div class="route-item-row">
-                  <span style="font-weight:700; color:var(--text-heading);">${t.r3_t}</span>
-                  <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r3_v}</span>
-                </div>
-                <div class="route-item-row">
-                  <span style="font-weight:700; color:var(--text-heading);">${t.r4_t}</span>
-                  <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r4_v}</span>
-                </div>
-              </div>
+              <span class="crop-id-badge font-num">REEFER</span>
             </div>
 
-            <div class="crop-footer-strip" style="background:var(--accent-green-subtle); border-color:var(--border-accent); display:flex; justify-content:center;">
-              <span style="font-size:8.5px; font-weight:800; color:var(--accent-green); text-align:center;">
-                ${t.r_foot}
-              </span>
+            <div style="margin: 6px 0;">
+              <div class="route-item-row">
+                <span style="font-weight:700; color:var(--text-heading);">${t.r1_t}</span>
+                <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r1_v}</span>
+              </div>
+              <div class="route-item-row">
+                <span style="font-weight:700; color:var(--text-heading);">${t.r2_t}</span>
+                <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r2_v}</span>
+              </div>
+              <div class="route-item-row">
+                <span style="font-weight:700; color:var(--text-heading);">${t.r3_t}</span>
+                <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r3_v}</span>
+              </div>
+              <div class="route-item-row">
+                <span style="font-weight:700; color:var(--text-heading);">${t.r4_t}</span>
+                <span class="font-num" style="font-weight:800; color:var(--accent-green);">${t.r4_v}</span>
+              </div>
             </div>
           </div>
-        `;
-        grids[7].insertAdjacentHTML('beforeend', balanceCardHtml);
-      }
+
+          <div class="crop-footer-strip" style="background:var(--accent-green-subtle); border-color:var(--border-accent); display:flex; justify-content:center;">
+            <span style="font-size:8.5px; font-weight:800; color:var(--accent-green); text-align:center;">
+              ${t.r_foot}
+            </span>
+          </div>
+        </div>
+      `;
+      gridBuffers[7].push(balanceCardHtml);
+
+      // Render buffered HTML to DOM in a single pass
+      Object.keys(grids).forEach(idx => {
+        if (grids[idx]) {
+          grids[idx].innerHTML = gridBuffers[idx].join('');
+        }
+      });
     }
 
     function switchLanguage(lang) {
