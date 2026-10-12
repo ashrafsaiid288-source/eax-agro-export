@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" id="viewportMeta" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EAX Agro Export — Official Corporate Trade Guide 2026</title>
   
   <!-- Premium Fonts -->
@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Direct PDF Export Engine (No Print Dialog Needed) -->
+  <!-- PDF Generation Engine -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
   <style>
@@ -55,13 +55,11 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--text-body);
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
-    /* معالجة الحروف العربية ومنع التراكب نهائياً */
     html[dir="rtl"] body {
       font-family: 'Alexandria', sans-serif !important;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     html[dir="rtl"] *,
@@ -69,10 +67,6 @@
     html[dir="rtl"] *::after {
       letter-spacing: normal !important;
       word-spacing: normal !important;
-    }
-
-    html[lang="ru"] .spec-value {
-      font-size: 8.4px !important;
     }
 
     .font-num {
@@ -139,21 +133,20 @@
       align-items: center;
       gap: 6px;
     }
-    .download-action-btn:hover { 
-      transform: translateY(-1px); 
-      box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
-    }
     .download-action-btn.loading {
       opacity: 0.7;
       pointer-events: none;
       cursor: wait;
     }
 
-    /* Page Definition (Base Standard Landscape) */
+    /* Page Definition (Base Standard Landscape A4) */
     .page {
       width: 297mm;
-      height: 209mm;
-      max-height: 209mm;
+      height: 210mm;
+      min-width: 297mm;
+      max-width: 297mm;
+      min-height: 210mm;
+      max-height: 210mm;
       background: var(--bg-page);
       margin: 26px auto;
       position: relative;
@@ -205,7 +198,7 @@
 
     .page-content {
       flex: 1;
-      height: calc(209mm - 13mm - 7.5mm);
+      height: calc(210mm - 13mm - 7.5mm);
       padding: 4mm 16mm 3.5mm;
       display: flex;
       flex-direction: column;
@@ -236,7 +229,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 209mm;
+      height: 210mm;
       border-top: 6px solid var(--accent-green);
     }
     .cover-top-bar {
@@ -253,24 +246,24 @@
       flex: 1;
     }
     .brand-title-lead {
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 900;
       color: var(--text-heading);
       line-height: 1.1;
       margin: 0 0 6px;
     }
     .brand-tagline {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
       line-height: 1.3;
       margin: 4px 0 10px;
       color: var(--accent-green);
     }
     .brand-desc-body {
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 500;
       color: var(--text-body);
-      line-height: 1.7;
+      line-height: 1.65;
       margin: 0;
       max-width: 610px;
     }
@@ -357,10 +350,10 @@
     }
     .bento-card p {
       margin: 0;
-      font-size: 10.8px;
+      font-size: 10.5px;
       font-weight: 500;
       color: var(--text-body);
-      line-height: 1.6;
+      line-height: 1.55;
     }
     .bento-tag {
       font-size: 9.2px;
@@ -390,7 +383,7 @@
       background: #ffffff;
       border: 1.5px solid var(--border-card);
       border-radius: 10px;
-      padding: 9px 12px 8px;
+      padding: 8px 12px 7px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -409,14 +402,14 @@
       flex-shrink: 0;
     }
     .crop-name-title {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 900;
       color: var(--text-heading);
       margin: 0;
       line-height: 1.2;
     }
     .crop-sub-botanical {
-      font-size: 9.5px;
+      font-size: 9.2px;
       font-weight: 700;
       color: var(--accent-green);
       margin-top: 1px;
@@ -425,31 +418,31 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 1.5px;
+      gap: 1px;
       flex-shrink: 0;
       margin-inline-start: 6px;
     }
     .crop-id-badge {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 900;
       color: var(--accent-green);
       background: var(--accent-green-subtle);
       border: 1px solid var(--border-accent);
-      padding: 1px 6px;
+      padding: 1px 5px;
       border-radius: 4px;
     }
     .crop-hs-code {
-      font-size: 8.2px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--text-muted);
     }
 
     .crop-narrative {
-      font-size: 9.5px;
+      font-size: 9px;
       font-weight: 500;
       color: var(--text-body);
-      line-height: 1.45;
-      margin: 0 0 4px;
+      line-height: 1.4;
+      margin: 0 0 3px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -464,7 +457,7 @@
       border: 1.5px solid var(--border-main);
       border-radius: 6px;
       overflow: hidden;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
       background: var(--bg-card-alt);
       flex: 1;
       min-height: 0;
@@ -473,7 +466,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 3px 7px;
+      padding: 2.5px 6px;
       border-bottom: 1px solid var(--border-main);
     }
     .spec-row:nth-child(odd) {
@@ -484,7 +477,7 @@
       border-bottom: none;
     }
     .spec-label {
-      font-size: 7.8px;
+      font-size: 7.5px;
       font-weight: 800;
       color: var(--text-muted);
       text-transform: uppercase;
@@ -492,10 +485,10 @@
       margin-bottom: 1px;
     }
     .spec-value {
-      font-size: 9.3px;
+      font-size: 8.8px;
       font-weight: 800;
       color: var(--text-heading);
-      line-height: 1.2;
+      line-height: 1.15;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -504,13 +497,13 @@
     .crop-footer-strip {
       display: grid;
       grid-template-columns: 1.2fr 0.95fr 1.05fr 0.8fr;
-      gap: 5px;
+      gap: 4px;
       align-items: center;
       background: #ffffff;
       border: 1.5px solid var(--border-main);
       border-radius: 6px;
-      padding: 3.5px 7px;
-      font-size: 8.8px;
+      padding: 3px 6px;
+      font-size: 8.5px;
       flex-shrink: 0;
     }
     .strip-item {
@@ -524,12 +517,12 @@
     .strip-item .strip-lbl {
       color: var(--text-muted);
       font-weight: 800;
-      font-size: 8px;
+      font-size: 7.8px;
     }
     .strip-item .strip-val {
       color: var(--text-heading);
       font-weight: 900;
-      font-size: 8.8px;
+      font-size: 8.5px;
       overflow: hidden;
       text-overflow: ellipsis;
     }
@@ -571,8 +564,8 @@
       flex-shrink: 0;
     }
     .qr-box-single img {
-      width: 60px;
-      height: 60px;
+      width: 58px;
+      height: 58px;
       border-radius: 6px;
       background: #fff;
       padding: 2px;
@@ -582,214 +575,128 @@
       margin: 0 auto;
     }
 
-    /* Screen Responsive Viewing (Phones & Tablets) */
+    /* Screen Responsiveness (For browsing ONLY - not during PDF export) */
     @media screen and (max-width: 1024px) {
-      body {
+      body:not(.export-mode) {
         padding: 70px 10px 20px;
       }
-      .page {
+      body:not(.export-mode) .page {
         width: 100% !important;
         max-width: 100% !important;
         height: auto !important;
         max-height: none !important;
+        min-width: 0 !important;
+        min-height: 0 !important;
         margin: 20px auto !important;
         border-radius: 14px;
         box-shadow: var(--shadow-md);
       }
-      .page-header {
+      body:not(.export-mode) .page-header {
         height: auto;
         padding: 14px 18px;
       }
-      .page-content {
+      body:not(.export-mode) .page-content {
         height: auto !important;
         overflow: visible !important;
         padding: 16px 18px;
       }
-      .page-footer {
+      body:not(.export-mode) .page-footer {
         height: auto;
         padding: 12px 18px;
       }
-      .cover-layout {
+      body:not(.export-mode) .cover-layout {
         height: auto !important;
         padding: 24px 18px;
         gap: 20px;
       }
-      .cover-hero-grid {
+      body:not(.export-mode) .cover-hero-grid {
         grid-template-columns: 1fr;
         gap: 20px;
       }
-      .cover-kpi-deck {
+      body:not(.export-mode) .cover-kpi-deck {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
       }
-      .bento-container {
+      body:not(.export-mode) .bento-container {
         grid-template-columns: 1fr;
         gap: 12px;
       }
-      .products-dense-grid {
+      body:not(.export-mode) .products-dense-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         gap: 12px;
         height: auto;
       }
-      .crop-dense-card {
+      body:not(.export-mode) .crop-dense-card {
         height: auto;
         min-height: 290px;
       }
-      .crop-spec-matrix {
+      body:not(.export-mode) .crop-spec-matrix {
         grid-template-rows: repeat(4, auto);
       }
-      .spec-value {
+      body:not(.export-mode) .spec-value {
         white-space: normal;
         word-break: break-word;
       }
     }
 
     @media screen and (max-width: 640px) {
-      .control-nav {
+      body:not(.export-mode) .control-nav {
         top: 8px;
         padding: 6px 12px;
         gap: 6px;
       }
-      .lang-chip {
+      body:not(.export-mode) .lang-chip {
         padding: 5px 10px;
         font-size: 11px;
       }
-      .download-action-btn {
+      body:not(.export-mode) .download-action-btn {
         padding: 6px 14px;
         font-size: 11px;
       }
-      .brand-title-lead {
+      body:not(.export-mode) .brand-title-lead {
         font-size: 26px;
       }
-      .brand-tagline {
+      body:not(.export-mode) .brand-tagline {
         font-size: 15px;
       }
-      .cover-kpi-deck {
+      body:not(.export-mode) .cover-kpi-deck {
         grid-template-columns: 1fr;
       }
-      .products-dense-grid {
+      body:not(.export-mode) .products-dense-grid {
         grid-template-columns: 1fr;
       }
-      .crop-footer-strip {
+      body:not(.export-mode) .crop-footer-strip {
         grid-template-columns: 1fr 1fr;
         gap: 6px;
       }
     }
 
-    /* ========================================================
-       PERFECT A4 PRINT ENGINE (RESPONSIVE AUTO-FIT)
-    ======================================================== */
+    /* Print & Export Hard Enforcement */
     @page {
       size: 297mm 210mm landscape;
       margin: 0 !important;
     }
 
     @media print {
-      html, body {
-        width: 297mm !important;
-        min-width: 297mm !important;
-        max-width: 297mm !important;
-        height: auto !important;
+      body {
+        background: #ffffff !important;
         margin: 0 !important;
         padding: 0 !important;
-        background: #ffffff !important;
-        overflow: visible !important;
       }
-
       .control-nav {
         display: none !important;
       }
-
-      #catalog-container {
-        width: 297mm !important;
-        min-width: 297mm !important;
-        margin: 0 !important;
-        padding: 0 !important;
-      }
-
       .page {
-        width: 297mm !important;
-        min-width: 297mm !important;
-        max-width: 297mm !important;
-        height: 208.5mm !important; /* هامش أمان يمنع المتصفح من إخراج صفحات فارغة */
-        min-height: 208.5mm !important;
-        max-height: 208.5mm !important;
         margin: 0 !important;
-        padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
-        border: none !important;
-        overflow: hidden !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
         break-after: page !important;
         page-break-after: always !important;
       }
-
       .page:last-child {
         break-after: auto !important;
         page-break-after: auto !important;
-      }
-
-      .cover-layout {
-        height: 208.5mm !important;
-        max-height: 208.5mm !important;
-        padding: 12mm 18mm !important;
-      }
-
-      .cover-hero-grid {
-        display: grid !important;
-        grid-template-columns: 1.45fr 0.85fr !important;
-        gap: 32px !important;
-      }
-
-      .cover-kpi-deck {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 14px !important;
-      }
-
-      .bento-container {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 14px !important;
-      }
-
-      .page-header {
-        height: 13mm !important;
-        padding: 0 16mm !important;
-      }
-
-      .page-content {
-        height: calc(208.5mm - 13mm - 7.5mm) !important;
-        padding: 4mm 16mm 3.5mm !important;
-        overflow: hidden !important;
-      }
-
-      .page-footer {
-        height: 7.5mm !important;
-        padding: 0 16mm !important;
-      }
-
-      .products-dense-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        grid-template-rows: repeat(2, 1fr) !important;
-        gap: 8px !important;
-        height: 100% !important;
-      }
-
-      .crop-dense-card {
-        height: 100% !important;
-        min-height: 0 !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        padding: 9px 12px 8px !important;
-      }
-
-      .crop-footer-strip {
-        grid-template-columns: 1.2fr 0.95fr 1.05fr 0.8fr !important;
       }
     }
   </style>
@@ -809,7 +716,7 @@
   </div>
 
   <div id="catalog-container">
-    <!-- ================= PAGE 1: COVER ================= -->
+    <!-- PAGE 1: COVER -->
     <div class="page cover-layout" id="page-1">
       <div class="cover-top-bar">
         <div style="font-size:10px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="cover_tag">
@@ -867,7 +774,7 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 2: PROFILE & PILLARS ================= -->
+    <!-- PAGE 2: PROFILE & PILLARS -->
     <div class="page" id="page-2">
       <div class="page-header">
         <div class="header-logo-group">
@@ -882,7 +789,7 @@
           <div style="flex: 1.65;">
             <span style="font-size:10px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="p2_sub">Our Heritage & Commitment</span>
             <h2 style="font-size:19px; font-weight:900; color:var(--text-heading); margin:3px 0 5px;" data-k="company_title_full">EAX Agro Export — World-Class Agro Operations</h2>
-            <p style="font-size:11.5px; font-weight:500; color:var(--text-body); line-height:1.65; margin:0;" data-k="p2_lead">
+            <p style="font-size:11.2px; font-weight:500; color:var(--text-body); line-height:1.6; margin:0;" data-k="p2_lead">
               EAX Agro Export is an integrated Egyptian agricultural exporter managing 27 commercial crops. We connect Egypt's fertile agricultural belts directly to supermarket distribution hubs in the European Union, the United Kingdom, GCC countries, China, and Russia under strict cold-chain standards and international GlobalGAP certifications.
             </p>
           </div>
@@ -941,7 +848,7 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 3: CERTIFICATIONS & CARRIERS ================= -->
+    <!-- PAGE 3: CERTIFICATIONS & CARRIERS -->
     <div class="page" id="page-3">
       <div class="page-header">
         <div class="header-logo-group">
@@ -1023,11 +930,11 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 4: SPECIFICATIONS PART 01 ================= -->
+    <!-- PAGE 4 TO 10 (PRODUCT SPEC PAGES) -->
     <div class="page" id="page-4">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p1">EXPORT SPECIFICATIONS • PART 01 (CROPS 01 - 04)</div>
@@ -1045,11 +952,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 5: SPECIFICATIONS PART 02 ================= -->
     <div class="page" id="page-5">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p2">EXPORT SPECIFICATIONS • PART 02 (CROPS 05 - 08)</div>
@@ -1067,11 +973,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 6: SPECIFICATIONS PART 03 ================= -->
     <div class="page" id="page-6">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p3">EXPORT SPECIFICATIONS • PART 03 (CROPS 09 - 12)</div>
@@ -1089,11 +994,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 7: SPECIFICATIONS PART 04 ================= -->
     <div class="page" id="page-7">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p4">EXPORT SPECIFICATIONS • PART 04 (CROPS 13 - 16)</div>
@@ -1111,11 +1015,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 8: SPECIFICATIONS PART 05 ================= -->
     <div class="page" id="page-8">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p5">EXPORT SPECIFICATIONS • PART 05 (CROPS 17 - 20)</div>
@@ -1133,11 +1036,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 9: SPECIFICATIONS PART 06 ================= -->
     <div class="page" id="page-9">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p6">EXPORT SPECIFICATIONS • PART 06 (CROPS 21 - 24)</div>
@@ -1155,11 +1057,10 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 10: SPECIFICATIONS PART 07 ================= -->
     <div class="page" id="page-10">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p7">EXPORT SPECIFICATIONS • PART 07 (CROPS 25 - 27)</div>
@@ -1177,7 +1078,7 @@
       </div>
     </div>
 
-    <!-- ================= PAGE 11: COMMERCIAL BACK COVER ================= -->
+    <!-- PAGE 11: COMMERCIAL BACK COVER -->
     <div class="page cover-layout" id="page-11" style="justify-content: space-between;">
       <div class="cover-top-bar">
         <div style="font-size:10px; font-weight:800; color:var(--accent-green); text-transform:uppercase;" data-k="b_head_t">
@@ -1396,7 +1297,7 @@
         pack:{ en:'5kg / 10kg Master Box & Mesh Bags', ar:'كراتين ماستر 5/10 كجم وأجولة شبكية', ru:'5/10 кг сетки или короба', zh:'5kg/10kg 透气网袋或主纸箱' },
         cal:{ en:'45-55mm, 55-65mm, 65mm+ Select Jumbo', ar:'45-55 مم، 55-65 مم، و +65 مم جامبو فاخر', ru:'45-55 мм, 55-65 мм, 65 мм+ джамбо', zh:'蒜头横径: 45-55mm, 55-65mm, 65mm+' },
         spec:{ en:'Roots trimmed 2-3mm • High Allicin Potency', ar:'جذور مقلمة 2-3 مم • تركيز أليسين استثنائي', ru:'Корни 2-3 мм • Высокий аллицин', zh:'平根修整(留2-3mm) • 大蒜素极高' },
-        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйф', zh:'明亚与贝尼苏韦夫大蒜基地' },
+        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйف', zh:'明亚与贝尼苏韦夫大蒜基地' },
         transit:{ en:'60+ Days Long Sea Voyage & Storage', ar:'عمر ملاحي وتخزيني يتجاوز 60 يوماً', ru:'60+ дней лежкость без проростания', zh:'休眠期长久耐运 60+ 天' },
         vent:{ en:'RH 65% • Dry Cold Air Recirculation', ar:'رطوبة 65% • هواء جاف بارد معاد تدويره', ru:'Влажность 65% • Сухой холод', zh:'相对湿度 65% • 干燥冷风循环' },
         cert:{ en:'Full Lot Traceability • 0 Residues', ar:'تتبع كامل للشحنة • خلو تام من المبيدات', ru:'Полная прослеживаемость', zh:'批次源头追溯 • 农残严格零超标' },
@@ -1544,7 +1445,7 @@
         zh:{ name:"特细极品圆青四季豆", sub:"Haricot Vert 与 Bobby Beans", desc:"人工在豆荚极度细嫩时采摘。笔直圆柱条形如铅笔，完全无侧筋，折断清脆多汁，密封于专业 MAP 气调保鲜袋内抑制呼吸代谢。" }
       },
       { id:16, hs:'0804.10',
-        season:{ en:'August – December', ar:'أغسطس – ديسمبر', ru:'Август – Декабрь', zh:'8月 – 12月' },
+        season:{ en:'August – December', ar:'أغسطس – ديسمبر', ru:'Авгуست – Декабрь', zh:'8月 – 12月' },
         temp:'0°C to +4°C (Dry Storage)',
         pack:{ en:'1kg, 2kg, 5kg Premium Gift Boxes', ar:'عبوات هدايا وتجزئة فاخرة 1، 2، و 5 كجم', ru:'1, 2, 5 кг премиум коробки', zh:'1kg, 2kg, 5kg 高档零售礼盒' },
         cal:{ en:'Super Jumbo (>26g), Jumbo (22-26g), Large', ar:'سوبر جامبو (>26جم)، جامبو (22-26جم)، كبير', ru:'Супер Джамбо (>26г), Джамбо (22-26г)', zh:'巨无霸果 (>26g), 特大果 (22-26g), 大果' },
@@ -2280,7 +2181,7 @@
     }
 
     // ==========================================================
-    // محرك التحميل المباشر للـ PDF دون فتح نافذة الطباعة أو إجبار المستخدم على حفظ المسار
+    // محرك الـ PDF المُطور (صفحة بصفحة لمنع التداخل والقص على الموبايل والتابلت)
     // ==========================================================
     async function generatePdfDirect() {
       const btn = document.getElementById('btnDownload');
@@ -2291,43 +2192,55 @@
         if (btn) btn.classList.add('loading');
         if (btnText) btnText.innerText = activeLang === 'ar' ? 'جاري تجهيز الكتالوج...' : 'Generating PDF...';
 
+        // 1. تفعيل وضع التصدير الصارم لمنع شاشات الموبايل والآيباد من تغيير المقاسات
+        document.body.classList.add('export-mode');
+
         if (document.fonts) await document.fonts.ready;
-        await new Promise(r => setTimeout(r, 250));
+        await new Promise(r => setTimeout(r, 300));
 
-        const element = document.getElementById('catalog-container');
-
-        // خيارات المعالجة الدقيقة لمقاس A4 بالعرض (Landscape)
+        // 2. تجميع كل الصفحات ومعالجتها صفحة صفحة
+        const pages = document.querySelectorAll('.page');
+        const pdfWorker = html2pdf();
+        
+        // إعدادات الـ Landscape A4 الصارمة
         const opt = {
           margin: 0,
           filename: `EAX_Agro_Export_Trade_Guide_2026_${activeLang.toUpperCase()}.pdf`,
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: {
-            scale: 2, // دقة عالية جداً للخطوط والجداول (Retina display quality)
+            scale: 2,
             useCORS: true,
             letterRendering: true,
             scrollX: 0,
             scrollY: 0,
-            windowWidth: 1122 // تثبيت عرض الـ Canvas على 297mm لضمان التطابق الكامل من الموبايل
+            windowWidth: 1122.5 // أبعاد A4 بالعرض بدقة (297mm)
           },
           jsPDF: {
             unit: 'mm',
             format: [297, 210],
             orientation: 'landscape',
             compress: true
-          },
-          pagebreak: {
-            mode: ['avoid-all', 'css', 'legacy']
           }
         };
 
-        // تحويل وتنزيل الملف في مجلد التحميلات مباشرة
-        await html2pdf().set(opt).from(element).save();
+        // 3. بناء المستند بنظام الشريحة الواحدة لكل صفحة (يمنع أي قص في منتصف الصفحات)
+        let workerInstance = pdfWorker.set(opt).from(pages[0]).toPdf();
+
+        for (let i = 1; i < pages.length; i++) {
+          workerInstance = workerInstance.get('pdf').then((pdf) => {
+            pdf.addPage([297, 210], 'landscape');
+          }).from(pages[i]).toContainer().toCanvas().toPdf();
+        }
+
+        // 4. حفظ وتنزيل الملف النهائي
+        await workerInstance.save();
 
       } catch (error) {
         console.error("Direct PDF Generation error:", error);
-        // Fallback في حال حدوث أي حظر في المتصفح القديم
-        window.print();
+        window.print(); // Fallback عند حدوث أي خطأ في بيئة المتصفح القديمة
       } finally {
+        // إعادة الواجهة للوضع الطبيعي بعد انتهاء التنزيل
+        document.body.classList.remove('export-mode');
         if (btn) btn.classList.remove('loading');
         if (btnText) btnText.innerText = originalText;
       }
