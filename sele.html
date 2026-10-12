@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Direct PDF Export Engine (No Print Dialog Needed) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -55,7 +58,7 @@
       overflow-x: hidden;
     }
 
-    /* حل مشكلة تراكب الحروف العربي نهائياً */
+    /* معالجة الحروف العربية ومنع التراكب نهائياً */
     html[dir="rtl"] body {
       font-family: 'Alexandria', sans-serif !important;
       line-height: 1.5;
@@ -66,6 +69,10 @@
     html[dir="rtl"] *::after {
       letter-spacing: normal !important;
       word-spacing: normal !important;
+    }
+
+    html[lang="ru"] .spec-value {
+      font-size: 8.4px !important;
     }
 
     .font-num {
@@ -128,17 +135,25 @@
       margin-inline-start: 8px;
       box-shadow: 0 4px 14px rgba(35, 88, 67, 0.4);
       transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
     .download-action-btn:hover { 
       transform: translateY(-1px); 
       box-shadow: 0 6px 18px rgba(35, 88, 67, 0.55);
     }
+    .download-action-btn.loading {
+      opacity: 0.7;
+      pointer-events: none;
+      cursor: wait;
+    }
 
     /* Page Definition (Base Standard Landscape) */
     .page {
       width: 297mm;
-      height: 209.5mm;
-      max-height: 209.5mm;
+      height: 209mm;
+      max-height: 209mm;
       background: var(--bg-page);
       margin: 26px auto;
       position: relative;
@@ -190,7 +205,7 @@
 
     .page-content {
       flex: 1;
-      height: calc(209.5mm - 13mm - 7.5mm);
+      height: calc(209mm - 13mm - 7.5mm);
       padding: 4mm 16mm 3.5mm;
       display: flex;
       flex-direction: column;
@@ -221,7 +236,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 209.5mm;
+      height: 209mm;
       border-top: 6px solid var(--accent-green);
     }
     .cover-top-bar {
@@ -567,9 +582,7 @@
       margin: 0 auto;
     }
 
-    /* ========================================================
-       RESPONSIVE MOBILE/TABLET BROWSING (SCREEN ONLY)
-    ======================================================== */
+    /* Screen Responsive Viewing (Phones & Tablets) */
     @media screen and (max-width: 1024px) {
       body {
         padding: 70px 10px 20px;
@@ -665,7 +678,7 @@
     }
 
     /* ========================================================
-       PERFECT A4 PRINT ENGINE (ZERO CUT, ZERO OVERLAPS)
+       PERFECT A4 PRINT ENGINE (RESPONSIVE AUTO-FIT)
     ======================================================== */
     @page {
       size: 297mm 210mm landscape;
@@ -699,9 +712,9 @@
         width: 297mm !important;
         min-width: 297mm !important;
         max-width: 297mm !important;
-        height: 209mm !important;
-        min-height: 209mm !important;
-        max-height: 209mm !important;
+        height: 208.5mm !important; /* هامش أمان يمنع المتصفح من إخراج صفحات فارغة */
+        min-height: 208.5mm !important;
+        max-height: 208.5mm !important;
         margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
@@ -720,8 +733,8 @@
       }
 
       .cover-layout {
-        height: 209mm !important;
-        max-height: 209mm !important;
+        height: 208.5mm !important;
+        max-height: 208.5mm !important;
         padding: 12mm 18mm !important;
       }
 
@@ -749,7 +762,7 @@
       }
 
       .page-content {
-        height: calc(209mm - 13mm - 7.5mm) !important;
+        height: calc(208.5mm - 13mm - 7.5mm) !important;
         padding: 4mm 16mm 3.5mm !important;
         overflow: hidden !important;
       }
@@ -790,7 +803,9 @@
     <button class="lang-chip" data-lang="ru" onclick="switchLanguage('ru')">Русский</button>
     <button class="lang-chip" data-lang="zh" onclick="switchLanguage('zh')">中文 (简体)</button>
     
-    <button class="download-action-btn" onclick="generatePdfDocument()" data-k="btn_print">📥 Download PDF</button>
+    <button class="download-action-btn" id="btnDownload" onclick="generatePdfDirect()" data-k="btn_print">
+      <span>📥</span> <span id="btnText">Download PDF</span>
+    </button>
   </div>
 
   <div id="catalog-container">
@@ -1056,7 +1071,7 @@
     <div class="page" id="page-6">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p3">EXPORT SPECIFICATIONS • PART 03 (CROPS 09 - 12)</div>
@@ -1078,7 +1093,7 @@
     <div class="page" id="page-7">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p4">EXPORT SPECIFICATIONS • PART 04 (CROPS 13 - 16)</div>
@@ -1100,7 +1115,7 @@
     <div class="page" id="page-8">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p5">EXPORT SPECIFICATIONS • PART 05 (CROPS 17 - 20)</div>
@@ -1122,7 +1137,7 @@
     <div class="page" id="page-9">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p6">EXPORT SPECIFICATIONS • PART 06 (CROPS 21 - 24)</div>
@@ -1144,7 +1159,7 @@
     <div class="page" id="page-10">
       <div class="page-header">
         <div class="header-logo-group">
-          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%231a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
+          <img src="https://raw.githubusercontent.com/ashrafsaiid288-source/eax-agro-export/main/images/logo.jpeg" crossorigin="anonymous" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'80\' height=\'30\' viewBox=\'0 0 80 30\'><text x=\'50%\' y=\'55%\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'#1a4d3a\' font-family=\'sans-serif\' font-weight=\'bold\' font-size=\'12\'>EAX</text></svg>';" alt="EAX Logo" />
           <span>EAX Agro Export</span>
         </div>
         <div class="header-tag-pill" data-k="sec_p7">EXPORT SPECIFICATIONS • PART 07 (CROPS 25 - 27)</div>
@@ -1381,7 +1396,7 @@
         pack:{ en:'5kg / 10kg Master Box & Mesh Bags', ar:'كراتين ماستر 5/10 كجم وأجولة شبكية', ru:'5/10 кг сетки или короба', zh:'5kg/10kg 透气网袋或主纸箱' },
         cal:{ en:'45-55mm, 55-65mm, 65mm+ Select Jumbo', ar:'45-55 مم، 55-65 مم، و +65 مم جامبو فاخر', ru:'45-55 мм, 55-65 мм, 65 мм+ джамбо', zh:'蒜头横径: 45-55mm, 55-65mm, 65mm+' },
         spec:{ en:'Roots trimmed 2-3mm • High Allicin Potency', ar:'جذور مقلمة 2-3 مم • تركيز أليسين استثنائي', ru:'Корни 2-3 мм • Высокий аллицин', zh:'平根修整(留2-3mm) • 大蒜素极高' },
-        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйف', zh:'明亚与贝尼苏韦夫大蒜基地' },
+        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйф', zh:'明亚与贝尼苏韦夫大蒜基地' },
         transit:{ en:'60+ Days Long Sea Voyage & Storage', ar:'عمر ملاحي وتخزيني يتجاوز 60 يوماً', ru:'60+ дней лежкость без проростания', zh:'休眠期长久耐运 60+ 天' },
         vent:{ en:'RH 65% • Dry Cold Air Recirculation', ar:'رطوبة 65% • هواء جاف بارد معاد تدويره', ru:'Влажность 65% • Сухой холод', zh:'相对湿度 65% • 干燥冷风循环' },
         cert:{ en:'Full Lot Traceability • 0 Residues', ar:'تتبع كامل للشحنة • خلو تام من المبيدات', ru:'Полная прослеживаемость', zh:'批次源头追溯 • 农残严格零超标' },
@@ -1505,7 +1520,7 @@
         vent:{ en:'Ventilation Flow: 15-20 cbm/h', ar:'معدل تدفق تهوية: 15-20 م³/ساعة', ru:'Вент: 15-20 м³/ч', zh:'海运通风: 15-20 cbm/h' },
         cert:{ en:'EUR.1 Free Trade • BRCGS Grade A Pack', ar:'EUR.1 إعفاء جمركي • شهادة BRCGS فئة A', ru:'EUR.1 (0% пошлина) • BRCGS', zh:'EUR.1 零关税协定 • BRCGS A级加工厂' },
         pallet:{ en:'70-80 Boxes / Export Pallet', ar:'70-80 كرتونة / بالتة تصدير', ru:'70-80 коробок / паллет', zh:'70-80箱 / 标准托盘' },
-        shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 ت)', zh:'40尺冷藏集装箱 (24吨)' },
+        shiptype:{ en:'40ft Reefer Container (24 MT)', ar:'حاوية 40 قدم مبردة (24 طن)', ru:'40ft HC рефконтейнер (24 т)', zh:'40尺冷藏集装箱 (24吨)' },
         en:{ name:"Murcott & Honey Mandarins", sub:"Fremont, Murcott, Clementine", desc:"Renowned for rich honey sweetness and vibrant deep-orange peel. Smooth rind separates effortlessly. High juice content, calibrated under automated optical sizing lines." },
         ar:{ name:"يوسفي موركوت وفريمونت عسلي", sub:"فريمونت، موركوت العسلي، وكليمنتين", desc:"يتميز بحلاوة عسلية مركزة ولون برتقالي محمر جذاب. قشرة ملساء ناعمة سهلة التقشير باليد تماماً، ونسبة عصير طبيعية تفوق 42% مدرجة بأحدث الأنظمة الضوئية." },
         ru:{ name:"Мандарины Муркотт и Фремонт", sub:"Фремонт, Муркотт, Клементин", desc:"Насыщенный медовый вкус и темно-оранжевая кожура. Легко очищаются, высокое содержание сока, калибровка на оптических линиях." },
@@ -1651,13 +1666,13 @@
         season:{ en:'April – July', ar:'أبريل – يوليو', ru:'Апрель – Июль', zh:'4月 – 7月' },
         temp:'+0°C to +2°C',
         pack:{ en:'5kg Flat Trays & 10x500g Punnets', ar:'صواني مسطحة 5 كجم و 10 علب × 500 جم', ru:'5 кг плоские лотки • 10x500г', zh:'5kg 单层托盘平箱 • 10x500g 盒' },
-        cal:{ en:'50-55mm, 55-60mm, 60-65mm, 65-70mm', ar:'50-55 مم، 55-60 مم، 60-65 مم، 65-70 مم', ru:'50-55 мм, 55-60 мм, 60-65 مم', zh:'果径等级: 50-55mm, 55-60mm, 60-65mm' },
+        cal:{ en:'50-55mm, 55-60mm, 60-65mm, 65-70mm', ar:'50-55 مم، 55-60 مم، 60-65 مم، 65-70 مم', ru:'50-55 мм, 55-60 мм, 60-65 мм', zh:'果径等级: 50-55mm, 55-60mm, 60-65mm' },
         spec:{ en:'Firmness 4.5-5.5 kg/cm2 • Blush >70% • Brix 11°+', ar:'صلابة 4.5-5.5 كجم/سم2 • تلوين +70% • بريكس +11°', ru:'Твердость 4.5-5.5 • Румянец >70%', zh:'硬度达标 4.5-5.5 kg/cm² • 红晕覆盖>70%' },
         origin:{ en:'Nubaria & North Delta Orchards', ar:'بساتين النوبارية وشمال الدلتا المبكرة', ru:'Нубария и Северная Дельта', zh:'努巴里亚与北三角洲特早熟果园' },
         transit:{ en:'Air Cargo or 14d Fast Reefer Ship', ar:'شحن جوي سريع أو سفن تبريد 14 يوماً', ru:'Авиа или 14 дней морской реф', zh:'空运黄金期直发 或 14天特快冷藏班轮' },
-        vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Вلاжность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
+        vent:{ en:'RH 90-95% • Padded Soft-Pocket Trays', ar:'رطوبة 90-95% • صواني مبطنة بخلايا فوم ناعم', ru:'Влажность 90-95% • Мягкие ячейки', zh:'相对湿度 90-95% • 托盘配柔性防擦软垫' },
         cert:{ en:'GlobalGAP IFA v6 • Supermarket Class A', ar:'جلوبال جاب v6 • اشتراطات سلاسل السوبرماركت', ru:'GlobalGAP IFA • Класс А', zh:'GlobalGAP IFA • 欧洲商超一级标准' },
-        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / палlet', zh:'140-160平托盘 / 托盘' },
+        pallet:{ en:'140-160 Flat Trays / Pallet', ar:'140-160 صينية مسطحة / بالتة', ru:'140-160 лотков / паллет', zh:'140-160平托盘 / 托盘' },
         shiptype:{ en:'Air Cargo / 40ft Reefer (16 MT)', ar:'شحن جوي / حاوية 40 قدم مبردة (16 طن)', ru:'Авиа / 40ft реф (16 т)', zh:'空运集装板 / 40尺冷藏柜 (16吨)' },
         en:{ name:"Early Florida Stone Peaches", sub:"Florida Prince & Desert Red", desc:"Captures the Mediterranean's earliest seasonal harvest window. Red blush over yellow ground, sweet melting flesh with balanced acidity, and strict firmness suitable for sea and air freight." },
         ar:{ name:"خوخ فلوريدا برنس المبكر للتصدير", sub:"فلوريدا برنس وديزرت ريد التصديري", desc:"يقتنص أول نافذة حصاد مبكرة بحوض المتوسط. ثمار ذات تلوين أحمر قاني على خلفية ذهبية، لحم سكري عصيري متوازن الحموضة وصلابة قوية تناسب الشحن الجوي والبحري." },
@@ -1736,7 +1751,7 @@
 
     const I18N = {
       en: {
-        btn_print: "📥 Download PDF",
+        btn_print: "Download PDF",
         cover_tag: "OFFICIAL 27-PRODUCE EXPORT CATALOG • 2026",
         cover_top_rt: "EGYPTIAN AGRICULTURAL EXPORTS",
         cover_seal: "✓ Verified Corporate Exporter",
@@ -1821,7 +1836,7 @@
         r_foot: "✓ Continuous Cold-Chain IoT GPS Guarantee"
       },
       ar: {
-        btn_print: "📥 تحميل الكتالوج (PDF)",
+        btn_print: "تحميل الكتالوج (PDF)",
         cover_tag: "كتالوج التصدير الرسمي لـ 27 محصولاً • 2026",
         cover_top_rt: "الحاصلات الزراعية المصرية الفاخرة",
         cover_seal: "✓ كيان تصديري معتمد رسمياً",
@@ -1906,7 +1921,7 @@
         r_foot: "✓ ضمان مراقبة فضائية IoT مستمرة لسلسلة التبريد"
       },
       ru: {
-        btn_print: "📥 Скачать PDF",
+        btn_print: "Скачать PDF",
         cover_tag: "ОФИЦИАЛЬНЫЙ КАТАЛОГ 27 КУЛЬТУР • 2026",
         cover_top_rt: "СВЕЖАЯ СЕЛЬХОЗПРОДУКЦИЯ ИЗ ЕГИПТА",
         cover_seal: "✓ Сертифицированный экспортер",
@@ -1991,7 +2006,7 @@
         r_foot: "✓ 100% IoT спутниковый контроль холодовой цепи"
       },
       zh: {
-        btn_print: "📥 下载 PDF 目录",
+        btn_print: "下载 PDF 目录",
         cover_tag: "官方27种果蔬出口名录 • 2026",
         cover_top_rt: "埃及顶级农产品出口",
         cover_seal: "✓ 官方认证出口企业",
@@ -2256,32 +2271,66 @@
         if (t && t[k]) el.innerHTML = t[k];
       });
 
+      const btnText = document.getElementById('btnText');
+      if (btnText && t && t.btn_print) {
+        btnText.innerText = t.btn_print;
+      }
+
       renderDenseCatalog(lang);
     }
 
-    // تقنية الـ Viewport Zooming السحرية لطباعة A4 كاملة من الفون والآيباد بدون أي قص
-    async function generatePdfDocument() {
-      const vMeta = document.getElementById('viewportMeta');
-      const originalViewport = vMeta ? vMeta.getAttribute('content') : '';
+    // ==========================================================
+    // محرك التحميل المباشر للـ PDF دون فتح نافذة الطباعة أو إجبار المستخدم على حفظ المسار
+    // ==========================================================
+    async function generatePdfDirect() {
+      const btn = document.getElementById('btnDownload');
+      const btnText = document.getElementById('btnText');
+      const originalText = btnText ? btnText.innerText : 'Download PDF';
 
-      // 1. إجبار الموبايل والآيباد على فتح مقاس A4 Landscape كامل (1122px)
-      if (vMeta) {
-        vMeta.setAttribute('content', 'width=1122, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+      try {
+        if (btn) btn.classList.add('loading');
+        if (btnText) btnText.innerText = activeLang === 'ar' ? 'جاري تجهيز الكتالوج...' : 'Generating PDF...';
+
+        if (document.fonts) await document.fonts.ready;
+        await new Promise(r => setTimeout(r, 250));
+
+        const element = document.getElementById('catalog-container');
+
+        // خيارات المعالجة الدقيقة لمقاس A4 بالعرض (Landscape)
+        const opt = {
+          margin: 0,
+          filename: `EAX_Agro_Export_Trade_Guide_2026_${activeLang.toUpperCase()}.pdf`,
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 2, // دقة عالية جداً للخطوط والجداول (Retina display quality)
+            useCORS: true,
+            letterRendering: true,
+            scrollX: 0,
+            scrollY: 0,
+            windowWidth: 1122 // تثبيت عرض الـ Canvas على 297mm لضمان التطابق الكامل من الموبايل
+          },
+          jsPDF: {
+            unit: 'mm',
+            format: [297, 210],
+            orientation: 'landscape',
+            compress: true
+          },
+          pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy']
+          }
+        };
+
+        // تحويل وتنزيل الملف في مجلد التحميلات مباشرة
+        await html2pdf().set(opt).from(element).save();
+
+      } catch (error) {
+        console.error("Direct PDF Generation error:", error);
+        // Fallback في حال حدوث أي حظر في المتصفح القديم
+        window.print();
+      } finally {
+        if (btn) btn.classList.remove('loading');
+        if (btnText) btnText.innerText = originalText;
       }
-
-      // 2. انتظار رندر الخطوط والمقاس الجديد
-      if (document.fonts) await document.fonts.ready;
-      await new Promise(r => setTimeout(r, 200));
-
-      // 3. استدعاء الطباعة الأصلية الصافية
-      window.print();
-
-      // 4. استرجاع مقاس الشاشة الطبيعي للموبايل فور الانتهاء
-      setTimeout(() => {
-        if (vMeta && originalViewport) {
-          vMeta.setAttribute('content', originalViewport);
-        }
-      }, 1000);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
