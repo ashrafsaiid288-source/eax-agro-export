@@ -672,31 +672,64 @@
       }
     }
 
-    /* Print & Export Hard Enforcement */
+    /* =======================================================
+       حل مشكلة الطباعة في iOS / Safari والصفحات البيضاء الفائضة
+       ======================================================= */
     @page {
       size: 297mm 210mm landscape;
       margin: 0 !important;
     }
 
     @media print {
-      body {
-        background: #ffffff !important;
+      html, body {
+        width: 297mm !important;
+        height: auto !important;
+        min-height: 0 !important;
         margin: 0 !important;
         padding: 0 !important;
+        background: #ffffff !important;
+        overflow: visible !important;
       }
       .control-nav {
         display: none !important;
       }
-      .page {
+      #catalog-container {
+        width: 297mm !important;
         margin: 0 !important;
+        padding: 0 !important;
+      }
+      .page {
+        width: 297mm !important;
+        max-width: 297mm !important;
+        min-width: 297mm !important;
+        /* ضبط الارتفاع بدقة 209mm لمنع محرك WebKit من رمي بيكسل إضافي يسبب صفحة بيضاء */
+        height: 209mm !important;
+        min-height: 209mm !important;
+        max-height: 209mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
         box-shadow: none !important;
         border-radius: 0 !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
         break-after: page !important;
         page-break-after: always !important;
       }
       .page:last-child {
         break-after: auto !important;
         page-break-after: auto !important;
+      }
+      .cover-layout {
+        height: 209mm !important;
+        max-height: 209mm !important;
+        min-height: 209mm !important;
+        box-sizing: border-box !important;
+      }
+      .page-content {
+        height: calc(209mm - 13mm - 7.5mm) !important;
+        max-height: calc(209mm - 13mm - 7.5mm) !important;
+        overflow: hidden !important;
       }
     }
   </style>
@@ -1297,7 +1330,7 @@
         pack:{ en:'5kg / 10kg Master Box & Mesh Bags', ar:'كراتين ماستر 5/10 كجم وأجولة شبكية', ru:'5/10 кг сетки или короба', zh:'5kg/10kg 透气网袋或主纸箱' },
         cal:{ en:'45-55mm, 55-65mm, 65mm+ Select Jumbo', ar:'45-55 مم، 55-65 مم، و +65 مم جامبو فاخر', ru:'45-55 мм, 55-65 мм, 65 мм+ джамбо', zh:'蒜头横径: 45-55mm, 55-65mm, 65mm+' },
         spec:{ en:'Roots trimmed 2-3mm • High Allicin Potency', ar:'جذور مقلمة 2-3 مم • تركيز أليسين استثنائي', ru:'Корни 2-3 мм • Высокий аллицин', zh:'平根修整(留2-3mm) • 大蒜素极高' },
-        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйف', zh:'明亚与贝尼苏韦夫大蒜基地' },
+        origin:{ en:'Minya & Beni Suef Fertile Basin', ar:'حوض المنيا وبني سويف الخصيب', ru:'Минья и Бени-Суэйф', zh:'明亚与贝尼苏韦夫大蒜基地' },
         transit:{ en:'60+ Days Long Sea Voyage & Storage', ar:'عمر ملاحي وتخزيني يتجاوز 60 يوماً', ru:'60+ дней лежкость без проростания', zh:'休眠期长久耐运 60+ 天' },
         vent:{ en:'RH 65% • Dry Cold Air Recirculation', ar:'رطوبة 65% • هواء جاف بارد معاد تدويره', ru:'Влажность 65% • Сухой холод', zh:'相对湿度 65% • 干燥冷风循环' },
         cert:{ en:'Full Lot Traceability • 0 Residues', ar:'تتبع كامل للشحنة • خلو تام من المبيدات', ru:'Полная прослеживаемость', zh:'批次源头追溯 • 农残严格零超标' },
@@ -1445,14 +1478,14 @@
         zh:{ name:"特细极品圆青四季豆", sub:"Haricot Vert 与 Bobby Beans", desc:"人工在豆荚极度细嫩时采摘。笔直圆柱条形如铅笔，完全无侧筋，折断清脆多汁，密封于专业 MAP 气调保鲜袋内抑制呼吸代谢。" }
       },
       { id:16, hs:'0804.10',
-        season:{ en:'August – December', ar:'أغسطس – ديسمبر', ru:'Авгуست – Декабрь', zh:'8月 – 12月' },
+        season:{ en:'August – December', ar:'أغسطس – ديسمبر', ru:'Август – Декабрь', zh:'8月 – 12月' },
         temp:'0°C to +4°C (Dry Storage)',
         pack:{ en:'1kg, 2kg, 5kg Premium Gift Boxes', ar:'عبوات هدايا وتجزئة فاخرة 1، 2، و 5 كجم', ru:'1, 2, 5 кг премиум коробки', zh:'1kg, 2kg, 5kg 高档零售礼盒' },
         cal:{ en:'Super Jumbo (>26g), Jumbo (22-26g), Large', ar:'سوبر جامبو (>26جم)، جامبو (22-26جم)، كبير', ru:'Супер Джамбо (>26г), Джамбо (22-26г)', zh:'巨无霸果 (>26g), 特大果 (22-26g), 大果' },
         spec:{ en:'Moisture 18-24% • Loose Skin <5% • Caramel', ar:'رطوبة 18-24% • انفصال قشرة <5% • كراميل', ru:'Влажность 18-24% • Кожица <5%', zh:'含水率 18-24% • 起皱脱皮率<5% • 焦糖风味' },
         origin:{ en:'Toshka Mega-Project & Bahariya Oasis', ar:'مشروع توشكى العملاق وواحات البحرية', ru:'Тошка и Бахария оазисы', zh:'托什卡特大国家农业区与巴哈利亚绿洲' },
         transit:{ en:'200+ Days Long Shelf Life Storage', ar:'صلاحية تخزين وشحن ممتازة +200 يوم', ru:'200+ дней срок хранения', zh:'超长常温冷藏货架期 200+ 天' },
-        vent:{ en:'RH 60-65% • Dry Cold Air Sealed', ar:'رطوبة 60-65% • بيئة جافة باردة محكمة', ru:'Влажность 60-65% • Сухой холод', zh:'相对湿度 60-65% • 恒温干燥冷库' },
+        vent:{ en:'RH 60-65% • Dry Cold Air Sealed', ar:'رطوبة 60-65% • بيئة جافة باردة محكمة', ru:'Влажность 60-65% • 恒温干燥冷库' },
         cert:{ en:'100% Organic Origin • BRCGS Food Certified', ar:'إنتاج عضوي طبيعي 100% • BRCGS', ru:'100% Органик • BRCGS', zh:'100%纯生态有机基地 • BRCGS包装' },
         pallet:{ en:'120-140 Master Boxes / Pallet', ar:'120-140 كرتونة ماستر / بالتة', ru:'120-140 коробок / паллет', zh:'120-140箱 / 托盘' },
         shiptype:{ en:'20ft/40ft Dry or Reefer (20 MT)', ar:'حاوية 20/40 قدم جافة أو مبردة (20 طن)', ru:'20/40ft реф или сухой (20 т)', zh:'20/40尺集装箱 (20吨)' },
